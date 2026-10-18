@@ -1,0 +1,158 @@
+---
+// The single lead form used on home, /audit-zdarma/, /kontakt/ and service pages.
+// Posts JSON to PUBLIC_FORM_ENDPOINT, then redirects to the thank-you page,
+// which fires the GA4 `generate_lead` event (see views/Thanks.astro).
+import { path, type Lang } from '../i18n/routes';
+
+interface Props {
+  lang: Lang;
+  id: string; // form_id reported to GA4, e.g. "home-hero", "service-maps"
+  service?: string; // preselected option value
+  title?: string;
+  compact?: boolean;
+}
+const { lang, id, service = 'audit', title, compact = false } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+if (!endpoint && import.meta.env.PROD) console.warn('[LeadForm] PUBLIC_FORM_ENDPOINT is not set – the form cannot deliver enquiries.');
+
+const T = {
+  cs: {
+    name: 'Jméno', contact: 'E-mail nebo telefon', website: 'Adresa webu', service: 'Co vás zajímá', message: 'Zpráva',
+    messagePh: 'Krátce popište váš web a cíle', websitePh: 'https://vasweb.cz',
+    consentA: 'Souhlasím se ', consentLink: 'zpracováním osobních údajů', consentB: ' za účelem odpovědi na poptávku.',
+    submit: 'Odeslat poptávku', submitAudit: 'Chci bezplatný audit', sending: 'Odesílám…',
+    invalidContact: 'Zadejte platný e-mail nebo telefonní číslo.',
+    error: 'Poptávku se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi napište e-mail.',
+    options: { audit: 'Bezplatný SEO audit', consulting: 'Konzultace', start: 'Start na 3 měsíce', fullSeo: 'Full SEO na rok', maps: 'Mapy (Google + Seznam)', geo: 'SEO + GEO', other: 'Jiné' },
+  },
+  en: {
+    name: 'Name', contact: 'E-mail or phone', website: 'Website address', service: 'I am interested in', message: 'Message',
+    messagePh: 'Briefly describe your website and goals', websitePh: 'https://yoursite.com',
+    consentA: 'I agree to the ', consentLink: 'processing of my personal data', consentB: ' for the purpose of replying to my enquiry.',
+    submit: 'Send enquiry', submitAudit: 'Get my free audit', sending: 'Sending…',
+    invalidContact: 'Please enter a valid e-mail address or phone number.',
+    error: 'Your enquiry could not be sent. Please try again or e-mail me directly.',
+    options: { audit: 'Free SEO audit', consulting: 'Consulting', start: '3-month start', fullSeo: 'Full SEO (1 year)', maps: 'Maps (Google + Seznam)', geo: 'SEO + GEO', other: 'Other' },
+  },
+  ru: {
+    name: 'Имя', contact: 'E-mail или телефон', website: 'Адрес сайта', service: 'Что вас интересует', message: 'Сообщение',
+    messagePh: 'Коротко опишите сайт и цели', websitePh: 'https://vashsajt.cz',
+    consentA: 'Я согласен(на) на ', consentLink: 'обработку персональных данных', consentB: ' для ответа на заявку.',
+    submit: 'Отправить заявку', submitAudit: 'Получить бесплатный аудит', sending: 'Отправляю…',
+    invalidContact: 'Укажите корректный e-mail или номер телефона.',
+    error: 'Не удалось отправить заявку. Попробуйте ещё раз или напишите мне на e-mail.',
+    options: { audit: 'Бесплатный SEO-аудит', consulting: 'Консультация', start: 'Старт на 3 месяца', fullSeo: 'Full SEO на год', maps: 'Карты (Google + Seznam)', geo: 'SEO + GEO', other: 'Другое' },
+  },
+}[lang];
+
+const uid = `lf-${id}`;
+---
+<form
+  class:list={['lead-form', { 'lead-form--compact': compact }]}
+  action={endpoint}
+  method="post"
+  data-lead-form
+  data-endpoint={endpoint}
+  data-thanks={path('thanks', lang)}
+  data-msg-contact={T.invalidContact}
+  data-msg-sending={T.sending}
+  novalidate
+>
+  {title && <p class="form-title">{title}</p>}
+  <input type="hidden" name="form_id" value={id} />
+  <input type="hidden" name="lang" value={lang} />
+  <input type="hidden" name="page" value={Astro.url.pathname} />
+  <input type="hidden" name="started" value="" data-started />
+  <div class="hp" aria-hidden="true">
+    <label for={`${uid}-company`}>Company</label>
+    <input id={`${uid}-company`} type="text" name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="field-row">
+    <div class="field">
+      <label for={`${uid}-name`}>{T.name} *</label>
+      <input id={`${uid}-name`} name="name" type="text" autocomplete="name" required maxlength="120" />
+    </div>
+    <div class="field">
+      <label for={`${uid}-contact`}>{T.contact} *</label>
+      <input id={`${uid}-contact`} name="contact" type="text" inputmode="email" autocomplete="email" required maxlength="160" data-contact />
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <label for={`${uid}-website`}>{T.website}</label>
+      <input id={`${uid}-website`} name="website" type="text" inputmode="url" autocomplete="url" placeholder={T.websitePh} maxlength="200" />
+    </div>
+    <div class="field">
+      <label for={`${uid}-service`}>{T.service}</label>
+      <select id={`${uid}-service`} name="service">
+        {Object.entries(T.options).map(([v, label]) => <option value={v} selected={v === service}>{label}</option>)}
+      </select>
+    </div>
+  </div>
+  {!compact && (
+    <div class="field">
+      <label for={`${uid}-message`}>{T.message}</label>
+      <textarea id={`${uid}-message`} name="message" rows="4" maxlength="3000" placeholder={T.messagePh}></textarea>
+    </div>
+  )}
+  <div class="consent">
+    <input id={`${uid}-consent`} name="consent" type="checkbox" value="yes" required />
+    <label for={`${uid}-consent`}>{T.consentA}<a href={path('privacy', lang)} target="_blank">{T.consentLink}</a>{T.consentB} *</label>
+  </div>
+  <button class="btn btn--primary btn--lg" type="submit">{service === 'audit' ? T.submitAudit : T.submit}</button>
+  <p class="form-error" role="alert" hidden>{T.error}</p>
+</form>
+
+<script>
+  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const PHONE = /^\+?[\d\s().-]{9,20}$/;
+  const MIN_FILL_MS = 3000;
+
+  document.querySelectorAll<HTMLFormElement>('form[data-lead-form]').forEach((form) => {
+    const started = form.querySelector<HTMLInputElement>('[data-started]')!;
+    started.value = String(Date.now());
+    const contact = form.querySelector<HTMLInputElement>('[data-contact]')!;
+    const error = form.querySelector<HTMLElement>('.form-error')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    const label = button.textContent;
+
+    contact.addEventListener('input', () => contact.setCustomValidity(''));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      error.hidden = true;
+      const v = contact.value.trim();
+      contact.setCustomValidity(EMAIL.test(v) || PHONE.test(v) ? '' : form.dataset.msgContact!);
+      if (!form.reportValidity()) return;
+
+      const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      const goThanks = () => (window.location.href = form.dataset.thanks!);
+
+      // Spam: honeypot filled or submitted inhumanly fast → pretend success, send nothing.
+      if (data.company || Date.now() - Number(data.started) < MIN_FILL_MS) return goThanks();
+      delete data.company;
+
+      button.disabled = true;
+      button.textContent = form.dataset.msgSending!;
+      try {
+        if (!form.dataset.endpoint) throw new Error('Form endpoint not configured');
+        const res = await fetch(form.dataset.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        try {
+          sessionStorage.setItem('lead', JSON.stringify({ form_id: data.form_id, service: data.service, lang: data.lang }));
+        } catch {}
+        goThanks();
+      } catch (err) {
+        console.error(err);
+        error.hidden = false;
+        button.disabled = false;
+        button.textContent = label;
+      }
+    });
+  });
+</script>

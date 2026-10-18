@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { META } from '../i18n/meta';
+import { type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { caseByKey } from '../data/cases';
+import { reviewsForCase } from '../data/reviews';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+const m = META.caseKb[lang];
+const c = caseByKey('caseKb');
+const reviews = reviewsForCase('caseKb');
+const C = {
+  cs: { results: 'Výsledky', challenge: 'Výchozí stav', solution: 'Co jsme udělali', ctaTitle: 'Chcete stejný postup pro svůj web?', ctaText: 'Bezplatný audit ukáže, kde jsou vaše největší příležitosti.' },
+  en: { results: 'Results', challenge: 'Starting point', solution: 'What we did', ctaTitle: 'Want the same approach for your website?', ctaText: 'A free audit shows where your biggest opportunities are.' },
+  ru: { results: 'Результаты', challenge: 'Исходная ситуация', solution: 'Что мы сделали', ctaTitle: 'Хотите такой же подход для своего сайта?', ctaText: 'Бесплатный аудит покажет главные точки роста.' },
+}[lang];
+---
+<Base {...pageProps('caseKb', lang)}>
+  <PageHero h1={m.h1} lead={c.teaser[lang]} eyebrow={c.industry[lang]} />
+  <section class="section section--tight">
+    <div class="container">
+      <h2 class="sr-only">{C.results}</h2>
+      <dl class="stats">{c.metrics.map((x) => <div><dt>{x.label[lang]}</dt><dd>{x.value}</dd></div>)}</dl>
+      <p class="muted small center">{ui.sampleNote}</p>
+    </div>
+  </section>
+  <section class="section section--grey">
+    <div class="container grid grid-2">
+      <div class="card"><h2>{C.challenge}</h2><p>{c.challenge[lang]}</p></div>
+      <div class="card">
+        <h2>{C.solution}</h2>
+        <ul class="checks">{c.solution[lang].map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+  {reviews.length > 0 && (
+    <section class="section">
+      <div class="container"><h2>{ui.reviewsTitle}</h2><ReviewCards reviews={reviews} lang={lang} /></div>
+    </section>
+  )}
+  <section class="section section--grey">
+    <div class="container"><h2>{ui.relatedServices}</h2><ServiceCards lang={lang} keys={c.services} /></div>
+  </section>
+  <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+</Base>

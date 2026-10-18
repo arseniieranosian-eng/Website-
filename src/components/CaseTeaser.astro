@@ -1,0 +1,21 @@
+---
+import { caseByKey, type CaseStudy } from '../data/cases';
+import { META } from '../i18n/meta';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+interface Props { lang: Lang; caseKey?: CaseStudy['key']; heading?: 'h2' | 'h3' }
+const { lang, caseKey = 'caseKb', heading = 'h3' } = Astro.props;
+const c = caseByKey(caseKey);
+const H = heading;
+---
+<a class="card card--link case-teaser" href={path(c.key, lang)}>
+  <div>
+    <p class="eyebrow">{t(lang).relatedCase} · {c.industry[lang]}</p>
+    <H>{META[c.key][lang].h1}</H>
+    <p>{c.teaser[lang]}</p>
+    <span class="link-arrow">{t(lang).caseRead}</span>
+  </div>
+  <dl class="stats stats--compact">
+    {c.metrics.map((m) => <div><dt>{m.label[lang]}</dt><dd>{m.value}</dd></div>)}
+  </dl>
+</a>

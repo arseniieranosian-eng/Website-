@@ -1,0 +1,20 @@
+{
+  "name": "eranosian-seo-site",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check-seo.mjs",
+    "preview": "astro preview",
+    "check:seo": "node scripts/check-seo.mjs",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "5.18.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.9.3"
+  }
+}

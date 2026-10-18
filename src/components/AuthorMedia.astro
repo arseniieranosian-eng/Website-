@@ -1,0 +1,12 @@
+---
+import { SITE } from '../data/site';
+interface Props { alt: string; eager?: boolean }
+const { alt, eager = false } = Astro.props;
+---
+<div class="author-media">
+  {SITE.video ? (
+    <video src={SITE.video} poster={SITE.videoPoster} autoplay muted loop playsinline preload="metadata" aria-label={alt}></video>
+  ) : (
+    <img src={SITE.photo} alt={alt} width="720" height="900" loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" />
+  )}
+</div>

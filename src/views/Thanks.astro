@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { META } from '../i18n/meta';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { postsByLang } from '../lib/blog';
+import PostCard from '../components/PostCard.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const m = META.thanks[lang];
+const posts = await postsByLang(lang, 3);
+const C = {
+  cs: { lead: 'Ozvu se vám do jednoho pracovního dne. Mezitím si můžete přečíst něco z blogu.', back: 'Zpět na úvod' },
+  en: { lead: 'I will get back to you within one business day. Meanwhile, have a look at the blog.', back: 'Back to home' },
+  ru: { lead: 'Я свяжусь с вами в течение одного рабочего дня. А пока можно почитать блог.', back: 'На главную' },
+}[lang];
+---
+<Base {...pageProps('thanks', lang)}>
+  <PageHero h1={m.h1} lead={C.lead}><a class="btn btn--secondary" href={path('home', lang)}>{C.back}</a></PageHero>
+  {posts.length > 0 && (
+    <section class="section section--tight">
+      <div class="container"><div class="grid grid-3">{posts.map((p) => <PostCard post={p} lang={lang} heading="h2" />)}</div>
+      <p><a class="link-arrow" href={path('blog', lang)}>{t(lang).allPosts}</a></p></div>
+    </section>
+  )}
+</Base>
+<script>
+  // GA4 conversion: fire once per real submission (flag set by LeadForm), not on reloads or direct visits.
+  let lead: Record<string, string> | null = null;
+  try {
+    lead = JSON.parse(sessionStorage.getItem('lead') ?? 'null');
+    sessionStorage.removeItem('lead');
+  } catch {}
+  // gtag exists only when PUBLIC_GA_ID is set; before consent the event waits in dataLayer.
+  const gtag = (window as any).gtag;
+  if (lead && gtag) gtag('event', 'generate_lead', lead);
+</script>

@@ -1,0 +1,20 @@
+---
+import type { Review } from '../data/reviews';
+import type { Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+interface Props { reviews: Review[]; lang: Lang }
+const { reviews, lang } = Astro.props;
+---
+<div class="grid grid-3">
+  {reviews.map((r) => (
+    <figure class="card review">
+      <div class="stars" aria-label={`${r.rating}/5`}>{'★'.repeat(r.rating)}</div>
+      <blockquote><p>{r.text[lang]}</p></blockquote>
+      <figcaption>
+        <strong>{r.author}</strong>
+        <span>{r.role[lang]}{r.company && `, ${r.company}`}</span>
+        {r.sample && <span class="badge">{t(lang).sampleNote}</span>}
+      </figcaption>
+    </figure>
+  ))}
+</div>

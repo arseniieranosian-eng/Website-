@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import PostCard from '../components/PostCard.astro';
+import { META } from '../i18n/meta';
+import { DEFAULT_LANG, path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { postsByLang } from '../lib/blog';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+const m = META.blog[lang];
+const posts = await postsByLang(lang);
+const lead = {
+  cs: 'Návody a postřehy z praxe: SEO, GEO, lokální SEO a vyhledávání v Google, Seznamu a AI.',
+  en: 'Guides and lessons from practice: SEO, GEO, local SEO and search in Google, Seznam and AI.',
+  ru: 'Практические статьи: SEO, GEO, локальное SEO и поиск в Google, Seznam и нейросетях.',
+}[lang];
+---
+<Base {...pageProps('blog', lang)}>
+  <PageHero h1={m.h1} lead={lead} />
+  <section class="section section--tight">
+    <div class="container">
+      <div class="grid grid-3">{posts.map((p) => <PostCard post={p} lang={lang} heading="h2" />)}</div>
+      {lang !== DEFAULT_LANG && (
+        <p class="note">{ui.blogOtherLang} <a href={path('blog', DEFAULT_LANG)} hreflang={DEFAULT_LANG}>{ui.blogOtherLangLink}</a></p>
+      )}
+    </div>
+  </section>
+</Base>

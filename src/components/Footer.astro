@@ -1,0 +1,41 @@
+---
+import { META } from '../i18n/meta';
+import { SERVICE_KEYS, path, type Lang, type PageKey } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { SITE } from '../data/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+const PAGES: PageKey[] = ['home', 'audit', 'services', 'geo', 'cases', 'caseKb', 'reviews', 'blog', 'faq', 'about', 'contact'];
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="logo logo--light" href={path('home', lang)}><span class="logo-mark">AE</span><span class="logo-text">Arsenii Eranosian<small>SEO · GEO</small></span></a>
+      <p class="muted">{ui.footerTagline}</p>
+      <a class="btn btn--primary btn--sm" href={path('audit', lang)}>{ui.ctaAuditLong}</a>
+    </div>
+    <nav aria-label={ui.footerPages}>
+      <p class="footer-title">{ui.footerPages}</p>
+      <ul>{PAGES.map((k) => <li><a href={path(k, lang)}>{META[k][lang].name}</a></li>)}</ul>
+    </nav>
+    <nav aria-label={ui.footerServices}>
+      <p class="footer-title">{ui.footerServices}</p>
+      <ul>{SERVICE_KEYS.map((k) => <li><a href={path(k, lang)}>{META[k][lang].name}</a></li>)}</ul>
+    </nav>
+    <div>
+      <p class="footer-title">{ui.footerContact}</p>
+      <ul>
+        <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
+        <li>{SITE.city}</li>
+        {SITE.socials.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.name}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {year} {SITE.person}. {ui.rights}</span>
+    <a href={path('privacy', lang)}>{META.privacy[lang].name}</a>
+  </div>
+</footer>

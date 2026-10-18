@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import AuthorMedia from '../components/AuthorMedia.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { META } from '../i18n/meta';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { ids } from '../lib/schema';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+const m = META.about[lang];
+const C = {
+  cs: {
+    lead: 'SEO specialista v Praze. Pomáhám firmám, aby je zákazníci našli – ve vyhledávačích i v AI asistentech.',
+    // TODO: replace with the real bio.
+    bio: ['SEO se věnuji profesionálně a pracuji s firmami z Česka i ze zahraničí. Každý projekt vedu osobně – od auditu po pravidelné reporty.', 'Věřím v transparentní práci: žádné sliby prvních míst, ale jasný plán, měřitelné cíle a vysvětlení, proč co dělám.'],
+    valuesTitle: 'Jak pracuji',
+    values: ['Osobně, bez prostředníků', 'Transparentní reporting', 'SEO + GEO v jednom', 'Česky, anglicky, rusky'],
+    alt: 'Arsenii Eranosian, SEO specialista v Praze',
+    ctaTitle: 'Pojďme se poznat',
+    ctaText: 'Začneme bezplatným auditem a krátkým callem.',
+  },
+  en: {
+    lead: 'SEO specialist in Prague. I help businesses get found by customers – in search engines and AI assistants.',
+    bio: ['I work in SEO professionally with businesses from Czechia and abroad. I run every project personally – from the audit to regular reports.', 'I believe in transparent work: no promises of the #1 spot, but a clear plan, measurable goals and an explanation of why I do what I do.'],
+    valuesTitle: 'How I work',
+    values: ['Personally, no middlemen', 'Transparent reporting', 'SEO + GEO in one', 'Czech, English, Russian'],
+    alt: 'Arsenii Eranosian, SEO specialist in Prague',
+    ctaTitle: 'Let’s get to know each other',
+    ctaText: 'We start with a free audit and a short call.',
+  },
+  ru: {
+    lead: 'SEO-специалист в Праге. Помогаю бизнесу, чтобы клиенты находили его — в поисковиках и в нейросетях.',
+    bio: ['Профессионально занимаюсь SEO и работаю с компаниями из Чехии и других стран. Каждый проект веду лично — от аудита до регулярных отчётов.', 'Я за прозрачную работу: никаких обещаний первого места, а понятный план, измеримые цели и объяснение, зачем я делаю то, что делаю.'],
+    valuesTitle: 'Как я работаю',
+    values: ['Лично, без посредников', 'Прозрачная отчётность', 'SEO + GEO в одном', 'Чешский, английский, русский'],
+    alt: 'Arsenii Eranosian, SEO-специалист в Праге',
+    ctaTitle: 'Давайте познакомимся',
+    ctaText: 'Начнём с бесплатного аудита и короткого созвона.',
+  },
+}[lang];
+const profile = { '@type': 'ProfilePage', url: new URL(path('about', lang), Astro.site).href, mainEntity: { '@id': ids(Astro.site!).person } };
+---
+<Base {...pageProps('about', lang)} schema={[profile]}>
+  <PageHero h1={m.h1} lead={C.lead} />
+  <section class="section section--tight">
+    <div class="container split">
+      <AuthorMedia alt={C.alt} eager />
+      <div>
+        {C.bio.map((p) => <p>{p}</p>)}
+        <h2>{C.valuesTitle}</h2>
+        <ul class="checks">{C.values.map((v) => <li><Icon name="check" size={18} />{v}</li>)}</ul>
+        <div class="btn-row">
+          <a class="btn btn--secondary" href={path('services', lang)}>{ui.allServices}</a>
+          <a class="btn btn--ghost" href={path('reviews', lang)}>{ui.allReviews}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--grey"><div class="container"><CaseTeaser lang={lang} heading="h2" /></div></section>
+  <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+</Base>

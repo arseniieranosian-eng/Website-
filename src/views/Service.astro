@@ -1,0 +1,104 @@
+---
+// Template for the four service pages (3.1–3.4): case, 1–2 reviews, FAQ, form.
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqList from '../components/FaqList.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import AuthorMedia from '../components/AuthorMedia.astro';
+import Icon from '../components/Icon.astro';
+import { META } from '../i18n/meta';
+import { path, type Lang, type ServiceKey } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { serviceByKey } from '../data/services';
+import { faqFor } from '../data/faq';
+import { reviewsForService } from '../data/reviews';
+import { faqSchema, serviceSchema } from '../lib/schema';
+
+interface Props { lang: Lang; service: ServiceKey }
+const { lang, service } = Astro.props;
+const ui = t(lang);
+const m = META[service][lang];
+const s = serviceByKey(service);
+const faq = faqFor(service);
+const reviews = reviewsForService(service, 2);
+const site = Astro.site!;
+
+const C = {
+  cs: { forWhom: 'Pro koho', includes: 'Co je v ceně', process: 'Jak probíhá', duration: 'Délka', other: 'Další služby', form: 'Mám zájem o službu', geo: 'Součástí je i GEO – optimalizace pro AI vyhledávání.', geoLink: 'Co to znamená', alt: 'Arsenii Eranosian při konzultaci' },
+  en: { forWhom: 'Who it is for', includes: 'What is included', process: 'How it works', duration: 'Duration', other: 'Other services', form: 'I am interested', geo: 'GEO – optimisation for AI search – is included.', geoLink: 'What that means', alt: 'Arsenii Eranosian during a consultation' },
+  ru: { forWhom: 'Кому подходит', includes: 'Что входит', process: 'Как проходит работа', duration: 'Срок', other: 'Другие услуги', form: 'Хочу эту услугу', geo: 'GEO — оптимизация под AI-поиск — уже включена.', geoLink: 'Что это значит', alt: 'Arsenii Eranosian на консультации' },
+}[lang];
+---
+<Base {...pageProps(service, lang)} schema={[serviceSchema(site, m.name, m.description, path(service, lang)), faq.length ? faqSchema(faq, lang) : null]}>
+  <PageHero h1={m.h1} lead={s.intro[lang]} eyebrow={`${C.duration}: ${s.duration[lang]}`}>
+    <div class="btn-row">
+      <a class="btn btn--primary btn--lg" href="#form">{C.form}</a>
+      <a class="btn btn--secondary btn--lg" href={path('audit', lang)}>{ui.ctaAudit}</a>
+    </div>
+  </PageHero>
+
+  <section class="section section--tight">
+    <div class:list={['container', { split: service === 'consulting' }]}>
+      {service === 'consulting' && <AuthorMedia alt={C.alt} />}
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>{C.forWhom}</h2>
+          <ul class="checks">{s.forWhom[lang].map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+        </div>
+        <div class="card">
+          <h2>{C.includes}</h2>
+          <ul class="checks">{s.includes[lang].map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+          <p class="muted small">{C.geo} <a href={path('geo', lang)}>{C.geoLink}</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.process}</h2>
+      <ol class="steps steps--row">{s.process[lang].map((x) => <li>{x}</li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container"><CaseTeaser lang={lang} heading="h2" /></div>
+  </section>
+
+  {reviews.length > 0 && (
+    <section class="section section--grey">
+      <div class="container">
+        <div class="section-head"><h2>{ui.reviewsTitle}</h2><a class="link-arrow" href={path('reviews', lang)}>{ui.allReviews}</a></div>
+        <ReviewCards reviews={reviews} lang={lang} />
+      </div>
+    </section>
+  )}
+
+  {faq.length > 0 && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{ui.faqTitle}</h2>
+        <FaqList items={faq} lang={lang} />
+        <p><a class="link-arrow" href={path('faq', lang)}>{ui.allFaq}</a></p>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--grey" id="form">
+    <div class="container narrow">
+      <h2>{ui.formTitle}</h2>
+      <div class="card"><LeadForm lang={lang} id={`service-${service}`} service={service} /></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{C.other}</h2><a class="link-arrow" href={path('services', lang)}>{ui.allServices}</a></div>
+      <ServiceCards lang={lang} keys={s.related} />
+    </div>
+  </section>
+</Base>

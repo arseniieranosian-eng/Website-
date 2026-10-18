@@ -1,0 +1,14 @@
+---
+import { postUrl, type Post } from '../lib/blog';
+import type { Lang } from '../i18n/routes';
+import { formatDate, t } from '../i18n/ui';
+interface Props { post: Post; lang: Lang; heading?: 'h2' | 'h3' }
+const { post, lang, heading = 'h3' } = Astro.props;
+const H = heading;
+---
+<a class="card card--link post-card" href={postUrl(post)}>
+  <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, lang)}</time>
+  <H>{post.data.title}</H>
+  <p>{post.data.description}</p>
+  <span class="link-arrow">{t(lang).readMore}</span>
+</a>

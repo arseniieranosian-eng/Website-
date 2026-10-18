@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { META } from '../i18n/meta';
+import { path, type Lang } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { FAQ } from '../data/faq';
+import { faqSchema } from '../lib/schema';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const m = META.faq[lang];
+const C = {
+  cs: { lead: 'Nenašli jste odpověď? Napište mi.', link: 'Kontakt', ctaTitle: 'Máte jinou otázku?', ctaText: 'Odpovím do jednoho pracovního dne.' },
+  en: { lead: 'Didn’t find your answer? Write to me.', link: 'Contact', ctaTitle: 'Have another question?', ctaText: 'I reply within one business day.' },
+  ru: { lead: 'Не нашли ответ? Напишите мне.', link: 'Контакты', ctaTitle: 'Остались вопросы?', ctaText: 'Отвечу в течение одного рабочего дня.' },
+}[lang];
+---
+<Base {...pageProps('faq', lang)} schema={[faqSchema(FAQ, lang)]}>
+  <PageHero h1={m.h1} lead={C.lead}><a class="link-arrow" href={path('contact', lang)}>{C.link}</a></PageHero>
+  <section class="section section--tight">
+    <div class="container narrow"><FaqList items={FAQ} lang={lang} /></div>
+  </section>
+  <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+</Base>

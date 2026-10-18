@@ -1,0 +1,52 @@
+---
+import { META } from '../i18n/meta';
+import { LANGS, path, type Lang, type PageKey } from '../i18n/routes';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  pageKey?: PageKey;
+  alternates: Partial<Record<Lang, string>>;
+  langFallback: Record<Lang, string>;
+}
+const { lang, pageKey, alternates, langFallback } = Astro.props;
+const ui = t(lang);
+const NAV: PageKey[] = ['services', 'cases', 'reviews', 'blog', 'faq', 'about', 'contact'];
+const current = (k: PageKey) =>
+  pageKey === k || (k === 'services' && ['consulting', 'start', 'fullSeo', 'maps'].includes(pageKey ?? '')) || (k === 'cases' && pageKey === 'caseKb');
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href={path('home', lang)} aria-label="Arsenii Eranosian – SEO">
+      <span class="logo-mark">AE</span><span class="logo-text">Arsenii Eranosian<small>SEO · GEO</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">{ui.menu}</span><span class="burger" aria-hidden="true"></span>
+    </button>
+    <div class="nav-wrap" id="site-nav">
+      <nav aria-label={ui.menu}>
+        <ul class="nav">
+          {NAV.map((k) => (
+            <li><a href={path(k, lang)} aria-current={current(k) ? 'page' : undefined}>{META[k][lang].name}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <ul class="lang-switch" aria-label={ui.langSwitch}>
+        {LANGS.map((l) => (
+          <li>
+            <a href={alternates[l] ?? langFallback[l]} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined} title={t(l).langName}>{l.toUpperCase()}</a>
+          </li>
+        ))}
+      </ul>
+      <a class="btn btn--primary btn--sm" href={path('audit', lang)}>{ui.ctaAudit}</a>
+    </div>
+  </div>
+</header>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    document.documentElement.classList.toggle('nav-open', open);
+  });
+</script>

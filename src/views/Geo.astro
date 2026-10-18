@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { META } from '../i18n/meta';
+import { type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { faqFor } from '../data/faq';
+import { faqSchema } from '../lib/schema';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const m = META.geo[lang];
+const faq = faqFor('geo');
+
+const C = {
+  cs: {
+    lead: 'Vaši zákazníci dnes hledají dvěma způsoby: ve vyhledávači a v AI asistentech. Optimalizuji web pro oba světy najednou – bez dvojí práce a dvojí ceny.',
+    colSeo: ['SEO', 'Google a Seznam', ['Pozice ve výsledcích vyhledávání', 'Technický stav a rychlost', 'Klíčová slova a obsah', 'Odkazy a autorita']],
+    colGeo: ['GEO', 'ChatGPT, Gemini, Perplexity, AI Overviews', ['Citace a doporučení v odpovědích AI', 'Strukturovaná data a jasná entita', 'Obsah, který přímo odpovídá na otázky', 'Zmínky v důvěryhodných zdrojích']],
+    whyTitle: 'Proč dohromady',
+    why: 'AI asistenti čerpají z webů, které jsou dobře indexované a důvěryhodné – tedy z webů s dobrým SEO. A obsah psaný tak, aby mu rozuměla AI, je srozumitelnější i pro lidi a vyhledávače. Obě disciplíny se posilují.',
+    howTitle: 'Co konkrétně dělám',
+    how: ['Audit viditelnosti v AI: na co se ptát a koho AI doporučuje', 'Schema.org markup pro firmu, osoby, služby a FAQ', 'Úprava klíčových stránek do formy „otázka → přímá odpověď“', 'Sjednocení informací o firmě napříč webem a katalogy', 'Pravidelné měření zmínek v AI odpovědích'],
+    servicesTitle: 'GEO je součástí služeb',
+    ctaTitle: 'Jak vás vidí AI?',
+    ctaText: 'V bezplatném auditu zjistím, zda a jak vás zmiňují AI asistenti.',
+  },
+  en: {
+    lead: 'Your customers now search in two ways: in search engines and in AI assistants. I optimise your website for both at once – no double work, no double price.',
+    colSeo: ['SEO', 'Google and Seznam', ['Rankings in search results', 'Technical health and speed', 'Keywords and content', 'Links and authority']],
+    colGeo: ['GEO', 'ChatGPT, Gemini, Perplexity, AI Overviews', ['Citations and recommendations in AI answers', 'Structured data and a clear entity', 'Content that answers questions directly', 'Mentions in trusted sources']],
+    whyTitle: 'Why together',
+    why: 'AI assistants draw on websites that are well indexed and trustworthy – that is, websites with good SEO. And content written so AI understands it is clearer for people and search engines too. The two disciplines reinforce each other.',
+    howTitle: 'What I actually do',
+    how: ['AI visibility audit: which prompts matter and who AI recommends', 'Schema.org markup for the business, people, services and FAQs', 'Reworking key pages into a “question → direct answer” format', 'Consistent business information across the site and directories', 'Regular tracking of mentions in AI answers'],
+    servicesTitle: 'GEO is part of every service',
+    ctaTitle: 'How does AI see you?',
+    ctaText: 'In the free audit I check whether and how AI assistants mention you.',
+  },
+  ru: {
+    lead: 'Сегодня клиенты ищут двумя способами: в поисковиках и в нейросетях. Я оптимизирую сайт сразу под оба — без двойной работы и двойной цены.',
+    colSeo: ['SEO', 'Google и Seznam', ['Позиции в поисковой выдаче', 'Техническое состояние и скорость', 'Ключевые слова и контент', 'Ссылки и авторитет']],
+    colGeo: ['GEO', 'ChatGPT, Gemini, Perplexity, AI Overviews', ['Цитирование и рекомендации в ответах нейросетей', 'Структурированные данные и понятная сущность', 'Контент, который прямо отвечает на вопросы', 'Упоминания в авторитетных источниках']],
+    whyTitle: 'Почему вместе',
+    why: 'Нейросети опираются на сайты, которые хорошо проиндексированы и вызывают доверие, — то есть на сайты с хорошим SEO. А контент, понятный нейросети, понятнее и людям, и поисковикам. Две дисциплины усиливают друг друга.',
+    howTitle: 'Что конкретно я делаю',
+    how: ['Аудит видимости в нейросетях: какие запросы важны и кого рекомендует AI', 'Разметка schema.org для компании, людей, услуг и FAQ', 'Переработка ключевых страниц в формат «вопрос → прямой ответ»', 'Единая информация о компании на сайте и в каталогах', 'Регулярное отслеживание упоминаний в ответах AI'],
+    servicesTitle: 'GEO входит в услуги',
+    ctaTitle: 'Как вас видят нейросети?',
+    ctaText: 'В бесплатном аудите проверю, упоминают ли вас AI-ассистенты и как.',
+  },
+}[lang];
+const cols = [C.colSeo, C.colGeo] as [string, string, string[]][];
+---
+<Base {...pageProps('geo', lang)} schema={[faq.length ? faqSchema(faq, lang) : null]}>
+  <PageHero h1={m.h1} lead={C.lead} eyebrow="Search Engine Optimization + Generative Engine Optimization" />
+  <section class="section section--tight">
+    <div class="container grid grid-2 two-in-one">
+      {cols.map(([name, where, items]) => (
+        <div class="card">
+          <p class="eyebrow">{where}</p>
+          <h2>{name}</h2>
+          <ul class="checks">{items.map((x) => <li>{x}</li>)}</ul>
+        </div>
+      ))}
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="lead">{C.why}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.howTitle}</h2>
+      <ol class="steps">{C.how.map((x) => <li>{x}</li>)}</ol>
+    </div>
+  </section>
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.servicesTitle}</h2>
+      <ServiceCards lang={lang} />
+    </div>
+  </section>
+  {faq.length > 0 && (
+    <section class="section">
+      <div class="container narrow"><h2>{t(lang).faqTitle}</h2><FaqList items={faq} lang={lang} /></div>
+    </section>
+  )}
+  <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+</Base>

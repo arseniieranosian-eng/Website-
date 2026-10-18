@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { META } from '../i18n/meta';
+import { type Lang } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { allReviews } from '../data/reviews';
+import { reviewSchema } from '../lib/schema';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const m = META.reviews[lang];
+const reviews = allReviews();
+const C = {
+  cs: { lead: 'Zkušenosti klientů se spoluprací – od jednorázových konzultací po celoroční SEO.', ctaTitle: 'Chcete být další spokojený klient?', ctaText: 'Začněte bezplatným auditem.' },
+  en: { lead: 'Clients on working together – from one-off consultations to full-year SEO.', ctaTitle: 'Want to be the next happy client?', ctaText: 'Start with a free audit.' },
+  ru: { lead: 'Отзывы клиентов о сотрудничестве — от разовых консультаций до SEO на целый год.', ctaTitle: 'Хотите стать следующим довольным клиентом?', ctaText: 'Начните с бесплатного аудита.' },
+}[lang];
+---
+<Base {...pageProps('reviews', lang)} schema={[reviewSchema(Astro.site!, reviews, lang)]}>
+  <PageHero h1={m.h1} lead={C.lead} />
+  <section class="section section--tight">
+    <div class="container"><ReviewCards reviews={reviews} lang={lang} /></div>
+  </section>
+  <section class="section section--grey">
+    <div class="container"><CaseTeaser lang={lang} heading="h2" /></div>
+  </section>
+  <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+</Base>

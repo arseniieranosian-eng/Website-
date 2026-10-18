@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqList from '../components/FaqList.astro';
+import { META } from '../i18n/meta';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { SITE } from '../data/site';
+import { faqFor } from '../data/faq';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+const m = META.contact[lang];
+const C = {
+  cs: { lead: 'Napište mi, s čím potřebujete pomoct. Odpovím do jednoho pracovního dne.', direct: 'Přímý kontakt', where: 'Praha, osobně i online' },
+  en: { lead: 'Tell me what you need help with. I reply within one business day.', direct: 'Direct contact', where: 'Prague, in person and online' },
+  ru: { lead: 'Напишите, с чем нужна помощь. Отвечу в течение одного рабочего дня.', direct: 'Прямой контакт', where: 'Прага, лично и онлайн' },
+}[lang];
+---
+<Base {...pageProps('contact', lang)}>
+  <PageHero h1={m.h1} lead={C.lead} />
+  <section class="section section--tight">
+    <div class="container split split--form">
+      <div class="card"><LeadForm lang={lang} id="contact-page" service="other" title={ui.formTitle} /></div>
+      <aside>
+        <h2>{C.direct}</h2>
+        <ul class="contact-list">
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
+          <li>{C.where}</li>
+          {SITE.socials.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.name}</a></li>)}
+        </ul>
+        <p><a class="link-arrow" href={path('audit', lang)}>{ui.ctaAuditLong}</a></p>
+        <h2>{ui.faqTitle}</h2>
+        <FaqList items={faqFor('contact')} lang={lang} />
+      </aside>
+    </div>
+  </section>
+</Base>

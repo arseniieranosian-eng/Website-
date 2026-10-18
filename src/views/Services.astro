@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { META } from '../i18n/meta';
+import { SERVICE_KEYS, path, type Lang } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { SERVICES } from '../data/services';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const m = META.services[lang];
+
+const C = {
+  cs: {
+    lead: 'Čtyři formy spolupráce podle toho, kde se váš web nachází. Nevíte, kterou vybrat? Začněte bezplatným auditem a doporučím vám tu správnou.',
+    compareTitle: 'Srovnání',
+    cols: ['Služba', 'Délka', 'Vhodné pro'],
+    geoTitle: 'Každá služba zahrnuje GEO',
+    geoText: 'Optimalizace pro AI vyhledávání je součástí všech služeb, ne příplatek.',
+    geoLink: 'Co je SEO + GEO',
+    ctaTitle: 'Nevíte, čím začít?',
+    ctaText: 'Bezplatný audit ukáže, která služba vám přinese nejvíc.',
+  },
+  en: {
+    lead: 'Four ways to work together, depending on where your website is today. Not sure which one? Start with a free audit and I will recommend the right one.',
+    compareTitle: 'Comparison',
+    cols: ['Service', 'Duration', 'Best for'],
+    geoTitle: 'Every service includes GEO',
+    geoText: 'Optimisation for AI search is part of every service, not an add-on.',
+    geoLink: 'What SEO + GEO means',
+    ctaTitle: 'Not sure where to start?',
+    ctaText: 'A free audit shows which service will bring you the most.',
+  },
+  ru: {
+    lead: 'Четыре формата работы в зависимости от того, на каком этапе ваш сайт. Не знаете, что выбрать? Начните с бесплатного аудита — я подскажу.',
+    compareTitle: 'Сравнение',
+    cols: ['Услуга', 'Срок', 'Кому подходит'],
+    geoTitle: 'GEO входит в каждую услугу',
+    geoText: 'Оптимизация под AI-поиск — часть всех услуг, а не доплата.',
+    geoLink: 'Что такое SEO + GEO',
+    ctaTitle: 'Не знаете, с чего начать?',
+    ctaText: 'Бесплатный аудит покажет, какая услуга принесёт больше всего.',
+  },
+}[lang];
+---
+<Base {...pageProps('services', lang)}>
+  <PageHero h1={m.h1} lead={C.lead} />
+  <section class="section section--tight">
+    <div class="container"><ServiceCards lang={lang} heading="h2" /></div>
+  </section>
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.compareTitle}</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>{C.cols.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+          <tbody>
+            {SERVICE_KEYS.map((k) => {
+              const s = SERVICES.find((x) => x.key === k)!;
+              return <tr><th scope="row"><a href={path(k, lang)}>{META[k][lang].name}</a></th><td>{s.duration[lang]}</td><td>{s.forWhom[lang][0]}</td></tr>;
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.geoTitle}</h2>
+      <p>{C.geoText}</p>
+      <a class="link-arrow" href={path('geo', lang)}>{C.geoLink}</a>
+    </div>
+  </section>
+  <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+</Base>

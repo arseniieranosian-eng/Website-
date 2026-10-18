@@ -1,0 +1,54 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { META } from '../i18n/meta';
+import { ROUTES, path } from '../i18n/routes';
+import { formatDate, t } from '../i18n/ui';
+import { crumbsFor } from '../lib/page';
+import { postAlternates, postLang, postUrl, type Post } from '../lib/blog';
+import { articleSchema } from '../lib/schema';
+
+interface Props { post: Post }
+const { post } = Astro.props;
+const lang = postLang(post);
+const ui = t(lang);
+const { Content } = await render(post);
+const url = postUrl(post);
+const d = post.data;
+const crumbs = [...crumbsFor('blog', lang), { name: d.title, path: url }];
+const cta = {
+  cs: { title: 'Chcete to vyřešit s odborníkem?', text: 'Pošlete mi web a v bezplatném auditu vám řeknu, kde začít.' },
+  en: { title: 'Want an expert to handle it?', text: 'Send me your site and the free audit will tell you where to start.' },
+  ru: { title: 'Хотите доверить это специалисту?', text: 'Пришлите сайт — в бесплатном аудите подскажу, с чего начать.' },
+}[lang];
+---
+<Base
+  lang={lang}
+  pageKey="blog"
+  title={`${d.title} | ${META.blog[lang].name}`}
+  description={d.description}
+  path={url}
+  alternates={await postAlternates(post)}
+  langFallback={ROUTES.blog}
+  breadcrumbs={crumbs}
+  ogType="article"
+  schema={[articleSchema(Astro.site!, { title: d.title, description: d.description, url, date: d.date, updated: d.updated, lang })]}
+>
+  <article class="section section--tight">
+    <div class="container narrow">
+      <header class="post-head">
+        <h1>{d.title}</h1>
+        <p class="muted">{ui.published} <time datetime={d.date.toISOString()}>{formatDate(d.date, lang)}</time> · <a href={path('about', lang)}>Arsenii Eranosian</a></p>
+      </header>
+      <div class="prose"><Content /></div>
+    </div>
+  </article>
+  {d.services.length > 0 && (
+    <section class="section section--grey">
+      <div class="container"><h2>{ui.relatedServices}</h2><ServiceCards lang={lang} keys={d.services} /></div>
+    </section>
+  )}
+  <CtaBand lang={lang} title={cta.title} text={cta.text} />
+</Base>

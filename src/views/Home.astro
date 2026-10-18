@@ -1,0 +1,209 @@
+---
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import PostCard from '../components/PostCard.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AuthorMedia from '../components/AuthorMedia.astro';
+import Icon from '../components/Icon.astro';
+import { META } from '../i18n/meta';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { PROOF } from '../data/site';
+import { featuredReviews } from '../data/reviews';
+import { homeFaq } from '../data/faq';
+import { postsByLang } from '../lib/blog';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+const m = META.home[lang];
+const posts = await postsByLang(lang, 3);
+
+const C = {
+  cs: {
+    eyebrow: 'SEO specialista · Praha',
+    lead: 'Pomáhám firmám získat zákazníky z Google, Seznamu i z odpovědí AI asistentů. Začněte bezplatným auditem – do 5 pracovních dnů víte, co brzdí váš web.',
+    formTitle: 'Bezplatný SEO audit',
+    points: ['Technický stav a rychlost', 'Klíčová slova a konkurence', 'Viditelnost v ChatGPT a AI Overviews'],
+    proofTitle: 'Výsledky v číslech',
+    proofLink: 'Zobrazit případové studie',
+    servicesTitle: 'Služby',
+    servicesText: 'Od jednorázové konzultace po celoroční SEO. Vyberte si formu, která odpovídá vaší fázi.',
+    geoTitle: 'SEO + GEO: dvě v jednom',
+    geoText: 'Lidé se čím dál častěji ptají AI místo vyhledávače. Optimalizuji web tak, aby vás našel Google i doporučil ChatGPT.',
+    geoLink: 'Jak SEO + GEO funguje',
+    caseTitle: 'Případová studie',
+    reviewsText: 'Zkušenosti firem, se kterými spolupracuji.',
+    blogTitle: 'Z blogu',
+    blogText: 'Praktické návody o SEO, GEO a lokálním vyhledávání.',
+    faqText: 'Nejčastější otázky před začátkem spolupráce.',
+    aboutTitle: 'Kdo za tím stojí',
+    aboutText: 'Jsem Arsenii Eranosian, SEO specialista z Prahy. S každým klientem pracuji osobně – česky, anglicky i rusky.',
+    ctaTitle: 'Zjistěte, kolik zákazníků vám uniká',
+    ctaText: 'Bezplatný audit vám ukáže největší příležitosti vašeho webu. Bez závazků.',
+    photoAlt: 'Arsenii Eranosian, SEO specialista v Praze',
+  },
+  en: {
+    eyebrow: 'SEO specialist · Prague',
+    lead: 'I help businesses win customers from Google, Seznam and AI assistant answers. Start with a free audit – within 5 business days you will know what is holding your website back.',
+    formTitle: 'Free SEO audit',
+    points: ['Technical health and speed', 'Keywords and competitors', 'Visibility in ChatGPT and AI Overviews'],
+    proofTitle: 'Results in numbers',
+    proofLink: 'See case studies',
+    servicesTitle: 'Services',
+    servicesText: 'From a one-off consultation to year-round SEO. Pick the format that matches your stage.',
+    geoTitle: 'SEO + GEO: two in one',
+    geoText: 'People increasingly ask AI instead of a search engine. I optimise your site so Google finds you and ChatGPT recommends you.',
+    geoLink: 'How SEO + GEO works',
+    caseTitle: 'Case study',
+    reviewsText: 'Feedback from businesses I work with.',
+    blogTitle: 'From the blog',
+    blogText: 'Practical guides on SEO, GEO and local search.',
+    faqText: 'The most common questions before we start.',
+    aboutTitle: 'Who is behind it',
+    aboutText: 'I am Arsenii Eranosian, an SEO specialist based in Prague. I work with every client personally – in Czech, English or Russian.',
+    ctaTitle: 'Find out how many customers you are missing',
+    ctaText: 'A free audit shows the biggest opportunities for your website. No strings attached.',
+    photoAlt: 'Arsenii Eranosian, SEO specialist in Prague',
+  },
+  ru: {
+    eyebrow: 'SEO-специалист · Прага',
+    lead: 'Помогаю бизнесу получать клиентов из Google, Seznam и ответов нейросетей. Начните с бесплатного аудита — за 5 рабочих дней узнаете, что тормозит ваш сайт.',
+    formTitle: 'Бесплатный SEO-аудит',
+    points: ['Техническое состояние и скорость', 'Ключевые слова и конкуренты', 'Видимость в ChatGPT и AI Overviews'],
+    proofTitle: 'Результаты в цифрах',
+    proofLink: 'Смотреть кейсы',
+    servicesTitle: 'Услуги',
+    servicesText: 'От разовой консультации до SEO на целый год. Выберите формат под вашу задачу.',
+    geoTitle: 'SEO + GEO: два в одном',
+    geoText: 'Люди всё чаще спрашивают нейросети вместо поисковика. Я оптимизирую сайт так, чтобы вас нашёл Google и порекомендовал ChatGPT.',
+    geoLink: 'Как работает SEO + GEO',
+    caseTitle: 'Кейс',
+    reviewsText: 'Отзывы компаний, с которыми я работаю.',
+    blogTitle: 'Из блога',
+    blogText: 'Практические статьи об SEO, GEO и локальном поиске.',
+    faqText: 'Самые частые вопросы перед началом работы.',
+    aboutTitle: 'Кто за этим стоит',
+    aboutText: 'Я Arsenii Eranosian, SEO-специалист из Праги. С каждым клиентом работаю лично — на чешском, английском или русском.',
+    ctaTitle: 'Узнайте, сколько клиентов вы теряете',
+    ctaText: 'Бесплатный аудит покажет главные точки роста вашего сайта. Без обязательств.',
+    photoAlt: 'Arsenii Eranosian, SEO-специалист в Праге',
+  },
+}[lang];
+---
+<Base {...pageProps('home', lang)}>
+  <!-- 1. Hero + the only form on the page above the footer -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{C.eyebrow}</p>
+        <h1>{m.h1}</h1>
+        <p class="lead">{C.lead}</p>
+        <ul class="checks">{C.points.map((p) => <li><Icon name="check" size={18} />{p}</li>)}</ul>
+      </div>
+      <div class="card hero-form">
+        <LeadForm lang={lang} id="home-hero" title={C.formTitle} compact />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Proof numbers → case studies -->
+  <section class="section section--tight">
+    <div class="container">
+      <h2 class="sr-only">{C.proofTitle}</h2>
+      <dl class="stats">
+        {PROOF.map((p) => <div><dt>{p.label[lang]}</dt><dd>{p.value}</dd></div>)}
+      </dl>
+      <p class="center"><a class="link-arrow" href={path('cases', lang)}>{C.proofLink}</a></p>
+    </div>
+  </section>
+
+  <!-- 3. Services -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-head">
+        <div><h2>{C.servicesTitle}</h2><p>{C.servicesText}</p></div>
+        <a class="link-arrow" href={path('services', lang)}>{ui.allServices}</a>
+      </div>
+      <ServiceCards lang={lang} />
+    </div>
+  </section>
+
+  <!-- 4. SEO + GEO -->
+  <section class="section section--dark">
+    <div class="container split">
+      <div>
+        <p class="eyebrow eyebrow--light">SEO + GEO</p>
+        <h2>{C.geoTitle}</h2>
+        <p>{C.geoText}</p>
+        <a class="btn btn--ghost-light" href={path('geo', lang)}>{C.geoLink}</a>
+      </div>
+      <div class="engines" aria-hidden="true">
+        {['Google', 'Seznam', 'ChatGPT', 'Gemini', 'Perplexity', 'AI Overviews'].map((e) => <span>{e}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Case preview -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.caseTitle}</h2>
+      <CaseTeaser lang={lang} />
+    </div>
+  </section>
+
+  <!-- 6. Reviews (top 3 from the shared source) -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-head">
+        <div><h2>{ui.reviewsTitle}</h2><p>{C.reviewsText}</p></div>
+        <a class="link-arrow" href={path('reviews', lang)}>{ui.allReviews}</a>
+      </div>
+      <ReviewCards reviews={featuredReviews(3)} lang={lang} />
+    </div>
+  </section>
+
+  <!-- 7. Latest posts (automatic) -->
+  {posts.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><h2>{C.blogTitle}</h2><p>{C.blogText}</p></div>
+          <a class="link-arrow" href={path('blog', lang)}>{ui.allPosts}</a>
+        </div>
+        <div class="grid grid-3">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
+      </div>
+    </section>
+  )}
+
+  <!-- 8. FAQ -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <div class="section-head">
+        <div><h2>{ui.faqTitle}</h2><p>{C.faqText}</p></div>
+        <a class="link-arrow" href={path('faq', lang)}>{ui.allFaq}</a>
+      </div>
+      <FaqList items={homeFaq()} lang={lang} />
+    </div>
+  </section>
+
+  <!-- 9. About -->
+  <section class="section">
+    <div class="container about-teaser">
+      <AuthorMedia alt={C.photoAlt} />
+      <div>
+        <h2>{C.aboutTitle}</h2>
+        <p class="lead">{C.aboutText}</p>
+        <a class="link-arrow" href={path('about', lang)}>{ui.aboutMore}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Final CTA -->
+  <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+</Base>

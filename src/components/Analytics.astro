@@ -1,0 +1,49 @@
+---
+// GA4 in "basic consent" mode: gtag.js loads only after the visitor accepts
+// analytics cookies. Events pushed before that wait in dataLayer.
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const gaId = import.meta.env.PUBLIC_GA_ID;
+const ui = t(lang);
+---
+{gaId && (
+  <>
+    <script is:inline define:vars={{ gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.__loadGA = function () {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', gaId);
+      };
+      var c = null;
+      try { c = localStorage.getItem('analytics-consent'); } catch (e) {}
+      if (c === 'granted') window.__loadGA();
+      else if (c !== 'denied') document.documentElement.classList.add('ask-consent');
+    </script>
+    <div class="cookie" role="dialog" aria-live="polite" aria-label="Cookies">
+      <p>{ui.cookieText} <a href={path('privacy', lang)}>{ui.cookieMore}</a></p>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn--ghost btn--sm" data-consent="denied">{ui.cookieReject}</button>
+        <button type="button" class="btn btn--secondary btn--sm" data-consent="granted">{ui.cookieAccept}</button>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll<HTMLButtonElement>('[data-consent]').forEach((b) =>
+        b.addEventListener('click', () => {
+          const v = b.dataset.consent!;
+          try { localStorage.setItem('analytics-consent', v); } catch {}
+          document.documentElement.classList.remove('ask-consent');
+          if (v === 'granted') (window as any).__loadGA?.();
+        }),
+      );
+    </script>
+  </>
+)}

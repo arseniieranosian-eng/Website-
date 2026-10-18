@@ -1,0 +1,44 @@
+---
+// Every URL of the site is generated here from i18n/routes.ts and the blog collection.
+import type { GetStaticPaths } from 'astro';
+import { LANGS, PAGE_KEYS, ROUTES, SERVICE_KEYS, type Lang, type PageKey, type ServiceKey } from '../i18n/routes';
+import { allPosts, postUrl, type Post } from '../lib/blog';
+import Home from '../views/Home.astro';
+import Audit from '../views/Audit.astro';
+import Services from '../views/Services.astro';
+import Service from '../views/Service.astro';
+import Geo from '../views/Geo.astro';
+import Cases from '../views/Cases.astro';
+import Case from '../views/Case.astro';
+import Reviews from '../views/Reviews.astro';
+import Blog from '../views/Blog.astro';
+import PostView from '../views/Post.astro';
+import Faq from '../views/Faq.astro';
+import About from '../views/About.astro';
+import Contact from '../views/Contact.astro';
+import Privacy from '../views/Privacy.astro';
+import Thanks from '../views/Thanks.astro';
+
+export const getStaticPaths = (async () => {
+  // Must live inside getStaticPaths: it is hoisted out of the component scope.
+  const toParam = (p: string) => p.replace(/^\/|\/$/g, '') || undefined;
+  const pages = PAGE_KEYS.flatMap((key) =>
+    LANGS.map((lang) => ({ params: { slug: toParam(ROUTES[key][lang]) }, props: { key, lang } })),
+  );
+  const posts = (await allPosts()).map((post) => ({ params: { slug: toParam(postUrl(post)) }, props: { post } }));
+  return [...pages, ...posts];
+}) satisfies GetStaticPaths;
+
+type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?: undefined; lang?: undefined };
+const props = Astro.props as Props;
+
+const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
+  home: Home, audit: Audit, services: Services, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
+  blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
+};
+const isService = (k: PageKey): k is ServiceKey => (SERVICE_KEYS as readonly string[]).includes(k);
+const View = props.key && !isService(props.key) ? VIEWS[props.key] : null;
+---
+{props.post && <PostView post={props.post} />}
+{props.key && isService(props.key) && <Service lang={props.lang} service={props.key} />}
+{View && <View lang={props.lang} />}

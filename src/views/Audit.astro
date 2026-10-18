@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqList from '../components/FaqList.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
+import Icon from '../components/Icon.astro';
+import { META } from '../i18n/meta';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { pageProps } from '../lib/page';
+import { faqFor } from '../data/faq';
+import { featuredReviews } from '../data/reviews';
+import { faqSchema } from '../lib/schema';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+const m = META.audit[lang];
+const faq = faqFor('audit');
+
+const C = {
+  cs: {
+    lead: 'Pošlete mi adresu webu. Do 5 pracovních dnů dostanete stručný report s tím, co vás brzdí a co opravit jako první. Zdarma a bez závazků.',
+    whatTitle: 'Co zkontroluji',
+    what: [
+      ['Technické SEO', 'Indexace, rychlost, Core Web Vitals, mobilní verze, chyby a duplicity.'],
+      ['Klíčová slova', 'Na co se zobrazujete, na co byste měli a kde jsou největší příležitosti.'],
+      ['Konkurence', 'Kdo vás předbíhá ve výsledcích a proč.'],
+      ['Mapy a lokální SEO', 'Profil na Google Maps a Mapy.com, recenze, firemní údaje.'],
+      ['Viditelnost v AI', 'Zda vás zmiňují ChatGPT, Gemini a Google AI Overviews.'],
+    ],
+    howTitle: 'Jak to probíhá',
+    how: ['Vyplníte formulář', 'Projdu web a připravím report', 'Report probereme na 20min callu', 'Rozhodnete se, zda pokračovat'],
+    formTitle: 'Požádat o bezplatný audit',
+  },
+  en: {
+    lead: 'Send me your website address. Within 5 business days you get a short report on what is holding you back and what to fix first. Free and with no obligation.',
+    whatTitle: 'What I check',
+    what: [
+      ['Technical SEO', 'Indexing, speed, Core Web Vitals, mobile, errors and duplicates.'],
+      ['Keywords', 'What you rank for, what you should rank for and where the biggest opportunities are.'],
+      ['Competitors', 'Who outranks you and why.'],
+      ['Maps and local SEO', 'Your Google Maps and Mapy.com profile, reviews and business details.'],
+      ['AI visibility', 'Whether ChatGPT, Gemini and Google AI Overviews mention you.'],
+    ],
+    howTitle: 'How it works',
+    how: ['You fill in the form', 'I review the site and prepare a report', 'We discuss it on a 20-minute call', 'You decide whether to continue'],
+    formTitle: 'Request a free audit',
+  },
+  ru: {
+    lead: 'Пришлите адрес сайта. В течение 5 рабочих дней вы получите краткий отчёт: что мешает росту и что исправить в первую очередь. Бесплатно и без обязательств.',
+    whatTitle: 'Что я проверяю',
+    what: [
+      ['Техническое SEO', 'Индексация, скорость, Core Web Vitals, мобильная версия, ошибки и дубли.'],
+      ['Ключевые слова', 'По каким запросам вы видны, по каким должны быть и где главные точки роста.'],
+      ['Конкуренты', 'Кто обходит вас в выдаче и почему.'],
+      ['Карты и локальное SEO', 'Профиль в Google Maps и Mapy.com, отзывы, данные компании.'],
+      ['Видимость в нейросетях', 'Упоминают ли вас ChatGPT, Gemini и Google AI Overviews.'],
+    ],
+    howTitle: 'Как это работает',
+    how: ['Вы заполняете форму', 'Я изучаю сайт и готовлю отчёт', 'Обсуждаем отчёт на 20-минутном созвоне', 'Вы решаете, продолжать ли работу'],
+    formTitle: 'Заказать бесплатный аудит',
+  },
+}[lang];
+---
+<Base {...pageProps('audit', lang)} schema={[faqSchema(faq, lang)]}>
+  <PageHero h1={m.h1} lead={C.lead} />
+  <section class="section section--tight">
+    <div class="container split split--form">
+      <div>
+        <h2>{C.whatTitle}</h2>
+        <ul class="feature-list">
+          {C.what.map(([h, p]) => <li><Icon name="check" /><div><strong>{h}</strong><p>{p}</p></div></li>)}
+        </ul>
+        <h2>{C.howTitle}</h2>
+        <ol class="steps">{C.how.map((s) => <li>{s}</li>)}</ol>
+      </div>
+      <div class="card sticky-form" id="form">
+        <LeadForm lang={lang} id="audit-page" title={C.formTitle} />
+      </div>
+    </div>
+  </section>
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-head"><h2>{ui.reviewsTitle}</h2><a class="link-arrow" href={path('reviews', lang)}>{ui.allReviews}</a></div>
+      <ReviewCards reviews={featuredReviews(3)} lang={lang} />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container"><CaseTeaser lang={lang} heading="h2" /></div>
+  </section>
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{ui.faqTitle}</h2>
+      <FaqList items={faq} lang={lang} />
+      <p><a class="link-arrow" href={path('faq', lang)}>{ui.allFaq}</a></p>
+    </div>
+  </section>
+</Base>

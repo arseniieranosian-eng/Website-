@@ -1,0 +1,355 @@
+import type { Lang, PageKey } from './routes';
+
+// Unique title / meta description / H1 for every page and language.
+// `name` is the short label used in navigation and breadcrumbs.
+// scripts/check-seo.mjs fails the build if any title, description or H1 repeats.
+
+export interface PageMeta {
+  name: string;
+  title: string;
+  description: string;
+  h1: string;
+}
+
+export const META: Record<PageKey, Record<Lang, PageMeta>> = {
+  home: {
+    cs: {
+      name: 'Úvod',
+      title: 'SEO specialista Praha – Arsenii Eranosian | SEO a GEO',
+      description: 'SEO specialista v Praze. Dostanu váš web na první stránky Google a Seznamu a do odpovědí AI. Začněte bezplatným SEO auditem.',
+      h1: 'SEO, které přivádí poptávky. Ve vyhledávačích i v AI.',
+    },
+    en: {
+      name: 'Home',
+      title: 'SEO Specialist in Prague – Arsenii Eranosian | SEO & GEO',
+      description: 'Prague-based SEO specialist. I get your website onto page one of Google and Seznam and into AI answers. Start with a free SEO audit.',
+      h1: 'SEO that brings enquiries. In search engines and in AI.',
+    },
+    ru: {
+      name: 'Главная',
+      title: 'SEO-специалист в Праге – Arsenii Eranosian | SEO и GEO',
+      description: 'SEO-специалист в Праге. Вывожу сайты в топ Google и Seznam и в ответы нейросетей. Начните с бесплатного SEO-аудита.',
+      h1: 'SEO, которое приводит заявки. В поиске и в нейросетях.',
+    },
+  },
+  audit: {
+    cs: {
+      name: 'Audit zdarma',
+      title: 'Bezplatný SEO audit webu | Arsenii Eranosian',
+      description: 'Získejte bezplatný SEO audit: technický stav webu, klíčová slova, konkurence a viditelnost v AI. Konkrétní doporučení do 5 pracovních dnů.',
+      h1: 'Bezplatný SEO audit vašeho webu',
+    },
+    en: {
+      name: 'Free audit',
+      title: 'Free SEO Audit of Your Website | Arsenii Eranosian',
+      description: 'Get a free SEO audit: technical health, keywords, competitors and AI visibility. Specific recommendations within 5 business days.',
+      h1: 'A free SEO audit of your website',
+    },
+    ru: {
+      name: 'Бесплатный аудит',
+      title: 'Бесплатный SEO-аудит сайта | Arsenii Eranosian',
+      description: 'Бесплатный SEO-аудит: техническое состояние сайта, ключевые слова, конкуренты и видимость в нейросетях. Рекомендации за 5 рабочих дней.',
+      h1: 'Бесплатный SEO-аудит вашего сайта',
+    },
+  },
+  services: {
+    cs: {
+      name: 'Služby',
+      title: 'SEO služby: konzultace, start, roční SEO a mapy | Praha',
+      description: 'Přehled SEO služeb: konzultace, tříměsíční start, celoroční SEO a lokální SEO na Google Maps a Mapy.com. Vyberte si formu spolupráce.',
+      h1: 'SEO služby',
+    },
+    en: {
+      name: 'Services',
+      title: 'SEO Services: Consulting, Start, Full SEO & Maps | Prague',
+      description: 'SEO services overview: consulting, a 3-month start, year-round SEO and local SEO on Google Maps and Mapy.com. Choose how we work together.',
+      h1: 'SEO services',
+    },
+    ru: {
+      name: 'Услуги',
+      title: 'SEO-услуги: консультации, старт, SEO на год и карты | Прага',
+      description: 'Обзор SEO-услуг: консультации, старт на 3 месяца, SEO-продвижение на год и локальное SEO в Google Maps и Mapy.com.',
+      h1: 'SEO-услуги',
+    },
+  },
+  consulting: {
+    cs: {
+      name: 'Konzultace',
+      title: 'SEO konzultace – rozbor webu a akční plán | Praha',
+      description: 'SEO konzultace online nebo osobně v Praze. Rozbor vašeho webu, odpovědi na otázky a písemný akční plán s prioritami.',
+      h1: 'SEO konzultace',
+    },
+    en: {
+      name: 'Consulting',
+      title: 'SEO Consulting – Website Review & Action Plan | Prague',
+      description: 'SEO consulting online or in person in Prague. A review of your website, answers to your questions and a written, prioritised action plan.',
+      h1: 'SEO consulting',
+    },
+    ru: {
+      name: 'Консультации',
+      title: 'SEO-консультация – разбор сайта и план действий | Прага',
+      description: 'SEO-консультация онлайн или лично в Праге. Разбор сайта, ответы на вопросы и письменный план действий с приоритетами.',
+      h1: 'SEO-консультации',
+    },
+  },
+  start: {
+    cs: {
+      name: 'Start na 3 měsíce',
+      title: 'SEO start na 3 měsíce – audit, opravy, první výsledky',
+      description: 'Tříměsíční SEO start: technický audit a opravy, analýza klíčových slov, optimalizace hlavních stránek a nastavení měření.',
+      h1: 'SEO start na 3 měsíce',
+    },
+    en: {
+      name: '3-month start',
+      title: '3-Month SEO Start – Audit, Fixes, First Results',
+      description: 'A three-month SEO kick-off: technical audit and fixes, keyword research, optimisation of key pages and analytics setup.',
+      h1: 'A 3-month SEO start',
+    },
+    ru: {
+      name: 'Старт на 3 месяца',
+      title: 'SEO-старт на 3 месяца – аудит, исправления, первые результаты',
+      description: 'Трёхмесячный SEO-старт: технический аудит и исправления, подбор ключевых слов, оптимизация главных страниц и настройка аналитики.',
+      h1: 'SEO-старт на 3 месяца',
+    },
+  },
+  fullSeo: {
+    cs: {
+      name: 'Full SEO na rok',
+      title: 'Celoroční SEO – strategie, obsah, odkazy a reporting',
+      description: 'Full SEO na 12 měsíců: strategie, obsah, linkbuilding, technický dohled, GEO optimalizace a měsíční reporty. Dlouhodobý růst návštěvnosti.',
+      h1: 'Full SEO na rok',
+    },
+    en: {
+      name: 'Full SEO (1 year)',
+      title: 'Full-Year SEO – Strategy, Content, Links & Reporting',
+      description: 'Full SEO for 12 months: strategy, content, link building, technical monitoring, GEO optimisation and monthly reports for long-term growth.',
+      h1: 'Full SEO for a year',
+    },
+    ru: {
+      name: 'Full SEO на год',
+      title: 'SEO-продвижение на год – стратегия, контент, ссылки, отчёты',
+      description: 'Full SEO на 12 месяцев: стратегия, контент, ссылки, технический контроль, GEO-оптимизация и ежемесячные отчёты.',
+      h1: 'Full SEO на год',
+    },
+  },
+  maps: {
+    cs: {
+      name: 'Mapy (Google + Seznam)',
+      title: 'Lokální SEO: Google Maps a Mapy.com (Seznam) | Praha',
+      description: 'Lokální SEO pro firmy: optimalizace profilu na Google Maps a Firmy.cz / Mapy.com, recenze a vyšší pozice v mapách ve vašem okolí.',
+      h1: 'Lokální SEO: Google Maps a Mapy.com',
+    },
+    en: {
+      name: 'Maps (Google + Seznam)',
+      title: 'Local SEO: Google Maps & Mapy.com (Seznam) | Prague',
+      description: 'Local SEO for businesses in Czechia: Google Business Profile and Firmy.cz / Mapy.com optimisation, reviews and higher map rankings.',
+      h1: 'Local SEO: Google Maps and Mapy.com',
+    },
+    ru: {
+      name: 'Карты (Google + Seznam)',
+      title: 'Локальное SEO: Google Maps и Mapy.com (Seznam) | Прага',
+      description: 'Локальное SEO для бизнеса в Чехии: профиль в Google Maps и Firmy.cz / Mapy.com, отзывы и высокие позиции на картах.',
+      h1: 'Локальное SEO: Google Maps и Mapy.com',
+    },
+  },
+  geo: {
+    cs: {
+      name: 'SEO + GEO',
+      title: 'SEO + GEO 2 v 1 – viditelnost v Google i v ChatGPT',
+      description: 'SEO a GEO (Generative Engine Optimization) v jednom: web, který najdou Google a Seznam i ChatGPT, Gemini, Perplexity a AI Overviews.',
+      h1: 'SEO + GEO: dvě v jednom',
+    },
+    en: {
+      name: 'SEO + GEO',
+      title: 'SEO + GEO 2-in-1 – Visibility in Google and ChatGPT',
+      description: 'SEO and GEO (Generative Engine Optimization) in one: a website found by Google and Seznam as well as ChatGPT, Gemini, Perplexity and AI Overviews.',
+      h1: 'SEO + GEO: two in one',
+    },
+    ru: {
+      name: 'SEO + GEO',
+      title: 'SEO + GEO 2 в 1 – видимость в Google и в ChatGPT',
+      description: 'SEO и GEO (Generative Engine Optimization) вместе: сайт, который находят Google и Seznam, а также ChatGPT, Gemini, Perplexity и AI Overviews.',
+      h1: 'SEO + GEO: два в одном',
+    },
+  },
+  cases: {
+    cs: {
+      name: 'Případové studie',
+      title: 'Případové studie SEO – výsledky klientů | Arsenii Eranosian',
+      description: 'Případové studie: jak SEO a GEO zvýšily návštěvnost a počet poptávek mých klientů. Výchozí stav, postup a měřitelné výsledky.',
+      h1: 'Případové studie',
+    },
+    en: {
+      name: 'Case studies',
+      title: 'SEO Case Studies – Client Results | Arsenii Eranosian',
+      description: 'Case studies: how SEO and GEO grew traffic and enquiries for my clients. Starting point, approach and measurable results.',
+      h1: 'Case studies',
+    },
+    ru: {
+      name: 'Кейсы',
+      title: 'SEO-кейсы – результаты клиентов | Arsenii Eranosian',
+      description: 'Кейсы: как SEO и GEO увеличили трафик и число заявок у моих клиентов. Исходная ситуация, работа и измеримые результаты.',
+      h1: 'Кейсы',
+    },
+  },
+  caseKb: {
+    cs: {
+      name: 'KB Překlady',
+      title: 'Případová studie KB Překlady – SEO pro překladatelskou agenturu',
+      description: 'Jak jsme KB Překlady dostali na přední pozice pro klíčová slova o překladech a zvýšili počet poptávek z organického vyhledávání.',
+      h1: 'KB Překlady: SEO pro překladatelskou agenturu',
+    },
+    en: {
+      name: 'KB Překlady',
+      title: 'KB Překlady Case Study – SEO for a Translation Agency',
+      description: 'How we moved KB Překlady to top positions for translation keywords and increased enquiries from organic search.',
+      h1: 'KB Překlady: SEO for a translation agency',
+    },
+    ru: {
+      name: 'KB Překlady',
+      title: 'Кейс KB Překlady – SEO для бюро переводов',
+      description: 'Как мы вывели KB Překlady на высокие позиции по запросам о переводах и увеличили число заявок из органического поиска.',
+      h1: 'KB Překlady: SEO для бюро переводов',
+    },
+  },
+  reviews: {
+    cs: {
+      name: 'Recenze',
+      title: 'Recenze klientů – zkušenosti se SEO spoluprací',
+      description: 'Co o spolupráci říkají klienti: recenze a zkušenosti se SEO konzultacemi, tříměsíčním startem, celoročním SEO a lokálním SEO.',
+      h1: 'Recenze klientů',
+    },
+    en: {
+      name: 'Reviews',
+      title: 'Client Reviews – Experience Working on SEO Together',
+      description: 'What clients say: reviews of SEO consulting, the 3-month start, full-year SEO and local SEO work.',
+      h1: 'Client reviews',
+    },
+    ru: {
+      name: 'Отзывы',
+      title: 'Отзывы клиентов – опыт SEO-сотрудничества',
+      description: 'Что говорят клиенты: отзывы о SEO-консультациях, старте на 3 месяца, SEO на год и локальном SEO.',
+      h1: 'Отзывы клиентов',
+    },
+  },
+  blog: {
+    cs: {
+      name: 'Blog',
+      title: 'SEO blog – návody a novinky ze světa SEO a GEO',
+      description: 'Praktické články o SEO, GEO, lokálním SEO a vyhledávání v Google, Seznamu a AI. Návody, které můžete hned použít.',
+      h1: 'Blog o SEO a GEO',
+    },
+    en: {
+      name: 'Blog',
+      title: 'SEO Blog – Guides and News on SEO and GEO',
+      description: 'Practical articles on SEO, GEO, local SEO and search in Google, Seznam and AI assistants. Guides you can apply right away.',
+      h1: 'Blog about SEO and GEO',
+    },
+    ru: {
+      name: 'Блог',
+      title: 'SEO-блог – статьи о SEO и GEO',
+      description: 'Практические статьи об SEO, GEO, локальном SEO и поиске в Google, Seznam и нейросетях. Советы, которые можно применить сразу.',
+      h1: 'Блог об SEO и GEO',
+    },
+  },
+  faq: {
+    cs: {
+      name: 'Časté dotazy',
+      title: 'Časté dotazy o SEO – ceny, termíny, spolupráce',
+      description: 'Odpovědi na nejčastější otázky o SEO: jak dlouho trvá, co obsahuje audit, jak probíhá spolupráce a jaký je rozdíl mezi SEO a GEO.',
+      h1: 'Časté dotazy',
+    },
+    en: {
+      name: 'FAQ',
+      title: 'SEO FAQ – Timelines, Process and Working Together',
+      description: 'Answers to common SEO questions: how long it takes, what the audit includes, how we work together and how SEO differs from GEO.',
+      h1: 'Frequently asked questions',
+    },
+    ru: {
+      name: 'Вопросы и ответы',
+      title: 'Вопросы и ответы об SEO – сроки, процесс, сотрудничество',
+      description: 'Ответы на частые вопросы об SEO: сколько времени занимает, что входит в аудит, как строится работа и чем SEO отличается от GEO.',
+      h1: 'Вопросы и ответы',
+    },
+  },
+  about: {
+    cs: {
+      name: 'O mně',
+      title: 'O mně – Arsenii Eranosian, SEO specialista v Praze',
+      description: 'Jsem Arsenii Eranosian, SEO specialista z Prahy. Pomáhám firmám růst ve vyhledávačích a v AI. Česky, anglicky i rusky.',
+      h1: 'Arsenii Eranosian, SEO specialista',
+    },
+    en: {
+      name: 'About',
+      title: 'About Arsenii Eranosian – SEO Specialist in Prague',
+      description: 'I am Arsenii Eranosian, an SEO specialist based in Prague. I help businesses grow in search engines and AI, in Czech, English and Russian.',
+      h1: 'Arsenii Eranosian, SEO specialist',
+    },
+    ru: {
+      name: 'Обо мне',
+      title: 'Обо мне – Arsenii Eranosian, SEO-специалист в Праге',
+      description: 'Я Arsenii Eranosian, SEO-специалист из Праги. Помогаю бизнесу расти в поисковиках и нейросетях. На чешском, английском и русском.',
+      h1: 'Arsenii Eranosian, SEO-специалист',
+    },
+  },
+  contact: {
+    cs: {
+      name: 'Kontakt',
+      title: 'Kontakt – poptávka SEO spolupráce | Arsenii Eranosian',
+      description: 'Napište mi poptávku SEO, konzultace nebo bezplatného auditu. Odpovím do jednoho pracovního dne. Praha a celá ČR.',
+      h1: 'Kontakt',
+    },
+    en: {
+      name: 'Contact',
+      title: 'Contact – Request SEO Services | Arsenii Eranosian',
+      description: 'Send an enquiry about SEO, consulting or a free audit. I reply within one business day. Prague, Czechia and remote.',
+      h1: 'Contact',
+    },
+    ru: {
+      name: 'Контакты',
+      title: 'Контакты – заявка на SEO | Arsenii Eranosian',
+      description: 'Оставьте заявку на SEO, консультацию или бесплатный аудит. Отвечу в течение одного рабочего дня. Прага и удалённо.',
+      h1: 'Контакты',
+    },
+  },
+  privacy: {
+    cs: {
+      name: 'Ochrana osobních údajů',
+      title: 'Zásady ochrany osobních údajů | Arsenii Eranosian',
+      description: 'Jak zpracovávám osobní údaje z kontaktního formuláře a analytických cookies, na jakém právním základě a jaká máte práva.',
+      h1: 'Zásady ochrany osobních údajů',
+    },
+    en: {
+      name: 'Privacy policy',
+      title: 'Privacy Policy | Arsenii Eranosian',
+      description: 'How I process personal data from the contact form and analytics cookies, on what legal basis, and what rights you have.',
+      h1: 'Privacy policy',
+    },
+    ru: {
+      name: 'Политика конфиденциальности',
+      title: 'Политика конфиденциальности | Arsenii Eranosian',
+      description: 'Как я обрабатываю персональные данные из формы заявки и аналитических cookie, на каком основании и какие у вас права.',
+      h1: 'Политика конфиденциальности',
+    },
+  },
+  thanks: {
+    cs: {
+      name: 'Děkuji',
+      title: 'Děkuji za poptávku | Arsenii Eranosian',
+      description: 'Vaše poptávka byla odeslána. Ozvu se vám do jednoho pracovního dne.',
+      h1: 'Děkuji, poptávka je odeslaná',
+    },
+    en: {
+      name: 'Thank you',
+      title: 'Thank You for Your Enquiry | Arsenii Eranosian',
+      description: 'Your enquiry has been sent. I will get back to you within one business day.',
+      h1: 'Thank you, your enquiry has been sent',
+    },
+    ru: {
+      name: 'Спасибо',
+      title: 'Спасибо за заявку | Arsenii Eranosian',
+      description: 'Ваша заявка отправлена. Я свяжусь с вами в течение одного рабочего дня.',
+      h1: 'Спасибо, заявка отправлена',
+    },
+  },
+};

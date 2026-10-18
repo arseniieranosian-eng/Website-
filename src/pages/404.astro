@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { ROUTES } from '../i18n/routes';
+---
+<Base lang="cs" title="Stránka nenalezena (404) | Arsenii Eranosian" description="Stránka neexistuje. Page not found. Страница не найдена." path="/404/" alternates={{}} breadcrumbs={null} noindex>
+  <section class="page-hero">
+    <div class="container">
+      <h1>404</h1>
+      <p class="lead">Stránka nenalezena · Page not found · Страница не найдена</p>
+      <div class="btn-row">
+        <a class="btn btn--secondary" href={ROUTES.home.cs} hreflang="cs">Úvod</a>
+        <a class="btn btn--ghost" href={ROUTES.home.en} hreflang="en">Home</a>
+        <a class="btn btn--ghost" href={ROUTES.home.ru} hreflang="ru">Главная</a>
+      </div>
+    </div>
+  </section>
+</Base>
