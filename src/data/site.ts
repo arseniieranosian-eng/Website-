@@ -25,7 +25,7 @@ export const SITE = {
     { cs: 'Google Maps a Mapy.com', en: 'Google Maps and Mapy.com', ru: 'Google Maps и Mapy.com' },
   ] as (string | Record<Lang, string>)[],
   // Spoken/working languages (ISO 639-1).
-  languages: ['cs', 'en', 'ru', 'uk'],
+  languages: ['cs', 'en', 'ru'],
   // Every profile here is emitted as sameAs on the Person, the business and (via footer/contacts) linked on the site.
   // To tie a new profile to the site, just add it to this list.
   socials: [

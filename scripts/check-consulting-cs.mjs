@@ -54,7 +54,7 @@ const date = h.match(/Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time>/)
 if (!date || date[1] !== wp.dateModified) e(`dateModified ${wp.dateModified} != visible ${date && date[1]}`);
 if (!body.includes(sv.description)) e('Service.description not visible');
 if (sv.name !== H1) e('Service.name');
-if (JSON.stringify(sv.availableLanguage) !== '["cs","en","ru","uk"]') e('availableLanguage');
+if (JSON.stringify(sv.availableLanguage) !== '["cs","en","ru"]') e('availableLanguage');
 const [o1, o2] = sv.offers;
 if (sv.offers.length !== 2 || o1.priceCurrency !== 'CZK' || o2.priceCurrency !== 'CZK') e('two CZK offers expected');
 const ps = o1.priceSpecification;
@@ -79,7 +79,7 @@ else {
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
 for (const p of ['/sluzby/start-3-mesice/', '/sluzby/full-seo/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
-for (const [hd, ans] of [['Kolik stojí SEO konzultace?', 'SEO konzultace stojí 2 000 Kč za hodinu'], ['V jakých jazycích konzultace probíhá?', 'Konzultace probíhá v češtině']]) {
+for (const [hd, ans] of [['Kolik stojí SEO konzultace?', 'SEO konzultace stojí 2 000 Kč za hodinu'], ['V jakých jazycích konzultace probíhá?', 'Konzultace probíhá v češtině, angličtině a ruštině']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 // The shared 50 000 Kč / 15 000 Kč come from one source

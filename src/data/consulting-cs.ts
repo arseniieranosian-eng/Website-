@@ -6,7 +6,7 @@ import { FULLSEO_MONTHLY } from './fullseo-shared';
 
 interface Include { text: string; link?: { part: string; page: 'geo' }; catalog?: string }
 
-const languages = 'Konzultace probíhá v češtině, angličtině, ruštině a ukrajinštině. Podle potřeby řeším i vícejazyčné SEO a hreflang.';
+const languages = 'Konzultace probíhá v češtině, angličtině a ruštině. S ukrajinským obsahem umím pracovat. Podle potřeby řeším i vícejazyčné SEO a hreflang.';
 
 export const CONSULTING_CS = {
   lang: 'cs' as const,
@@ -44,7 +44,7 @@ export const CONSULTING_CS = {
     'Pro firmy před redesignem webu: co zachovat a na co si dát pozor.',
     'Pro firmy před migrací webu: jak nepřijít o pozice a návštěvnost.',
     'Pro ty, kdo chtějí nejdřív pochopit, co dělat, a až pak se rozhodnout, zda si SEO objednat.',
-    'Pro mezinárodní firmy: konzultace probíhá česky, anglicky, rusky nebo ukrajinsky.',
+    'Pro mezinárodní firmy: konzultace probíhá česky, anglicky nebo rusky.',
   ],
 
   includesTitle: 'Co je součástí SEO konzultace',
@@ -135,7 +135,7 @@ export const CONSULTING_CS = {
     serviceName: 'SEO konzultace',
     serviceType: 'SEO konzultace',
     audience: 'Majitelé firem, firmy před redesignem nebo migrací webu',
-    availableLanguage: ['cs', 'en', 'ru', 'uk'],
+    availableLanguage: ['cs', 'en', 'ru'],
     areaServed: [
       { '@type': 'Country', name: 'Česko' },
       { '@type': 'Country', name: 'Spojené státy' },
