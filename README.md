@@ -53,12 +53,20 @@ hreflang is generated only between versions that exist. The home page picks up t
 - After a successful submit the visitor goes to the thank-you page, which fires the GA4 `generate_lead` event once per submission (not on reload). Mark `generate_lead` as a key event in GA4.
 - GA4 loads only after consent is given in the cookie banner.
 
+## Deploy (Czech shared hosting)
+1. `npm run build` (creates `dist/` and runs the SEO check).
+2. Upload the **contents** of `dist/` (including the hidden `.htaccess`) to the web root via FTP/SFTP.
+3. `.htaccess` (Apache) handles: HTTPS and non-www redirects to `https://seo-eranosian.com`, the 404 page, gzip, caching and basic security headers. If the hosting runs nginx, tell me and I will write the equivalent config.
+4. Enable the free SSL certificate in the hosting panel before the first launch.
+Forms need an external endpoint (`PUBLIC_FORM_ENDPOINT`), since static hosting has no server-side code.
+
 ## Before launch (TODO)
 - [x] Contacts, LinkedIn / Instagram, author photo and intro video (`public/media/intro.mp4`, shown on the consulting page)
 - [x] First real reviews and KB Překlady metrics (source: Make Up Digital Agency review)
 - [x] About page bio, KB Překlady linked to the Make Up Digital Agency review
 - [ ] More reviews for Maps / Full SEO
-- [ ] Privacy policy text (company ID, address)
+- [x] Domain `seo-eranosian.com` and IČO 21462259
+- [ ] Privacy policy: registered address (sídlo), legal review
 - [ ] `public/images/og.png`: final OG image (can be built from the author photo)
 - [ ] The video has burned-in Russian subtitles; consider cs/en versions
-- [ ] Set the environment variables, connect the form, submit `sitemap.xml` to Search Console and Seznam Webmaster
+- [ ] Set `PUBLIC_FORM_ENDPOINT`, `PUBLIC_GA_ID`, `PUBLIC_GSC_VERIFICATION` for the build, connect the form, submit `sitemap.xml` to Search Console and Seznam Webmaster

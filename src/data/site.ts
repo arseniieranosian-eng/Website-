@@ -6,6 +6,7 @@ export const SITE = {
   jobTitle: { cs: 'SEO specialista', en: 'SEO specialist', ru: 'SEO-специалист' } as Record<Lang, string>,
   email: 'arseniieranosian@gmail.com',
   phone: '+420 735 080 267',
+  ico: '21462259', // IČO (company ID)
   city: 'Praha',
   country: 'CZ',
   alternateNames: ['Арсений Ераносьян'],

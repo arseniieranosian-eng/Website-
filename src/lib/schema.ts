@@ -63,6 +63,7 @@ export function baseGraph(site: URL) {
       logo: { '@id': image['@id'] },
       email: SITE.email,
       telephone: SITE.phone,
+      identifier: { '@type': 'PropertyValue', propertyID: 'IČO', value: SITE.ico },
       founder: { '@id': id.person },
       employee: { '@id': id.person },
       address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: SITE.country },
