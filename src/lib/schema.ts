@@ -23,6 +23,7 @@ export function baseGraph(site: URL, lang: Lang) {
       url: abs(site, path('about', lang)),
       image: abs(site, SITE.photo),
       knowsLanguage: SITE.languages,
+      knowsAbout: ['SEO', 'GEO', 'Local SEO', 'Technical SEO', 'Structured data', 'Multilingual SEO'],
       worksFor: { '@id': id.business },
       sameAs: SITE.socials.map((s) => s.url),
     },

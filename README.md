@@ -56,8 +56,9 @@ hreflang is generated only between versions that exist. The home page picks up t
 ## Before launch (TODO)
 - [x] Contacts, LinkedIn / Instagram, author photo and intro video (`public/media/intro.mp4`, shown on the consulting page)
 - [x] First real reviews and KB Překlady metrics (source: Make Up Digital Agency review)
-- [ ] Confirm that the Make Up Digital Agency review is about KB Překlady, and send more reviews for Maps / Full SEO
-- [ ] About page bio (`src/views/About.astro`), privacy policy text (company ID, address)
+- [x] About page bio, KB Překlady linked to the Make Up Digital Agency review
+- [ ] More reviews for Maps / Full SEO
+- [ ] Privacy policy text (company ID, address)
 - [ ] `public/images/og.png`: final OG image (can be built from the author photo)
 - [ ] The video has burned-in Russian subtitles; consider cs/en versions
 - [ ] Set the environment variables, connect the form, submit `sitemap.xml` to Search Console and Seznam Webmaster

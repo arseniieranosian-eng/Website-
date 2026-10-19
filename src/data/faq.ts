@@ -138,9 +138,9 @@ export const FAQ: FaqItem[] = [
       ru: 'На каких языках вы работаете?',
     },
     a: {
-      cs: 'Česky, anglicky a rusky. Umím připravit i SEO pro vícejazyčné weby, včetně správného nastavení hreflang.',
-      en: 'Czech, English and Russian. I also handle SEO for multilingual websites, including correct hreflang setup.',
-      ru: 'На чешском, английском и русском. Делаю SEO и для многоязычных сайтов, включая правильную настройку hreflang.',
+      cs: 'Česky, anglicky, rusky a ukrajinsky. Umím připravit i SEO pro vícejazyčné weby, včetně správného nastavení hreflang.',
+      en: 'Czech, English, Russian and Ukrainian. I also handle SEO for multilingual websites, including correct hreflang setup.',
+      ru: 'На чешском, английском, русском и украинском. Делаю SEO и для многоязычных сайтов, включая правильную настройку hreflang.',
     },
   },
 ];

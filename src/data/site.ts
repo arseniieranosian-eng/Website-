@@ -22,10 +22,10 @@ export const SITE = {
 };
 
 // "Numbers as proof" block on the home page → links to case studies.
-// Figures come from the KB Překlady case (see data/cases.ts and the Make Up Digital Agency review).
+// Figures are the author's own (About page / LinkedIn); KB Překlady details live in data/cases.ts.
 export const PROOF: { value: string; label: Record<Lang, string> }[] = [
-  { value: '×6', label: { cs: 'zobrazení ve vyhledávání', en: 'search impressions', ru: 'показов в поиске' } },
-  { value: '×300+', label: { cs: 'kliknutí z vyhledávání', en: 'clicks from search', ru: 'кликов из поиска' } },
-  { value: '+65–70 %', label: { cs: 'poptávek měsíčně po prvním nárůstu ×5', en: 'enquiries per month after the first ×5 jump', ru: 'заявок в месяц после первого роста в 5 раз' } },
-  { value: '×3', label: { cs: 'B2B poptávek', en: 'B2B enquiries', ru: 'B2B-заявок' } },
+  { value: '+777 %', label: { cs: 'organická návštěvnost e-shopu meziročně', en: 'organic traffic growth for an online store, YoY', ru: 'рост органического трафика интернет-магазина за год' } },
+  { value: '55–60 %', label: { cs: 'průměrný růst návštěvnosti na projekt', en: 'average traffic growth per project', ru: 'средний рост трафика на проект' } },
+  { value: '×8', label: { cs: 'poptávek za 4 měsíce (KB Překlady)', en: 'leads in 4 months (KB Překlady)', ru: 'заявок за 4 месяца (KB Překlady)' } },
+  { value: '2,5', label: { cs: 'roku praxe v SEO', en: 'years in SEO', ru: 'года опыта в SEO' } },
 ];
