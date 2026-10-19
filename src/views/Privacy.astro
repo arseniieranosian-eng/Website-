@@ -9,32 +9,34 @@ import { SITE } from '../data/site';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const m = META.privacy[lang];
-// TODO: have the final wording reviewed; add the registered address (sídlo) if required.
+const a = SITE.address;
+const ADDR = `${a.street}, ${a.postalCode} ${a.city} – ${a.district}`;
+// TODO: have the final wording reviewed by a lawyer.
 const S = {
   cs: [
-    ['Správce údajů', `Správcem osobních údajů je ${SITE.person}, IČO ${SITE.ico}, ${SITE.city}, e-mail ${SITE.email}.`],
+    ['Správce údajů', `Správcem osobních údajů je ${SITE.person}, IČO ${SITE.ico}, ${ADDR}, e-mail ${SITE.email}.`],
     ['Jaké údaje zpracovávám', 'Údaje z kontaktního formuláře (jméno, e-mail nebo telefon, adresa webu, zpráva) a – pouze s vaším souhlasem – anonymizované údaje o návštěvě webu prostřednictvím Google Analytics 4.'],
     ['Účel a právní základ', 'Údaje z formuláře zpracovávám, abych mohl odpovědět na vaši poptávku a připravit nabídku (čl. 6 odst. 1 písm. b) GDPR – jednání o smlouvě). Analytické cookies používám na základě vašeho souhlasu (čl. 6 odst. 1 písm. a) GDPR), který můžete kdykoli odvolat.'],
     ['Doba uchování', 'Údaje z poptávky uchovávám nejdéle 2 roky od posledního kontaktu, pokud nevznikne smluvní vztah. Analytická data se uchovávají 14 měsíců.'],
-    ['Příjemci', 'Poskytovatel formulářové služby a Google Ireland Ltd. (Google Analytics). Údaje neprodávám ani nepředávám dalším třetím stranám.'],
+    ['Příjemci', 'Poskytovatel webhostingu, poskytovatel e-mailové služby (Google Ireland Ltd. – Gmail, kam se poptávky doručují) a Google Ireland Ltd. (Google Analytics). Údaje neprodávám ani nepředávám dalším třetím stranám.'],
     ['Vaše práva', 'Máte právo na přístup, opravu, výmaz, omezení zpracování, přenositelnost a vznést námitku. Stížnost můžete podat u Úřadu pro ochranu osobních údajů (www.uoou.cz).'],
     ['Cookies', 'Bez souhlasu web nepoužívá žádné analytické cookies. Volbu změníte vymazáním dat webu v prohlížeči – lišta se zobrazí znovu.'],
   ],
   en: [
-    ['Data controller', `The data controller is ${SITE.person}, company ID (IČO) ${SITE.ico}, ${SITE.city}, e-mail ${SITE.email}.`],
+    ['Data controller', `The data controller is ${SITE.person}, company ID (IČO) ${SITE.ico}, ${ADDR}, e-mail ${SITE.email}.`],
     ['What data I process', 'Data from the contact form (name, e-mail or phone, website address, message) and – only with your consent – visit data via Google Analytics 4.'],
     ['Purpose and legal basis', 'I process form data to reply to your enquiry and prepare an offer (Art. 6(1)(b) GDPR – pre-contractual steps). Analytics cookies are used on the basis of your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.'],
     ['Retention', 'Enquiry data is kept for up to 2 years after the last contact unless a contract is concluded. Analytics data is kept for 14 months.'],
-    ['Recipients', 'The form service provider and Google Ireland Ltd. (Google Analytics). I do not sell or pass data to other third parties.'],
+    ['Recipients', 'The web hosting provider, the e-mail provider (Google Ireland Ltd. – Gmail, where enquiries are delivered) and Google Ireland Ltd. (Google Analytics). I do not sell or pass data to other third parties.'],
     ['Your rights', 'You have the right of access, rectification, erasure, restriction, portability and objection. You may lodge a complaint with the Czech Office for Personal Data Protection (www.uoou.cz).'],
     ['Cookies', 'Without consent the site uses no analytics cookies. To change your choice, clear this site’s data in your browser and the banner will reappear.'],
   ],
   ru: [
-    ['Оператор данных', `Оператором персональных данных является ${SITE.person}, IČO ${SITE.ico}, ${SITE.city}, e-mail ${SITE.email}.`],
+    ['Оператор данных', `Оператором персональных данных является ${SITE.person}, IČO ${SITE.ico}, ${ADDR}, e-mail ${SITE.email}.`],
     ['Какие данные я обрабатываю', 'Данные из формы заявки (имя, e-mail или телефон, адрес сайта, сообщение) и — только с вашего согласия — данные о посещении сайта через Google Analytics 4.'],
     ['Цель и правовое основание', 'Данные из формы я обрабатываю, чтобы ответить на заявку и подготовить предложение (ст. 6(1)(b) GDPR — преддоговорные действия). Аналитические cookie используются на основании вашего согласия (ст. 6(1)(a) GDPR), которое можно отозвать в любой момент.'],
     ['Срок хранения', 'Данные заявки хранятся до 2 лет с последнего контакта, если договор не заключён. Аналитические данные хранятся 14 месяцев.'],
-    ['Получатели', 'Сервис обработки форм и Google Ireland Ltd. (Google Analytics). Я не продаю и не передаю данные другим третьим лицам.'],
+    ['Получатели', 'Хостинг-провайдер, почтовый сервис (Google Ireland Ltd. – Gmail, куда приходят заявки) и Google Ireland Ltd. (Google Analytics). Я не продаю и не передаю данные другим третьим лицам.'],
     ['Ваши права', 'Вы имеете право на доступ, исправление, удаление, ограничение обработки, переносимость данных и возражение. Жалобу можно подать в Úřad pro ochranu osobních údajů (www.uoou.cz).'],
     ['Cookie', 'Без согласия сайт не использует аналитические cookie. Чтобы изменить выбор, очистите данные сайта в браузере — панель появится снова.'],
   ],

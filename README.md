@@ -58,7 +58,7 @@ hreflang is generated only between versions that exist. The home page picks up t
 2. Upload the **contents** of `dist/` (including the hidden `.htaccess`) to the web root via FTP/SFTP.
 3. `.htaccess` (Apache) handles: HTTPS and non-www redirects to `https://seo-eranosian.com`, the 404 page, gzip, caching and basic security headers. If the hosting runs nginx, tell me and I will write the equivalent config.
 4. Enable the free SSL certificate in the hosting panel before the first launch.
-Forms need an external endpoint (`PUBLIC_FORM_ENDPOINT`), since static hosting has no server-side code.
+The lead form posts to `/send.php` (in `public/`, copied to `dist/`), which e-mails the enquiry to the address set in `TO_EMAIL` at the top of that file. It needs PHP on the hosting. Test it once after the first upload; if mails land in spam or `mail()` is disabled, switch to SMTP or set `PUBLIC_FORM_ENDPOINT` to a third-party service.
 
 ## Before launch (TODO)
 - [x] Contacts, LinkedIn / Instagram, author photo and intro video (`public/media/intro.mp4`, shown on the consulting page)
@@ -66,7 +66,8 @@ Forms need an external endpoint (`PUBLIC_FORM_ENDPOINT`), since static hosting h
 - [x] About page bio, KB Překlady linked to the Make Up Digital Agency review
 - [ ] More reviews for Maps / Full SEO
 - [x] Domain `seo-eranosian.com` and IČO 21462259
-- [ ] Privacy policy: registered address (sídlo), legal review
+- [x] Registered address in the privacy policy
+- [ ] Privacy policy legal review
 - [ ] `public/images/og.png`: final OG image (can be built from the author photo)
 - [ ] The video has burned-in Russian subtitles; consider cs/en versions
-- [ ] Set `PUBLIC_FORM_ENDPOINT`, `PUBLIC_GA_ID`, `PUBLIC_GSC_VERIFICATION` for the build, connect the form, submit `sitemap.xml` to Search Console and Seznam Webmaster
+- [ ] Set `PUBLIC_FORM_ENDPOINT`, `PUBLIC_GA_ID`, `PUBLIC_GSC_VERIFICATION` for the build, test the form on the live site, submit `sitemap.xml` to Search Console and Seznam Webmaster

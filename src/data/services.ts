@@ -12,6 +12,8 @@ export interface Service {
   process: L<string[]>;
   duration: L;
   related: ServiceKey[];
+  // Show another service's reviews (maps work was delivered as part of Full SEO).
+  reviewsFrom?: ServiceKey;
 }
 
 export const SERVICES: Service[] = [
@@ -138,6 +140,7 @@ export const SERVICES: Service[] = [
     },
     duration: { cs: 'Od 1 měsíce', en: 'From 1 month', ru: 'От 1 месяца' },
     related: ['start', 'fullSeo'],
+    reviewsFrom: 'fullSeo',
   },
 ];
 

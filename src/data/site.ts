@@ -7,6 +7,8 @@ export const SITE = {
   email: 'arseniieranosian@gmail.com',
   phone: '+420 735 080 267',
   ico: '21462259', // IČO (company ID)
+  // Registered address: shown in the privacy policy only (not in footer / structured data).
+  address: { street: 'Příčná 1892/4', postalCode: '110 00', city: 'Praha 1', district: 'Nové Město' },
   city: 'Praha',
   country: 'CZ',
   alternateNames: ['Арсений Ераносьян'],

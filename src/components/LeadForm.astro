@@ -12,8 +12,9 @@ interface Props {
   compact?: boolean;
 }
 const { lang, id, service = 'audit', title, compact = false } = Astro.props;
-const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
-if (!endpoint && import.meta.env.PROD) console.warn('[LeadForm] PUBLIC_FORM_ENDPOINT is not set – the form cannot deliver enquiries.');
+// Default: our own PHP handler (public/send.php) that e-mails the enquiry.
+// PUBLIC_FORM_ENDPOINT can point to a third-party service instead.
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '/send.php';
 
 const T = {
   cs: {
