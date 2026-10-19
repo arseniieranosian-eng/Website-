@@ -11,7 +11,7 @@ interface Props {
 }
 const { lang, pageKey, alternates, langFallback } = Astro.props;
 const ui = t(lang);
-const NAV: PageKey[] = ['services', 'cases', 'reviews', 'blog', 'faq', 'about', 'contact'];
+const NAV: PageKey[] = ['services', 'cases', 'about', 'reviews', 'faq', 'contact', 'blog'];
 const current = (k: PageKey) =>
   pageKey === k || (k === 'services' && ['consulting', 'start', 'fullSeo', 'maps'].includes(pageKey ?? '')) || (k === 'cases' && pageKey === 'caseKb');
 ---
