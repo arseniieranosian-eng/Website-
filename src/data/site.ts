@@ -1,12 +1,11 @@
 import type { Lang } from '../i18n/routes';
 
-// TODO before launch: replace the placeholder contact details, socials and media.
 export const SITE = {
   person: 'Arsenii Eranosian',
   brand: 'Arsenii Eranosian · SEO',
   jobTitle: { cs: 'SEO specialista', en: 'SEO specialist', ru: 'SEO-специалист' } as Record<Lang, string>,
-  email: 'hello@example.cz',
-  phone: '+420 000 000 000',
+  email: 'arseniieranosian@gmail.com',
+  phone: '+420 735 080 267',
   city: 'Praha',
   country: 'CZ',
   languages: ['cs', 'en', 'ru'],
@@ -14,18 +13,19 @@ export const SITE = {
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arsenii-eranosian-seo/' },
     { name: 'Instagram', url: 'https://www.instagram.com/mr.eranosian/' },
   ],
-  // Author media for hero / about / consulting blocks. Drop real files into /public/media/.
-  photo: '/images/author.svg',
-  // Vertical (9:16) video, e.g. '/media/intro.mp4'. null = photo only.
-  video: null as string | null,
-  videoPoster: '/images/author.svg',
+  // Author media. Photo is used across the site; the vertical video (with sound,
+  // click-to-play) is shown on the consulting page. Set video to null to hide it.
+  photo: '/images/author.jpg',
+  photoSmall: '/images/author-720.jpg',
+  video: '/media/intro.mp4' as string | null,
+  videoPoster: '/media/intro-poster.jpg',
 };
 
 // "Numbers as proof" block on the home page → links to case studies.
-// TODO: replace with real, verifiable figures.
+// Figures come from the KB Překlady case (see data/cases.ts and the Make Up Digital Agency review).
 export const PROOF: { value: string; label: Record<Lang, string> }[] = [
-  { value: 'XX+', label: { cs: 'projektů', en: 'projects', ru: 'проектов' } },
-  { value: '+XXX %', label: { cs: 'růst organické návštěvnosti', en: 'organic traffic growth', ru: 'рост органического трафика' } },
-  { value: 'XX', label: { cs: 'klíčových slov v TOP 3', en: 'keywords in the top 3', ru: 'запросов в ТОП-3' } },
-  { value: 'X let', label: { cs: 'praxe v SEO', en: 'years in SEO', ru: 'лет в SEO' } },
+  { value: '×6', label: { cs: 'zobrazení ve vyhledávání', en: 'search impressions', ru: 'показов в поиске' } },
+  { value: '×300+', label: { cs: 'kliknutí z vyhledávání', en: 'clicks from search', ru: 'кликов из поиска' } },
+  { value: '+65–70 %', label: { cs: 'poptávek měsíčně po prvním nárůstu ×5', en: 'enquiries per month after the first ×5 jump', ru: 'заявок в месяц после первого роста в 5 раз' } },
+  { value: '×3', label: { cs: 'B2B poptávek', en: 'B2B enquiries', ru: 'B2B-заявок' } },
 ];

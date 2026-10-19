@@ -78,10 +78,10 @@ export const serviceSchema = (site: URL, name: string, description: string, url:
   areaServed: { '@type': 'Country', name: 'Czech Republic' },
 });
 
-// Sample reviews are never marked up. Star snippets are not promised: Google
-// generally does not show them for self-serving reviews.
+// Only reviews with a named author and a rating are marked up. Star snippets
+// are not promised: Google generally does not show them for self-serving reviews.
 export const reviewSchema = (site: URL, reviews: Review[], lang: Lang) => {
-  const real = reviews.filter((r) => !r.sample);
+  const real = reviews.filter((r) => !r.sample && r.author && r.rating);
   if (!real.length) return null;
   return {
     '@type': 'ProfessionalService',
@@ -89,7 +89,7 @@ export const reviewSchema = (site: URL, reviews: Review[], lang: Lang) => {
     review: real.map((r) => ({
       '@type': 'Review',
       author: { '@type': 'Person', name: r.author },
-      datePublished: r.date,
+      ...(r.date ? { datePublished: r.date } : {}),
       reviewBody: r.text[lang],
       reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
     })),

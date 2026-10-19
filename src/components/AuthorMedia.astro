@@ -1,12 +1,23 @@
 ---
 import { SITE } from '../data/site';
-interface Props { alt: string; eager?: boolean }
-const { alt, eager = false } = Astro.props;
+interface Props { alt: string; eager?: boolean; variant?: 'photo' | 'video' }
+const { alt, eager = false, variant = 'photo' } = Astro.props;
+const showVideo = variant === 'video' && SITE.video;
 ---
-<div class="author-media">
-  {SITE.video ? (
-    <video src={SITE.video} poster={SITE.videoPoster} autoplay muted loop playsinline preload="metadata" aria-label={alt}></video>
+<div class:list={['author-media', { 'author-media--video': showVideo }]}>
+  {showVideo ? (
+    <video src={SITE.video} poster={SITE.videoPoster} controls playsinline preload="none" aria-label={alt} width="720" height="1280"></video>
   ) : (
-    <img src={SITE.photo} alt={alt} width="720" height="900" loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" />
+    <img
+      src={SITE.photoSmall}
+      srcset={`${SITE.photoSmall} 720w, ${SITE.photo} 900w`}
+      sizes="(min-width: 900px) 520px, 100vw"
+      alt={alt}
+      width="720"
+      height="900"
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
+      decoding="async"
+    />
   )}
 </div>

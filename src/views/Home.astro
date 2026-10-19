@@ -164,7 +164,7 @@ const C = {
         <div><h2>{ui.reviewsTitle}</h2><p>{C.reviewsText}</p></div>
         <a class="link-arrow" href={path('reviews', lang)}>{ui.allReviews}</a>
       </div>
-      <ReviewCards reviews={featuredReviews(3)} lang={lang} />
+      <ReviewCards reviews={featuredReviews(3)} lang={lang} compact />
     </div>
   </section>
 

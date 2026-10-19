@@ -2,19 +2,24 @@
 import type { Review } from '../data/reviews';
 import type { Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
-interface Props { reviews: Review[]; lang: Lang }
-const { reviews, lang } = Astro.props;
+interface Props { reviews: Review[]; lang: Lang; compact?: boolean }
+const { reviews, lang, compact = false } = Astro.props;
 ---
 <div class="grid grid-3">
-  {reviews.map((r) => (
-    <figure class="card review">
-      <div class="stars" aria-label={`${r.rating}/5`}>{'★'.repeat(r.rating)}</div>
-      <blockquote><p>{r.text[lang]}</p></blockquote>
-      <figcaption>
-        <strong>{r.author}</strong>
-        <span>{r.role[lang]}{r.company && `, ${r.company}`}</span>
-        {r.sample && <span class="badge">{t(lang).sampleNote}</span>}
-      </figcaption>
-    </figure>
-  ))}
+  {reviews.map((r) => {
+    const name = r.author ?? r.company ?? r.role[lang];
+    const sub = r.author ? [r.role[lang], r.company].filter(Boolean).join(', ') : r.company ? r.role[lang] : '';
+    return (
+      <figure class="card review">
+        {r.rating && <div class="stars" aria-label={`${r.rating}/5`}>{'★'.repeat(r.rating)}</div>}
+        <blockquote>{(compact && r.short ? r.short[lang] : r.text[lang]).split('\n\n').map((p) => <p>{p}</p>)}</blockquote>
+        <figcaption>
+          <strong>{name}</strong>
+          {sub && <span>{sub}</span>}
+          {r.source && <span class="badge">{r.source}</span>}
+          {r.sample && <span class="badge">{t(lang).sampleNote}</span>}
+        </figcaption>
+      </figure>
+    );
+  })}
 </div>

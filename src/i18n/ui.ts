@@ -37,6 +37,7 @@ export const UI = {
     cookieAccept: 'Přijmout',
     cookieReject: 'Odmítnout',
     cookieMore: 'Více informací',
+    metricsSource: 'Zdroj: reference Make Up Digital Agency.',
     sampleNote: 'Ukázkový obsah – nahraďte reálnými daty před spuštěním.',
   },
   en: {
@@ -74,6 +75,7 @@ export const UI = {
     cookieAccept: 'Accept',
     cookieReject: 'Reject',
     cookieMore: 'Learn more',
+    metricsSource: 'Source: reference from Make Up Digital Agency.',
     sampleNote: 'Sample content – replace with real data before launch.',
   },
   ru: {
@@ -111,6 +113,7 @@ export const UI = {
     cookieAccept: 'Принять',
     cookieReject: 'Отклонить',
     cookieMore: 'Подробнее',
+    metricsSource: 'Источник: отзыв Make Up Digital Agency.',
     sampleNote: 'Пример контента – замените реальными данными перед запуском.',
   },
 } satisfies Record<Lang, Record<string, string>>;

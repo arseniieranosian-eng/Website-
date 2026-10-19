@@ -30,7 +30,7 @@ const C = {
     <div class="container">
       <h2 class="sr-only">{C.results}</h2>
       <dl class="stats">{c.metrics.map((x) => <div><dt>{x.label[lang]}</dt><dd>{x.value}</dd></div>)}</dl>
-      <p class="muted small center">{ui.sampleNote}</p>
+      <p class="muted small center">{ui.metricsSource}</p>
     </div>
   </section>
   <section class="section section--grey">

@@ -9,38 +9,38 @@ export interface CaseStudy {
   teaser: L;
   challenge: L;
   solution: L<string[]>;
-  // TODO: replace placeholder metrics with real, verifiable numbers.
+  // Source: client reference from Make Up Digital Agency (see data/reviews.ts).
   metrics: { value: string; label: L }[];
   services: ServiceKey[];
 }
 
-// TODO: challenge/solution copy below is a draft structure — verify against the real project.
 export const CASES: CaseStudy[] = [
   {
     key: 'caseKb',
     client: 'KB Překlady',
     industry: { cs: 'Překladatelská agentura', en: 'Translation agency', ru: 'Бюро переводов' },
     teaser: {
-      cs: 'Překladatelská agentura v silně konkurenčním oboru: z nevýrazných pozic na přední místa pro klíčové dotazy a více poptávek z vyhledávání.',
-      en: 'A translation agency in a highly competitive field: from weak rankings to top positions for key queries and more enquiries from search.',
-      ru: 'Бюро переводов в очень конкурентной нише: от слабых позиций к верхним строчкам по ключевым запросам и рост заявок из поиска.',
+      cs: 'Web překladatelské agentury, který na startu prakticky nerankoval a nepřinášel poptávky: zobrazení ×6, kliky ×300+, poptávky nejprve ×5 a poté +65–70 % měsíčně.',
+      en: 'A translation agency website that hardly ranked and brought no enquiries at the start: impressions ×6, clicks ×300+, enquiries first ×5 and then +65–70% per month.',
+      ru: 'Сайт бюро переводов, который на старте почти не ранжировался и не приносил заявок: показы ×6, клики ×300+, заявки сначала ×5, затем +65–70% в месяц.',
     },
     challenge: {
-      cs: 'Web měl technické chyby v indexaci, slabou strukturu služeb a nízkou viditelnost na dotazy typu „soudní překlad Praha“. Většina poptávek přicházela jen z doporučení.',
-      en: 'The website had indexing errors, a weak service structure and low visibility for queries such as “certified translation Prague”. Most enquiries came only from referrals.',
-      ru: 'У сайта были ошибки индексации, слабая структура услуг и низкая видимость по запросам вроде «судебный перевод Прага». Большинство заявок приходило только по рекомендациям.',
+      cs: 'Na začátku web prakticky nerankoval ve vyhledávání a nepřinášel žádné poptávky.',
+      en: 'At the start the website hardly ranked in search and brought no enquiries.',
+      ru: 'На старте сайт практически не ранжировался в поиске и не приносил заявок.',
     },
     solution: {
-      cs: ['Technický audit a oprava indexace', 'Nová struktura stránek podle jazyků a typů překladů', 'Optimalizace textů a meta údajů', 'Lokální SEO v Google Maps a Mapy.com', 'Strukturovaná data a příprava na AI vyhledávání'],
-      en: ['Technical audit and indexing fixes', 'New page structure by language and translation type', 'Copy and metadata optimisation', 'Local SEO on Google Maps and Mapy.com', 'Structured data and preparation for AI search'],
-      ru: ['Технический аудит и исправление индексации', 'Новая структура страниц по языкам и типам переводов', 'Оптимизация текстов и метаданных', 'Локальное SEO в Google Maps и Mapy.com', 'Структурированные данные и подготовка к AI-поиску'],
+      cs: ['Vybudování struktury webu od nuly', 'Pravidelné SEO audity', 'Týdenní podrobné reporty o odvedené práci', 'Optimalizace pro AI vyhledávání: web se začal objevovat v Google AI Overview a ChatGPT'],
+      en: ['Site structure built from scratch', 'Regular SEO audits', 'Detailed weekly reports on the work done', 'Optimisation for AI search: the site began appearing in Google AI Overview and ChatGPT'],
+      ru: ['Структура сайта выстроена с нуля', 'Регулярные SEO-аудиты', 'Еженедельные подробные отчёты о проделанной работе', 'Оптимизация под AI-поиск: сайт стал появляться в Google AI Overview и ChatGPT'],
     },
     metrics: [
-      { value: '+XXX %', label: { cs: 'organická návštěvnost', en: 'organic traffic', ru: 'органический трафик' } },
-      { value: 'XX', label: { cs: 'dotazů v TOP 3', en: 'queries in the top 3', ru: 'запросов в ТОП-3' } },
-      { value: '×X', label: { cs: 'poptávek z webu', en: 'website enquiries', ru: 'заявок с сайта' } },
+      { value: '×6', label: { cs: 'zobrazení ve vyhledávání', en: 'search impressions', ru: 'показов в поиске' } },
+      { value: '×300+', label: { cs: 'kliknutí z vyhledávání', en: 'clicks from search', ru: 'кликов из поиска' } },
+      { value: '×5', label: { cs: 'poptávek (první nárůst), pak +65–70 % měsíčně', en: 'enquiries (first jump), then +65–70% monthly', ru: 'заявок (первый рост), затем +65–70% в месяц' } },
+      { value: '×3', label: { cs: 'B2B poptávek', en: 'B2B enquiries', ru: 'B2B-заявок' } },
     ],
-    services: ['start', 'fullSeo', 'maps'],
+    services: ['start', 'fullSeo'],
   },
 ];
 

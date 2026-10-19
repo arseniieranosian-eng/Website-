@@ -43,7 +43,7 @@ const C = {
 
   <section class="section section--tight">
     <div class:list={['container', { split: service === 'consulting' }]}>
-      {service === 'consulting' && <AuthorMedia alt={C.alt} />}
+      {service === 'consulting' && <AuthorMedia alt={C.alt} variant="video" />}
       <div class="grid grid-2">
         <div class="card">
           <h2>{C.forWhom}</h2>
@@ -73,7 +73,7 @@ const C = {
     <section class="section section--grey">
       <div class="container">
         <div class="section-head"><h2>{ui.reviewsTitle}</h2><a class="link-arrow" href={path('reviews', lang)}>{ui.allReviews}</a></div>
-        <ReviewCards reviews={reviews} lang={lang} />
+        <ReviewCards reviews={reviews} lang={lang} compact />
       </div>
     </section>
   )}

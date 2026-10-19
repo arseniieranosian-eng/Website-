@@ -3,18 +3,20 @@ import type { Lang, ServiceKey } from '../i18n/routes';
 // Single source of reviews. Home, service pages, case studies and /recenze/
 // all pull from here — never copy review text into a page.
 //
-// TODO before launch: replace the sample entries with real client reviews
-// (with the client's consent) and set `sample: false`. Sample reviews are
-// labelled on the page and never emitted as schema.org Review markup.
+// Names of private reviewers are intentionally left out; `role`/`company`
+// identify them instead. Schema.org Review markup is emitted only for entries
+// that have both an `author` and a `rating` (none currently do, so no stars).
 
 export interface Review {
   id: string;
-  author: string;
+  author?: string;
   role: Record<Lang, string>;
   company?: string;
-  rating: 1 | 2 | 3 | 4 | 5;
-  date: string; // ISO
+  source?: string;
+  rating?: 1 | 2 | 3 | 4 | 5;
+  date?: string; // ISO, when known
   text: Record<Lang, string>;
+  short?: Record<Lang, string>; // excerpt for compact cards (home, service pages)
   services: ServiceKey[];
   caseKey?: 'caseKb';
   featured?: number; // lower = shown first on the home page
@@ -23,69 +25,65 @@ export interface Review {
 
 export const REVIEWS: Review[] = [
   {
-    id: 'kb-preklady',
-    author: 'Jméno Příjmení',
-    role: { cs: 'jednatel', en: 'Managing Director', ru: 'директор' },
-    company: 'KB Překlady',
-    rating: 5,
-    date: '2026-06-01',
+    id: 'make-up-agency',
+    company: 'Make Up Digital Agency',
+    role: { cs: 'partnerská digitální agentura', en: 'partner digital agency', ru: 'партнёрское digital-агентство' },
     text: {
-      cs: 'Ukázková recenze. Sem vložte skutečné hodnocení klienta KB Překlady – co se změnilo, jak probíhala spolupráce a jaký byl výsledek.',
-      en: 'Sample review. Insert the real feedback from KB Překlady here – what changed, how the work went and what the outcome was.',
-      ru: 'Пример отзыва. Вставьте сюда реальный отзыв KB Překlady – что изменилось, как шла работа и какой получился результат.',
+      cs: 'Arsenii s námi pracoval na SEO propagaci webu překladatelské agentury v rámci spolupráce s Make Up Digital Agency.\n\nNa začátku web prakticky nerankoval a nepřinášel poptávky. Arsenii od nuly vybudoval strukturu webu, pravidelně prováděl audity a každý týden poskytoval podrobné reporty o odvedené práci.\n\nBěhem spolupráce vzrostla zobrazení ve vyhledávání 6×, kliknutí více než 300×. Web se začal objevovat v Google AI Overview a ChatGPT a počet poptávek dosáhl stabilního růstu: po prvním nárůstu 5× přibylo dalších +65–70 % každý měsíc. B2B poptávky se ztrojnásobily.\n\nDoporučujeme Arsenii jako systematického, zodpovědného a výsledkového SEO specialistu.',
+      en: 'Arsenii worked with us on the SEO of a translation agency’s website as part of our cooperation with Make Up Digital Agency.\n\nAt the start the site hardly ranked and brought no enquiries. Arsenii built the site structure from scratch, ran regular audits and sent detailed weekly reports on the work done.\n\nDuring the engagement search impressions grew 6×, clicks more than 300×. The site started appearing in Google AI Overview and ChatGPT, and enquiries moved to steady growth: after the first 5× increase, a further +65–70% every month. B2B enquiries tripled.\n\nWe recommend Arsenii as a systematic, responsible and results-driven SEO specialist.',
+      ru: 'Арсений работал с нами над SEO-продвижением сайта переводческого агентства в рамках сотрудничества с Make Up Digital Agency.\n\nНа старте сайт практически не ранжировался и не приносил заявок. Арсений с нуля выстроил структуру сайта, регулярно проводил аудиты и еженедельно предоставлял подробные отчёты по проделанной работе.\n\nЗа время сотрудничества показы в поиске выросли в 6 раз, клики — более чем в 300 раз. Сайт начал появляться в Google AI Overview и ChatGPT, а количество заявок вышло на стабильный рост: после первого увеличения в 5 раз — ещё +65–70% ежемесячно. B2B-заявки выросли втрое.\n\nРекомендуем Арсения как системного, ответственного и результативного SEO-специалиста.',
+    },
+    short: {
+      cs: 'Na začátku web prakticky nerankoval a nepřinášel poptávky. Arsenii od nuly vybudoval strukturu webu, pravidelně prováděl audity a každý týden posílal podrobné reporty. […] Zobrazení ve vyhledávání vzrostla 6×, kliknutí více než 300×, B2B poptávky se ztrojnásobily. Doporučujeme jako systematického, zodpovědného a výsledkového SEO specialistu.',
+      en: 'At the start the site hardly ranked and brought no enquiries. Arsenii built the site structure from scratch, ran regular audits and sent detailed weekly reports. […] Search impressions grew 6×, clicks more than 300×, B2B enquiries tripled. We recommend him as a systematic, responsible and results-driven SEO specialist.',
+      ru: 'На старте сайт практически не ранжировался и не приносил заявок. Арсений с нуля выстроил структуру сайта, регулярно проводил аудиты и еженедельно присылал подробные отчёты. […] Показы в поиске выросли в 6 раз, клики — более чем в 300 раз, B2B-заявки выросли втрое. Рекомендуем как системного, ответственного и результативного SEO-специалиста.',
     },
     services: ['start', 'fullSeo'],
     caseKey: 'caseKb',
     featured: 1,
-    sample: true,
+    sample: false,
   },
   {
-    id: 'client-2',
-    author: 'Jméno Příjmení',
-    role: { cs: 'majitelka salonu', en: 'Salon owner', ru: 'владелица салона' },
-    rating: 5,
-    date: '2026-04-15',
+    id: 'consulting-client',
+    role: { cs: 'klientka SEO konzultace', en: 'SEO consultation client', ru: 'клиентка SEO-консультации' },
     text: {
-      cs: 'Ukázková recenze ke službě Mapy. Nahraďte skutečnou zkušeností klienta s lokálním SEO.',
-      en: 'Sample review for the Maps service. Replace with a real client’s local SEO experience.',
-      ru: 'Пример отзыва об услуге «Карты». Замените реальным опытом клиента с локальным SEO.',
-    },
-    services: ['maps'],
-    featured: 2,
-    sample: true,
-  },
-  {
-    id: 'client-3',
-    author: 'Jméno Příjmení',
-    role: { cs: 'marketingová manažerka', en: 'Marketing Manager', ru: 'маркетолог' },
-    rating: 5,
-    date: '2026-03-10',
-    text: {
-      cs: 'Ukázková recenze ke konzultaci. Nahraďte skutečnou zpětnou vazbou.',
-      en: 'Sample review for consulting. Replace with real feedback.',
-      ru: 'Пример отзыва о консультации. Замените реальным отзывом.',
+      cs: 'Děkuji vám za konzultaci o SEO v digitálním marketingu. Pro mě to bylo velmi poučné. Získala jsem od vás spoustu cenných a užitečných informací z vaší zkušenosti a praxe. Měla jsem mnoho otázek a za hodinu a půl naší komunikace jsem získala orientaci a praktický akční plán pro současnou fázi.',
+      en: 'Thank you for the consultation on SEO in digital marketing. It was very informative for me. I received a lot of valuable, useful information from your experience and practice. I had many questions, and in an hour and a half of talking I got direction and a practical action plan for my current stage.',
+      ru: 'Благодарю Вас за консультацию относительно SEO в Digital Marketing. Для меня это было очень познавательно. Получила от Вас множество ценной полезной информации из Вашего опыта и практики. У меня было много вопросов, и за полтора часа нашего общения я получила ориентир и практический план к действию на данном этапе.',
     },
     services: ['consulting'],
-    featured: 3,
-    sample: true,
+    featured: 2,
+    sample: false,
   },
   {
-    id: 'client-4',
-    author: 'Jméno Příjmení',
-    role: { cs: 'zakladatel e-shopu', en: 'E-commerce founder', ru: 'основатель интернет-магазина' },
-    rating: 5,
-    date: '2026-02-20',
+    id: 'linkedin-mentor',
+    role: { cs: 'mentor ve společnosti Unimenty', en: 'mentor at Unimenty', ru: 'ментор в Unimenty' },
+    source: 'LinkedIn',
+    date: '2026-01-13',
     text: {
-      cs: 'Ukázková recenze k celoročnímu SEO. Nahraďte skutečnou zpětnou vazbou.',
-      en: 'Sample review for full-year SEO. Replace with real feedback.',
-      ru: 'Пример отзыва о SEO на год. Замените реальным отзывом.',
+      cs: 'Měl jsem to potěšení spolupracovat s Arsenim ve společnosti Unimenty, kde měl na starosti on-page SEO a copywriting. Soustavně dodával kvalitní, dobře strukturovaný obsah optimalizovaný pro vyhledávače i uživatelskou zkušenost. Arsenii dobře rozumí osvědčeným postupům SEO a umí složité myšlenky přetavit do jasného a poutavého textu. Spolehlivý a zdatný profesionál, spolupráci s ním vřele doporučuji.',
+      en: 'I had the pleasure of working with Arsenii at Unimenty, where he was responsible for on-page SEO and copywriting. He consistently delivered high-quality, well-structured content optimized for both search engines and user experience. Arsenii has a strong understanding of SEO best practices and knows how to turn complex ideas into clear, engaging copy. A reliable and skilled professional, I highly recommend working with him.',
+      ru: 'Мне было приятно работать с Арсением в Unimenty, где он отвечал за on-page SEO и копирайтинг. Он стабильно выдавал качественный, хорошо структурированный контент, оптимизированный и для поисковых систем, и для пользователей. Арсений хорошо знает SEO best practices и умеет превращать сложные идеи в понятные, живые тексты. Надёжный и сильный профессионал, искренне рекомендую работать с ним.',
     },
-    services: ['fullSeo', 'consulting'],
-    sample: true,
+    services: ['start', 'fullSeo'],
+    featured: 3,
+    sample: false,
+  },
+  {
+    id: 'linkedin-teammate',
+    role: { cs: 'kolega z týmu Unimenty', en: 'teammate at Unimenty', ru: 'коллега по команде в Unimenty' },
+    source: 'LinkedIn',
+    text: {
+      cs: 'Měl jsem to potěšení pracovat s Arsenim v jednom týmu ve společnosti Unimenty. Arsenii soustavně prokazoval silný profesionalismus, kreativitu a orientaci na výsledky v každém projektu, na kterém jsme spolupracovali. […] Jeho komunikační dovednosti a proaktivní přístup z něj dělaly spolehlivého člena týmu, na kterého jsem se mohl vždy spolehnout, že dodá kvalitní práci včas.',
+      en: 'I had the pleasure of working with Arsenii in the same team at Unimenty. Arsenii consistently demonstrated strong professionalism, creativity, and a results-driven mindset in every project we collaborated on. […] His communication skills and proactive approach made him a reliable team member and someone I could always count on to deliver high-quality work on time.',
+      ru: 'Мне было приятно работать с Арсением в одной команде в Unimenty. Арсений неизменно демонстрировал высокий профессионализм, креативность и ориентацию на результат в каждом проекте, над которым мы работали вместе. […] Его коммуникативные навыки и проактивный подход делали его надёжным членом команды, на которого я всегда мог положиться в том, что качественная работа будет сделана в срок.',
+    },
+    services: ['fullSeo'],
+    sample: false,
   },
 ];
 
-const byDate = (a: Review, b: Review) => b.date.localeCompare(a.date);
+const byDate = (a: Review, b: Review) => (b.date ?? '').localeCompare(a.date ?? '');
 
 export const featuredReviews = (limit = 3) =>
   REVIEWS.filter((r) => r.featured !== undefined)
@@ -93,8 +91,12 @@ export const featuredReviews = (limit = 3) =>
     .slice(0, limit);
 
 export const reviewsForService = (key: ServiceKey, limit = 2) =>
-  REVIEWS.filter((r) => r.services.includes(key)).sort(byDate).slice(0, limit);
+  REVIEWS.filter((r) => r.services.includes(key))
+    .sort((a, b) => (a.featured ?? 99) - (b.featured ?? 99) || byDate(a, b))
+    .slice(0, limit);
 
 export const reviewsForCase = (key: 'caseKb') => REVIEWS.filter((r) => r.caseKey === key);
 
-export const allReviews = () => [...REVIEWS].sort(byDate);
+// Page order: the featured ones first, then by date.
+export const allReviews = () =>
+  [...REVIEWS].sort((a, b) => (a.featured ?? 99) - (b.featured ?? 99) || byDate(a, b));
