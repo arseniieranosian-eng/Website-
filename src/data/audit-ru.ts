@@ -6,15 +6,23 @@ import { CONSULTING_RU } from './consulting-ru';
 
 interface Check { text: string; inCatalog?: false }
 
-// The sample-presentation video is added later (needs the anonymised mp4 + poster). While this is null the page
-// shows no video block and emits no VideoObject. Fill in the fields to switch both on.
-export const AUDIT_VIDEO = null as null | {
-  src: string; // /media/audit-example.mp4
+// Sample presentation video (public/media/audit-example.mp4, prepared by scripts/prepare-audit-video.sh from the raw
+// recording). Set to null to hide the video block and drop the VideoObject from the JSON-LD together.
+interface Video {
+  src: string;
   poster: string;
   width: number;
   height: number;
-  duration: string; // ISO 8601, e.g. PT32S
-  uploadDate: string; // ISO date the video went live
+  duration: string; // ISO 8601
+  uploadDate: string; // ISO date the video went live on the site; change only if the file is replaced
+}
+export const AUDIT_VIDEO: Video | null = {
+  src: '/media/audit-example.mp4',
+  poster: '/media/audit-example-poster.jpg',
+  width: 1280,
+  height: 688,
+  duration: 'PT32S',
+  uploadDate: '2026-10-19',
 };
 
 export const AUDIT_RU = {
@@ -62,7 +70,7 @@ export const AUDIT_RU = {
   videoCaption: 'Пример презентации бесплатного SEO-аудита (32 секунды, без звука).',
   videoName: 'Пример презентации бесплатного SEO-аудита',
   videoDescription: 'Пример презентации, которую вы получаете после бесплатного SEO-аудита: сводка по сайту, технические ошибки с приоритетами и что даёт платный разбор.',
-  videoText: 'Слайды примера: сводка по сайту (сколько страниц просканировано, сколько ошибок и предупреждений, что в порядке и что мешает росту); слишком длинные тайтлы; шаблонные заголовки H1, H2 и мета-описания; сигналы для Google с приоритетами (адреса, закрытые от робота, страницы без canonical, адреса с параметрами); мелочи, которые накапливаются; что даёт платный разбор: ошибки с примерами страниц, решения и план на 12 месяцев.',
+  videoText: 'Слайды примера: сводка по сайту (сколько страниц просканировано, сколько ошибок и предупреждений, что в порядке и что мешает росту); часть товарных страниц не найдена в Google; слишком длинные тайтлы; шаблонные заголовки H1, H2 и мета-описания; сигналы для Google с приоритетами (адреса, закрытые от робота, страницы без canonical, адреса с параметрами); мелочи, которые накапливаются; что даёт платный разбор: ошибки с примерами страниц, решения и план на 12 месяцев.',
 
   compareTitle: 'Чем бесплатный аудит отличается от консультации и Старта?',
   compareAnswer: 'Аудит показывает, где проблемы. Консультация показывает, что с ними делать. Старт на 3 месяца означает, что исправления делаю я.',

@@ -345,3 +345,7 @@ table.compare { min-width: 0; }
 .examples__shots { display: flex; gap: 16px; overflow-x: auto; padding: 4px 0 12px; }
 .examples__shots img { height: 420px; width: auto; max-width: none; flex: none; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
 @media (max-width: 640px) { .examples__shots img { height: 320px; } }
+
+/* Sample audit presentation video (16:9-ish, silent) */
+.audit-video { margin: 16px 0 12px; }
+.audit-video video { display: block; width: 100%; height: auto; aspect-ratio: 1280 / 688; border: 1px solid var(--line); border-radius: var(--radius); background: #000; }
