@@ -1,4 +1,5 @@
 import type { Lang, ServiceKey } from '../i18n/routes';
+import { fmtKc, MIN_PRICE } from './consulting';
 
 type L<T = string> = Record<Lang, T>;
 
@@ -31,7 +32,7 @@ export const SERVICES: Service[] = [
       ru: 'Нужен взгляд со стороны, непонятно, с чего начать, или ваша команда ведёт SEO и хочет проверить направление? Консультация даст конкретные ответы и список шагов по приоритету.',
     },
     forWhom: {
-      cs: ['Majitelé firem, kteří chtějí rozumět SEO', 'Marketingové týmy a in-house specialisté', 'Weby před redesignem nebo migrací'],
+      cs: ['Majitelé firem, kteří chtějí druhý názor na SEO svého webu', 'Weby před redesignem nebo přechodem na nový web', 'Firmy, které chtějí vědět, co a kdy na webu změnit'],
       en: ['Business owners who want to understand SEO', 'Marketing teams and in-house specialists', 'Websites before a redesign or migration'],
       ru: ['Владельцы бизнеса, которые хотят разобраться в SEO', 'Маркетинговые команды и in-house специалисты', 'Сайты перед редизайном или миграцией'],
     },
@@ -45,7 +46,7 @@ export const SERVICES: Service[] = [
       en: ['Send me your site and questions', 'I review the site and prepare notes', 'We go through everything together', 'Within 2 days you get a summary and plan'],
       ru: ['Присылаете сайт и вопросы', 'Я изучаю сайт и готовлю материалы', 'Вместе всё обсуждаем', 'В течение 2 дней — резюме и план'],
     },
-    duration: { cs: 'Jednorázově nebo opakovaně', en: 'One-off or recurring', ru: 'Разово или регулярно' },
+    duration: { cs: `Od ${fmtKc(MIN_PRICE)} · 1 hodina nebo bez časového omezení`, en: 'One-off or recurring', ru: 'Разово или регулярно' },
     related: ['start', 'fullSeo'],
   },
   {

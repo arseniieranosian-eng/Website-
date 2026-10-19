@@ -42,6 +42,9 @@ Create `src/content/blog/cs/my-slug.md` with the frontmatter `title`, `descripti
 For a translation, add a file in `en/` or `ru/` with **the same** `translationKey` and a translated file name (that is the slug).
 hreflang is generated only between versions that exist. The home page picks up the 3 latest posts automatically.
 
+## Page briefs implemented
+- `/sluzby/konzultace/` (cs): brief of 19.10.2026 — content in `src/data/consulting.ts`, template `src/views/ConsultingCs.astro`, JSON-LD in `src/lib/schema-consulting.ts`. en/ru still use the generic `Service.astro`. The visible "Aktualizováno" date and `dateModified` come from git (`src/lib/lastmod.ts`) and update with every content edit. **Next content review: 17. 1. 2027** (about every 90 days).
+
 ## SEO
 - SSG, mobile-first, no JS frameworks (the only scripts are the menu, form, cookie banner and GA).
 - hreflang + x-default (cs) in `<head>` and in `sitemap.xml`; canonical on every page; `robots.txt`.
@@ -57,7 +60,7 @@ hreflang is generated only between versions that exist. The home page picks up t
 ## Deploy (Czech shared hosting)
 1. `npm run build` (creates `dist/` and runs the SEO check).
 2. Upload the **contents** of `dist/` (including the hidden `.htaccess`) to the web root via FTP/SFTP.
-3. `.htaccess` (Apache) handles: HTTPS and non-www redirects to `https://seo-eranosian.com`, the 404 page, gzip, caching and basic security headers. If the hosting runs nginx, tell me and I will write the equivalent config.
+3. `.htaccess` (Apache) handles: HTTPS handled by the hosting panel; canonical host is `https://www.seo-eranosian.com`, the 404 page, gzip, caching and basic security headers. If the hosting runs nginx, tell me and I will write the equivalent config.
 4. Enable the free SSL certificate in the hosting panel before the first launch.
 The lead form posts to `/send.php` (in `public/`, copied to `dist/`), which e-mails the enquiry to the address set in `TO_EMAIL` at the top of that file. It needs PHP on the hosting. Test it once after the first upload; if mails land in spam or `mail()` is disabled, switch to SMTP or set `PUBLIC_FORM_ENDPOINT` to a third-party service.
 

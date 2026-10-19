@@ -100,3 +100,14 @@ export const reviewsForCase = (key: 'caseKb') => REVIEWS.filter((r) => r.caseKey
 // Page order: the featured ones first, then by date.
 export const allReviews = () =>
   [...REVIEWS].sort((a, b) => (a.featured ?? 99) - (b.featured ?? 99) || byDate(a, b));
+
+// Reviews for a service page: the service's own first, then (if fewer than `min`) the latest
+// reviews of other services — newest dated first, undated ones in featured order.
+export const reviewsWithFallback = (key: ServiceKey, max = 3, min = 3) => {
+  const own = reviewsForService(key, max);
+  if (own.length >= min) return own;
+  const rest = REVIEWS.filter((r) => !own.includes(r)).sort(
+    (a, b) => (b.date ? 1 : 0) - (a.date ? 1 : 0) || byDate(a, b) || (a.featured ?? 99) - (b.featured ?? 99),
+  );
+  return [...own, ...rest].slice(0, max);
+};

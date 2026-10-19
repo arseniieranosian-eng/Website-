@@ -6,7 +6,7 @@ import type { Lang } from '../i18n/routes';
 const abs = (site: URL, p: string) => new URL(p, site).href;
 
 export const ids = (site: URL) => ({
-  person: abs(site, '/#person'),
+  person: abs(site, '/#arsenii'),
   business: abs(site, '/#business'),
   website: abs(site, '/#website'),
 });
@@ -97,13 +97,16 @@ export function baseGraph(site: URL) {
   ];
 }
 
-export const breadcrumbSchema = (site: URL, items: { name: string; path: string }[]) => ({
+// `self` is the page URL; the list gets the id `<self>#breadcrumb` so a WebPage can reference it.
+// The last crumb is the current page and carries no `item` (as Google recommends).
+export const breadcrumbSchema = (site: URL, items: { name: string; path: string }[], self?: string) => ({
   '@type': 'BreadcrumbList',
+  ...(self ? { '@id': abs(site, self) + '#breadcrumb' } : {}),
   itemListElement: items.map((it, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: it.name,
-    item: abs(site, it.path),
+    ...(i < items.length - 1 ? { item: abs(site, it.path) } : {}),
   })),
 });
 
@@ -118,6 +121,7 @@ export const faqSchema = (items: FaqItem[], lang: Lang) => ({
 
 export const serviceSchema = (site: URL, name: string, description: string, url: string) => ({
   '@type': 'Service',
+  '@id': abs(site, url) + '#service',
   name,
   description,
   url: abs(site, url),

@@ -31,7 +31,7 @@ const abs = (p: string) => new URL(p, site).href;
 const canonical = abs(path);
 const hreflangs = LANGS.filter((l) => alternates[l]).map((l) => ({ l, href: abs(alternates[l]!) }));
 const xDefault = alternates[DEFAULT_LANG] ? abs(alternates[DEFAULT_LANG]!) : null;
-const graph = [...baseGraph(site), ...(breadcrumbs ? [breadcrumbSchema(site, breadcrumbs)] : []), ...schema.filter(Boolean)];
+const graph = [...baseGraph(site), ...(breadcrumbs ? [breadcrumbSchema(site, breadcrumbs, path)] : []), ...schema.filter(Boolean)];
 const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
 const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
 ---

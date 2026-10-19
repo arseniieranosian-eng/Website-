@@ -3,7 +3,7 @@ import type { Lang } from '../i18n/routes';
 export const SITE = {
   person: 'Arsenii Eranosian',
   brand: 'Arsenii Eranosian · SEO',
-  jobTitle: { cs: 'SEO specialista', en: 'SEO specialist', ru: 'SEO-специалист' } as Record<Lang, string>,
+  jobTitle: { cs: 'SEO a GEO specialista', en: 'SEO and GEO specialist', ru: 'SEO и GEO-специалист' } as Record<Lang, string>,
   email: 'arseniieranosian@gmail.com',
   phone: '+420 735 080 267',
   ico: '21462259', // IČO (company ID)
@@ -17,7 +17,7 @@ export const SITE = {
     en: 'SEO and GEO specialist based in Prague. SEO as a system that turns search into revenue.',
     ru: 'SEO и GEO-специалист из Праги. SEO как система, которая превращает поиск в выручку.',
   } as Record<Lang, string>,
-  knowsAbout: ['SEO', 'GEO (Generative Engine Optimization)', 'Local SEO', 'Technical SEO', 'Structured data', 'Multilingual SEO'],
+  knowsAbout: ['SEO', 'GEO', 'optimalizace pro AI vyhledávání', 'Google Maps a Seznam Mapy'],
   // Spoken/working languages (ISO 639-1).
   languages: ['cs', 'en', 'ru', 'uk'],
   // Every profile here is emitted as sameAs on the Person, the business and (via footer/contacts) linked on the site.
@@ -32,6 +32,9 @@ export const SITE = {
   photoSmall: '/images/author-720.jpg',
   video: '/media/intro.mp4' as string | null,
   videoPoster: '/media/intro-poster.jpg',
+  // Real date the video went live on the site (first deploy, 19.10.2026). Used in VideoObject.uploadDate.
+  // Do NOT bump it when the page is edited; change it only if the video file is replaced.
+  videoUploadDate: '2026-10-19',
 };
 
 // "Numbers as proof" block on the home page → links to case studies.

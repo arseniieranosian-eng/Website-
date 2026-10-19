@@ -75,8 +75,8 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   consulting: {
     cs: {
       name: 'Konzultace',
-      title: 'SEO konzultace – rozbor webu a akční plán | Praha',
-      description: 'SEO konzultace online nebo osobně v Praze. Rozbor vašeho webu, odpovědi na otázky a písemný akční plán s prioritami.',
+      title: 'SEO konzultace a audit webu — cena od 2 000 Kč | Eranosian',
+      description: 'Chcete druhý názor na SEO svého webu? Konzultace za 2 000 Kč, nebo s podrobným auditem a plánem na 12 měsíců za 3 000 Kč. Online i v Praze.',
       h1: 'SEO konzultace',
     },
     en: {
