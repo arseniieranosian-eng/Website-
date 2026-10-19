@@ -65,7 +65,7 @@ export function startSchemas(site: URL, C: typeof START_RU, opts: { modified: st
         name: sc.catalogName,
         itemListElement: C.includes.map((i) => ({
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: i.text.split('. ')[0].replace(/\.$/, '') },
+          itemOffered: { '@type': 'Service', name: i.catalog ?? i.text.split('. ')[0].replace(/\.$/, '') },
         })),
       },
       ...(reviews.length ? { review: reviews } : {}),
