@@ -11,8 +11,8 @@ export const SITE = {
   country: 'CZ',
   languages: ['cs', 'en', 'ru'],
   socials: [
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/' },
-    { name: 'Instagram', url: 'https://www.instagram.com/' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arsenii-eranosian-seo/' },
+    { name: 'Instagram', url: 'https://www.instagram.com/mr.eranosian/' },
   ],
   // Author media for hero / about / consulting blocks. Drop real files into /public/media/.
   photo: '/images/author.svg',
