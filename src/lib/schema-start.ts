@@ -6,8 +6,8 @@ import type { Review } from '../data/reviews';
 import { ids } from './schema';
 
 // Page-specific JSON-LD for /ru/uslugi/start-3-mesyaca/. The global Person / ProfessionalService / WebSite
-// graph and the BreadcrumbList come from the layout. No HowTo (the stages are the provider's order of
-// work, not instructions for the client), no VideoObject (no video on the page), no AggregateRating.
+// graph and the BreadcrumbList come from the layout. HowTo describes the three monthly stages (the weekly
+// report is a continuous process, not a step, so it is not in it). No VideoObject (no video), no AggregateRating.
 export function startSchemas(site: URL, C: typeof START_RU, opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
@@ -69,6 +69,12 @@ export function startSchemas(site: URL, C: typeof START_RU, opts: { modified: st
         })),
       },
       ...(reviews.length ? { review: reviews } : {}),
+    },
+    {
+      '@type': 'HowTo',
+      name: sc.howToName,
+      totalTime: `P${START_MONTHS}M`,
+      step: C.stages.map((st) => ({ '@type': 'HowToStep', name: st.name, text: st.text })),
     },
     {
       '@type': 'FAQPage',

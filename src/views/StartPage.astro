@@ -76,7 +76,7 @@ const others = [
   <section class="section">
     <div class="container">
       <h2>{C.stagesTitle}</h2>
-      <ol class="steps steps--row">{C.stages.map((x) => <li>{x}</li>)}</ol>
+      <ol class="steps steps--row">{C.stages.map((st) => <li><span><strong>{st.name}:</strong> {st.text}</span></li>)}</ol>
       <p class="muted">{C.weekly}</p>
     </div>
   </section>
