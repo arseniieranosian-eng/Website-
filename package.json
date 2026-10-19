@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/check-seo.mjs && node scripts/check-consulting.mjs && node scripts/check-start.mjs && node scripts/check-fullseo.mjs && node scripts/check-maps.mjs",
+    "build": "astro build && node scripts/check-seo.mjs && node scripts/check-consulting.mjs && node scripts/check-consulting-cs.mjs && node scripts/check-start.mjs && node scripts/check-fullseo.mjs && node scripts/check-maps.mjs",
     "preview": "astro preview",
     "check:seo": "node scripts/check-seo.mjs",
     "check": "astro check"

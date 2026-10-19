@@ -14,7 +14,7 @@ export interface PageMeta {
 export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   home: {
     cs: {
-      name: 'Úvod',
+      name: 'Domů',
       title: 'SEO specialista Praha – Arsenii Eranosian | SEO a GEO',
       description: 'SEO specialista v Praze. Dostanu váš web na první stránky Google a Seznamu a do odpovědí AI. Začněte bezplatným SEO auditem.',
       h1: 'SEO, které přivádí poptávky. Ve vyhledávačích i v AI.',
@@ -74,9 +74,9 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   },
   consulting: {
     cs: {
-      name: 'Konzultace',
-      title: 'SEO konzultace a audit webu — cena od 2 000 Kč | Eranosian',
-      description: 'Chcete druhý názor na SEO svého webu? Konzultace za 2 000 Kč, nebo s podrobným auditem a plánem na 12 měsíců za 3 000 Kč. Online i v Praze.',
+      name: 'SEO konzultace',
+      title: 'SEO konzultace — od 2 000 Kč za hodinu | Eranosian',
+      description: 'Potřebujete nezávislý pohled na SEO vašeho webu? Konzultace online nebo v Praze, odpovědi na otázky i audit s plánem na 12 měsíců. Domluvte si termín.',
       h1: 'SEO konzultace',
     },
     en: {
@@ -154,7 +154,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   },
   geo: {
     cs: {
-      name: 'SEO + GEO',
+      name: 'SEO + GEO/AEO',
       title: 'SEO + GEO 2 v 1 – viditelnost v Google i v ChatGPT',
       description: 'SEO a GEO (Generative Engine Optimization) v jednom: web, který najdou Google a Seznam i ChatGPT, Gemini, Perplexity a AI Overviews.',
       h1: 'SEO + GEO: dvě v jednom',

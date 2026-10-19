@@ -11,14 +11,13 @@ import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { consultingSchemas } from '../lib/schema-consulting';
 import { fmtKc, PRICES } from '../data/consulting-shared';
-import { CONSULTING_CS } from '../data/consulting';
 import { CONSULTING_RU } from '../data/consulting-ru';
 import { reviewsWithFallback } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
-interface Props { lang: 'cs' | 'ru' }
+interface Props { lang: 'ru' }
 const { lang } = Astro.props;
-const C = lang === 'ru' ? CONSULTING_RU : CONSULTING_CS;
+const C = CONSULTING_RU;
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).

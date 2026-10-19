@@ -1,4 +1,4 @@
-// Post-build check of the consulting pages (cs, ru) against their briefs:
+// Post-build check of the Russian consulting page (the Czech one is checked by check-consulting-cs.mjs) against their briefs:
 //  - title 50-60 chars, description 120-160, one H1, section order
 //  - JSON-LD matches the visible text (title, description, lead, FAQ, steps, offers, date, video)
 //  - prices in JSON-LD are CZK only, no AggregateRating / stars, correct canonical and hreflang
@@ -6,16 +6,6 @@ import { readFileSync } from 'node:fs';
 
 const BASE = 'https://www.seo-eranosian.com';
 const PAGES = {
-  cs: {
-    file: 'dist/sluzby/konzultace/index.html',
-    url: '/sluzby/konzultace/',
-    h1: 'SEO konzultace',
-    sections: ['SEO konzultace', 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace', 'Jak probíhá konzultace', 'SEO konzultace online i osobně v Praze', 'Konzultace, nebo dlouhodobá spolupráce?', 'Co to přineslo klientům', 'Co říkají klienti', 'Časté dotazy k SEO konzultaci', 'Nezávazná poptávka', 'Další služby'],
-    crumbs: 'Úvod > Služby > Konzultace',
-    forbidden: ['in-house', '60–90', 'Marketingové'],
-    links: ['/audit-zdarma/', '/sluzby/start-3-mesice/', '/sluzby/full-seo/', '/seo-a-geo/', '/sluzby/mapy/', '/pripadove-studie/kb-preklady/', '/recenze/', '/caste-dotazy/', '/sluzby/'],
-    dateLabel: /Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time>/,
-  },
   ru: {
     file: 'dist/ru/uslugi/konsultacii/index.html',
     url: '/ru/uslugi/konsultacii/',
@@ -80,4 +70,4 @@ if (errors.length) {
   console.error(`\nConsulting page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);
 }
-console.log('Consulting pages check passed: cs, ru.');
+console.log('Consulting page check passed: ru.');

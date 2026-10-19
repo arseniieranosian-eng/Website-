@@ -1,0 +1,194 @@
+---
+// /sluzby/konzultace/ (cs) built from the brief of 19.10.2026. Content: data/consulting-cs.ts, prices: data/consulting-shared.ts.
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { consultingCsSchemas } from '../lib/schema-consulting-cs';
+import { fmtKc, PRICES } from '../data/consulting-shared';
+import { CONSULTING_CS as C } from '../data/consulting-cs';
+import { reviewsWithFallback } from '../data/reviews';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/ConsultingCsPage.astro', 'src/data/consulting-cs.ts', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'], '2026-10-19');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+
+// 1-3 reviews tagged "consulting"; if there are none, the freshest ones for other services.
+const reviews = reviewsWithFallback('consulting', 3, 1);
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const name = (k: keyof typeof META) => META[k][lang].name;
+const others = [
+  { key: 'audit', text: C.audit },
+  { key: 'start', text: '' },
+  { key: 'fullSeo', text: '' },
+  { key: 'maps', text: '' },
+  { key: 'geo', text: C.geo },
+] as const;
+const cmp = C.compare;
+---
+<Base {...pageProps('consulting', lang)} schema={consultingCsSchemas(site, C, { modified: MOD, reviews })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>{C.h1}</h1>
+      <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <p class="price-badge">{C.badge}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+        <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="section section--tight">
+    <div class="container">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>
+            {C.offers.map((o) => <tr><th scope="row">{o.name}</th><td>{fmtKc(PRICES[o.id])}</td><td>{o.duration}</td><td>{o.gets}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <p><a class="btn btn--secondary" href="#form" data-prefill={C.offers[0].prefill}>{C.priceCta}</a></p>
+    </div>
+  </section>
+
+  <!-- WHO IT IS FOR -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.forWhomTitle}</h2>
+      <ul class="checks">{C.forWhom.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- WHAT IS INCLUDED -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.includesTitle}</h2>
+      <ul class="checks">
+        {C.includes.map((i) => {
+          const l = i.link;
+          if (!l) return <li>{i.text}</li>;
+          const [before, after] = i.text.split(l.part);
+          return <li><span>{before}<a href={t(l.page)}>{l.part}</a>{after}</span></li>;
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (+ examples) -->
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.stepsTitle}</h2>
+      <ol class="steps steps--row">{C.steps.map((x) => <li><span>{x}</span></li>)}</ol>
+      <h3 class="examples-title">{C.examplesTitle}</h3>
+      <div class="examples">
+        {C.examples.map((ex) => (
+          <figure class="examples__group">
+            <h4>{ex.title}</h4>
+            <p class="muted">{ex.text}</p>
+            <div class="examples__shots">{ex.images.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
+          </figure>
+        ))}
+      </div>
+      <p class="muted small">{C.examplesNote}</p>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.languagesTitle}</h2>
+      <p class="answer">{C.languages}</p>
+    </div>
+  </section>
+
+  <!-- CONSULTATION, FREE AUDIT, START, FULL SEO -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.compareTitle}</h2>
+      <ul class="checks">
+        <li><span><a href={t('audit')}>{cmp.audit.link}</a>{cmp.audit.after}</span></li>
+        <li>{cmp.consulting}</li>
+        <li><span><a href={t('start')}>{cmp.packages.start}</a>{cmp.packages.startPrice}<a href={t('fullSeo')}>{cmp.packages.full}</a>{cmp.packages.fullPrice}</span></li>
+      </ul>
+      <p>{cmp.outro.before}<a href={t('start')}>{cmp.outro.start}</a>{cmp.outro.mid}<a href={t('fullSeo')}>{cmp.outro.full}</a>{cmp.outro.after}</p>
+      <p><a href={t('geo')}>{name('geo')}</a></p>
+    </div>
+  </section>
+
+  <!-- CASE -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.caseTitle}</h2>
+      <p>{C.caseText}</p>
+      <a class="link-arrow" href={t('caseKb')}>{C.caseLink}</a>
+    </div>
+  </section>
+
+  <!-- REVIEWS (shared data source) -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-head"><h2>{C.reviewsTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></div>
+      <ReviewCards reviews={reviews} lang={lang} compact />
+    </div>
+  </section>
+
+  <!-- FAQ: answers are visible, not hidden in tabs -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">
+        {C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}
+      </div>
+      <p><a class="link-arrow" href={t('faq')}>{C.faqAll}</a></p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section section--grey" id="form">
+    <div class="container narrow">
+      <h2>{C.formTitle}</h2>
+      <div class="card"><LeadForm lang={lang} id="service-consulting" service="consulting" /></div>
+    </div>
+  </section>
+
+  <!-- OTHER SERVICES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{C.otherTitle}</h2><a class="link-arrow" href={t('services')}>{C.otherAll}</a></div>
+      <div class="grid grid-3">
+        {others.map((o) => (
+          <a class="card card--link" href={t(o.key)}>
+            <h3>{name(o.key)}</h3>
+            <p>{o.text || serviceByKey(o.key as 'start' | 'fullSeo' | 'maps').short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // The button under the price table scrolls to the form (#form) and pre-fills the message with the first offer.
+  document.querySelectorAll<HTMLAnchorElement>('a[data-prefill]').forEach((a) =>
+    a.addEventListener('click', () => {
+      const box = document.querySelector<HTMLTextAreaElement>('#lf-service-consulting-message');
+      if (box && box.value.trim() === '') box.value = a.dataset.prefill ?? '';
+    }),
+  );
+</script>
