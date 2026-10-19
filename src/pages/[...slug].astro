@@ -9,6 +9,7 @@ import Services from '../views/Services.astro';
 import Service from '../views/Service.astro';
 import ConsultingPage from '../views/ConsultingPage.astro';
 import StartPage from '../views/StartPage.astro';
+import FullSeoPage from '../views/FullSeoPage.astro';
 import Geo from '../views/Geo.astro';
 import Cases from '../views/Cases.astro';
 import Case from '../views/Case.astro';
@@ -44,5 +45,6 @@ const View = props.key && !isService(props.key) ? VIEWS[props.key] : null;
 {props.post && <PostView post={props.post} />}
 {props.key === 'consulting' && (props.lang === 'cs' || props.lang === 'ru') && <ConsultingPage lang={props.lang} />}
 {props.key === 'start' && props.lang === 'ru' && <StartPage />}
-{props.key && isService(props.key) && !(props.key === 'consulting' && props.lang !== 'en') && !(props.key === 'start' && props.lang === 'ru') && <Service lang={props.lang} service={props.key} />}
+{props.key === 'fullSeo' && props.lang === 'ru' && <FullSeoPage />}
+{props.key && isService(props.key) && !(props.key === 'consulting' && props.lang !== 'en') && !(props.key === 'start' && props.lang === 'ru') && !(props.key === 'fullSeo' && props.lang === 'ru') && <Service lang={props.lang} service={props.key} />}
 {View && <View lang={props.lang} />}

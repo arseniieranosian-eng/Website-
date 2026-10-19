@@ -1,6 +1,7 @@
 import type { Lang, ServiceKey } from '../i18n/routes';
 import { fmtKc, MIN_PRICE } from './consulting-shared';
 import { START_PRICE } from './start-shared';
+import { FULLSEO_MONTHLY } from './fullseo-shared';
 
 type L<T = string> = Record<Lang, T>;
 
@@ -109,7 +110,7 @@ export const SERVICES: Service[] = [
       en: ['Audit and strategy for the year', 'Quarterly priority plan', 'Ongoing work and monthly reports', 'Annual review and next-year plan'],
       ru: ['Аудит и стратегия на год', 'Квартальный план приоритетов', 'Постоянная работа и ежемесячные отчёты', 'Итоги года и план на следующий'],
     },
-    duration: { cs: '12 měsíců', en: '12 months', ru: '12 месяцев' },
+    duration: { cs: '12 měsíců', en: '12 months', ru: `От ${fmtKc(FULLSEO_MONTHLY)} в месяц · 12 месяцев` },
     related: ['start', 'maps'],
   },
   {

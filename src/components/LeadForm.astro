@@ -64,9 +64,9 @@ const uid = `lf-${id}`;
   <input type="hidden" name="lang" value={lang} />
   <input type="hidden" name="page" value={Astro.url.pathname} />
   <input type="hidden" name="started" value="" data-started />
-  <div class="hp" aria-hidden="true">
-    <label for={`${uid}-company`}>Company</label>
-    <input id={`${uid}-company`} type="text" name="company" tabindex="-1" autocomplete="off" />
+  <!-- Anti-spam honeypot: invisible, unlabeled, unfocusable and hidden from assistive technology. -->
+  <div class="hp" aria-hidden="true" inert>
+    <input type="text" name="company" tabindex="-1" autocomplete="off" />
   </div>
 
   <div class="field-row">

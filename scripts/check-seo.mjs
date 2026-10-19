@@ -142,6 +142,14 @@ for (const p of pages.values()) {
   }
 }
 
+// Forms: the anti-spam field must be invisible to people and assistive technology (aria-hidden, inert, no label)
+for (const file of walk(DIST)) {
+  const html = readFileSync(file, 'utf8');
+  for (const m of html.matchAll(/<div class="hp"[^>]*>([\s\S]*?)<\/div>/g)) {
+    if (!/aria-hidden="true"/.test(m[0]) || !/\binert\b/.test(m[0]) || /<label/.test(m[1])) err(`${urlOf(file)}: honeypot field must be aria-hidden, inert and unlabeled`);
+  }
+}
+
 const sitemapFile = join(DIST, 'sitemap.xml');
 if (!existsSync(sitemapFile)) err('sitemap.xml missing');
 else {

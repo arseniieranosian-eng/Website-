@@ -332,3 +332,7 @@ table.compare { min-width: 0; }
 .price-badge { display: inline-block; margin: 0 0 4px; padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--blue); font-weight: 700; font-size: 1.1rem; }
 .page-hero .eyebrow { margin-bottom: 0.6em; }
 .steps + p { margin-top: 16px; }
+
+/* /ru/uslugi/full-seo/ */
+.include-group { margin-bottom: 20px; }
+.include-group h3 { margin: 1.2em 0 0.6em; color: var(--blue); }
