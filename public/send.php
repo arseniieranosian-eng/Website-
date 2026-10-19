@@ -21,7 +21,7 @@ header('Cache-Control: no-store');
 // Optional SMTP settings live in send-config.php (created on the server, NOT in git, so the
 // password never leaves the hosting). Without it the script falls back to PHP mail().
 // send-config.php example:
-//   <?php return ['host' => 'localhost', 'port' => 25, 'secure' => '', 'user' => '', 'pass' => '', 'from' => 'no-reply@seo-eranosian.com'];
+//   <?php return ['host' => 'websmtp.cesky-hosting.cz', 'port' => 25, 'secure' => 'tls', 'user' => 'seo-eranosian.com', 'pass' => '...', 'from' => 'no-reply@seo-eranosian.com'];
 // 'secure': '' (none), 'tls' (STARTTLS) or 'ssl' (implicit TLS). 'user'/'pass' only if the server requires login.
 $CFG = is_file(__DIR__ . '/send-config.php') ? (array) (include __DIR__ . '/send-config.php') : [];
 
@@ -49,7 +49,9 @@ function smtp_cmd($fp, string $cmd, array $ok, ?string $label = null): string {
 }
 function smtp_send(array $c, string $from, string $to, string $subject, array $headers, string $body): void {
     $secure = $c['secure'] ?? '';
-    $fp = @stream_socket_client(($secure === 'ssl' ? 'ssl://' : 'tcp://') . $c['host'] . ':' . ($c['port'] ?? 25), $en, $es, 10);
+    $verify = $c['verify'] ?? true; // set 'verify' => false only if the server certificate cannot be validated
+    $ctx = stream_context_create(['ssl' => ['peer_name' => $c['host'], 'verify_peer' => $verify, 'verify_peer_name' => $verify]]);
+    $fp = @stream_socket_client(($secure === 'ssl' ? 'ssl://' : 'tcp://') . $c['host'] . ':' . ($c['port'] ?? 25), $en, $es, 10, STREAM_CLIENT_CONNECT, $ctx);
     if (!$fp) throw new RuntimeException("SMTP connect failed: $es ($en)");
     stream_set_timeout($fp, 15);
     try {
