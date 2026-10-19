@@ -3,7 +3,7 @@ import type { Lang } from '../i18n/routes';
 export const SITE = {
   person: 'Arsenii Eranosian',
   brand: 'Arsenii Eranosian · SEO',
-  jobTitle: { cs: 'SEO a GEO specialista', en: 'SEO and GEO specialist', ru: 'SEO и GEO-специалист' } as Record<Lang, string>,
+  jobTitle: { cs: 'SEO a GEO specialista', en: 'SEO and GEO specialist', ru: 'SEO и GEO специалист' } as Record<Lang, string>,
   email: 'arseniieranosian@gmail.com',
   phone: '+420 735 080 267',
   ico: '21462259', // IČO (company ID)
@@ -17,7 +17,13 @@ export const SITE = {
     en: 'SEO and GEO specialist based in Prague. SEO as a system that turns search into revenue.',
     ru: 'SEO и GEO-специалист из Праги. SEO как система, которая превращает поиск в выручку.',
   } as Record<Lang, string>,
-  knowsAbout: ['SEO', 'GEO', 'optimalizace pro AI vyhledávání', 'Google Maps a Seznam Mapy'],
+  // Plain strings are language-neutral; objects are emitted once per language (language-tagged values).
+  knowsAbout: [
+    'SEO',
+    'GEO',
+    { cs: 'optimalizace pro AI vyhledávání', en: 'AI search optimization', ru: 'оптимизация под ИИ-поиск' },
+    { cs: 'Google Maps a Seznam Mapy', en: 'Google Maps and Seznam Mapy', ru: 'Google Maps и Seznam Mapy' },
+  ] as (string | Record<Lang, string>)[],
   // Spoken/working languages (ISO 639-1).
   languages: ['cs', 'en', 'ru', 'uk'],
   // Every profile here is emitted as sameAs on the Person, the business and (via footer/contacts) linked on the site.

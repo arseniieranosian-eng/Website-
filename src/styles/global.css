@@ -326,3 +326,4 @@ section[id] { scroll-margin-top: 80px; }
 table th[scope='row'] { white-space: nowrap; font-weight: 600; }
 table.compare { min-width: 0; }
 @media (max-width: 640px) { table.compare th, table.compare td { padding: 10px 10px; font-size: 0.875rem; } table.compare th[scope='row'] { white-space: normal; } }
+.price-note { margin: -0.8em 0 1.4em; }

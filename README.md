@@ -43,7 +43,7 @@ For a translation, add a file in `en/` or `ru/` with **the same** `translationKe
 hreflang is generated only between versions that exist. The home page picks up the 3 latest posts automatically.
 
 ## Page briefs implemented
-- `/sluzby/konzultace/` (cs): brief of 19.10.2026 — content in `src/data/consulting.ts`, template `src/views/ConsultingCs.astro`, JSON-LD in `src/lib/schema-consulting.ts`. en/ru still use the generic `Service.astro`. The visible "Aktualizováno" date and `dateModified` come from git (`src/lib/lastmod.ts`) and update with every content edit. **Next content review: 17. 1. 2027** (about every 90 days).
+- `/sluzby/konzultace/` (cs) and `/ru/uslugi/konsultacii/` (ru): briefs of 19.10.2026 — content in `src/data/consulting.ts` (cs) and `src/data/consulting-ru.ts` (ru), prices in `src/data/consulting-shared.ts`, one template `src/views/ConsultingPage.astro`, JSON-LD in `src/lib/schema-consulting.ts`. The en page still uses the generic `Service.astro`. `scripts/check-consulting.mjs` (part of `npm run build`) verifies both pages against the briefs (meta lengths, section order, JSON-LD == visible text). The visible "Aktualizováno" date and `dateModified` come from git (`src/lib/lastmod.ts`) and update with every content edit. **Next content review: 17. 1. 2027** (about every 90 days).
 
 ## SEO
 - SSG, mobile-first, no JS frameworks (the only scripts are the menu, form, cookie banner and GA).

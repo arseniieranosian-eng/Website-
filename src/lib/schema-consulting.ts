@@ -1,16 +1,19 @@
 import { SITE } from '../data/site';
-import { CONSULTING, OFFERS } from '../data/consulting';
+import { PRICES, QUESTIONS_HOURS, type ConsultingContent } from '../data/consulting-shared';
 import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
 import { ids } from './schema';
 import type { Review } from '../data/reviews';
 
-// Page-specific JSON-LD for /sluzby/konzultace/ (cs). The global Person / ProfessionalService /
+// Page-specific JSON-LD for the consulting page (cs / ru). The global Person / ProfessionalService /
 // WebSite graph comes from lib/schema.ts; everything here references it by @id.
-export function consultingSchemas(site: URL, opts: { modified: string; reviews: Review[] }) {
+export function consultingSchemas(site: URL, C: ConsultingContent, opts: { modified: string; reviews: Review[] }) {
+  const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
-  const url = abs('/sluzby/konzultace/');
-  const m = META.consulting.cs;
+  const url = abs(path('consulting', lang));
+  const m = META.consulting[lang];
   const id = ids(site);
+  const sc = C.schema;
 
   // Only reviews with a named author can be marked up (schema.org requires `author`).
   const reviews = opts.reviews
@@ -19,7 +22,7 @@ export function consultingSchemas(site: URL, opts: { modified: string; reviews: 
       '@type': 'Review',
       author: { '@type': 'Person', name: r.author },
       ...(r.date ? { datePublished: r.date } : {}),
-      reviewBody: r.text.cs,
+      reviewBody: r.text[lang],
     }));
 
   return [
@@ -29,7 +32,7 @@ export function consultingSchemas(site: URL, opts: { modified: string; reviews: 
       url,
       name: m.title,
       description: m.description,
-      inLanguage: 'cs',
+      inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
       primaryImageOfPage: abs('/images/og.png'),
@@ -38,46 +41,50 @@ export function consultingSchemas(site: URL, opts: { modified: string; reviews: 
     {
       '@type': 'Service',
       '@id': `${url}#service`,
-      name: 'SEO konzultace',
-      serviceType: 'SEO konzultace',
-      description: CONSULTING.lead,
+      name: sc.serviceName,
+      serviceType: sc.serviceType,
+      description: C.lead,
       url,
       provider: { '@id': id.person },
-      areaServed: { '@type': 'City', name: 'Praha' },
-      audience: { '@type': 'BusinessAudience', name: 'Majitelé firem, kteří už mají web' },
+      ...(sc.availableLanguage ? { availableLanguage: sc.availableLanguage } : {}),
+      areaServed: sc.areaServed.length === 1 ? sc.areaServed[0] : sc.areaServed,
+      audience: { '@type': 'BusinessAudience', name: sc.audience },
       availableChannel: [
-        { '@type': 'ServiceChannel', name: 'Online (video hovor)' },
+        { '@type': 'ServiceChannel', name: sc.onlineChannel },
         {
           '@type': 'ServiceChannel',
-          name: 'Osobně v Praze',
+          name: sc.cityChannel,
           serviceLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: 'Praha', addressCountry: 'CZ' } },
         },
       ],
-      isRelatedTo: [{ '@id': abs('/sluzby/start-3-mesice/#service') }, { '@id': abs('/sluzby/full-seo/#service') }],
-      offers: OFFERS.map((o) => ({
+      isRelatedTo: [
+        { '@id': abs(path('start', lang) + '#service') },
+        { '@id': abs(path('fullSeo', lang) + '#service') },
+      ],
+      offers: C.offers.map((o) => ({
         '@type': 'Offer',
-        name: o.hours ? `${o.name} (${o.duration})` : o.name,
+        name: o.jsonName,
         description: o.jsonDescription,
-        price: String(o.price),
+        price: String(PRICES[o.id]), // CZK only; any euro estimate stays in the visible text
         priceCurrency: 'CZK',
-        ...(o.hours ? { eligibleDuration: { '@type': 'QuantitativeValue', value: o.hours, unitCode: 'HUR' } } : {}),
+        ...(o.id === 'questions' ? { eligibleDuration: { '@type': 'QuantitativeValue', value: QUESTIONS_HOURS, unitCode: 'HUR' } } : {}),
       })),
       ...(reviews.length ? { review: reviews } : {}),
     },
     {
       '@type': 'HowTo',
-      name: 'Jak probíhá SEO konzultace',
-      step: CONSULTING.steps.map((text) => ({ '@type': 'HowToStep', text })),
+      name: sc.howToName,
+      step: C.steps.map((text) => ({ '@type': 'HowToStep', text })),
     },
     {
       '@type': 'FAQPage',
-      mainEntity: CONSULTING.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
     },
     {
       '@type': 'VideoObject',
-      name: CONSULTING.video.name,
-      description: CONSULTING.video.caption,
-      inLanguage: 'ru',
+      name: C.video.name,
+      description: C.video.caption,
+      inLanguage: sc.videoLanguage,
       thumbnailUrl: abs(SITE.videoPoster),
       uploadDate: SITE.videoUploadDate,
       contentUrl: abs(SITE.video!),

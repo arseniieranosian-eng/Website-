@@ -1,58 +1,46 @@
-// Czech content of /sluzby/konzultace/ (brief of 19.10.2026). Single source for the page,
-// its JSON-LD, the card on /sluzby/ and the home page. en/ru versions are adapted separately.
+// Czech content of /sluzby/konzultace/ (brief of 19.10.2026). en/ru versions are adapted separately.
+import { fmtKc, PRICES, type ConsultingContent } from './consulting-shared';
 
-export const fmtKc = (n: number) => `${String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} Kč`;
+export { fmtKc, MIN_PRICE } from './consulting-shared';
 
-export interface Offer {
-  id: 'questions' | 'audit';
-  name: string;
-  price: number;
-  duration: string;
-  hours?: number; // set when the duration is a fixed number of hours (schema eligibleDuration)
-  cardText: string;
-  cta: string;
-  prefill: string;
-  jsonDescription: string; // as in the brief's JSON-LD
-}
-
-export const OFFERS: Offer[] = [
-  {
-    id: 'questions',
-    name: 'Odpovědi na vaše otázky',
-    price: 2000,
-    duration: '1 hodina',
-    hours: 1,
-    cardText: 'Pro ty, kdo mají konkrétní otázky k SEO nebo k webu. Zeptáte se, odpovím a řekneme si, co udělat jako první.',
-    cta: 'Chci konzultaci',
-    prefill: 'Mám zájem o: Odpovědi na vaše otázky (2 000 Kč, 1 hodina).',
-    jsonDescription: 'Konzultace o konkrétních otázkách k SEO nebo webu',
-  },
-  {
-    id: 'audit',
-    name: 'Konzultace + audit webu',
-    price: 3000,
-    duration: 'bez časového omezení',
-    cardText: 'Pro ty, kdo už web mají. Odpovím na vaše otázky, připravím podrobný audit a plán na 12 měsíců: co dělat a kdy.',
-    cta: 'Chci konzultaci s auditem',
-    prefill: 'Mám zájem o: Konzultace + audit webu (3 000 Kč, plán na 12 měsíců).',
-    jsonDescription: 'Konzultace, podrobný audit webu a plán na 12 měsíců',
-  },
-];
-
-export const [OFFER_QUESTIONS, OFFER_AUDIT] = OFFERS;
-export const MIN_PRICE = Math.min(...OFFERS.map((o) => o.price));
-
-export const CONSULTING = {
+export const CONSULTING_CS: ConsultingContent = {
+  lang: 'cs',
   h1: 'SEO konzultace',
   lead: 'SEO konzultace pro majitele firem, kteří už mají web a chtějí vědět, co s ním dál. Probereme váš web online nebo osobně v Praze a dostanete konkrétní odpovědi i plán kroků.',
+  updatedLabel: 'Aktualizováno',
+  heroPrimary: 'Domluvit konzultaci',
+  heroAudit: 'Audit zdarma',
 
   priceTitle: 'Kolik stojí SEO konzultace?',
-  priceAnswer: `Hodinová SEO konzultace stojí ${fmtKc(OFFER_QUESTIONS.price)}. Konzultace s podrobným auditem webu a plánem na 12 měsíců stojí ${fmtKc(OFFER_AUDIT.price)}.`,
+  priceAnswer: `Hodinová SEO konzultace stojí ${fmtKc(PRICES.questions)}. Konzultace s podrobným auditem webu a plánem na 12 měsíců stojí ${fmtKc(PRICES.audit)}.`,
+  offers: [
+    {
+      id: 'questions',
+      name: 'Odpovědi na vaše otázky',
+      duration: '1 hodina',
+      cardText: 'Pro ty, kdo mají konkrétní otázky k SEO nebo k webu. Zeptáte se, odpovím a řekneme si, co udělat jako první.',
+      cta: 'Chci konzultaci',
+      prefill: `Mám zájem o: Odpovědi na vaše otázky (${fmtKc(PRICES.questions)}, 1 hodina).`,
+      jsonName: 'Odpovědi na vaše otázky (1 hodina)',
+      jsonDescription: 'Konzultace o konkrétních otázkách k SEO nebo webu',
+    },
+    {
+      id: 'audit',
+      name: 'Konzultace + audit webu',
+      duration: 'bez časového omezení',
+      cardText: 'Pro ty, kdo už web mají. Odpovím na vaše otázky, připravím podrobný audit a plán na 12 měsíců: co dělat a kdy.',
+      cta: 'Chci konzultaci s auditem',
+      prefill: `Mám zájem o: Konzultace + audit webu (${fmtKc(PRICES.audit)}, plán na 12 měsíců).`,
+      jsonName: 'Konzultace + audit webu',
+      jsonDescription: 'Konzultace, podrobný audit webu a plán na 12 měsíců',
+    },
+  ],
   table: {
-    head: ['', OFFER_QUESTIONS.name, OFFER_AUDIT.name],
+    corner: 'Parametr',
+    head: ['Odpovědi na vaše otázky', 'Konzultace + audit webu'],
     rows: [
-      ['Cena', fmtKc(OFFER_QUESTIONS.price), fmtKc(OFFER_AUDIT.price)],
-      ['Délka', OFFER_QUESTIONS.duration, OFFER_AUDIT.duration],
+      ['Cena', fmtKc(PRICES.questions), fmtKc(PRICES.audit)],
+      ['Délka', '1 hodina', 'bez časového omezení'],
       ['Pro koho', 'konkrétní otázky k SEO nebo webu', 'majitelé firem s webem, kteří chtějí plán'],
       ['Výstup', 'odpovědi na vaše otázky', 'odpovědi + podrobný audit + plán na 12 měsíců'],
       ['Forma', 'online i osobně v Praze', 'online i osobně v Praze'],
@@ -91,7 +79,7 @@ export const CONSULTING = {
 
   faqTitle: 'Časté dotazy k SEO konzultaci',
   faq: [
-    { q: 'Kolik stojí SEO konzultace?', a: `Hodinová konzultace stojí ${fmtKc(OFFER_QUESTIONS.price)}. Konzultace s podrobným auditem webu a plánem na 12 měsíců stojí ${fmtKc(OFFER_AUDIT.price)} a není časově omezená.` },
+    { q: 'Kolik stojí SEO konzultace?', a: `Hodinová konzultace stojí ${fmtKc(PRICES.questions)}. Konzultace s podrobným auditem webu a plánem na 12 měsíců stojí ${fmtKc(PRICES.audit)} a není časově omezená.` },
     { q: 'Jak dlouho konzultace trvá?', a: 'Konzultace s otázkami trvá 1 hodinu. Konzultace s auditem není časově omezená, audit a plán dostanete do 2 dnů.' },
     { q: 'Probíhá konzultace online, nebo osobně?', a: 'Obojí. Konzultace může proběhnout přes video hovor, nebo osobně v Praze.' },
     { q: 'Co dostanu po konzultaci s auditem?', a: 'Podrobný audit vašeho webu a plán na 12 měsíců: co a kdy udělat, abyste z vyhledávání získali víc poptávek.' },
@@ -103,7 +91,7 @@ export const CONSULTING = {
 
   otherTitle: 'Další služby',
   otherAll: 'Všechny služby',
-  // Cards on the page: [page key, one-line text]. Text for start/fullSeo/maps comes from data/services.ts.
+  more: 'Více',
   audit: 'Technický stav webu, klíčová slova, konkurence a viditelnost v AI. Zdarma, do 5 pracovních dnů.',
   geo: 'Web, který najde Google i ChatGPT: SEO a optimalizace pro AI vyhledávání v jednom.',
 
@@ -112,5 +100,17 @@ export const CONSULTING = {
     // Visible caption and VideoObject.description are the same text on purpose.
     caption: 'Krátké video: Arsenii Eranosian se představuje a mluví o SEO. Video je v ruštině.',
     alt: 'Arsenii Eranosian při konzultaci',
+  },
+  prefillStart: 'Mám zájem o:',
+
+  schema: {
+    serviceName: 'SEO konzultace',
+    serviceType: 'SEO konzultace',
+    audience: 'Majitelé firem, kteří už mají web',
+    areaServed: [{ '@type': 'City', name: 'Praha' }],
+    onlineChannel: 'Online (video hovor)',
+    cityChannel: 'Osobně v Praze',
+    howToName: 'Jak probíhá SEO konzultace',
+    videoLanguage: 'ru',
   },
 };

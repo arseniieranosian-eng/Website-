@@ -7,7 +7,7 @@ import Home from '../views/Home.astro';
 import Audit from '../views/Audit.astro';
 import Services from '../views/Services.astro';
 import Service from '../views/Service.astro';
-import ConsultingCs from '../views/ConsultingCs.astro';
+import ConsultingPage from '../views/ConsultingPage.astro';
 import Geo from '../views/Geo.astro';
 import Cases from '../views/Cases.astro';
 import Case from '../views/Case.astro';
@@ -41,6 +41,6 @@ const isService = (k: PageKey): k is ServiceKey => (SERVICE_KEYS as readonly str
 const View = props.key && !isService(props.key) ? VIEWS[props.key] : null;
 ---
 {props.post && <PostView post={props.post} />}
-{props.key === 'consulting' && props.lang === 'cs' && <ConsultingCs />}
-{props.key && isService(props.key) && !(props.key === 'consulting' && props.lang === 'cs') && <Service lang={props.lang} service={props.key} />}
+{props.key === 'consulting' && (props.lang === 'cs' || props.lang === 'ru') && <ConsultingPage lang={props.lang} />}
+{props.key && isService(props.key) && !(props.key === 'consulting' && props.lang !== 'en') && <Service lang={props.lang} service={props.key} />}
 {View && <View lang={props.lang} />}

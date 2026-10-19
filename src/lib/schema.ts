@@ -12,6 +12,9 @@ export const ids = (site: URL) => ({
 });
 
 // Language-tagged value so one entity can carry cs/en/ru text.
+type Tagged = { '@language': string; '@value': string };
+const knowsAbout = (): (string | Tagged)[] =>
+  SITE.knowsAbout.flatMap((k): (string | Tagged)[] => (typeof k === 'string' ? [k] : langValue(k)));
 const langValue = (v: Record<Lang, string>) => (['cs', 'en', 'ru'] as Lang[]).map((l) => ({ '@language': l, '@value': v[l] }));
 
 // Global entity graph, emitted on every page. It is deliberately identical on all
@@ -58,7 +61,7 @@ export function baseGraph(site: URL) {
       telephone: SITE.phone,
       homeLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: SITE.country } },
       knowsLanguage: SITE.languages,
-      knowsAbout: SITE.knowsAbout,
+      knowsAbout: knowsAbout(),
       worksFor: { '@id': id.business },
       sameAs,
     },
@@ -79,7 +82,7 @@ export function baseGraph(site: URL) {
       areaServed: [{ '@type': 'Country', name: 'Czech Republic' }, { '@type': 'Continent', name: 'Europe' }],
       availableLanguage: SITE.languages,
       contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', email: SITE.email, telephone: SITE.phone, availableLanguage: SITE.languages },
-      knowsAbout: SITE.knowsAbout,
+      knowsAbout: knowsAbout(),
       sameAs,
     },
     {

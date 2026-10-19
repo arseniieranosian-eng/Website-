@@ -15,6 +15,7 @@ export interface Review {
   source?: string;
   rating?: 1 | 2 | 3 | 4 | 5;
   date?: string; // ISO, when known
+  origin?: Lang; // language the review was originally written in (other languages are translations)
   text: Record<Lang, string>;
   short?: Record<Lang, string>; // excerpt for compact cards (home, service pages)
   services: ServiceKey[];
@@ -26,6 +27,7 @@ export interface Review {
 export const REVIEWS: Review[] = [
   {
     id: 'make-up-agency',
+    origin: 'ru',
     company: 'Make Up Digital Agency',
     role: { cs: 'partnerská digitální agentura', en: 'partner digital agency', ru: 'партнёрское digital-агентство' },
     text: {
@@ -45,6 +47,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: 'consulting-client',
+    origin: 'ru',
     role: { cs: 'klientka SEO konzultace', en: 'SEO consultation client', ru: 'клиентка SEO-консультации' },
     text: {
       cs: 'Děkuji vám za konzultaci o SEO v digitálním marketingu. Pro mě to bylo velmi poučné. Získala jsem od vás spoustu cenných a užitečných informací z vaší zkušenosti a praxe. Měla jsem mnoho otázek a za hodinu a půl naší komunikace jsem získala orientaci a praktický akční plán pro současnou fázi.',
@@ -57,6 +60,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: 'linkedin-mentor',
+    origin: 'en',
     role: { cs: 'mentor ve společnosti Unimenty', en: 'mentor at Unimenty', ru: 'ментор в Unimenty' },
     source: 'LinkedIn',
     date: '2026-01-13',
@@ -71,6 +75,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: 'linkedin-teammate',
+    origin: 'en',
     role: { cs: 'kolega z týmu Unimenty', en: 'teammate at Unimenty', ru: 'коллега по команде в Unimenty' },
     source: 'LinkedIn',
     text: {
@@ -103,11 +108,15 @@ export const allReviews = () =>
 
 // Reviews for a service page: the service's own first, then (if fewer than `min`) the latest
 // reviews of other services — newest dated first, undated ones in featured order.
-export const reviewsWithFallback = (key: ServiceKey, max = 3, min = 3) => {
+export const reviewsWithFallback = (key: ServiceKey, max = 3, min = 3, preferOrigin?: Lang) => {
   const own = reviewsForService(key, max);
   if (own.length >= min) return own;
   const rest = REVIEWS.filter((r) => !own.includes(r)).sort(
-    (a, b) => (b.date ? 1 : 0) - (a.date ? 1 : 0) || byDate(a, b) || (a.featured ?? 99) - (b.featured ?? 99),
+    (a, b) =>
+      (preferOrigin ? Number(b.origin === preferOrigin) - Number(a.origin === preferOrigin) : 0) ||
+      (b.date ? 1 : 0) - (a.date ? 1 : 0) ||
+      byDate(a, b) ||
+      (a.featured ?? 99) - (b.featured ?? 99),
   );
   return [...own, ...rest].slice(0, max);
 };
