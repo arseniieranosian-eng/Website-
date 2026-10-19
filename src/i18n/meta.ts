@@ -36,19 +36,19 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'Audit zdarma',
       title: 'Bezplatný SEO audit webu | Arsenii Eranosian',
-      description: 'Získejte bezplatný SEO audit: technický stav webu, klíčová slova, konkurence a viditelnost v AI. Konkrétní doporučení do 5 pracovních dnů.',
+      description: 'Získejte bezplatný SEO audit: technický stav webu, klíčová slova, konkurence a viditelnost v AI. Konkrétní doporučení do 24 hodin.',
       h1: 'Bezplatný SEO audit vašeho webu',
     },
     en: {
       name: 'Free audit',
       title: 'Free SEO Audit of Your Website | Arsenii Eranosian',
-      description: 'Get a free SEO audit: technical health, keywords, competitors and AI visibility. Specific recommendations within 5 business days.',
+      description: 'Get a free SEO audit: technical health, keywords, competitors and AI visibility. Specific recommendations within 24 hours.',
       h1: 'A free SEO audit of your website',
     },
     ru: {
       name: 'Бесплатный аудит',
       title: 'Бесплатный SEO-аудит сайта | Arsenii Eranosian',
-      description: 'Бесплатный SEO-аудит: техническое состояние сайта, ключевые слова, конкуренты и видимость в нейросетях. Рекомендации за 5 рабочих дней.',
+      description: 'Бесплатный SEO-аудит: техническое состояние сайта, ключевые слова, конкуренты и видимость в нейросетях. Рекомендации за 24 часа.',
       h1: 'Бесплатный SEO-аудит вашего сайта',
     },
   },

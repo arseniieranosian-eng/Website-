@@ -92,7 +92,7 @@ export const CONSULTING_CS: ConsultingContent = {
   otherTitle: 'Další služby',
   otherAll: 'Všechny služby',
   more: 'Více',
-  audit: 'Technický stav webu, klíčová slova, konkurence a viditelnost v AI. Zdarma, do 5 pracovních dnů.',
+  audit: 'Technický stav webu, klíčová slova, konkurence a viditelnost v AI. Zdarma, do 24 hodin.',
   geo: 'Web, který najde Google i ChatGPT: SEO a optimalizace pro AI vyhledávání v jednom.',
 
   video: {
