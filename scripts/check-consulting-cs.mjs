@@ -40,7 +40,7 @@ const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchA
 const EXPECT = [
   ['Varianta', 'Cena', 'Délka', 'Co dostanete'],
   ['Odpovím na vaše otázky', '2 000 Kč', '1 hodina', 'Odpovědi na vaše otázky k webu a SEO a krátké písemné shrnutí po hovoru'],
-  ['Konzultace + audit webu', '3 000 Kč', 'Bez časového omezení', 'Audit webu a prezentace s akčním plánem na 12 měsíců do 2 dnů, poté konzultace, kde vše probereme a odpovím na vaše otázky'],
+  ['Konzultace + audit webu', '3 000 Kč', 'Bez časového omezení', 'Audit webu a prezentace s akčním plánem na 12 měsíců do 2 pracovních dnů, poté konzultace, kde vše probereme a odpovím na vaše otázky'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
 
