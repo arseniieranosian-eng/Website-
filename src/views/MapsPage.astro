@@ -11,6 +11,7 @@ import { lastModified } from '../lib/lastmod';
 import { mapsSchemas } from '../lib/schema-maps';
 import { MAPS_RU as C } from '../data/maps-ru';
 import { reviewsWithFallback } from '../data/reviews';
+import { fmtKc } from '../data/consulting-shared';
 import { serviceByKey } from '../data/services';
 
 const lang = C.lang;
@@ -53,6 +54,8 @@ const others = [
     <div class="container narrow">
       <h2>{C.priceTitle}</h2>
       <p class="answer">{C.priceAnswer}</p>
+      <ul class="checks">{C.rates.map((r) => <li><span><strong>{r.label}</strong> {r.text} — {fmtKc(r.price)}</span></li>)}</ul>
+      <p>{C.ratesNote}</p>
       <p class="muted small">{C.priceNote}</p>
     </div>
   </section>

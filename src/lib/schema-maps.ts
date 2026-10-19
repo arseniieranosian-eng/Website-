@@ -57,6 +57,7 @@ export function mapsSchemas(site: URL, C: typeof MAPS_RU, opts: { modified: stri
         name: sc.offerName,
         description: C.offerTerms,
         priceCurrency: 'CZK',
+        priceSpecification: C.rates.map((r) => ({ '@type': 'UnitPriceSpecification', name: r.spec, price: String(r.price), priceCurrency: 'CZK' })),
         eligibleDuration: { '@type': 'QuantitativeValue', minValue: MAPS_MIN_MONTHS, unitCode: 'MON' },
       },
       hasOfferCatalog: {

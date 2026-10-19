@@ -5,7 +5,7 @@
 import { fmtKc } from './consulting-shared';
 import { START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
-import { MAPS_MIN_MONTHS } from './maps-shared';
+import { MAPS_MIN_MONTHS, MAPS_RATES, MAPS_FULL_MONTHLY } from './maps-shared';
 import { CONSULTING_RU } from './consulting-ru';
 
 interface Include { text: string; link?: { part: string; page: 'geo' }; catalog?: string }
@@ -24,6 +24,17 @@ export const MAPS_RU = {
   priceTitle: 'Сколько стоит продвижение в Google Maps и Mapy.com?',
   priceAnswer: `Продвижение в картах оплачивается за результат: вы платите за реальные звонки, маршруты и переходы на сайт с карт. Минимальный срок работы ${term}.`,
   priceNote: 'Если вам нужен ещё и сайт, карты уже входят в пакеты «Старт на 3 месяца» и «Full SEO».',
+  // Rates: shown as a list and emitted as priceSpecification (name = the visible label, price = the visible amount).
+  rates: [
+    ...MAPS_RATES.map((r) => ({ label: `${r.name}:`, text: `${r.unit}, 1 профиль`, price: r.price, spec: `${r.name}: ${r.unit}, 1 профиль` })),
+    {
+      label: 'Full-пакет:',
+      text: 'Google Карты + Mapy.com (Seznam), все метрики и работа с отзывами, в месяц, 1 профиль',
+      price: MAPS_FULL_MONTHLY,
+      spec: 'Full-пакет: Google Карты + Mapy.com (Seznam), все метрики и работа с отзывами, в месяц, 1 профиль',
+    },
+  ],
+  ratesNote: 'Full-пакет выгоднее, чем набирать всё по отдельности. Несколько филиалов? Каждый профиль считается отдельно. Расчёт цены всегда идёт за 1 профиль.',
   // JSON-LD Offer.description: the visible answer without its final period.
   offerTerms: `Продвижение в картах оплачивается за результат: вы платите за реальные звонки, маршруты и переходы на сайт с карт. Минимальный срок работы ${term}`,
 
@@ -98,7 +109,7 @@ export const MAPS_RU = {
 
   faqTitle: 'Частые вопросы о продвижении в картах',
   faq: [
-    { q: 'Как происходит оплата?', a: 'Оплата за результат: вы платите за реальные звонки, маршруты и переходы с карт.' },
+    { q: 'Как происходит оплата?', a: `Оплата за результат: вы платите за реальные звонки, маршруты и переходы с карт. ${MAPS_RATES.map((r) => `${r.name}: ${fmtKc(r.price)} ${r.unit}`).join('; ')}; Full-пакет: ${fmtKc(MAPS_FULL_MONTHLY)} в месяц. Цена всегда за 1 профиль.` },
     { q: 'Сколько профилей можно вести?', a: 'Без ограничения.' },
     { q: 'Какие метрики отслеживаются?', a: 'Звонки, маршруты и переходы на сайт.' },
     { q: 'Какой минимальный срок работы?', a: `От ${MAPS_MIN_MONTHS} месяцев.` },

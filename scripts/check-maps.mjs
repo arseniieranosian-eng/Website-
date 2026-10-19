@@ -52,7 +52,11 @@ if (!date || date[1] !== wp.dateModified) e(`dateModified ${wp.dateModified} != 
 if (!body.includes(sv.description)) e('Service.description not visible');
 if (sv.name !== H1) e('Service.name must equal H1');
 const o = sv.offers;
-if (Array.isArray(o) || 'price' in o || 'priceSpecification' in o || o.priceCurrency !== 'CZK') e('offer must be a single offer without a price (pay-per-result terms are not confirmed)');
+if (Array.isArray(o) || 'price' in o || o.priceCurrency !== 'CZK') e('offer must be a single offer (rates live in priceSpecification)');
+const ps = o.priceSpecification ?? [];
+if (ps.map((p) => p.price).join() !== '1000,1000,500,1800' || !ps.every((p) => p.priceCurrency === 'CZK' && body.includes(p.name))) e('priceSpecification must be 1000/1000/500/1800 CZK with visible names');
+if (!/1 000 Kč/.test(body) || !body.includes('500 Kč') || !body.includes('1 800 Kč')) e('rates must be visible');
+if (/€|EUR/.test(JSON.stringify(ld))) e('no euro in JSON-LD');
 if (o.eligibleDuration.minValue !== 4 || o.eligibleDuration.unitCode !== 'MON') e('eligibleDuration must be minValue 4 MON');
 if (!body.includes(o.description)) e('Offer.description not visible');
 const cat = sv.hasOfferCatalog;
