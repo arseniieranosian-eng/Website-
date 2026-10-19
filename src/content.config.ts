@@ -1,12 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { SERVICE_KEYS } from './i18n/routes';
+import { HAS_POSTS } from './lib/has-posts';
 
 // Posts live in src/content/blog/{lang}/{slug}.md — the file name is the URL slug.
 // Posts that are translations of each other share `translationKey`; hreflang is
 // emitted only between posts that actually exist.
 const blog = defineCollection({
-  loader: glob({ pattern: '*/*.md', base: './src/content/blog' }),
+  loader: HAS_POSTS ? glob({ pattern: '*/*.md', base: './src/content/blog' }) : { name: 'empty-blog', load: async () => {} },
   schema: z.object({
     title: z.string(),
     description: z.string(),

@@ -37,6 +37,7 @@ npm run check      # TypeScript / Astro type check
 | Lead form (one component) | `src/components/LeadForm.astro` |
 
 ### Adding a blog post
+There are no articles yet: the blog index is shown with an empty-state message, is `noindex` and stays out of the sitemap until a language gets its first post; the home page "From the blog" block and the thank-you page suggestions also appear only when posts exist.
 Create `src/content/blog/cs/my-slug.md` with the frontmatter `title`, `description`, `date`, `translationKey`, `services`.
 For a translation, add a file in `en/` or `ru/` with **the same** `translationKey` and a translated file name (that is the slug).
 hreflang is generated only between versions that exist. The home page picks up the 3 latest posts automatically.
@@ -62,8 +63,8 @@ The lead form posts to `/send.php` (in `public/`, copied to `dist/`), which e-ma
 
 ## Before launch (TODO)
 - [x] Contacts, LinkedIn / Instagram, author photo and intro video (`public/media/intro.mp4`, shown on the consulting page)
-- [x] First real reviews and KB Překlady metrics (source: Make Up Digital Agency review)
-- [x] About page bio, KB Překlady linked to the Make Up Digital Agency review
+- [x] First real reviews and KB PŘEKLADY metrics (source: Make Up Digital Agency review)
+- [x] About page bio, KB PŘEKLADY linked to the Make Up Digital Agency review
 - [ ] More reviews for Maps / Full SEO
 - [x] Domain `seo-eranosian.com` and IČO 21462259
 - [x] Registered address in the privacy policy

@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { LANGS, postPath, type Lang } from '../i18n/routes';
+import { HAS_POSTS } from './has-posts';
 
 export type Post = CollectionEntry<'blog'>;
 
@@ -8,6 +9,7 @@ export const postSlug = (p: Post) => p.id.split('/')[1];
 export const postUrl = (p: Post) => postPath(postLang(p), postSlug(p));
 
 export async function allPosts(): Promise<Post[]> {
+  if (!HAS_POSTS) return [];
   const posts = await getCollection('blog', (p) => !p.data.draft);
   for (const p of posts) {
     if (!LANGS.includes(postLang(p))) throw new Error(`Blog post in unknown language folder: ${p.id}`);

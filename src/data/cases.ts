@@ -17,7 +17,7 @@ export interface CaseStudy {
 export const CASES: CaseStudy[] = [
   {
     key: 'caseKb',
-    client: 'KB Překlady',
+    client: 'KB PŘEKLADY',
     industry: { cs: 'Překladatelská agentura', en: 'Translation agency', ru: 'Бюро переводов' },
     teaser: {
       cs: 'Web překladatelské agentury, který na startu prakticky nerankoval a nepřinášel poptávky: za první 4 měsíce 8× více poptávek, přes léto dalších 24× a citace v Google AI Overview.',
