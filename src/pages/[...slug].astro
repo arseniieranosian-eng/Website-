@@ -5,6 +5,7 @@ import { LANGS, PAGE_KEYS, ROUTES, SERVICE_KEYS, type Lang, type PageKey, type S
 import { allPosts, postUrl, type Post } from '../lib/blog';
 import Home from '../views/Home.astro';
 import Audit from '../views/Audit.astro';
+import AuditRuPage from '../views/AuditRuPage.astro';
 import Services from '../views/Services.astro';
 import Service from '../views/Service.astro';
 import ConsultingPage from '../views/ConsultingPage.astro';
@@ -43,9 +44,10 @@ const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
 const isService = (k: PageKey): k is ServiceKey => (SERVICE_KEYS as readonly string[]).includes(k);
-const View = props.key && !isService(props.key) ? VIEWS[props.key] : null;
+const View = props.key && !isService(props.key) && !(props.key === 'audit' && props.lang === 'ru') ? VIEWS[props.key] : null;
 ---
 {props.post && <PostView post={props.post} />}
+{props.key === 'audit' && props.lang === 'ru' && <AuditRuPage />}
 {props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage />}
 {props.key === 'consulting' && props.lang === 'ru' && <ConsultingPage lang="ru" />}
 {props.key === 'start' && props.lang === 'cs' && <StartCsPage />}

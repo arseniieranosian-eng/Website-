@@ -22,9 +22,9 @@ export const FAQ: FaqItem[] = [
       ru: 'Что входит в бесплатный SEO-аудит?',
     },
     a: {
-      cs: 'Zkontroluji technický stav webu (indexace, rychlost, mobilní verze), hlavní klíčová slova a pozice, konkurenci a to, zda vás zmiňují AI asistenti. Dostanete stručný report s 5–10 nejdůležitějšími kroky.',
-      en: 'I check the technical health of the site (indexing, speed, mobile), main keywords and rankings, competitors and whether AI assistants mention you. You get a short report with the 5–10 most important next steps.',
-      ru: 'Я проверяю техническое состояние сайта (индексация, скорость, мобильная версия), основные запросы и позиции, конкурентов и упоминания в ответах нейросетей. Вы получаете краткий отчёт с 5–10 главными шагами.',
+      cs: 'Zkontroluji technické chyby webu: indexaci, duplicity stránek a další technické problémy. Dostanete krátkou prezentaci s hlavními chybami a doporučeními.',
+      en: 'I check the technical errors of the site: indexing, duplicate pages and other technical problems. You get a short presentation with the main errors and recommendations.',
+      ru: 'Я проверяю технические ошибки сайта: индексацию, дубли страниц и другие технические проблемы. Вы получаете короткую презентацию с главными ошибками и рекомендациями.',
     },
   },
   {

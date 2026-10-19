@@ -47,8 +47,8 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     },
     ru: {
       name: 'Бесплатный аудит',
-      title: 'Бесплатный SEO-аудит сайта | Arsenii Eranosian',
-      description: 'Бесплатный SEO-аудит: техническое состояние сайта, ключевые слова, конкуренты и видимость в нейросетях. Рекомендации за 24 часа.',
+      title: 'Бесплатный технический SEO-аудит сайта | Eranosian',
+      description: 'Бесплатная проверка технических ошибок сайта: индексация, дубли страниц и другие проблемы. Отчёт с рекомендациями за 24 часа. Без обязательств.',
       h1: 'Бесплатный SEO-аудит вашего сайта',
     },
   },
@@ -166,7 +166,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO + GEO: two in one',
     },
     ru: {
-      name: 'SEO + GEO',
+      name: 'SEO + GEO/AEO',
       title: 'SEO + GEO 2 в 1 – видимость в Google и в ChatGPT',
       description: 'SEO и GEO (Generative Engine Optimization) вместе: сайт, который находят Google и Seznam, а также ChatGPT, Gemini, Perplexity и AI Overviews.',
       h1: 'SEO + GEO: два в одном',

@@ -19,7 +19,8 @@ const C = {
 }[lang];
 ---
 <Base {...pageProps('thanks', lang)}>
-  <PageHero h1={m.h1} lead={C.lead}><a class="btn btn--secondary" href={path('home', lang)}>{C.back}</a></PageHero>
+  <PageHero h1={m.h1} lead={C.lead}>
+    {lang === 'ru' && <p class="lead" id="thanks-audit" hidden>Принято, пришлю презентацию в течение 24 часов.</p>}<a class="btn btn--secondary" href={path('home', lang)}>{C.back}</a></PageHero>
   {posts.length > 0 && (
     <section class="section section--tight">
       <div class="container"><div class="grid grid-3">{posts.map((p) => <PostCard post={p} lang={lang} heading="h2" />)}</div>
@@ -37,4 +38,13 @@ const C = {
   // gtag exists only when PUBLIC_GA_ID is set; before consent the event waits in dataLayer.
   const gtag = (window as any).gtag;
   if (lead && gtag) gtag('event', 'generate_lead', lead);
+  // Free-audit form (ru): promise the presentation instead of the generic "one business day" reply.
+  if (lead?.form_id === 'audit-ru') {
+    const own = document.getElementById('thanks-audit');
+    if (own) {
+      own.hidden = false;
+      const generic = document.querySelector('.page-hero .lead:not(#thanks-audit)');
+      if (generic) (generic as HTMLElement).hidden = true;
+    }
+  }
 </script>

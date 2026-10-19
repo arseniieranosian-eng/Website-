@@ -10,8 +10,9 @@ interface Props {
   service?: string; // preselected option value
   title?: string;
   compact?: boolean;
+  websiteRequired?: boolean; // the site address is mandatory (e.g. the free audit is impossible without it)
 }
-const { lang, id, service = 'audit', title, compact = false } = Astro.props;
+const { lang, id, service = 'audit', title, compact = false, websiteRequired = false } = Astro.props;
 // Default: our own PHP handler (public/send.php) that e-mails the enquiry.
 // PUBLIC_FORM_ENDPOINT can point to a third-party service instead.
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '/send.php';
@@ -42,7 +43,7 @@ const T = {
     submit: 'Отправить заявку', submitAudit: 'Получить бесплатный аудит', sending: 'Отправляю…',
     invalidContact: 'Укажите корректный e-mail или номер телефона.',
     error: 'Не удалось отправить заявку. Попробуйте ещё раз или напишите мне на e-mail.',
-    options: { audit: 'Бесплатный SEO-аудит', consulting: 'Консультация', start: 'Старт на 3 месяца', fullSeo: 'Full SEO на год', maps: 'Карты (Google + Mapy.com)', geo: 'SEO + GEO', other: 'Другое' },
+    options: { audit: 'Бесплатный SEO-аудит', consulting: 'Консультация', start: 'Старт на 3 месяца', fullSeo: 'Full SEO на год', maps: 'Карты (Google + Mapy.com)', geo: 'SEO + GEO/AEO', other: 'Другое' },
   },
 }[lang];
 
@@ -81,8 +82,8 @@ const uid = `lf-${id}`;
   </div>
   <div class="field-row">
     <div class="field">
-      <label for={`${uid}-website`}>{T.website}</label>
-      <input id={`${uid}-website`} name="website" type="text" inputmode="url" autocomplete="url" placeholder={T.websitePh} maxlength="200" />
+      <label for={`${uid}-website`}>{T.website}{websiteRequired ? ' *' : ''}</label>
+      <input id={`${uid}-website`} name="website" type="text" inputmode="url" autocomplete="url" placeholder={T.websitePh} maxlength="200" required={websiteRequired} />
     </div>
     <div class="field">
       <label for={`${uid}-service`}>{T.service}</label>
