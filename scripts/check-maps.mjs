@@ -89,7 +89,7 @@ for (const p of ['dist/ru/uslugi/start-3-mesyaca/index.html', 'dist/ru/uslugi/fu
   if (!t.includes('Mapy.com (Seznam)') || !t.includes('Firmy.cz')) e(`${p}: missing "Mapy.com (Seznam)" / "Firmy.cz"`);
 }
 const svcs = txt(readFileSync('dist/ru/uslugi/index.html', 'utf8'));
-if (!svcs.includes('От 4 месяцев') || svcs.includes('От 1 месяца')) e('/ru/uslugi/ card must say "От 4 месяцев"');
+if (!svcs.includes('От 4 месяцев · Full-пакет 1 800 Kč в месяц') || svcs.includes('От 1 месяца')) e('/ru/uslugi/ card must say "От 4 месяцев"');
 
 if (errors.length) {
   console.error(`\nMaps page check failed (${errors.length}):\n- ` + errors.join('\n- '));
