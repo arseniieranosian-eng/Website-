@@ -11,27 +11,27 @@ const languages = 'Konzultace probíhá v češtině, angličtině a ruštině. 
 export const CONSULTING_CS = {
   lang: 'cs' as const,
   h1: 'SEO konzultace',
-  lead: 'Nezávislý pohled na SEO vašeho webu a jasný plán, co dělat dál. Odpovím na vaše otázky, případně udělám audit webu a připravím akční plán na 12 měsíců. Online nebo osobně v Praze, písemné shrnutí do 2 dnů.',
+  lead: 'Nezávislý pohled na SEO vašeho webu a jasný plán, co dělat dál. Odpovím na vaše otázky, případně připravím audit webu s akčním plánem na 12 měsíců a na konzultaci vám ho představím. Online nebo osobně v Praze.',
   updatedLabel: 'Aktualizováno',
-  badge: `od ${fmtKc(PRICES.questions)} · online nebo v Praze · plán do 2 dnů`,
+  badge: `od ${fmtKc(PRICES.questions)} · online nebo v Praze`,
   heroPrimary: 'Mám zájem o službu',
   heroAudit: 'Audit zdarma',
 
   priceTitle: 'Kolik stojí SEO konzultace?',
-  priceAnswer: `SEO konzultace stojí ${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu bez časového omezení. Obě varianty zahrnují písemné shrnutí a plán do 2 dnů. Konzultace probíhá online nebo osobně v Praze.`,
+  priceAnswer: `SEO konzultace stojí ${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu a konzultací bez časového omezení. U varianty s auditem připravím audit a prezentaci do 2 dnů od zaslání webu a pak je společně probereme. Konzultace probíhá online nebo osobně v Praze.`,
   offers: [
     {
       id: 'questions' as const,
       name: 'Odpovím na vaše otázky',
       duration: '1 hodina',
-      gets: 'Odpovědi na vaše otázky k webu a SEO, písemné shrnutí a plán do 2 dnů',
+      gets: 'Odpovědi na vaše otázky k webu a SEO a krátké písemné shrnutí po hovoru',
       prefill: `Mám zájem o: Odpovím na vaše otázky (${fmtKc(PRICES.questions)}, 1 hodina).`,
     },
     {
       id: 'audit' as const,
       name: 'Konzultace + audit webu',
       duration: 'Bez časového omezení',
-      gets: 'Audit webu, odpovědi na otázky, akční plán na 12 měsíců, písemné shrnutí do 2 dnů',
+      gets: 'Audit webu a prezentace s akčním plánem na 12 měsíců do 2 dnů, poté konzultace, kde vše probereme a odpovím na vaše otázky',
       prefill: `Mám zájem o: Konzultace + audit webu (${fmtKc(PRICES.audit)}, plán na 12 měsíců).`,
     },
   ],
@@ -51,8 +51,8 @@ export const CONSULTING_CS = {
   includes: <Include[]>[
     { text: 'Rozbor webu před konzultací.' },
     { text: 'Konzultace online nebo osobně v Praze.' },
-    { text: 'Písemné shrnutí a akční plán do 2 dnů, seřazený podle priorit.', catalog: 'Písemné shrnutí a akční plán do 2 dnů' },
-    { text: 'U varianty s auditem: audit webu a plán na 12 měsíců.', catalog: 'Audit webu a plán na 12 měsíců' },
+    { text: 'Audit webu a prezentace s akčním plánem na 12 měsíců: u varianty s auditem, do 2 dnů od zaslání webu.', catalog: 'Audit webu a prezentace s akčním plánem na 12 měsíců' },
+    { text: 'Krátké písemné shrnutí po hodinové konzultaci.', catalog: 'Krátké písemné shrnutí po hodinové konzultaci' },
     { text: 'GEO/AEO: doporučení pro optimalizaci pro AI vyhledávání.', link: { part: 'GEO/AEO', page: 'geo' as const } },
     { text: 'Vícejazyčné SEO a hreflang, pokud web funguje ve více jazycích.', catalog: 'Vícejazyčné SEO a hreflang' },
   ],
@@ -61,9 +61,9 @@ export const CONSULTING_CS = {
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   steps: [
     'Pošlete mi adresu webu a své otázky. Přístup do Google Search Console a GA4 umožní přesnější analýzu.',
-    'Rozbor webu před konzultací: připravím se na váš případ.',
-    'Společná konzultace online nebo osobně v Praze.',
-    'Písemné shrnutí a plán do 2 dnů.',
+    'Rozbor webu před konzultací: u varianty s auditem do 2 dnů připravím audit a prezentaci s body růstu a plánem na 12 měsíců.',
+    'Společná konzultace online nebo osobně v Praze: u varianty s auditem vám prezentaci představím a odpovím na vaše otázky bez časového omezení.',
+    'Po hodinové konzultaci dostanete krátké písemné shrnutí.',
   ],
   examplesTitle: 'Ukázky konzultací',
   examples: [
@@ -114,10 +114,10 @@ export const CONSULTING_CS = {
 
   faqTitle: 'Časté otázky o SEO konzultaci',
   faq: [
-    { q: 'Kolik stojí SEO konzultace?', a: `${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu bez časového omezení.` },
-    { q: 'Jak dlouho konzultace trvá?', a: `${QUESTIONS_HOURS} hodina, nebo bez omezení u varianty s auditem.` },
+    { q: 'Kolik stojí SEO konzultace?', a: `${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu a konzultací bez časového omezení.` },
+    { q: 'Jak dlouho konzultace trvá?', a: `${QUESTIONS_HOURS} hodina, nebo bez omezení u varianty s auditem. Audit a prezentaci připravím do 2 dnů od zaslání webu, konzultace se koná až poté.` },
     { q: 'Probíhá konzultace online, nebo osobně v Praze?', a: 'Obojí: online, nebo osobně v Praze.' },
-    { q: 'Co dostanu po konzultaci?', a: 'Písemné shrnutí a plán do 2 dnů.' },
+    { q: 'Co dostanu po konzultaci?', a: 'U hodinové konzultace odpovědi na vaše otázky a krátké písemné shrnutí. U varianty s auditem podrobnou prezentaci s auditem, body růstu a plánem na 12 měsíců a konzultaci, kde ji společně probereme.' },
     { q: 'Čím se konzultace liší od Startu na 3 měsíce nebo Full SEO?', a: 'Při konzultaci práci neprovádím, dostanete plán. Start na 3 měsíce a Full SEO zahrnují realizaci.' },
     { q: 'V jakých jazycích konzultace probíhá?', a: languages },
   ],

@@ -31,7 +31,7 @@ const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
-if (!body.includes('od 2 000 Kč · online nebo v Praze · plán do 2 dnů')) e('price badge missing');
+if (!body.includes('od 2 000 Kč · online nebo v Praze')) e('price badge missing');
 for (const f of FORBIDDEN) if (body.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/<video|★|AggregateRating|ratingValue|VideoObject/.test(h)) e('video / stars / AggregateRating / VideoObject must not be on this page');
@@ -39,8 +39,8 @@ if (!/<table/.test(h)) e('comparison table must be HTML');
 const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 const EXPECT = [
   ['Varianta', 'Cena', 'Délka', 'Co dostanete'],
-  ['Odpovím na vaše otázky', '2 000 Kč', '1 hodina', 'Odpovědi na vaše otázky k webu a SEO, písemné shrnutí a plán do 2 dnů'],
-  ['Konzultace + audit webu', '3 000 Kč', 'Bez časového omezení', 'Audit webu, odpovědi na otázky, akční plán na 12 měsíců, písemné shrnutí do 2 dnů'],
+  ['Odpovím na vaše otázky', '2 000 Kč', '1 hodina', 'Odpovědi na vaše otázky k webu a SEO a krátké písemné shrnutí po hovoru'],
+  ['Konzultace + audit webu', '3 000 Kč', 'Bez časového omezení', 'Audit webu a prezentace s akčním plánem na 12 měsíců do 2 dnů, poté konzultace, kde vše probereme a odpovím na vaše otázky'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
 
