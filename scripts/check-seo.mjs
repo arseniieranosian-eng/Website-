@@ -5,6 +5,8 @@
 //  - breadcrumbs on every inner page
 //  - every internal link resolves to a built page
 //  - sitemap.xml lists exactly the indexable pages
+//  - global JSON-LD: Person / ProfessionalService / WebSite identical on every page, tied to the
+//    social profiles via sameAs, every {"@id"} reference resolves, social links are present in the HTML
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 
@@ -44,7 +46,11 @@ for (const file of walk(DIST)) {
   const h1s = [...html.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => strip(m[1]));
   const hrefs = [...html.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => decode(m[1]));
   const hasCrumbs = /class="crumbs/.test(html) && /"BreadcrumbList"/.test(html);
-  pages.set(url, { url, title, description, noindex, canonical, alternates, h1s, hrefs, hasCrumbs });
+  const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => {
+    try { return JSON.parse(m[1]); } catch { err(`${url}: invalid JSON-LD`); return null; }
+  }).filter(Boolean);
+  const socialLinks = [...html.matchAll(/<a [^>]*href="(https:\/\/www\.(?:linkedin|instagram)\.com[^"]*)"[^>]*rel="me/g)].map((m) => m[1]);
+  pages.set(url, { ld, socialLinks, url, title, description, noindex, canonical, alternates, h1s, hrefs, hasCrumbs });
 }
 
 const pathOf = (href) => {
@@ -97,6 +103,37 @@ for (const p of pages.values()) {
     if (pages.has(path)) continue;
     if (existsSync(join(DIST, path))) continue;
     err(`${p.url}: broken internal link ${href}`);
+  }
+}
+
+// Global structured data
+const BASE = ['Person', 'ProfessionalService', 'WebSite', 'ImageObject'];
+let reference = null;
+for (const p of pages.values()) {
+  if (p.url === '/404/') continue;
+  const nodes = p.ld.flatMap((d) => d['@graph'] ?? [d]);
+  const base = BASE.map((t) => nodes.find((n) => n['@type'] === t));
+  const missing = BASE.filter((_, i) => !base[i]);
+  if (missing.length) { err(`${p.url}: JSON-LD lacks ${missing.join(', ')}`); continue; }
+  const sig = JSON.stringify(base);
+  if (reference === null) reference = { sig, url: p.url, person: base[0], business: base[1] };
+  else if (sig !== reference.sig) err(`${p.url}: global JSON-LD differs from ${reference.url} (must be identical on every page)`);
+  const idSet = new Set(nodes.map((n) => n['@id']).filter(Boolean));
+  const walk = (v) => {
+    if (Array.isArray(v)) return v.forEach(walk);
+    if (v && typeof v === 'object') {
+      const keys = Object.keys(v);
+      if (keys.length === 1 && keys[0] === '@id' && !idSet.has(v['@id'])) err(`${p.url}: unresolved JSON-LD reference ${v['@id']}`);
+      keys.forEach((k) => walk(v[k]));
+    }
+  };
+  walk(nodes);
+  if (p.noindex) continue;
+  const same = new Set(base[0].sameAs ?? []);
+  if (!same.size) err(`${p.url}: Person.sameAs is empty`);
+  for (const u of same) {
+    if (!(base[1].sameAs ?? []).includes(u)) err(`${p.url}: ${u} is in Person.sameAs but not in ProfessionalService.sameAs`);
+    if (!p.socialLinks.some((l) => l === u)) err(`${p.url}: sameAs profile ${u} is not linked (rel="me") in the page HTML`);
   }
 }
 

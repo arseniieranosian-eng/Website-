@@ -1,7 +1,7 @@
 import { SITE } from '../data/site';
 import type { FaqItem } from '../data/faq';
 import type { Review } from '../data/reviews';
-import { path, type Lang } from '../i18n/routes';
+import type { Lang } from '../i18n/routes';
 
 const abs = (site: URL, p: string) => new URL(p, site).href;
 
@@ -11,43 +11,78 @@ export const ids = (site: URL) => ({
   website: abs(site, '/#website'),
 });
 
-// Present on every page so entity references resolve.
-export function baseGraph(site: URL, lang: Lang) {
+// Language-tagged value so one entity can carry cs/en/ru text.
+const langValue = (v: Record<Lang, string>) => (['cs', 'en', 'ru'] as Lang[]).map((l) => ({ '@language': l, '@value': v[l] }));
+
+// Global entity graph, emitted on every page. It is deliberately identical on all
+// pages and languages (stable @id, stable url) so the person, the business and
+// the website resolve to ONE entity, tied to the social profiles through sameAs.
+// Page-specific markup (FAQPage, Service, BlogPosting …) is added per page and
+// references these @ids.
+export function baseGraph(site: URL) {
   const id = ids(site);
+  const home = abs(site, '/');
+  const sameAs = SITE.socials.map((s) => s.url);
+  const image = {
+    '@type': 'ImageObject',
+    '@id': abs(site, '/#photo'),
+    url: abs(site, SITE.photo),
+    contentUrl: abs(site, SITE.photo),
+    width: 900,
+    height: 1125,
+    caption: SITE.person,
+  };
   return [
     {
       '@type': 'Person',
       '@id': id.person,
       name: SITE.person,
-      jobTitle: SITE.jobTitle[lang],
-      url: abs(site, path('about', lang)),
-      image: abs(site, SITE.photo),
+      givenName: 'Arsenii',
+      familyName: 'Eranosian',
+      alternateName: SITE.alternateNames,
+      jobTitle: langValue(SITE.jobTitle),
+      description: langValue(SITE.description),
+      url: home,
+      mainEntityOfPage: { '@id': id.website },
+      image: { '@id': image['@id'] },
+      email: SITE.email,
+      telephone: SITE.phone,
+      homeLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: SITE.country } },
       knowsLanguage: SITE.languages,
-      knowsAbout: ['SEO', 'GEO', 'Local SEO', 'Technical SEO', 'Structured data', 'Multilingual SEO'],
+      knowsAbout: SITE.knowsAbout,
       worksFor: { '@id': id.business },
-      sameAs: SITE.socials.map((s) => s.url),
+      sameAs,
     },
     {
       '@type': 'ProfessionalService',
       '@id': id.business,
       name: SITE.brand,
-      url: abs(site, path('home', lang)),
-      image: abs(site, SITE.photo),
+      description: langValue(SITE.description),
+      url: home,
+      image: { '@id': image['@id'] },
+      logo: { '@id': image['@id'] },
       email: SITE.email,
       telephone: SITE.phone,
       founder: { '@id': id.person },
+      employee: { '@id': id.person },
       address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: SITE.country },
-      areaServed: { '@type': 'Country', name: 'Czech Republic' },
+      areaServed: [{ '@type': 'Country', name: 'Czech Republic' }, { '@type': 'Continent', name: 'Europe' }],
       availableLanguage: SITE.languages,
+      contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', email: SITE.email, telephone: SITE.phone, availableLanguage: SITE.languages },
+      knowsAbout: SITE.knowsAbout,
+      sameAs,
     },
     {
       '@type': 'WebSite',
       '@id': id.website,
-      url: abs(site, '/'),
+      url: home,
       name: SITE.brand,
+      description: langValue(SITE.description),
       inLanguage: ['cs', 'en', 'ru'],
       publisher: { '@id': id.business },
+      copyrightHolder: { '@id': id.person },
     },
+    image,
   ];
 }
 

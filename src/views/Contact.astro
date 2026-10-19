@@ -31,7 +31,7 @@ const C = {
           <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
           <li>{C.where}</li>
-          {SITE.socials.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.name}</a></li>)}
+          {SITE.socials.map((s) => <li><a href={s.url} rel="me noopener" target="_blank">{s.name}</a></li>)}
         </ul>
         <p><a class="link-arrow" href={path('audit', lang)}>{ui.ctaAuditLong}</a></p>
         <h2>{ui.faqTitle}</h2>

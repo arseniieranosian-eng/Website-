@@ -30,7 +30,7 @@ const year = new Date().getFullYear();
         <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
         <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
         <li>{SITE.city}</li>
-        {SITE.socials.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.name}</a></li>)}
+        {SITE.socials.map((s) => <li><a href={s.url} rel="me noopener" target="_blank">{s.name}</a></li>)}
       </ul>
     </div>
   </div>

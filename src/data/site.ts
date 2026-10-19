@@ -8,7 +8,17 @@ export const SITE = {
   phone: '+420 735 080 267',
   city: 'Praha',
   country: 'CZ',
-  languages: ['cs', 'en', 'ru'],
+  alternateNames: ['Арсений Ераносьян'],
+  description: {
+    cs: 'SEO a GEO specialista z Prahy. SEO jako systém, který mění vyhledávání v tržby.',
+    en: 'SEO and GEO specialist based in Prague. SEO as a system that turns search into revenue.',
+    ru: 'SEO и GEO-специалист из Праги. SEO как система, которая превращает поиск в выручку.',
+  } as Record<Lang, string>,
+  knowsAbout: ['SEO', 'GEO (Generative Engine Optimization)', 'Local SEO', 'Technical SEO', 'Structured data', 'Multilingual SEO'],
+  // Spoken/working languages (ISO 639-1).
+  languages: ['cs', 'en', 'ru', 'uk'],
+  // Every profile here is emitted as sameAs on the Person, the business and (via footer/contacts) linked on the site.
+  // To tie a new profile to the site, just add it to this list.
   socials: [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arsenii-eranosian-seo/' },
     { name: 'Instagram', url: 'https://www.instagram.com/mr.eranosian/' },
