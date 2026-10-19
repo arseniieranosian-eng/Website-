@@ -4,3 +4,7 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Server-side secrets / logs (created on the hosting, never committed)
+public/send-config.php
+public/send-errors.log
