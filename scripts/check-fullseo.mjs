@@ -8,7 +8,7 @@ const SECTIONS = [H1, 'Сколько стоит SEO продвижение на
 const GROUPS = ['Работа над сайтом', 'Работа вне сайта', 'ИИ и отчётность'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/uslugi/konsultacii/', '/ru/uslugi/start-3-mesyaca/', '/ru/uslugi/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/uslugi/'];
 const FORBIDDEN = ['ежемесячные отчёты', 'ежемесячная отчётность', '4-8 недель', 'Чем SEO отличается от GEO'];
-const MAPS_ITEM = 'Ведение профилей на Google Картах и Seznam Mapy без ограничения по количеству профилей: звонки, маршруты, переходы на сайт, отзывы';
+const MAPS_ITEM = 'Ведение профилей на Google Картах, Mapy.com (Seznam) и Firmy.cz без ограничения по количеству профилей: звонки, маршруты, переходы на сайт, отзывы';
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 // Visible text only: <script> / <style> contents (incl. the JSON-LD itself) are removed first.

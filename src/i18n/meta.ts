@@ -134,21 +134,21 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   },
   maps: {
     cs: {
-      name: 'Mapy (Google + Seznam)',
+      name: 'Mapy (Google + Mapy.com)',
       title: 'Lokální SEO: Google Maps a Mapy.com (Seznam) | Praha',
       description: 'Lokální SEO pro firmy: optimalizace profilu na Google Maps a Firmy.cz / Mapy.com, recenze a vyšší pozice v mapách ve vašem okolí.',
       h1: 'Lokální SEO: Google Maps a Mapy.com',
     },
     en: {
-      name: 'Maps (Google + Seznam)',
+      name: 'Maps (Google + Mapy.com)',
       title: 'Local SEO: Google Maps & Mapy.com (Seznam) | Prague',
       description: 'Local SEO for businesses in Czechia: Google Business Profile and Firmy.cz / Mapy.com optimisation, reviews and higher map rankings.',
       h1: 'Local SEO: Google Maps and Mapy.com',
     },
     ru: {
-      name: 'Карты (Google + Seznam)',
-      title: 'Локальное SEO: Google Maps и Mapy.com (Seznam) | Прага',
-      description: 'Локальное SEO для бизнеса в Чехии: профиль в Google Maps и Firmy.cz / Mapy.com, отзывы и высокие позиции на картах.',
+      name: 'Карты (Google + Mapy.com)',
+      title: 'Продвижение в Google Maps и Mapy.com: звонки | Eranosian',
+      description: 'Продвижение бизнеса в картах Google и Seznam с оплатой за результат: отзывы, звонки, маршруты. Любой город. Оставьте заявку на локальное SEO.',
       h1: 'Локальное SEO: Google Maps и Mapy.com',
     },
   },

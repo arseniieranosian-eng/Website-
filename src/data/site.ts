@@ -22,7 +22,7 @@ export const SITE = {
     'SEO',
     'GEO',
     { cs: 'optimalizace pro AI vyhledávání', en: 'AI search optimization', ru: 'оптимизация под ИИ-поиск' },
-    { cs: 'Google Maps a Seznam Mapy', en: 'Google Maps and Seznam Mapy', ru: 'Google Maps и Seznam Mapy' },
+    { cs: 'Google Maps a Mapy.com', en: 'Google Maps and Mapy.com', ru: 'Google Maps и Mapy.com' },
   ] as (string | Record<Lang, string>)[],
   // Spoken/working languages (ISO 639-1).
   languages: ['cs', 'en', 'ru', 'uk'],

@@ -51,7 +51,7 @@ if (!body.includes(o.description)) e('Offer.description not visible');
 if (!body.includes('≈ €2 000') || /€|EUR/.test(JSON.stringify(ld))) e('euro estimate must be visible and absent from JSON-LD');
 const cat = sv.hasOfferCatalog;
 // Every catalog item is visible verbatim, except the maps item whose wording is fixed by the brief.
-const MAPS_ITEM = 'Ведение профилей на Google Картах и Seznam Mapy без ограничения по количеству профилей: звонки, маршруты, переходы на сайт, отзывы';
+const MAPS_ITEM = 'Ведение профилей на Google Картах, Mapy.com (Seznam) и Firmy.cz без ограничения по количеству профилей: звонки, маршруты, переходы на сайт, отзывы';
 if (!body.includes(cat.name) || cat.itemListElement.length !== 9 || !cat.itemListElement.every((i) => body.includes(i.itemOffered.name) || i.itemOffered.name === MAPS_ITEM)) e('OfferCatalog does not match the visible list');
 if (!cat.itemListElement.some((i) => i.itemOffered.name === MAPS_ITEM)) e('maps item of the OfferCatalog must use the wording from the brief');
 for (const t of ['звонки, маршруты, переходы на сайт и работа с отзывами.', 'Работаю со всеми метриками (звонки, маршруты, переходы на сайт) и с отзывами.']) if (!body.includes(t)) e(`missing text: ${t}`);
