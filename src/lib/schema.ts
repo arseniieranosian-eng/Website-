@@ -32,6 +32,15 @@ export function baseGraph(site: URL) {
     height: 1125,
     caption: SITE.person,
   };
+  const logo = {
+    '@type': 'ImageObject',
+    '@id': abs(site, '/#logo'),
+    url: abs(site, '/images/logo.png'),
+    contentUrl: abs(site, '/images/logo.png'),
+    width: 720,
+    height: 487,
+    caption: SITE.brand,
+  };
   return [
     {
       '@type': 'Person',
@@ -60,7 +69,7 @@ export function baseGraph(site: URL) {
       description: langValue(SITE.description),
       url: home,
       image: { '@id': image['@id'] },
-      logo: { '@id': image['@id'] },
+      logo: { '@id': logo['@id'] },
       email: SITE.email,
       telephone: SITE.phone,
       identifier: { '@type': 'PropertyValue', propertyID: 'IČO', value: SITE.ico },
@@ -84,6 +93,7 @@ export function baseGraph(site: URL) {
       copyrightHolder: { '@id': id.person },
     },
     image,
+    logo,
   ];
 }
 

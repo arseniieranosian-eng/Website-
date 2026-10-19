@@ -69,6 +69,6 @@ The lead form posts to `/send.php` (in `public/`, copied to `dist/`), which e-ma
 - [x] Domain `seo-eranosian.com` and IČO 21462259
 - [x] Registered address in the privacy policy
 - [ ] Privacy policy legal review
-- [ ] `public/images/og.png`: final OG image (can be built from the author photo)
+- [x] Logo, favicon set and OG image (from the client logo)
 - [ ] The video has burned-in Russian subtitles; consider cs/en versions
 - [ ] Set `PUBLIC_GSC_VERIFICATION` for the build (GA4 `G-K5G9E0QZF5` is already built in), test the form on the live site, submit `sitemap.xml` to Search Console and Seznam Webmaster

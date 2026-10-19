@@ -54,7 +54,10 @@ const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
     <meta property="og:image" content={abs('/images/og.png')} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0B0B0F" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {gsc && <meta name="google-site-verification" content={gsc} />}
     <script type="application/ld+json" set:html={jsonLd} />
   </head>
