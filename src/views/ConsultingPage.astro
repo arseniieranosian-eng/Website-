@@ -102,6 +102,17 @@ const others = [
     <div class="container">
       <h2>{C.stepsTitle}</h2>
       <ol class="steps steps--row">{C.steps.map((x) => <li>{x}</li>)}</ol>
+      <h3 class="examples-title">{C.examplesTitle}</h3>
+      <div class="examples">
+        {C.examples.map((ex) => (
+          <figure class="examples__group">
+            <h4>{ex.title}</h4>
+            <p class="muted">{ex.text}</p>
+            <div class="examples__shots">{ex.images.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
+          </figure>
+        ))}
+      </div>
+      <p class="muted small">{C.examplesNote}</p>
     </div>
   </section>
 

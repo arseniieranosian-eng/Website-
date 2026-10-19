@@ -55,6 +55,29 @@ export const CONSULTING_CS: ConsultingContent = {
   ],
   forWhomNote: 'Konzultace je samostatná služba, nemusíte kvůli ní uzavírat dlouhodobou spolupráci.',
 
+  examplesTitle: 'Ukázky konzultací',
+  examples: [
+    {
+      id: 'questions',
+      title: `Konzultace za ${fmtKc(PRICES.questions)}: odpovědi na vaše otázky`,
+      text: 'Klient se ptá na SEO, já odpovídám. Na snímcích videohovor a zpětná vazba po něm.',
+      images: [
+        { src: '/images/consulting/call-2000.webp', alt: 'Videohovor SEO konzultace, tvář klienta je znepřístupněna' },
+        { src: '/images/consulting/review-2000.webp', alt: 'E-mailová zpětná vazba klienta po SEO konzultaci' },
+      ],
+    },
+    {
+      id: 'audit',
+      title: `Konzultace za ${fmtKc(PRICES.audit)}: podrobný audit a plán na 12 měsíců`,
+      text: 'Ukázka z reportu: kde web ztrácí příležitosti, jaká je reálná konkurence a plán na 12 měsíců.',
+      images: [
+        { src: '/images/consulting/audit-3000-1.webp', alt: 'Ukázka SEO auditu: technický základ, FAQ a plán na rok' },
+        { src: '/images/consulting/audit-3000-2.webp', alt: 'Ukázka SEO auditu: konkurence a reálné příležitosti' },
+        { src: '/images/consulting/audit-3000-3.webp', alt: 'Ukázka SEO auditu: kde se ztrácejí příležitosti' },
+      ],
+    },
+  ],
+  examplesNote: 'Údaje a tváře klientů jsou skryté.',
   stepsTitle: 'Jak probíhá konzultace',
   steps: [
     'Pošlete adresu webu a své otázky přes formulář.',

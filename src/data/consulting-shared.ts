@@ -31,6 +31,9 @@ export interface ConsultingContent {
   forWhomTitle: string;
   forWhom: string[];
   forWhomNote: string;
+  examplesTitle: string;
+  examples: { id: keyof typeof PRICES; title: string; text: string; images: { src: string; alt: string }[] }[];
+  examplesNote: string;
   stepsTitle: string;
   steps: string[];
   marketTitle?: string;
