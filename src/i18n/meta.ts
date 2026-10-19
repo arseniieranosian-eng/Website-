@@ -94,9 +94,9 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   },
   start: {
     cs: {
-      name: 'Start na 3 měsíce',
-      title: 'SEO start na 3 měsíce – audit, opravy, první výsledky',
-      description: 'Tříměsíční SEO start: technický audit a opravy, analýza klíčových slov, optimalizace hlavních stránek a nastavení měření.',
+      name: 'SEO start na 3 měsíce',
+      title: 'SEO start na 3 měsíce za 50 000 Kč: audit, mapy | Eranosian',
+      description: 'Technický audit, opravy, hlavní stránky a mapy Google/Mapy.com za 3 měsíce. První výsledky obvykle za 2-3 měsíce, reporty týdně. Pošlete nezávaznou poptávku.',
       h1: 'SEO start na 3 měsíce',
     },
     en: {

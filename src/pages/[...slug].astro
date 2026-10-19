@@ -10,6 +10,7 @@ import Service from '../views/Service.astro';
 import ConsultingPage from '../views/ConsultingPage.astro';
 import ConsultingCsPage from '../views/ConsultingCsPage.astro';
 import StartPage from '../views/StartPage.astro';
+import StartCsPage from '../views/StartCsPage.astro';
 import FullSeoPage from '../views/FullSeoPage.astro';
 import MapsPage from '../views/MapsPage.astro';
 import Geo from '../views/Geo.astro';
@@ -47,8 +48,9 @@ const View = props.key && !isService(props.key) ? VIEWS[props.key] : null;
 {props.post && <PostView post={props.post} />}
 {props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage />}
 {props.key === 'consulting' && props.lang === 'ru' && <ConsultingPage lang="ru" />}
+{props.key === 'start' && props.lang === 'cs' && <StartCsPage />}
 {props.key === 'start' && props.lang === 'ru' && <StartPage />}
 {props.key === 'fullSeo' && props.lang === 'ru' && <FullSeoPage />}
 {props.key === 'maps' && props.lang === 'ru' && <MapsPage />}
-{props.key && isService(props.key) && !(props.key === 'consulting' && props.lang !== 'en') && !(props.key === 'start' && props.lang === 'ru') && !(props.key === 'fullSeo' && props.lang === 'ru') && !(props.key === 'maps' && props.lang === 'ru') && <Service lang={props.lang} service={props.key} />}
+{props.key && isService(props.key) && !(props.key === 'consulting' && props.lang !== 'en') && !(props.key === 'start' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'fullSeo' && props.lang === 'ru') && !(props.key === 'maps' && props.lang === 'ru') && <Service lang={props.lang} service={props.key} />}
 {View && <View lang={props.lang} />}
