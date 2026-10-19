@@ -1,5 +1,6 @@
 import type { Lang, ServiceKey } from '../i18n/routes';
 import { fmtKc, MIN_PRICE } from './consulting-shared';
+import { START_PRICE } from './start-shared';
 
 type L<T = string> = Record<Lang, T>;
 
@@ -77,7 +78,7 @@ export const SERVICES: Service[] = [
       en: ['Month 1: audit, research and plan', 'Month 2: technical fixes and structure', 'Month 3: content, optimisation and review'],
       ru: ['1-й месяц: аудит, анализ и план', '2-й месяц: технические исправления и структура', '3-й месяц: контент, оптимизация и итоги'],
     },
-    duration: { cs: '3 měsíce', en: '3 months', ru: '3 месяца' },
+    duration: { cs: '3 měsíce', en: '3 months', ru: `${fmtKc(START_PRICE)} · 3 месяца` },
     related: ['fullSeo', 'maps'],
   },
   {

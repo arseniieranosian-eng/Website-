@@ -327,3 +327,8 @@ table th[scope='row'] { white-space: nowrap; font-weight: 600; }
 table.compare { min-width: 0; }
 @media (max-width: 640px) { table.compare th, table.compare td { padding: 10px 10px; font-size: 0.875rem; } table.compare th[scope='row'] { white-space: normal; } }
 .price-note { margin: -0.8em 0 1.4em; }
+
+/* /ru/uslugi/start-3-mesyaca/ */
+.price-badge { display: inline-block; margin: 0 0 4px; padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--blue); font-weight: 700; font-size: 1.1rem; }
+.page-hero .eyebrow { margin-bottom: 0.6em; }
+.steps + p { margin-top: 16px; }
