@@ -5,7 +5,8 @@ import { path, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
-const gaId = import.meta.env.PUBLIC_GA_ID;
+// GA4 measurement ID (override with PUBLIC_GA_ID). Disabled in `astro dev` so local visits are not counted.
+const gaId = import.meta.env.PROD ? (import.meta.env.PUBLIC_GA_ID || 'G-K5G9E0QZF5') : '';
 const ui = t(lang);
 ---
 {gaId && (

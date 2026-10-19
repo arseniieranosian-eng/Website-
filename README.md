@@ -70,4 +70,4 @@ The lead form posts to `/send.php` (in `public/`, copied to `dist/`), which e-ma
 - [ ] Privacy policy legal review
 - [ ] `public/images/og.png`: final OG image (can be built from the author photo)
 - [ ] The video has burned-in Russian subtitles; consider cs/en versions
-- [ ] Set `PUBLIC_FORM_ENDPOINT`, `PUBLIC_GA_ID`, `PUBLIC_GSC_VERIFICATION` for the build, test the form on the live site, submit `sitemap.xml` to Search Console and Seznam Webmaster
+- [ ] Set `PUBLIC_GSC_VERIFICATION` for the build (GA4 `G-K5G9E0QZF5` is already built in), test the form on the live site, submit `sitemap.xml` to Search Console and Seznam Webmaster
