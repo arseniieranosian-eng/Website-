@@ -4,6 +4,7 @@
 import Base from '../layouts/Base.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import LeadForm from '../components/LeadForm.astro';
+import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -194,6 +195,7 @@ const others = [
           </a>
         ))}
       </div>
+      <GeoNote lang={lang} />
     </div>
   </section>
 </Base>

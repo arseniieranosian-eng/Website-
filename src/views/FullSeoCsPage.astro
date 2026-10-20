@@ -2,6 +2,7 @@
 // /full-seo/ (cs) built from the brief of 20.10.2026. Content: data/fullseo-cs.ts, prices: data/fullseo-shared.ts.
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
+import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -182,6 +183,7 @@ const others = [
           </a>
         ))}
       </div>
+      <GeoNote lang={lang} />
     </div>
   </section>
 </Base>

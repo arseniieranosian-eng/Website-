@@ -3,6 +3,7 @@
 // The case-study block is hidden until a maps case exists (the brief forbids KB PŘEKLADY here).
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
+import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -167,6 +168,7 @@ const others = [
           </a>
         ))}
       </div>
+      <GeoNote lang={lang} />
     </div>
   </section>
 </Base>

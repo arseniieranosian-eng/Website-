@@ -12,7 +12,8 @@ interface Props {
 const { lang, pageKey, alternates, langFallback } = Astro.props;
 const ui = t(lang);
 // "Services" is a dropdown of the service pages (there is no services collection page); the rest are plain links.
-const NAV: PageKey[] = ['cases', 'about', 'reviews', 'faq', 'contact', 'blog'];
+const NAV: PageKey[] = ['cases', 'geo', 'about', 'reviews', 'faq', 'contact', 'blog'];
+const label = (k: PageKey) => (k === 'geo' ? ui.navGeo : META[k][lang].name);
 const current = (k: PageKey) => pageKey === k || (k === 'cases' && pageKey === 'caseKb');
 const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as PageKey);
 ---
@@ -38,7 +39,7 @@ const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as Page
             </ul>
           </li>
           {NAV.map((k) => (
-            <li><a href={path(k, lang)} aria-current={current(k) ? 'page' : undefined}>{META[k][lang].name}</a></li>
+            <li><a href={path(k, lang)} aria-current={current(k) ? 'page' : undefined}>{label(k)}</a></li>
           ))}
         </ul>
       </nav>

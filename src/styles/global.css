@@ -81,7 +81,7 @@ ul, ol { padding-left: 1.2em; }
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgb(255 255 255 / 94%); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.site-header .container { max-width: 1240px; }
+.site-header .container { max-width: 1380px; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
 .logo-text { white-space: nowrap; display: flex; flex-direction: column; font-weight: 700; line-height: 1.1; font-size: 0.95rem; }
@@ -117,7 +117,7 @@ ul, ol { padding-left: 1.2em; }
 .lang-switch a[aria-current='true'] { color: var(--text); border-color: var(--line); }
 .lang-switch a:hover { color: var(--blue); }
 
-@media (min-width: 1240px) {
+@media (min-width: 1400px) {
   .nav-toggle { display: none; }
   .nav-wrap, .nav-open .nav-wrap { display: flex; position: static; flex-direction: row; align-items: center; padding: 0; border: 0; gap: 20px; background: none; }
   .nav { flex-direction: row; gap: 4px; }
@@ -363,3 +363,5 @@ table.compare { min-width: 0; }
 /* Sample audit presentation video (16:9-ish, silent) */
 .audit-video { margin: 16px 0 12px; }
 .audit-video video { display: block; width: 100%; height: auto; aspect-ratio: 1280 / 688; border: 1px solid var(--line); border-radius: var(--radius); background: #000; }
+
+.geo-note { margin: 20px 0 0; color: var(--text-muted); }

@@ -2,10 +2,9 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
-import ServiceCards from '../components/ServiceCards.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { META } from '../i18n/meta';
-import { type Lang } from '../i18n/routes';
+import { path, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { faqFor } from '../data/faq';
@@ -26,8 +25,9 @@ const C = {
     howTitle: 'Co konkrétně dělám',
     how: ['Audit viditelnosti v AI: na co se ptát a koho AI doporučuje', 'Schema.org markup pro firmu, osoby, služby a FAQ', 'Úprava klíčových stránek do formy „otázka → přímá odpověď“', 'Sjednocení informací o firmě napříč webem a katalogy', 'Pravidelné měření zmínek v AI odpovědích'],
     servicesTitle: 'GEO/AEO je součástí služeb',
-    ctaTitle: 'Jak vás vidí AI?',
-    ctaText: 'V bezplatném auditu zjistím, zda a jak vás zmiňují AI asistenti.',
+    auditNote: 'Bezplatný audit GEO/AEO ani viditelnost v AI nekontroluje, jen technické chyby webu.',
+    ctaTitle: 'Chcete začít u základu?',
+    ctaText: 'Bezplatný audit najde technické chyby vašeho webu: indexaci, duplicity a další problémy.',
   },
   en: {
     lead: 'Your customers now search in two ways: in search engines and in AI assistants. I optimise your website for both at once – no double work, no double price.',
@@ -38,8 +38,9 @@ const C = {
     howTitle: 'What I actually do',
     how: ['AI visibility audit: which prompts matter and who AI recommends', 'Schema.org markup for the business, people, services and FAQs', 'Reworking key pages into a “question → direct answer” format', 'Consistent business information across the site and directories', 'Regular tracking of mentions in AI answers'],
     servicesTitle: 'GEO/AEO is part of every service',
-    ctaTitle: 'How does AI see you?',
-    ctaText: 'In the free audit I check whether and how AI assistants mention you.',
+    auditNote: 'The free audit does not check GEO/AEO or AI visibility, only the technical errors of your site.',
+    ctaTitle: 'Want to start with the basics?',
+    ctaText: 'The free audit finds the technical errors of your site: indexing, duplicates and other problems.',
   },
   ru: {
     lead: 'Сегодня клиенты ищут двумя способами: в поисковиках и в нейросетях. Я оптимизирую сайт сразу под оба — без двойной работы и двойной цены.',
@@ -49,9 +50,10 @@ const C = {
     why: 'Нейросети опираются на сайты, которые хорошо проиндексированы и вызывают доверие, — то есть на сайты с хорошим SEO. А контент, понятный нейросети, понятнее и людям, и поисковикам. Две дисциплины усиливают друг друга.',
     howTitle: 'Что конкретно я делаю',
     how: ['Аудит видимости в нейросетях: какие запросы важны и кого рекомендует AI', 'Разметка schema.org для компании, людей, услуг и FAQ', 'Переработка ключевых страниц в формат «вопрос → прямой ответ»', 'Единая информация о компании на сайте и в каталогах', 'Регулярное отслеживание упоминаний в ответах AI'],
-    servicesTitle: 'GEO/AEO входит в услуги',
-    ctaTitle: 'Как вас видят нейросети?',
-    ctaText: 'В бесплатном аудите проверю, упоминают ли вас AI-ассистенты и как.',
+    servicesTitle: 'GEO/AEO входит в каждую услугу',
+    auditNote: 'Бесплатный аудит не проверяет GEO/AEO и видимость в ИИ, только технические ошибки сайта.',
+    ctaTitle: 'Хотите начать с основы?',
+    ctaText: 'Бесплатный аудит находит технические ошибки сайта: индексацию, дубли и другие проблемы.',
   },
 }[lang];
 const cols = [C.colSeo, C.colGeo] as [string, string, string[]][];
@@ -84,7 +86,10 @@ const cols = [C.colSeo, C.colGeo] as [string, string, string[]][];
   <section class="section section--grey">
     <div class="container">
       <h2>{C.servicesTitle}</h2>
-      <ServiceCards lang={lang} />
+      <ul class="link-list">
+        {(['consulting', 'start', 'fullSeo', 'maps'] as const).map((k) => <li><a href={path(k, lang)}>{META[k][lang].name}</a></li>)}
+      </ul>
+      <p class="muted">{C.auditNote} <a href={path('audit', lang)}>{META.audit[lang].name}</a></p>
     </div>
   </section>
   {faq.length > 0 && (

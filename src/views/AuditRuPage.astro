@@ -3,6 +3,7 @@
 // The sample-presentation video block appears only when AUDIT_VIDEO is set (see data/audit-ru.ts).
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
+import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -160,6 +161,7 @@ const others = [
           </a>
         ))}
       </div>
+      <GeoNote lang={lang} />
     </div>
   </section>
 </Base>

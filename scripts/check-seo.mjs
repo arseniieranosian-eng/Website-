@@ -118,7 +118,16 @@ for (const p of pages.values()) {
   const sig = JSON.stringify(base);
   if (reference === null) reference = { sig, url: p.url, person: base[0], business: base[1] };
   else if (sig !== reference.sig) err(`${p.url}: global JSON-LD differs from ${reference.url} (must be identical on every page)`);
-  const idSet = new Set(nodes.map((n) => n['@id']).filter(Boolean));
+  // Entities declared anywhere in the graph (also nested ones, e.g. DefinedTerms inside a DefinedTermSet)
+  const idSet = new Set();
+  const collect = (v) => {
+    if (Array.isArray(v)) return v.forEach(collect);
+    if (v && typeof v === 'object') {
+      if (v['@id'] && Object.keys(v).length > 1) idSet.add(v['@id']);
+      Object.values(v).forEach(collect);
+    }
+  };
+  collect(nodes);
   const walk = (v) => {
     if (Array.isArray(v)) return v.forEach(walk);
     if (v && typeof v === 'object') {

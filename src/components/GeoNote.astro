@@ -1,0 +1,12 @@
+---
+// "GEO/AEO is part of every service" line that replaces the old SEO + GEO/AEO service card on the service pages.
+import { path, type Lang } from '../i18n/routes';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = {
+  cs: { before: '', link: 'GEO/AEO', after: ' je součástí každé služby.', more: 'Co je GEO a AEO' },
+  en: { before: '', link: 'GEO/AEO', after: ' is part of every service.', more: 'What GEO and AEO are' },
+  ru: { before: '', link: 'GEO/AEO', after: ' входит в каждую услугу.', more: 'Что такое GEO и AEO' },
+}[lang];
+---
+<p class="geo-note">{T.before}<a href={path('geo', lang)}>{T.link}</a>{T.after}</p>

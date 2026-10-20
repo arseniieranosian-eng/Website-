@@ -1,0 +1,136 @@
+---
+// /seo-a-geo/ (cs) built from the brief of 20.10.2026: an informational hub, not a service. Content: data/geo-cs.ts.
+import Base from '../layouts/Base.astro';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { geoCsSchemas } from '../lib/schema-geo-cs';
+import { GEO_CS as C } from '../data/geo-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/GeoCsPage.astro', 'src/data/geo-cs.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('geo', lang)} schema={geoCsSchemas(site, C, { modified: MOD })}>
+  <!-- HERO: the definition comes first (40-60 words) -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>{C.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a>, {C.authorRole} · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.definition}</p>
+    </div>
+  </section>
+
+  <!-- WHAT IS GEO AND AEO -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whatTitle}</h2>
+      <ul class="checks">{C.what.map((w) => <li><span><strong>{w.term}:</strong> {w.def}</span></li>)}</ul>
+      <p>{C.whatNote}</p>
+    </div>
+  </section>
+
+  <!-- SEO VS GEO/AEO -->
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.diffTitle}</h2>
+      <p class="answer">{C.diffAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><th scope="col"><span class="sr-only">{C.table.corner}</span></th>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>
+            {C.table.rows.map(([label, a, b]) => <tr><th scope="row">{label}</th><td>{a}</td><td>{b}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TOGETHER -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.togetherTitle}</h2>
+      <p class="answer">{C.togetherAnswer}</p>
+    </div>
+  </section>
+
+  <!-- WHAT GOOGLE SAYS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.googleTitle}</h2>
+      <p class="answer">{C.googleAnswer}</p>
+      <p>{C.googleLink.prefix}<a href={C.googleLink.href} rel="noopener noreferrer" target="_blank">{C.googleLink.text}</a></p>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <ol class="steps">{C.steps.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <!-- NO GUARANTEE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.guaranteeTitle}</h2>
+      <p class="answer">{C.guaranteeAnswer}</p>
+    </div>
+  </section>
+
+  <!-- DO I PAY SEPARATELY -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.separateTitle}</h2>
+      <p class="answer">{C.separateAnswer}</p>
+      <h3>{C.includedTitle}</h3>
+      <ul class="checks">{C.included.map((i) => <li><span><a href={t(i.page)}>{i.link}</a>{i.text.slice(i.link.length)}</span></li>)}</ul>
+      <p><a href={t('audit')}>{C.auditNote.link}</a>{C.auditNote.after}</p>
+    </div>
+  </section>
+
+  <!-- WHERE TO CHECK AI VISIBILITY -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.seeTitle}</h2>
+      <p class="answer">{C.seeAnswer}</p>
+    </div>
+  </section>
+
+  <!-- CASE (only the AI Overview mention) -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.caseTitle}</h2>
+      <p>{C.caseText}</p>
+      <a class="link-arrow" href={t('caseKb')}>{C.caseLink}</a>
+    </div>
+  </section>
+
+  <!-- FAQ: answers are visible, not hidden in tabs -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">
+        {C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT CLOSE: no form on this page -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.ctaTitle}</h2>
+      <p>{C.ctaText}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.ctaAudit}</a>
+        <a class="btn btn--secondary btn--lg" href={t('contact')}>{C.ctaContact}</a>
+      </div>
+    </div>
+  </section>
+</Base>

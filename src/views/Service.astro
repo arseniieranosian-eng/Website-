@@ -11,6 +11,7 @@ import AuthorMedia from '../components/AuthorMedia.astro';
 import Icon from '../components/Icon.astro';
 import { META } from '../i18n/meta';
 import { path, type Lang, type ServiceKey } from '../i18n/routes';
+import GeoNote from '../components/GeoNote.astro';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { serviceByKey } from '../data/services';
@@ -100,6 +101,7 @@ const C = {
     <div class="container">
       <div class="section-head"><h2>{C.other}</h2></div>
       <ServiceCards lang={lang} keys={s.related} />
+      <GeoNote lang={lang} />
     </div>
   </section>
 </Base>

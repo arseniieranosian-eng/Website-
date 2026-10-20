@@ -135,8 +135,8 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   geo: {
     cs: {
       name: 'SEO + GEO/AEO',
-      title: 'SEO + GEO/AEO 2 v 1 – viditelnost v Google i v ChatGPT',
-      description: 'SEO a GEO/AEO (Generative and Answer Engine Optimization) v jednom: web, který najdou Google a Seznam i ChatGPT, Gemini, Perplexity a AI Overviews.',
+      title: 'Co je GEO a AEO? Optimalizace pro Google i AI | Eranosian',
+      description: 'GEO a AEO vysvětleně: jak funguje optimalizace pro ChatGPT, Gemini a AI Overviews a proč jde vždy ruku v ruce se SEO. Žádná záruka zmínky v AI.',
       h1: 'SEO + GEO/AEO: dvě v jednom',
     },
     en: {
