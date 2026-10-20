@@ -1,0 +1,152 @@
+---
+// /o-mne/ (cs) built from the brief of 20.10.2026. Content: data/about-cs.ts, trust bar: data/trust-cs.ts.
+// No blog block (the blog is empty). Reviews from the shared source without the unconfirmed figures.
+import Base from '../layouts/Base.astro';
+import AuthorMedia from '../components/AuthorMedia.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import TrustBarCs from '../components/TrustBarCs.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { aboutCsSchemas } from '../lib/schema-about-cs';
+import { ABOUT_CS as C } from '../data/about-cs';
+import { SITE } from '../data/site';
+import { REVIEWS } from '../data/reviews';
+
+const lang = C.lang;
+const site = Astro.site!;
+const m = META.about[lang];
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/AboutCsPage.astro', 'src/data/about-cs.ts', 'src/data/trust-cs.ts', 'src/data/case-summary.ts', 'src/data/reviews.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+
+const reviews = REVIEWS.filter((r) => !r.sample && r.id !== 'make-up-agency' && !r.services.includes('consulting'))
+  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+  .slice(0, 3);
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
+---
+<Base {...pageProps('about', lang)} ogType="profile" schema={aboutCsSchemas(site, C, { modified: MOD })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container split">
+      <div>
+        <h1>{m.h1}</h1>
+        <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+        <p class="lead">{C.answer}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+          <a class="btn btn--secondary btn--lg" href={t('contact')}>{C.heroContact}</a>
+        </div>
+      </div>
+      <AuthorMedia alt={C.photoAlt} eager />
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="section section--tight">
+    <div class="container"><TrustBarCs /></div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.approachTitle}</h2>
+      <p class="answer">{C.approachAnswer}</p>
+      <p>
+        {C.approachText.before}{C.approachText.links.map((l, i) => <>{i > 0 && ', '}<a href={t(l.page)}>{l.text}</a></>)}{C.approachText.afterLinks}{C.approachText.geo.before}<a href={t('geo')}>{C.approachText.geo.link}</a>{C.approachText.geo.after}
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE: chronology, newest first -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.expTitle}</h2>
+      <p class="answer">{C.expAnswer}</p>
+      <ul class="timeline">
+        {C.exp.map((x) => (
+          <li>
+            <strong>{x.head}</strong>
+            <p>{x.text}{x.links.length > 0 && <> {x.linksLead}{x.links.map((l, i) => <>{i > 0 && ', '}<a href={t(l.page)}>{l.text}</a></>)}</>}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="muted small">{C.expNote}</p>
+    </div>
+  </section>
+
+  <!-- CONSULTATIONS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.consTitle}</h2>
+      <p class="answer">{C.consAnswer}</p>
+      <ul class="checks">{C.cons.map((x) => <li>{x}</li>)}</ul>
+      <p><a class="link-arrow" href={t('consulting')}>{C.consLink}</a></p>
+    </div>
+  </section>
+
+  <!-- MARKETS AND LANGUAGES -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.marketsTitle}</h2>
+      <p class="answer">{C.marketsAnswer}</p>
+      <ul class="checks">{C.markets.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.toolsTitle}</h2>
+      <p class="answer">{C.toolsAnswer}</p>
+      <ul class="chips">{C.tools.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- VERIFICATION -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.verifyTitle}</h2>
+      <p class="answer">{C.verifyAnswer}</p>
+      <ul class="link-list">
+        <li><a href={linkedin} rel="me noopener" target="_blank">LinkedIn</a></li>
+        <li><a href={t('reviews')}>Recenze</a></li>
+        <li><a href={t('cases')}>Případové studie</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REVIEWS (shared source) -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-head"><h2>{C.reviewsTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsMore}</a></div>
+      <ReviewCards reviews={reviews} lang={lang} compact />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.ctaTitle}</h2>
+        <p>{C.ctaText}</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.ctaAudit}</a>
+        <a class="btn btn--ghost-light btn--lg" href={t('contact')}>{C.ctaContact}</a>
+      </div>
+    </div>
+  </section>
+</Base>

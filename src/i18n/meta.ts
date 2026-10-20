@@ -301,9 +301,9 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   about: {
     cs: {
       name: 'O mně',
-      title: 'O mně – Arsenii Eranosian, SEO specialista v Praze',
-      description: 'Arsenii Eranosian, SEO specialista z Prahy. Za 3 roky růst návštěvnosti až +775 % meziročně. SEO jako systém, který mění vyhledávání v tržby.',
-      h1: 'Arsenii Eranosian, SEO specialista',
+      title: 'Arsenii Eranosian: SEO a GEO/AEO specialista | O mně',
+      description: 'Jsem Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Začínám od byznys modelu, ne od klíčových slov. Podívejte se na projekty. Napište mi.',
+      h1: 'Arsenii Eranosian: SEO a GEO/AEO specialista v Praze',
     },
     en: {
       name: 'About',

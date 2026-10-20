@@ -33,6 +33,7 @@ import Blog from '../views/Blog.astro';
 import PostView from '../views/Post.astro';
 import Faq from '../views/Faq.astro';
 import About from '../views/About.astro';
+import AboutCsPage from '../views/AboutCsPage.astro';
 import Contact from '../views/Contact.astro';
 import Privacy from '../views/Privacy.astro';
 import Thanks from '../views/Thanks.astro';
@@ -56,10 +57,11 @@ const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
 const isService = (k: PageKey): k is ServiceKey => (SERVICE_KEYS as readonly string[]).includes(k);
-const View = props.key && !isService(props.key) && !(props.key === 'home' && props.lang === 'cs') && !(props.key === 'audit' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'geo' && props.lang === 'cs') && !(props.key === 'caseKb' && props.lang === 'cs') ? VIEWS[props.key] : null;
+const View = props.key && !isService(props.key) && !(props.key === 'home' && props.lang === 'cs') && !(props.key === 'about' && props.lang === 'cs') && !(props.key === 'audit' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'geo' && props.lang === 'cs') && !(props.key === 'caseKb' && props.lang === 'cs') ? VIEWS[props.key] : null;
 ---
 {props.post && <PostView post={props.post} />}
 {props.key === 'home' && props.lang === 'cs' && <HomeCsPage />}
+{props.key === 'about' && props.lang === 'cs' && <AboutCsPage />}
 {props.key === 'audit' && props.lang === 'cs' && <AuditCsPage />}
 {props.key === 'audit' && props.lang === 'ru' && <AuditRuPage />}
 {props.key === 'geo' && props.lang === 'cs' && <GeoCsPage />}

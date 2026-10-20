@@ -31,6 +31,7 @@ const others = [
   { key: 'fullSeo', text: '' },
   { key: 'maps', text: '' },
 ] as const;
+import WhoDoesItCs from '../components/WhoDoesItCs.astro';
 ---
 <Base {...pageProps('start', lang)} schema={startCsSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
@@ -167,6 +168,8 @@ const others = [
       <p><a class="link-arrow" href={t('faq')}>{C.faqAll}</a></p>
     </div>
   </section>
+
+  <WhoDoesItCs />
 
   <!-- FORM -->
   <section class="section section--grey" id="form">
