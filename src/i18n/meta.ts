@@ -115,9 +115,9 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   maps: {
     cs: {
       name: 'Mapy (Google + Mapy.com)',
-      title: 'Lokální SEO: Google Maps a Mapy.com (Seznam) | Praha',
-      description: 'Lokální SEO pro firmy: optimalizace profilu na Google Maps a Firmy.cz / Mapy.com, recenze a vyšší pozice v mapách ve vašem okolí.',
-      h1: 'Lokální SEO: Google Maps a Mapy.com',
+      title: 'Lokální SEO: Google Maps a Mapy.com | Eranosian',
+      description: 'Propagace v mapách Google a Seznam s platbou za výsledek: hovory, trasy, prokliky, recenze. Balíček Full od 1800 Kč měsíčně za profil. Nezávazná poptávka.',
+      h1: 'Lokální SEO: propagace na Google Maps a Mapy.com',
     },
     en: {
       name: 'Maps (Google + Mapy.com)',

@@ -10,6 +10,10 @@ import { CONSULTING_RU } from './consulting-ru';
 
 interface Include { text: string; link?: { part: string; page: 'geo' }; catalog?: string }
 
+// Russian labels for the shared rates ("за 10 звонков" etc.).
+const RU_LABEL = { calls: ['Звонки', 'звонков'], routes: ['Маршруты', 'маршрутов'], visits: ['Переходы на сайт', 'переходов'] } as const;
+const RU_RATES = MAPS_RATES.map((r) => ({ name: RU_LABEL[r.key][0], unit: `за ${r.qty} ${RU_LABEL[r.key][1]}`, price: r.price }));
+
 const term = `${MAPS_MIN_MONTHS} месяца`;
 
 export const MAPS_RU = {
@@ -26,7 +30,7 @@ export const MAPS_RU = {
   priceNote: 'Если вам нужен ещё и сайт, карты уже входят в пакеты «Старт на 3 месяца» и «Full SEO».',
   // Rates: shown as a list and emitted as priceSpecification (name = the visible label, price = the visible amount).
   rates: [
-    ...MAPS_RATES.map((r) => ({ label: `${r.name}:`, text: `${r.unit}, 1 профиль`, price: r.price, spec: `${r.name}: ${r.unit}, 1 профиль` })),
+    ...RU_RATES.map((r) => ({ label: `${r.name}:`, text: `${r.unit}, 1 профиль`, price: r.price, spec: `${r.name}: ${r.unit}, 1 профиль` })),
     {
       label: 'Full-пакет:',
       text: 'Google Карты + Mapy.com (Seznam), все метрики и работа с отзывами, в месяц, 1 профиль',
@@ -105,11 +109,10 @@ export const MAPS_RU = {
 
   reviewsTitle: 'Что говорят клиенты',
   reviewsLink: 'Все отзывы',
-  casesLink: 'Все кейсы',
 
   faqTitle: 'Частые вопросы о продвижении в картах',
   faq: [
-    { q: 'Как происходит оплата?', a: `Оплата за результат: вы платите за реальные звонки, маршруты и переходы с карт. ${MAPS_RATES.map((r) => `${r.name}: ${fmtKc(r.price)} ${r.unit}`).join('; ')}; Full-пакет: ${fmtKc(MAPS_FULL_MONTHLY)} в месяц. Результаты считаются за период действия договора и подтверждаются выгрузкой из карт. Цена всегда за 1 профиль.` },
+    { q: 'Как происходит оплата?', a: `Оплата за результат: вы платите за реальные звонки, маршруты и переходы с карт. ${RU_RATES.map((r) => `${r.name}: ${fmtKc(r.price)} ${r.unit}`).join('; ')}; Full-пакет: ${fmtKc(MAPS_FULL_MONTHLY)} в месяц. Результаты считаются за период действия договора и подтверждаются выгрузкой из карт. Цена всегда за 1 профиль.` },
     { q: 'Сколько профилей можно вести?', a: 'Без ограничения.' },
     { q: 'Какие метрики отслеживаются?', a: 'Звонки, маршруты и переходы на сайт.' },
     { q: 'Какой минимальный срок работы?', a: `От ${MAPS_MIN_MONTHS} месяцев.` },

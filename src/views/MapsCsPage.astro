@@ -1,0 +1,178 @@
+---
+// /mapy/ (cs) built from the keyword brief of 20.10.2026. Content: data/maps-cs.ts, terms: data/maps-shared.ts.
+// The case-study block and any case link stay out until a maps case exists.
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import { META } from '../i18n/meta';
+import { path, servicesHref } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { mapsCsSchemas } from '../lib/schema-maps-cs';
+import { MAPS_CS as C } from '../data/maps-cs';
+import { reviewsWithFallback } from '../data/reviews';
+import { fmtKc } from '../data/consulting-shared';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/MapsCsPage.astro', 'src/data/maps-cs.ts', 'src/data/maps-shared.ts', 'src/data/reviews.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+
+// 1-3 reviews tagged "maps"; if there are none, the freshest ones for other services (Russian originals first).
+const reviews = reviewsWithFallback('maps', 3, 1);
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const name = (k: keyof typeof META) => META[k][lang].name;
+const others = [
+  { key: 'audit', text: C.audit },
+  { key: 'consulting', text: '' },
+  { key: 'start', text: '' },
+  { key: 'fullSeo', text: '' },
+  { key: 'geo', text: C.geo },
+] as const;
+---
+<Base {...pageProps('maps', lang)} schema={mapsCsSchemas(site, C, { modified: MOD, reviews })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>{C.h1}</h1>
+      <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <p class="price-badge">{C.badge}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+        <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+      <ul class="checks">{C.rates.map((r) => <li><span><strong>{r.label}</strong> {r.text} — {fmtKc(r.price)}</span></li>)}</ul>
+      <p>{C.ratesNote}</p>
+      <p class="muted small">{C.priceNote}</p>
+      <h3 class="examples-title">{C.priceImagesTitle}</h3>
+      <div class="examples__shots">{C.priceImages.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
+    </div>
+  </section>
+
+  <!-- WHO IT IS FOR -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.forWhomTitle}</h2>
+      <ul class="checks">{C.forWhom.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- WHAT IS INCLUDED -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.includesTitle}</h2>
+      <ul class="checks">
+        {C.includes.map((i) => {
+          const l = i.link;
+          if (!l) return <li>{i.text}</li>;
+          const [before, after] = i.text.split(l.part);
+          return <li><span>{before}<a href={t(l.page)}>{l.part}</a>{after}</span></li>;
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.metricsTitle}</h2>
+      <p class="answer">{C.metricsAnswer}</p>
+      <ul class="checks">{C.metrics.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.metricsExtra}</p>
+      <h3 class="examples-title">{C.branchesTitle}</h3>
+      <p class="muted">{C.branchesText}</p>
+      <div class="examples__shots">{C.branchImages.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
+    </div>
+  </section>
+
+  <!-- LOCAL PAGES -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.localTitle}</h2>
+      <p class="answer">{C.localAnswer}</p>
+      <p>{C.localIntro}</p>
+      <ul class="checks">{C.local.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- HOW THE WORK GOES -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.stagesTitle}</h2>
+      <ol class="steps">{C.stages.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.resultsTitle}</h2>
+      <p class="answer">{C.resultsAnswer}</p>
+      <p>{C.resultsNote}</p>
+    </div>
+  </section>
+
+  <!-- MAPS IN THE PACKAGES -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.packsTitle}</h2>
+      <p>{C.packs.intro}<a href={t('start')}>{C.packs.startLink}</a>{C.packs.startPrice}{C.packs.mid}<a href={t('fullSeo')}>{C.packs.fullLink}</a>{C.packs.fullPrice}{C.packs.outro}</p>
+    </div>
+  </section>
+
+  <!-- REVIEWS (shared data source); the case block is hidden until a maps case exists -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{C.reviewsTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></div>
+      <ReviewCards reviews={reviews} lang={lang} compact />
+    </div>
+  </section>
+
+  <!-- FAQ: answers are visible, not hidden in tabs -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">
+        {C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}
+      </div>
+      <p><a class="link-arrow" href={t('faq')}>{C.faqAll}</a></p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section" id="form">
+    <div class="container narrow">
+      <h2>{C.formTitle}</h2>
+      <div class="card"><LeadForm lang={lang} id="service-maps" service="maps" /></div>
+    </div>
+  </section>
+
+  <!-- OTHER SERVICES -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-head"><h2>{C.otherTitle}</h2><a class="link-arrow" href={servicesHref(lang)}>{C.otherAll}</a></div>
+      <div class="grid grid-3">
+        {others.map((o) => (
+          <a class="card card--link" href={t(o.key)}>
+            <h3>{name(o.key)}</h3>
+            <p>{o.text || serviceByKey(o.key as 'consulting' | 'start' | 'fullSeo').short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
