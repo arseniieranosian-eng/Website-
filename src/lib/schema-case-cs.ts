@@ -4,8 +4,8 @@ import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { ids } from './schema';
 
-// Page-specific JSON-LD for the anonymised case study (cs): Article + ImageObject (the one real screenshot) + Quotation +
-// FAQPage. The two charts are HTML/SVG with real text on the page, so they are not ImageObjects. No Service / Offer,
+// Page-specific JSON-LD for the anonymised case study (cs): Article + ImageObject (the one real screenshot) + HowTo (the six
+// steps) + Quotation + FAQPage. The two charts are HTML/SVG with real text on the page, so they are not ImageObjects. No Service / Offer,
 // no Review with a client name, no ratings, no video. The client's name appears nowhere.
 export function caseCsSchemas(site: URL, C: typeof CASE_CS, opts: { modified: string }) {
   const lang = C.lang;
@@ -48,6 +48,11 @@ export function caseCsSchemas(site: URL, C: typeof CASE_CS, opts: { modified: st
       caption: C.faqImage.caption,
       width: C.faqImage.width,
       height: C.faqImage.height,
+    },
+    {
+      '@type': 'HowTo',
+      name: C.stepsTitle,
+      step: C.steps.map((s) => ({ '@type': 'HowToStep', name: s.title, text: s.text })),
     },
     {
       '@type': 'Quotation',
