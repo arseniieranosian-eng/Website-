@@ -117,19 +117,34 @@ ul, ol { padding-left: 1.2em; }
 .lang-switch a[aria-current='true'] { color: var(--text); border-color: var(--line); }
 .lang-switch a:hover { color: var(--blue); }
 
-@media (min-width: 1400px) {
+@media (min-width: 1100px) {
   .nav-toggle { display: none; }
-  .nav-wrap, .nav-open .nav-wrap { display: flex; position: static; flex-direction: row; align-items: center; padding: 0; border: 0; gap: 20px; background: none; }
-  .nav { flex-direction: row; gap: 4px; }
-  .nav a { padding: 8px 8px; border: 0; font-size: 0.92rem; border-radius: 8px; }
+  /* compact desktop header (laptops): everything stays on one horizontal line */
+  .nav-wrap, .nav-open .nav-wrap { display: flex; position: static; flex-direction: row; align-items: center; padding: 0; border: 0; gap: 10px; background: none; }
+  .nav { flex-direction: row; gap: 0; }
+  .nav a { padding: 8px 6px; border: 0; font-size: 0.85rem; border-radius: 8px; }
+  .logo-text small { display: none; }
+  .lang-switch a { padding: 5px 6px; }
+  .nav-wrap .btn--sm { padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; }
   .nav a:hover { background: var(--grey-bg); }
   .nav-dd { position: relative; }
-  .nav-dd__btn { width: auto; border: 0; padding: 8px 8px; font-size: 0.92rem; border-radius: 8px; }
+  .nav-dd__btn { width: auto; border: 0; padding: 8px 6px; font-size: 0.85rem; border-radius: 8px; }
   .nav-dd__btn:hover { background: var(--grey-bg); }
   .nav-sub { position: absolute; top: 100%; left: 0; min-width: 240px; padding: 8px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 32px rgba(11, 11, 15, 0.12); z-index: 30; }
   .nav-sub a { padding: 10px 12px; }
   /* open on hover for mouse users; the button's aria-expanded covers click / keyboard / touch */
   @media (hover: hover) { .nav-dd:hover .nav-sub { display: block; } }
+}
+
+/* roomy header on wide screens */
+@media (min-width: 1440px) {
+  .nav-wrap, .nav-open .nav-wrap { gap: 20px; }
+  .nav { gap: 4px; }
+  .nav a { padding: 8px 8px; font-size: 0.92rem; }
+  .nav-dd__btn { padding: 8px 8px; font-size: 0.92rem; }
+  .logo-text small { display: block; }
+  .lang-switch a { padding: 6px 9px; }
+  .nav-wrap .btn--sm { padding: 9px 14px; font-size: 0.9rem; }
 }
 
 /* Breadcrumbs */
