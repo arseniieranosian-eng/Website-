@@ -1,5 +1,5 @@
 import type { Lang, PageKey, ServiceKey } from '../i18n/routes';
-import { CASE_LABEL, CASE_LINE, TYPO_LINE, EDU_LINE, SEASON_LINE } from './case-summary';
+import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, SEASON_LINE } from './case-summary';
 
 type L<T = string> = Record<Lang, T>;
 
@@ -40,13 +40,13 @@ export const CASES: CaseStudy[] = [
 
 CASES.push({
   key: 'caseTypo',
-  langs: ['ru'],
+  langs: ['cs', 'ru'],
   industry: { cs: 'Tiskárna', en: 'Print shop', ru: 'Типография' },
-  teaser: { cs: '', en: '', ru: TYPO_LINE },
-  challenge: { cs: '', en: '', ru: 'Сайт работал, но Google плохо понимал его структуру, а страницы не были привязаны к запросам, по которым люди готовы заказывать печать.' },
-  solution: { cs: [], en: [], ru: ['Технический краулинг и данные Google Search Console', 'Исправление битых ссылок и иерархии заголовков', 'Карта запросов по воронке под коммерческий интент', '20+ посадочных страниц на WordPress', 'Еженедельный мониторинг'] },
+  teaser: { cs: TYPO_LINE_CS, en: '', ru: TYPO_LINE },
+  challenge: { cs: 'Web fungoval, ale Google špatně rozuměl jeho struktuře a stránky nebyly navázané na dotazy, u kterých lidé objednávají tisk.', en: '', ru: 'Сайт работал, но Google плохо понимал его структуру, а страницы не были привязаны к запросам, по которым люди готовы заказывать печать.' },
+  solution: { cs: ['Technický crawl a data z Google Search Console', 'Oprava rozbitých odkazů a hierarchie nadpisů', 'Mapa dotazů podle trychtýře a komerčního záměru', '20+ vstupních stránek na WordPressu', 'Týdenní monitoring'], en: [], ru: ['Технический краулинг и данные Google Search Console', 'Исправление битых ссылок и иерархии заголовков', 'Карта запросов по воронке под коммерческий интент', '20+ посадочных страниц на WordPress', 'Еженедельный мониторинг'] },
   metrics: [
-    { value: '×8,75', label: { cs: '', en: '', ru: 'органический трафик: 1 200 → 10 500 визитов в месяц, июль 2024 → июль 2025' } },
+    { value: '×8,75', label: { cs: 'organická návštěvnost: 1\u00a0200 → 10\u00a0500 návštěv za měsíc, červenec 2024 → červenec 2025', en: '', ru: 'органический трафик: 1 200 → 10 500 визитов в месяц, июль 2024 → июль 2025' } },
   ],
   services: ['start', 'fullSeo'],
 });

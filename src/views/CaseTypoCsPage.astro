@@ -1,0 +1,160 @@
+---
+// The anonymised print-shop case (cs), built from the brief of 20.10.2026. Content: data/case-typo-cs.ts.
+// hreflang cs ↔ ru comes from the route table. No graph and no reviews block until the data exists.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { caseTypoSchemas } from '../lib/schema-case-typo';
+import { CASE_TYPO_CS as C } from '../data/case-typo-cs';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/CaseTypoCsPage.astro', 'src/data/case-typo-cs.ts', 'src/data/case-summary.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/pripadove-studie/og-tiskarna.png';
+---
+<Base {...pageProps('caseTypo', lang)} ogType="article" ogImage={OG} schema={caseTypoSchemas(site, C, { modified: MOD, image: OG })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{C.label}</p>
+      <h1>{C.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.project}</p>
+      <p class="lead">{C.answer}</p>
+      <dl class="stats stats--case">{C.cards.map((c) => <div><dt>{c.label}</dt><dd>{c.value}</dd></div>)}</dl>
+      <p class="muted small">{C.dataNote}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroCta}</a></div>
+    </div>
+  </section>
+
+  <!-- START -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.startTitle}</h2>
+      <p class="answer">{C.startAnswer}</p>
+      <ul class="checks">{C.problems.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.startText}</p>
+    </div>
+  </section>
+
+  <!-- TECHNICAL FOUNDATION -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.techTitle}</h2>
+      <p class="answer">{C.techAnswer}</p>
+      <ul class="checks">{C.techSteps.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- KEYWORD ARCHITECTURE -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.keysTitle}</h2>
+      <p class="answer">{C.keysAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.keysTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.keysTable.rows.map(([a, b]) => <tr><th scope="row">{a}</th><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANDING PAGES -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.landingTitle}</h2>
+      <p class="answer">{C.landingAnswer}</p>
+      <ul class="checks">{C.landingDiff.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- MONITORING -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.monitorTitle}</h2>
+      <p class="answer">{C.monitorAnswer}</p>
+      <ul class="checks">{C.monitor.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- RESULTS (the single source of the figures) -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.resultsTitle}</h2>
+      <p class="answer">{C.resultsAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.resultsTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.resultsTable.rows.map(([a, ...cells]) => <tr><th scope="row">{a}</th>{cells.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.resultsSource}</p>
+      <p>{C.resultsNote}</p>
+      <p class="muted">{C.resultsLimits}</p>
+    </div>
+  </section>
+
+  <!-- MAIN LESSON -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.lessonTitle}</h2>
+      <p class="answer">{C.lessonAnswer}</p>
+      <ol class="case-steps">{C.lesson.map((s) => <li><h3>{s.title}</h3><p>{s.text}</p></li>)}</ol>
+      <p>{C.lessonClose}</p>
+    </div>
+  </section>
+
+  <!-- CZECH MARKET -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.marketTitle}</h2>
+      <p class="answer">{C.marketAnswer}</p>
+      <p>{C.marketText}</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES (no prices) -->
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.relatedTitle}</h2>
+      <div class="grid grid-4">
+        {C.related.map((k) => (
+          <a class="card card--link" href={t(k)}>
+            <h3>{META[k][lang].name}</h3>
+            <p>{serviceByKey(k).short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT CLOSE -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.ctaTitle}</h2>
+      <p>{C.ctaText}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.ctaAudit}</a>
+        <a class="btn btn--secondary btn--lg" href={t('contact')}>{C.ctaContact}</a>
+      </div>
+      <p><a class="link-arrow" href={t('caseKb')}>{C.nextCase}</a></p>
+    </div>
+  </section>
+</Base>

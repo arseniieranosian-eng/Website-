@@ -100,6 +100,8 @@ export const FULLSEO_CS = {
   caseTitle: START_CS.caseTitle,
   caseText: START_CS.caseText,
   caseLink: START_CS.caseLink,
+  caseText2: START_CS.caseText2,
+  caseLink2: START_CS.caseLink2,
 
   reviewsTitle: START_CS.reviewsTitle,
   reviewsLink: START_CS.reviewsLink,

@@ -45,7 +45,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 
 // Pages that exist in some languages only (no hreflang alternates for the missing ones; the language switcher falls
 // back to the home page). The cs/en addresses of these pages are placeholders and are never built.
-export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['ru'], caseEdu: ['ru'], caseSeason: ['ru'] };
+export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['ru'], caseSeason: ['ru'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.

@@ -1,7 +1,7 @@
 // Czech content of /konzultace/ (brief of 19.10.2026): an adaptation for the Czech market, not a translation
 // of the Russian page. Prices come from consulting-shared.ts, the packages' prices from start-shared / fullseo-shared.
 import { fmtKc, PRICES, QUESTIONS_HOURS } from './consulting-shared';
-import { CASE_LINE } from './case-summary';
+import { CASE_LINE, TYPO_LINE_CS } from './case-summary';
 import { START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
 
@@ -109,6 +109,8 @@ export const CONSULTING_CS = {
   caseTitle: 'Co může SEO plán přinést',
   caseText: CASE_LINE.cs,
   caseLink: 'Celý příběh',
+  caseText2: TYPO_LINE_CS,
+  caseLink2: 'Případová studie SEO pro tiskárnu',
 
   reviewsTitle: 'Co říkají klienti',
   reviewsLink: 'Všechny reference',

@@ -25,6 +25,9 @@ export const CASE_GEO_LINE: Record<Lang, string> = {
 // The print-shop case (ru page only): the one result formula, used everywhere the case is mentioned.
 // 1 200 → 10 500 organic visits a month = ×8.75 = +775 %, July 2024 → July 2025 (same month, so no seasonality).
 export const TYPO_FORMULA = '1 200 → 10 500 визитов в месяц, +775%, июль 2024 → июль 2025';
+// Czech pair of the same case: same figures, Czech number format (non-breaking spaces).
+export const TYPO_FORMULA_CS = '1 200 → 10 500 návštěv za měsíc, +775 %, červenec 2024 → červenec 2025'.replace(/(\d) (?=\d{3}(?!\d))/g, '$1\u00a0').replace(/ %/g, '\u00a0%');
+export const TYPO_LINE_CS: string = `Tiskárna: organická návštěvnost ${TYPO_FORMULA_CS}.`;
 export const TYPO_LINE: string =
   'Типография: органический трафик вырос с 1 200 до 10 500 визитов в месяц (+775%, июль 2024 → июль 2025).';
 

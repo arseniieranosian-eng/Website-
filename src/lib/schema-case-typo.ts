@@ -1,12 +1,12 @@
 import { CASE_TYPO_PUBLISHED } from '../data/case-typo-ru';
-import type { CASE_TYPO } from '../data/case-typo-ru';
+import type { Lang } from '../i18n/routes';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { ids } from './schema';
 
-// Page-specific JSON-LD for the anonymised print-shop case (ru). Article + BreadcrumbList + FAQPage. No Service / Offer,
+// Page-specific JSON-LD for the anonymised print-shop case (ru and cs). Article + BreadcrumbList + FAQPage. No Service / Offer,
 // no Review with a client, no ratings, no client name or domain. Figures only as they appear in the visible text.
-export function caseTypoSchemas(site: URL, C: typeof CASE_TYPO, opts: { modified: string; image: string }) {
+export function caseTypoSchemas(site: URL, C: { lang: Lang; h1: string; faq: readonly { q: string; a: string }[]; schema: { about: readonly string[] } }, opts: { modified: string; image: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('caseTypo', lang));

@@ -25,7 +25,8 @@ if (desc.length < 120 || desc.length > 160) e(`description length ${desc.length}
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="ru_RU">')) e('og:type article / og:locale ru_RU');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h)) e('Russian-only page: no hreflang alternates');
+// hreflang pair cs ↔ ru, x-default → cs
+for (const [l, u] of [['cs', '/pripadove-studie/seo-tiskarna/'], ['ru', URL_PATH], ['x-default', '/pripadove-studie/seo-tiskarna/']]) if (!h.includes(`<link rel="alternate" hreflang="${l}" href="${BASE}${u}">`)) e(`hreflang ${l}`);
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
@@ -71,7 +72,7 @@ if (fq.mainEntity.length !== 4 || !fq.mainEntity.every((q) => body.includes(q.na
 if (/777|YoY/.test(JSON.stringify(ld.filter((n) => n['@type'] !== 'Person')))) e('+777 / YoY in the markup');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Кейсы > SEO для типографии' || bc.itemListElement.at(-1).item || bc.itemListElement[1].item !== `${BASE}/ru/kejsy/`) e('breadcrumb (three levels)');
 
-// Site: the case is listed on /ru/kejsy/ (ru only), linked from the service pages, not in cs / en, one formula everywhere
+// Site: the case is listed on /ru/kejsy/ and /pripadove-studie/ (cs pair), linked from the service pages, not in en, one formula everywhere
 const list = readFileSync('dist/ru/kejsy/index.html', 'utf8');
 if (!list.includes(`href="${URL_PATH}"`)) e('the case must be listed on /ru/kejsy/');
 for (const p of ['dist/ru/start-3-mesyaca/index.html', 'dist/ru/full-seo/index.html', 'dist/ru/konsultacii/index.html']) {
@@ -79,8 +80,8 @@ for (const p of ['dist/ru/start-3-mesyaca/index.html', 'dist/ru/full-seo/index.h
   if (!x.includes(`href="${URL_PATH}"`) || !txt(x).includes('Типография: органический трафик вырос с 1 200 до 10 500 визитов в месяц (+775%, июль 2024 → июль 2025).')) e(`${p}: the print-shop line with one formula and a link`);
 }
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
-if (!sm.includes(`${BASE}${URL_PATH}`) || /seo-tiskarna|seo-print-shop/.test(sm)) e('sitemap: ru only');
-for (const p of ['dist/pripadove-studie/index.html', 'dist/en/case-studies/index.html']) if (/seo-tipografiya/.test(readFileSync(p, 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e(`${p}: the ru-only case must not be listed in cs / en`);
+if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-tiskarna/`) || /seo-print-shop/.test(sm)) e('sitemap: cs + ru, no en');
+if (/seo-tipografiya|seo-tiskarna/.test(readFileSync('dist/en/case-studies/index.html', 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e('the case must not be listed in en');
 // +777 is gone from the whole site
 for (const p of ['dist/o-mne/index.html', 'dist/ru/obo-mne/index.html', 'dist/index.html']) if (/777/.test(readFileSync(p, 'utf8'))) e(`${p}: +777 must be replaced by +775`);
 

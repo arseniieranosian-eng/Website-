@@ -174,7 +174,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   },
   // Russian-only page (see ONLY_LANGS in routes.ts); the cs / en entries are placeholders and are never built.
   caseTypo: {
-    cs: { name: 'SEO pro tiskárnu', title: 'SEO pro tiskárnu', description: 'SEO pro tiskárnu', h1: 'SEO pro tiskárnu' },
+    cs: {
+      name: 'SEO pro tiskárnu',
+      title: 'SEO pro tiskárnu: návštěvnost 8,75× za rok | Eranosian',
+      description: 'Případová studie: jak jsem zvýšil organickou návštěvnost tiskárny z 1\u00a0200 na 10\u00a0500 měsíčně za rok. Pořadí priorit a 20+ vstupních stránek. Audit zdarma.',
+      h1: 'SEO pro tiskárnu: organická návštěvnost vzrostla 8,75× za 12 měsíců',
+    },
     en: { name: 'SEO for a print shop', title: 'SEO for a print shop', description: 'SEO for a print shop', h1: 'SEO for a print shop' },
     ru: {
       name: 'SEO для типографии',
