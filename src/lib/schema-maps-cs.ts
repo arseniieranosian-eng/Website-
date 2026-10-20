@@ -3,7 +3,7 @@ import type { MAPS_CS } from '../data/maps-cs';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
-import { ids } from './schema';
+import { ids, quotationSchema } from './schema';
 
 // Page-specific JSON-LD for /mapy/ (cs). The global Person / ProfessionalService / WebSite graph and the
 // BreadcrumbList come from the layout. Rates are UnitPriceSpecifications (names = the visible labels). No
@@ -27,6 +27,7 @@ export function mapsCsSchemas(site: URL, C: typeof MAPS_CS, opts: { modified: st
     }));
 
   return [
+    quotationSchema(url, id.person, C.quote, lang),
     {
       '@type': 'WebPage',
       '@id': `${url}#webpage`,

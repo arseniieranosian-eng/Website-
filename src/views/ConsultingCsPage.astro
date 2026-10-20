@@ -34,6 +34,7 @@ const others = [
 ] as const;
 const cmp = C.compare;
 import WhoDoesItCs from '../components/WhoDoesItCs.astro';
+import QuoteFigure from '../components/QuoteFigure.astro';
 ---
 <Base {...pageProps('consulting', lang)} schema={consultingCsSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
@@ -130,6 +131,8 @@ import WhoDoesItCs from '../components/WhoDoesItCs.astro';
       <p><a href={t('geo')}>{name('geo')}</a></p>
     </div>
   </section>
+
+  <QuoteFigure text={C.quote} cite={new URL(t('consulting'), site).href} lang={lang} />
 
   <!-- CASE -->
   <section class="section">

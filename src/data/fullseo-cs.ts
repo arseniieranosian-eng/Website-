@@ -15,6 +15,8 @@ const startPrice = fmtKc(START_PRICE);
 
 export const FULLSEO_CS = {
   lang: 'cs' as const,
+  // The author's quote (after the block named in the brief of 20.10.2026); text word for word in the page and in the Quotation node.
+  quote: 'Rok SEO není sprint. Strategie, čtvrtletní priority a nový obsah každý měsíc se sčítají, proto Full SEO dává smysl tam, kde chcete růst dlouhodobě.',
   label: `Délka: ${FULLSEO_MONTHS} měsíců`,
   h1: 'Full SEO na rok',
   lead: 'Celoroční SEO od A do Z: pracuji na vašem webu i mimo něj, vedu profily na mapách Google a Mapy.com a každý týden vám ukážu, co je hotovo a jaké jsou výsledky. Jsem SEO specialista v Praze.',

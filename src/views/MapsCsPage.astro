@@ -34,6 +34,7 @@ const others = [
   { key: 'fullSeo', text: '' },
 ] as const;
 import WhoDoesItCs from '../components/WhoDoesItCs.astro';
+import QuoteFigure from '../components/QuoteFigure.astro';
 ---
 <Base {...pageProps('maps', lang)} schema={mapsCsSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
@@ -98,6 +99,8 @@ import WhoDoesItCs from '../components/WhoDoesItCs.astro';
       <div class="examples__shots">{C.branchImages.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
     </div>
   </section>
+
+  <QuoteFigure text={C.quote} cite={new URL(t('maps'), site).href} lang={lang} />
 
   <!-- LOCAL PAGES -->
   <section class="section">

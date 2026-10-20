@@ -3,7 +3,7 @@ import type { CONSULTING_CS } from '../data/consulting-cs';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
-import { ids } from './schema';
+import { ids, quotationSchema } from './schema';
 
 // Page-specific JSON-LD for /konzultace/ (cs). The global Person / ProfessionalService / WebSite graph and
 // the BreadcrumbList come from the layout. No VideoObject (no video on this page), no AggregateRating. Prices in CZK only.
@@ -26,6 +26,7 @@ export function consultingCsSchemas(site: URL, C: typeof CONSULTING_CS, opts: { 
 
   const [q, a] = C.offers;
   return [
+    quotationSchema(url, id.person, C.quote, lang),
     {
       '@type': 'WebPage',
       '@id': `${url}#webpage`,

@@ -11,6 +11,8 @@ const languages = 'Konzultace probíhá v češtině, angličtině a ruštině. 
 
 export const CONSULTING_CS = {
   lang: 'cs' as const,
+  // The author's quote (after the block named in the brief of 20.10.2026); text word for word in the page and in the Quotation node.
+  quote: 'Konzultace dá odpovědi a plán. Práci za vás neprovádím, a když potřebujete realizaci, řeknu to rovnou.',
   h1: 'SEO konzultace',
   lead: 'Nezávislý pohled na SEO vašeho webu a jasný plán, co dělat dál. Odpovím na vaše otázky, případně připravím audit webu s akčním plánem na 12 měsíců a na konzultaci vám ho představím. Online nebo osobně v Praze.',
   updatedLabel: 'Aktualizováno',

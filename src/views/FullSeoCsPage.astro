@@ -32,6 +32,7 @@ const others = [
   { key: 'maps', text: '' },
 ] as const;
 import WhoDoesItCs from '../components/WhoDoesItCs.astro';
+import QuoteFigure from '../components/QuoteFigure.astro';
 ---
 <Base {...pageProps('fullSeo', lang)} schema={fullSeoCsSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
@@ -100,6 +101,8 @@ import WhoDoesItCs from '../components/WhoDoesItCs.astro';
       <ol class="steps steps--row">{C.stages.map((st) => <li><span>{st}</span></li>)}</ol>
     </div>
   </section>
+
+  <QuoteFigure text={C.quote} cite={new URL(t('fullSeo'), site).href} lang={lang} />
 
   <!-- FIRST RESULTS -->
   <section class="section section--grey">

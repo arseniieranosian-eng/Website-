@@ -3,7 +3,7 @@ import type { FULLSEO_CS } from '../data/fullseo-cs';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
-import { ids } from './schema';
+import { ids, quotationSchema } from './schema';
 
 // Page-specific JSON-LD for /full-seo/ (cs). The global Person / ProfessionalService / WebSite graph and the
 // BreadcrumbList come from the layout. No VideoObject, no AggregateRating. Prices in CZK only: the monthly
@@ -27,6 +27,7 @@ export function fullSeoCsSchemas(site: URL, C: typeof FULLSEO_CS, opts: { modifi
     }));
 
   return [
+    quotationSchema(url, id.person, C.quote, lang),
     {
       '@type': 'WebPage',
       '@id': `${url}#webpage`,

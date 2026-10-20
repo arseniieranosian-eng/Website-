@@ -171,3 +171,13 @@ export const articleSchema = (
   author: { '@id': ids(site).person },
   publisher: { '@id': ids(site).business },
 });
+
+// The author's pull quote as a Quotation node: `@id` `<page url>#quote-1`, text word for word as on the page.
+export const quotationSchema = (url: string, personId: string, text: string, lang: Lang) => ({
+  '@type': 'Quotation',
+  '@id': `${url}#quote-1`,
+  text,
+  creator: { '@id': personId },
+  inLanguage: lang,
+  isPartOf: { '@id': `${url}#webpage` },
+});

@@ -17,6 +17,8 @@ const full = fmtKc(MAPS_FULL_MONTHLY);
 
 export const MAPS_CS = {
   lang: 'cs' as const,
+  // The author's quote (after the block named in the brief of 20.10.2026); text word for word in the page and in the Quotation node.
+  quote: 'V mapách nerozhoduje jen pozice. Rozhodují hovory, trasy a návštěvy webu, proto sleduji právě je.',
   h1: 'Lokální SEO: propagace na Google Maps a Mapy.com',
   lead: 'Propaguji váš byznys v mapách Google a Seznam: optimalizuji profily, sjednocuji údaje o firmě, nastavuji získávání recenzí a sleduji hovory, trasy a prokliky na web. Pracuji na dálku, pro firmy z jakéhokoli města. Platíte za výsledek.',
   updatedLabel: 'Aktualizováno',

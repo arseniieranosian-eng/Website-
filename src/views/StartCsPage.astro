@@ -32,6 +32,7 @@ const others = [
   { key: 'maps', text: '' },
 ] as const;
 import WhoDoesItCs from '../components/WhoDoesItCs.astro';
+import QuoteFigure from '../components/QuoteFigure.astro';
 ---
 <Base {...pageProps('start', lang)} schema={startCsSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
@@ -100,6 +101,8 @@ import WhoDoesItCs from '../components/WhoDoesItCs.astro';
       <p class="muted">{C.weekly}</p>
     </div>
   </section>
+
+  <QuoteFigure text={C.quote} cite={new URL(t('start'), site).href} lang={lang} />
 
   <!-- FIRST RESULTS -->
   <section class="section section--grey">
