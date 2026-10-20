@@ -21,11 +21,12 @@ const MOD = lastModified(['src/views/AuditCsPage.astro', 'src/data/audit-cs.ts',
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 
-// 1-2 fresh reviews of real services from the shared source: not the consultation review (another format) and not the
-// partner-agency review (the brief of 20.10.2026 drops it from this page).
-const reviews = REVIEWS.filter((r) => !r.sample && !r.services.includes('consulting') && !r.logo?.includes('make-up'))
-  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
-  .slice(0, 2);
+// The partner-agency review first (it matches the case line above it: the translation agency was worked on through that
+// agency), then the freshest reviews of other real services; never the consultation review (another format).
+const reviews = REVIEWS.filter((r) => !r.sample && !r.services.includes('consulting'))
+  .sort((a, b) => Number(b.id === 'make-up-agency') - Number(a.id === 'make-up-agency') || (b.date ?? '').localeCompare(a.date ?? ''))
+  .slice(0, 3);
+const notes = { 'make-up-agency': 'Agentura, přes kterou jsem pracoval s překladatelskou agenturou' };
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 ---
 <Base {...pageProps('audit', lang)} schema={auditCsSchemas(site, C, V, { modified: MOD })}>
@@ -141,7 +142,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container">
       <div class="section-head"><h2>{C.proofTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></div>
       <p>{C.proofText} <a href={t('caseKb')}>{C.proofLink}</a></p>
-      <ReviewCards reviews={reviews} lang={lang} compact />
+      <ReviewCards reviews={reviews} lang={lang} compact notes={notes} />
     </div>
   </section>
 
