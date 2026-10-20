@@ -80,7 +80,7 @@ export const SERVICES: Service[] = [
       en: ['Month 1: audit, research and plan', 'Month 2: technical fixes and structure', 'Month 3: content, optimisation and review'],
       ru: ['1-й месяц: аудит, анализ и план', '2-й месяц: технические исправления и структура', '3-й месяц: контент, оптимизация и итоги'],
     },
-    duration: { cs: '3 měsíce', en: '3 months', ru: `${fmtKc(START_PRICE)} · 3 месяца` },
+    duration: { cs: `${fmtKc(START_PRICE)} · 3 měsíce`, en: '3 months', ru: `${fmtKc(START_PRICE)} · 3 месяца` },
     related: ['fullSeo', 'maps'],
   },
   {
@@ -111,7 +111,7 @@ export const SERVICES: Service[] = [
       en: ['Audit and strategy for the year', 'Quarterly priority plan', 'Ongoing work and monthly reports', 'Annual review and next-year plan'],
       ru: ['Аудит и стратегия на год', 'Квартальный план приоритетов', 'Постоянная работа и ежемесячные отчёты', 'Итоги года и план на следующий'],
     },
-    duration: { cs: '12 měsíců', en: '12 months', ru: `От ${fmtKc(FULLSEO_MONTHLY)} в месяц · 12 месяцев` },
+    duration: { cs: `Od ${fmtKc(FULLSEO_MONTHLY)} měsíčně · 12 měsíců`, en: '12 months', ru: `От ${fmtKc(FULLSEO_MONTHLY)} в месяц · 12 месяцев` },
     related: ['start', 'maps'],
   },
   {
@@ -142,7 +142,7 @@ export const SERVICES: Service[] = [
       en: ['Audit of current profiles and competitors', 'Profile and directory optimisation', 'Review and local content setup', 'Monthly map ranking tracking'],
       ru: ['Аудит текущих профилей и конкурентов', 'Оптимизация профилей и каталогов', 'Настройка отзывов и локального контента', 'Ежемесячный контроль позиций на картах'],
     },
-    duration: { cs: 'Od 4 měsíců', en: 'From 4 months', ru: `От 4 месяцев · Full-пакет ${fmtKc(MAPS_FULL_MONTHLY)} в месяц` },
+    duration: { cs: `Od 4 měsíců · Full balíček ${fmtKc(MAPS_FULL_MONTHLY)} měsíčně`, en: 'From 4 months', ru: `От 4 месяцев · Full-пакет ${fmtKc(MAPS_FULL_MONTHLY)} в месяц` },
     related: ['start', 'fullSeo'],
     reviewsFrom: 'fullSeo',
   },

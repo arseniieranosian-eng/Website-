@@ -368,12 +368,12 @@ table.compare { min-width: 0; }
 
 /* Consultation examples (screenshots with client data hidden) */
 .examples-title { margin-top: 40px; }
-.examples { display: grid; gap: 32px; margin-top: 16px; }
-.examples__group { margin: 0; }
+.examples { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 16px; }
+.examples__group { margin: 0; min-width: 0; max-width: 100%; }
 .examples__group h4 { margin: 0 0 4px; font-size: 1.05rem; }
-.examples__shots { display: flex; gap: 16px; overflow-x: auto; padding: 4px 0 12px; }
+.examples__shots { display: flex; gap: 12px; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; padding: 4px 0 12px; }
 .examples__shots img { height: 420px; width: auto; max-width: none; flex: none; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
-@media (max-width: 640px) { .examples__shots img { height: 320px; } }
+@media (max-width: 640px) { .examples__shots img { height: 220px; } }
 
 /* Sample audit presentation video (16:9-ish, silent) */
 .audit-video { margin: 16px 0 12px; }
