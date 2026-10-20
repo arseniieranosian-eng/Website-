@@ -87,9 +87,9 @@ export const SERVICES: Service[] = [
     key: 'fullSeo',
     icon: 'chart',
     short: {
-      cs: 'Celoroční péče: strategie, obsah, odkazy, technický dohled a GEO. Stabilní růst poptávek.',
-      en: 'Year-round care: strategy, content, links, technical monitoring and GEO. Steady growth in enquiries.',
-      ru: 'Работа весь год: стратегия, контент, ссылки, технический контроль и GEO. Стабильный рост заявок.',
+      cs: 'Celoroční péče: strategie, obsah, odkazy, technický dohled a GEO/AEO. Stabilní růst poptávek.',
+      en: 'Year-round care: strategy, content, links, technical monitoring and GEO/AEO. Steady growth in enquiries.',
+      ru: 'Работа весь год: стратегия, контент, ссылки, технический контроль и GEO/AEO. Стабильный рост заявок.',
     },
     intro: {
       cs: 'SEO přináší největší výsledky v dlouhém horizontu. V rámci ročního programu vedu celé SEO za vás: od strategie přes obsah a odkazy až po pravidelné vyhodnocení a optimalizaci pro AI vyhledávání.',
@@ -102,9 +102,9 @@ export const SERVICES: Service[] = [
       ru: ['Компании, для которых сайт — главный источник заявок', 'Интернет-магазины и услуги в конкурентных нишах', 'Компании без собственного SEO-специалиста'],
     },
     includes: {
-      cs: ['Roční strategie a čtvrtletní plány', 'Obsahový plán a tvorba textů', 'Linkbuilding', 'Průběžný technický dohled', 'SEO + GEO optimalizace', 'Měsíční reporting a call'],
-      en: ['Annual strategy and quarterly plans', 'Content plan and copywriting', 'Link building', 'Ongoing technical monitoring', 'SEO + GEO optimisation', 'Monthly reporting and call'],
-      ru: ['Годовая стратегия и квартальные планы', 'Контент-план и написание текстов', 'Линкбилдинг', 'Постоянный технический контроль', 'SEO + GEO-оптимизация', 'Ежемесячная отчётность и созвон'],
+      cs: ['Roční strategie a čtvrtletní plány', 'Obsahový plán a tvorba textů', 'Linkbuilding', 'Průběžný technický dohled', 'SEO + GEO/AEO optimalizace', 'Měsíční reporting a call'],
+      en: ['Annual strategy and quarterly plans', 'Content plan and copywriting', 'Link building', 'Ongoing technical monitoring', 'SEO + GEO/AEO optimisation', 'Monthly reporting and call'],
+      ru: ['Годовая стратегия и квартальные планы', 'Контент-план и написание текстов', 'Линкбилдинг', 'Постоянный технический контроль', 'SEO + GEO/AEO-оптимизация', 'Ежемесячная отчётность и созвон'],
     },
     process: {
       cs: ['Audit a strategie na celý rok', 'Čtvrtletní plán priorit', 'Průběžná práce a měsíční reporty', 'Vyhodnocení a plán na další rok'],

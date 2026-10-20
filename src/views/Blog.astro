@@ -21,9 +21,9 @@ const empty = posts.length === 0;
 const czechHasPosts = withPosts.includes(DEFAULT_LANG);
 
 const C = {
-  cs: { lead: 'Návody a postřehy z praxe: SEO, GEO, lokální SEO a vyhledávání v Google, Seznamu a AI.', emptyTitle: 'Články zatím připravuji', emptyText: 'Brzy tu najdete praktické články o SEO, GEO a lokálním vyhledávání. Mezitím se podívejte na služby nebo si nechte udělat bezplatný audit.' },
-  en: { lead: 'Guides and lessons from practice: SEO, GEO, local SEO and search in Google, Seznam and AI.', emptyTitle: 'Articles are coming soon', emptyText: 'Practical articles on SEO, GEO and local search will appear here soon. Meanwhile, have a look at the services or get a free audit.' },
-  ru: { lead: 'Практические статьи: SEO, GEO, локальное SEO и поиск в Google, Seznam и нейросетях.', emptyTitle: 'Статьи скоро появятся', emptyText: 'Здесь скоро появятся практические статьи об SEO, GEO и локальном поиске. А пока посмотрите услуги или закажите бесплатный аудит.' },
+  cs: { lead: 'Návody a postřehy z praxe: SEO, GEO/AEO, lokální SEO a vyhledávání v Google, Seznamu a AI.', emptyTitle: 'Články zatím připravuji', emptyText: 'Brzy tu najdete praktické články o SEO, GEO/AEO a lokálním vyhledávání. Mezitím se podívejte na služby nebo si nechte udělat bezplatný audit.' },
+  en: { lead: 'Guides and lessons from practice: SEO, GEO/AEO, local SEO and search in Google, Seznam and AI.', emptyTitle: 'Articles are coming soon', emptyText: 'Practical articles on SEO, GEO/AEO and local search will appear here soon. Meanwhile, have a look at the services or get a free audit.' },
+  ru: { lead: 'Практические статьи: SEO, GEO/AEO, локальное SEO и поиск в Google, Seznam и нейросетях.', emptyTitle: 'Статьи скоро появятся', emptyText: 'Здесь скоро появятся практические статьи об SEO, GEO/AEO и локальном поиске. А пока посмотрите услуги или закажите бесплатный аудит.' },
 }[lang];
 ---
 <Base {...pageProps('blog', lang)} alternates={alternates} langFallback={ROUTES.blog} noindex={empty}>

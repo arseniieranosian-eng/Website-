@@ -3,7 +3,7 @@ import type { Lang } from '../i18n/routes';
 export const SITE = {
   person: 'Arsenii Eranosian',
   brand: 'Arsenii Eranosian · SEO',
-  jobTitle: { cs: 'SEO a GEO specialista', en: 'SEO and GEO specialist', ru: 'SEO и GEO специалист' } as Record<Lang, string>,
+  jobTitle: { cs: 'SEO a GEO/AEO specialista', en: 'SEO and GEO/AEO specialist', ru: 'SEO и GEO/AEO специалист' } as Record<Lang, string>,
   email: 'arseniieranosian@gmail.com',
   phone: '+420 735 080 267',
   ico: '21462259', // IČO (company ID)
@@ -13,14 +13,14 @@ export const SITE = {
   country: 'CZ',
   alternateNames: ['Арсений Ераносьян'],
   description: {
-    cs: 'SEO a GEO specialista z Prahy. SEO jako systém, který mění vyhledávání v tržby.',
-    en: 'SEO and GEO specialist based in Prague. SEO as a system that turns search into revenue.',
-    ru: 'SEO и GEO-специалист из Праги. SEO как система, которая превращает поиск в выручку.',
+    cs: 'SEO a GEO/AEO specialista z Prahy. SEO jako systém, který mění vyhledávání v tržby.',
+    en: 'SEO and GEO/AEO specialist based in Prague. SEO as a system that turns search into revenue.',
+    ru: 'SEO и GEO/AEO-специалист из Праги. SEO как система, которая превращает поиск в выручку.',
   } as Record<Lang, string>,
   // Plain strings are language-neutral; objects are emitted once per language (language-tagged values).
   knowsAbout: [
     'SEO',
-    'GEO',
+    'GEO/AEO',
     { cs: 'optimalizace pro AI vyhledávání', en: 'AI search optimization', ru: 'оптимизация под ИИ-поиск' },
     { cs: 'Google Maps a Mapy.com', en: 'Google Maps and Mapy.com', ru: 'Google Maps и Mapy.com' },
   ] as (string | Record<Lang, string>)[],

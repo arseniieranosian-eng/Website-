@@ -47,14 +47,14 @@ export const FAQ: FaqItem[] = [
     home: 3,
     pages: ['geo', 'fullSeo'],
     q: {
-      cs: 'Jaký je rozdíl mezi SEO a GEO?',
-      en: 'What is the difference between SEO and GEO?',
-      ru: 'Чем SEO отличается от GEO?',
+      cs: 'Jaký je rozdíl mezi SEO a GEO/AEO?',
+      en: 'What is the difference between SEO and GEO/AEO?',
+      ru: 'Чем SEO отличается от GEO/AEO?',
     },
     a: {
-      cs: 'SEO zlepšuje pozice ve výsledcích vyhledávání Google a Seznamu. GEO (Generative Engine Optimization) zvyšuje šanci, že vás doporučí a ocitují AI nástroje jako ChatGPT, Gemini nebo Google AI Overviews. Dělám obojí najednou, protože se navzájem posilují.',
-      en: 'SEO improves rankings in Google and Seznam results. GEO (Generative Engine Optimization) increases the chance that AI tools like ChatGPT, Gemini or Google AI Overviews recommend and cite you. I do both at once because they reinforce each other.',
-      ru: 'SEO улучшает позиции в выдаче Google и Seznam. GEO (Generative Engine Optimization) повышает шанс, что вас порекомендуют и процитируют ChatGPT, Gemini или Google AI Overviews. Я делаю и то и другое сразу — они усиливают друг друга.',
+      cs: 'SEO zlepšuje pozice ve výsledcích vyhledávání Google a Seznamu. GEO/AEO (Generative and Answer Engine Optimization) zvyšuje šanci, že vás doporučí a ocitují AI nástroje jako ChatGPT, Gemini nebo Google AI Overviews. Dělám obojí najednou, protože se navzájem posilují.',
+      en: 'SEO improves rankings in Google and Seznam results. GEO/AEO (Generative and Answer Engine Optimization) increases the chance that AI tools like ChatGPT, Gemini or Google AI Overviews recommend and cite you. I do both at once because they reinforce each other.',
+      ru: 'SEO улучшает позиции в выдаче Google и Seznam. GEO/AEO (Generative and Answer Engine Optimization) повышает шанс, что вас порекомендуют и процитируют ChatGPT, Gemini или Google AI Overviews. Я делаю и то и другое сразу — они усиливают друг друга.',
     },
   },
   {

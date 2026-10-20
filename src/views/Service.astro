@@ -28,9 +28,9 @@ const reviews = reviewsForService(s.reviewsFrom ?? service, 2);
 const site = Astro.site!;
 
 const C = {
-  cs: { forWhom: 'Pro koho', includes: 'Co je v ceně', process: 'Jak probíhá', duration: 'Délka', other: 'Další služby', form: 'Mám zájem o službu', geo: 'Součástí je i GEO – optimalizace pro AI vyhledávání.', geoLink: 'Co to znamená', reviewsNote: 'Lokální SEO a mapy dělám jako součást Full SEO. Reference ke Full SEO:', alt: 'Arsenii Eranosian při konzultaci' },
-  en: { forWhom: 'Who it is for', includes: 'What is included', process: 'How it works', duration: 'Duration', other: 'Other services', form: 'I am interested', geo: 'GEO – optimisation for AI search – is included.', geoLink: 'What that means', reviewsNote: 'I deliver local SEO and maps as part of Full SEO. Full SEO references:', alt: 'Arsenii Eranosian during a consultation' },
-  ru: { forWhom: 'Кому подходит', includes: 'Что входит', process: 'Как проходит работа', duration: 'Срок', other: 'Другие услуги', form: 'Хочу эту услугу', geo: 'GEO — оптимизация под AI-поиск — уже включена.', geoLink: 'Что это значит', reviewsNote: 'Локальное SEO и карты я делаю в рамках Full SEO. Отзывы о Full SEO:', alt: 'Arsenii Eranosian на консультации' },
+  cs: { forWhom: 'Pro koho', includes: 'Co je v ceně', process: 'Jak probíhá', duration: 'Délka', other: 'Další služby', form: 'Mám zájem o službu', geo: 'Součástí je i GEO/AEO – optimalizace pro AI vyhledávání.', geoLink: 'Co to znamená', reviewsNote: 'Lokální SEO a mapy dělám jako součást Full SEO. Reference ke Full SEO:', alt: 'Arsenii Eranosian při konzultaci' },
+  en: { forWhom: 'Who it is for', includes: 'What is included', process: 'How it works', duration: 'Duration', other: 'Other services', form: 'I am interested', geo: 'GEO/AEO – optimisation for AI search – is included.', geoLink: 'What that means', reviewsNote: 'I deliver local SEO and maps as part of Full SEO. Full SEO references:', alt: 'Arsenii Eranosian during a consultation' },
+  ru: { forWhom: 'Кому подходит', includes: 'Что входит', process: 'Как проходит работа', duration: 'Срок', other: 'Другие услуги', form: 'Хочу эту услугу', geo: 'GEO/AEO — оптимизация под AI-поиск — уже включена.', geoLink: 'Что это значит', reviewsNote: 'Локальное SEO и карты я делаю в рамках Full SEO. Отзывы о Full SEO:', alt: 'Arsenii Eranosian на консультации' },
 }[lang];
 ---
 <Base {...pageProps(service, lang)} schema={[serviceSchema(site, m.name, m.description, path(service, lang)), faq.length ? faqSchema(faq, lang) : null]}>
