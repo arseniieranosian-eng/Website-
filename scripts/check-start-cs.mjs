@@ -1,11 +1,11 @@
-// Post-build check of /sluzby/start-3-mesice/ (cs) against its brief of 19.10.2026.
+// Post-build check of /start-3-mesice/ (cs) against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://www.seo-eranosian.com';
-const URL_PATH = '/sluzby/start-3-mesice/';
+const URL_PATH = '/start-3-mesice/';
 const H1 = 'SEO start na 3 měsíce';
 const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá SEO start', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům', 'Co říkají klienti', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
-const LINKS = ['/audit-zdarma/', '/sluzby/konzultace/', '/sluzby/full-seo/', '/sluzby/mapy/', '/seo-a-geo/', '/pripadove-studie/kb-preklady/', '/recenze/', '/caste-dotazy/', '/sluzby/', '/ochrana-osobnich-udaju/'];
+const LINKS = ['/audit-zdarma/', '/konzultace/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/kb-preklady/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['agentura Praha', 'SEO agentura', 'měsíční report', '4–8 týdnů', 'Jak probíhá spolupráce', 'Marketingové týmy', 'in-house'];
 // Wording of the maps item of the OfferCatalog is fixed by the brief (merges the three map bullets).
 const MAPS_ITEM = 'Profily na Google i Mapy.com bez omezení počtu: hovory, trasy, přechody na web, recenze';
@@ -16,7 +16,7 @@ const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(
 const errors = [];
 const e = (m) => errors.push(m);
 
-const h = readFileSync('dist/sluzby/start-3-mesice/index.html', 'utf8');
+const h = readFileSync('dist/start-3-mesice/index.html', 'utf8');
 const body = txt(h);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
@@ -25,7 +25,7 @@ if (desc.length < 120 || desc.length > 160) e(`description length ${desc.length}
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:locale cs_CZ');
-for (const [l, p] of [['cs', URL_PATH], ['en', '/en/services/3-month-start/'], ['ru', '/ru/uslugi/start-3-mesyaca/'], ['x-default', URL_PATH]]) {
+for (const [l, p] of [['cs', URL_PATH], ['en', '/en/3-month-start/'], ['ru', '/ru/start-3-mesyaca/'], ['x-default', URL_PATH]]) {
   if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 }
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
@@ -60,7 +60,7 @@ if (!body.includes(cat.name) || cat.itemListElement.length !== 8) e('OfferCatalo
 else if (!cat.itemListElement.every((i) => flat.includes(i.itemOffered.name) || i.itemOffered.name === MAPS_ITEM)) e('OfferCatalog does not match the visible list');
 if (!cat.itemListElement.some((i) => i.itemOffered.name === MAPS_ITEM)) e('maps item of the OfferCatalog must use the wording from the brief');
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('6 FAQ Q/A not visible verbatim');
-if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Služby > SEO start na 3 měsíce' || bc.itemListElement.at(-1).item) e('breadcrumb');
+if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > SEO start na 3 měsíce' || bc.itemListElement.at(-1).item) e('breadcrumb');
 if (!ht || ht.totalTime !== 'P3M' || ht.step.length !== 3) e('HowTo: expected totalTime P3M and 3 steps');
 else {
   const lis = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
@@ -69,7 +69,7 @@ else {
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
-for (const p of ['/sluzby/full-seo/', '/sluzby/konzultace/', '/sluzby/mapy/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
+for (const p of ['/full-seo/', '/konzultace/', '/mapy/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
 // Comparison table (HTML) and answer-first blocks
 const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 const EXPECT = [

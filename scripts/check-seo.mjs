@@ -124,7 +124,7 @@ for (const p of pages.values()) {
     if (v && typeof v === 'object') {
       const keys = Object.keys(v);
       if (keys.length === 1 && keys[0] === '@id' && !idSet.has(v['@id'])) {
-        // A reference to an entity declared on another built page (e.g. /sluzby/full-seo/#service) is fine.
+        // A reference to an entity declared on another built page (e.g. /full-seo/#service) is fine.
         let other = false;
         try { const u = new URL(v['@id']); other = u.pathname !== p.url && pages.has(u.pathname); } catch {}
         if (!other) err(`${p.url}: unresolved JSON-LD reference ${v['@id']}`);

@@ -12,11 +12,10 @@ export const OG_LOCALE: Record<Lang, string> = { cs: 'cs_CZ', en: 'en_US', ru: '
 export const ROUTES = {
   home: { cs: '/', en: '/en/', ru: '/ru/' },
   audit: { cs: '/audit-zdarma/', en: '/en/free-audit/', ru: '/ru/besplatnyj-audit/' },
-  services: { cs: '/sluzby/', en: '/en/services/', ru: '/ru/uslugi/' },
-  consulting: { cs: '/sluzby/konzultace/', en: '/en/services/consulting/', ru: '/ru/uslugi/konsultacii/' },
-  start: { cs: '/sluzby/start-3-mesice/', en: '/en/services/3-month-start/', ru: '/ru/uslugi/start-3-mesyaca/' },
-  fullSeo: { cs: '/sluzby/full-seo/', en: '/en/services/full-seo/', ru: '/ru/uslugi/full-seo/' },
-  maps: { cs: '/sluzby/mapy/', en: '/en/services/maps/', ru: '/ru/uslugi/karty/' },
+  consulting: { cs: '/konzultace/', en: '/en/consulting/', ru: '/ru/konsultacii/' },
+  start: { cs: '/start-3-mesice/', en: '/en/3-month-start/', ru: '/ru/start-3-mesyaca/' },
+  fullSeo: { cs: '/full-seo/', en: '/en/full-seo/', ru: '/ru/full-seo/' },
+  maps: { cs: '/mapy/', en: '/en/maps/', ru: '/ru/karty/' },
   geo: { cs: '/seo-a-geo/', en: '/en/seo-and-geo/', ru: '/ru/seo-i-geo/' },
   cases: { cs: '/pripadove-studie/', en: '/en/case-studies/', ru: '/ru/kejsy/' },
   caseKb: { cs: '/pripadove-studie/kb-preklady/', en: '/en/case-studies/kb-preklady/', ru: '/ru/kejsy/kb-preklady/' },
@@ -32,12 +31,9 @@ export const ROUTES = {
 export type PageKey = keyof typeof ROUTES;
 export const PAGE_KEYS = Object.keys(ROUTES) as PageKey[];
 
-// Breadcrumb hierarchy (home is implicit root).
+// Breadcrumb hierarchy (home is implicit root). Service pages hang directly off the home page: there is no
+// /sluzby/ collection page; the services are reached from the "Services" dropdown in the header and from the home page.
 export const PARENT: Partial<Record<PageKey, PageKey>> = {
-  consulting: 'services',
-  start: 'services',
-  fullSeo: 'services',
-  maps: 'services',
   caseKb: 'cases',
 };
 
@@ -48,6 +44,12 @@ export const SERVICE_KEYS = ['consulting', 'start', 'fullSeo', 'maps'] as const;
 export type ServiceKey = (typeof SERVICE_KEYS)[number];
 
 export const path = (key: PageKey, lang: Lang): string => ROUTES[key][lang];
+
+// Where "All services" links go now that the services collection page is gone: the services block of the home page.
+export const servicesHref = (lang: Lang): string => `${ROUTES.home[lang]}#services`;
+
+// Pages listed in the header's "Services" dropdown, in order.
+export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo'] as const satisfies readonly PageKey[];
 
 export const postPath = (lang: Lang, slug: string): string => `${LANG_PREFIX[lang]}blog/${slug}/`;
 

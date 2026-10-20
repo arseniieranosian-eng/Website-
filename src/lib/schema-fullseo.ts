@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
 import { ids } from './schema';
 
-// Page-specific JSON-LD for /ru/uslugi/full-seo/. The global Person / ProfessionalService / WebSite graph and
+// Page-specific JSON-LD for /ru/full-seo/. The global Person / ProfessionalService / WebSite graph and
 // the BreadcrumbList come from the layout. HowTo describes the four stages of the year. No VideoObject
 // (no video on the page), no AggregateRating.
 export function fullSeoSchemas(site: URL, C: typeof FULLSEO_RU, opts: { modified: string; reviews: Review[] }) {

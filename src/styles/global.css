@@ -105,6 +105,13 @@ ul, ol { padding-left: 1.2em; }
 .nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .nav a { white-space: nowrap; display: block; padding: 10px 0; color: var(--text); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--line); }
 .nav a[aria-current='page'] { color: var(--blue); }
+/* "Services" dropdown (mobile: inline accordion inside the burger menu) */
+.nav-dd__btn { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 8px; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 0; font: inherit; font-weight: 500; color: var(--text); cursor: pointer; white-space: nowrap; }
+.nav-dd__btn.is-current { color: var(--blue); }
+.nav-dd__chev { width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
+.nav-dd__btn[aria-expanded='true'] .nav-dd__chev { transform: rotate(-135deg) translateY(-2px); }
+.nav-sub { list-style: none; margin: 0; padding: 0 0 0 14px; display: none; }
+.nav-dd__btn[aria-expanded='true'] + .nav-sub { display: block; }
 .lang-switch { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; }
 .lang-switch a { display: inline-block; padding: 6px 9px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-radius: 6px; border: 1px solid transparent; }
 .lang-switch a[aria-current='true'] { color: var(--text); border-color: var(--line); }
@@ -116,6 +123,13 @@ ul, ol { padding-left: 1.2em; }
   .nav { flex-direction: row; gap: 4px; }
   .nav a { padding: 8px 8px; border: 0; font-size: 0.92rem; border-radius: 8px; }
   .nav a:hover { background: var(--grey-bg); }
+  .nav-dd { position: relative; }
+  .nav-dd__btn { width: auto; border: 0; padding: 8px 8px; font-size: 0.92rem; border-radius: 8px; }
+  .nav-dd__btn:hover { background: var(--grey-bg); }
+  .nav-sub { position: absolute; top: 100%; left: 0; min-width: 240px; padding: 8px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 32px rgba(11, 11, 15, 0.12); z-index: 30; }
+  .nav-sub a { padding: 10px 12px; }
+  /* open on hover for mouse users; the button's aria-expanded covers click / keyboard / touch */
+  @media (hover: hover) { .nav-dd:hover .nav-sub { display: block; } }
 }
 
 /* Breadcrumbs */

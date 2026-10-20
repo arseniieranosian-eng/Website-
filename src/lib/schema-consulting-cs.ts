@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
 import { ids } from './schema';
 
-// Page-specific JSON-LD for /sluzby/konzultace/ (cs). The global Person / ProfessionalService / WebSite graph and
+// Page-specific JSON-LD for /konzultace/ (cs). The global Person / ProfessionalService / WebSite graph and
 // the BreadcrumbList come from the layout. No VideoObject (no video on this page), no AggregateRating. Prices in CZK only.
 export function consultingCsSchemas(site: URL, C: typeof CONSULTING_CS, opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;

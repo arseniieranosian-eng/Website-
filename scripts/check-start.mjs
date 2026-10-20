@@ -1,11 +1,11 @@
-// Post-build check of /ru/uslugi/start-3-mesyaca/ against its brief of 19.10.2026.
+// Post-build check of /ru/start-3-mesyaca/ against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://www.seo-eranosian.com';
-const URL_PATH = '/ru/uslugi/start-3-mesyaca/';
+const URL_PATH = '/ru/start-3-mesyaca/';
 const H1 = 'SEO продвижение сайта на 3 месяца';
 const SECTIONS = [H1, 'Сколько стоит SEO продвижение сайта на 3 месяца?', 'Что входит в SEO продвижение на 3 месяца', 'Как проходит работа', 'Когда будут первые результаты?', 'Для кого подходит продвижение на 3 месяца', 'Карты Google и Seznam входят в пакет', 'Старт на 3 месяца или Full SEO на год?', 'Что это дало клиентам', 'Что говорят клиенты', 'Частые вопросы о SEO продвижении на 3 месяца', 'Оставить заявку', 'Другие услуги'];
-const LINKS = ['/ru/besplatnyj-audit/', '/ru/uslugi/konsultacii/', '/ru/uslugi/full-seo/', '/ru/uslugi/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/uslugi/'];
+const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/'];
 const FORBIDDEN = ['ежемесячный отчёт', '4-8 недель', 'Разово или регулярно', 'дальше только рост'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -14,7 +14,7 @@ const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(
 const errors = [];
 const e = (m) => errors.push(m);
 
-const h = readFileSync('dist/ru/uslugi/start-3-mesyaca/index.html', 'utf8');
+const h = readFileSync('dist/ru/start-3-mesyaca/index.html', 'utf8');
 const body = txt(h);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
@@ -22,7 +22,7 @@ if (title.length < 50 || title.length > 60) e(`title length ${title.length}: ${t
 if (desc.length < 120 || desc.length > 160) e(`description length ${desc.length}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-for (const [l, p] of [['cs', '/sluzby/start-3-mesice/'], ['en', '/en/services/3-month-start/'], ['ru', URL_PATH], ['x-default', '/sluzby/start-3-mesice/']]) {
+for (const [l, p] of [['cs', '/start-3-mesice/'], ['en', '/en/3-month-start/'], ['ru', URL_PATH], ['x-default', '/start-3-mesice/']]) {
   if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 }
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
@@ -57,7 +57,7 @@ if (!cat.itemListElement.some((i) => i.itemOffered.name === MAPS_ITEM)) e('maps 
 for (const t of ['звонки, маршруты, переходы на сайт и работа с отзывами.', 'Работаю со всеми метриками (звонки, маршруты, переходы на сайт) и с отзывами.']) if (!body.includes(t)) e(`missing text: ${t}`);
 if (!/бизнесу\. Работаю со всеми метриками/.test(body)) e('metrics sentence must follow the first sentence of the maps block');
 if (fq.mainEntity.length !== 7 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('7 FAQ Q/A not visible verbatim');
-if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Услуги > Старт на 3 месяца' || bc.itemListElement.at(-1).item) e('breadcrumb');
+if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Старт на 3 месяца' || bc.itemListElement.at(-1).item) e('breadcrumb');
 // HowTo: three monthly stages as a numbered list, word for word; the weekly report is a separate paragraph
 if (!ht || ht.totalTime !== 'P3M' || ht.step.length !== 3) e('HowTo: expected totalTime P3M and 3 steps');
 else {
@@ -69,7 +69,7 @@ else {
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
-for (const p of ['/ru/uslugi/konsultacii/', '/ru/uslugi/full-seo/', '/ru/uslugi/karty/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
+for (const p of ['/ru/konsultacii/', '/ru/full-seo/', '/ru/karty/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
 
 if (errors.length) {
   console.error(`\nStart page check failed (${errors.length}):\n- ` + errors.join('\n- '));

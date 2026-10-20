@@ -1,4 +1,4 @@
-// Czech content of /sluzby/start-3-mesice/ (brief of 19.10.2026): an adaptation for the Czech market, not a
+// Czech content of /start-3-mesice/ (brief of 19.10.2026): an adaptation for the Czech market, not a
 // translation of the Russian page. Prices come from start-shared.ts / fullseo-shared.ts / maps-shared.ts.
 import { fmtKc } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';

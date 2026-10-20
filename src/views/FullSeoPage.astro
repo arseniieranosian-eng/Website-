@@ -1,10 +1,10 @@
 ---
-// /ru/uslugi/full-seo/ built from the brief of 19.10.2026. Content: data/fullseo-ru.ts, price: data/fullseo-shared.ts.
+// /ru/full-seo/ built from the brief of 19.10.2026. Content: data/fullseo-ru.ts, price: data/fullseo-shared.ts.
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import { META } from '../i18n/meta';
-import { path } from '../i18n/routes';
+import { path, servicesHref } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { fullSeoSchemas } from '../lib/schema-fullseo';
@@ -160,7 +160,7 @@ const others = [
   <!-- OTHER SERVICES -->
   <section class="section section--grey">
     <div class="container">
-      <div class="section-head"><h2>{C.otherTitle}</h2><a class="link-arrow" href={t('services')}>{C.otherAll}</a></div>
+      <div class="section-head"><h2>{C.otherTitle}</h2><a class="link-arrow" href={servicesHref(lang)}>{C.otherAll}</a></div>
       <div class="grid grid-3">
         {others.map((o) => (
           <a class="card card--link" href={t(o.key)}>

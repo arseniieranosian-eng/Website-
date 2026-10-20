@@ -10,7 +10,7 @@ import ServiceCards from '../components/ServiceCards.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import Icon from '../components/Icon.astro';
 import { META } from '../i18n/meta';
-import { path, type Lang, type ServiceKey } from '../i18n/routes';
+import { path, servicesHref, type Lang, type ServiceKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { serviceByKey } from '../data/services';
@@ -98,7 +98,7 @@ const C = {
 
   <section class="section">
     <div class="container">
-      <div class="section-head"><h2>{C.other}</h2><a class="link-arrow" href={path('services', lang)}>{ui.allServices}</a></div>
+      <div class="section-head"><h2>{C.other}</h2><a class="link-arrow" href={servicesHref(lang)}>{ui.allServices}</a></div>
       <ServiceCards lang={lang} keys={s.related} />
     </div>
   </section>

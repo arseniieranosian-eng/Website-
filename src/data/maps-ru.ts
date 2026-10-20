@@ -1,4 +1,4 @@
-// Russian content of /ru/uslugi/karty/ (brief of 19.10.2026): an adaptation for Russian-speaking business
+// Russian content of /ru/karty/ (brief of 19.10.2026): an adaptation for Russian-speaking business
 // owners in Czechia, the EU and the USA, not a translation of the Czech page.
 // Pay-per-result terms (unit price, how results are confirmed, minimum monthly payment) are NOT in the brief yet,
 // so no number appears here or in the JSON-LD (no priceSpecification).

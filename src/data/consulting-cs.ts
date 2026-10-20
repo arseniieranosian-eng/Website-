@@ -1,4 +1,4 @@
-// Czech content of /sluzby/konzultace/ (brief of 19.10.2026): an adaptation for the Czech market, not a translation
+// Czech content of /konzultace/ (brief of 19.10.2026): an adaptation for the Czech market, not a translation
 // of the Russian page. Prices come from consulting-shared.ts, the packages' prices from start-shared / fullseo-shared.
 import { fmtKc, PRICES, QUESTIONS_HOURS } from './consulting-shared';
 import { START_PRICE } from './start-shared';

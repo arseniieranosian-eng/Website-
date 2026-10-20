@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
 import { ids } from './schema';
 
-// Page-specific JSON-LD for /ru/uslugi/start-3-mesyaca/. The global Person / ProfessionalService / WebSite
+// Page-specific JSON-LD for /ru/start-3-mesyaca/. The global Person / ProfessionalService / WebSite
 // graph and the BreadcrumbList come from the layout. HowTo describes the three monthly stages (the weekly
 // report is a continuous process, not a step, so it is not in it). No VideoObject (no video), no AggregateRating.
 export function startSchemas(site: URL, C: typeof START_RU, opts: { modified: string; reviews: Review[] }) {

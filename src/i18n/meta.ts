@@ -52,26 +52,6 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Бесплатный SEO-аудит вашего сайта',
     },
   },
-  services: {
-    cs: {
-      name: 'Služby',
-      title: 'SEO služby: konzultace, start, roční SEO a mapy | Praha',
-      description: 'Přehled SEO služeb: konzultace, tříměsíční start, celoroční SEO a lokální SEO na Google Maps a Mapy.com. Vyberte si formu spolupráce.',
-      h1: 'SEO služby',
-    },
-    en: {
-      name: 'Services',
-      title: 'SEO Services: Consulting, Start, Full SEO & Maps | Prague',
-      description: 'SEO services overview: consulting, a 3-month start, year-round SEO and local SEO on Google Maps and Mapy.com. Choose how we work together.',
-      h1: 'SEO services',
-    },
-    ru: {
-      name: 'Услуги',
-      title: 'SEO-услуги: консультации, старт, SEO на год и карты | Прага',
-      description: 'Обзор SEO-услуг: консультации, старт на 3 месяца, SEO-продвижение на год и локальное SEO в Google Maps и Mapy.com.',
-      h1: 'SEO-услуги',
-    },
-  },
   consulting: {
     cs: {
       name: 'SEO konzultace',

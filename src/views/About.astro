@@ -5,7 +5,7 @@ import AuthorMedia from '../components/AuthorMedia.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { META } from '../i18n/meta';
-import { path, type Lang } from '../i18n/routes';
+import { path, servicesHref, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { ids } from '../lib/schema';
@@ -94,7 +94,7 @@ const profile = {
         <p class="muted">{C.where}</p>
         <div class="btn-row">
           <a class="btn btn--primary" href={path('audit', lang)}>{ui.ctaAuditLong}</a>
-          <a class="btn btn--secondary" href={path('services', lang)}>{ui.allServices}</a>
+          <a class="btn btn--secondary" href={servicesHref(lang)}>{ui.allServices}</a>
         </div>
       </div>
     </div>

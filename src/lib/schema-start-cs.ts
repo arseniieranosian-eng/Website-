@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
 import { ids } from './schema';
 
-// Page-specific JSON-LD for /sluzby/start-3-mesice/ (cs). The global Person / ProfessionalService / WebSite graph
+// Page-specific JSON-LD for /start-3-mesice/ (cs). The global Person / ProfessionalService / WebSite graph
 // and the BreadcrumbList come from the layout. No VideoObject, no AggregateRating. Prices in CZK only.
 export function startCsSchemas(site: URL, C: typeof START_CS, opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;

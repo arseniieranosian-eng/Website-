@@ -7,13 +7,13 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://www.seo-eranosian.com';
 const PAGES = {
   ru: {
-    file: 'dist/ru/uslugi/konsultacii/index.html',
-    url: '/ru/uslugi/konsultacii/',
+    file: 'dist/ru/konsultacii/index.html',
+    url: '/ru/konsultacii/',
     h1: 'SEO консультация',
     sections: ['SEO консультация', 'Сколько стоит SEO консультация?', 'Для кого подходит SEO консультация', 'Как проходит консультация', 'Под какую поисковую выдачу строится консультация', 'SEO консультация онлайн или лично в Праге', 'Консультация или долгая работа?', 'Что это дало клиентам', 'Что говорят клиенты', 'Частые вопросы о SEO консультации', 'Оставить заявку', 'Другие услуги'],
-    crumbs: 'Главная > Услуги > Консультации',
+    crumbs: 'Главная > Консультации',
     forbidden: ['in-house', '60-90', '60–90', 'Разово или регулярно', 'Маркетинговые команды'],
-    links: ['/ru/besplatnyj-audit/', '/ru/uslugi/start-3-mesyaca/', '/ru/uslugi/full-seo/', '/ru/uslugi/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/uslugi/'],
+    links: ['/ru/besplatnyj-audit/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/'],
     dateLabel: /Обновлено: <time datetime="([^"]+)">([^<]+)<\/time>/,
     euro: true,
   },
@@ -35,7 +35,7 @@ for (const [lang, P] of Object.entries(PAGES)) {
   if (title.replace(/ \| Eranosian$/, '') === P.h1) e('title must differ from H1');
   if (!h.includes(`<link rel="canonical" href="${BASE}${P.url}">`)) e('canonical missing/wrong');
   for (const l of ['cs', 'en', 'ru', 'x-default']) if (!new RegExp(`hreflang="${l}" href="${BASE}[^"]+"`).test(h)) e(`hreflang ${l} missing`);
-  if (!/hreflang="x-default" href="[^"]*\/sluzby\/konzultace\/"/.test(h)) e('x-default must point to cs');
+  if (!/hreflang="x-default" href="[^"]*\/konzultace\/"/.test(h)) e('x-default must point to cs');
   const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
   if (h1s.length !== 1 || h1s[0] !== P.h1) e(`H1: ${JSON.stringify(h1s)}`);
   const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => P.sections.includes(x));

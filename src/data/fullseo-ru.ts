@@ -1,4 +1,4 @@
-// Russian content of /ru/uslugi/full-seo/ (brief of 19.10.2026): an adaptation for Russian-speaking
+// Russian content of /ru/full-seo/ (brief of 19.10.2026): an adaptation for Russian-speaking
 // business owners in Czechia, the EU and the USA, not a translation of the Czech page.
 // Prices come from fullseo-shared.ts / start-shared.ts (one source for all languages).
 import { fmtKc } from './consulting-shared';

@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import PostCard from '../components/PostCard.astro';
 import { META } from '../i18n/meta';
-import { DEFAULT_LANG, LANGS, ROUTES, path, type Lang } from '../i18n/routes';
+import { DEFAULT_LANG, LANGS, ROUTES, path, servicesHref, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { postsByLang } from '../lib/blog';
@@ -36,7 +36,7 @@ const C = {
           <p class="muted">{C.emptyText}</p>
           <div class="btn-row">
             <a class="btn btn--primary" href={path('audit', lang)}>{ui.ctaAuditLong}</a>
-            <a class="btn btn--secondary" href={path('services', lang)}>{ui.allServices}</a>
+            <a class="btn btn--secondary" href={servicesHref(lang)}>{ui.allServices}</a>
           </div>
         </div>
       ) : (

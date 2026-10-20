@@ -1,11 +1,11 @@
-// Post-build check of /sluzby/konzultace/ (cs) against its brief of 19.10.2026.
+// Post-build check of /konzultace/ (cs) against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://www.seo-eranosian.com';
-const URL_PATH = '/sluzby/konzultace/';
+const URL_PATH = '/konzultace/';
 const H1 = 'SEO konzultace';
 const SECTIONS = [H1, 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace vhodná?', 'Co je součástí SEO konzultace', 'Jak probíhá SEO konzultace', 'V jakých jazycích konzultace probíhá?', 'Konzultace, audit zdarma, nebo Start a Full SEO?', 'Co může SEO plán přinést', 'Co říkají klienti', 'Časté otázky o SEO konzultaci', 'Nezávazná poptávka', 'Další služby'];
-const LINKS = ['/audit-zdarma/', '/sluzby/start-3-mesice/', '/sluzby/full-seo/', '/sluzby/mapy/', '/seo-a-geo/', '/pripadove-studie/kb-preklady/', '/recenze/', '/caste-dotazy/', '/sluzby/', '/ochrana-osobnich-udaju/'];
+const LINKS = ['/audit-zdarma/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/kb-preklady/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['60–90', '60-90', 'Marketingové týmy', 'in-house', 'nahrávk', 'Jak probíhá spolupráce'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -14,7 +14,7 @@ const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(
 const errors = [];
 const e = (m) => errors.push(m);
 
-const h = readFileSync('dist/sluzby/konzultace/index.html', 'utf8');
+const h = readFileSync('dist/konzultace/index.html', 'utf8');
 const body = txt(h);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
@@ -24,7 +24,7 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical must be the www URL');
 if (!h.includes(`<meta property="og:url" content="${BASE}${URL_PATH}">`)) e('og:url must be the www URL');
 if (/(?:href|content)="https:\/\/seo-eranosian\.com/.test(h)) e('non-www absolute URL found');
-for (const [l, p] of [['cs', URL_PATH], ['en', '/en/services/consulting/'], ['ru', '/ru/uslugi/konsultacii/'], ['x-default', URL_PATH]]) {
+for (const [l, p] of [['cs', URL_PATH], ['en', '/en/consulting/'], ['ru', '/ru/konsultacii/'], ['x-default', URL_PATH]]) {
   if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 }
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
@@ -70,7 +70,7 @@ else cat.itemListElement.forEach((i, k) => { if (!incl[k].toLowerCase().includes
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('6 FAQ Q/A not visible verbatim');
 const langAns = fq.mainEntity.at(-1).acceptedAnswer.text;
 if (!new RegExp(`V jakých jazycích konzultace probíhá\\?</h2>\\s*<p class="answer">${langAns}</p>`).test(h)) e('language block must repeat the FAQ answer verbatim, right under its heading');
-if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Služby > SEO konzultace' || bc.itemListElement.at(-1).item) e('breadcrumb');
+if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > SEO konzultace' || bc.itemListElement.at(-1).item) e('breadcrumb');
 if (!ht || ht.step.length !== 4) e('HowTo: expected 4 steps');
 else {
   const ol = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
@@ -78,7 +78,7 @@ else {
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
-for (const p of ['/sluzby/start-3-mesice/', '/sluzby/full-seo/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
+for (const p of ['/start-3-mesice/', '/full-seo/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
 for (const [hd, ans] of [['Kolik stojí SEO konzultace?', 'SEO konzultace stojí 2 000 Kč za hodinu'], ['V jakých jazycích konzultace probíhá?', 'Konzultace probíhá v češtině, angličtině a ruštině']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }

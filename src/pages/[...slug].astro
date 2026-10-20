@@ -6,7 +6,6 @@ import { allPosts, postUrl, type Post } from '../lib/blog';
 import Home from '../views/Home.astro';
 import Audit from '../views/Audit.astro';
 import AuditRuPage from '../views/AuditRuPage.astro';
-import Services from '../views/Services.astro';
 import Service from '../views/Service.astro';
 import ConsultingPage from '../views/ConsultingPage.astro';
 import ConsultingCsPage from '../views/ConsultingCsPage.astro';
@@ -40,7 +39,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  home: Home, audit: Audit, services: Services, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
+  home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
 const isService = (k: PageKey): k is ServiceKey => (SERVICE_KEYS as readonly string[]).includes(k);

@@ -1,12 +1,12 @@
-// Post-build check of /ru/uslugi/full-seo/ against its brief of 19.10.2026.
+// Post-build check of /ru/full-seo/ against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://www.seo-eranosian.com';
-const URL_PATH = '/ru/uslugi/full-seo/';
+const URL_PATH = '/ru/full-seo/';
 const H1 = 'SEO продвижение сайта на год';
 const SECTIONS = [H1, 'Сколько стоит SEO продвижение на год?', 'Что входит в SEO продвижение на год', 'Как проходит работа', 'Когда будут первые результаты?', 'Для кого подходит Full SEO на год', 'Карты Google и Seznam входят в пакет', 'Full SEO на год или Старт на 3 месяца?', 'Что это дало клиентам', 'Что говорят клиенты', 'Частые вопросы о SEO продвижении на год', 'Оставить заявку', 'Другие услуги'];
 const GROUPS = ['Работа над сайтом', 'Работа вне сайта', 'ИИ и отчётность'];
-const LINKS = ['/ru/besplatnyj-audit/', '/ru/uslugi/konsultacii/', '/ru/uslugi/start-3-mesyaca/', '/ru/uslugi/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/uslugi/'];
+const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/'];
 const FORBIDDEN = ['ежемесячные отчёты', 'ежемесячная отчётность', '4-8 недель', 'Чем SEO отличается от GEO'];
 const MAPS_ITEM = 'Ведение профилей на Google Картах, Mapy.com (Seznam) и Firmy.cz без ограничения по количеству профилей: звонки, маршруты, переходы на сайт, отзывы';
 
@@ -16,7 +16,7 @@ const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(
 const errors = [];
 const e = (m) => errors.push(m);
 
-const h = readFileSync('dist/ru/uslugi/full-seo/index.html', 'utf8');
+const h = readFileSync('dist/ru/full-seo/index.html', 'utf8');
 const body = txt(h);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
@@ -24,7 +24,7 @@ if (title.length < 50 || title.length > 60) e(`title length ${title.length}: ${t
 if (desc.length < 120 || desc.length > 160) e(`description length ${desc.length}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-for (const [l, p] of [['cs', '/sluzby/full-seo/'], ['en', '/en/services/full-seo/'], ['ru', URL_PATH], ['x-default', '/sluzby/full-seo/']]) {
+for (const [l, p] of [['cs', '/full-seo/'], ['en', '/en/full-seo/'], ['ru', URL_PATH], ['x-default', '/full-seo/']]) {
   if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 }
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
@@ -72,10 +72,10 @@ else {
   if (lis.length !== 4) e(`stages <ol> must have 4 items, has ${lis.length}`);
   ht.step.forEach((st, i) => { if (lis[i] !== st.text) e(`stage ${i + 1} in <ol> != HowToStep ("${lis[i]}")`); });
 }
-if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Услуги > Full SEO на год' || bc.itemListElement.at(-1).item) e('breadcrumb');
+if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Full SEO на год' || bc.itemListElement.at(-1).item) e('breadcrumb');
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
-for (const p of ['/ru/uslugi/start-3-mesyaca/', '/ru/uslugi/konsultacii/', '/ru/uslugi/karty/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
+for (const p of ['/ru/start-3-mesyaca/', '/ru/konsultacii/', '/ru/karty/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
 
 if (errors.length) {
   console.error(`\nFull SEO page check failed (${errors.length}):\n- ` + errors.join('\n- '));

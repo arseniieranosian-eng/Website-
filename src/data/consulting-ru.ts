@@ -1,4 +1,4 @@
-// Russian content of /ru/uslugi/konsultacii/ (brief of 19.10.2026): an adaptation for Russian-speaking
+// Russian content of /ru/konsultacii/ (brief of 19.10.2026): an adaptation for Russian-speaking
 // business owners in Czechia, the EU and the USA, not a translation of the Czech page.
 // Prices come from consulting-shared.ts (one source for all languages).
 import { fmtKc, PRICES, type ConsultingContent } from './consulting-shared';

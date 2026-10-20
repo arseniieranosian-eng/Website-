@@ -5,7 +5,7 @@ const BASE = 'https://www.seo-eranosian.com';
 const URL_PATH = '/ru/besplatnyj-audit/';
 const H1 = 'Бесплатный SEO-аудит вашего сайта';
 const SECTIONS = [H1, 'Что проверяет бесплатный SEO-аудит?', 'Чего в бесплатном аудите нет', 'Как проходит SEO-аудит', 'Что вы получите после аудита?', 'Чем бесплатный аудит отличается от консультации и Старта?', 'Что говорят клиенты', 'Вопросы о бесплатном SEO-аудите', 'Заказать бесплатный аудит', 'Другие услуги'];
-const LINKS = ['/ru/uslugi/konsultacii/', '/ru/uslugi/start-3-mesyaca/', '/ru/uslugi/full-seo/', '/ru/uslugi/karty/', '/ru/seo-i-geo/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/uslugi/', '/ru/politika-konfidencialnosti/'];
+const LINKS = ['/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/politika-konfidencialnosti/'];
 // Out of scope for the free audit (and the old page text) must not appear in <main> or in the page JSON-LD.
 const FORBIDDEN = ['KB PŘEKLADY', '20-минутн', '5-10', '5–10', 'Core Web Vitals', 'мобильная версия', 'мобильной версии', 'полтора часа', '1,5 часа', 'VEED'];
 
@@ -71,7 +71,7 @@ else {
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
-for (const p of ['/ru/uslugi/konsultacii/', '/ru/uslugi/start-3-mesyaca/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
+for (const p of ['/ru/konsultacii/', '/ru/start-3-mesyaca/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
 // Table
 const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 const EXPECT = [

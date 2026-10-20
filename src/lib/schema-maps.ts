@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
 import { ids } from './schema';
 
-// Page-specific JSON-LD for /ru/uslugi/karty/. The global Person / ProfessionalService / WebSite graph and the
+// Page-specific JSON-LD for /ru/karty/. The global Person / ProfessionalService / WebSite graph and the
 // BreadcrumbList come from the layout. No price (pay-per-result terms are not confirmed yet), no LocalBusiness
 // (it would describe the client), no VideoObject, no AggregateRating.
 export function mapsSchemas(site: URL, C: typeof MAPS_RU, opts: { modified: string; reviews: Review[] }) {
