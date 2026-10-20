@@ -189,7 +189,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     },
   },
   caseEdu: {
-    cs: { name: 'SEO pro vzdělávací platformu', title: 'SEO pro vzdělávací platformu', description: 'SEO pro vzdělávací platformu', h1: 'SEO pro vzdělávací platformu' },
+    cs: {
+      name: 'SEO pro novou vzdělávací platformu',
+      title: 'SEO pro vzdělávací platformu: +55\u00a0% návštěv | Eranosian',
+      description: 'Jak jsme s kolegou zvýšili organickou návštěvnost nové vzdělávací platformy o 55\u00a0% za 7 měsíců se sázkou na málo hledané dotazy. Audit zdarma.',
+      h1: 'SEO pro novou vzdělávací platformu: +55\u00a0% organické návštěvnosti za 7 měsíců',
+    },
     en: { name: 'SEO for an education platform', title: 'SEO for an education platform', description: 'SEO for an education platform', h1: 'SEO for an education platform' },
     ru: {
       name: 'SEO для образовательной платформы',

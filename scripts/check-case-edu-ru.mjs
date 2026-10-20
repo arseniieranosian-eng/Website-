@@ -26,7 +26,7 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="ru_RU">')) e('og:type article / og:locale ru_RU');
 if (!h.includes(`<meta property="og:image" content="${BASE}/images/pripadove-studie/og-obrazovatelnaya-platforma.png">`)) e('og:image: the +55 % card');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h)) e('Russian-only page: no hreflang alternates');
+for (const [l, u] of [['cs', '/pripadove-studie/seo-vzdelavaci-platforma/'], ['ru', URL_PATH], ['x-default', '/pripadove-studie/seo-vzdelavaci-platforma/']]) if (!h.includes(`<link rel="alternate" hreflang="${l}" href="${BASE}${u}">`)) e(`hreflang ${l}`);
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
@@ -78,8 +78,8 @@ if (!readFileSync('dist/ru/kejsy/index.html', 'utf8').includes(`href="${URL_PATH
 const start = readFileSync('dist/ru/start-3-mesyaca/index.html', 'utf8');
 if (!start.includes(`href="${URL_PATH}"`) || !txt(start).includes('Образовательная платформа: +55% органического трафика за 7 месяцев (март → сентябрь 2025, относительные данные от низкой базы нового сайта).')) e('Start page: the case line with one formula and a link');
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
-if (!sm.includes(`${BASE}${URL_PATH}`) || /vzdelavaci|education-platform/.test(sm)) e('sitemap: ru only');
-for (const p of ['dist/pripadove-studie/index.html', 'dist/en/case-studies/index.html']) if (/obrazovatelnaya/.test(readFileSync(p, 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e(`${p}: the ru-only case must not be listed in cs / en`);
+if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-vzdelavaci-platforma/`) || /education-platform/.test(sm)) e('sitemap: cs + ru, no en');
+if (/obrazovatelnaya|vzdelavaci/.test(readFileSync('dist/en/case-studies/index.html', 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e('the case must not be listed in en');
 
 if (errors.length) {
   console.error(`\nEducation-platform case check failed (${errors.length}):\n- ` + errors.join('\n- '));

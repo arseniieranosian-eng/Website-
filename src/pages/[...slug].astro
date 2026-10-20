@@ -24,6 +24,7 @@ import CaseCsPage from '../views/CaseCsPage.astro';
 import CaseTypoRuPage from '../views/CaseTypoRuPage.astro';
 import CaseTypoCsPage from '../views/CaseTypoCsPage.astro';
 import CaseEduRuPage from '../views/CaseEduRuPage.astro';
+import CaseEduCsPage from '../views/CaseEduCsPage.astro';
 import CaseSeasonRuPage from '../views/CaseSeasonRuPage.astro';
 import Reviews from '../views/Reviews.astro';
 import Blog from '../views/Blog.astro';
@@ -62,6 +63,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'audit' && (p
 {props.key === 'caseKb' && props.lang === 'cs' && <CaseCsPage />}
 {props.key === 'caseTypo' && props.lang === 'cs' && <CaseTypoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'ru' && <CaseTypoRuPage />}
+{props.key === 'caseEdu' && props.lang === 'cs' && <CaseEduCsPage />}
 {props.key === 'caseEdu' && props.lang === 'ru' && <CaseEduRuPage />}
 {props.key === 'caseSeason' && props.lang === 'ru' && <CaseSeasonRuPage />}
 {props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage />}

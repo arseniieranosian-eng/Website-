@@ -40,7 +40,7 @@ export function baseGraph(site: URL) {
     '@id': abs(site, '/#logo'),
     url: abs(site, '/images/logo.png'),
     contentUrl: abs(site, '/images/logo.png'),
-    width: 720,
+    width: 762,
     height: 487,
     caption: SITE.brand,
   };

@@ -41,3 +41,7 @@ export const EDU_LINE: string =
 // Form leads only (e-mail separate, calls / messengers not measured). Two adjacent windows, not year over year.
 export const SEASON_FORMULA = 'Заявки с сайта ×24 (+2300%): весна (март–май) → лето (июнь–август) 2026, одно окно, не год к году. От низкой базы';
 export const SEASON_LINE: string = `Переводческое агентство, часть 2. ${SEASON_FORMULA}.`;
+
+// Czech pair of the education-platform case (cs page): same single figure, Czech number format.
+export const EDU_FORMULA_CS = '+55\u00a0% organické návštěvnosti, březen → září 2025 (7 měsíců), relativní data od nízké základny nového webu';
+export const EDU_LINE_CS: string = `Vzdělávací platforma: ${EDU_FORMULA_CS}.`;

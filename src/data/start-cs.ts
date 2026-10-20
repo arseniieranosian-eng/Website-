@@ -5,7 +5,7 @@ import { START_PAYMENTS, START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
 import { MAPS_MIN_MONTHS } from './maps-shared';
 import { CONSULTING_CS } from './consulting-cs';
-import { CASE_LINE, TYPO_LINE_CS } from './case-summary';
+import { CASE_LINE, TYPO_LINE_CS, EDU_LINE_CS } from './case-summary';
 
 const [PAY1, PAY2] = START_PAYMENTS;
 const price = fmtKc(START_PRICE);
@@ -110,6 +110,8 @@ export const START_CS = {
   caseLink: 'Celý příběh',
   caseText2: TYPO_LINE_CS,
   caseLink2: 'Případová studie SEO pro tiskárnu',
+  caseText3: EDU_LINE_CS,
+  caseLink3: 'Příklad: SEO pro novou vzdělávací platformu (start nového webu)',
 
   reviewsTitle: 'Co říkají klienti',
   reviewsLink: 'Všechny reference',

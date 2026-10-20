@@ -1,5 +1,5 @@
 import type { Lang, PageKey, ServiceKey } from '../i18n/routes';
-import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, SEASON_LINE } from './case-summary';
+import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, EDU_LINE_CS, SEASON_LINE } from './case-summary';
 
 type L<T = string> = Record<Lang, T>;
 
@@ -53,13 +53,13 @@ CASES.push({
 
 CASES.push({
   key: 'caseEdu',
-  langs: ['ru'],
+  langs: ['cs', 'ru'],
   industry: { cs: 'Vzdělávací platforma', en: 'Education platform', ru: 'Образовательная платформа' },
-  teaser: { cs: '', en: '', ru: EDU_LINE },
-  challenge: { cs: '', en: '', ru: 'Новый сайт без истории и авторитета в поиске: конкурировать по популярным запросам было нереально.' },
-  solution: { cs: [], en: [], ru: ['Исследование ключевых слов с акцентом на низкочастотные запросы', 'Проектирование структуры страниц', 'Проектирование страниц блога'] },
+  teaser: { cs: EDU_LINE_CS, en: '', ru: EDU_LINE },
+  challenge: { cs: 'Nový web bez historie a autority ve vyhledávání: soutěžit o nejhledanější dotazy bylo nereálné.', en: '', ru: 'Новый сайт без истории и авторитета в поиске: конкурировать по популярным запросам было нереально.' },
+  solution: { cs: ['Výzkum klíčových slov s důrazem na málo hledané dotazy', 'Návrh struktury stránek', 'Návrh stránek blogu'], en: [], ru: ['Исследование ключевых слов с акцентом на низкочастотные запросы', 'Проектирование структуры страниц', 'Проектирование страниц блога'] },
   metrics: [
-    { value: '+55%', label: { cs: '', en: '', ru: 'органического трафика за 7 месяцев, март → сентябрь 2025 (относительные данные)' } },
+    { value: '+55%', label: { cs: 'organické návštěvnosti za 7 měsíců, březen → září 2025 (relativní data)', en: '', ru: 'органического трафика за 7 месяцев, март → сентябрь 2025 (относительные данные)' } },
   ],
   services: ['start'],
 });
