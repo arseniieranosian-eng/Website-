@@ -1,0 +1,69 @@
+---
+// Pop-up lead form. Any button that leads to a form (the on-page "#form" buttons and the primary buttons that go to the
+// free-audit page) opens this dialog instead of scrolling/navigating. The same LeadForm is used; the on-page forms stay.
+// Without JavaScript (or without <dialog> support) the buttons keep working as normal links.
+import LeadForm from './LeadForm.astro';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = t(lang);
+---
+<dialog class="lead-modal" id="lead-modal" aria-labelledby="lead-modal-title" data-audit-path={path('audit', lang)} data-title={ui.formTitle} data-title-audit={ui.modalTitleAudit}>
+  <button class="lead-modal__close" type="button" aria-label={ui.modalClose} data-close>
+    <span aria-hidden="true">×</span>
+  </button>
+  <p id="lead-modal-title" class="lead-modal__title" role="heading" aria-level="2">{ui.formTitle}</p>
+  <LeadForm lang={lang} id="modal" service="consulting" />
+</dialog>
+
+<script>
+  const dlg = document.getElementById('lead-modal') as HTMLDialogElement | null;
+  if (dlg && typeof dlg.showModal === 'function') {
+    const title = dlg.querySelector<HTMLElement>('#lead-modal-title')!;
+    const select = dlg.querySelector<HTMLSelectElement>('select[name=service]')!;
+    const website = dlg.querySelector<HTMLInputElement>('input[name=website]')!;
+    const websiteLabel = dlg.querySelector<HTMLLabelElement>(`label[for="${website.id}"]`)!;
+    const message = dlg.querySelector<HTMLTextAreaElement>('textarea[name=message]');
+    const baseLabel = websiteLabel.textContent ?? '';
+    const auditPath = dlg.dataset.auditPath!;
+
+    // The free audit is impossible without the site address: make the field mandatory while "audit" is selected.
+    const sync = () => {
+      const audit = select.value === 'audit';
+      website.required = audit;
+      websiteLabel.textContent = audit ? `${baseLabel} *` : baseLabel;
+      title.textContent = audit ? dlg.dataset.titleAudit! : dlg.dataset.title!;
+    };
+    select.addEventListener('change', sync);
+
+    const openModal = (service: string, prefill?: string) => {
+      if ([...select.options].some((o) => o.value === service)) select.value = service;
+      if (prefill && message && message.value.trim() === '') message.value = prefill;
+      sync();
+      dlg.showModal();
+      dlg.querySelector<HTMLInputElement>('input[name=name]')?.focus();
+    };
+
+    document.addEventListener('click', (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element).closest<HTMLAnchorElement>('a');
+      if (!a || dlg.contains(a)) return;
+      const href = a.getAttribute('href');
+      let service: string | null = null;
+      if (href === '#form') {
+        // the page's own form tells which service this page sells
+        service = document.querySelector<HTMLSelectElement>('#form select[name=service]')?.value ?? 'consulting';
+      } else if (href === auditPath && a.classList.contains('btn--primary')) {
+        service = 'audit';
+      }
+      if (!service) return;
+      e.preventDefault();
+      openModal(service, a.dataset.prefill);
+    });
+
+    // close: the X button, a click on the backdrop; Esc is built into <dialog>
+    dlg.querySelector('[data-close]')!.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  }
+</script>

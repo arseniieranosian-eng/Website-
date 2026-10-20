@@ -39,7 +39,7 @@ const C = {
   const gtag = (window as any).gtag;
   if (lead && gtag) gtag('event', 'generate_lead', lead);
   // Free-audit form (ru): promise the presentation instead of the generic "one business day" reply.
-  if (lead?.form_id === 'audit-ru') {
+  if (lead?.service === 'audit') {
     const own = document.getElementById('thanks-audit');
     if (own) {
       own.hidden = false;

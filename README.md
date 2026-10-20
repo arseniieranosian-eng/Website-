@@ -64,6 +64,7 @@ hreflang is generated only between versions that exist. The home page picks up t
 - `npm run build` fails on: duplicate title/description/H1, more or fewer than one H1, missing canonical/breadcrumbs, non-reciprocal hreflang, broken internal links, or a sitemap mismatch.
 
 ## Form and analytics
+- Pop-up form: `src/components/LeadModal.astro` (a native `<dialog>` with the same `LeadForm`, on every page except the thank-you page). Buttons with `href="#form"` and the primary buttons that point to the free-audit page open it instead of scrolling/navigating; the service is preselected from the page's own form (or "audit" for audit buttons) and the site address becomes mandatory when "audit" is selected. The on-page forms stay. Without JavaScript the buttons are normal links.
 - Fields: name, e-mail or phone, website, service, message, consent (required). Anti-spam: honeypot plus a minimum fill time. Server-side filtering is also worth enabling on the form backend.
 - After a successful submit the visitor goes to the thank-you page, which fires the GA4 `generate_lead` event once per submission (not on reload). Mark `generate_lead` as a key event in GA4.
 - GA4 loads only after consent is given in the cookie banner.
