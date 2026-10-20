@@ -5,7 +5,7 @@ const BASE = 'https://www.seo-eranosian.com';
 const URL_PATH = '/konzultace/';
 const H1 = 'SEO konzultace';
 const SECTIONS = [H1, 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace vhodná?', 'Co je součástí SEO konzultace', 'Jak probíhá SEO konzultace', 'V jakých jazycích konzultace probíhá?', 'Konzultace, audit zdarma, nebo Start a Full SEO?', 'Co může SEO plán přinést', 'Co říkají klienti', 'Časté otázky o SEO konzultaci', 'Nezávazná poptávka', 'Další služby'];
-const LINKS = ['/audit-zdarma/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
+const LINKS = ['/audit-zdarma/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['60–90', '60-90', 'Marketingové týmy', 'in-house', 'nahrávk', 'Jak probíhá spolupráce'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');

@@ -1,4 +1,4 @@
-// Czech content of /pripadove-studie/seo-prekladatelska-agentura/ (brief of 20.10.2026): the anonymised case study.
+// Czech content of /pripadove-studie/seo-prekladatelska-agentura-4-mesice/ (brief of 20.10.2026): the anonymised case study.
 // The client is never named (text, alt, captions, URL, JSON-LD). Only figures confirmed by the author's text appear, each
 // with its period and source. NOT used until confirmed: ×24, ×6 impressions, ×300+ clicks, B2B ×3, +65-70 % a month,
 // ChatGPT presence. The "Co bude dál?" block is hidden until the autumn data exists. No review block: there is no

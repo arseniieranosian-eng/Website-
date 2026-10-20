@@ -13,7 +13,7 @@ const PAGES = {
     sections: ['SEO консультация', 'Сколько стоит SEO консультация?', 'Для кого подходит SEO консультация', 'Как проходит консультация', 'Под какую поисковую выдачу строится консультация', 'SEO консультация онлайн или лично в Праге', 'Консультация или долгая работа?', 'Что это дало клиентам', 'Что говорят клиенты', 'Частые вопросы о SEO консультации', 'Оставить заявку', 'Другие услуги'],
     crumbs: 'Главная > Консультации',
     forbidden: ['in-house', '60-90', '60–90', 'Разово или регулярно', 'Маркетинговые команды'],
-    links: ['/ru/besplatnyj-audit/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/seo-perevodcheskoe-agentstvo/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/'],
+    links: ['/ru/besplatnyj-audit/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/'],
     dateLabel: /Обновлено: <time datetime="([^"]+)">([^<]+)<\/time>/,
     euro: true,
   },

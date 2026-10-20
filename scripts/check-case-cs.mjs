@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BASE = 'https://www.seo-eranosian.com';
-const URL_PATH = '/pripadove-studie/seo-prekladatelska-agentura/';
+const URL_PATH = '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/';
 const H1 = 'SEO pro překladatelskou agenturu se třemi pobočkami';
 const SECTIONS = [H1, 'Jaký byl výchozí stav webu?', 'Proč jedna stránka pro každé město?', 'Jak funguje obsah jako trychtýř?', 'Proč lokalizovat, a ne jen překládat?', 'Co jsem udělal v technickém SEO?', 'Jaké byly výsledky?', 'Jak se v analytice objevil nový kanál AI Assistant?', 'Šest kroků pro váš web', 'Časté otázky k případové studii', 'Související služby', 'Chcete stejný postup pro svůj web?'];
 const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/konzultace/', '/seo-a-geo/', '/audit-zdarma/', '/kontakt/', '/o-mne/'];
@@ -15,7 +15,7 @@ const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(
 const errors = [];
 const e = (m) => errors.push(m);
 
-const h = readFileSync('dist/pripadove-studie/seo-prekladatelska-agentura/index.html', 'utf8');
+const h = readFileSync('dist/pripadove-studie/seo-prekladatelska-agentura-4-mesice/index.html', 'utf8');
 const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
 const body = txt(h);
 const mainTxt = txt(main);
@@ -28,7 +28,7 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:type" content="article">')) e('og:type article');
 if (!h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:locale cs_CZ');
-for (const [l, p] of [['cs', URL_PATH], ['en', '/en/case-studies/seo-translation-agency/'], ['ru', '/ru/kejsy/seo-perevodcheskoe-agentstvo/'], ['x-default', URL_PATH]]) {
+for (const [l, p] of [['cs', URL_PATH], ['en', '/en/case-studies/seo-translation-agency-4-months/'], ['ru', '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/'], ['x-default', URL_PATH]]) {
   if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 }
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
