@@ -1,0 +1,163 @@
+---
+// /audit-zdarma/ built from the brief of 20.10.2026. Content: data/audit-cs.ts. The sample-presentation video block
+// appears only when AUDIT_VIDEO is set (see data/audit-ru.ts). Reviews come from the shared source, no manual ones.
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { auditCsSchemas } from '../lib/schema-audit-cs';
+import { AUDIT_CS as C, AUDIT_VIDEO as V } from '../data/audit-cs';
+import { REVIEWS } from '../data/reviews';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/AuditCsPage.astro', 'src/data/audit-cs.ts', 'src/data/consulting-shared.ts', 'src/data/case-summary.ts', 'src/data/reviews.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+
+// 1-2 fresh reviews of real services from the shared source: not the consultation review (another format) and not the
+// partner-agency review (the brief of 20.10.2026 drops it from this page).
+const reviews = REVIEWS.filter((r) => !r.sample && !r.services.includes('consulting') && !r.logo?.includes('make-up'))
+  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+  .slice(0, 2);
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('audit', lang)} schema={auditCsSchemas(site, C, V, { modified: MOD })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>{C.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <p class="muted">{C.trust}</p>
+      <p class="price-badge">{C.badge}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS CHECKED -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.checksTitle}</h2>
+      <p class="answer">{C.checksAnswer}</p>
+      <ul class="checks">{C.checks.map((c) => <li>{c}</li>)}</ul>
+      <p>{C.summary}</p>
+    </div>
+  </section>
+
+  <!-- WHAT IS NOT INCLUDED -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.notTitle}</h2>
+      <p class="answer">{C.notAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.notTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>
+            {C.notTable.rows.map((r) => (
+              <tr>
+                <th scope="row">{r.topic}</th>
+                <td>{r.where.length ? r.where.map((l, i) => <>{i > 0 && ', '}<a href={t(l.page)}>{l.text}</a></>) : C.notTable.noneText}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.stagesTitle}</h2>
+      <p class="answer">{C.stagesAnswer}</p>
+      <ol class="steps">{C.stages.map((s) => <li><span>{s.text}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET (+ sample video when available) -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.getTitle}</h2>
+      <p class="answer">{C.getAnswer}</p>
+      {V && (
+        <>
+          <h3>{C.videoTitle}</h3>
+          <figure class="audit-video">
+            <video controls preload="metadata" poster={V.poster} width={V.width} height={V.height}>
+              <source src={V.src} type="video/mp4" />
+            </video>
+            <figcaption class="muted small">{C.videoCaption}</figcaption>
+          </figure>
+          <p>{C.videoDescription}</p>
+          <p>{C.videoText}</p>
+        </>
+      )}
+    </div>
+  </section>
+
+  <!-- AUDIT VS CONSULTATION -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.compareTitle}</h2>
+      <p class="answer">{C.compareAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.compareTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.compareTable.rows.map(([label, ...cells]) => <tr><th scope="row">{label}</th>{cells.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p><a class="link-arrow" href={t('consulting')}>{C.compareLink}</a></p>
+    </div>
+  </section>
+
+  <!-- AFTER THE AUDIT (no prices) -->
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.afterTitle}</h2>
+      <p class="answer">{C.afterAnswer}</p>
+      <div class="grid grid-3">
+        {C.after.map((k) => (
+          <a class="card card--link" href={t(k)}>
+            <h3>{META[k][lang].name}</h3>
+            <p>{serviceByKey(k).short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE AND REVIEWS (shared data sources) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{C.proofTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></div>
+      <p>{C.proofText} <a href={t('caseKb')}>{C.proofLink}</a></p>
+      <ReviewCards reviews={reviews} lang={lang} compact />
+    </div>
+  </section>
+
+  <!-- FAQ: answers are visible, not hidden in tabs -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section" id="form">
+    <div class="container narrow">
+      <h2>{C.formTitle}</h2>
+      <div class="card"><LeadForm lang={lang} id="audit-cs" service="audit" websiteRequired /></div>
+    </div>
+  </section>
+</Base>
