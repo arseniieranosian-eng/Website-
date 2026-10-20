@@ -18,8 +18,9 @@ const MOD = lastModified(['src/views/CaseTypoRuPage.astro', 'src/data/case-typo-
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/pripadove-studie/og-tipografiya.png';
 ---
-<Base {...pageProps('caseTypo', lang)} ogType="article" schema={caseTypoSchemas(site, C, { modified: MOD })}>
+<Base {...pageProps('caseTypo', lang)} ogType="article" ogImage={OG} schema={caseTypoSchemas(site, C, { modified: MOD, image: OG })}>
   <!-- HERO -->
   <section class="page-hero">
     <div class="container">

@@ -39,7 +39,7 @@ const words = lead.split(/\s+/).length;
 if (!lead.startsWith('За 12 месяцев органический трафик') || words < 35 || words > 60) e(`hero answer (${words} words)`);
 for (const c of ['1 200 → 10 500', '+775%', '8,75 раза', '12 месяцев']) if (!mainTxt.includes(c)) e(`number card missing: ${c}`);
 if (!mainTxt.includes('Название клиента не раскрываю')) e('data note missing');
-const byline = h.match(/Автор: <a href="\/ru\/obo-mne\/">Арсений Эраносян<\/a> · Обновлено: <time datetime="([^"]+)">([^<]+)<\/time> · Проект: типография, январь 2024 – июль 2025/);
+const byline = h.match(/Автор: <a href="\/ru\/obo-mne\/">Арсений Ераносьян<\/a> · Обновлено: <time datetime="([^"]+)">([^<]+)<\/time> · Проект: типография, январь 2024 – июль 2025/);
 // One result formula: every mention of the figures uses the same numbers and period
 const nums = mainTxt.match(/\d[\d  ]*→ ?\d[\d  ]*/g) ?? [];
 if (!mainTxt.includes('июль 2024 → июль 2025')) e('period "июль 2024 → июль 2025" missing');

@@ -1,5 +1,5 @@
 import type { Lang, PageKey, ServiceKey } from '../i18n/routes';
-import { CASE_LABEL, CASE_LINE, TYPO_LINE } from './case-summary';
+import { CASE_LABEL, CASE_LINE, TYPO_LINE, EDU_LINE } from './case-summary';
 
 type L<T = string> = Record<Lang, T>;
 
@@ -49,6 +49,19 @@ CASES.push({
     { value: '×8,75', label: { cs: '', en: '', ru: 'органический трафик: 1 200 → 10 500 визитов в месяц, июль 2024 → июль 2025' } },
   ],
   services: ['start', 'fullSeo'],
+});
+
+CASES.push({
+  key: 'caseEdu',
+  langs: ['ru'],
+  industry: { cs: 'Vzdělávací platforma', en: 'Education platform', ru: 'Образовательная платформа' },
+  teaser: { cs: '', en: '', ru: EDU_LINE },
+  challenge: { cs: '', en: '', ru: 'Новый сайт без истории и авторитета в поиске: конкурировать по популярным запросам было нереально.' },
+  solution: { cs: [], en: [], ru: ['Исследование ключевых слов с акцентом на низкочастотные запросы', 'Проектирование структуры страниц', 'Проектирование страниц блога'] },
+  metrics: [
+    { value: '+55%', label: { cs: '', en: '', ru: 'органического трафика за 7 месяцев, март → сентябрь 2025 (относительные данные)' } },
+  ],
+  services: ['start'],
 });
 
 export const caseByKey = (key: CaseStudy['key']) => CASES.find((c) => c.key === key)!;

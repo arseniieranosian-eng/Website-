@@ -27,3 +27,9 @@ export const CASE_GEO_LINE: Record<Lang, string> = {
 export const TYPO_FORMULA = '1 200 → 10 500 визитов в месяц, +775%, июль 2024 → июль 2025';
 export const TYPO_LINE: string =
   'Типография: органический трафик вырос с 1 200 до 10 500 визитов в месяц (+775%, июль 2024 → июль 2025).';
+
+// The education-platform case (ru page only): +55 % organic traffic, March → September 2025 (7 months), relative data
+// from the low base of a new site. No absolute numbers, leads, rankings or Instagram are ever stated.
+export const EDU_FORMULA = '+55% органического трафика, март → сентябрь 2025, относительные данные от низкой базы';
+export const EDU_LINE: string =
+  'Образовательная платформа: +55% органического трафика за 7 месяцев (март → сентябрь 2025, относительные данные от низкой базы нового сайта).';

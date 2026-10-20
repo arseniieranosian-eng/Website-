@@ -183,6 +183,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO для типографии: рост органического трафика в 8,75 раза за 12 месяцев',
     },
   },
+  caseEdu: {
+    cs: { name: 'SEO pro vzdělávací platformu', title: 'SEO pro vzdělávací platformu', description: 'SEO pro vzdělávací platformu', h1: 'SEO pro vzdělávací platformu' },
+    en: { name: 'SEO for an education platform', title: 'SEO for an education platform', description: 'SEO for an education platform', h1: 'SEO for an education platform' },
+    ru: {
+      name: 'SEO для образовательной платформы',
+      title: 'SEO для образовательной платформы: +55% трафика | Eranosian',
+      description: 'Как мы с коллегой подняли органический трафик новой образовательной платформы на 55% за 7 месяцев: ставка на низкочастотные запросы. Закажите аудит.',
+      h1: 'SEO для новой образовательной платформы: +55% органического трафика за 7 месяцев',
+    },
+  },
   caseKb: {
     cs: {
       name: 'SEO pro překladatelskou agenturu',

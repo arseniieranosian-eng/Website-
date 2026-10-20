@@ -423,3 +423,6 @@ table.compare { min-width: 0; }
 .stats--case dd { white-space: nowrap; }
 @media (min-width: 900px) { .stats--case { grid-template-columns: 2.2fr 1fr 1.2fr 1.2fr; } }
 @media (max-width: 560px) { .stats--case { grid-template-columns: 1fr 1fr; } .stats--case > div:first-child { grid-column: 1 / -1; } }
+
+.stats--three dd { font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem); }
+@media (min-width: 700px) { .stats--three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

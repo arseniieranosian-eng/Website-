@@ -6,7 +6,7 @@ import { ids } from './schema';
 
 // Page-specific JSON-LD for the anonymised print-shop case (ru). Article + BreadcrumbList + FAQPage. No Service / Offer,
 // no Review with a client, no ratings, no client name or domain. Figures only as they appear in the visible text.
-export function caseTypoSchemas(site: URL, C: typeof CASE_TYPO, opts: { modified: string }) {
+export function caseTypoSchemas(site: URL, C: typeof CASE_TYPO, opts: { modified: string; image: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('caseTypo', lang));
@@ -24,7 +24,7 @@ export function caseTypoSchemas(site: URL, C: typeof CASE_TYPO, opts: { modified
       inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
-      primaryImageOfPage: abs('/images/og.png'),
+      primaryImageOfPage: abs(opts.image),
       mainEntity: { '@id': `${url}#article` },
     },
     {
