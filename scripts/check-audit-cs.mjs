@@ -87,6 +87,14 @@ else {
 }
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(norm(q.name)) && body.includes(norm(q.acceptedAnswer.text)))) e('6 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Bezplatný audit' || bc.itemListElement.at(-1).item) e('breadcrumb');
+// Quote after "Co v auditu nenajdete?", before "Jak audit probíhá?" (not in the hero), with the Quotation node
+const QT = 'Raději hned řeknu, co bezplatný audit nenajde, než slíbím víc, než dokáže.';
+const qf = h.match(/<figure class="quote-fig">\s*<blockquote cite="([^"]*)"><p>([^<]*)<\/p><\/blockquote>\s*<figcaption>— <a href="\/o-mne\/">Arsenii Eranosian<\/a>, SEO a GEO\/AEO specialista<\/figcaption>/);
+if (!qf || qf[2] !== QT || qf[1] !== `${BASE}${URL_PATH}`) e('quote figure: text, cite, caption with a link to /o-mne/');
+const iq = mainTxt.indexOf(QT);
+if (!(mainTxt.indexOf('Co v auditu nenajdete?') < iq && iq < mainTxt.indexOf('Jak audit probíhá?')) || iq < mainTxt.indexOf('Co v bezplatném auditu zkontroluji?')) e('quote position: after "Co v auditu nenajdete?", before "Jak audit probíhá?"');
+const qn = ld.find((n) => n['@type'] === 'Quotation');
+if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'cs' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: when present, everything lines up
 const hasVideo = /<video/.test(h);
 if (hasVideo !== Boolean(vd)) e('<video> and VideoObject must appear together');

@@ -55,6 +55,8 @@ export const AUDIT_CS = {
     noneText: 'v bezplatném auditu je nekontroluji',
   },
 
+  quote: { text: 'Raději hned řeknu, co bezplatný audit nenajde, než slíbím víc, než dokáže.', author: 'Arsenii Eranosian', role: 'SEO a GEO/AEO specialista' },
+
   stagesTitle: 'Jak audit probíhá?',
   stagesAnswer: 'Vyplníte formulář s adresou webu, já web zkontroluji a do 24 hodin vám pošlu krátkou prezentaci. Call není potřeba. Pak se sami rozhodnete, zda pokračovat.',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).

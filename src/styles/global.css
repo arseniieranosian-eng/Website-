@@ -448,3 +448,11 @@ table.compare { min-width: 0; }
 .quote-author cite a { color: var(--text); font-weight: 700; text-decoration: none; }
 .quote-author cite a:hover { color: var(--blue); text-decoration: underline; }
 .quote-author cite span { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Author's quote in a figure (audit pages): quote text + caption with a link to the about page */
+.quote-fig { margin: 0; padding: 8px 0 8px 24px; border-left: 4px solid var(--blue); }
+.quote-fig blockquote { margin: 0 0 12px; }
+.quote-fig blockquote p { margin: 0; font-size: 1.35rem; line-height: 1.45; font-weight: 600; }
+.quote-fig figcaption { color: var(--text-muted); }
+.quote-fig figcaption a { color: var(--text); font-weight: 700; text-decoration: none; }
+.quote-fig figcaption a:hover { color: var(--blue); text-decoration: underline; }

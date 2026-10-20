@@ -89,6 +89,14 @@ export function auditSchemas(site: URL, C: typeof AUDIT_RU, video: typeof AUDIT_
         }]
       : []),
     {
+      '@type': 'Quotation',
+      '@id': `${url}#quote-1`,
+      text: C.quote.text,
+      creator: { '@id': id.person },
+      inLanguage: lang,
+      isPartOf: { '@id': `${url}#webpage` },
+    },
+    {
       '@type': 'HowTo',
       name: sc.howToName,
       totalTime: 'PT24H',

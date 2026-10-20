@@ -40,6 +40,14 @@ export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDI
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'CZK', url, deliveryLeadTime: { '@type': 'QuantitativeValue', value: 24, unitCode: 'HUR' } },
     },
     {
+      '@type': 'Quotation',
+      '@id': `${url}#quote-1`,
+      text: C.quote.text,
+      creator: { '@id': id.person },
+      inLanguage: lang,
+      isPartOf: { '@id': `${url}#webpage` },
+    },
+    {
       '@type': 'HowTo',
       '@id': `${url}#howto`,
       name: sc.howToName,

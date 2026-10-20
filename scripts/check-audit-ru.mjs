@@ -85,6 +85,14 @@ if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(
 for (const [hd, ans] of [['Что проверяет бесплатный SEO-аудит?', 'Бесплатный аудит проверяет технические ошибки сайта'], ['Чего в бесплатном аудите нет', 'Бесплатный аудит это только технические ошибки сайта'], ['Что вы получите после аудита?', 'Короткую презентацию'], ['Чем бесплатный аудит отличается от консультации и Старта?', 'Аудит показывает, где проблемы']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
+// Quote after "Чего в бесплатном аудите нет", before "Как проходит SEO-аудит"
+const QT = 'Честнее сразу сказать, чего в бесплатном аудите нет, чем обещать больше, чем он способен дать.';
+const qf = h.match(/<figure class="quote-fig">\s*<blockquote cite="([^"]*)"><p>([^<]*)<\/p><\/blockquote>\s*<figcaption>— <a href="\/ru\/obo-mne\/">Арсений Ераносьян<\/a>, SEO- и GEO\/AEO-специалист<\/figcaption>/);
+if (!qf || qf[2] !== QT || qf[1] !== `${BASE}${URL_PATH}`) e('quote figure: text, cite, caption with a link to /ru/obo-mne/');
+const iq = mainTxt.indexOf(QT);
+if (!(mainTxt.indexOf('Чего в бесплатном аудите нет') < iq && iq < mainTxt.indexOf('Как проходит SEO-аудит'))) e('quote position: after the "not included" block, before the stages');
+const qn = ld.find((n) => n['@type'] === 'Quotation');
+if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'ru' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: optional until the anonymised file exists; when present everything must line up
 const hasVideo = /<video/.test(h);
 if (hasVideo !== Boolean(vd)) e('<video> on the page and VideoObject in JSON-LD must appear together');

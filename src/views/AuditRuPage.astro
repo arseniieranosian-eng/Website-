@@ -72,6 +72,16 @@ const others = [
     </div>
   </section>
 
+  <!-- QUOTE (after the "not included" block) -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <figure class="quote-fig">
+        <blockquote cite={new URL(t('audit'), site).href}><p>{C.quote.text}</p></blockquote>
+        <figcaption>— <a href={t('about')}>{C.quote.author}</a>, {C.quote.role}</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- HOW IT WORKS -->
   <section class="section">
     <div class="container narrow">
