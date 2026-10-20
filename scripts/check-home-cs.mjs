@@ -67,6 +67,13 @@ for (const f of [FORMULAS[2], FORMULAS[3]]) if (!startTxt.includes(f)) e(`Start 
 const rv = (main.match(/Co říkají klienti\?[\s\S]*?<\/section>/) || [''])[0];
 if (!/class="card review"/.test(rv)) e('reviews block expected');
 if (/\d+\s*×|×\s*\d/.test(txt(rv)) || /Make Up/.test(rv)) e('reviews: no figures / partner-agency review on the home page');
+// Two pull quotes between the blocks: services → quote 1 → GEO/AEO; results → quote 2 → reviews; same text in the markup
+const Q1 = 'SEO a GEO/AEO nejsou dvě služby. Je to jedna práce: web, kterému rozumí vyhledávač i AI, a obsah, který stojí za citaci.';
+const Q2 = 'Číslo bez období a zdroje nic nedokazuje. Proto u každého projektu uvádím, odkdy dokdy a z čeho čísla pocházejí.';
+const order = (a) => mainTxt.indexOf(a);
+if (!(order('Jaké služby nabízím?') < order(Q1) && order(Q1) < order('Co je GEO/AEO a proč ho dělám spolu se SEO?'))) e('quote 1 must sit between the services and the GEO/AEO block');
+if (!(order('Jaké výsledky už mají moji klienti?') < order(Q2) && order(Q2) < order('Co říkají klienti?'))) e('quote 2 must sit between the results and the reviews');
+if ([...main.matchAll(/<blockquote class="pullquote">/g)].length !== 2) e('two pull quotes expected');
 // FAQ
 const FAQ = [['Jak probíhá bezplatný audit?', 'Pošlete adresu webu'], ['Kolik stojí SEO služby?', 'Audit je zdarma. Konzultace stojí od 2 000 Kč, SEO start 50 000 Kč za 3 měsíce a Full SEO od 15 000 Kč měsíčně.'], ['Za jak dlouho přijdou první výsledky?', 'První výsledky přicházejí obvykle za 2–3 měsíce, ale zaručit je nelze.'], ['Pracujete i mimo Prahu?', 'Ano. Pracuji převážně na dálku'], ['Čím se liší SEO a GEO/AEO?', 'SEO míří na pozice v Googlu a Seznamu'], ['Co když nevím, kterou službu potřebuji?', 'Začněte bezplatným auditem nebo konzultací']];
 for (const [q, a] of FAQ) if (!mainTxt.includes(q) || !mainTxt.includes(a)) e(`FAQ: ${q}`);
@@ -78,6 +85,8 @@ const date = h.match(/Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time>/)
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = by('WebPage'), fq = by('FAQPage'), pro = by('ProfessionalService');
+const quotes = ld.filter((n) => n['@type'] === 'Quotation').map((n) => n.text);
+if (JSON.stringify(quotes) !== JSON.stringify([Q1, Q2])) e('Quotation markup must repeat the two quotes word for word');
 if (ld.some((n) => ['AggregateRating', 'Review', 'BreadcrumbList', 'Service', 'Offer'].includes(n['@type']))) e('home markup: no ratings / reviews / breadcrumb / services');
 if (/SearchAction/.test(JSON.stringify(ld))) e('no SearchAction');
 if (norm(wp.name) !== title || norm(wp.description) !== desc || wp.inLanguage !== 'cs') e('WebPage name / description / inLanguage');

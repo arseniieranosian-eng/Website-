@@ -23,6 +23,8 @@ export function homeCsSchemas(site: URL, C: typeof HOME_CS, opts: { modified: st
       about: { '@id': id.business },
       dateModified: opts.modified,
     },
+    // The two pull quotes shown on the page (word for word), authored by the Person.
+    ...Object.values(C.quotes).map((text) => ({ '@type': 'Quotation', text, creator: { '@id': id.person }, inLanguage: lang, isPartOf: { '@id': `${url}#webpage` } })),
     {
       '@type': 'FAQPage',
       mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
