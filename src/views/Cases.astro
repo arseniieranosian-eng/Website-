@@ -4,7 +4,8 @@ import PageHero from '../components/PageHero.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { META } from '../i18n/meta';
-import { type Lang } from '../i18n/routes';
+import { path, type Lang } from '../i18n/routes';
+import { ids } from '../lib/schema';
 import { pageProps } from '../lib/page';
 import { CASES } from '../data/cases';
 
@@ -16,11 +17,29 @@ const C = {
   en: { lead: 'Real projects: the starting point, what we did and the results it brought.', ctaTitle: 'Want similar results?', ctaText: 'Start with a free audit of your website.' },
   ru: { lead: 'Реальные проекты: исходная ситуация, что мы сделали и какие получили результаты.', ctaTitle: 'Хотите такие же результаты?', ctaText: 'Начните с бесплатного аудита сайта.' },
 }[lang];
+const site = Astro.site!;
+const url = new URL(path('cases', lang), site).href;
+const items = CASES.filter((c) => !c.langs || c.langs.includes(lang));
+// CollectionPage: the list of case studies shown below (names = the card headings, urls = the card links).
+const collection = {
+  '@type': 'CollectionPage',
+  '@id': `${url}#webpage`,
+  url,
+  name: m.title,
+  description: m.description,
+  inLanguage: lang,
+  isPartOf: { '@id': ids(site).website },
+  breadcrumb: { '@id': `${url}#breadcrumb` },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: items.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: META[c.key][lang].h1, url: new URL(path(c.key, lang), site).href })),
+  },
+};
 ---
-<Base {...pageProps('cases', lang)}>
+<Base {...pageProps('cases', lang)} schema={[collection]}>
   <PageHero h1={m.h1} lead={C.lead} />
   <section class="section section--tight">
-    <div class="container stack">{CASES.filter((c) => !c.langs || c.langs.includes(lang)).map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" />)}</div>
+    <div class="container stack">{items.map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" />)}</div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
 </Base>
