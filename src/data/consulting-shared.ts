@@ -53,7 +53,6 @@ export interface ConsultingContent {
   faqAll: string;
   formTitle: string;
   otherTitle: string;
-  otherAll: string;
   more: string;
   audit: string;
   geo: string;

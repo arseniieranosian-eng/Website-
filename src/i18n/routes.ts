@@ -45,8 +45,6 @@ export type ServiceKey = (typeof SERVICE_KEYS)[number];
 
 export const path = (key: PageKey, lang: Lang): string => ROUTES[key][lang];
 
-// Where "All services" links go now that the services collection page is gone: the services block of the home page.
-export const servicesHref = (lang: Lang): string => `${ROUTES.home[lang]}#services`;
 
 // Pages listed in the header's "Services" dropdown, in order. SEO + GEO/AEO is an explanatory page, not a service, so it is not here.
 export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] as const satisfies readonly PageKey[];

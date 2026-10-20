@@ -118,7 +118,6 @@ export const CONSULTING_RU: ConsultingContent = {
   formTitle: 'Оставить заявку',
 
   otherTitle: 'Другие услуги',
-  otherAll: 'Все услуги',
   more: 'Подробнее',
   audit: 'Технические ошибки сайта: индексация, дубли и другие проблемы. Бесплатно, за 24 часа.',
   geo: 'Сайт, который находят и Google, и ChatGPT: SEO и оптимизация под ИИ-поиск в одном.',

@@ -126,7 +126,6 @@ export const CONSULTING_CS = {
   formTitle: 'Nezávazná poptávka',
 
   otherTitle: 'Další služby',
-  otherAll: 'Všechny služby',
   more: 'Více',
   audit: 'Technické chyby webu: indexace, duplicity a další problémy. Zdarma, do 24 hodin.',
   geo: 'Web, který najde Google i ChatGPT: SEO a optimalizace pro AI vyhledávání v jednom.',

@@ -126,7 +126,6 @@ export const MAPS_RU = {
   formTitle: 'Оставить заявку',
 
   otherTitle: 'Другие услуги',
-  otherAll: 'Все услуги',
   more: 'Подробнее',
   audit: CONSULTING_RU.audit,
   geo: CONSULTING_RU.geo,

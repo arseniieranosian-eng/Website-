@@ -138,7 +138,6 @@ export const MAPS_CS = {
   formTitle: 'Nezávazná poptávka',
 
   otherTitle: 'Další služby',
-  otherAll: 'Všechny služby',
   more: 'Více',
   audit: CONSULTING_CS.audit,
   geo: CONSULTING_CS.geo,

@@ -38,7 +38,6 @@ if (!mainTxt.includes('Délka: 12 měsíců') || !mainTxt.includes('od 15 000 K�
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 if (/(?<![\p{L}])(my|náš|naše)(?![\p{L}])/iu.test(mainTxt.replace(/Příklad[^.]*\./g, ''))) e('"my / naše" must not be used: the author works as a specialist ("já")');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (!h.includes('href="/#services"')) e('"Všechny služby" must link to /#services');
 if (/<video|★|AggregateRating|ratingValue|VideoObject/.test(h)) e('video / stars / AggregateRating / VideoObject must not be on this page');
 const h3s = [...h.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/g)].map((m) => txt(m[1]));
 for (const g of ['Práce na webu', 'Práce mimo web', 'GEO/AEO a reporting']) if (!h3s.includes(g)) e(`missing H3 group: ${g}`);

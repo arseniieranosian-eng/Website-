@@ -103,7 +103,6 @@ export const AUDIT_RU = {
   formTitle: 'Заказать бесплатный аудит',
 
   otherTitle: 'Другие услуги',
-  otherAll: 'Все услуги',
   more: 'Подробнее',
   geo: CONSULTING_RU.geo,
 

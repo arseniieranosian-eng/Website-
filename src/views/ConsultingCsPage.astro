@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import { META } from '../i18n/meta';
-import { path, servicesHref } from '../i18n/routes';
+import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { consultingCsSchemas } from '../lib/schema-consulting-cs';
@@ -168,7 +168,7 @@ const cmp = C.compare;
   <!-- OTHER SERVICES -->
   <section class="section">
     <div class="container">
-      <div class="section-head"><h2>{C.otherTitle}</h2><a class="link-arrow" href={servicesHref(lang)}>{C.otherAll}</a></div>
+      <div class="section-head"><h2>{C.otherTitle}</h2></div>
       <div class="grid grid-3">
         {others.map((o) => (
           <a class="card card--link" href={t(o.key)}>

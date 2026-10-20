@@ -39,7 +39,6 @@ for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 if (/(?<![\p{L}])(my|náš|naše)(?![\p{L}])/iu.test(mainTxt)) e('"my / naše" must not be used: the author works as a specialist ("já")');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/kb-preklady/.test(main) || /href="\/pripadove-studie\/"/.test(main)) e('no case links on this page for now');
-if (!h.includes('href="/#services"')) e('"Všechny služby" must link to /#services');
 if (/<video|★|AggregateRating|ratingValue|VideoObject|LocalBusiness/.test(h)) e('video / stars / AggregateRating / VideoObject / LocalBusiness must not be on this page');
 for (const i of IMAGES) if (!main.includes(`/images/maps/${i}.webp`)) e(`image missing: ${i}`);
 if ([...main.matchAll(/<img[^>]*\/images\/maps\/[^>]*>/g)].some((m) => !/alt="[^"]{10,}"/.test(m[0]))) e('every maps image needs a descriptive alt');
