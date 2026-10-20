@@ -14,6 +14,7 @@ const { reviews, lang, compact = false } = Astro.props;
         {r.rating && <div class="stars" aria-label={`${r.rating}/5`}>{'★'.repeat(r.rating)}</div>}
         <blockquote>{(compact && r.short ? r.short[lang] : r.text[lang]).split('\n\n').map((p) => <p>{p}</p>)}</blockquote>
         <figcaption>
+          {r.logo && <img class="review__logo" src={r.logo} width="40" height="40" alt="" loading="lazy" decoding="async" />}
           <strong>{name}</strong>
           {sub && <span>{sub}</span>}
           {r.source && <span class="badge">{r.source}</span>}

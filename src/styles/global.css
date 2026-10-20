@@ -416,3 +416,5 @@ table.compare { min-width: 0; }
 .pullquote p { margin: 0 0 12px; font-size: 1.35rem; line-height: 1.45; font-weight: 600; }
 .pullquote footer { color: var(--text-muted); }
 .pullquote cite { font-style: normal; }
+
+.review__logo { width: 40px; height: 40px; border-radius: 10px; margin-bottom: 8px; object-fit: cover; }

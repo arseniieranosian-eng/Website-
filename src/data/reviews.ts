@@ -12,6 +12,7 @@ export interface Review {
   author?: string;
   role: Record<Lang, string>;
   company?: string;
+  logo?: string; // company logo shown next to the review (public/images/logos)
   source?: string;
   rating?: 1 | 2 | 3 | 4 | 5;
   date?: string; // ISO, when known
@@ -29,6 +30,7 @@ export const REVIEWS: Review[] = [
     id: 'make-up-agency',
     origin: 'ru',
     company: 'Make Up Digital Agency',
+    logo: '/images/logos/make-up-digital-agency.webp',
     role: { cs: 'partnerská digitální agentura', en: 'partner digital agency', ru: 'партнёрское digital-агентство' },
     text: {
       cs: 'Arsenii s námi pracoval na SEO propagaci webu překladatelské agentury v rámci spolupráce s Make Up Digital Agency.\n\nNa začátku web prakticky nerankoval a nepřinášel poptávky. Arsenii od nuly vybudoval strukturu webu, pravidelně prováděl audity a každý týden poskytoval podrobné reporty o odvedené práci.\n\nBěhem spolupráce vzrostla zobrazení ve vyhledávání 6×, kliknutí více než 300×. Web se začal objevovat v Google AI Overview a ChatGPT a počet poptávek dosáhl stabilního růstu: po prvním nárůstu 5× přibylo dalších +65–70 % každý měsíc. B2B poptávky se ztrojnásobily.\n\nDoporučujeme Arsenii jako systematického, zodpovědného a výsledkového SEO specialistu.',
@@ -62,6 +64,7 @@ export const REVIEWS: Review[] = [
     id: 'linkedin-mentor',
     origin: 'en',
     role: { cs: 'mentor ve společnosti Unimenty', en: 'mentor at Unimenty', ru: 'ментор в Unimenty' },
+    logo: '/images/logos/unimenty.webp',
     source: 'LinkedIn',
     date: '2026-01-13',
     text: {
@@ -77,6 +80,7 @@ export const REVIEWS: Review[] = [
     id: 'linkedin-teammate',
     origin: 'en',
     role: { cs: 'kolega z týmu Unimenty', en: 'teammate at Unimenty', ru: 'коллега по команде в Unimenty' },
+    logo: '/images/logos/unimenty.webp',
     source: 'LinkedIn',
     text: {
       cs: 'Měl jsem to potěšení pracovat s Arsenim v jednom týmu ve společnosti Unimenty. Arsenii soustavně prokazoval silný profesionalismus, kreativitu a orientaci na výsledky v každém projektu, na kterém jsme spolupracovali. […] Jeho komunikační dovednosti a proaktivní přístup z něj dělaly spolehlivého člena týmu, na kterého jsem se mohl vždy spolehnout, že dodá kvalitní práci včas.',
