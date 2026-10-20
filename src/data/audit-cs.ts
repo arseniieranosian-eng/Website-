@@ -5,9 +5,20 @@
 // Core Web Vitals (named only in the "not included" table), mobile version, call, "5–10 steps".
 import { fmtKc, PRICES } from './consulting-shared';
 import { CASE_LINE } from './case-summary';
-import { AUDIT_VIDEO } from './audit-ru';
 
-export { AUDIT_VIDEO };
+// Czech sample presentation (public/media/audit-example-cs.mp4, prepared by scripts/prepare-audit-video-cs.sh from the raw
+// recording of 20.10.2026: the crawler name and real product names are covered). Set to null to hide the block and drop the
+// VideoObject together.
+export const AUDIT_VIDEO: {
+  src: string; poster: string; width: number; height: number; duration: string; uploadDate: string;
+} | null = {
+  src: '/media/audit-example-cs.mp4',
+  poster: '/media/audit-example-cs-poster.jpg',
+  width: 1280,
+  height: 688,
+  duration: 'PT36S',
+  uploadDate: '2026-10-20',
+};
 
 export const AUDIT_CS = {
   lang: 'cs' as const,
@@ -57,10 +68,10 @@ export const AUDIT_CS = {
   getTitle: 'Jak vypadá výstup auditu?',
   getAnswer: 'Výstupem je krátká prezentace s hlavními nalezenými technickými chybami webu. Ukázku jsem anonymizoval.',
   videoTitle: 'Ukázka výstupu (anonymizováno)',
-  videoCaption: 'Ukázka výstupu bezplatného SEO auditu (anonymizováno, 32 sekund, bez zvuku).',
+  videoCaption: 'Ukázka výstupu bezplatného SEO auditu (anonymizováno, 36 sekund, bez zvuku).',
   videoName: 'Ukázka výstupu bezplatného SEO auditu (anonymizováno)',
   videoDescription: 'Ukázka krátké prezentace s hlavními technickými chybami webu, anonymizováno.',
-  videoText: 'Snímky ukázky: souhrn webu (kolik stránek prošlo crawlem, kolik je chyb a varování, co je v pořádku a co brzdí růst); část produktových stránek Google nenašel; příliš dlouhé titulky; šablonové nadpisy H1, H2 a meta popisy; signály pro Google podle priorit (adresy zablokované pro robota, stránky bez canonical, adresy s parametry); drobnosti, které se kupí; co dá placený rozbor: chyby s příklady stránek, řešení a plán na 12 měsíců.',
+  videoText: 'Snímky ukázky: souhrn webu (kolik stránek prošlo crawlem, kolik je chyb a varování, co je v pořádku a co brzdí růst); část produktových stránek není vidět v Google; příliš dlouhé titulky; šablonovité nadpisy H1, H2 a meta popisky; signály pro Google podle priorit (adresy zablokované v robots.txt, stránky bez canonical, adresy s parametry); drobnosti, které se kupí; co dostanete v rozboru: chyby s příklady stránek, řešení a plán na 12 měsíců.',
 
   compareTitle: 'Čím se bezplatný audit liší od placené konzultace?',
   compareAnswer: 'Bezplatný audit hledá jen technické chyby webu a je zdarma. Konzultace jde dál: počítá s klíčovými slovy a plánem na 12 měsíců.',
