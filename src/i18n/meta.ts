@@ -95,8 +95,8 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
   fullSeo: {
     cs: {
       name: 'Full SEO na rok',
-      title: 'Celoroční SEO – strategie, obsah, odkazy a reporting',
-      description: 'Full SEO na 12 měsíců: strategie, obsah, linkbuilding, technický dohled, GEO optimalizace a měsíční reporty. Dlouhodobý růst návštěvnosti.',
+      title: 'Full SEO na rok — od 15 000 Kč měsíčně | Eranosian',
+      description: 'Kompletní SEO na 12 měsíců: obsah, odkazy, technický dohled a mapy Google/Mapy.com. První výsledky obvykle za 2-3 měsíce. Pošlete nezávaznou poptávku.',
       h1: 'Full SEO na rok',
     },
     en: {
