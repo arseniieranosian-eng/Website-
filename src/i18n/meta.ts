@@ -193,6 +193,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO для новой образовательной платформы: +55% органического трафика за 7 месяцев',
     },
   },
+  caseSeason: {
+    cs: { name: 'SEO v nízké sezóně', title: 'SEO v nízké sezóně', description: 'SEO v nízké sezóně', h1: 'SEO v nízké sezóně' },
+    en: { name: 'SEO in the low season', title: 'SEO in the low season', description: 'SEO in the low season', h1: 'SEO in the low season' },
+    ru: {
+      name: 'SEO в низкий сезон',
+      title: 'SEO в низкий сезон: заявки выросли в 24 раза | Eranosian',
+      description: 'Как я за лето вырастил заявки с сайта переводческого агентства в 24 раза в низкий сезон: воронка, FAQ, города. Закажите бесплатный аудит.',
+      h1: 'SEO в низкий сезон для переводческого агентства: заявки с сайта выросли в 24 раза',
+    },
+  },
   caseKb: {
     cs: {
       name: 'SEO pro překladatelskou agenturu',

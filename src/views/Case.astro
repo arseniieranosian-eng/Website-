@@ -6,11 +6,13 @@ import ServiceCards from '../components/ServiceCards.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
 import { META } from '../i18n/meta';
-import { type Lang } from '../i18n/routes';
+import { type Lang, path } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { caseByKey } from '../data/cases';
 import { reviewsForCase } from '../data/reviews';
+import { SEASON_LINE } from '../data/case-summary';
+import { CASE_SEASON_SERIES_ID, CASE_SEASON_SERIES_NAME } from '../data/case-season-ru';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -23,8 +25,18 @@ const C = {
   en: { results: 'Results', challenge: 'Starting point', solution: 'What we did', ctaTitle: 'Want the same approach for your website?', ctaText: 'A free audit shows where your biggest opportunities are.' },
   ru: { results: 'Результаты', challenge: 'Исходная ситуация', solution: 'Что мы сделали', ctaTitle: 'Хотите такой же подход для своего сайта?', ctaText: 'Бесплатный аудит покажет главные точки роста.' },
 }[lang];
+// Russian Part 1 links on to Part 2 and joins the same case series in JSON-LD (Part 2 exists in Russian only).
+const url = new URL(path('caseKb', lang), Astro.site!).href;
+const part2 = lang === 'ru';
+const schema = part2
+  ? [
+      { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.title, description: m.description, inLanguage: lang, mainEntity: { '@id': `${url}#article` }, relatedLink: new URL(path('caseSeason', lang), Astro.site!).href },
+      { '@type': 'Article', '@id': `${url}#article`, headline: m.h1, inLanguage: lang, mainEntityOfPage: { '@id': `${url}#webpage` }, isPartOf: { '@id': CASE_SEASON_SERIES_ID } },
+      { '@type': 'CreativeWorkSeries', '@id': CASE_SEASON_SERIES_ID, name: CASE_SEASON_SERIES_NAME },
+    ]
+  : [];
 ---
-<Base {...pageProps('caseKb', lang)}>
+<Base {...pageProps('caseKb', lang)} schema={schema}>
   <PageHero h1={m.h1} lead={c.teaser[lang]} eyebrow={c.industry[lang]} />
   <section class="section section--tight">
     <div class="container">
@@ -33,6 +45,15 @@ const C = {
       <p class="muted small center">{ui.metricsSource}</p>
     </div>
   </section>
+  {part2 && (
+    <section class="section section--tight">
+      <div class="container narrow">
+        <h2>Продолжение: Часть 2</h2>
+        <p>{SEASON_LINE}</p>
+        <a class="link-arrow" href={path('caseSeason', lang)}>SEO в низкий сезон</a>
+      </div>
+    </section>
+  )}
   <section class="section section--grey">
     <div class="container grid grid-2">
       <div class="card"><h2>{C.challenge}</h2><p>{c.challenge[lang]}</p></div>

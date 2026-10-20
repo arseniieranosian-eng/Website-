@@ -8,7 +8,7 @@ const H1 = 'SEO pro překladatelskou agenturu se třemi pobočkami';
 const SECTIONS = [H1, 'Jaký byl výchozí stav webu?', 'Proč jedna stránka pro každé město?', 'Jak funguje obsah jako trychtýř?', 'Proč lokalizovat, a ne jen překládat?', 'Co jsem udělal v technickém SEO?', 'Jaké byly výsledky?', 'Jak se v analytice objevil nový kanál AI Assistant?', 'Šest kroků pro váš web', 'Časté otázky k případové studii', 'Související služby', 'Chcete stejný postup pro svůj web?'];
 const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/konzultace/', '/seo-a-geo/', '/audit-zdarma/', '/kontakt/', '/o-mne/'];
 // Figures not confirmed by the author must not appear on the case page (the partner agency's review elsewhere is a quote)
-const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', '×24', '24×', '6× zobraz', '300×', '×300', '65–70', 'ChatGPT v odpovědích', 'naše agentura'];
+const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', '24×', '6× zobraz', '300×', '×300', '65–70', 'ChatGPT v odpovědích', 'naše agentura'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
@@ -89,7 +89,9 @@ const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); 
 for (const f of walk('dist')) {
   const c = readFileSync(f, 'utf8');
   if (/KB P[ŘR]EKLADY|KB Překlady|kb-preklady/i.test(c)) e(`${f}: the client's name / old case address must not appear`);
-  if (/(×24|24×|×300\+)/.test(c.replace(/<script[\s\S]*?<\/script>/g, ''))) e(`${f}: unconfirmed figure (×24 / ×300+) present`);
+  // ×24 is confirmed only as the Part-2 formula (spring → summer 2026, one window); ×300+ stays banned everywhere
+  const vis = c.replace(/<script[\s\S]*?<\/script>/g, '');
+  if (/(24×|×300\+)/.test(vis) || (/×24/.test(vis) && !vis.includes('одно окно, не год к году'))) e(`${f}: unconfirmed figure (×24 without its window / 24× / ×300+) present`);
 }
 
 if (errors.length) {

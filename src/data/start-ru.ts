@@ -4,7 +4,7 @@
 import { fmtKc } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
 import { CONSULTING_RU } from './consulting-ru';
-import { CASE_LINE, TYPO_LINE, EDU_LINE } from './case-summary';
+import { CASE_LINE, TYPO_LINE, EDU_LINE, SEASON_LINE } from './case-summary';
 
 const [PAY1, PAY2] = START_PAYMENTS;
 const price = fmtKc(START_PRICE);
@@ -82,6 +82,8 @@ export const START_RU = {
   caseLink2: 'Кейс «SEO для типографии»',
   caseText3: EDU_LINE,
   caseLink3: 'Кейс «SEO для образовательной платформы» (запуск нового сайта)',
+  caseText4: SEASON_LINE,
+  caseLink4: 'SEO в низкий сезон (часть 2)',
   caseLink: 'Вся история',
 
   reviewsTitle: 'Что говорят клиенты',

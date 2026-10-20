@@ -33,3 +33,8 @@ export const TYPO_LINE: string =
 export const EDU_FORMULA = '+55% органического трафика, март → сентябрь 2025, относительные данные от низкой базы';
 export const EDU_LINE: string =
   'Образовательная платформа: +55% органического трафика за 7 месяцев (март → сентябрь 2025, относительные данные от низкой базы нового сайта).';
+
+// Part 2 of the translation-agency case (ru page only): the one result formula, repeated word for word everywhere.
+// Form leads only (e-mail separate, calls / messengers not measured). Two adjacent windows, not year over year.
+export const SEASON_FORMULA = 'Заявки с сайта ×24 (+2300%): весна (март–май) → лето (июнь–август) 2026, одно окно, не год к году. От низкой базы';
+export const SEASON_LINE: string = `Переводческое агентство, часть 2. ${SEASON_FORMULA}.`;

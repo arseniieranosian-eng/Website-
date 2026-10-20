@@ -5,7 +5,7 @@ import { fmtKc } from './consulting-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
 import { START_PRICE } from './start-shared';
 import { CONSULTING_RU } from './consulting-ru';
-import { CASE_LINE, TYPO_LINE } from './case-summary';
+import { CASE_LINE, TYPO_LINE, SEASON_LINE } from './case-summary';
 
 const from = `от ${fmtKc(FULLSEO_MONTHLY)} в месяц`;
 const From = `От ${fmtKc(FULLSEO_MONTHLY)} в месяц`;
@@ -108,6 +108,8 @@ export const FULLSEO_RU = {
   caseText: CASE_LINE.ru,
   caseText2: TYPO_LINE,
   caseLink2: 'Кейс «SEO для типографии»',
+  caseText3: SEASON_LINE,
+  caseLink3: 'SEO в низкий сезон (часть 2)',
   caseLink: 'Вся история',
 
   reviewsTitle: 'Что говорят клиенты',

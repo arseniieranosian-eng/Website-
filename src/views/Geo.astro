@@ -90,6 +90,7 @@ const cols = [C.colSeo, C.colGeo] as [string, string, string[]][];
         {(['consulting', 'start', 'fullSeo', 'maps'] as const).map((k) => <li><a href={path(k, lang)}>{META[k][lang].name}</a></li>)}
       </ul>
       <p class="muted">{C.auditNote} <a href={path('audit', lang)}>{META.audit[lang].name}</a></p>
+      {lang === 'ru' && <p class="muted">Пример на практике: <a href={path('caseSeason', lang)}>SEO в низкий сезон: заявки выросли в 24 раза</a></p>}
     </div>
   </section>
   {faq.length > 0 && (

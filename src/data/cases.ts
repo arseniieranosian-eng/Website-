@@ -1,10 +1,10 @@
 import type { Lang, PageKey, ServiceKey } from '../i18n/routes';
-import { CASE_LABEL, CASE_LINE, TYPO_LINE, EDU_LINE } from './case-summary';
+import { CASE_LABEL, CASE_LINE, TYPO_LINE, EDU_LINE, SEASON_LINE } from './case-summary';
 
 type L<T = string> = Record<Lang, T>;
 
 export interface CaseStudy {
-  key: Extract<PageKey, 'caseKb' | 'caseTypo'>;
+  key: Extract<PageKey, 'caseKb' | 'caseTypo' | 'caseEdu' | 'caseSeason'>;
   langs?: readonly Lang[]; // languages the case page exists in (default: all)
   industry: L;
   teaser: L;
@@ -62,6 +62,19 @@ CASES.push({
     { value: '+55%', label: { cs: '', en: '', ru: 'органического трафика за 7 месяцев, март → сентябрь 2025 (относительные данные)' } },
   ],
   services: ['start'],
+});
+
+CASES.push({
+  key: 'caseSeason',
+  langs: ['ru'],
+  industry: { cs: 'Překladatelská agentura · část 2', en: 'Translation agency · part 2', ru: 'Переводческое агентство · часть 2' },
+  teaser: { cs: '', en: '', ru: SEASON_LINE },
+  challenge: { cs: '', en: '', ru: 'Органический трафик не превращался в заявки: в воронке не было верха, коммерческого интента, гео-покрытия и сигналов доверия.' },
+  solution: { cs: [], en: [], ru: ['Диагноз воронки и бизнес-модели', 'Технический слой и структурированные данные', 'Страницы услуг под коммерческий интент', 'Блог и FAQ как верх воронки', 'Локальные страницы по городам'] },
+  metrics: [
+    { value: '×24', label: { cs: '', en: '', ru: 'заявки с сайта: весна (март–май) → лето (июнь–август) 2026, одно окно, не год к году, от низкой базы' } },
+  ],
+  services: ['start', 'fullSeo'],
 });
 
 export const caseByKey = (key: CaseStudy['key']) => CASES.find((c) => c.key === key)!;
