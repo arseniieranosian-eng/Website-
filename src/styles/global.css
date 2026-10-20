@@ -122,13 +122,13 @@ ul, ol { padding-left: 1.2em; }
   /* compact desktop header (laptops): everything stays on one horizontal line */
   .nav-wrap, .nav-open .nav-wrap { display: flex; position: static; flex-direction: row; align-items: center; padding: 0; border: 0; gap: 10px; background: none; }
   .nav { flex-direction: row; gap: 0; }
-  .nav a { padding: 8px 6px; border: 0; font-size: 0.85rem; border-radius: 8px; }
+  .nav a { padding: 8px clamp(6px, calc((100vw - 1100px) / 60 + 6px), 11px); border: 0; font-size: 0.85rem; border-radius: 8px; }
   .logo-text small { display: none; }
   .lang-switch a { padding: 5px 6px; }
   .nav-wrap .btn--sm { padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; }
   .nav a:hover { background: var(--grey-bg); }
   .nav-dd { position: relative; }
-  .nav-dd__btn { width: auto; border: 0; padding: 8px 6px; font-size: 0.85rem; border-radius: 8px; }
+  .nav-dd__btn { width: auto; border: 0; padding: 8px clamp(6px, calc((100vw - 1100px) / 60 + 6px), 11px); font-size: 0.85rem; border-radius: 8px; }
   .nav-dd__btn:hover { background: var(--grey-bg); }
   .nav-sub { position: absolute; top: 100%; left: 0; min-width: 240px; padding: 8px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 32px rgba(11, 11, 15, 0.12); z-index: 30; }
   .nav-sub a { padding: 10px 12px; }
@@ -140,8 +140,8 @@ ul, ol { padding-left: 1.2em; }
 @media (min-width: 1440px) {
   .nav-wrap, .nav-open .nav-wrap { gap: 20px; }
   .nav { gap: 4px; }
-  .nav a { padding: 8px 8px; font-size: 0.92rem; }
-  .nav-dd__btn { padding: 8px 8px; font-size: 0.92rem; }
+  .nav a { padding: 8px 11px; font-size: 0.92rem; }
+  .nav-dd__btn { padding: 8px 11px; font-size: 0.92rem; }
   .logo-text small { display: block; }
   .lang-switch a { padding: 6px 9px; }
   .nav-wrap .btn--sm { padding: 9px 14px; font-size: 0.9rem; }
@@ -387,3 +387,8 @@ table.compare { min-width: 0; }
 .lead-modal__title { margin: 0 44px 16px 0; font-size: 1.4rem; }
 .lead-modal__close { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background: var(--grey-bg); border: 0; border-radius: 50%; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--text); }
 .lead-modal__close:hover { background: var(--line); }
+
+/* Floating "free audit" button on phones: small, bottom-right, opens the audit pop-up */
+.fab-audit { position: fixed; z-index: 60; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 8px 24px rgba(255, 106, 26, 0.45); border-radius: 999px; padding: 12px 18px; font-size: 0.92rem; font-weight: 700; white-space: nowrap; }
+.ask-consent .fab-audit, .nav-open .fab-audit { display: none; } /* the cookie banner / open menu come first */
+@media (min-width: 1100px) { .fab-audit { display: none; } }

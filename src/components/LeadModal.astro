@@ -16,6 +16,7 @@ const ui = t(lang);
   <p id="lead-modal-title" class="lead-modal__title" role="heading" aria-level="2">{ui.formTitle}</p>
   <LeadForm lang={lang} id="modal" service="consulting" />
 </dialog>
+<a class="btn btn--primary fab-audit" href={path('audit', lang)}>{ui.ctaAudit}</a>
 
 <script>
   const dlg = document.getElementById('lead-modal') as HTMLDialogElement | null;
