@@ -20,7 +20,7 @@ const C = {
 <Base {...pageProps('cases', lang)}>
   <PageHero h1={m.h1} lead={C.lead} />
   <section class="section section--tight">
-    <div class="container stack">{CASES.map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" />)}</div>
+    <div class="container stack">{CASES.filter((c) => !c.langs || c.langs.includes(lang)).map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" />)}</div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
 </Base>

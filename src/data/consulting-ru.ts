@@ -2,7 +2,7 @@
 // business owners in Czechia, the EU and the USA, not a translation of the Czech page.
 // Prices come from consulting-shared.ts (one source for all languages).
 import { fmtKc, PRICES, type ConsultingContent } from './consulting-shared';
-import { CASE_LINE } from './case-summary';
+import { CASE_LINE, TYPO_LINE } from './case-summary';
 
 export const CONSULTING_RU: ConsultingContent = {
   lang: 'ru',
@@ -101,6 +101,8 @@ export const CONSULTING_RU: ConsultingContent = {
 
   caseTitle: 'Что это дало клиентам',
   caseText: CASE_LINE.ru,
+  caseText2: TYPO_LINE,
+  caseLink2: 'Кейс «SEO для типографии»',
   caseLink: 'Вся история',
 
   reviewsTitle: 'Что говорят клиенты',

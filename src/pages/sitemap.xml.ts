@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { DEFAULT_LANG, LANGS, NOINDEX, PAGE_KEYS, ROUTES, type Lang } from '../i18n/routes';
+import { DEFAULT_LANG, LANGS, NOINDEX, PAGE_KEYS, ROUTES, alternatesFor, langsFor, type Lang } from '../i18n/routes';
 import { allPosts, postAlternates, postsByLang, postUrl } from '../lib/blog';
 
 // sitemap.xml with every language version and xhtml:link hreflang alternates.
@@ -17,7 +17,7 @@ export const GET: APIRoute = async ({ site }) => {
       for (const lang of withPosts) entries.push({ loc: ROUTES.blog[lang], alternates });
       continue;
     }
-    for (const lang of LANGS) entries.push({ loc: ROUTES[key][lang], alternates: ROUTES[key] });
+    for (const lang of langsFor(key)) entries.push({ loc: ROUTES[key][lang], alternates: alternatesFor(key) });
   }
   for (const post of await allPosts()) {
     entries.push({

@@ -172,6 +172,17 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Кейсы',
     },
   },
+  // Russian-only page (see ONLY_LANGS in routes.ts); the cs / en entries are placeholders and are never built.
+  caseTypo: {
+    cs: { name: 'SEO pro tiskárnu', title: 'SEO pro tiskárnu', description: 'SEO pro tiskárnu', h1: 'SEO pro tiskárnu' },
+    en: { name: 'SEO for a print shop', title: 'SEO for a print shop', description: 'SEO for a print shop', h1: 'SEO for a print shop' },
+    ru: {
+      name: 'SEO для типографии',
+      title: 'SEO для типографии: рост трафика в 8,75 раза | Eranosian',
+      description: 'Как я вырастил органический трафик типографии с 1 200 до 10 500 визитов в месяц за год: порядок приоритетов и 20+ посадочных. Закажите бесплатный аудит.',
+      h1: 'SEO для типографии: рост органического трафика в 8,75 раза за 12 месяцев',
+    },
+  },
   caseKb: {
     cs: {
       name: 'SEO pro překladatelskou agenturu',
@@ -256,19 +267,19 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'O mně',
       title: 'O mně – Arsenii Eranosian, SEO specialista v Praze',
-      description: 'Arsenii Eranosian, SEO specialista z Prahy. Za 3 roky růst návštěvnosti až +777 % meziročně. SEO jako systém, který mění vyhledávání v tržby.',
+      description: 'Arsenii Eranosian, SEO specialista z Prahy. Za 3 roky růst návštěvnosti až +775 % meziročně. SEO jako systém, který mění vyhledávání v tržby.',
       h1: 'Arsenii Eranosian, SEO specialista',
     },
     en: {
       name: 'About',
       title: 'About Arsenii Eranosian – SEO Specialist in Prague',
-      description: 'Arsenii Eranosian, SEO specialist in Prague. Organic traffic up to +777% YoY in 3 years. SEO as a system that turns search into revenue.',
+      description: 'Arsenii Eranosian, SEO specialist in Prague. Organic traffic up to +775% YoY in 3 years. SEO as a system that turns search into revenue.',
       h1: 'Arsenii Eranosian, SEO specialist',
     },
     ru: {
       name: 'Обо мне',
       title: 'Обо мне – Arsenii Eranosian, SEO-специалист в Праге',
-      description: 'Arsenii Eranosian, SEO-специалист из Праги. За 3 года рост трафика до +777% за год. SEO как система, которая превращает поиск в выручку.',
+      description: 'Arsenii Eranosian, SEO-специалист из Праги. За 3 года рост трафика до +775% за год. SEO как система, которая превращает поиск в выручку.',
       h1: 'Arsenii Eranosian, SEO-специалист',
     },
   },

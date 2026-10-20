@@ -46,6 +46,8 @@ export interface ConsultingContent {
   caseTitle: string;
   caseText: string;
   caseLink: string;
+  caseText2?: string; // second case line (ru only: the print-shop case)
+  caseLink2?: string;
   reviewsTitle: string;
   reviewsLink: string;
   faqTitle: string;

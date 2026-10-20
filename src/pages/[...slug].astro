@@ -1,7 +1,7 @@
 ---
 // Every URL of the site is generated here from i18n/routes.ts and the blog collection.
 import type { GetStaticPaths } from 'astro';
-import { LANGS, PAGE_KEYS, ROUTES, SERVICE_KEYS, type Lang, type PageKey, type ServiceKey } from '../i18n/routes';
+import { PAGE_KEYS, ROUTES, langsFor, SERVICE_KEYS, type Lang, type PageKey, type ServiceKey } from '../i18n/routes';
 import { allPosts, postUrl, type Post } from '../lib/blog';
 import Home from '../views/Home.astro';
 import Audit from '../views/Audit.astro';
@@ -20,6 +20,7 @@ import GeoCsPage from '../views/GeoCsPage.astro';
 import Cases from '../views/Cases.astro';
 import Case from '../views/Case.astro';
 import CaseCsPage from '../views/CaseCsPage.astro';
+import CaseTypoRuPage from '../views/CaseTypoRuPage.astro';
 import Reviews from '../views/Reviews.astro';
 import Blog from '../views/Blog.astro';
 import PostView from '../views/Post.astro';
@@ -33,7 +34,7 @@ export const getStaticPaths = (async () => {
   // Must live inside getStaticPaths: it is hoisted out of the component scope.
   const toParam = (p: string) => p.replace(/^\/|\/$/g, '') || undefined;
   const pages = PAGE_KEYS.flatMap((key) =>
-    LANGS.map((lang) => ({ params: { slug: toParam(ROUTES[key][lang]) }, props: { key, lang } })),
+    langsFor(key).map((lang) => ({ params: { slug: toParam(ROUTES[key][lang]) }, props: { key, lang } })),
   );
   const posts = (await allPosts()).map((post) => ({ params: { slug: toParam(postUrl(post)) }, props: { post } }));
   return [...pages, ...posts];
@@ -43,6 +44,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
+  caseTypo: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -53,6 +55,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'audit' && pr
 {props.key === 'audit' && props.lang === 'ru' && <AuditRuPage />}
 {props.key === 'geo' && props.lang === 'cs' && <GeoCsPage />}
 {props.key === 'caseKb' && props.lang === 'cs' && <CaseCsPage />}
+{props.key === 'caseTypo' && props.lang === 'ru' && <CaseTypoRuPage />}
 {props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage />}
 {props.key === 'consulting' && props.lang === 'ru' && <ConsultingPage lang="ru" />}
 {props.key === 'start' && props.lang === 'cs' && <StartCsPage />}

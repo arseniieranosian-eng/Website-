@@ -1,10 +1,11 @@
 import type { Lang, PageKey, ServiceKey } from '../i18n/routes';
-import { CASE_LABEL, CASE_LINE } from './case-summary';
+import { CASE_LABEL, CASE_LINE, TYPO_LINE } from './case-summary';
 
 type L<T = string> = Record<Lang, T>;
 
 export interface CaseStudy {
-  key: Extract<PageKey, 'caseKb'>;
+  key: Extract<PageKey, 'caseKb' | 'caseTypo'>;
+  langs?: readonly Lang[]; // languages the case page exists in (default: all)
   industry: L;
   teaser: L;
   challenge: L;
@@ -36,5 +37,18 @@ export const CASES: CaseStudy[] = [
     services: ['start', 'fullSeo'],
   },
 ];
+
+CASES.push({
+  key: 'caseTypo',
+  langs: ['ru'],
+  industry: { cs: 'Tiskárna', en: 'Print shop', ru: 'Типография' },
+  teaser: { cs: '', en: '', ru: TYPO_LINE },
+  challenge: { cs: '', en: '', ru: 'Сайт работал, но Google плохо понимал его структуру, а страницы не были привязаны к запросам, по которым люди готовы заказывать печать.' },
+  solution: { cs: [], en: [], ru: ['Технический краулинг и данные Google Search Console', 'Исправление битых ссылок и иерархии заголовков', 'Карта запросов по воронке под коммерческий интент', '20+ посадочных страниц на WordPress', 'Еженедельный мониторинг'] },
+  metrics: [
+    { value: '×8,75', label: { cs: '', en: '', ru: 'органический трафик: 1 200 → 10 500 визитов в месяц, июль 2024 → июль 2025' } },
+  ],
+  services: ['start', 'fullSeo'],
+});
 
 export const caseByKey = (key: CaseStudy['key']) => CASES.find((c) => c.key === key)!;

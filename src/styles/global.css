@@ -418,3 +418,8 @@ table.compare { min-width: 0; }
 .pullquote cite { font-style: normal; }
 
 .review__logo { width: 40px; height: 40px; border-radius: 10px; margin-bottom: 8px; object-fit: cover; }
+
+/* Case page hero: the first card ("1 200 → 10 500") is wider so the figures stay on one line */
+.stats--case dd { white-space: nowrap; }
+@media (min-width: 900px) { .stats--case { grid-template-columns: 2.2fr 1fr 1.2fr 1.2fr; } }
+@media (max-width: 560px) { .stats--case { grid-template-columns: 1fr 1fr; } .stats--case > div:first-child { grid-column: 1 / -1; } }

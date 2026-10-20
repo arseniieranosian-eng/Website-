@@ -21,3 +21,9 @@ export const CASE_GEO_LINE: Record<Lang, string> = {
   en: 'After SEO work, a translation agency appeared in Google AI Overview answers.',
   ru: 'После SEO-работы переводческое агентство появилось в ответах Google AI Overview.',
 };
+
+// The print-shop case (ru page only): the one result formula, used everywhere the case is mentioned.
+// 1 200 → 10 500 organic visits a month = ×8.75 = +775 %, July 2024 → July 2025 (same month, so no seasonality).
+export const TYPO_FORMULA = '1 200 → 10 500 визитов в месяц, +775%, июль 2024 → июль 2025';
+export const TYPO_LINE: string =
+  'Типография: органический трафик вырос с 1 200 до 10 500 визитов в месяц (+775%, июль 2024 → июль 2025).';

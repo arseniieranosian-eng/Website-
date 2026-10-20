@@ -4,7 +4,7 @@
 import { fmtKc } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
 import { CONSULTING_RU } from './consulting-ru';
-import { CASE_LINE } from './case-summary';
+import { CASE_LINE, TYPO_LINE } from './case-summary';
 
 const [PAY1, PAY2] = START_PAYMENTS;
 const price = fmtKc(START_PRICE);
@@ -78,6 +78,8 @@ export const START_RU = {
 
   caseTitle: 'Что это дало клиентам',
   caseText: CASE_LINE.ru,
+  caseText2: TYPO_LINE,
+  caseLink2: 'Кейс «SEO для типографии»',
   caseLink: 'Вся история',
 
   reviewsTitle: 'Что говорят клиенты',
