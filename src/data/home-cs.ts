@@ -36,11 +36,7 @@ export const HOME_CS = {
   ],
   servicesMore: 'Více',
 
-  quoteAuthor: 'Arsenii Eranosian, SEO a GEO/AEO specialista',
-  quotes: {
-    services: 'SEO a GEO/AEO nejsou dvě služby. Je to jedna práce: web, kterému rozumí vyhledávač i AI, a obsah, který stojí za citaci.',
-    results: 'Číslo bez období a zdroje nic nedokazuje. Proto u každého projektu uvádím, odkdy dokdy a z čeho čísla pocházejí.',
-  },
+  quote: 'SEO není o aktivitě, ale o pořadí priorit. Nejdřív odstraníte, co Googlu brání web pochopit, pak postavíte architekturu podle byznysu a teprve potom škálujete obsah.',
 
   geoTitle: 'Co je GEO/AEO a proč ho dělám spolu se SEO?',
   geoAnswer: 'SEO řeší, aby se web zobrazoval v Googlu a Seznamu. GEO/AEO řeší, aby vás citovaly a doporučovaly AI nástroje, například ChatGPT, Gemini, Perplexity a Google AI Overviews. Dělám je vždy společně, je to součást každé služby.',

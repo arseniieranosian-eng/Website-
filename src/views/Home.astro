@@ -9,6 +9,8 @@ import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import Icon from '../components/Icon.astro';
+import QuoteAuthor from '../components/QuoteAuthor.astro';
+import { ids } from '../lib/schema';
 import { META } from '../i18n/meta';
 import { path, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
@@ -23,6 +25,19 @@ const { lang } = Astro.props;
 const ui = t(lang);
 const m = META.home[lang];
 const posts = await postsByLang(lang, 3);
+
+// The author's pull quote (after the case block, before the reviews). The Czech home has its own page (HomeCsPage).
+const QUOTE: Record<Lang, string> = {
+  cs: 'SEO není o aktivitě, ale o pořadí priorit. Nejdřív odstraníte, co Googlu brání web pochopit, pak postavíte architekturu podle byznysu a teprve potom škálujete obsah.',
+  en: 'SEO isn\'t about activity. It\'s about the order of priorities. First you remove what keeps Google from understanding the site, then you build an architecture around the business, and only then do you scale content.',
+  ru: 'SEO — это не про активность, а про порядок приоритетов. Сначала убираете то, что мешает Google понять сайт, потом строите архитектуру под бизнес и только потом масштабируете контент.',
+};
+const site = Astro.site!;
+const url = new URL(path('home', lang), site).href;
+const schema = [
+  { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.title, description: m.description, inLanguage: lang, isPartOf: { '@id': ids(site).website } },
+  { '@type': 'Quotation', '@id': `${url}#quote-1`, text: QUOTE[lang], creator: { '@id': ids(site).person }, inLanguage: lang, isPartOf: { '@id': `${url}#webpage` } },
+];
 
 const C = {
   cs: {
@@ -96,7 +111,7 @@ const C = {
   },
 }[lang];
 ---
-<Base {...pageProps('home', lang)}>
+<Base {...pageProps('home', lang)} schema={schema}>
   <!-- 1. Hero + the only form on the page above the footer -->
   <section class="hero">
     <div class="container hero-grid">
@@ -153,6 +168,16 @@ const C = {
     <div class="container">
       <h2>{C.caseTitle}</h2>
       <CaseTeaser lang={lang} />
+    </div>
+  </section>
+
+  <!-- 5b. Author quote -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <blockquote class="pullquote">
+        <p>{QUOTE[lang]}</p>
+        <QuoteAuthor lang={lang} />
+      </blockquote>
     </div>
   </section>
 

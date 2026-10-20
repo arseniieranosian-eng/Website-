@@ -67,14 +67,12 @@ for (const f of [FORMULAS[2], FORMULAS[3]]) if (!startTxt.includes(f)) e(`Start 
 const rv = (main.match(/Co říkají klienti\?[\s\S]*?<\/section>/) || [''])[0];
 if (!/class="card review"/.test(rv)) e('reviews block expected');
 if (/\d+\s*×|×\s*\d/.test(txt(rv)) || /Make Up/.test(rv)) e('reviews: no figures / partner-agency review on the home page');
-// Two pull quotes between the blocks: services → quote 1 → GEO/AEO; results → quote 2 → reviews; same text in the markup
-const Q1 = 'SEO a GEO/AEO nejsou dvě služby. Je to jedna práce: web, kterému rozumí vyhledávač i AI, a obsah, který stojí za citaci.';
-const Q2 = 'Číslo bez období a zdroje nic nedokazuje. Proto u každého projektu uvádím, odkdy dokdy a z čeho čísla pocházejí.';
+// One pull quote between the case cards and the reviews, signed with a link to /o-mne/; same text in the markup
+const Q = 'SEO není o aktivitě, ale o pořadí priorit. Nejdřív odstraníte, co Googlu brání web pochopit, pak postavíte architekturu podle byznysu a teprve potom škálujete obsah.';
 const order = (a) => mainTxt.indexOf(a);
-if (!(order('Jaké služby nabízím?') < order(Q1) && order(Q1) < order('Co je GEO/AEO a proč ho dělám spolu se SEO?'))) e('quote 1 must sit between the services and the GEO/AEO block');
-if (!(order('Jaké výsledky už mají moji klienti?') < order(Q2) && order(Q2) < order('Co říkají klienti?'))) e('quote 2 must sit between the results and the reviews');
-if ([...main.matchAll(/<blockquote class="pullquote">/g)].length !== 2) e('two pull quotes expected');
-if ([...main.matchAll(/<cite><a href="\/o-mne\/">Arsenii Eranosian<\/a><span>SEO a GEO\/AEO specialista<\/span><\/cite>/g)].length !== 2) e('quote author must be signed and link to /o-mne/');
+if (!(order('Jaké výsledky už mají moji klienti?') < order(Q) && order(Q) < order('Co říkají klienti?')) || order(Q) < order('Všechny případové studie')) e('the quote must sit after the case cards and before the reviews');
+if ([...main.matchAll(/<blockquote class="pullquote">/g)].length !== 1) e('exactly one pull quote expected');
+if ([...main.matchAll(/<cite><a href="\/o-mne\/">Arsenii Eranosian<\/a><span>SEO a GEO\/AEO specialista<\/span><\/cite>/g)].length !== 1) e('quote author must be signed and link to /o-mne/');
 // FAQ
 const FAQ = [['Jak probíhá bezplatný audit?', 'Pošlete adresu webu'], ['Kolik stojí SEO služby?', 'Audit je zdarma. Konzultace stojí od 2 000 Kč, SEO start 50 000 Kč za 3 měsíce a Full SEO od 15 000 Kč měsíčně.'], ['Za jak dlouho přijdou první výsledky?', 'První výsledky přicházejí obvykle za 2–3 měsíce, ale zaručit je nelze.'], ['Pracujete i mimo Prahu?', 'Ano. Pracuji převážně na dálku'], ['Čím se liší SEO a GEO/AEO?', 'SEO míří na pozice v Googlu a Seznamu'], ['Co když nevím, kterou službu potřebuji?', 'Začněte bezplatným auditem nebo konzultací']];
 for (const [q, a] of FAQ) if (!mainTxt.includes(q) || !mainTxt.includes(a)) e(`FAQ: ${q}`);
@@ -86,8 +84,8 @@ const date = h.match(/Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time>/)
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = by('WebPage'), fq = by('FAQPage'), pro = by('ProfessionalService');
-const quotes = ld.filter((n) => n['@type'] === 'Quotation').map((n) => n.text);
-if (JSON.stringify(quotes) !== JSON.stringify([Q1, Q2])) e('Quotation markup must repeat the two quotes word for word');
+const qn = ld.filter((n) => n['@type'] === 'Quotation');
+if (qn.length !== 1 || qn[0]['@id'] !== `${BASE}/#quote-1` || qn[0].text !== Q || qn[0].inLanguage !== 'cs' || qn[0].isPartOf['@id'] !== wp['@id'] || qn[0].creator['@id'] !== by('Person')['@id']) e('Quotation node (#quote-1) must repeat the quote word for word');
 if (ld.some((n) => ['AggregateRating', 'Review', 'BreadcrumbList', 'Service', 'Offer'].includes(n['@type']))) e('home markup: no ratings / reviews / breadcrumb / services');
 if (/SearchAction/.test(JSON.stringify(ld))) e('no SearchAction');
 if (norm(wp.name) !== title || norm(wp.description) !== desc || wp.inLanguage !== 'cs') e('WebPage name / description / inLanguage');

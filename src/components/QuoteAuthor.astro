@@ -1,0 +1,15 @@
+---
+// Signature under a pull quote of the author: small round photo, name (link to the about page) and the title.
+import { path, type Lang } from '../i18n/routes';
+interface Props { lang?: Lang }
+const { lang = 'cs' } = Astro.props;
+const T = {
+  cs: { name: 'Arsenii Eranosian', role: 'SEO a GEO/AEO specialista', alt: 'Arsenii Eranosian, SEO specialista v Praze' },
+  en: { name: 'Arsenii Eranosian', role: 'SEO and GEO/AEO specialist', alt: 'Arsenii Eranosian, SEO specialist in Prague' },
+  ru: { name: 'Арсений Ераносьян', role: 'SEO- и GEO/AEO-специалист', alt: 'Arsenii Eranosian, SEO-специалист в Праге' },
+}[lang];
+---
+<footer class="quote-author">
+  <img src="/images/author-avatar.jpg" width="48" height="48" alt={T.alt} decoding="async" />
+  <cite><a href={path('about', lang)}>{T.name}</a><span>{T.role}</span></cite>
+</footer>

@@ -28,7 +28,7 @@ const reviews = REVIEWS.filter((r) => !r.sample && r.id !== 'make-up-agency' && 
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 const name = (k: keyof typeof META) => META[k][lang].name;
 const m = META.home[lang];
-import QuoteAuthorCs from '../components/QuoteAuthorCs.astro';
+import QuoteAuthor from "../components/QuoteAuthor.astro";
 ---
 <Base {...pageProps('home', lang)} schema={homeCsSchemas(site, C, { modified: MOD })}>
   <!-- HERO -->
@@ -84,16 +84,6 @@ import QuoteAuthorCs from '../components/QuoteAuthorCs.astro';
     </div>
   </section>
 
-  <!-- QUOTE -->
-  <section class="section section--tight">
-    <div class="container narrow">
-      <blockquote class="pullquote">
-        <p>„{C.quotes.services}“</p>
-        <QuoteAuthorCs />
-      </blockquote>
-    </div>
-  </section>
-
   <!-- SEO + GEO/AEO -->
   <section class="section section--dark">
     <div class="container narrow">
@@ -122,12 +112,12 @@ import QuoteAuthorCs from '../components/QuoteAuthorCs.astro';
     </div>
   </section>
 
-  <!-- QUOTE -->
+  <!-- QUOTE (after the case cards, before the reviews) -->
   <section class="section section--tight">
     <div class="container narrow">
       <blockquote class="pullquote">
-        <p>„{C.quotes.results}“</p>
-        <QuoteAuthorCs />
+        <p>{C.quote}</p>
+        <QuoteAuthor />
       </blockquote>
     </div>
   </section>
