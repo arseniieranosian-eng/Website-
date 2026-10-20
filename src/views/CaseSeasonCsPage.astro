@@ -1,0 +1,161 @@
+---
+// Part 2 of the translation-agency case (cs), built from the brief of 20.10.2026. Content: data/case-season-cs.ts.
+// hreflang cs ↔ ru comes from the route table. No charts: the brief has no Trends / GA4 data to draw.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { caseSeasonSchemas } from '../lib/schema-case-season';
+import { CASE_SEASON_CS as C } from '../data/case-season-cs';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/CaseSeasonCsPage.astro', 'src/data/case-season-cs.ts', 'src/data/case-summary.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/pripadove-studie/og-seo-v-nizke-sezone.png';
+---
+<Base {...pageProps('caseSeason', lang)} ogType="article" ogImage={OG} schema={caseSeasonSchemas(site, C, { modified: MOD, image: OG })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{C.label}</p>
+      <h1>{C.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.project}{C.partLabel}</p>
+      <p class="lead">{C.answer}</p>
+      <dl class="stats stats--three">{C.cards.map((c) => <div><dt>{c.label}</dt><dd>{c.value}</dd></div>)}</dl>
+      <p class="muted small">{C.cardsNote}</p>
+      <p class="muted small">{C.formula}.</p>
+      <p class="muted small">{C.dataNote}</p>
+      <p><a class="link-arrow" href={t('caseKb')}>{C.part1Link}</a></p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroCta}</a></div>
+    </div>
+  </section>
+
+  <!-- DIAGNOSIS -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.diagTitle}</h2>
+      <p class="answer">{C.diagAnswer}</p>
+      <p>{C.diagText}</p>
+      <ol class="case-steps">{C.holes.map((x) => <li><h3>{x.name}</h3><p>{x.text}</p></li>)}</ol>
+      <p>{C.diagConclusion}</p>
+    </div>
+  </section>
+
+  <!-- TECHNICAL LAYER -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.techTitle}</h2>
+      <p class="answer">{C.techAnswer}</p>
+      <p>{C.techListLead}</p>
+      <ul class="checks">{C.techList.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- SERVICE PAGES -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.servTitle}</h2>
+      <p class="answer">{C.servAnswer}</p>
+    </div>
+  </section>
+
+  <!-- BLOG AND FAQ -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.blogTitle}</h2>
+      <p class="answer">{C.blogAnswer}</p>
+      <p>{C.blogText.before}<a href={t('geo')}>{C.blogText.link}</a>{C.blogText.after}</p>
+    </div>
+  </section>
+
+  <!-- LOCAL PAGES -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.geoTitle}</h2>
+      <p class="answer">{C.geoAnswer}</p>
+      <ul class="checks">{C.geoList.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.resTitle}</h2>
+      <p class="answer">{C.resAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.resTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.resTable.rows.map(([a, ...cells]) => <tr><th scope="row">{a}</th>{cells.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.resSource}</p>
+      <h3>{C.sourcesTitle}</h3>
+      <ul class="checks">{C.sources.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.dynamics}</p>
+      <p class="muted">{C.limits}</p>
+    </div>
+  </section>
+
+  <!-- SEASONALITY CHECK -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.trendsTitle}</h2>
+      <p class="answer">{C.trendsAnswer}</p>
+      <p>{C.trendsText}</p>
+    </div>
+  </section>
+
+  <!-- SIX THESES -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.lessonTitle}</h2>
+      <ol class="case-steps">{C.lesson.map((s) => <li><h3>{s.title}</h3><p>{s.text}</p></li>)}</ol>
+      <p>{C.lessonClosing}</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES (no prices) -->
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.relatedTitle}</h2>
+      <div class="grid grid-3">
+        {C.related.map((k) => (
+          <a class="card card--link" href={t(k)}>
+            <h3>{META[k][lang].name}</h3>
+            <p>{serviceByKey(k).short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT CLOSE -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.ctaTitle}</h2>
+      <p>{C.ctaText}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.ctaAudit}</a>
+        <a class="btn btn--secondary btn--lg" href={t('contact')}>{C.ctaContact}</a>
+      </div>
+      <p><a class="link-arrow" href={t('caseKb')}>{C.part1Back}</a></p>
+      {C.nextCases.map((n) => <p><a class="link-arrow" href={t(n.key)}>{n.text}</a></p>)}
+    </div>
+  </section>
+</Base>

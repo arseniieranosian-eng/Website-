@@ -26,7 +26,7 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="ru_RU">')) e('og:type article / og:locale ru_RU');
 if (!h.includes(`<meta property="og:image" content="${BASE}/images/pripadove-studie/og-seo-v-nizkij-sezon.png">`)) e('og:image card');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h)) e('Russian-only page: no hreflang alternates');
+for (const [l, u] of [['cs', '/pripadove-studie/seo-v-nizke-sezone/'], ['ru', URL_PATH], ['x-default', '/pripadove-studie/seo-v-nizke-sezone/']]) if (!h.includes(`<link rel="alternate" hreflang="${l}" href="${BASE}${u}">`)) e(`hreflang ${l}`);
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
@@ -106,8 +106,8 @@ for (const p of ['dist/ru/start-3-mesyaca/index.html', 'dist/ru/full-seo/index.h
   if (!p.includes('seo-i-geo') && !txt(c).includes(FORMULA)) e(`${p}: the one formula`);
 }
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
-if (!sm.includes(`${BASE}${URL_PATH}`) || /seo-v-nizkem|seo-in-low/.test(sm)) e('sitemap: ru only');
-for (const p of ['dist/pripadove-studie/index.html', 'dist/en/case-studies/index.html']) if (/seo-v-nizkij-sezon/.test(readFileSync(p, 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e(`${p}: the ru-only case must not be listed in cs / en`);
+if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-v-nizke-sezone/`) || /seo-in-low/.test(sm)) e('sitemap: cs + ru, no en');
+if (/seo-v-nizkij-sezon|seo-v-nizke-sezone/.test(readFileSync('dist/en/case-studies/index.html', 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e('the case must not be listed in en');
 
 if (errors.length) {
   console.error(`\nSeason case (part 2) check failed (${errors.length}):\n- ` + errors.join('\n- '));

@@ -8,6 +8,7 @@ import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { caseCsSchemas } from '../lib/schema-case-cs';
 import { CASE_CS as C } from '../data/case-cs';
+import { SEASON_LINE_CS } from '../data/case-summary';
 import { serviceByKey } from '../data/services';
 
 const lang = C.lang;
@@ -195,6 +196,15 @@ const lastTop = bars[bars.length - 1].top;
           return <div><h3>{f.q}</h3><p>{after === undefined ? f.a : <>{before}<a href={t('geo')}>{part}</a>{after}</>}</p></div>;
         })}
       </div>
+    </div>
+  </section>
+
+  <!-- CONTINUATION: PART 2 -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>Pokračování: Část 2</h2>
+      <p>{SEASON_LINE_CS}</p>
+      <a class="link-arrow" href={t('caseSeason')}>SEO v nízké sezóně</a>
     </div>
   </section>
 

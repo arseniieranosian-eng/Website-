@@ -118,6 +118,7 @@ export const CASE_SEASON = {
     { key: 'caseEdu' as const, text: 'Соседний кейс: «SEO для образовательной платформы»' },
   ],
 
+  series: { id: CASE_SEASON_SERIES_ID, name: CASE_SEASON_SERIES_NAME },
   schema: {
     about: ['SEO в низкий сезон', 'SEO для переводческого агентства', 'рост заявок через SEO', 'локальное SEO для филиалов', 'проверка сезонности через Google Trends'],
   },

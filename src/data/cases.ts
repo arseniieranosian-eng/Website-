@@ -1,5 +1,5 @@
 import type { Lang, PageKey, ServiceKey } from '../i18n/routes';
-import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, EDU_LINE_CS, SEASON_LINE } from './case-summary';
+import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, EDU_LINE_CS, SEASON_LINE, SEASON_LINE_CS } from './case-summary';
 
 type L<T = string> = Record<Lang, T>;
 
@@ -66,13 +66,13 @@ CASES.push({
 
 CASES.push({
   key: 'caseSeason',
-  langs: ['ru'],
+  langs: ['cs', 'ru'],
   industry: { cs: 'Překladatelská agentura · část 2', en: 'Translation agency · part 2', ru: 'Переводческое агентство · часть 2' },
-  teaser: { cs: '', en: '', ru: SEASON_LINE },
-  challenge: { cs: '', en: '', ru: 'Органический трафик не превращался в заявки: в воронке не было верха, коммерческого интента, гео-покрытия и сигналов доверия.' },
-  solution: { cs: [], en: [], ru: ['Диагноз воронки и бизнес-модели', 'Технический слой и структурированные данные', 'Страницы услуг под коммерческий интент', 'Блог и FAQ как верх воронки', 'Локальные страницы по городам'] },
+  teaser: { cs: SEASON_LINE_CS, en: '', ru: SEASON_LINE },
+  challenge: { cs: 'Organická návštěvnost se nepřevádí na poptávky: v trychtýři chyběla horní část, komerční záměr, lokální pokrytí a signály důvěry.', en: '', ru: 'Органический трафик не превращался в заявки: в воронке не было верха, коммерческого интента, гео-покрытия и сигналов доверия.' },
+  solution: { cs: ['Diagnóza trychtýře a byznys modelu', 'Technická vrstva a strukturovaná data', 'Stránky služeb pro komerční záměr', 'Blog a FAQ jako horní část trychtýře', 'Lokální stránky podle měst'], en: [], ru: ['Диагноз воронки и бизнес-модели', 'Технический слой и структурированные данные', 'Страницы услуг под коммерческий интент', 'Блог и FAQ как верх воронки', 'Локальные страницы по городам'] },
   metrics: [
-    { value: '×24', label: { cs: '', en: '', ru: 'заявки с сайта: весна (март–май) → лето (июнь–август) 2026, одно окно, не год к году, от низкой базы' } },
+    { value: '×24', label: { cs: 'poptávky z webu: jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně, od nízké základny', en: '', ru: 'заявки с сайта: весна (март–май) → лето (июнь–август) 2026, одно окно, не год к году, от низкой базы' } },
   ],
   services: ['start', 'fullSeo'],
 });

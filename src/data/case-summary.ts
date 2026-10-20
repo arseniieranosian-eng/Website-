@@ -45,3 +45,7 @@ export const SEASON_LINE: string = `Переводческое агентств�
 // Czech pair of the education-platform case (cs page): same single figure, Czech number format.
 export const EDU_FORMULA_CS = '+55\u00a0% organické návštěvnosti, březen → září 2025 (7 měsíců), relativní data od nízké základny nového webu';
 export const EDU_LINE_CS: string = `Vzdělávací platforma: ${EDU_FORMULA_CS}.`;
+
+// Czech pair of Part 2 (cs page): the same figures, one formula word for word on every Czech page that mentions the case.
+export const SEASON_FORMULA_CS = 'Poptávky z formuláře ×24 (+2300\u00a0%): jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně. Od nízké základny';
+export const SEASON_LINE_CS: string = `Překladatelská agentura, část 2. ${SEASON_FORMULA_CS}.`;

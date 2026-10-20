@@ -1,4 +1,5 @@
 import { CASE_PUBLISHED } from '../data/case-cs';
+import { CASE_SEASON_CS } from '../data/case-season-cs';
 import type { CASE_CS } from '../data/case-cs';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -27,6 +28,7 @@ export function caseCsSchemas(site: URL, C: typeof CASE_CS, opts: { modified: st
       breadcrumb: { '@id': `${url}#breadcrumb` },
       primaryImageOfPage: abs('/images/og.png'),
       mainEntity: { '@id': `${url}#article` },
+      relatedLink: abs(path('caseSeason', lang)),
     },
     {
       '@type': 'Article',
@@ -37,10 +39,12 @@ export function caseCsSchemas(site: URL, C: typeof CASE_CS, opts: { modified: st
       datePublished: CASE_PUBLISHED,
       dateModified: opts.modified,
       mainEntityOfPage: { '@id': `${url}#webpage` },
+      isPartOf: { '@id': CASE_SEASON_CS.series.id },
       image: [{ '@id': `${url}#img-faq` }],
       about: C.schema.about,
       mentions: [svc('start'), svc('fullSeo'), svc('maps')],
     },
+    { '@type': 'CreativeWorkSeries', '@id': CASE_SEASON_CS.series.id, name: CASE_SEASON_CS.series.name },
     {
       '@type': 'ImageObject',
       '@id': `${url}#img-faq`,
