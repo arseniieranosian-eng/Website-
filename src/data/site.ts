@@ -44,10 +44,10 @@ export const SITE = {
 };
 
 // "Numbers as proof" block on the home page → links to case studies.
-// Figures are the author's own (About page / LinkedIn); KB PŘEKLADY details live in data/cases.ts.
+// Figures are the author's own (About page / LinkedIn); the translation-agency case is anonymous (data/case-summary.ts).
 export const PROOF: { value: string; label: Record<Lang, string> }[] = [
   { value: '+777 %', label: { cs: 'organická návštěvnost webu tiskárny meziročně', en: 'organic traffic growth for a print shop website, YoY', ru: 'рост органического трафика сайта типографии за год' } },
   { value: '55–60 %', label: { cs: 'průměrný růst návštěvnosti na projekt', en: 'average traffic growth per project', ru: 'средний рост трафика на проект' } },
-  { value: '×8', label: { cs: 'poptávek za 4 měsíce (KB PŘEKLADY)', en: 'leads in 4 months (KB PŘEKLADY)', ru: 'заявок за 4 месяца (KB PŘEKLADY)' } },
+  { value: '×8', label: { cs: 'poptávek v červnu oproti květnu (překladatelská agentura)', en: 'enquiries in June vs May (translation agency)', ru: 'заявок в июне по сравнению с маем (переводческое агентство)' } },
   { value: '3', label: { cs: 'roky praxe v SEO', en: 'years in SEO', ru: 'года опыта в SEO' } },
 ];

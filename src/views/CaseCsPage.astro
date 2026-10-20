@@ -1,0 +1,228 @@
+---
+// The anonymised case study (cs), built from the brief of 20.10.2026. Content: data/case-cs.ts.
+// Hidden until the data exists: the "Co bude dál?" block and a reviews block (none for this project).
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { caseCsSchemas } from '../lib/schema-case-cs';
+import { CASE_CS as C } from '../data/case-cs';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/CaseCsPage.astro', 'src/data/case-cs.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+
+// stacked bar chart geometry (SVG, real text)
+const ch = C.channels;
+const W = 640, H = 300, top = 30, base = 250, left = 20, bw = 62, gap = 40;
+const max = Math.max(...ch.data.map((r) => r[0] + r[1] + r[2]));
+const k = (base - top - 20) / max;
+const COLORS = ['#3fa535', '#2563eb', '#8b5cf6'];
+const bars = ch.data.map((row, i) => {
+  const x = left + 10 + i * (bw + gap);
+  let y0 = base;
+  const segs = row.map((v, j) => { const h = v * k; y0 -= h; return { x, y: y0, h, fill: COLORS[j] }; });
+  return { x, segs, label: ch.months[i], top: y0 };
+});
+const lastTop = bars[bars.length - 1].top;
+---
+<Base {...pageProps('caseKb', lang)} ogType="article" schema={caseCsSchemas(site, C, { modified: MOD })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{C.label}</p>
+      <h1>{C.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.project}</p>
+      <p class="lead">{C.answer}</p>
+      <p class="muted small">{C.dataNote}</p>
+    </div>
+  </section>
+
+  <!-- START -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.startTitle}</h2>
+      <p class="answer">{C.startAnswer}</p>
+      <p>{C.startText}</p>
+    </div>
+  </section>
+
+  <!-- LOCAL PAGES -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.localTitle}</h2>
+      <p class="answer">{C.localAnswer}</p>
+      {C.localText.map((p) => <p>{p}</p>)}
+      <p><strong>{C.localResult}</strong></p>
+      <p>{C.localDecision}</p>
+    </div>
+  </section>
+
+  <!-- CONTENT AS A FUNNEL -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.funnelTitle}</h2>
+      <p class="answer">{C.funnelAnswer}</p>
+      <p>{C.funnelText}</p>
+    </div>
+  </section>
+
+  <!-- LOCALISATION -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.localizeTitle}</h2>
+      <p class="answer">{C.localizeAnswer}</p>
+      <ul class="checks">{C.localize.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.localizeResult}</p>
+      <figure class="case-figure">
+        <img src={C.faqImage.src} width={C.faqImage.width} height={C.faqImage.height} alt={C.faqImage.alt} loading="lazy" decoding="async" />
+        <figcaption class="muted small">{C.faqImage.caption}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SEO -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.techTitle}</h2>
+      <p class="answer">{C.techAnswer}</p>
+      {C.tech.map((b) => (
+        <>
+          <h3>{b.title}</h3>
+          <p>{b.text}</p>
+          {b.title === 'Rychlost webu' && (
+            <figure class="case-figure">
+              <div class="speed-compare" role="img" aria-label={C.speed.caption}>
+                <div class="speed-compare__card speed-compare__card--before">
+                  <p class="speed-compare__tag">{C.speed.before.tag}</p>
+                  <p class="speed-compare__value">{C.speed.before.value}</p>
+                  <p class="speed-compare__title">{C.speed.before.title}</p>
+                  <p class="speed-compare__text">{C.speed.before.text}</p>
+                </div>
+                <div class="speed-compare__card speed-compare__card--after">
+                  <p class="speed-compare__tag">{C.speed.after.tag}</p>
+                  <p class="speed-compare__value">{C.speed.after.value}</p>
+                  <p class="speed-compare__title">{C.speed.after.title}</p>
+                  <p class="speed-compare__text">{C.speed.after.text}</p>
+                  <p class="speed-compare__gain">{C.speed.gain}</p>
+                </div>
+              </div>
+              <figcaption class="muted small">{C.speed.caption}</figcaption>
+            </figure>
+          )}
+        </>
+      ))}
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.resultsTitle}</h2>
+      <p class="answer">{C.resultsAnswer}</p>
+      <ul class="checks">{C.results.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.resultsNote}</p>
+    </div>
+  </section>
+
+  <!-- AI CHANNEL -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.aiTitle}</h2>
+      <p class="answer">{C.aiAnswer}</p>
+      {C.aiText.map((p) => <p>{p}</p>)}
+      <p>{C.aiMore.before}<a href={t('geo')}>{C.aiMore.link}</a>{C.aiMore.after}</p>
+      <figure class="case-figure">
+        <svg class="channel-chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={ch.alt}>
+          <rect x="0" y="0" width={W} height={H} rx="14" fill="#16263e" />
+          <text x="24" y="24" fill="#ffffff" font-size="16" font-weight="700">{ch.title}</text>
+          {bars.map((b) => (
+            <g>
+              {b.segs.filter((s) => s.h > 0).map((s) => <rect x={b.x} y={s.y} width={bw} height={s.h} fill={s.fill} />)}
+              <text x={b.x + bw / 2} y={base + 18} fill="#9aa6b8" font-size="12" text-anchor="middle">{b.label}</text>
+            </g>
+          ))}
+          <line x1="16" y1={base} x2={W - 16} y2={base} stroke="#2b3a52" />
+          <text x={W - 24} y="24" fill="#a78bfa" font-size="12" font-weight="700" text-anchor="end">{ch.note}</text>
+          <line x1={W - 150} y1="30" x2={bars[5].x + bw / 2} y2={lastTop - 3} stroke="#8b5cf6" stroke-width="1.5" />
+          {ch.legend.map((l, i) => (
+            <g>
+              <rect x={24 + i * 190} y={H - 30} width="12" height="12" rx="3" fill={COLORS[i]} />
+              <text x={42 + i * 190} y={H - 20} fill="#e6eaf2" font-size="12">{l}</text>
+            </g>
+          ))}
+        </svg>
+        <figcaption class="muted small">{ch.caption}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SIX STEPS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.stepsTitle}</h2>
+      <ol class="case-steps">
+        {C.steps.map((s) => <li><h3>{s.title}</h3><p>{s.text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="section">
+    <div class="container narrow">
+      <blockquote class="pullquote">
+        <p>„{C.quote.text}“</p>
+        <footer><cite>{C.quote.author}</cite></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">
+        {C.faq.map((f) => {
+          const part = 'SEO + GEO/AEO';
+          const [before, after] = f.a.split(part);
+          return <div><h3>{f.q}</h3><p>{after === undefined ? f.a : <>{before}<a href={t('geo')}>{part}</a>{after}</>}</p></div>;
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES (no prices) -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.relatedTitle}</h2>
+      <div class="grid grid-4">
+        {C.related.map((k) => (
+          <a class="card card--link" href={t(k)}>
+            <h3>{META[k][lang].name}</h3>
+            <p>{serviceByKey(k).short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT CLOSE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.ctaTitle}</h2>
+      <p>{C.ctaText}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.ctaAudit}</a>
+        <a class="btn btn--secondary btn--lg" href={t('contact')}>{C.ctaContact}</a>
+      </div>
+    </div>
+  </section>
+</Base>

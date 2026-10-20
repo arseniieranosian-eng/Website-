@@ -23,6 +23,11 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/ru/uslugi/full-seo/?$ https://www.seo-eranosian.com/ru/full-seo/
   RedirectMatch 301 ^/ru/uslugi/karty/?$ https://www.seo-eranosian.com/ru/karty/
   RedirectMatch 301 ^/ru/uslugi/?$ https://www.seo-eranosian.com/ru/
+
+  # case study: the client was anonymised, the address changed
+  RedirectMatch 301 ^/pripadove-studie/kb-preklady/?$ https://www.seo-eranosian.com/pripadove-studie/seo-prekladatelska-agentura/
+  RedirectMatch 301 ^/en/case-studies/kb-preklady/?$ https://www.seo-eranosian.com/en/case-studies/seo-translation-agency/
+  RedirectMatch 301 ^/ru/kejsy/kb-preklady/?$ https://www.seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo/
 </IfModule>
 
 # No host/HTTPS redirects here on purpose: Český hosting handles www and HTTPS in the

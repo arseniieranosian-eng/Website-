@@ -5,6 +5,7 @@ import { START_PAYMENTS, START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
 import { MAPS_MIN_MONTHS } from './maps-shared';
 import { CONSULTING_CS } from './consulting-cs';
+import { CASE_LINE } from './case-summary';
 
 const [PAY1, PAY2] = START_PAYMENTS;
 const price = fmtKc(START_PRICE);
@@ -105,7 +106,7 @@ export const START_CS = {
   mapsNote: { before: 'Pokud potřebujete jen mapy: ', link: 'samostatná služba Mapy', after: '.' },
 
   caseTitle: 'Co to přineslo klientům',
-  caseText: 'KB PŘEKLADY: web překladatelské agentury téměř neměl pozice a nepřinášel poptávky. Za první 4 měsíce vzrostl počet poptávek přibližně 8×, přes léto dalších 24× a agentura se objevila v odpovědích Google AI Overview.',
+  caseText: CASE_LINE.cs,
   caseLink: 'Celý příběh',
 
   reviewsTitle: 'Co říkají klienti',

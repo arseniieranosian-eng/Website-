@@ -5,6 +5,7 @@ import { fmtKc } from './consulting-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
 import { START_PRICE } from './start-shared';
 import { CONSULTING_RU } from './consulting-ru';
+import { CASE_LINE } from './case-summary';
 
 const from = `от ${fmtKc(FULLSEO_MONTHLY)} в месяц`;
 const From = `От ${fmtKc(FULLSEO_MONTHLY)} в месяц`;
@@ -104,7 +105,7 @@ export const FULLSEO_RU = {
   consultingNote: { before: 'Если вам нужны только ответы на вопросы и план, посмотрите ', link: 'консультацию', after: '.' },
 
   caseTitle: 'Что это дало клиентам',
-  caseText: 'KB PŘEKLADY: сайт бюро переводов почти не ранжировался и не приносил заявок. За 4 месяца работы число заявок выросло в 8 раз, летом в 24 раза, а агентство появилось в ответах Google AI Overview.',
+  caseText: CASE_LINE.ru,
   caseLink: 'Вся история',
 
   reviewsTitle: 'Что говорят клиенты',

@@ -1,6 +1,8 @@
 // Czech content of /seo-a-geo/ (brief of 20.10.2026): an informational hub, NOT a service (no form, no price, no
 // Service/Offer markup). GEO/AEO is part of every service. Written as an adaptation for the Czech market.
 
+import { CASE_GEO_LINE } from './case-summary';
+
 // First publication of the page (site launch); do NOT bump it when the page is edited.
 export const GEO_PUBLISHED = '2026-10-19';
 
@@ -74,7 +76,7 @@ export const GEO_CS = {
   seeAnswer: 'Viditelnost vašeho webu v AI odpovědích ověřuji v rámci služeb Konzultace, Start na 3 měsíce a Full SEO na rok. Bezplatný audit kontroluje jen technické chyby webu, viditelnost v AI nekontroluje.',
 
   caseTitle: 'Příklad z praxe',
-  caseText: 'KB PŘEKLADY: překladatelská agentura se po práci na SEO objevila v odpovědích Google AI Overview.',
+  caseText: CASE_GEO_LINE.cs,
   caseLink: 'Celý příběh',
 
   faqTitle: 'Časté otázky o GEO a AEO',

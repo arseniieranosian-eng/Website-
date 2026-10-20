@@ -392,3 +392,27 @@ table.compare { min-width: 0; }
 .fab-audit { position: fixed; z-index: 60; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 8px 24px rgba(255, 106, 26, 0.45); border-radius: 999px; padding: 12px 18px; font-size: 0.92rem; font-weight: 700; white-space: nowrap; }
 .ask-consent .fab-audit, .nav-open .fab-audit { display: none; } /* the cookie banner / open menu come first */
 @media (min-width: 1100px) { .fab-audit { display: none; } }
+
+/* Case study page: figures, speed comparison, channel chart, six steps, pull quote */
+.case-figure { margin: 24px 0; }
+.case-figure img { width: 100%; max-width: 560px; height: auto; border: 1px solid var(--line); border-radius: var(--radius); display: block; }
+.speed-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.speed-compare__card { border-radius: var(--radius); padding: 20px 22px; border: 2px solid; }
+.speed-compare__card--before { background: #2a1820; border-color: #ef4444; color: #fecaca; }
+.speed-compare__card--after { background: #10281d; border-color: #10b981; color: #a7f3d0; }
+.speed-compare__tag { margin: 0; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.speed-compare__value { margin: 4px 0 8px; font-size: 2.6rem; font-weight: 800; line-height: 1; }
+.speed-compare__title { margin: 0; font-weight: 700; }
+.speed-compare__text { margin: 4px 0 0; opacity: .85; font-size: .9rem; }
+.speed-compare__gain { display: inline-block; margin: 12px 0 0; padding: 4px 10px; border-radius: 8px; background: #10b981; color: #052e1d; font-weight: 700; font-size: .85rem; }
+@media (max-width: 560px) { .speed-compare { grid-template-columns: 1fr; } }
+.channel-chart { display: block; width: 100%; height: auto; max-width: 640px; }
+.case-steps { list-style: none; margin: 0; padding: 0; counter-reset: cs; display: grid; gap: 20px; }
+.case-steps li { counter-increment: cs; position: relative; padding-left: 52px; }
+.case-steps li::before { content: counter(cs); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.case-steps h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.case-steps p { margin: 0; }
+.pullquote { margin: 0; padding: 8px 0 8px 24px; border-left: 4px solid var(--blue); }
+.pullquote p { margin: 0 0 12px; font-size: 1.35rem; line-height: 1.45; font-weight: 600; }
+.pullquote footer { color: var(--text-muted); }
+.pullquote cite { font-style: normal; }

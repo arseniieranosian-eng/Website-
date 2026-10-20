@@ -2,6 +2,7 @@
 // business owners in Czechia, the EU and the USA, not a translation of the Czech page.
 // Prices come from consulting-shared.ts (one source for all languages).
 import { fmtKc, PRICES, type ConsultingContent } from './consulting-shared';
+import { CASE_LINE } from './case-summary';
 
 export const CONSULTING_RU: ConsultingContent = {
   lang: 'ru',
@@ -99,7 +100,7 @@ export const CONSULTING_RU: ConsultingContent = {
   longTermGeo: { before: 'На консультации я работаю и с SEO, и с ', link: 'оптимизацией под ИИ-поиск', after: '.' },
 
   caseTitle: 'Что это дало клиентам',
-  caseText: 'KB PŘEKLADY: сайт бюро переводов почти не ранжировался и не приносил заявок. За 4 месяца работы число заявок выросло в 8 раз, летом в 24 раза, а агентство появилось в ответах Google AI Overview.',
+  caseText: CASE_LINE.ru,
   caseLink: 'Вся история',
 
   reviewsTitle: 'Что говорят клиенты',

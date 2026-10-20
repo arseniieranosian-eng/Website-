@@ -6,7 +6,7 @@ const URL_PATH = '/ru/full-seo/';
 const H1 = 'SEO продвижение сайта на год';
 const SECTIONS = [H1, 'Сколько стоит SEO продвижение на год?', 'Что входит в SEO продвижение на год', 'Как проходит работа', 'Когда будут первые результаты?', 'Для кого подходит Full SEO на год', 'Карты Google и Seznam входят в пакет', 'Full SEO на год или Старт на 3 месяца?', 'Что это дало клиентам', 'Что говорят клиенты', 'Частые вопросы о SEO продвижении на год', 'Оставить заявку', 'Другие услуги'];
 const GROUPS = ['Работа над сайтом', 'Работа вне сайта', 'ИИ и отчётность'];
-const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/kb-preklady/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/'];
+const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/seo-perevodcheskoe-agentstvo/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/'];
 const FORBIDDEN = ['ежемесячные отчёты', 'ежемесячная отчётность', '4-8 недель', 'Чем SEO отличается от GEO'];
 const MAPS_ITEM = 'Ведение профилей на Google Картах, Mapy.com (Seznam) и Firmy.cz без ограничения по количеству профилей: звонки, маршруты, переходы на сайт, отзывы';
 
