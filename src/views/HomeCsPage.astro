@@ -1,0 +1,159 @@
+---
+// The Czech home page (hub), built from the brief of 20.10.2026. Content: data/home-cs.ts. No blog links (the blog is empty),
+// reviews from the shared source without the figures that are not confirmed.
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import AuthorMedia from '../components/AuthorMedia.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { homeCsSchemas } from '../lib/schema-home-cs';
+import { HOME_CS as C } from '../data/home-cs';
+import { REVIEWS } from '../data/reviews';
+
+const lang = C.lang;
+const site = Astro.site!;
+
+// Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
+const MOD = lastModified(['src/views/HomeCsPage.astro', 'src/data/home-cs.ts', 'src/data/case-summary.ts', 'src/data/consulting-shared.ts', 'src/data/start-shared.ts', 'src/data/fullseo-shared.ts', 'src/data/reviews.ts'], '2026-10-20');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+
+// Reviews without the partner-agency review (its figures are not confirmed), newest first, at most three.
+const reviews = REVIEWS.filter((r) => !r.sample && r.id !== 'make-up-agency' && !r.services.includes('consulting'))
+  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+  .slice(0, 3);
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const name = (k: keyof typeof META) => META[k][lang].name;
+const m = META.home[lang];
+---
+<Base {...pageProps('home', lang)} schema={homeCsSchemas(site, C, { modified: MOD })}>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{C.eyebrow}</p>
+        <h1>{m.h1}</h1>
+        <p class="lead">{C.lead}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href="#form">{C.heroAudit}</a>
+          <a class="btn btn--secondary btn--lg" href={t('contact')}>{C.heroContact}</a>
+        </div>
+      </div>
+      <div class="card hero-form" id="form">
+        <LeadForm lang={lang} id="home-hero" title={C.formTitle} compact />
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE NEXT: the hub navigator (plain links) -->
+  <section class="section section--tight">
+    <div class="container">
+      <h2>{C.navTitle}</h2>
+      <p class="answer">{C.navAnswer}</p>
+      <div class="grid grid-3">
+        {C.nav.map((n) => (
+          <a class="card card--link" href={t(n.page)}>
+            <p class="eyebrow">{n.need}</p>
+            <h3>{n.title ?? name(n.page)}</h3>
+            <p>{n.text}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section--grey" id="services">
+    <div class="container">
+      <h2>{C.servicesTitle}</h2>
+      <p class="answer">{C.servicesAnswer}</p>
+      <div class="grid grid-4">
+        {C.services.map((s) => (
+          <a class="card card--link service-card" href={t(s.page)}>
+            <h3>{name(s.page)}</h3>
+            <p>{s.text}</p>
+            <span class="meta">{s.meta}</span>
+            <span class="link-arrow">{C.servicesMore}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO + GEO/AEO -->
+  <section class="section section--dark">
+    <div class="container narrow">
+      <h2>{C.geoTitle}</h2>
+      <p class="lead">{C.geoAnswer}</p>
+      <a class="btn btn--ghost-light" href={t('geo')}>{C.geoLink}</a>
+    </div>
+  </section>
+
+  <!-- RESULTS: four case studies, one formula each -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><h2>{C.resultsTitle}</h2><p class="answer">{C.resultsAnswer}</p></div></div>
+      <div class="grid grid-2">
+        {C.cases.map((c) => (
+          <a class="card card--link" href={t(c.page)}>
+            <p class="eyebrow">{c.label}</p>
+            <h3>{c.name}</h3>
+            <p>{c.formula}</p>
+            <span class="link-arrow">{C.caseMore}</span>
+          </a>
+        ))}
+      </div>
+      <p class="muted small" style="margin-top: 16px">{C.resultsNote}</p>
+      <p><a class="link-arrow" href={t('cases')}>{C.resultsMore}</a></p>
+    </div>
+  </section>
+
+  <!-- REVIEWS (shared source) -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-head"><h2>{C.reviewsTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsMore}</a></div>
+      <ReviewCards reviews={reviews} lang={lang} compact />
+    </div>
+  </section>
+
+  <!-- FAQ: answers are visible, not hidden in tabs -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">
+        {C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p>{f.link && <p><a class="link-arrow" href={t(f.link)}>{f.linkText}</a></p>}</div>)}
+      </div>
+      <p><a class="link-arrow" href={t('faq')}>{C.faqMore}</a></p>
+    </div>
+  </section>
+
+  <!-- WHO IS BEHIND IT -->
+  <section class="section section--grey">
+    <div class="container about-teaser">
+      <AuthorMedia alt={C.photoAlt} />
+      <div>
+        <h2>{C.aboutTitle}</h2>
+        <p class="lead">{C.aboutAnswer}</p>
+        <a class="link-arrow" href={t('about')}>{C.aboutMore}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.ctaTitle}</h2>
+        <p>{C.ctaText}</p>
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.ctaAudit}</a>
+        <a class="btn btn--ghost-light btn--lg" href={t('contact')}>{C.ctaContact}</a>
+      </div>
+    </div>
+  </section>
+</Base>

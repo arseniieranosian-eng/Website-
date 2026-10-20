@@ -142,7 +142,7 @@ export const SERVICES: Service[] = [
       en: ['Audit of current profiles and competitors', 'Profile and directory optimisation', 'Review and local content setup', 'Monthly map ranking tracking'],
       ru: ['Аудит текущих профилей и конкурентов', 'Оптимизация профилей и каталогов', 'Настройка отзывов и локального контента', 'Ежемесячный контроль позиций на картах'],
     },
-    duration: { cs: `Od 4 měsíců · Full balíček ${fmtKc(MAPS_FULL_MONTHLY)} měsíčně`, en: 'From 4 months', ru: `От 4 месяцев · Full-пакет ${fmtKc(MAPS_FULL_MONTHLY)} в месяц` },
+    duration: { cs: 'Od 4 měsíců', en: 'From 4 months', ru: `От 4 месяцев · Full-пакет ${fmtKc(MAPS_FULL_MONTHLY)} в месяц` },
     related: ['start', 'fullSeo'],
     reviewsFrom: 'fullSeo',
   },

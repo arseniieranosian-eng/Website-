@@ -82,6 +82,11 @@ export function baseGraph(site: URL) {
       areaServed: [{ '@type': 'Country', name: 'Czech Republic' }, { '@type': 'Continent', name: 'Europe' }],
       availableLanguage: SITE.languages,
       contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', email: SITE.email, telephone: SITE.phone, availableLanguage: SITE.languages },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Služby',
+        itemListElement: ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/'].map((p) => ({ '@id': abs(site, p) + '#service' })),
+      },
       knowsAbout: knowsAbout(),
       sameAs,
     },
