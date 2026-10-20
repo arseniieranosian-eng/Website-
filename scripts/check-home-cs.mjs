@@ -74,7 +74,7 @@ const order = (a) => mainTxt.indexOf(a);
 if (!(order('Jaké služby nabízím?') < order(Q1) && order(Q1) < order('Co je GEO/AEO a proč ho dělám spolu se SEO?'))) e('quote 1 must sit between the services and the GEO/AEO block');
 if (!(order('Jaké výsledky už mají moji klienti?') < order(Q2) && order(Q2) < order('Co říkají klienti?'))) e('quote 2 must sit between the results and the reviews');
 if ([...main.matchAll(/<blockquote class="pullquote">/g)].length !== 2) e('two pull quotes expected');
-if ([...main.matchAll(/<cite><a href="\/o-mne\/">Arsenii Eranosian, SEO a GEO\/AEO specialista<\/a><\/cite>/g)].length !== 2) e('quote author must be signed and link to /o-mne/');
+if ([...main.matchAll(/<cite><a href="\/o-mne\/">Arsenii Eranosian<\/a><span>SEO a GEO\/AEO specialista<\/span><\/cite>/g)].length !== 2) e('quote author must be signed and link to /o-mne/');
 // FAQ
 const FAQ = [['Jak probíhá bezplatný audit?', 'Pošlete adresu webu'], ['Kolik stojí SEO služby?', 'Audit je zdarma. Konzultace stojí od 2 000 Kč, SEO start 50 000 Kč za 3 měsíce a Full SEO od 15 000 Kč měsíčně.'], ['Za jak dlouho přijdou první výsledky?', 'První výsledky přicházejí obvykle za 2–3 měsíce, ale zaručit je nelze.'], ['Pracujete i mimo Prahu?', 'Ano. Pracuji převážně na dálku'], ['Čím se liší SEO a GEO/AEO?', 'SEO míří na pozice v Googlu a Seznamu'], ['Co když nevím, kterou službu potřebuji?', 'Začněte bezplatným auditem nebo konzultací']];
 for (const [q, a] of FAQ) if (!mainTxt.includes(q) || !mainTxt.includes(a)) e(`FAQ: ${q}`);

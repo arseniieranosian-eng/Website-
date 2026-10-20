@@ -33,6 +33,7 @@ const bars = ch.data.map((row, i) => {
   return { x, segs, label: ch.months[i], top: y0 };
 });
 const lastTop = bars[bars.length - 1].top;
+import QuoteAuthorCs from '../components/QuoteAuthorCs.astro';
 ---
 <Base {...pageProps('caseKb', lang)} ogType="article" schema={caseCsSchemas(site, C, { modified: MOD })}>
   <!-- HERO -->
@@ -180,7 +181,7 @@ const lastTop = bars[bars.length - 1].top;
     <div class="container narrow">
       <blockquote class="pullquote">
         <p>„{C.quote.text}“</p>
-        <footer><cite><a href={t('about')}>{C.quote.author}</a></cite></footer>
+        <QuoteAuthorCs />
       </blockquote>
     </div>
   </section>
