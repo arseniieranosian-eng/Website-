@@ -36,7 +36,7 @@ export const HOME_CS = {
   ],
   servicesMore: 'Více',
 
-  quoteAuthor: 'Arsenii Eranosian',
+  quoteAuthor: 'Arsenii Eranosian, SEO a GEO/AEO specialista',
   quotes: {
     services: 'SEO a GEO/AEO nejsou dvě služby. Je to jedna práce: web, kterému rozumí vyhledávač i AI, a obsah, který stojí za citaci.',
     results: 'Číslo bez období a zdroje nic nedokazuje. Proto u každého projektu uvádím, odkdy dokdy a z čeho čísla pocházejí.',

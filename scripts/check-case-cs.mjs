@@ -50,7 +50,7 @@ if (/Co říkají klienti/.test(mainTxt)) e('no reviews block on this page');
 // Six steps, pull quote
 const steps = [...(h.match(/<ol class="case-steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><h3>([\s\S]*?)<\/h3>/g)].length;
 if (steps !== 6) e(`six steps expected, found ${steps}`);
-const bq = h.match(/<blockquote class="pullquote">[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<cite>([^<]*)<\/cite>/);
+const bq = h.match(/<blockquote class="pullquote">[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<cite>(?:<a [^>]*>)?([^<]*)(?:<\/a>)?<\/cite>/);
 // Images: the one screenshot has alt + figcaption + dimensions; charts are real HTML/SVG text
 const img = main.match(/<img[^>]*faq-lokalizace-cs-uk\.webp[^>]*>/);
 if (!img || !/alt="Porovnání časté dotazy[^"]+"/.test(img[0]) || !/width="720"/.test(img[0]) || !/height="730"/.test(img[0]) || !/loading="lazy"/.test(img[0])) e('FAQ screenshot: alt, width, height, lazy');
