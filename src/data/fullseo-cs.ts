@@ -112,6 +112,12 @@ export const FULLSEO_CS = {
   reviewsTitle: START_CS.reviewsTitle,
   reviewsLink: START_CS.reviewsLink,
 
+  // "Související články": posts that help to decide on a year of work and to understand what is checked regularly.
+  articlesTitle: 'Související články',
+  articlesLead: 'Praktické články o tom, jak vybrat první krok v SEO, jak SEO souvisí s reklamou a jak kontrolovat indexaci.',
+  articlesMore: 'Číst článek',
+  articles: ['postChoose', 'postAds', 'postSeoAudit', 'postIndexing'] as const,
+
   faqTitle: 'Časté otázky o Full SEO na rok',
   faq: [
     { q: 'Kolik stojí Full SEO na rok?', a: `Od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, přesná cena závisí na rozsahu práce a oboru.` },

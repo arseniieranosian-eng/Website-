@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/full-seo/';
 const H1 = 'Full SEO na rok';
-const SECTIONS = [H1, 'Kolik stojí Full SEO na rok?', 'Pro koho je Full SEO na rok vhodné?', 'Co je v ceně Full SEO na rok', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá Full SEO na rok', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Full SEO na rok, nebo Start na 3 měsíce?', 'Co to přineslo klientům', 'Co říkají klienti', 'Časté otázky o Full SEO na rok', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí Full SEO na rok?', 'Pro koho je Full SEO na rok vhodné?', 'Co je v ceně Full SEO na rok', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá Full SEO na rok', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Full SEO na rok, nebo Start na 3 měsíce?', 'Co to přineslo klientům', 'Co říkají klienti', 'Související články', 'Časté otázky o Full SEO na rok', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 // Positioning: a specialist ("já"), not an agency ("my"). The client's own agency in the case text is fine.
 const FORBIDDEN = ['SEO agentura', 'naše agentura', 'agentura Praha', 'Marketingové týmy', 'in-house', 'měsíční report', '4–8 týdnů', 'ESP', 'PMŘ'];
@@ -89,6 +89,9 @@ for (const [hd, ans] of [['Kolik stojí Full SEO na rok?', 'Full SEO na rok stoj
 }
 if (!body.includes('od 4 měsíců, s platbou za výsledek')) e('maps block must mention the standalone service terms');
 
+// Related articles: four cards with covers (choosing the first step, advertising, SEO audit, indexation check)
+const ra = (h.match(/Související články<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 4 || !ra.includes('/blog/audit-konzultace-nebo-start/')) e('related articles: four cards with covers');
 if (errors.length) {
   console.error(`\nCzech Full SEO page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);
