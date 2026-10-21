@@ -1,0 +1,138 @@
+---
+// Blog article "Po redesignu webu klesla návštěvnost" (cs), keyword brief of 21.10.2026. Content: data/post-redesign-cs.ts.
+// One main CTA (free audit). Redirects get one sentence here (the detailed article is planned), "pokles pozic" in general is not covered.
+import Base from '../layouts/Base.astro';
+import IndexIllustration from '../components/IndexIllustration.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postRedesignSchemas } from '../lib/schema-post-redesign';
+import { POST_REDESIGN_CS as C } from '../data/post-redesign-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/views/PostRedesignCsPage.astro', 'src/data/post-redesign-cs.ts', 'src/components/IndexIllustration.astro'], '2026-10-21');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-po-redesignu-klesla-navstevnost.png';
+const cite = new URL(t('postRedesign'), site).href;
+const fig = (k: string) => C.figures.find((f) => f.kind === k)!;
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postRedesign', lang)} ogType="article" ogImage={OG} schema={postRedesignSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postRedesign.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+      <p>{C.forWhom}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.tableTitle}</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.table.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.realTitle}</h2>
+      <p class="answer">{C.realAnswer}</p>
+      <p>{C.realText}</p>
+      <figure class="post-figure"><IndexIllustration kind="drop" aria={fig('drop').aria} /><figcaption>{fig('drop').caption}</figcaption></figure>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.urlTitle}</h2>
+      <p class="answer">{C.urlAnswer}</p>
+      <p>{C.urlText}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.e404Title}</h2>
+      <p class="answer">{C.e404Answer}</p>
+      <p>{C.e404Text}</p>
+      <figure class="post-figure"><IndexIllustration kind="e404" aria={fig('e404').aria} /><figcaption>{fig('e404').caption}</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.indexTitle}</h2>
+      <p class="answer">{C.indexAnswer}</p>
+      <p>{C.indexLead} <a href={t('postNotShown')}>{C.indexLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.dupTitle}</h2>
+      <p class="answer">{C.dupAnswer}</p>
+      <p>{C.dupLead} <a href={t('postDuplicates')}>{C.dupLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.gscTitle}</h2>
+      <p class="answer">{C.gscAnswer}</p>
+      <ol class="steps">{C.gscSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+      <p>{C.gscLead} <a href={t('postIndexing')}>{C.gscLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.notTitle}</h2>
+      <p class="answer">{C.notAnswer}</p>
+      <p>{C.notText} <a href={t('consulting')}>{C.notLinkText}</a>.</p>
+      <p>{C.bridge}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.beforeTitle}</h2>
+      <p class="answer">{C.beforeAnswer}</p>
+      <ol class="steps">{C.before.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.endTitle}</h2>
+      <p>{C.endText}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <p>{C.nextLead} <a class="link-arrow" href={t('postSeoAudit')}>{C.nextLinkText}</a></p>
+      <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
+    </div>
+  </section>
+</Base>

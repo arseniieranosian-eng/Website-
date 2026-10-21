@@ -77,6 +77,9 @@ const raw = {
   fixText: 'Po opravě Google web projde znovu. V reportu Stránky pak zkontrolujte, zda se statusy změnily.',
   quote: 'Duplicity většinou nevznikají záměrně: jde o stejný obsah na dvou adresách. Důležité je Googlu jasně říct, kterou verzi má vybrat.',
 
+  redesignLead: 'Duplicity často vzniknou při změně webu, o tom je článek',
+  redesignLinkText: 'Po redesignu klesla návštěvnost',
+
   fearTitle: 'Kdy se duplicit nemusíte bát?',
   fearAnswer: 'Drobné přirozené duplicity, například právní text nebo varianty produktu, obvykle nevadí, pokud je hlavní adresa jasně označená.',
   fearText: 'Cílem není mít na webu nulu podobných textů, ale aby Google věděl, kterou verzi má vybrat. Nemusíte kvůli tomu přepisovat vše, co se trochu opakuje.',

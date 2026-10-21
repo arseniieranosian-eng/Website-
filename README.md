@@ -120,3 +120,7 @@ Since 21.10.2026 the canonical host is `https://seo-eranosian.com` (no `www`): `
 ## Blog article «Duplicitní obsah» (cs)
 
 `/blog/duplicitni-obsah/`: `src/data/post-duplicates-cs.ts`, `src/lib/schema-post-duplicates.ts`, `src/views/PostDuplicatesCsPage.astro`, check `scripts/check-post-duplicates-cs.mjs`. Illustrations (`IndexIllustration.astro` kinds `addresses`, `dupreport`) are drawn, not screenshots; check the Czech names of the duplicate statuses in Search Console on a live account. The articles «Proč se web nezobrazuje v Googlu», «Jak zjistit, jestli je web indexovaný» and «Co je SEO audit» link to it. Links to the redesign article (2) and article 3 are to be added when published.
+
+## Blog article «Po redesignu webu klesla návštěvnost» (cs)
+
+`/blog/po-redesignu-klesla-navstevnost/`: `src/data/post-redesign-cs.ts`, `src/lib/schema-post-redesign.ts`, `src/views/PostRedesignCsPage.astro`, check `scripts/check-post-redesign-cs.mjs`. Written from the keyword brief (no full outline was provided), so section texts, FAQ answers and the author quote are drafts for approval. Title is 57 characters (shorter than the brief's). Redirects (article 8) are mentioned in one sentence without a link; «pokles pozic» is not covered (honest border + consultation). Linked from the «Proč se web nezobrazuje v Googlu» and «Duplicitní obsah» articles. Check the Czech names (Výkon, Stránky, Mapy webu, Kontrola adresy URL) on a live Search Console account.

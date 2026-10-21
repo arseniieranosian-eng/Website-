@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postRedesign: {
+    cs: {
+      name: 'Po redesignu klesla návštěvnost',
+      title: 'Po redesignu klesla návštěvnost: kde je chyba | Eranosian',
+      description: 'Po redesignu webu klesla návštěvnost? Zkontrolujte adresy bez přesměrování, noindex i měření. Kde hledat chybu a jak pomůže bezplatný audit technických chyb.',
+      h1: 'Po redesignu webu klesla návštěvnost: kde hledat příčinu a co dělat',
+    },
+    en: { name: 'Traffic drop after a redesign', title: 'Traffic drop after a redesign', description: 'Traffic drop after a redesign', h1: 'Traffic drop after a redesign' },
+    ru: { name: 'Падение трафика после редизайна', title: 'Падение трафика после редизайна', description: 'Падение трафика после редизайна', h1: 'Падение трафика после редизайна' },
+  },
   postDuplicates: {
     cs: {
       name: 'Duplicitní obsah',
