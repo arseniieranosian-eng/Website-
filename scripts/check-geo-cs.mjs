@@ -1,7 +1,7 @@
 // Post-build check of /seo-a-geo/ (cs) against its brief of 20.10.2026: an informational hub, not a service.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-a-geo/';
 const H1 = 'SEO + GEO/AEO: dvě v jednom';
 const SECTIONS = [H1, 'Co je GEO a co je AEO?', 'Jaký je rozdíl mezi SEO a GEO/AEO?', 'Proč dělám SEO a GEO/AEO dohromady?', 'Co o tom říká Google?', 'Co konkrétně dělám pro GEO/AEO', 'Garantujete zmínku v odpovědích AI?', 'Platím za GEO/AEO zvlášť?', 'Jak vás vidí AI a kde to ověřím?', 'Příklady z praxe', 'Časté otázky o GEO a AEO', 'Chcete začít u základu?'];

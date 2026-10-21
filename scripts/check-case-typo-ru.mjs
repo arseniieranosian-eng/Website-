@@ -1,7 +1,7 @@
 // Post-build check of the anonymised print-shop case (ru only) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/kejsy/seo-tipografiya/';
 const H1 = 'SEO для типографии: рост органического трафика в 8,75 раза за 12 месяцев';
 const SECTIONS = [H1, 'Какой была исходная ситуация сайта?', 'Что я сделал в первые 30 дней?', 'Как я строил архитектуру ключей под коммерческий интент?', 'Зачем 20+ посадочных страниц и как они устроены?', 'Как я отслеживал просадки трафика?', 'Какие результаты за 12 месяцев?', 'В каком порядке делать SEO?', 'Частые вопросы по кейсу', 'Связанные услуги', 'Хотите такой же порядок работы для своего сайта?'];

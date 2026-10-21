@@ -1,7 +1,7 @@
 // Post-build check of /audit-zdarma/ (cs) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/audit-zdarma/';
 const H1 = 'Bezplatný SEO audit technických chyb vašeho webu';
 const SECTIONS = [H1, 'Co v bezplatném auditu zkontroluji?', 'Co v auditu nenajdete?', 'Jak audit probíhá?', 'Jak vypadá výstup auditu?', 'Čím se bezplatný audit liší od placené konzultace?', 'Co po auditu?', 'Co říkají výsledky a klienti?', 'Časté otázky k bezplatnému auditu', 'Požádejte o bezplatný audit'];

@@ -4,32 +4,32 @@ DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
 # 301 redirects from the old service URLs (the /sluzby/, /en/services/ and /ru/uslugi/ section was removed).
-# Absolute https://www targets on purpose: no host-dependent rules (see the note below about the hosting redirects).
+# Absolute https://seo-eranosian.com (no www) targets on purpose: no host-dependent rules (see the note below about the hosting redirects).
 <IfModule mod_alias.c>
-  RedirectMatch 301 ^/sluzby/konzultace/?$ https://www.seo-eranosian.com/konzultace/
-  RedirectMatch 301 ^/sluzby/start-3-mesice/?$ https://www.seo-eranosian.com/start-3-mesice/
-  RedirectMatch 301 ^/sluzby/full-seo/?$ https://www.seo-eranosian.com/full-seo/
-  RedirectMatch 301 ^/sluzby/mapy/?$ https://www.seo-eranosian.com/mapy/
-  RedirectMatch 301 ^/sluzby/?$ https://www.seo-eranosian.com/
+  RedirectMatch 301 ^/sluzby/konzultace/?$ https://seo-eranosian.com/konzultace/
+  RedirectMatch 301 ^/sluzby/start-3-mesice/?$ https://seo-eranosian.com/start-3-mesice/
+  RedirectMatch 301 ^/sluzby/full-seo/?$ https://seo-eranosian.com/full-seo/
+  RedirectMatch 301 ^/sluzby/mapy/?$ https://seo-eranosian.com/mapy/
+  RedirectMatch 301 ^/sluzby/?$ https://seo-eranosian.com/
 
-  RedirectMatch 301 ^/en/services/consulting/?$ https://www.seo-eranosian.com/en/consulting/
-  RedirectMatch 301 ^/en/services/3-month-start/?$ https://www.seo-eranosian.com/en/3-month-start/
-  RedirectMatch 301 ^/en/services/full-seo/?$ https://www.seo-eranosian.com/en/full-seo/
-  RedirectMatch 301 ^/en/services/maps/?$ https://www.seo-eranosian.com/en/maps/
-  RedirectMatch 301 ^/en/services/?$ https://www.seo-eranosian.com/en/
+  RedirectMatch 301 ^/en/services/consulting/?$ https://seo-eranosian.com/en/consulting/
+  RedirectMatch 301 ^/en/services/3-month-start/?$ https://seo-eranosian.com/en/3-month-start/
+  RedirectMatch 301 ^/en/services/full-seo/?$ https://seo-eranosian.com/en/full-seo/
+  RedirectMatch 301 ^/en/services/maps/?$ https://seo-eranosian.com/en/maps/
+  RedirectMatch 301 ^/en/services/?$ https://seo-eranosian.com/en/
 
-  RedirectMatch 301 ^/ru/uslugi/konsultacii/?$ https://www.seo-eranosian.com/ru/konsultacii/
-  RedirectMatch 301 ^/ru/uslugi/start-3-mesyaca/?$ https://www.seo-eranosian.com/ru/start-3-mesyaca/
-  RedirectMatch 301 ^/ru/uslugi/full-seo/?$ https://www.seo-eranosian.com/ru/full-seo/
-  RedirectMatch 301 ^/ru/uslugi/karty/?$ https://www.seo-eranosian.com/ru/karty/
-  RedirectMatch 301 ^/ru/uslugi/?$ https://www.seo-eranosian.com/ru/
+  RedirectMatch 301 ^/ru/uslugi/konsultacii/?$ https://seo-eranosian.com/ru/konsultacii/
+  RedirectMatch 301 ^/ru/uslugi/start-3-mesyaca/?$ https://seo-eranosian.com/ru/start-3-mesyaca/
+  RedirectMatch 301 ^/ru/uslugi/full-seo/?$ https://seo-eranosian.com/ru/full-seo/
+  RedirectMatch 301 ^/ru/uslugi/karty/?$ https://seo-eranosian.com/ru/karty/
+  RedirectMatch 301 ^/ru/uslugi/?$ https://seo-eranosian.com/ru/
 
   # case study: the client was anonymised, the address changed
-  RedirectMatch 301 ^/pripadove-studie/kb-preklady/?$ https://www.seo-eranosian.com/pripadove-studie/seo-prekladatelska-agentura-4-mesice/
-  RedirectMatch 301 ^/en/case-studies/kb-preklady/?$ https://www.seo-eranosian.com/en/case-studies/seo-translation-agency-4-months/
-  RedirectMatch 301 ^/ru/kejsy/kb-preklady/?$ https://www.seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/
-  RedirectMatch 301 ^/en/case-studies/seo-translation-agency/?$ https://www.seo-eranosian.com/en/case-studies/seo-translation-agency-4-months/
-  RedirectMatch 301 ^/ru/kejsy/seo-perevodcheskoe-agentstvo/?$ https://www.seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/
+  RedirectMatch 301 ^/pripadove-studie/kb-preklady/?$ https://seo-eranosian.com/pripadove-studie/seo-prekladatelska-agentura-4-mesice/
+  RedirectMatch 301 ^/en/case-studies/kb-preklady/?$ https://seo-eranosian.com/en/case-studies/seo-translation-agency-4-months/
+  RedirectMatch 301 ^/ru/kejsy/kb-preklady/?$ https://seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/
+  RedirectMatch 301 ^/en/case-studies/seo-translation-agency/?$ https://seo-eranosian.com/en/case-studies/seo-translation-agency-4-months/
+  RedirectMatch 301 ^/ru/kejsy/seo-perevodcheskoe-agentstvo/?$ https://seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/
 </IfModule>
 
 # No host/HTTPS redirects here on purpose: Český hosting handles www and HTTPS in the

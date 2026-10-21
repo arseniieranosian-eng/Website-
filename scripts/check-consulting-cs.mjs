@@ -1,7 +1,7 @@
 // Post-build check of /konzultace/ (cs) against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/konzultace/';
 const H1 = 'SEO konzultace';
 const SECTIONS = [H1, 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace vhodná?', 'Co je součástí SEO konzultace', 'Jak probíhá SEO konzultace', 'V jakých jazycích konzultace probíhá?', 'Konzultace, audit zdarma, nebo Start a Full SEO?', 'Co může SEO plán přinést', 'Co říkají klienti', 'Časté otázky o SEO konzultaci', 'Nezávazná poptávka', 'Další služby'];
@@ -23,7 +23,7 @@ if (desc.length < 120 || desc.length > 160) e(`description length ${desc.length}
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical must be the www URL');
 if (!h.includes(`<meta property="og:url" content="${BASE}${URL_PATH}">`)) e('og:url must be the www URL');
-if (/(?:href|content)="https:\/\/seo-eranosian\.com/.test(h)) e('non-www absolute URL found');
+if (/(?:href|content)="https:\/\/www\.seo-eranosian\.com/.test(h)) e('www absolute URL found: the canonical host is seo-eranosian.com');
 for (const [l, p] of [['cs', URL_PATH], ['en', '/en/consulting/'], ['ru', '/ru/konsultacii/'], ['x-default', URL_PATH]]) {
   if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 }

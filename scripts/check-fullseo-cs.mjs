@@ -1,7 +1,7 @@
 // Post-build check of /full-seo/ (cs) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/full-seo/';
 const H1 = 'Full SEO na rok';
 const SECTIONS = [H1, 'Kolik stojí Full SEO na rok?', 'Pro koho je Full SEO na rok vhodné?', 'Co je v ceně Full SEO na rok', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá Full SEO na rok', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Full SEO na rok, nebo Start na 3 měsíce?', 'Co to přineslo klientům', 'Co říkají klienti', 'Časté otázky o Full SEO na rok', 'Nezávazná poptávka', 'Další služby'];

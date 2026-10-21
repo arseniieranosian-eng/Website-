@@ -6,7 +6,7 @@ import { SEASON_FORMULA } from './case-summary';
 
 // First publication of the page; do NOT bump it when the page is edited.
 export const CASE_SEASON_PUBLISHED = '2026-10-20';
-export const CASE_SEASON_SERIES_ID = 'https://www.seo-eranosian.com/ru/kejsy/#seo-case-series';
+export const CASE_SEASON_SERIES_ID = 'https://seo-eranosian.com/ru/kejsy/#seo-case-series';
 export const CASE_SEASON_SERIES_NAME = 'SEO-кейс переводческого агентства';
 
 export const CASE_SEASON = {

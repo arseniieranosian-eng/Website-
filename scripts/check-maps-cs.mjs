@@ -1,7 +1,7 @@
 // Post-build check of /mapy/ (cs) against its keyword brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/mapy/';
 const H1 = 'Lokální SEO: propagace na Google Maps a Mapy.com';
 const SECTIONS = [H1, 'Kolik stojí propagace na Google Maps a Mapy.com?', 'Pro koho je propagace v mapách vhodná?', 'Co je součástí propagace v mapách', 'Jaké metriky z map sleduji?', 'Lokální stránky pro pobočky a provozovny', 'Jak probíhá propagace v mapách', 'Kdy přijdou první výsledky v mapách?', 'Mapy jsou součástí balíčků Start a Full SEO', 'Co říkají klienti', 'Časté otázky o propagaci v mapách', 'Nezávazná poptávka', 'Další služby'];

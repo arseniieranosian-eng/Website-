@@ -120,7 +120,7 @@ const raw = {
     { key: 'caseHalf' as const, text: 'Navazující případová studie: půl roku práce na stejném webu' },
   ],
 
-  series: { id: 'https://www.seo-eranosian.com/pripadove-studie/#seo-case-series', name: 'SEO případová studie překladatelské agentury' },
+  series: { id: 'https://seo-eranosian.com/pripadove-studie/#seo-case-series', name: 'SEO případová studie překladatelské agentury' },
   schema: {
     about: ['SEO v nízké sezóně', 'SEO pro překladatelskou agenturu', 'jak získat poptávky přes SEO', 'lokální SEO pro pobočky', 'ověření sezónnosti přes Google Trends'],
   },

@@ -1,7 +1,7 @@
 // Post-build check of /ru/karty/ against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/karty/';
 const H1 = 'Локальное SEO: Google Maps и Mapy.com';
 const SECTIONS = [H1, 'Сколько стоит продвижение в Google Maps и Mapy.com?', 'Кому подходит продвижение в картах', 'Что входит в продвижение в картах', 'Какие метрики карт отслеживаются?', 'Локальные страницы для точек и филиалов', 'Как проходит работа', 'Когда ждать первых результатов?', 'Карты входят в пакеты «Старт» и «Full SEO»', 'Что говорят клиенты', 'Частые вопросы о продвижении в картах', 'Оставить заявку', 'Другие услуги'];

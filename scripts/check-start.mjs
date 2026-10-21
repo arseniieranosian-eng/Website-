@@ -1,7 +1,7 @@
 // Post-build check of /ru/start-3-mesyaca/ against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/start-3-mesyaca/';
 const H1 = 'SEO продвижение сайта на 3 месяца';
 const SECTIONS = [H1, 'Сколько стоит SEO продвижение сайта на 3 месяца?', 'Что входит в SEO продвижение на 3 месяца', 'Как проходит работа', 'Когда будут первые результаты?', 'Для кого подходит продвижение на 3 месяца', 'Карты Google и Seznam входят в пакет', 'Старт на 3 месяца или Full SEO на год?', 'Что это дало клиентам', 'Что говорят клиенты', 'Частые вопросы о SEO продвижении на 3 месяца', 'Оставить заявку', 'Другие услуги'];

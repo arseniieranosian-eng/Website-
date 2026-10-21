@@ -1,7 +1,7 @@
 // Post-build check of the Czech print-shop case against its brief of 20.10.2026 (pair of the Russian page).
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/seo-tiskarna/';
 const RU_PATH = '/ru/kejsy/seo-tipografiya/';
 const H1 = 'SEO pro tiskárnu: organická návštěvnost vzrostla 8,75× za 12 měsíců';

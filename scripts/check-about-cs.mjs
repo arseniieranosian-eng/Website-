@@ -1,7 +1,7 @@
 // Post-build check of /o-mne/ (cs) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/o-mne/';
 const H1 = 'Arsenii Eranosian: SEO a GEO/AEO specialista v Praze';
 const SECTIONS = [H1, 'Jak přistupuji k SEO?', 'Jaké mám zkušenosti?', 'Co jsem řešil v konzultacích?', 'S jakými trhy a jazyky pracuji?', 'Jaké nástroje používám?', 'Kde si mě ověříte?', 'Co říkají klienti?', 'Časté otázky o mně', 'Jste v SEO na začátku, nebo chcete druhý pohled?'];

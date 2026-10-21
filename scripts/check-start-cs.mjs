@@ -1,7 +1,7 @@
 // Post-build check of /start-3-mesice/ (cs) against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/start-3-mesice/';
 const H1 = 'SEO start na 3 měsíce';
 const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá SEO start', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům', 'Co říkají klienti', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];

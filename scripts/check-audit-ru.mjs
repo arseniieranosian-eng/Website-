@@ -1,7 +1,7 @@
 // Post-build check of /ru/besplatnyj-audit/ against its brief of 19.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/besplatnyj-audit/';
 const H1 = 'Бесплатный SEO-аудит вашего сайта';
 const SECTIONS = [H1, 'Что проверяет бесплатный SEO-аудит?', 'Чего в бесплатном аудите нет', 'Как проходит SEO-аудит', 'Что вы получите после аудита?', 'Чем бесплатный аудит отличается от консультации и Старта?', 'Что говорят клиенты', 'Вопросы о бесплатном SEO-аудите', 'Заказать бесплатный аудит', 'Другие услуги'];

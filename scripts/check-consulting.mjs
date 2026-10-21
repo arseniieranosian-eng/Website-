@@ -4,7 +4,7 @@
 //  - prices in JSON-LD are CZK only, no AggregateRating / stars, correct canonical and hreflang
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const PAGES = {
   ru: {
     file: 'dist/ru/konsultacii/index.html',

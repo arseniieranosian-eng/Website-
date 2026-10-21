@@ -1,7 +1,7 @@
 // Post-build check of the anonymised education-platform case (cs) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/seo-vzdelavaci-platforma/';
 const RU_PATH = '/ru/kejsy/seo-obrazovatelnaya-platforma/';
 const H1 = 'SEO pro novou vzdělávací platformu: +55 % organické návštěvnosti za 7 měsíců';

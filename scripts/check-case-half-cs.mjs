@@ -2,7 +2,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/seo-prekladatelska-agentura/';
 const H1 = 'Případová studie SEO pro překladatelskou agenturu: půl roku od nuly k růstu poptávek';
 const SECTIONS = [H1, 'Jaké byly cíle zakázky?', 'Jak web vypadal na začátku?', 'Co jsem postavil?', 'Jaké byly výsledky za půl roku?', 'Jací klienti na web začali chodit?', 'Jak se chovala jednotlivá města?', 'Objevil se web v AI vyhledávání?', 'Co bych zopakoval na jakémkoli podobném projektu?', 'Časté otázky k případové studii', 'Související služby', 'Máte web, který „funguje“, ale nepřivádí klienty?'];
@@ -118,7 +118,7 @@ for (const p of ['dist/start-3-mesice/index.html', 'dist/full-seo/index.html']) 
 // .htaccess: the new address is a real page (no redirect away from it); the 4-month address is a real page too
 const ht = readFileSync('public/.htaccess', 'utf8');
 if (/\^\/pripadove-studie\/seo-prekladatelska-agentura\/\?\$/.test(ht) || /\^\/pripadove-studie\/seo-prekladatelska-agentura-4-mesice\/\?\$ /.test(ht)) e('.htaccess: no redirect away from either translation-agency case address');
-if (!/\^\/pripadove-studie\/kb-preklady\/\?\$ https:\/\/www\.seo-eranosian\.com\/pripadove-studie\/seo-prekladatelska-agentura-4-mesice\/\n/.test(ht)) e('.htaccess: kb-preklady → the 4-month case');
+if (!/\^\/pripadove-studie\/kb-preklady\/\?\$ https:\/\/seo-eranosian\.com\/pripadove-studie\/seo-prekladatelska-agentura-4-mesice\/\n/.test(ht)) e('.htaccess: kb-preklady → the 4-month case');
 
 if (errors.length) {
   console.error(`\nCzech half-year case check failed (${errors.length}):\n- ` + errors.join('\n- '));

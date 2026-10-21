@@ -1,7 +1,7 @@
 // Post-build check of Part 2 of the translation-agency case (cs) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/seo-v-nizke-sezone/';
 const RU_PATH = '/ru/kejsy/seo-v-nizkij-sezon/';
 const P1 = '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/';

@@ -1,7 +1,7 @@
 // Post-build check of the author's quotes on the Czech service pages (brief of 20.10.2026): position, markup, Quotation node.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const PAGES = [
   { path: '/konzultace/', dir: 'konzultace', prev: 'Konzultace, audit zdarma, nebo Start a Full SEO?', next: 'Co může SEO plán přinést', text: 'Konzultace dá odpovědi a plán. Práci za vás neprovádím, a když potřebujete realizaci, řeknu to rovnou.' },
   { path: '/start-3-mesice/', dir: 'start-3-mesice', prev: 'Jak probíhá SEO start', next: 'Kdy přijdou první výsledky SEO?', text: 'Start není o rychlých trucích. Je to tři měsíce práce na základu webu: technika, struktura a hlavní stránky, aby měl další růst na čem stát.' },

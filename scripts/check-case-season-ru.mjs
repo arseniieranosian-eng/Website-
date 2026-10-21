@@ -1,7 +1,7 @@
 // Post-build check of Part 2 of the translation-agency case (ru only) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/kejsy/seo-v-nizkij-sezon/';
 const P1 = '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/';
 const H1 = 'SEO в низкий сезон для переводческого агентства: заявки с сайта выросли в 24 раза';

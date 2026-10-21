@@ -1,7 +1,7 @@
 // Post-build check of the anonymised education-platform case (ru only) against its brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
-const BASE = 'https://www.seo-eranosian.com';
+const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/kejsy/seo-obrazovatelnaya-platforma/';
 const H1 = 'SEO для новой образовательной платформы: +55% органического трафика за 7 месяцев';
 const SECTIONS = [H1, 'Какой была исходная ситуация?', 'Почему на старте выбрали низкочастотные запросы?', 'Что мы делали?', 'Какие результаты за 7 месяцев?', 'Чему учит этот кейс?', 'Частые вопросы по кейсу', 'Связанные услуги', 'Запускаете новый сайт и хотите понять, с чего начать?'];
