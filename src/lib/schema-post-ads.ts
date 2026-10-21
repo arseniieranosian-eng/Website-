@@ -6,7 +6,7 @@ import { ids, quotationSchema } from './schema';
 
 // Page-specific JSON-LD of the blog article "SEO a reklama": WebPage + BlogPosting (relatedLink → Start) + two Quotations (the author's and
 // the PPC specialist's, whose Person node carries his Instagram) + FAQPage; BreadcrumbList and the global graph come from the layout.
-// No HowTo, no Service / Offer, no ratings, no prices.
+// HowTo (steps = the visible numbered steps, word for word), no Service / Offer, no ratings, no prices.
 export function postAdsSchemas(site: URL, C: typeof POST_ADS_CS, opts: { modified: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
@@ -38,6 +38,12 @@ export function postAdsSchemas(site: URL, C: typeof POST_ADS_CS, opts: { modifie
       image: abs(C.cover.src),
       about: C.schema.about,
       relatedLink: abs(path('start', lang)),
+    },
+    {
+      '@type': 'HowTo',
+      '@id': `${url}#howto`,
+      name: C.orderHowToName,
+      step: C.orderSteps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: C.orderStepNames[i], text: s })),
     },
     quotationSchema(url, id.person, C.quote1, lang),
     { '@type': 'Quotation', '@id': `${url}#quote-2`, text: C.quote2, creator: { '@id': `${url}#ppc` }, inLanguage: lang, isPartOf: { '@id': `${url}#webpage` } },

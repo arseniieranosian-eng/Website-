@@ -62,6 +62,9 @@ const raw = {
     'Porovnejte adresy se stejným obsahem a rozhodněte, která má být hlavní.',
   ],
 
+  spotHowToName: 'Jak poznat duplicitní obsah',
+  spotStepNames: ['Vyhledejte část textu přes site:', 'Zkontrolujte verze adresy', 'Projděte report Stránky', 'Rozhodněte o hlavní adrese'],
+
   fixTitle: 'Jak duplicity vyřešit?',
   fixAnswer: 'Řešení závisí na situaci: stejnou stránku na více adresách sjednotíte přesměrováním 301, podobné stránky označíte canonical a nepotřebné stránky vyřadíte přes noindex.',
   fix: {

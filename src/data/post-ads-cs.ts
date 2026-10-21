@@ -70,6 +70,8 @@ const raw = {
     'Pošlete reklamu na stránky, které nejlépe odpovídají dotazům.',
     'Podle dat přesouvejte rozpočet.',
   ],
+  orderHowToName: 'V jakém pořadí SEO a reklamu kombinovat',
+  orderStepNames: ['Připravte základ webu', 'Nastavte měření poptávek', 'Pošlete reklamu na nejlepší stránky', 'Přesouvejte rozpočet podle dat'],
   bridgeA: 'Pokud chcete, aby váš web unesl reklamu i organické vyhledávání, začněte základem:',
   bridgeStartLink: 'SEO start na 3 měsíce',
   bridgeB: 'Potřebujete plán, jak rozdělit rozpočet mezi reklamu a SEO? Domluvte',

@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import { ids, quotationSchema } from './schema';
 
 // Page-specific JSON-LD of the blog article "Duplicitní obsah": WebPage + BlogPosting + Quotation + FAQPage
-// (BreadcrumbList and the global graph come from the layout). No HowTo (not a step-by-step text), no Service / Offer, no ratings.
+// (BreadcrumbList and the global graph come from the layout). HowTo from the visible numbered steps, no Service / Offer, no ratings.
 export function postDuplicatesSchemas(site: URL, C: typeof POST_DUPLICATES_CS, opts: { modified: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
@@ -36,6 +36,12 @@ export function postDuplicatesSchemas(site: URL, C: typeof POST_DUPLICATES_CS, o
       image: abs(C.cover.src),
       about: C.schema.about,
       relatedLink: abs(path('audit', lang)),
+    },
+    {
+      '@type': 'HowTo',
+      '@id': `${url}#howto`,
+      name: C.spotHowToName,
+      step: C.spotSteps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: C.spotStepNames[i], text: s })),
     },
     quotationSchema(url, id.person, C.quote, lang),
     {

@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import { ids, quotationSchema } from './schema';
 
 // Page-specific JSON-LD of the blog article "Po redesignu klesla návštěvnost": WebPage + BlogPosting + Quotation + FAQPage
-// (BreadcrumbList and the global graph come from the layout). No HowTo (not a step-by-step text), no Service / Offer, no ratings.
+// (BreadcrumbList and the global graph come from the layout). HowTo from the visible numbered steps, no Service / Offer, no ratings.
 export function postRedesignSchemas(site: URL, C: typeof POST_REDESIGN_CS, opts: { modified: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
@@ -36,6 +36,18 @@ export function postRedesignSchemas(site: URL, C: typeof POST_REDESIGN_CS, opts:
       image: abs(C.cover.src),
       about: C.schema.about,
       relatedLink: abs(path('audit', lang)),
+    },
+    {
+      '@type': 'HowTo',
+      '@id': `${url}#howto`,
+      name: C.gscHowToName,
+      step: C.gscSteps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: C.gscStepNames[i], text: s })),
+    },
+    {
+      '@type': 'HowTo',
+      '@id': `${url}#howto-before`,
+      name: C.beforeHowToName,
+      step: C.before.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: C.beforeStepNames[i], text: s })),
     },
     quotationSchema(url, id.person, C.quote, lang),
     {

@@ -69,6 +69,11 @@ const raw = {
   gscLead: 'Obecný postup, jak zjistit, co je v indexu, vysvětluji v článku',
   gscLinkText: 'Jak zjistit, jestli je web indexovaný v Googlu',
 
+  gscHowToName: 'Jak v Search Console poznat, co po redesignu kleslo',
+  gscStepNames: ['Porovnejte období ve Výkonu', 'Najděte stránky se ztrátou kliků', 'Zkontrolujte adresy v Kontrole adresy URL', 'Odešlete novou mapu webu'],
+  beforeHowToName: 'Co zkontrolovat před redesignem',
+  beforeStepNames: ['Uložte staré adresy', 'Připravte přesměrování 301', 'Zkontrolujte noindex a robots.txt', 'Přeneste měřicí kód', 'Odešlete mapu webu a projděte report Stránky'],
+
   notTitle: 'Co když příčina není technická?',
   notAnswer: 'Po redesignu se často změní obsah, rychlost načítání i mobilní verze, a pokles pak nemusí mít technickou příčinu. Bezplatný audit ji neukáže.',
   notText: 'Bezplatný audit kontroluje jen technické chyby: indexaci, duplicity a další technické problémy. Pokud je příčina v obsahu, rychlosti nebo mobilní verzi, nebo se web v Googlu drží, ale na slabých pozicích, pomůže spíš konzultace.',
