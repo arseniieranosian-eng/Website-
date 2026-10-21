@@ -21,9 +21,9 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     },
     en: {
       name: 'Home',
-      title: 'SEO Specialist in Prague – Arsenii Eranosian | SEO & GEO/AEO',
-      description: 'Prague-based SEO specialist. I get your website onto page one of Google and Seznam and into AI answers. Start with a free SEO audit.',
-      h1: 'SEO that brings enquiries. In search engines and in AI.',
+      title: 'SEO & GEO/AEO Specialist in Prague | Arsenii Eranosian',
+      description: 'English-speaking SEO and GEO/AEO specialist in Prague for Google, Seznam and AI search. Start with a free technical audit: no call, no obligation.',
+      h1: 'English-speaking SEO specialist in Prague: enquiries from Google, Seznam and AI',
     },
     ru: {
       name: 'Главная',

@@ -1,12 +1,12 @@
-import type { HOME_CS } from '../data/home-cs';
+import type { Lang } from '../i18n/routes';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { ids } from './schema';
 
-// Page-specific JSON-LD of the Czech home page: WebPage (about the business) + FAQPage. Person, ProfessionalService (with the
+// Page-specific JSON-LD of the Czech and English home pages (same shape): WebPage (about the business) + FAQPage. Person, ProfessionalService (with the
 // service catalogue, in menu order) and WebSite come from the global graph. No prices, no ratings, no reviews, no
 // BreadcrumbList (home), no SearchAction (there is no internal search).
-export function homeCsSchemas(site: URL, C: typeof HOME_CS, opts: { modified: string }) {
+export function homeCsSchemas(site: URL, C: { lang: Lang; quote: string; faq: { q: string; a: string }[] }, opts: { modified: string }) {
   const lang = C.lang;
   const url = new URL(path('home', lang), site).href;
   const m = META.home[lang];

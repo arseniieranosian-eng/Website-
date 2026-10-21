@@ -57,3 +57,9 @@ export const KB_FORMULA_CS = 'Poptávky z formuláře ×8 (červen proti květnu
 // Half-year case (cs page of its own, brief of 21.10.2026): +65–70 % monthly for three months, B2B ×3 (+200 %), March–September 2026.
 export const HALF_FORMULA_CS = 'Poptávky tři měsíce po sobě +65–70\u00a0% měsíčně, B2B poptávky ×3 (+200\u00a0%), březen–září 2026';
 export const HALF_LINE_CS: string = `Překladatelská agentura, půl roku práce: ${HALF_FORMULA_CS[0].toLowerCase()}${HALF_FORMULA_CS.slice(1)}.`;
+
+// English pair of the same formulas (home page EN, brief of 21.10.2026); same figures and periods as the cs / ru ones.
+const nbEn = (s: string) => s.replace(/ %/g, '\u00a0%');
+export const TYPO_FORMULA_EN: string = nbEn('Organic traffic +775 %, July 2024 → July 2025 (1,200 → 10,500 visits per month)');
+export const EDU_FORMULA_EN: string = nbEn('+55 % organic traffic, March → September 2025 (7 months), relative data from the low base of a new site');
+export const HALF_FORMULA_EN: string = nbEn('Enquiries up 65–70 % month over month for three months in a row, B2B enquiries tripled, March–September 2026');
