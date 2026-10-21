@@ -242,8 +242,8 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'Po redesignu klesla návštěvnost',
       title: 'Po redesignu klesla návštěvnost: kde je chyba | Eranosian',
-      description: 'Po redesignu webu klesla návštěvnost? Zkontrolujte adresy bez přesměrování, noindex i měření. Kde hledat chybu a jak pomůže bezplatný audit technických chyb.',
-      h1: 'Po redesignu webu klesla návštěvnost: kde hledat příčinu a co dělat',
+      description: 'Po redesignu klesla návštěvnost? Zkontrolujte adresy bez přesměrování, noindex i měření. Bezplatný audit technických chyb, prezentace do 24 hodin.',
+      h1: 'Po redesignu webu klesla návštěvnost: co se stalo a kde hledat chybu',
     },
     en: { name: 'Traffic drop after a redesign', title: 'Traffic drop after a redesign', description: 'Traffic drop after a redesign', h1: 'Traffic drop after a redesign' },
     ru: { name: 'Падение трафика после редизайна', title: 'Падение трафика после редизайна', description: 'Падение трафика после редизайна', h1: 'Падение трафика после редизайна' },

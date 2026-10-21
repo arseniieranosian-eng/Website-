@@ -40,8 +40,8 @@ export function postRedesignSchemas(site: URL, C: typeof POST_REDESIGN_CS, opts:
     {
       '@type': 'HowTo',
       '@id': `${url}#howto`,
-      name: C.gscHowToName,
-      step: C.gscSteps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: C.gscStepNames[i], text: s })),
+      name: C.realHowToName,
+      step: C.realSteps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: C.realStepNames[i], text: s })),
     },
     {
       '@type': 'HowTo',

@@ -112,6 +112,8 @@ const raw = {
     'Počkejte několik dnů až týdnů a zkontrolujte znovu.',
   ],
   bridge: 'Pokud si nejste jistí, co v reportu vidíte, bezplatný audit ukáže technické chyby webu: indexaci, duplicity a další technické problémy. Krátkou prezentaci pošlu do 24 hodin, bez hovoru a bez závazků.',
+  redesignLead: 'Pokud web ztratil návštěvnost po změně webu, zkontrolujte postup v článku',
+  redesignLinkText: 'Po redesignu klesla návštěvnost',
   auditArticleLead: 'Co bezplatný audit zahrnuje a čím se liší od širšího, vysvětluji v článku',
   auditArticleLink: 'Co je SEO audit',
   cta: 'Chci audit zdarma',

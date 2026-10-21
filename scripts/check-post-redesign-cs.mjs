@@ -3,11 +3,11 @@ import { readFileSync, existsSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/blog/po-redesignu-klesla-navstevnost/';
-const H1 = 'Po redesignu webu klesla návštěvnost: kde hledat příčinu a co dělat';
+const H1 = 'Po redesignu webu klesla návštěvnost: co se stalo a kde hledat chybu';
 const TITLE = 'Po redesignu klesla návštěvnost: kde je chyba | Eranosian';
-const DESC = 'Po redesignu webu klesla návštěvnost? Zkontrolujte adresy bez přesměrování, noindex i měření. Kde hledat chybu a jak pomůže bezplatný audit technických chyb.';
-const SECTIONS = [H1, 'Kde hledat chybu po redesignu', 'Je pokles návštěvnosti opravdu skutečný?', 'Změnily se po redesignu adresy bez přesměrování?', 'Objevují se po změně webu chyby 404?', 'Nezůstal na webu zákaz indexace?', 'Nevznikly po redesignu duplicity?', 'Jak v Search Console poznat, co kleslo?', 'Co když příčina není technická?', 'Co zkontrolovat před redesignem?', 'Časté otázky po redesignu', 'Nevíte, kde je příčina poklesu?'];
-const LINKS = ['/blog/', '/audit-zdarma/', '/konzultace/', '/blog/proc-se-web-nezobrazuje-v-googlu/', '/blog/jak-zjistit-jestli-je-web-indexovany/', '/blog/duplicitni-obsah/', '/blog/co-je-seo-audit/', '/o-mne/'];
+const DESC = 'Po redesignu klesla návštěvnost? Zkontrolujte adresy bez přesměrování, noindex i měření. Bezplatný audit technických chyb, prezentace do 24 hodin.';
+const SECTIONS = [H1, 'Sedm příčin, proč po redesignu klesá návštěvnost', 'Je pokles skutečný, nebo se jen přestala měřit návštěvnost?', 'Kdy je pokles po redesignu normální?', 'Změnily se adresy bez přesměrování?', 'Zůstal na webu zákaz indexace po vývoji?', 'Zmizely stránky nebo obsah, který přinášel návštěvnost?', 'Nezměnila se struktura a vnitřní odkazy?', 'Nevznikly duplicity nebo chyby u hlavní adresy?', 'Jak změny ověřit v Search Console?', 'Co zkontrolovat před redesignem?', 'Co když si nejste jistí, kde je chyba?', 'Časté otázky po redesignu webu', 'Nevíte, kde je chyba po redesignu?'];
+const LINKS = ['/blog/', '/audit-zdarma/', '/konzultace/', '/blog/proc-se-web-nezobrazuje-v-googlu/', '/blog/jak-zjistit-jestli-je-web-indexovany/', '/blog/duplicitni-obsah/', '/o-mne/'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'ChatGPT', 'Screaming', 'Kč', 'vrátí návštěvnost', 'vrátí pozice'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -48,14 +48,14 @@ for (const hd of SECTIONS.slice(2, 10)) {
 }
 // Table of the audit types (HTML)
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
-if (rows.length !== 7 || rows[0].join('|') !== 'Kde hledat|Jak ověřit|Co dělat') e('where-to-look table (6 rows)');
+if (rows.length !== 8 || rows[0].join('|') !== 'Příčina|Jak poznat|Co dělat') e('seven-causes table (7 rows)');
 // Illustrations: 4, labelled, with accessible names
 const figs = [...main.matchAll(/<figure class="post-figure">([\s\S]*?)<\/figure>/g)].map((m) => m[1]);
 if (figs.length !== 2 || figs.some((f) => !/<svg[^>]*role="img"[^>]*aria-label="Ilustrace:/.test(f) || !/<figcaption>Ilustrace:/.test(f))) e('two labelled illustrations');
 // Author quote: figure, cite, signature
-const QUOTE = 'Po redesignu nejdřív ověřte, zda je pokles skutečný, a teprve pak hledejte technickou příčinu. Panika bez dat nepomůže.';
+const QUOTE = 'Po redesignu se často ztrácejí hlavně adresy, ne obsah. Než začnete psát nové texty, ověřte, kam vedou ty staré.';
 if (!new RegExp(`<figure class="quote-fig">\\s*<blockquote cite="${BASE}${URL_PATH}"><p>${QUOTE.replace(/\./g, '\\.')}</p></blockquote>\\s*<figcaption>[\\s\\S]*?— <a href="/o-mne/">Arsenii Eranosian</a>, SEO a GEO/AEO specialista`).test(main)) e('author quote figure');
-if (mainTxt.indexOf('Je pokles návštěvnosti opravdu skutečný?') > mainTxt.indexOf(QUOTE) || mainTxt.indexOf(QUOTE) > mainTxt.indexOf('Změnily se po redesignu adresy bez přesměrování?')) e('quote in the first section (the drop is real?)');
+if (mainTxt.indexOf('Změnily se adresy bez přesměrování?') > mainTxt.indexOf(QUOTE) || mainTxt.indexOf(QUOTE) > mainTxt.indexOf('Zůstal na webu zákaz indexace po vývoji?')) e('quote right after the redirect section');
 // JSON-LD equals the visible text
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 const g = ld['@graph'];
@@ -74,8 +74,8 @@ const faq = node('FAQPage')[0];
 const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
 if (g.some((n) => ['Service', 'Offer', 'AggregateRating', 'Review'].includes(n['@type']))) e('no Service/Offer/rating markup');
-if (!mainTxt.includes('Bezplatný audit kontroluje jen technické chyby: indexaci, duplicity a další technické problémy.')) e('honest border of the free audit');
-if (!/Je pokles návštěvnosti opravdu skutečný\?<\/h2>\s*<p class="answer">Nejdřív ověřte/.test(h)) e('first section = is the drop real');
+if (!mainTxt.includes('Pokud je příčina v obsahu, rychlosti nebo mobilní verzi, bezplatný audit ji neukáže; v tom případě pomůže konzultace.')) e('honest border of the free audit + consultation link');
+if (!/Je pokles skutečný, nebo se jen přestala měřit návštěvnost\?<\/h2>\s*<p class="answer">Nejdřív ověřte/.test(h)) e('first section = is the drop real');
 const faqA = mainTxt.slice(mainTxt.indexOf('Jak dlouho trvá, než se návštěvnost po redesignu vrátí?'));
 if (/\d+ (dní|týdn|měsíc)/.test(faqA.slice(0, 400))) e('recovery-time answer has no numbers');
 // Length (brief: 1 200–1 600 words is the target; flag only when far off)

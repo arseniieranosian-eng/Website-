@@ -1,6 +1,6 @@
 ---
-// Blog article "Po redesignu webu klesla návštěvnost" (cs), keyword brief of 21.10.2026. Content: data/post-redesign-cs.ts.
-// One main CTA (free audit). Redirects get one sentence here (the detailed article is planned), "pokles pozic" in general is not covered.
+// Blog article "Po redesignu webu klesla návštěvnost" (cs), full brief of 21.10.2026. Content: data/post-redesign-cs.ts.
+// One main CTA (free audit). Redirect setup is only mentioned (the detailed article is planned), "pokles pozic" in general is not covered.
 import Base from '../layouts/Base.astro';
 import IndexIllustration from '../components/IndexIllustration.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
@@ -50,8 +50,26 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.realTitle}</h2>
       <p class="answer">{C.realAnswer}</p>
+      <ol class="steps">{C.realSteps.map((s) => <li><span>{s}</span></li>)}</ol>
       <p>{C.realText}</p>
       <figure class="post-figure"><IndexIllustration kind="drop" aria={fig('drop').aria} /><figcaption>{fig('drop').caption}</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.normalTitle}</h2>
+      <p class="answer">{C.normalAnswer}</p>
+      <p>{C.normalText}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.urlTitle}</h2>
+      <p class="answer">{C.urlAnswer}</p>
+      <p>{C.urlText}</p>
+      <figure class="post-figure"><IndexIllustration kind="e404" aria={fig('e404').aria} /><figcaption>{fig('e404').caption}</figcaption></figure>
       <figure class="quote-fig">
         <blockquote cite={cite}><p>{C.quote}</p></blockquote>
         <QuoteCaption lang={lang} />
@@ -61,26 +79,25 @@ const minutes = Math.max(3, Math.ceil(words / 200));
 
   <section class="section">
     <div class="container narrow">
-      <h2>{C.urlTitle}</h2>
-      <p class="answer">{C.urlAnswer}</p>
-      <p>{C.urlText}</p>
+      <h2>{C.indexTitle}</h2>
+      <p class="answer">{C.indexAnswer}</p>
+      <p>{C.indexLead} <a href={t('postNotShown')}>{C.indexLinkText}</a>. {C.indexLead2} <a href={t('postIndexing')}>{C.indexLinkText2}</a>.</p>
     </div>
   </section>
 
   <section class="section section--grey">
     <div class="container narrow">
-      <h2>{C.e404Title}</h2>
-      <p class="answer">{C.e404Answer}</p>
-      <p>{C.e404Text}</p>
-      <figure class="post-figure"><IndexIllustration kind="e404" aria={fig('e404').aria} /><figcaption>{fig('e404').caption}</figcaption></figure>
+      <h2>{C.goneTitle}</h2>
+      <p class="answer">{C.goneAnswer}</p>
+      <p>{C.goneText}</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container narrow">
-      <h2>{C.indexTitle}</h2>
-      <p class="answer">{C.indexAnswer}</p>
-      <p>{C.indexLead} <a href={t('postNotShown')}>{C.indexLinkText}</a>.</p>
+      <h2>{C.structTitle}</h2>
+      <p class="answer">{C.structAnswer}</p>
+      <p>{C.structText}</p>
     </div>
   </section>
 
@@ -88,7 +105,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.dupTitle}</h2>
       <p class="answer">{C.dupAnswer}</p>
-      <p>{C.dupLead} <a href={t('postDuplicates')}>{C.dupLinkText}</a>.</p>
+      <p>{C.dupText} {C.dupLead} <a href={t('postDuplicates')}>{C.dupLinkText}</a>.</p>
     </div>
   </section>
 
@@ -96,26 +113,25 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.gscTitle}</h2>
       <p class="answer">{C.gscAnswer}</p>
-      <ol class="steps">{C.gscSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+      <ul class="checks">{C.gsc.map((x) => <li>{x}</li>)}</ul>
       <p>{C.gscLead} <a href={t('postIndexing')}>{C.gscLinkText}</a>.</p>
     </div>
   </section>
 
   <section class="section section--grey">
     <div class="container narrow">
-      <h2>{C.notTitle}</h2>
-      <p class="answer">{C.notAnswer}</p>
-      <p>{C.notText} <a href={t('consulting')}>{C.notLinkText}</a>.</p>
-      <p>{C.bridge}</p>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <h2>{C.beforeTitle}</h2>
+      <p class="answer">{C.beforeAnswer}</p>
+      <ol class="steps">{C.before.map((s) => <li><span>{s}</span></li>)}</ol>
     </div>
   </section>
 
   <section class="section">
     <div class="container narrow">
-      <h2>{C.beforeTitle}</h2>
-      <p class="answer">{C.beforeAnswer}</p>
-      <ol class="steps">{C.before.map((s) => <li><span>{s}</span></li>)}</ol>
+      <h2>{C.bridgeTitle}</h2>
+      <p>{C.bridge}</p>
+      <p>{C.border} <a href={t('consulting')}>{C.borderLink}</a>.</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
     </div>
   </section>
 
@@ -131,7 +147,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <h2>{C.endTitle}</h2>
       <p>{C.endText}</p>
       <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
-      <p>{C.nextLead} <a class="link-arrow" href={t('postSeoAudit')}>{C.nextLinkText}</a></p>
+      <p>{C.nextLead} <a class="link-arrow" href={t('postDuplicates')}>{C.nextLinkText}</a></p>
       <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
     </div>
   </section>

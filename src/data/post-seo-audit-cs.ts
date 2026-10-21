@@ -83,6 +83,9 @@ const raw = {
     { text: 'Chcete, aby se to udělalo → Start nebo Full SEO.', link: { text: 'SEO start na 3 měsíce', page: 'start' as const }, link2: { text: 'Full SEO na rok', page: 'fullSeo' as const } },
   ],
 
+  moreRedesignLead: 'Co zkontrolovat po změně webu, najdete v článku',
+  moreRedesignLinkText: 'Po redesignu klesla návštěvnost',
+
   goodTitle: 'Jak poznat dobrý SEO audit?',
   goodAnswer: 'Dobrý audit je konkrétní: ukáže adresy stránek, seřadí priority a srozumitelně vysvětlí, co dělat. Nic neslibuje a řekne, co nezkoumá.',
   goodHead: 'Dobrý audit',

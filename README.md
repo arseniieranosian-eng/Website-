@@ -134,3 +134,5 @@ HowTo markup (steps = the visible numbered steps, word for word, verified by the
 ## English home page `/en/` (brief of 21.10.2026)
 
 `src/views/HomeEnPage.astro`, content `src/data/home-en.ts` and `src/data/trust-en.ts` (formulas from `case-summary.ts`, `*_EN`), JSON-LD through the shared `schema-home-cs.ts` (WebPage + Quotation + FAQPage; the global graph stays identical on all pages), check `scripts/check-home-en.mjs`. Hero uses the dark background and the photo chip like the Czech home. The brief's fifth trust tile (a review) is not used. The three case cards link to `/en/case-studies/` (only the old 4-month case exists in English; the print-shop, education and half-year cases are not translated yet). Start stays at `/en/3-month-start/`. `og:locale` stays `en_US`.
+
+Redesign article, full brief: the page was rewritten to the full brief of 21.10.2026 (seven-causes table, eight sections, «před redesignem» checklist, bridge with the consultation link). HowTo is kept on the two numbered lists (measurement check, «před redesignem») at the author's explicit request although the brief says it is not used. The indexing and SEO-audit articles link to it.
