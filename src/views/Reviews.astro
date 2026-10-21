@@ -5,7 +5,8 @@ import ReviewCards from '../components/ReviewCards.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { META } from '../i18n/meta';
-import { type Lang } from '../i18n/routes';
+import { path, type Lang } from '../i18n/routes';
+import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { allReviews } from '../data/reviews';
 import { reviewSchema } from '../lib/schema';
@@ -13,6 +14,7 @@ import { reviewSchema } from '../lib/schema';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const m = META.reviews[lang];
+const ui = t(lang);
 const reviews = allReviews();
 const C = {
   cs: { lead: 'Zkušenosti klientů se spoluprací – od jednorázových konzultací po celoroční SEO.', ctaTitle: 'Chcete být další spokojený klient?', ctaText: 'Začněte bezplatným auditem.' },
@@ -26,7 +28,10 @@ const C = {
     <div class="container"><ReviewCards reviews={reviews} lang={lang} /></div>
   </section>
   <section class="section section--grey">
-    <div class="container"><CaseTeaser lang={lang} heading="h2" /></div>
+    <div class="container">
+      <CaseTeaser lang={lang} heading="h2" />
+      <p style="margin-top: 20px"><a class="link-arrow" href={path('cases', lang)}>{ui.allCases}</a></p>
+    </div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
 </Base>
