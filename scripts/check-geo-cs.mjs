@@ -5,7 +5,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-a-geo/';
 const H1 = 'SEO + GEO/AEO: dvě v jednom';
 const SECTIONS = [H1, 'Co je GEO a co je AEO?', 'Jaký je rozdíl mezi SEO a GEO/AEO?', 'Proč dělám SEO a GEO/AEO dohromady?', 'Co o tom říká Google?', 'Co konkrétně dělám pro GEO/AEO', 'Garantujete zmínku v odpovědích AI?', 'Platím za GEO/AEO zvlášť?', 'Jak vás vidí AI a kde to ověřím?', 'Příklady z praxe', 'Časté otázky o GEO a AEO', 'Chcete začít u základu?'];
-const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/o-mne/'];
+const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/o-mne/'];
 const FORBIDDEN = ['SEO služby cena', 'od 2 000 Kč', 'od 15 000 Kč', '50 000 Kč', 'zaručíme', 'zaručujeme zmínku'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -53,7 +53,7 @@ if (wp.mainEntity['@id'] !== `${BASE}${URL_PATH}#article`) e('WebPage.mainEntity
 if (art.headline !== H1 || art.author['@id'] !== by('Person')['@id'] || art.datePublished !== '2026-10-19') e('Article headline / author / datePublished');
 if (art.mainEntityOfPage['@id'] !== wp['@id']) e('Article.mainEntityOfPage');
 const ment = (art.mentions ?? []).map((m) => m['@id']);
-for (const p of ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
+for (const p of ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
 // Terms: description equals the visible bullet (first letter case aside)
 for (const t of ts.hasDefinedTerm) {
   const visible = mainTxt.toLowerCase();
@@ -96,7 +96,7 @@ if (imgNodes.length !== 4 || !(art.image ?? []).every((r) => imgNodes.some((n) =
 const home = readFileSync('dist/index.html', 'utf8');
 if (!/<ul class="nav">[\s\S]*?href="\/seo-a-geo\/"[^>]*>SEO a GEO\/AEO</.test(home)) e('top menu must have the "SEO a GEO/AEO" item');
 if (/<option value="geo"/.test(readFileSync('dist/konzultace/index.html', 'utf8'))) e('forms must not offer SEO + GEO/AEO');
-for (const p of ['dist/konzultace/index.html', 'dist/start-3-mesice/index.html', 'dist/full-seo/index.html', 'dist/mapy/index.html']) {
+for (const p of ['dist/konzultace/index.html', 'dist/start-3-mesice/index.html', 'dist/full-seo/index.html', 'dist/lokalni-seo-mapy/index.html']) {
   if (!/<p class="geo-note"><a href="\/seo-a-geo\/">GEO\/AEO<\/a> je součástí každé služby\.<\/p>/.test(readFileSync(p, 'utf8'))) e(`${p}: "GEO/AEO je součástí každé služby" line missing`);
 }
 

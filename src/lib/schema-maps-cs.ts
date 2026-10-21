@@ -5,7 +5,7 @@ import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
 import { ids, quotationSchema } from './schema';
 
-// Page-specific JSON-LD for /mapy/ (cs). The global Person / ProfessionalService / WebSite graph and the
+// Page-specific JSON-LD for /lokalni-seo-mapy/ (cs). The global Person / ProfessionalService / WebSite graph and the
 // BreadcrumbList come from the layout. Rates are UnitPriceSpecifications (names = the visible labels). No
 // LocalBusiness (it would describe the client), no VideoObject, no AggregateRating.
 export function mapsCsSchemas(site: URL, C: typeof MAPS_CS, opts: { modified: string; reviews: Review[] }) {

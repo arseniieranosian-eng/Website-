@@ -27,7 +27,7 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 const og = (h.match(/<meta property="og:description" content="([^"]*)"/) || [])[1];
 if (!og || dec(og) !== desc || !/[а-я]/i.test(og)) e(`og:description must be the Russian description, got: ${og}`);
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-for (const [l, p] of [['cs', '/mapy/'], ['en', '/en/maps/'], ['ru', URL_PATH], ['x-default', '/mapy/']]) {
+for (const [l, p] of [['cs', '/lokalni-seo-mapy/'], ['en', '/en/maps/'], ['ru', URL_PATH], ['x-default', '/lokalni-seo-mapy/']]) {
   if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 }
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));

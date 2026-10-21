@@ -6,7 +6,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/seo-prekladatelska-agentura/';
 const H1 = 'Případová studie SEO pro překladatelskou agenturu: půl roku od nuly k růstu poptávek';
 const SECTIONS = [H1, 'Jaké byly cíle zakázky?', 'Jak web vypadal na začátku?', 'Co jsem postavil?', 'Jaké byly výsledky za půl roku?', 'Jací klienti na web začali chodit?', 'Jak se chovala jednotlivá města?', 'Objevil se web v AI vyhledávání?', 'Co bych zopakoval na jakémkoli podobném projektu?', 'Časté otázky k případové studii', 'Související služby', 'Máte web, který „funguje“, ale nepřivádí klienty?'];
-const LINKS = ['/pripadove-studie/', '/pripadove-studie/seo-v-nizke-sezone/', '/seo-a-geo/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/konzultace/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/'];
+const LINKS = ['/pripadove-studie/', '/pripadove-studie/seo-v-nizke-sezone/', '/seo-a-geo/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/konzultace/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/'];
 // Never on the page: client name / domain, absolute numbers of the language table, old formulas, unconfirmed claims
 const FORBIDDEN = ['KB P', 'kbpreklady', 'kb-preklady', '×8', '×300', '6× zobraz', '+400', '141', ' 74 ', 'Američan', 'Rakušan', 'Němc', '55–60', 'jsme '];
 
@@ -93,7 +93,7 @@ if (wp.mainEntity['@id'] !== `${BASE}${URL_PATH}#article` || art.mainEntityOfPag
 if (norm(art.headline) !== H1 || art.author['@id'] !== by('Person')['@id'] || art.datePublished !== '2026-10-21') e('Article headline / author / datePublished');
 if (art.isPartOf['@id'] !== `${BASE}/pripadove-studie/#seo-case-series` || ser?.['@id'] !== art.isPartOf['@id'] || ser.name !== 'SEO případová studie překladatelské agentury') e('case series');
 const ment = (art.mentions ?? []).map((m) => m['@id']);
-for (const p of ['/start-3-mesice/', '/full-seo/', '/mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
+for (const p of ['/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
 if (quotes.length !== 2) e('two Quotation nodes (the author and the owner)');
 else {
   const [q1, q2] = quotes;

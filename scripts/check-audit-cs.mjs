@@ -5,7 +5,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/audit-zdarma/';
 const H1 = 'Bezplatný SEO audit technických chyb vašeho webu';
 const SECTIONS = [H1, 'Co v bezplatném auditu zkontroluji?', 'Co v auditu nenajdete?', 'Jak audit probíhá?', 'Jak vypadá výstup auditu?', 'Čím se bezplatný audit liší od placené konzultace?', 'Co po auditu?', 'Co říkají výsledky a klienti?', 'Časté otázky k bezplatnému auditu', 'Požádejte o bezplatný audit'];
-const LINKS = ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/recenze/', '/o-mne/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/ochrana-osobnich-udaju/'];
+const LINKS = ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/recenze/', '/o-mne/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/ochrana-osobnich-udaju/'];
 // Out of scope for the free audit and the old page text: must not appear as promises (the "not included" table names them)
 const FORBIDDEN = ['KB PŘEKLADY', '20minut', '20 minut', '5–10', '5-10', '×300', '×6', 'VEED'];
 

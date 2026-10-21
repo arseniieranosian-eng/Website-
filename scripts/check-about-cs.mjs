@@ -5,7 +5,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/o-mne/';
 const H1 = 'Arsenii Eranosian: SEO a GEO/AEO specialista v Praze';
 const SECTIONS = [H1, 'Jak přistupuji k SEO?', 'Jaké mám zkušenosti?', 'Co jsem řešil v konzultacích?', 'S jakými trhy a jazyky pracuji?', 'Jaké nástroje používám?', 'Kde si mě ověříte?', 'Co říkají klienti?', 'Časté otázky o mně', 'Jste v SEO na začátku, nebo chcete druhý pohled?'];
-const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/'];
+const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/'];
 // Figures / claims the brief rules out; client names never appear
 const FORBIDDEN = ['777', 'YoY', '3 roky', 'tři roky', 'za tři roky', '55–60', '65–70', 'B2B ×3', '×6', '300×', 'KB P', 'QUBIS', 'Unimenty', 'short call', 'krátký call', 'USA', 'Screaming'];
 
@@ -77,7 +77,7 @@ if (fq.mainEntity.length !== 5 || !fq.mainEntity.every((q) => body.includes(norm
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > O mně' || bc.itemListElement.at(-1).item) e('breadcrumb');
 
 // Site: service pages carry the "Kdo to dělá?" block with a link here
-for (const p of ['dist/konzultace/index.html', 'dist/start-3-mesice/index.html', 'dist/full-seo/index.html', 'dist/mapy/index.html']) {
+for (const p of ['dist/konzultace/index.html', 'dist/start-3-mesice/index.html', 'dist/full-seo/index.html', 'dist/lokalni-seo-mapy/index.html']) {
   const c = readFileSync(p, 'utf8');
   const t0 = txt(c.replace(/<main[\s\S]*?<\/main>/, (m) => m));
   if (!c.includes('<h2>Proč mi klienti věří?</h2>') || !c.includes(`href="${URL_PATH}"`) || !t0.includes('Klienti mi svěřují práci, protože si mohou všechno ověřit') || [...c.matchAll(/id="proc-mi-veri"[\s\S]*?<div class="card"><h3>/g)].length !== 1) e(`${p}: "Proč mi klienti věří?" block with four reasons and a link to /o-mne/`);

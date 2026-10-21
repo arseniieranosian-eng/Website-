@@ -1,4 +1,4 @@
-// Czech content of /mapy/ (keyword brief of 20.10.2026): an adaptation for the Czech market, not a translation of the
+// Czech content of /lokalni-seo-mapy/ (keyword brief of 20.10.2026): an adaptation for the Czech market, not a translation of the
 // Russian page. Rates and the minimum term come from maps-shared.ts, package prices from start-shared / fullseo-shared.
 // No case block and no case link for now (the maps case data has not been provided yet).
 import { fmtKc } from './consulting-shared';

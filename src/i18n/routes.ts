@@ -15,7 +15,7 @@ export const ROUTES = {
   consulting: { cs: '/konzultace/', en: '/en/consulting/', ru: '/ru/konsultacii/' },
   start: { cs: '/start-3-mesice/', en: '/en/3-month-start/', ru: '/ru/start-3-mesyaca/' },
   fullSeo: { cs: '/full-seo/', en: '/en/full-seo/', ru: '/ru/full-seo/' },
-  maps: { cs: '/mapy/', en: '/en/maps/', ru: '/ru/karty/' },
+  maps: { cs: '/lokalni-seo-mapy/', en: '/en/maps/', ru: '/ru/karty/' },
   geo: { cs: '/seo-a-geo/', en: '/en/seo-and-geo/', ru: '/ru/seo-i-geo/' },
   cases: { cs: '/pripadove-studie/', en: '/en/case-studies/', ru: '/ru/kejsy/' },
   caseTypo: { cs: '/pripadove-studie/seo-tiskarna/', en: '/en/case-studies/seo-print-shop/', ru: '/ru/kejsy/seo-tipografiya/' },

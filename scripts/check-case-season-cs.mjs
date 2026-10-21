@@ -8,7 +8,7 @@ const P1 = '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/';
 const H1 = 'SEO v nízké sezóně pro překladatelskou agenturu: poptávky z webu vzrostly 24×';
 const FORMULA = 'Poptávky z formuláře ×24 (+2300 %): jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně. Od nízké základny';
 const SECTIONS = [H1, 'Proč se organická návštěvnost nepřeváděla na poptávky?', 'Co jsem udělal v technické vrstvě?', 'Jak jsem přestavěl stránky služeb pro komerční záměr?', 'Proč blog a FAQ jako horní část trychtýře?', 'Co daly lokální stránky podle měst?', 'Jaké byly výsledky za léto?', 'Byla to sezóna? Co ukázal Google Trends', 'Šest praktických závěrů', 'Časté otázky k případové studii', 'Související služby', 'Chcete stejný trychtýř pro svůj web?'];
-const LINKS = ['/pripadove-studie/', P1, '/seo-a-geo/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/konzultace/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/'];
+const LINKS = ['/pripadove-studie/', P1, '/seo-a-geo/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/konzultace/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/'];
 const FORBIDDEN = ['KB P', 'kb-preklady', 'ChatGPT', 'LinkedIn', 'AggregateRating', 'útlumov'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');

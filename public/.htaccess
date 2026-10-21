@@ -9,7 +9,9 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/sluzby/konzultace/?$ https://seo-eranosian.com/konzultace/
   RedirectMatch 301 ^/sluzby/start-3-mesice/?$ https://seo-eranosian.com/start-3-mesice/
   RedirectMatch 301 ^/sluzby/full-seo/?$ https://seo-eranosian.com/full-seo/
-  RedirectMatch 301 ^/sluzby/mapy/?$ https://seo-eranosian.com/mapy/
+  RedirectMatch 301 ^/sluzby/mapy/?$ https://seo-eranosian.com/lokalni-seo-mapy/
+  # the maps page got a more specific address
+  RedirectMatch 301 ^/mapy/?$ https://seo-eranosian.com/lokalni-seo-mapy/
   RedirectMatch 301 ^/sluzby/?$ https://seo-eranosian.com/
 
   RedirectMatch 301 ^/en/services/consulting/?$ https://seo-eranosian.com/en/consulting/

@@ -6,7 +6,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/';
 const H1 = 'SEO pro překladatelskou agenturu se třemi pobočkami';
 const SECTIONS = [H1, 'Jaký byl výchozí stav webu?', 'Proč jedna stránka pro každé město?', 'Jak funguje obsah jako trychtýř?', 'Proč lokalizovat, a ne jen překládat?', 'Co jsem udělal v technickém SEO?', 'Jaké byly výsledky?', 'Jak se v analytice objevil nový kanál AI Assistant?', 'Šest kroků pro váš web', 'Časté otázky k případové studii', 'Související služby', 'Chcete stejný postup pro svůj web?'];
-const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/konzultace/', '/seo-a-geo/', '/audit-zdarma/', '/kontakt/', '/o-mne/'];
+const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/konzultace/', '/seo-a-geo/', '/audit-zdarma/', '/kontakt/', '/o-mne/'];
 // Figures not confirmed by the author must not appear on the case page (the partner agency's review elsewhere is a quote)
 const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', '24×', '6× zobraz', '300×', '×300', '65–70', 'ChatGPT v odpovědích', 'naše agentura'];
 
@@ -69,7 +69,7 @@ if (!byline || byline[1] !== wp.dateModified || art.dateModified !== wp.dateModi
 if (wp.mainEntity['@id'] !== `${BASE}${URL_PATH}#article`) e('WebPage.mainEntity must be the Article');
 if (art.headline !== H1 || art.author['@id'] !== by('Person')['@id'] || art.datePublished !== '2026-10-19') e('Article headline / author / datePublished');
 const ment = (art.mentions ?? []).map((m) => m['@id']);
-for (const p of ['/start-3-mesice/', '/full-seo/', '/mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
+for (const p of ['/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
 if (!art.image.some((i) => i['@id'] === im['@id']) || !body.includes(im.caption) || im.width !== 720 || im.height !== 730) e('ImageObject must match the visible figure');
 // HowTo: the six steps, name and text word for word as in the visible numbered list
 if (!ht || ht.name !== 'Šest kroků pro váš web' || ht.step.length !== 6) e('HowTo: "Šest kroků pro váš web" with 6 steps expected');

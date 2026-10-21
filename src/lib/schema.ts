@@ -85,7 +85,7 @@ export function baseGraph(site: URL) {
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Služby',
-        itemListElement: ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/'].map((p) => ({ '@id': abs(site, p) + '#service' })),
+        itemListElement: ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/'].map((p) => ({ '@id': abs(site, p) + '#service' })),
       },
       knowsAbout: knowsAbout(),
       sameAs,

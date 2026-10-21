@@ -4,7 +4,7 @@ import { join } from 'node:path';
 
 const BASE = 'https://seo-eranosian.com';
 const SECTIONS = ['SEO, které přivádí poptávky. Ve vyhledávačích i v AI.', 'Kam dál? Vyberte podle toho, co potřebujete', 'Jaké služby nabízím?', 'Co je GEO/AEO a proč ho dělám spolu se SEO?', 'Jaké výsledky už mají moji klienti?', 'Co říkají klienti?', 'Proč mi klienti věří?', 'Časté otázky', 'Kdo za tím stojí?', 'Zjistěte, kolik zákazníků vám uniká'];
-const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-prekladatelska-agentura/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/', '/caste-dotazy/', '/o-mne/', '/kontakt/', '/ochrana-osobnich-udaju/'];
+const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-prekladatelska-agentura/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/', '/caste-dotazy/', '/o-mne/', '/kontakt/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['první pozice', 'YoY', '3 roky', 'průměrný růst', '55–60', 'ChatGPT v odpovědích', 'technický stav a rychlost', '4–8 týdnů', '3–6 měsíců', 'krátký call po auditu', 'SEO agentur', '6×', '300×', 'B2B ×3'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -96,7 +96,7 @@ if (wp['@id'] !== `${BASE}/#webpage` || wp.isPartOf['@id'] !== by('WebSite')['@i
 if (!date || date[1] !== wp.dateModified) e(`dateModified ${wp.dateModified} must match the visible date`);
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(norm(q.name)) && body.includes(norm(q.acceptedAnswer.text)))) e('6 FAQ Q/A not visible verbatim');
 const cat = (pro.hasOfferCatalog?.itemListElement ?? []).map((i) => i['@id']);
-if (JSON.stringify(cat) !== JSON.stringify(['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/'].map((p) => `${BASE}${p}#service`))) e(`ProfessionalService.hasOfferCatalog order: ${JSON.stringify(cat)}`);
+if (JSON.stringify(cat) !== JSON.stringify(['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/'].map((p) => `${BASE}${p}#service`))) e(`ProfessionalService.hasOfferCatalog order: ${JSON.stringify(cat)}`);
 if (/agentur/i.test(JSON.stringify([wp, pro.name]))) e('"agentura" must not appear in the markup');
 
 // Site-wide: no Blog in the menu or the footer of any language

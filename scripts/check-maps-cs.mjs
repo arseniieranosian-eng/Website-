@@ -1,8 +1,8 @@
-// Post-build check of /mapy/ (cs) against its keyword brief of 20.10.2026.
+// Post-build check of /lokalni-seo-mapy/ (cs) against its keyword brief of 20.10.2026.
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
-const URL_PATH = '/mapy/';
+const URL_PATH = '/lokalni-seo-mapy/';
 const H1 = 'Lokální SEO: propagace na Google Maps a Mapy.com';
 const SECTIONS = [H1, 'Kolik stojí propagace na Google Maps a Mapy.com?', 'Pro koho je propagace v mapách vhodná?', 'Co je součástí propagace v mapách', 'Jaké metriky z map sleduji?', 'Lokální stránky pro pobočky a provozovny', 'Jak probíhá propagace v mapách', 'Kdy přijdou první výsledky v mapách?', 'Mapy jsou součástí balíčků Start a Full SEO', 'Co říkají klienti', 'Časté otázky o propagaci v mapách', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
@@ -15,7 +15,7 @@ const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(
 const errors = [];
 const e = (m) => errors.push(m);
 
-const h = readFileSync('dist/mapy/index.html', 'utf8');
+const h = readFileSync('dist/lokalni-seo-mapy/index.html', 'utf8');
 const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
 const body = txt(h);
 const mainTxt = txt(main);
