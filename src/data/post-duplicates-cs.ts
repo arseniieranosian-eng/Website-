@@ -111,6 +111,8 @@ const raw = {
   endText: 'Když si nejste jistí, jestli váš web duplicity má, podívám se na technické chyby webu.',
   nextLead: 'Další krok:',
   nextLinkText: 'Co je SEO audit a co obsahuje',
+  chooseLead: 'Nevíte, čím začít?',
+  chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',
 

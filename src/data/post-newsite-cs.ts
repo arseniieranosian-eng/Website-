@@ -105,6 +105,8 @@ const raw = {
   endText: 'Když se nový web neobjeví ani po týdnech, podívám se na technické chyby webu.',
   nextLead: 'Další krok:',
   nextLinkText: 'Jak zjistit, jestli je web indexovaný v Googlu',
+  chooseLead: 'Nevíte, čím začít?',
+  chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',
 

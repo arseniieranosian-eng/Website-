@@ -25,6 +25,7 @@ export const ROUTES = {
   caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
   reviews: { cs: '/recenze/', en: '/en/reviews/', ru: '/ru/otzyvy/' },
   blog: { cs: '/blog/', en: '/en/blog/', ru: '/ru/blog/' },
+  postChoose: { cs: '/blog/audit-konzultace-nebo-start/', en: '/en/blog/audit-consulting-or-start/', ru: '/ru/blog/audit-konsultaciya-ili-start/' },
   postNewSite: { cs: '/blog/novy-web-a-google-ho-nevidi/', en: '/en/blog/new-site-not-in-google/', ru: '/ru/blog/novyj-sajt-ne-vidit-google/' },
   postRedirects: { cs: '/blog/presmerovani-301-a-chyby-404/', en: '/en/blog/301-redirects-and-404-errors/', ru: '/ru/blog/redirekt-301-i-oshibki-404/' },
   postAds: { cs: '/blog/seo-a-reklama/', en: '/en/blog/seo-and-advertising/', ru: '/ru/blog/seo-i-reklama/' },
@@ -59,11 +60,12 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
   postAds: 'blog',
   postRedirects: 'blog',
   postNewSite: 'blog',
+  postChoose: 'blog',
 };
 
 // Pages that exist in some languages only (no hreflang alternates for the missing ones; the language switcher falls
 // back to the home page). The cs/en addresses of these pages are placeholders and are never built.
-export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'] };
+export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.

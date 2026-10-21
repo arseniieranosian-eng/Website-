@@ -116,6 +116,8 @@ const raw = {
   newSiteLinkText: 'Nový web nevidí Google',
   redesignLead: 'Pokud web ztratil návštěvnost po změně webu, zkontrolujte postup v článku',
   redesignLinkText: 'Po redesignu klesla návštěvnost',
+  chooseLead: 'Nevíte, čím začít?',
+  chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   auditArticleLead: 'Co bezplatný audit zahrnuje a čím se liší od širšího, vysvětluji v článku',
   auditArticleLink: 'Co je SEO audit',
   cta: 'Chci audit zdarma',

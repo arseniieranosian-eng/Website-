@@ -83,6 +83,8 @@ const raw = {
     { text: 'Chcete, aby se to udělalo → Start nebo Full SEO.', link: { text: 'SEO start na 3 měsíce', page: 'start' as const }, link2: { text: 'Full SEO na rok', page: 'fullSeo' as const } },
   ],
 
+  moreChooseLead: 'Jak vybrat první krok, vysvětluji v článku',
+  moreChooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   moreRedesignLead: 'Co zkontrolovat po změně webu, najdete v článku',
   moreRedesignLinkText: 'Po redesignu klesla návštěvnost',
 
@@ -105,6 +107,8 @@ const raw = {
   endTitle: 'Stačí vám vědět, kde jsou technické chyby?',
   endText: 'Pokud vám stačí vědět, kde jsou technické chyby, nechte web zkontrolovat zdarma. Krátkou prezentaci pošlu do 24 hodin, bez hovoru a bez závazků.',
   nextLead: 'Další krok:',
+  chooseLead: 'Nevíte, čím začít?',
+  chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   nextLinkText: 'Proč se můj web nezobrazuje v Googlu',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',

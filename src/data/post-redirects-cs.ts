@@ -129,6 +129,8 @@ const raw = {
   endTitle: 'Nevíte, jestli jsou přesměrování v pořádku?',
   endText: 'Když si nejste jistí, jestli jsou přesměrování v pořádku, podívám se na technické chyby webu.',
   nextLead: 'Další krok:',
+  chooseLead: 'Nevíte, čím začít?',
+  chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   nextLinkText: 'Po redesignu webu klesla návštěvnost: kde hledat chybu',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',

@@ -116,6 +116,8 @@ const raw = {
   endTitle: 'Nevíte, kde je chyba po redesignu?',
   endText: 'Když po redesignu nevíte, kde je chyba, podívám se na technické chyby webu.',
   nextLead: 'Další krok:',
+  chooseLead: 'Nevíte, čím začít?',
+  chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   nextLinkText: 'Duplicitní obsah: co to je a jak ho vyřešit',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',

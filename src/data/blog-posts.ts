@@ -9,6 +9,7 @@ import { POST_REDESIGN_CS, POST_REDESIGN_PUBLISHED } from './post-redesign-cs';
 import { POST_ADS_CS, POST_ADS_PUBLISHED } from './post-ads-cs';
 import { POST_REDIRECTS_CS, POST_REDIRECTS_PUBLISHED } from './post-redirects-cs';
 import { POST_NEWSITE_CS, POST_NEWSITE_PUBLISHED } from './post-newsite-cs';
+import { POST_CHOOSE_CS, POST_CHOOSE_PUBLISHED } from './post-choose-cs';
 
 export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: string; description: string; image?: { src: string; width: number; height: number; alt: string } }
 
@@ -21,6 +22,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postAds', lang: 'cs', date: POST_ADS_PUBLISHED, title: META.postAds.cs.h1, description: META.postAds.cs.description, image: POST_ADS_CS.cover },
   { key: 'postRedirects', lang: 'cs', date: POST_REDIRECTS_PUBLISHED, title: META.postRedirects.cs.h1, description: META.postRedirects.cs.description, image: POST_REDIRECTS_CS.cover },
   { key: 'postNewSite', lang: 'cs', date: POST_NEWSITE_PUBLISHED, title: META.postNewSite.cs.h1, description: META.postNewSite.cs.description, image: POST_NEWSITE_CS.cover },
+  { key: 'postChoose', lang: 'cs', date: POST_CHOOSE_PUBLISHED, title: META.postChoose.cs.h1, description: META.postChoose.cs.description, image: POST_CHOOSE_CS.cover },
 ];
 
 export const dedicatedPosts = (lang: Lang) => ALL.filter((p) => p.lang === lang).sort((a, b) => b.date.localeCompare(a.date));

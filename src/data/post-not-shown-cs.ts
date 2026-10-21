@@ -100,6 +100,8 @@ const raw = {
   endTitle: 'Nevíte, kde je příčina?',
   endText: 'Když poznáte příznaky, ale nevíte, kde je příčina, podívám se na technické chyby webu.',
   nextLead: 'Další krok:',
+  chooseLead: 'Nevíte, čím začít?',
+  chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',
 

@@ -39,6 +39,7 @@ import PostRedesignCsPage from '../views/PostRedesignCsPage.astro';
 import PostAdsCsPage from '../views/PostAdsCsPage.astro';
 import PostRedirectsCsPage from '../views/PostRedirectsCsPage.astro';
 import PostNewSiteCsPage from '../views/PostNewSiteCsPage.astro';
+import PostChooseCsPage from '../views/PostChooseCsPage.astro';
 import Blog from '../views/Blog.astro';
 import PostView from '../views/Post.astro';
 import Faq from '../views/Faq.astro';
@@ -62,7 +63,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null,
+  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -85,6 +86,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postAds' && props.lang === 'cs' && <PostAdsCsPage />}
 {props.key === 'postRedirects' && props.lang === 'cs' && <PostRedirectsCsPage />}
 {props.key === 'postNewSite' && props.lang === 'cs' && <PostNewSiteCsPage />}
+{props.key === 'postChoose' && props.lang === 'cs' && <PostChooseCsPage />}
 {props.key === 'caseHalf' && props.lang === 'cs' && <CaseHalfCsPage />}
 {props.key === 'caseTypo' && props.lang === 'cs' && <CaseTypoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'ru' && <CaseTypoRuPage />}

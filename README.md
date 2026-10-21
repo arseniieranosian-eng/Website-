@@ -144,3 +144,7 @@ Redesign article, full brief: the page was rewritten to the full brief of 21.10.
 ## Blog article «Nový web a Google ho nevidí» (cs)
 
 `/blog/novy-web-a-google-ho-nevidi/`: `src/data/post-newsite-cs.ts`, `src/lib/schema-post-newsite.ts`, `src/views/PostNewSiteCsPage.astro`, check `scripts/check-post-newsite-cs.mjs`. Waiting time only «dny až týdny». HowTo = the first four visible steps of «Postup v kostce» (the fifth, the index request, is shown but kept out of the markup until the Search Console limit is checked). Seznam: one general sentence, no steps. Linked from the «Proč se web nezobrazuje v Googlu» and «Jak zjistit, jestli je web indexovaný» articles.
+
+## Blog article «Audit zdarma, konzultace, nebo Start» (cs)
+
+`/blog/audit-konzultace-nebo-start/`: `src/data/post-choose-cs.ts`, `src/lib/schema-post-choose.ts`, `src/views/PostChooseCsPage.astro`, check `scripts/check-post-choose-cs.mjs`. Closing article of the audit funnel; no prices, one button (the free audit), the services as text links, `mentions` points to the four service `@id`s (maps at `/lokalni-seo-mapy/`). The brief's unconfirmed rules («Start před Full SEO», «změna formátu») are worded as possibilities. The «Další krok» blocks of the other articles link here, as does the SEO-audit article. Back-links from the service pages are still to be added.
