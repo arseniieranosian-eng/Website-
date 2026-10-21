@@ -46,6 +46,7 @@ const C = {
         <div class="grid grid-3">
           {own.map((p) => (
             <a class="card card--link post-card" href={ROUTES[p.key][lang]}>
+              {p.image && <img class="post-card-img" src={p.image.src} width={p.image.width} height={p.image.height} alt={p.image.alt} loading="lazy" decoding="async" />}
               <time class="post-card-date" datetime={p.date}>{formatDate(new Date(p.date), lang)}</time>
               <h2>{p.title}</h2>
               <p>{p.description}</p>

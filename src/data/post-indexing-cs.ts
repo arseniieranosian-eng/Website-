@@ -16,6 +16,8 @@ const raw = {
   readLabel: 'Čtení',
   readUnit: 'min',
 
+  cover: { src: '/images/blog/jak-zjistit-indexaci.webp', width: 1200, height: 630, alt: 'Ilustrace: lupa se zelenou fajfkou nad výsledky vyhledávání site:vasedomena.cz' },
+
   lead: 'Nejrychleji to zjistíte zadáním site:vasedomena.cz do Googlu: uvidíte přibližný počet stránek v indexu. Přesně to ukáže Google Search Console: Kontrola adresy URL u jedné stránky a report Stránky u celého webu. Pokud stránky chybí, bývá příčinou noindex, robots.txt, duplicita nebo canonical.',
   methodsTitle: 'Pět způsobů, jak zkontrolovat indexaci',
   methods: {

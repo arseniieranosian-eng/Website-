@@ -27,6 +27,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
 <Base {...pageProps('postIndexing', lang)} ogType="article" ogImage={OG} schema={postIndexingSchemas(site, C, { modified: MOD })}>
   <section class="page-hero">
     <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
       <h1>{META.postIndexing.cs.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
       <p class="lead">{C.lead}</p>

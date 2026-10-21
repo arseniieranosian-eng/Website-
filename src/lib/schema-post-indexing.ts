@@ -38,6 +38,7 @@ export function postIndexingSchemas(site: URL, C: typeof POST_INDEXING_CS, opts:
       datePublished: POST_INDEXING_PUBLISHED,
       dateModified: opts.modified,
       mainEntityOfPage: { '@id': `${url}#webpage` },
+      image: abs(C.cover.src),
       about: C.schema.about,
       mentions: C.schema.mentions,
       relatedLink: abs(path('audit', lang)),

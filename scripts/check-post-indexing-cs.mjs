@@ -38,6 +38,8 @@ for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 if (/<form|<video|★|AggregateRating|ratingValue|\[\?\]/.test(main)) e('no form / video / stars / [?] markers');
 if ((main.match(/href="\/audit-zdarma\/"/g) || []).length !== 2) e('main CTA: exactly two audit buttons (3.8 and 3.10)');
 if ((main.match(/class="btn btn--primary/g) || []).length !== 2) e('one main CTA only');
+if (!/<img class="post-cover" src="\/images\/blog\/jak-zjistit-indexaci\.webp" width="1200" height="630" alt="Ilustrace:[^"]+"/.test(main) || main.indexOf('post-cover') > main.indexOf('<h1')) e('cover illustration before the H1');
+if (!/<a class="card card--link post-card" href="\/blog\/jak-zjistit[^>]*>\s*<img class="post-card-img"/.test(readFileSync('dist/blog/index.html', 'utf8'))) e('blog card with the cover');
 // Byline
 if (!/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">[^<]+<\/time> · Čtení: \d+ min/.test(h)) e('byline');
 // Answer-first: a direct answer right after every question-form H2

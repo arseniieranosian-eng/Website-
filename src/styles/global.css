@@ -492,3 +492,6 @@ table.compare { min-width: 0; }
 .post-figure figcaption { margin-top: 8px; font-size: 0.875rem; color: var(--text-muted); }
 .post-meta { color: var(--text-muted); font-size: 0.875rem; }
 .post-card .post-card-date { color: var(--text-muted); font-size: 0.875rem; }
+
+.post-cover { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 0 20px; border-radius: var(--radius); border: 1px solid var(--line); }
+.post-card-img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 12px; }
