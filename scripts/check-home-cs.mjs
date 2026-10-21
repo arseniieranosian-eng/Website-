@@ -32,7 +32,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f) || desc.includes(f) || title.includes(f)) e(`forbidden text: ${f}`);
 // "agentura" only inside the case names (the brief names the translation-agency case that way)
-if (/agentur/i.test(mainTxt.replace(/Překladatelská agentura(?:, část [12]|: půl roku práce)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
+if (/agentur/i.test(mainTxt.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/href="\/blog\//.test(h)) e('no blog links on the home page');
 if (/★|AggregateRating|ratingValue/.test(h)) e('no stars / AggregateRating');
@@ -58,7 +58,10 @@ if (/Kč/.test(txt((sv.match(/\/mapy\/[\s\S]*?<\/a>/) || [''])[0]))) e('maps: no
 const FORMULAS = ['Poptávky z formuláře ×8 (červen proti květnu)', 'Poptávky z formuláře ×24 (+2300 %): jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně. Od nízké základny', '1 200 → 10 500 návštěv za měsíc, +775 %, červenec 2024 → červenec 2025', '+55 % organické návštěvnosti, březen → září 2025 (7 měsíců), relativní data od nízké základny nového webu', 'Poptávky tři měsíce po sobě +65–70 % měsíčně, B2B poptávky ×3 (+200 %), březen–září 2026'];
 for (const f of FORMULAS) if (!mainTxt.includes(f)) e(`case formula missing: ${f}`);
 if (!mainTxt.includes('Názvy klientů a absolutní čísla nezveřejňuji. Počty a procenta jsou relativní data.')) e('results note');
-if (/Výsledky v číslech/.test(mainTxt)) e('the numbers block must be gone');
+// Trust bar right after the hero, before the navigator: five HTML tiles with periods (same data as /o-mne/)
+const tb = main.indexOf('class="trust-bar"');
+if (tb < 0 || !(tb < main.indexOf('Kam dál?')) || !(main.indexOf('class="hero"') < tb) || [...main.matchAll(/<dl class="stats stats--five">[\s\S]*?<\/dl>/g)].length !== 1 || [...(main.match(/<dl class="stats stats--five">[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dd>/g)].length !== 5) e('trust bar: five tiles right after the hero, before "Kam dál?"');
+if (/Výsledky v číslech<\/h2>/.test(main)) e('no old numbers heading');
 // The same formulas live on the case pages / the Start page (one source)
 if (!txt(readFileSync('dist/pripadove-studie/seo-v-nizke-sezone/index.html', 'utf8')).includes(FORMULAS[1])) e('season page: formula differs from the home page');
 const startTxt = txt(readFileSync('dist/start-3-mesice/index.html', 'utf8'));

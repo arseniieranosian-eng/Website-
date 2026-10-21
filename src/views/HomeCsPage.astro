@@ -5,6 +5,7 @@ import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
+import TrustBarCs from '../components/TrustBarCs.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -47,6 +48,11 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
         <LeadForm lang={lang} id="home-hero" title={C.formTitle} compact />
       </div>
     </div>
+  </section>
+
+  <!-- TRUST BAR (the same component and data as on /o-mne/, right after the hero) -->
+  <section class="section section--tight" aria-label="Výsledky v číslech">
+    <div class="container"><TrustBarCs /></div>
   </section>
 
   <!-- WHERE NEXT: the hub navigator (plain links) -->
