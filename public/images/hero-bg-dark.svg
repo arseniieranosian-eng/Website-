@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0b0f"/><stop offset="0.55" stop-color="#0f1736"/><stop offset="1" stop-color="#14245c"/></linearGradient>
+    <radialGradient id="glowB" cx="0.82" cy="0.3" r="0.55"><stop offset="0" stop-color="#2d5bff" stop-opacity="0.55"/><stop offset="1" stop-color="#2d5bff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowO" cx="0.05" cy="1.05" r="0.45"><stop offset="0" stop-color="#ff6a1a" stop-opacity="0.35"/><stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/></pattern>
+    <linearGradient id="line" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff6a1a" stop-opacity="0"/><stop offset="0.5" stop-color="#ff6a1a" stop-opacity="0.55"/><stop offset="1" stop-color="#ffb27a" stop-opacity="0.9"/></linearGradient>
+  </defs>
+  <rect width="1600" height="720" fill="url(#bg)"/>
+  <rect width="1600" height="720" fill="url(#grid)"/>
+  <rect width="1600" height="720" fill="url(#glowB)"/>
+  <rect width="1600" height="720" fill="url(#glowO)"/>
+  <polyline points="0,640 200,600 380,620 560,540 740,560 920,440 1100,470 1280,320 1440,300 1600,190" fill="none" stroke="url(#line)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <g fill="#ffb27a" fill-opacity="0.85"><circle cx="920" cy="440" r="7"/><circle cx="1280" cy="320" r="7"/><circle cx="1600" cy="190" r="7"/></g>
+  <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="2" fill="none"><circle cx="1330" cy="150" r="190"/><circle cx="1330" cy="150" r="290"/></g>
+</svg>

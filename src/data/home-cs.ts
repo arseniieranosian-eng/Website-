@@ -27,7 +27,6 @@ export const HOME_CS = {
   ],
 
   servicesTitle: 'Jaké služby nabízím?',
-  servicesAnswer: 'Nabízím čtyři placené služby a jeden bezplatný audit: konzultaci, SEO start na 3 měsíce, Full SEO na rok a SEO pro mapy. GEO/AEO je součástí každé služby.',
   services: [
     { page: 'consulting' as const, text: 'Kontrola webu, odpovědi na otázky a jasný akční plán. Online nebo osobně v Praze.', meta: `Od ${fmtKc(PRICES.questions)} (1 hodina nebo bez časového limitu)` },
     { page: 'start' as const, text: 'Intenzivní práce od auditu a oprav po klíčová slova a optimalizaci klíčových stránek.', meta: `${fmtKc(START_PRICE)}, 3 měsíce` },
