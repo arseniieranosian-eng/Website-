@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postAds: {
+    cs: {
+      name: 'SEO a reklama',
+      title: 'SEO a reklama: proč reklama funguje lépe s SEO | Eranosian',
+      description: 'SEO nebo reklama? Reklama dodá návštěvníky rychle, ale výsledek závisí na webu. Jak SEO reklamě pomáhá a v jakém pořadí je kombinovat. Poradím, kde začít.',
+      h1: 'SEO a reklama: proč reklama funguje lépe na optimalizovaném webu',
+    },
+    en: { name: 'SEO and advertising', title: 'SEO and advertising', description: 'SEO and advertising', h1: 'SEO and advertising' },
+    ru: { name: 'SEO и реклама', title: 'SEO и реклама', description: 'SEO и реклама', h1: 'SEO и реклама' },
+  },
   postRedesign: {
     cs: {
       name: 'Po redesignu klesla návštěvnost',

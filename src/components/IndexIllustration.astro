@@ -1,6 +1,6 @@
 ---
 // Drawn illustrations (not screenshots) for the indexing article. Real SVG text, light palette, 640 × 300.
-interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual' | 'parts' | 'dupreport' | 'addresses' | 'drop' | 'e404'; aria: string }
+interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual' | 'parts' | 'dupreport' | 'addresses' | 'drop' | 'e404' | 'flow'; aria: string }
 const { kind, aria } = Astro.props;
 ---
 <svg class="post-illus" viewBox="0 0 640 300" role="img" aria-label={aria} xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, Arial, sans-serif">
@@ -158,6 +158,21 @@ const { kind, aria } = Astro.props;
       ))}
       <line x1="28" x2="612" y1="240" y2="240" stroke="#e3e7ef" />
       <text x="28" y="272" font-size="13" fill="#5b6272">Hodnoty jsou ukázkové; názvy důvodů se v Search Console mohou lišit.</text>
+    </>
+  )}
+  {kind === 'flow' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Pořadí kroků</text>
+      {['Základ webu', 'Měření', 'Reklama', 'Přesun rozpočtu'].map((n, i) => (
+        <>
+          <rect x={28 + i * 150} y="80" width="130" height="110" rx="12" fill={i === 0 ? '#1f4fd8' : '#f4f6fa'} stroke={i === 0 ? '#1f4fd8' : '#e3e7ef'} />
+          <text x={93 + i * 150} y="124" font-size="24" font-weight="700" text-anchor="middle" fill={i === 0 ? '#fff' : '#9aa3b5'}>{i + 1}</text>
+          <text x={93 + i * 150} y="160" font-size="15" font-weight="600" text-anchor="middle" fill={i === 0 ? '#fff' : '#0b0b0f'}>{n}</text>
+          {i < 3 && <path d={`M${162 + i * 150} 135h12m-5 -5l5 5l-5 5`} stroke="#5b6272" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />}
+        </>
+      ))}
+      <text x="28" y="232" font-size="13" fill="#5b6272">Nejdřív základ webu, pak měření, pak reklama na nejlepší stránky</text>
+      <text x="28" y="252" font-size="13" fill="#5b6272">a přesun rozpočtu tam, kde funguje.</text>
     </>
   )}
 </svg>
