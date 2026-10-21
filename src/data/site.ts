@@ -36,6 +36,9 @@ export const SITE = {
   // click-to-play) is shown on the consulting page. Set video to null to hide it.
   photo: '/images/author.jpg',
   photoSmall: '/images/author-720.jpg',
+  // Second photo (the about page shows photo 1, then photo 2); photo 1 is the flagship one used everywhere else (quotes, home).
+  photo2: '/images/author-2.jpg',
+  photo2Small: '/images/author-2-720.jpg',
   video: '/media/intro.mp4' as string | null,
   videoPoster: '/media/intro-poster.jpg',
   // Real date the video went live on the site (first deploy, 19.10.2026). Used in VideoObject.uploadDate.

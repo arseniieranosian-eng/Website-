@@ -13,6 +13,7 @@ const raw = {
   heroAudit: 'Chci bezplatný audit',
   heroContact: 'Napište mi',
   photoAlt: 'Arsenii Eranosian, SEO specialista v Praze',
+  photo2Alt: 'Arsenii Eranosian při rozhovoru o SEO',
 
   approachTitle: 'Jak přistupuji k SEO?',
   approachAnswer: 'Nezačínám seznamem klíčových slov, ale byznys modelem: jak firma vydělává, kdo jsou její skuteční zákazníci a co brání vyhledávání, aby je přivádělo. SEO pro mě není seznam úkolů, ale systém, který mění vyhledávání na poptávky.',

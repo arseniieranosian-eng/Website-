@@ -53,12 +53,15 @@ const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
 
   <!-- APPROACH -->
   <section class="section section--grey">
-    <div class="container narrow">
-      <h2>{C.approachTitle}</h2>
-      <p class="answer">{C.approachAnswer}</p>
-      <p>
-        {C.approachText.before}{C.approachText.links.map((l, i) => <>{i > 0 && ', '}<a href={t(l.page)}>{l.text}</a></>)}{C.approachText.afterLinks}{C.approachText.geo.before}<a href={t('geo')}>{C.approachText.geo.link}</a>{C.approachText.geo.after}
-      </p>
+    <div class="container split">
+      <AuthorMedia alt={C.photo2Alt} second />
+      <div>
+        <h2>{C.approachTitle}</h2>
+        <p class="answer">{C.approachAnswer}</p>
+        <p>
+          {C.approachText.before}{C.approachText.links.map((l, i) => <>{i > 0 && ', '}<a href={t(l.page)}>{l.text}</a></>)}{C.approachText.afterLinks}{C.approachText.geo.before}<a href={t('geo')}>{C.approachText.geo.link}</a>{C.approachText.geo.after}
+        </p>
+      </div>
     </div>
   </section>
 

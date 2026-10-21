@@ -1,7 +1,9 @@
 ---
 import { SITE } from '../data/site';
-interface Props { alt: string; eager?: boolean; variant?: 'photo' | 'video' }
-const { alt, eager = false, variant = 'photo' } = Astro.props;
+interface Props { alt: string; eager?: boolean; variant?: 'photo' | 'video'; second?: boolean }
+const { alt, eager = false, variant = 'photo', second = false } = Astro.props;
+const small = second ? SITE.photo2Small : SITE.photoSmall;
+const full = second ? SITE.photo2 : SITE.photo;
 const showVideo = variant === 'video' && SITE.video;
 ---
 <div class:list={['author-media', { 'author-media--video': showVideo }]}>
@@ -9,8 +11,8 @@ const showVideo = variant === 'video' && SITE.video;
     <video src={SITE.video} poster={SITE.videoPoster} controls playsinline preload="none" aria-label={alt} width="720" height="1280"></video>
   ) : (
     <img
-      src={SITE.photoSmall}
-      srcset={`${SITE.photoSmall} 720w, ${SITE.photo} 900w`}
+      src={small}
+      srcset={`${small} 720w, ${full} 900w`}
       sizes="(min-width: 900px) 520px, 100vw"
       alt={alt}
       width="720"

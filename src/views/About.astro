@@ -36,6 +36,7 @@ const C = {
     toolsTitle: 'Nástroje',
     where: 'Sídlím v Praze a pracuji s klienty z evropských i amerických trhů.',
     alt: 'Arsenii Eranosian, SEO specialista v Praze',
+    alt2: 'Arsenii Eranosian při rozhovoru o SEO',
     ctaTitle: 'Je SEO na vaší roadmapě? Pojďme to probrat',
     ctaText: 'Začneme bezplatným auditem a krátkým callem.',
   },
@@ -55,6 +56,7 @@ const C = {
     toolsTitle: 'Toolkit',
     where: 'Based in Prague, I work with clients across European and American markets.',
     alt: 'Arsenii Eranosian, SEO specialist in Prague',
+    alt2: 'Arsenii Eranosian talking about SEO',
     ctaTitle: 'Is SEO on your roadmap? Let’s talk',
     ctaText: 'We start with a free audit and a short call.',
   },
@@ -74,6 +76,7 @@ const C = {
     toolsTitle: 'Инструменты',
     where: 'Живу в Праге, работаю с клиентами из европейских и американских рынков.',
     alt: 'Arsenii Eranosian, SEO-специалист в Праге',
+    alt2: 'Arsenii Eranosian рассказывает о SEO',
     ctaTitle: 'SEO в ваших планах? Давайте обсудим',
     ctaText: 'Начнём с бесплатного аудита и короткого созвона.',
   },
@@ -115,10 +118,13 @@ const profile = {
   </section>
 
   <section class="section section--tight">
-    <div class="container narrow">
-      <h2>{C.toolsTitle}</h2>
-      <ul class="chips">{TOOLS.map((x) => <li>{x}</li>)}</ul>
-      <p><a class="link-arrow" href={path('reviews', lang)}>{ui.allReviews}</a> · <a class="link-arrow" href={SITE.socials[0].url} rel="me noopener" target="_blank">LinkedIn</a></p>
+    <div class="container split">
+      <AuthorMedia alt={C.alt2} second />
+      <div>
+        <h2>{C.toolsTitle}</h2>
+        <ul class="chips">{TOOLS.map((x) => <li>{x}</li>)}</ul>
+        <p><a class="link-arrow" href={path('reviews', lang)}>{ui.allReviews}</a> · <a class="link-arrow" href={SITE.socials[0].url} rel="me noopener" target="_blank">LinkedIn</a></p>
+      </div>
     </div>
   </section>
 
