@@ -35,6 +35,7 @@ const others = [
   { key: 'fullSeo', text: '' },
   { key: 'maps', text: '' },
 ] as const;
+import QuoteCaption from '../components/QuoteCaption.astro';
 ---
 <Base {...pageProps('audit', lang)} schema={auditSchemas(site, C, V, { modified: MOD, reviews })}>
   <!-- HERO -->
@@ -77,7 +78,7 @@ const others = [
     <div class="container narrow">
       <figure class="quote-fig">
         <blockquote cite={new URL(t('audit'), site).href}><p>{C.quote.text}</p></blockquote>
-        <figcaption>— <a href={t('about')}>{C.quote.author}</a>, {C.quote.role}</figcaption>
+        <QuoteCaption lang={lang} />
       </figure>
     </div>
   </section>

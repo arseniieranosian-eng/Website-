@@ -1,15 +1,15 @@
 ---
 // The author's quote on a service page: figure > blockquote (cite = page URL) + caption with a link to the about page.
-import { path, type Lang } from '../i18n/routes';
+import type { Lang } from '../i18n/routes';
+import QuoteCaption from './QuoteCaption.astro';
 interface Props { text: string; cite: string; lang?: Lang }
 const { text, cite, lang = 'cs' } = Astro.props;
-const T = { cs: ['Arsenii Eranosian', 'SEO a GEO/AEO specialista'] }[lang as 'cs']!;
 ---
 <section class="section section--tight">
   <div class="container narrow">
     <figure class="quote-fig">
       <blockquote cite={cite}><p>{text}</p></blockquote>
-      <figcaption>— <a href={path('about', lang)}>{T[0]}</a>, {T[1]}</figcaption>
+      <QuoteCaption lang={lang} />
     </figure>
   </div>
 </section>

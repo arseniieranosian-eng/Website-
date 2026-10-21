@@ -453,6 +453,7 @@ table.compare { min-width: 0; }
 .quote-fig { margin: 0; padding: 8px 0 8px 24px; border-left: 4px solid var(--blue); }
 .quote-fig blockquote { margin: 0 0 12px; }
 .quote-fig blockquote p { margin: 0; font-size: 1.35rem; line-height: 1.45; font-weight: 600; }
-.quote-fig figcaption { color: var(--text-muted); }
+.quote-fig figcaption { color: var(--text-muted); display: flex; align-items: center; gap: 12px; }
+.quote-fig figcaption img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
 .quote-fig figcaption a { color: var(--text); font-weight: 700; text-decoration: none; }
 .quote-fig figcaption a:hover { color: var(--blue); text-decoration: underline; }

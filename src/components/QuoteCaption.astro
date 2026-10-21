@@ -1,0 +1,12 @@
+---
+// Caption of an author's quote in a <figure>: small round photo (the flagship one) + "— name, title" with a link to the about page.
+import { path, type Lang } from '../i18n/routes';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = {
+  cs: ['Arsenii Eranosian', 'SEO a GEO/AEO specialista'],
+  en: ['Arsenii Eranosian', 'SEO and GEO/AEO specialist'],
+  ru: ['Арсений Ераносьян', 'SEO- и GEO/AEO-специалист'],
+}[lang];
+---
+<figcaption><img src="/images/author-avatar.jpg" width="44" height="44" alt="" decoding="async" /><span>— <a href={path('about', lang)}>{T[0]}</a>, {T[1]}</span></figcaption>

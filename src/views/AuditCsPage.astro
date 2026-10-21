@@ -28,6 +28,7 @@ const reviews = REVIEWS.filter((r) => !r.sample && !r.services.includes('consult
   .slice(0, 3);
 const notes = { 'make-up-agency': 'Agentura, přes kterou jsem pracoval s překladatelskou agenturou' };
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+import QuoteCaption from '../components/QuoteCaption.astro';
 ---
 <Base {...pageProps('audit', lang)} schema={auditCsSchemas(site, C, V, { modified: MOD })}>
   <!-- HERO -->
@@ -80,7 +81,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <figure class="quote-fig">
         <blockquote cite={new URL(t('audit'), site).href}><p>{C.quote.text}</p></blockquote>
-        <figcaption>— <a href={t('about')}>{C.quote.author}</a>, {C.quote.role}</figcaption>
+        <QuoteCaption lang={lang} />
       </figure>
     </div>
   </section>
