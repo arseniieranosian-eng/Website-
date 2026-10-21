@@ -122,6 +122,12 @@ export const START_CS = {
   reviewsTitle: 'Co říkají klienti',
   reviewsLink: 'Všechny reference',
 
+  // "Související články": posts that help to decide on and prepare the Start (the advertising article is the one of this funnel).
+  articlesTitle: 'Související články',
+  articlesLead: 'Praktické články o tom, jak vybrat první krok v SEO a na čem stojí základ webu.',
+  articlesMore: 'Číst článek',
+  articles: ['postAds', 'postChoose', 'postSeoAudit', 'postNotShown'] as const,
+
   faqTitle: 'Časté otázky o SEO startu',
   faq: [
     { q: 'Kolik stojí SEO start na 3 měsíce?', a: `${price}, ${payment}.` },

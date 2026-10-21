@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/start-3-mesice/';
 const H1 = 'SEO start na 3 měsíce';
-const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá SEO start', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům', 'Co říkají klienti', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá SEO start', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům', 'Co říkají klienti', 'Související články', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['agentura Praha', 'SEO agentura', 'měsíční report', '4–8 týdnů', 'Jak probíhá spolupráce', 'Marketingové týmy', 'in-house'];
 // Wording of the maps item of the OfferCatalog is fixed by the brief (merges the three map bullets).
@@ -86,6 +86,9 @@ for (const [hd, ans] of [['Kolik stojí SEO start na 3 měsíce?', 'SEO start na
 }
 if (!body.includes('od 4 měsíců, s platbou za výsledek')) e('maps block must mention the standalone service terms');
 
+// Related articles: four cards with covers (advertising, choosing the first step, SEO audit, no-show)
+const ra = (h.match(/Související články<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 4 || !ra.includes('/blog/seo-a-reklama/')) e('related articles: four cards with covers, incl. the advertising article');
 if (errors.length) {
   console.error(`\nCzech Start page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);
