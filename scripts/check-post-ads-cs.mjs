@@ -72,7 +72,7 @@ const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/
 if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
 if (g.some((n) => ['Service', 'Offer', 'AggregateRating', 'Review'].includes(n['@type']))) e('no Service/Offer/rating markup');
 const Q2 = 'Dobrá cílová stránka je polovina úspěchu kampaně. Když neodpovídá tomu, co člověk hledal, může být každý klik zbytečně drahý.';
-if (!/<figure class="quote-fig">\s*<blockquote cite="[^"]*seo-a-reklama\/"><p>[^<]*<\/p><\/blockquote>\s*<figcaption><span>— <a href="https:\/\/www\.instagram\.com\/naum_official"[^>]*>Ilya Naumuk<\/a>, specialista na PPC reklamu<\/span><\/figcaption>/.test(main)) e('PPC specialist quote with the Instagram link');
+if (!/<figure class="owner-quote">\s*<blockquote cite="[^"]*seo-a-reklama\/"><p>[^<]*<\/p><\/blockquote>\s*<figcaption>\s*<img src="\/images\/blog\/ilya-naumuk\.jpg"[^>]*alt="Ilya Naumuk, specialista na PPC reklamu"[^>]*>\s*<span>— <a href="https:\/\/www\.instagram\.com\/naum_official"[^>]*>Ilya Naumuk<\/a>, specialista na PPC reklamu<\/span><\/figcaption>/.test(main)) e('PPC specialist quote with the Instagram link');
 const iq2 = mainTxt.indexOf(Q2);
 if (!(mainTxt.indexOf('Jak poznat, že je web připravený na reklamu?') < iq2 && iq2 < mainTxt.indexOf('Stránka odpovídá na konkrétní dotaz.'))) e('quote 2 after the first paragraph of the readiness section, before the checklist');
 if (!mainTxt.includes('Reklamu nespravuji, pomáhám připravit web.')) e('border: advertising is not managed');

@@ -84,7 +84,7 @@ const raw = {
   readyTitle: 'Jak poznat, že je web připravený na reklamu?',
   readyAnswer: 'Web je připravený, když stránka odpovídá na dotaz, má jasnou nabídku a výzvu k akci, vzbuzuje důvěru a měří poptávky.',
   quote2: 'Dobrá cílová stránka je polovina úspěchu kampaně. Když neodpovídá tomu, co člověk hledal, může být každý klik zbytečně drahý.',
-  quote2Person: { name: 'Ilya Naumuk', role: 'specialista na PPC reklamu', instagram: 'https://www.instagram.com/naum_official' },
+  quote2Person: { name: 'Ilya Naumuk', role: 'specialista na PPC reklamu', instagram: 'https://www.instagram.com/naum_official', photo: { src: '/images/blog/ilya-naumuk.jpg', width: 150, height: 150, alt: 'Ilya Naumuk, specialista na PPC reklamu' } },
   ready: [
     'Stránka odpovídá na konkrétní dotaz.',
     'Nabídka a výzva k akci jsou na první pohled jasné.',

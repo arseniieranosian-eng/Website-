@@ -101,9 +101,11 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.readyTitle}</h2>
       <p class="answer">{C.readyAnswer}</p>
-      <figure class="quote-fig">
+      <figure class="owner-quote">
         <blockquote cite={cite}><p>{C.quote2}</p></blockquote>
-        <figcaption><span>— <a href={q2.instagram} rel="me noopener nofollow" target="_blank">{q2.name}</a>, {q2.role}</span></figcaption>
+        <figcaption>
+          <img src={q2.photo.src} width={q2.photo.width} height={q2.photo.height} alt={q2.photo.alt} loading="lazy" decoding="async" />
+          <span>— <a href={q2.instagram} rel="me noopener nofollow" target="_blank">{q2.name}</a>, {q2.role}</span></figcaption>
       </figure>
       <ol class="steps">{C.ready.map((s) => <li><span>{s}</span></li>)}</ol>
     </div>

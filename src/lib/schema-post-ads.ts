@@ -41,7 +41,7 @@ export function postAdsSchemas(site: URL, C: typeof POST_ADS_CS, opts: { modifie
     },
     quotationSchema(url, id.person, C.quote1, lang),
     { '@type': 'Quotation', '@id': `${url}#quote-2`, text: C.quote2, creator: { '@id': `${url}#ppc` }, inLanguage: lang, isPartOf: { '@id': `${url}#webpage` } },
-    { '@type': 'Person', '@id': `${url}#ppc`, name: q2.name, jobTitle: q2.role, sameAs: [q2.instagram] },
+    { '@type': 'Person', '@id': `${url}#ppc`, name: q2.name, jobTitle: q2.role, image: abs(q2.photo.src), sameAs: [q2.instagram] },
     {
       '@type': 'FAQPage',
       mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
