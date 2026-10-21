@@ -1,0 +1,20 @@
+---
+// "Proč mi klienti věří?": answer-first paragraph + four reasons + where to verify. Data: data/why-trust-cs.ts.
+// Replaces the short "Kdo to dělá?" block on the Czech service pages and sits on the Czech home page.
+import { path } from '../i18n/routes';
+import { SITE } from '../data/site';
+import { WHY_TRUST_CS as W } from '../data/why-trust-cs';
+interface Props { tone?: 'white' | 'grey'; cases?: boolean } // cases=false: no link to the case list (the maps page has no case for now)
+const { tone = 'white', cases = true } = Astro.props;
+const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
+---
+<section class:list={['section', { 'section--grey': tone === 'grey' }]} id="proc-mi-veri">
+  <div class="container">
+    <h2>{W.title}</h2>
+    <p class="answer">{W.answer}</p>
+    <div class="grid grid-4">
+      {W.reasons.map((r) => <div class="card"><h3>{r.title}</h3><p>{r.text}</p></div>)}
+    </div>
+    <p style="margin-top: 20px">{cases ? W.verifyLead : W.verifyLeadNoCases} <a href={linkedin} rel="me noopener" target="_blank">LinkedIn</a> · <a href={path('reviews', 'cs')}>Recenze</a>{cases && <> · <a href={path('cases', 'cs')}>Případové studie</a></>} · <a class="link-arrow" href={path('about', 'cs')}>{W.more}</a></p>
+  </div>
+</section>

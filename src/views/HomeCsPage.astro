@@ -6,6 +6,7 @@ import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import TrustBarCs from '../components/TrustBarCs.astro';
+import WhyTrustCs from '../components/WhyTrustCs.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -135,6 +136,9 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
       <ReviewCards reviews={reviews} lang={lang} compact />
     </div>
   </section>
+
+  <!-- WHY CLIENTS TRUST ME -->
+  <WhyTrustCs />
 
   <!-- FAQ: answers are visible, not hidden in tabs -->
   <section class="section">

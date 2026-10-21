@@ -33,7 +33,7 @@ const others = [
   { key: 'start', text: '' },
   { key: 'fullSeo', text: '' },
 ] as const;
-import WhoDoesItCs from '../components/WhoDoesItCs.astro';
+import WhyTrustCs from '../components/WhyTrustCs.astro';
 import QuoteFigure from '../components/QuoteFigure.astro';
 ---
 <Base {...pageProps('maps', lang)} schema={mapsCsSchemas(site, C, { modified: MOD, reviews })}>
@@ -156,7 +156,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
     </div>
   </section>
 
-  <WhoDoesItCs />
+  <WhyTrustCs cases={false} />
 
   <!-- FORM -->
   <section class="section" id="form">
