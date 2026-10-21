@@ -82,6 +82,9 @@ if (existsSync('dist/en/blog/how-to-check-if-a-site-is-indexed') || existsSync('
 const robots = readFileSync('dist/robots.txt', 'utf8');
 if (/User-agent: (GPTBot|ClaudeBot|PerplexityBot)[\s\S]{0,40}Disallow: \//.test(robots)) e('robots.txt must not block AI bots');
 const blog = readFileSync('dist/blog/index.html', 'utf8');
+const blogLd = JSON.parse(blog.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
+const coll = blogLd.find((n) => n['@type'] === 'CollectionPage');
+if (!coll || coll['@id'] !== `${BASE}/blog/#webpage` || coll.mainEntity['@type'] !== 'ItemList' || coll.mainEntity.itemListElement.length < 5 || !coll.mainEntity.itemListElement.every((x) => x.url.startsWith(`${BASE}/blog/`))) e('blog hub: CollectionPage + ItemList of the articles');
 if (!blog.includes(`href="${URL_PATH}"`) || /<meta name="robots"[^>]*noindex/.test(blog)) e('blog index must list the article and be indexable');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 
