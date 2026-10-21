@@ -43,6 +43,8 @@ const raw = {
   newTitle: 'Je web nový a Google ho zatím nenašel?',
   newAnswer: 'U nového webu to bývá normální: Google potřebuje dny až týdny, než ho najde. Pomoci mohou mapa webu a Google Search Console.',
   newText: 'Nový web Google nezná, dokud ho nenajde přes odkaz nebo mapu webu. Odeslání mapy webu v Google Search Console může nalezení urychlit, ale čas ani výsledek zaručit nelze. Pokud je web starší a stále nic, hledejte příčinu v dalších bodech.',
+  newLead: 'Co dělat po spuštění a kolik čekat, vysvětluji v článku',
+  newLinkText: 'Nový web nevidí Google',
 
   noindexTitle: 'Blokuje web značka noindex?',
   noindexAnswer: 'Značka noindex říká Googlu, aby stránku nezařazoval. Často se na webu zapomene po vývoji nebo po testování.',

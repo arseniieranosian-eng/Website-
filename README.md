@@ -140,3 +140,7 @@ Redesign article, full brief: the page was rewritten to the full brief of 21.10.
 ## Blog article «Přesměrování 301 a chyby 404» (cs)
 
 `/blog/presmerovani-301-a-chyby-404/`: `src/data/post-redirects-cs.ts`, `src/lib/schema-post-redirects.ts`, `src/views/PostRedirectsCsPage.astro`, check `scripts/check-post-redirects-cs.mjs`. No code in the text (setup is the developer's job, the free audit does not set up redirects). HowTo = the four visible steps of «Postup v kostce». Claims to check before publishing: that a mass redirect to the home page may be judged a soft 404 (Google's help), the Czech names in Search Console («Stránky», «Nenalezeno (404)», «Kontrola adresy URL», «Výkon»). Linked from the redesign, no-show and duplicate-content articles.
+
+## Blog article «Nový web a Google ho nevidí» (cs)
+
+`/blog/novy-web-a-google-ho-nevidi/`: `src/data/post-newsite-cs.ts`, `src/lib/schema-post-newsite.ts`, `src/views/PostNewSiteCsPage.astro`, check `scripts/check-post-newsite-cs.mjs`. Waiting time only «dny až týdny». HowTo = the first four visible steps of «Postup v kostce» (the fifth, the index request, is shown but kept out of the markup until the Search Console limit is checked). Seznam: one general sentence, no steps. Linked from the «Proč se web nezobrazuje v Googlu» and «Jak zjistit, jestli je web indexovaný» articles.

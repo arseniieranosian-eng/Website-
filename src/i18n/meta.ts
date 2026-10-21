@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postNewSite: {
+    cs: {
+      name: 'Nový web a Google ho nevidí',
+      title: 'Nový web nevidí Google: kolik čekat a co udělat | Eranosian',
+      description: 'Google nový web nevidí? Ověřte web v Search Console, odešlete mapu webu a zkontrolujte noindex. Při dlouhém čekání pomůže bezplatný audit technických chyb.',
+      h1: 'Nový web a Google ho nevidí: jak dlouho trvá indexace a co udělat',
+    },
+    en: { name: 'New site not in Google', title: 'New site not in Google', description: 'New site not in Google', h1: 'New site not in Google' },
+    ru: { name: 'Новый сайт не виден в Google', title: 'Новый сайт не виден в Google', description: 'Новый сайт не виден в Google', h1: 'Новый сайт не виден в Google' },
+  },
   postRedirects: {
     cs: {
       name: 'Přesměrování 301 a chyby 404',
