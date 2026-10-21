@@ -34,8 +34,8 @@ export const SITE = {
   ],
   // Author media. Photo is used across the site; the vertical video (with sound,
   // click-to-play) is shown on the consulting page. Set video to null to hide it.
-  photo: '/images/author.jpg',
-  photoSmall: '/images/author-720.jpg',
+  photo: '/images/author-1.jpg',
+  photoSmall: '/images/author-1-720.jpg',
   // Second photo (the about page shows photo 1, then photo 2); photo 1 is the flagship one used everywhere else (quotes, home).
   photo2: '/images/author-2.jpg',
   photo2Small: '/images/author-2-720.jpg',
