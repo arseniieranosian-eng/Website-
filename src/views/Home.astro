@@ -113,10 +113,13 @@ const C = {
 ---
 <Base {...pageProps('home', lang)} schema={schema}>
   <!-- 1. Hero + the only form on the page above the footer -->
-  <section class="hero">
+  <section class="hero hero--dark">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">{C.eyebrow}</p>
+        <div class="hero-person">
+          <img src="/images/author-2-avatar.jpg" width="160" height="160" alt={lang === 'ru' ? 'Арсений Ераносьян, SEO-специалист в Праге' : 'Arsenii Eranosian, SEO specialist in Prague'} fetchpriority="high" decoding="async" />
+          <div><p class="hero-person__name">{lang === 'ru' ? 'Арсений Ераносьян' : 'Arsenii Eranosian'}</p><p class="eyebrow">{C.eyebrow}</p></div>
+        </div>
         <h1>{m.h1}</h1>
         <p class="lead">{C.lead}</p>
         <ul class="checks">{C.points.map((p) => <li><Icon name="check" size={18} />{p}</li>)}</ul>

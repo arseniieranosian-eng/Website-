@@ -514,3 +514,6 @@ table.compare { min-width: 0; }
 .hero-person p { margin: 0; }
 .hero-person__name { font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
 .hero-person .eyebrow { margin: 3px 0 0; }
+
+.hero--dark .checks .icon { color: #ff8a4c; }
+.hero--dark .checks li:not(:has(.icon))::before { background: #ff8a4c; }
