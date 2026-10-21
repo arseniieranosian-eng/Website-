@@ -97,6 +97,12 @@ export const AUDIT_CS = {
   proofLink: 'Celý příběh',
   reviewsLink: 'Všechny recenze',
 
+  // "Související články": the posts of the audit funnel (not the Start-funnel article about advertising), in reading order.
+  articlesTitle: 'Související články',
+  articlesLead: 'Praktické články o technických chybách webu: co znamenají, jak je poznat a co s nimi dělat.',
+  articlesMore: 'Číst článek',
+  articles: ['postNotShown', 'postIndexing', 'postNewSite', 'postDuplicates', 'postRedirects', 'postRedesign', 'postSeoAudit', 'postChoose'] as const,
+
   faqTitle: 'Časté otázky k bezplatnému auditu',
   faq: [
     { q: 'Kolik stojí bezplatný SEO audit?', a: 'Zdarma. Audit je bez závazků a nemusíte nic platit.' },

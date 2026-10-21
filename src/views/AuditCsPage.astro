@@ -4,6 +4,7 @@
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -17,7 +18,7 @@ const lang = C.lang;
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
-const MOD = lastModified(['src/views/AuditCsPage.astro', 'src/data/audit-cs.ts', 'src/data/consulting-shared.ts', 'src/data/case-summary.ts', 'src/data/reviews.ts'], '2026-10-20');
+const MOD = lastModified(['src/views/AuditCsPage.astro', 'src/data/audit-cs.ts', 'src/data/blog-posts.ts', 'src/components/RelatedPosts.astro', 'src/data/consulting-shared.ts', 'src/data/case-summary.ts', 'src/data/reviews.ts'], '2026-10-20');
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 
@@ -154,6 +155,15 @@ import QuoteCaption from '../components/QuoteCaption.astro';
       <div class="section-head"><h2>{C.proofTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></div>
       <p>{C.proofText} <a href={t('caseKb')}>{C.proofLink}</a></p>
       <ReviewCards reviews={reviews} lang={lang} compact notes={notes} />
+    </div>
+  </section>
+
+  <!-- RELATED ARTICLES (the audit funnel) -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.articlesTitle}</h2>
+      <p>{C.articlesLead}</p>
+      <RelatedPosts lang={lang} keys={[...C.articles]} more={C.articlesMore} />
     </div>
   </section>
 

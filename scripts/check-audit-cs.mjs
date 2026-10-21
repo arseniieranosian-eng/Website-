@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/audit-zdarma/';
 const H1 = 'Bezplatný SEO audit technických chyb vašeho webu';
-const SECTIONS = [H1, 'Co v bezplatném auditu zkontroluji?', 'Co v auditu nenajdete?', 'Jak audit probíhá?', 'Jak vypadá výstup auditu?', 'Čím se bezplatný audit liší od placené konzultace?', 'Co po auditu?', 'Co říkají výsledky a klienti?', 'Časté otázky k bezplatnému auditu', 'Požádejte o bezplatný audit'];
+const SECTIONS = [H1, 'Co v bezplatném auditu zkontroluji?', 'Co v auditu nenajdete?', 'Jak audit probíhá?', 'Jak vypadá výstup auditu?', 'Čím se bezplatný audit liší od placené konzultace?', 'Co po auditu?', 'Co říkají výsledky a klienti?', 'Související články', 'Časté otázky k bezplatnému auditu', 'Požádejte o bezplatný audit'];
 const LINKS = ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/recenze/', '/o-mne/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/ochrana-osobnich-udaju/'];
 // Out of scope for the free audit and the old page text: must not appear as promises (the "not included" table names them)
 const FORBIDDEN = ['KB PŘEKLADY', '20minut', '20 minut', '5–10', '5-10', '×300', '×6', 'VEED'];
@@ -109,6 +109,9 @@ if (!readFileSync('dist/konzultace/index.html', 'utf8').includes('2 000') ) e('c
 // The old page text is gone
 if (/Technické SEO|Mapy a lokální SEO<\/strong>|ChatGPT/.test(main)) e('old five-direction block must be gone');
 
+// Related articles: eight cards with covers, linking to the audit-funnel articles (not the advertising one)
+const ra = (h.match(/Související články<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 8 || ra.includes('/blog/seo-a-reklama/')) e('related articles: eight cards with covers, no advertising article');
 if (errors.length) {
   console.error(`\nCzech audit page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);

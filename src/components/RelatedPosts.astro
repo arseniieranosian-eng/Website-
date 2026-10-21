@@ -1,0 +1,18 @@
+---
+// "Související články": cards with the article cover, the title and a link. Data: data/blog-posts.ts (dedicated articles).
+import { dedicatedPosts } from '../data/blog-posts';
+import { ROUTES, type Lang, type PageKey } from '../i18n/routes';
+interface Props { lang: Lang; keys: PageKey[]; more: string }
+const { lang, keys, more } = Astro.props;
+const all = dedicatedPosts(lang);
+const posts = keys.map((k) => all.find((p) => p.key === k)).filter((p): p is NonNullable<typeof p> => !!p);
+---
+<div class="grid grid-4 related-posts">
+  {posts.map((p) => (
+    <a class="card card--link post-card" href={ROUTES[p.key][lang]}>
+      {p.image && <img class="post-card-img" src={p.image.src} width={p.image.width} height={p.image.height} alt={p.image.alt} loading="lazy" decoding="async" />}
+      <h3>{p.title}</h3>
+      <span class="link-arrow">{more}</span>
+    </a>
+  ))}
+</div>
