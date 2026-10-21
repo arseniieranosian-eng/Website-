@@ -136,6 +136,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
         {C.todaySteps.map((s, i) => <li><span>{s}{i === 0 && <> (<a href={t('postIndexing')}>{C.todayLinkText}</a>)</>}</span></li>)}
       </ol>
       <p>{C.bridge}</p>
+      <p>{C.auditArticleLead} <a href={t('postSeoAudit')}>{C.auditArticleLink}</a>.</p>
       <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
     </div>
   </section>

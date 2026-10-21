@@ -112,3 +112,7 @@ Since 21.10.2026 the canonical host is `https://seo-eranosian.com` (no `www`): `
 ## Blog article «Proč se můj web nezobrazuje v Googlu» (cs)
 
 `/blog/proc-se-web-nezobrazuje-v-googlu/`: `src/data/post-not-shown-cs.ts`, `src/lib/schema-post-not-shown.ts`, `src/views/PostNotShownCsPage.astro`, check `scripts/check-post-not-shown-cs.mjs`. Same pattern and illustrations as the indexing article (`IndexIllustration.astro` kinds `wp`, `manual`); no HowTo markup. The indexing article links to it (anchor «Proč se web nezobrazuje v Googlu»). Review every 90 days (next 19. 1. 2027); check the Czech names in Search Console and WordPress («Ruční akce», «Problémy se zabezpečením», «Odrazovat vyhledávače od indexování webu»). Links to articles 2, 3, 5 are to be added when published.
+
+## Blog article «Co je SEO audit» (cs)
+
+`/blog/co-je-seo-audit/`: `src/data/post-seo-audit-cs.ts`, `src/lib/schema-post-seo-audit.ts`, `src/views/PostSeoAuditCsPage.astro`, check `scripts/check-post-seo-audit-cs.mjs`. «SEO audit zdarma» stays with `/audit-zdarma/`; the list «co bezplatný audit nenajde» repeats the "not included" table of the audit page (`data/audit-cs.ts`): update both together. No price, no crawler name. The other two articles link to it. Links to funnel articles 5 and 10 and the back-link from the consultation page are to be added when those exist.

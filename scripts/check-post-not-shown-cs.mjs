@@ -84,5 +84,5 @@ const blog = readFileSync('dist/blog/index.html', 'utf8');
 if (!blog.includes(`href="${URL_PATH}"`) || /<meta name="robots"[^>]*noindex/.test(blog)) e('blog index must list the article and be indexable');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 
-if (errors.length) { console.error('✗ check-post-indexing-cs:\n  - ' + errors.join('\n  - ')); process.exit(1); }
-console.log(`✓ check-post-indexing-cs: ok (${wc} words)`);
+if (errors.length) { console.error('✗ check-post-not-shown-cs:\n  - ' + errors.join('\n  - ')); process.exit(1); }
+console.log(`✓ check-post-not-shown-cs: ok (${wc} words)`);

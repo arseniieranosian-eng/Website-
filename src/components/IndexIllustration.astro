@@ -1,6 +1,6 @@
 ---
 // Drawn illustrations (not screenshots) for the indexing article. Real SVG text, light palette, 640 × 300.
-interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual'; aria: string }
+interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual' | 'parts'; aria: string }
 const { kind, aria } = Astro.props;
 ---
 <svg class="post-illus" viewBox="0 0 640 300" role="img" aria-label={aria} xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, Arial, sans-serif">
@@ -89,6 +89,20 @@ const { kind, aria } = Astro.props;
       <rect x="28" y="190" width="584" height="70" rx="10" fill="#f4f6fa" stroke="#e3e7ef" />
       <text x="44" y="220" font-size="14" fill="#0b0b0f">Pokud je tu hlášení, řiďte se jím.</text>
       <text x="44" y="242" font-size="13" fill="#5b6272">Ukázkový stav bez problémů.</text>
+    </>
+  )}
+  {kind === 'parts' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Pět částí SEO auditu</text>
+      {['Technika', 'Obsah a struktura', 'Vnější odkazy', 'Konkurence', 'Místní vyhledávání'].map((n, i) => (
+        <>
+          <rect x={28 + i * 117} y="70" width="108" height="150" rx="10" fill={i === 0 ? '#1f4fd8' : '#f4f6fa'} stroke={i === 0 ? '#1f4fd8' : '#e3e7ef'} />
+          <text x={82 + i * 117} y="104" font-size="26" font-weight="700" text-anchor="middle" fill={i === 0 ? '#fff' : '#9aa3b5'}>{i + 1}</text>
+          <text x={82 + i * 117} y="150" font-size="13" font-weight="600" text-anchor="middle" fill={i === 0 ? '#fff' : '#0b0b0f'}>{n.split(' ')[0]}</text>
+          <text x={82 + i * 117} y="168" font-size="13" font-weight="600" text-anchor="middle" fill={i === 0 ? '#fff' : '#0b0b0f'}>{n.split(' ').slice(1).join(' ')}</text>
+        </>
+      ))}
+      <text x="28" y="252" font-size="13" fill="#1f4fd8" font-weight="600">Bezplatný audit pokrývá jen první část: technické chyby.</text>
     </>
   )}
 </svg>

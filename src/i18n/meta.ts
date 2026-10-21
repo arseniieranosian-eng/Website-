@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postSeoAudit: {
+    cs: {
+      name: 'Co je SEO audit',
+      title: 'Co je SEO audit a co obsahuje: typy a rozsah | Eranosian',
+      description: 'Co je SEO audit, z čeho se skládá a jak poznat dobrý. Co zjistí bezplatný audit technických chyb a co už ne. Poradím, kdy stačí a kdy je potřeba víc.',
+      h1: 'Co je SEO audit a co by měl obsahovat: průvodce pro majitele webu',
+    },
+    en: { name: 'What is an SEO audit', title: 'What is an SEO audit', description: 'What is an SEO audit', h1: 'What is an SEO audit' },
+    ru: { name: 'Что такое SEO-аудит', title: 'Что такое SEO-аудит', description: 'Что такое SEO-аудит', h1: 'Что такое SEO-аудит' },
+  },
   postNotShown: {
     cs: {
       name: 'Proč se web nezobrazuje v Googlu',
