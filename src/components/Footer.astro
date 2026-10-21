@@ -6,7 +6,7 @@ import { SITE } from '../data/site';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const ui = t(lang);
-const PAGES: PageKey[] = ['home', 'audit', 'geo', 'cases', 'about', 'reviews', 'faq', 'contact'];
+const PAGES: PageKey[] = ['home', 'audit', 'geo', 'cases', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' ? (['blog'] as PageKey[]) : [])];
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">

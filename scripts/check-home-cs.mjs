@@ -34,7 +34,7 @@ for (const f of FORBIDDEN) if (mainTxt.includes(f) || desc.includes(f) || title.
 // "agentura" only inside the case names (the brief names the translation-agency case that way)
 if (/agentur/i.test(mainTxt.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/blog\//.test(h)) e('no blog links on the home page');
+if (/href="\/blog\//.test(main)) e('no blog links in the body of the home page (the menu and the footer have one)');
 if (/★|AggregateRating|ratingValue/.test(h)) e('no stars / AggregateRating');
 if (/<ul class="checks">/.test(main.split('Kam dál?')[0])) e('the hero list of audit scope must be gone');
 
@@ -99,11 +99,15 @@ const cat = (pro.hasOfferCatalog?.itemListElement ?? []).map((i) => i['@id']);
 if (JSON.stringify(cat) !== JSON.stringify(['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/'].map((p) => `${BASE}${p}#service`))) e(`ProfessionalService.hasOfferCatalog order: ${JSON.stringify(cat)}`);
 if (/agentur/i.test(JSON.stringify([wp, pro.name]))) e('"agentura" must not appear in the markup');
 
-// Site-wide: no Blog in the menu or the footer of any language
+// Site-wide: the Blog is in the menu and the footer of the Czech pages only (en / ru have no posts yet)
 const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); return statSync(p).isDirectory() ? walk(p) : p.endsWith('index.html') ? [p] : []; });
-for (const f of walk('dist').filter((x) => !/(^|\/)blog\/index\.html$/.test(x))) {
+for (const f of walk('dist').filter((x) => !/(^|\/)blog\/index\.html$/.test(x) && !/(^|\/)404/.test(x))) {
   const c = readFileSync(f, 'utf8').replace(/<main[\s\S]*?<\/main>/, '');
-  if (/<a href="\/(en\/|ru\/)?blog\/"/.test(c)) e(`${f}: Blog must not be in the menu / footer`);
+  const hasBlog = /<a href="\/blog\/"/.test(c);
+  const other = /<a href="\/(en|ru)\/blog\/"/.test(c);
+  const isCs = !/^dist\/(en|ru)\//.test(f);
+  if (other) e(`${f}: the en / ru Blog must not be in the menu / footer yet`);
+  if (isCs && !hasBlog && !/(^|\/)(dekujeme|404)/.test(f)) e(`${f}: the Czech menu / footer must have the Blog`);
 }
 
 if (errors.length) {
