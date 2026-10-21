@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -18,7 +19,7 @@ const lang = C.lang;
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
-const MOD = lastModified(['src/views/ConsultingCsPage.astro', 'src/data/consulting-cs.ts', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'], '2026-10-19');
+const MOD = lastModified(['src/views/ConsultingCsPage.astro', 'src/data/consulting-cs.ts', 'src/data/blog-posts.ts', 'src/components/RelatedPosts.astro', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'], '2026-10-19');
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 
@@ -154,7 +155,16 @@ import QuoteFigure from '../components/QuoteFigure.astro';
   </section>
 
   <!-- FAQ: answers are visible, not hidden in tabs -->
+  <!-- RELATED ARTICLES -->
   <section class="section">
+    <div class="container">
+      <h2>{C.articlesTitle}</h2>
+      <p>{C.articlesLead}</p>
+      <RelatedPosts lang={lang} keys={[...C.articles]} more={C.articlesMore} />
+    </div>
+  </section>
+
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">

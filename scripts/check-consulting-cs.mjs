@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/konzultace/';
 const H1 = 'SEO konzultace';
-const SECTIONS = [H1, 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace vhodná?', 'Co je součástí SEO konzultace', 'Jak probíhá SEO konzultace', 'V jakých jazycích konzultace probíhá?', 'Konzultace, audit zdarma, nebo Start a Full SEO?', 'Co může SEO plán přinést', 'Co říkají klienti', 'Časté otázky o SEO konzultaci', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace vhodná?', 'Co je součástí SEO konzultace', 'Jak probíhá SEO konzultace', 'V jakých jazycích konzultace probíhá?', 'Konzultace, audit zdarma, nebo Start a Full SEO?', 'Co může SEO plán přinést', 'Co říkají klienti', 'Související články', 'Časté otázky o SEO konzultaci', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['60–90', '60-90', 'Marketingové týmy', 'in-house', 'nahrávk', 'Jak probíhá spolupráce'];
 
@@ -85,6 +85,9 @@ for (const [hd, ans] of [['Kolik stojí SEO konzultace?', 'SEO konzultace stojí
 // The shared 50 000 Kč / 15 000 Kč come from one source
 if (!body.includes('Start na 3 měsíce (50 000 Kč)') || !body.includes('Full SEO na rok (od 15 000 Kč měsíčně)')) e('package prices in the comparison block');
 
+// Related articles: four cards with covers (choosing the first step, SEO audit, advertising, redesign)
+const ra = (h.match(/Související články<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 4 || !ra.includes('/blog/audit-konzultace-nebo-start/')) e('related articles: four cards with covers');
 if (errors.length) {
   console.error(`\nCzech consulting page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);

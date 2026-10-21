@@ -117,6 +117,12 @@ export const CONSULTING_CS = {
   reviewsTitle: 'Co říkají klienti',
   reviewsLink: 'Všechny reference',
 
+  // "Související články": posts that help to decide on a consultation (the redesign article points to it for non-technical causes).
+  articlesTitle: 'Související články',
+  articlesLead: 'Praktické články o tom, jak vybrat první krok v SEO, co obsahuje audit a jak SEO souvisí s reklamou.',
+  articlesMore: 'Číst článek',
+  articles: ['postChoose', 'postSeoAudit', 'postAds', 'postRedesign'] as const,
+
   faqTitle: 'Časté otázky o SEO konzultaci',
   faq: [
     { q: 'Kolik stojí SEO konzultace?', a: `${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu a konzultací bez časového omezení.` },
