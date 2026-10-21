@@ -56,10 +56,10 @@ if (/\d %/.test(main0) || !main0.includes('65–70\u00a0%')) e('non-breaking spa
 const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (!rows.some((r) => r.join('|') === 'Cíl|Metrika|Výsledek|Období|Zdroj') || rows.filter((r) => r.length === 5 && ['Podpora prodeje', 'Povědomí o firmě'].includes(r[0])).length !== 8) e('results table: header + 8 rows');
 if (!mainTxt.includes('Poptávky z formuláře ×24 (+2300 %): jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně. Od nízké základny')) e('the separate ×24 line with its own definition');
-const OQ = 'Největší překvapení bylo, že poptávky rostly i v létě, kdy je v našem oboru nejklidněji.';
+const OQ = 'Největší překvapení bylo, že poptávky klienta rostly i v létě, kdy je v oboru překladů nejklidněji.';
 const iq = mainTxt.indexOf(OQ);
 if (!(mainTxt.indexOf('Jaké byly výsledky za půl roku?') < iq && iq < mainTxt.indexOf('Cíl Metrika Výsledek'))) e("owner's quote: after the first results paragraph, before the table");
-if (!/<figure class="owner-quote">\s*<blockquote cite="[^"]*seo-prekladatelska-agentura\/"><p>[^<]*<\/p><\/blockquote>\s*<figcaption>\s*<img src="\/images\/pripadove-studie\/majitelka\.jpg"[^>]*alt="Yelyzaveta Butyrina, majitelka překladatelské agentury"[^>]*>\s*<span>— <a href="https:\/\/www\.instagram\.com\/elzabutirina\/"[^>]*>Yelyzaveta Butyrina<\/a>, majitelka překladatelské agentury<\/span>/.test(main)) e("owner's quote figure: photo with alt, name linking to her Instagram, role");
+if (!/<figure class="owner-quote">\s*<blockquote cite="[^"]*seo-prekladatelska-agentura\/"><p>[^<]*<\/p><\/blockquote>\s*<figcaption>\s*<img src="\/images\/pripadove-studie\/majitelka\.jpg"[^>]*alt="Yelyzaveta Butyrina, majitelka Make Up Digital Agency"[^>]*>\s*<span>— <a href="https:\/\/www\.instagram\.com\/elzabutirina\/"[^>]*>Yelyzaveta Butyrina<\/a>, majitelka Make Up Digital Agency<\/span>/.test(main)) e("owner's quote figure: photo with alt, name linking to her Instagram, role");
 // Language shares: SVG chart with real text, table, screenshot (counts / site name covered)
 if (!/<svg class="lang-chart"[^>]*role="img"[^>]*aria-label="Sloupcový graf: česká verze 52[^"]*"/.test(main)) e('language chart: accessible SVG');
 const lrows = rows.filter((r) => r.length === 3 && /^\d$/.test(r[0]));
@@ -99,7 +99,7 @@ else {
   const [q1, q2] = quotes;
   if (q1['@id'] !== `${BASE}${URL_PATH}#quote-1` || q1.text !== AQ || q1.creator['@id'] !== by('Person')['@id'] || q1.inLanguage !== 'cs' || q1.isPartOf['@id'] !== wp['@id']) e('Quotation #quote-1 (author)');
   const owner = ld.find((n) => n['@id'] === q2.creator?.['@id']);
-  if (q2['@id'] !== `${BASE}${URL_PATH}#quote-2` || q2.text !== OQ || !owner || owner['@type'] !== 'Person' || owner.name !== 'Yelyzaveta Butyrina' || owner.jobTitle !== 'majitelka překladatelské agentury' || !(owner.sameAs ?? []).includes('https://www.instagram.com/elzabutirina/')) e('Quotation #quote-2 (owner with Instagram)');
+  if (q2['@id'] !== `${BASE}${URL_PATH}#quote-2` || q2.text !== OQ || !owner || owner['@type'] !== 'Person' || owner.name !== 'Yelyzaveta Butyrina' || owner.jobTitle !== 'majitelka Make Up Digital Agency' || !(owner.sameAs ?? []).includes('https://www.instagram.com/elzabutirina/')) e('Quotation #quote-2 (owner with Instagram)');
 }
 const imgs = ld.filter((n) => n['@type'] === 'ImageObject' && /#img-(owner|languages)$/.test(n['@id']));
 if (imgs.length !== 2 || imgs.some((n) => !n.contentUrl || !n.caption || !n.width || !n.height)) e('ImageObject: owner photo + language screenshot');

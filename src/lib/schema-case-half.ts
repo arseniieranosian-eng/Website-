@@ -53,6 +53,7 @@ export function caseHalfSchemas(site: URL, C: typeof CASE_HALF_CS, opts: { modif
       '@id': `${url}#owner`,
       name: oq.name,
       jobTitle: oq.role,
+      worksFor: { '@type': 'Organization', name: oq.worksFor },
       image: { '@id': `${url}#img-owner` },
       sameAs: [oq.instagram],
     },

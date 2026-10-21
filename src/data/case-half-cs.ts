@@ -1,7 +1,8 @@
 // Czech content of /pripadove-studie/seo-prekladatelska-agentura/ (brief of 21.10.2026): the "half a year of work" case study, a case
 // of its own next to the first-4-months case and the summer case (the author's decision: three separate cases). The client is anonymous ("překladatelská agentura"); no domain, no absolute numbers (the language
 // table is published as percentages only; the screenshot of it has the site name, the counts and the footnote numbers covered).
-// The owner's quote is a draft the author put on the page together with her name and Instagram. Not invented: months of the
+// The quote is by Yelyzaveta Butyrina, owner of Make Up Digital Agency (the partner digital agency through which the author worked
+// with the translation agency), NOT of the translation agency; the wording is a draft for her approval. Not invented: months of the
 // +65–70 % series and of the B2B peak, the contract wording of the two goals, the dates of the AI checks, charts without data
 // (Search Console, cities), the client's confirmation screenshot (not provided, so only the line "potvrdil klient" is shown).
 import { SEASON_FORMULA_CS } from './case-summary';
@@ -71,11 +72,12 @@ const raw = {
   resTitle: 'Jaké byly výsledky za půl roku?',
   resAnswer: 'Poptávky šly tři měsíce po sobě nahoru o 65–70 % měsíčně, B2B poptávky se ztrojnásobily a web se objevil v Google AI Overview. Všechno v létě, kdy je poptávka v oboru nejslabší (potvrzuje Google Trends).',
   ownerQuote: {
-    text: 'Největší překvapení bylo, že poptávky rostly i v létě, kdy je v našem oboru nejklidněji.',
+    text: 'Největší překvapení bylo, že poptávky klienta rostly i v létě, kdy je v oboru překladů nejklidněji.',
     name: 'Yelyzaveta Butyrina',
-    role: 'majitelka překladatelské agentury',
+    role: 'majitelka Make Up Digital Agency',
+    worksFor: 'Make Up Digital Agency',
     instagram: 'https://www.instagram.com/elzabutirina/',
-    photo: { src: '/images/pripadove-studie/majitelka.jpg', width: 150, height: 150, alt: 'Yelyzaveta Butyrina, majitelka překladatelské agentury' },
+    photo: { src: '/images/pripadove-studie/majitelka.jpg', width: 150, height: 150, alt: 'Yelyzaveta Butyrina, majitelka Make Up Digital Agency' },
   },
   resTable: {
     head: ['Cíl', 'Metrika', 'Výsledek', 'Období', 'Zdroj'],
