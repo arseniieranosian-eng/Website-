@@ -495,3 +495,4 @@ table.compare { min-width: 0; }
 
 .post-cover { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 0 20px; border-radius: var(--radius); border: 1px solid var(--line); }
 .post-card-img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 12px; }
+.code-block { margin: 12px 0 16px; padding: 14px 16px; background: var(--grey-bg); border: 1px solid var(--line); border-radius: var(--radius-sm); overflow-x: auto; font-size: 0.95rem; }

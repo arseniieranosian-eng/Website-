@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postNotShown: {
+    cs: {
+      name: 'Proč se web nezobrazuje v Googlu',
+      title: 'Proč se web nezobrazuje v Googlu: 7 důvodů | Eranosian',
+      description: 'Proč se váš web nezobrazuje v Googlu: noindex, robots.txt, nový web i duplicity. Co zkontrolovat dnes a jak pomůže bezplatný audit technických chyb.',
+      h1: 'Proč se můj web nezobrazuje v Googlu: 7 nejčastějších důvodů',
+    },
+    en: { name: 'Why is my site not in Google', title: 'Why is my site not in Google', description: 'Why is my site not in Google', h1: 'Why is my site not in Google' },
+    ru: { name: 'Почему сайта нет в Google', title: 'Почему сайта нет в Google', description: 'Почему сайта нет в Google', h1: 'Почему сайта нет в Google' },
+  },
   postIndexing: {
     cs: {
       name: 'Jak zjistit, jestli je web indexovaný',

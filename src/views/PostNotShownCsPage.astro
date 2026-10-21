@@ -1,0 +1,161 @@
+---
+// Blog article "Proč se můj web nezobrazuje v Googlu" (cs), brief of 21.10.2026. Content: data/post-not-shown-cs.ts.
+// One main CTA (free audit). Links to the funnel articles 2, 3 and 5 are added when they exist.
+import Base from '../layouts/Base.astro';
+import IndexIllustration from '../components/IndexIllustration.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postNotShownSchemas } from '../lib/schema-post-not-shown';
+import { POST_NOT_SHOWN_CS as C } from '../data/post-not-shown-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/views/PostNotShownCsPage.astro', 'src/data/post-not-shown-cs.ts', 'src/components/IndexIllustration.astro'], '2026-10-21');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-proc-se-web-nezobrazuje.png';
+const cite = new URL(t('postNotShown'), site).href;
+const fig = (k: string) => C.figures.find((f) => f.kind === k)!;
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postNotShown', lang)} ogType="article" ogImage={OG} schema={postNotShownSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postNotShown.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <!-- SEVEN REASONS (table) -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.tableTitle}</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.table.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p>{C.forWhom}</p>
+    </div>
+  </section>
+
+  <!-- NOT IN GOOGLE vs LOW -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.sepTitle}</h2>
+      <p class="answer">{C.sepAnswer}</p>
+      <p>{C.sepText} <a href={t('postIndexing')}>{C.sepLinkText}</a>.</p>
+      <p>{C.sepBorder} <a href={t('consulting')}>{C.sepBorderLink}</a>.</p>
+    </div>
+  </section>
+
+  <!-- 1 NEW SITE -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.newTitle}</h2>
+      <p class="answer">{C.newAnswer}</p>
+      <p>{C.newText}</p>
+    </div>
+  </section>
+
+  <!-- 2 NOINDEX + author quote -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.noindexTitle}</h2>
+      <p class="answer">{C.noindexAnswer}</p>
+      <p>{C.noindexText}</p>
+      <figure class="post-figure"><IndexIllustration kind="wp" aria={fig('wp').aria} /><figcaption>{fig('wp').caption}</figcaption></figure>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3 ROBOTS.TXT -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.robotsTitle}</h2>
+      <p class="answer">{C.robotsAnswer}</p>
+      <p>{C.robotsText}</p>
+      <pre class="code-block"><code>{C.robotsCode}</code></pre>
+      <p>{C.robotsText2}</p>
+    </div>
+  </section>
+
+  <!-- 4 FIND -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.findTitle}</h2>
+      <p class="answer">{C.findAnswer}</p>
+      <p>{C.findText}</p>
+    </div>
+  </section>
+
+  <!-- 5 DUPLICATES -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.dupTitle}</h2>
+      <p class="answer">{C.dupAnswer}</p>
+      <p>{C.dupText}</p>
+    </div>
+  </section>
+
+  <!-- 6 REDESIGN -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.redTitle}</h2>
+      <p class="answer">{C.redAnswer}</p>
+      <p>{C.redText}</p>
+    </div>
+  </section>
+
+  <!-- 7 MANUAL ACTION -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.manTitle}</h2>
+      <p class="answer">{C.manAnswer}</p>
+      <p>{C.manText}</p>
+      <figure class="post-figure"><IndexIllustration kind="manual" aria={fig('manual').aria} /><figcaption>{fig('manual').caption}</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- TODAY + main CTA -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.todayTitle}</h2>
+      <ol class="steps">
+        {C.todaySteps.map((s, i) => <li><span>{s}{i === 0 && <> (<a href={t('postIndexing')}>{C.todayLinkText}</a>)</>}</span></li>)}
+      </ol>
+      <p>{C.bridge}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.endTitle}</h2>
+      <p>{C.endText}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <p>{C.nextLead} <a class="link-arrow" href={t('postIndexing')}>{C.todayLinkText}</a></p>
+      <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
+    </div>
+  </section>
+</Base>

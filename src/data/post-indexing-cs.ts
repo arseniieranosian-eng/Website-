@@ -36,6 +36,8 @@ const raw = {
   whatAnswer: 'Indexovaný web znamená, že Google stránku našel, přečetl a uložil do svého indexu, takže se může zobrazit ve výsledcích. Stav „nalezeno“ nebo „prolezeno“ ještě neznamená, že je stránka v indexu.',
   whatText: 'Google stránku nejdřív najde (například v mapě webu nebo přes odkaz), pak ji prolezne a přečte a teprve potom ji může zařadit do indexu. Každý z těchto kroků se může zastavit a stránka se pak ve výsledcích neobjeví. Duplicitní obsah je častá příčina, tomu se věnuji v samostatném článku.',
   whatSymptom: 'Pokud se web nezobrazuje v Googlu vůbec, začněte tímto článkem a pak se vraťte k příčinám.',
+  whatSymptomLead: 'Příčiny najdete v článku',
+  whatSymptomLinkText: 'Proč se web nezobrazuje v Googlu',
 
   siteTitle: 'Jak rychle zkontrolovat indexaci pomocí site:?',
   siteAnswer: 'Zadejte do Googlu site:vasedomena.cz. Výsledky ukazují stránky, které Google zná, a číslo u nich je přibližné.',

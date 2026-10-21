@@ -1,6 +1,6 @@
 ---
 // Drawn illustrations (not screenshots) for the indexing article. Real SVG text, light palette, 640 × 300.
-interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps'; aria: string }
+interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual'; aria: string }
 const { kind, aria } = Astro.props;
 ---
 <svg class="post-illus" viewBox="0 0 640 300" role="img" aria-label={aria} xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, Arial, sans-serif">
@@ -64,6 +64,31 @@ const { kind, aria } = Astro.props;
       <text x="44" y="206" font-size="14" font-weight="600" fill="#0b0b0f">sitemap.xml</text>
       <text x="44" y="236" font-size="13" fill="#1e8e3e">● Úspěch</text>
       <text x="612" y="236" font-size="13" fill="#5b6272" text-anchor="end">Zjištěné stránky: 120 (ukázkově)</text>
+    </>
+  )}
+  {kind === 'wp' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Nastavení › Čtení</text>
+      <line x1="28" x2="612" y1="58" y2="58" stroke="#e3e7ef" />
+      <text x="28" y="96" font-size="14" fill="#5b6272">Viditelnost pro vyhledávače</text>
+      <rect x="28" y="112" width="22" height="22" rx="4" fill="#1f4fd8" /><path d="M33 123l5 5 8-10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="62" y="129" font-size="15" fill="#0b0b0f">Odrazovat vyhledávače od indexování webu</text>
+      <text x="62" y="154" font-size="13" fill="#5b6272">Je na vyhledávačích, zda se tímto požadavkem budou řídit.</text>
+      <rect x="28" y="190" width="150" height="36" rx="6" fill="#1f4fd8" /><text x="103" y="213" font-size="14" font-weight="600" fill="#fff" text-anchor="middle">Uložit změny</text>
+      <text x="28" y="268" font-size="13" fill="#b3261e">Zapnutá volba po spuštění webu může web skrýt před Googlem.</text>
+    </>
+  )}
+  {kind === 'manual' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Ruční akce</text>
+      <text x="28" y="64" font-size="13" fill="#5b6272">Zabezpečení a ruční akce</text>
+      <line x1="28" x2="612" y1="78" y2="78" stroke="#e3e7ef" />
+      <circle cx="58" cy="130" r="18" fill="#1e8e3e" /><path d="M49 130l7 7 12-14" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="92" y="127" font-size="18" font-weight="700" fill="#0b0b0f">Nebyly zjištěny žádné problémy</text>
+      <text x="92" y="150" font-size="13" fill="#5b6272">Ruční akce: žádné · Problémy se zabezpečením: žádné</text>
+      <rect x="28" y="190" width="584" height="70" rx="10" fill="#f4f6fa" stroke="#e3e7ef" />
+      <text x="44" y="220" font-size="14" fill="#0b0b0f">Pokud je tu hlášení, řiďte se jím.</text>
+      <text x="44" y="242" font-size="13" fill="#5b6272">Ukázkový stav bez problémů.</text>
     </>
   )}
 </svg>
