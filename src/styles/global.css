@@ -457,3 +457,12 @@ table.compare { min-width: 0; }
 .quote-fig figcaption img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
 .quote-fig figcaption a { color: var(--text); font-weight: 700; text-decoration: none; }
 .quote-fig figcaption a:hover { color: var(--blue); text-decoration: underline; }
+
+/* Screenshots of AI answers (geo page): figure + caption, a pair of tall phone screenshots side by side from 560px */
+.ai-examples { display: grid; gap: 32px; margin: 20px 0 12px; }
+.ai-example { margin: 0; }
+.ai-example__imgs { display: grid; gap: 12px; justify-items: center; }
+.ai-example__imgs img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.ai-example__imgs--pair { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 560px) { .ai-example__imgs--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ai-example figcaption { margin-top: 10px; color: var(--text-muted); font-size: 0.92rem; }

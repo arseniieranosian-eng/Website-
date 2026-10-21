@@ -75,9 +75,33 @@ export const GEO_CS = {
   seeTitle: 'Jak vás vidí AI a kde to ověřím?',
   seeAnswer: 'Viditelnost vašeho webu v AI odpovědích ověřuji v rámci služeb Konzultace, Start na 3 měsíce a Full SEO na rok. Bezplatný audit kontroluje jen technické chyby webu, viditelnost v AI nekontroluje.',
 
-  caseTitle: 'Příklad z praxe',
+  caseTitle: 'Příklady z praxe',
   caseText: CASE_GEO_LINE.cs,
   caseLink: 'Celý příběh',
+  // Screenshots of Google answers that mention a client agency. The client's name, addresses, phone and logo are covered
+  // (the red arrows are the author's own marks). Dates of the screenshots are not given, so none is claimed.
+  examplesIntro: 'Čtyři ukázky z Googlu, kde se překladatelská agentura, na které pracuji, objevuje v odpovědích AI. Název klienta, adresy, telefon a logo jsem zakryl.',
+  examples: [
+    {
+      id: 'ai-medical',
+      images: [{ src: '/images/geo/ai-medical.webp', width: 497, height: 530, alt: 'Google AI Overview k dotazu „czech medical translation“: odpověď doporučuje překladatelskou agenturu, její název je zakrytý' }],
+      caption: 'Dotaz „czech medical translation“: AI Overview doporučuje agenturu pro lékařské překlady. Název agentury je zakrytý.',
+    },
+    {
+      id: 'ai-diploma',
+      images: [
+        { src: '/images/geo/ai-diploma-1.webp', width: 640, height: 1387, alt: 'Odpověď Google v režimu AI na dotaz „translation of diploma in Prague“, první část: cena a požadavky na ověřený překlad diplomu' },
+        { src: '/images/geo/ai-diploma-2.webp', width: 640, height: 1387, alt: 'Odpověď Google v režimu AI na dotaz „translation of diploma in Prague“, druhá část: agentura je uvedena mezi místními poskytovateli, její název je zakrytý' },
+      ],
+      caption: 'Dotaz „translation of diploma in Prague“ v režimu AI Google. Jde o jednu odpověď na dvou snímcích; v druhé části je agentura uvedena mezi poskytovateli v Praze. Název je zakrytý.',
+    },
+    {
+      id: 'ai-cities',
+      images: [{ src: '/images/geo/ai-cities.webp', width: 720, height: 1280, alt: 'Tři výsledky Google k dotazům „překlady Pardubice“, „překlady Brno“ a „překlady Praha“: AI Overview uvádí překladatelskou agenturu a její pobočky, názvy, adresy, telefon a logo jsou zakryté' }],
+      caption: 'Dotazy „překlady Pardubice“, „překlady Brno“ a „překlady Praha“: AI Overview uvádí agenturu a její pobočky. Názvy, adresy, telefon a logo jsou zakryté, červené šipky jsou moje značky.',
+    },
+  ],
+  examplesNote: 'Odpovědi AI se mění a zmínku v nich zaručit nelze. Ukázky dokládají, že se agentura v takových odpovědích objevila, ne že se tam objeví vždy.',
 
   faqTitle: 'Časté otázky o GEO a AEO',
   faq: [

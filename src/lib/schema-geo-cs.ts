@@ -38,9 +38,12 @@ export function geoCsSchemas(site: URL, C: typeof GEO_CS, opts: { modified: stri
       datePublished: GEO_PUBLISHED,
       dateModified: opts.modified,
       mainEntityOfPage: { '@id': `${url}#webpage` },
+      image: C.examples.flatMap((ex) => ex.images.map((_, i) => ({ '@id': `${url}#img-${ex.id}-${i + 1}` }))),
       about: [{ '@id': `${url}#term-geo` }, { '@id': `${url}#term-aeo` }],
       mentions: [svc('consulting'), svc('start'), svc('fullSeo'), svc('maps')],
     },
+    // The screenshots of Google answers (client covered): one ImageObject per file, caption = the visible caption.
+    ...C.examples.flatMap((ex) => ex.images.map((im, i) => ({ '@type': 'ImageObject', '@id': `${url}#img-${ex.id}-${i + 1}`, contentUrl: abs(im.src), caption: ex.caption, width: im.width, height: im.height }))),
     {
       '@type': 'DefinedTermSet',
       '@id': `${url}#terms`,

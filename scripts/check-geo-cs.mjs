@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://www.seo-eranosian.com';
 const URL_PATH = '/seo-a-geo/';
 const H1 = 'SEO + GEO/AEO: dvě v jednom';
-const SECTIONS = [H1, 'Co je GEO a co je AEO?', 'Jaký je rozdíl mezi SEO a GEO/AEO?', 'Proč dělám SEO a GEO/AEO dohromady?', 'Co o tom říká Google?', 'Co konkrétně dělám pro GEO/AEO', 'Garantujete zmínku v odpovědích AI?', 'Platím za GEO/AEO zvlášť?', 'Jak vás vidí AI a kde to ověřím?', 'Příklad z praxe', 'Časté otázky o GEO a AEO', 'Chcete začít u základu?'];
+const SECTIONS = [H1, 'Co je GEO a co je AEO?', 'Jaký je rozdíl mezi SEO a GEO/AEO?', 'Proč dělám SEO a GEO/AEO dohromady?', 'Co o tom říká Google?', 'Co konkrétně dělám pro GEO/AEO', 'Garantujete zmínku v odpovědích AI?', 'Platím za GEO/AEO zvlášť?', 'Jak vás vidí AI a kde to ověřím?', 'Příklady z praxe', 'Časté otázky o GEO a AEO', 'Chcete začít u základu?'];
 const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/o-mne/'];
 const FORBIDDEN = ['SEO služby cena', 'od 2 000 Kč', 'od 15 000 Kč', '50 000 Kč', 'zaručíme', 'zaručujeme zmínku'];
 
@@ -82,6 +82,16 @@ if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(
 for (const [hd, ans] of [['Jaký je rozdíl mezi SEO a GEO/AEO?', 'SEO zlepšuje pozice'], ['Proč dělám SEO a GEO/AEO dohromady?', 'AI nástroje čerpají'], ['Co o tom říká Google?', 'Google ve své dokumentaci'], ['Garantujete zmínku v odpovědích AI?', 'Ne. Nikdo nemůže zaručit'], ['Platím za GEO/AEO zvlášť?', 'Ne. GEO/AEO je součástí každé služby'], ['Jak vás vidí AI a kde to ověřím?', 'Viditelnost vašeho webu v AI odpovědích']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
+// Screenshots of AI answers: four images in the order medical → diploma (two parts of one query) → cities, each with alt, size,
+// lazy loading and a caption; the client's name never appears in alt / caption / file names / markup
+const shots = [...main.matchAll(/<img src="(\/images\/geo\/[^"]+)" width="(\d+)" height="(\d+)" alt="([^"]+)" loading="lazy"/g)];
+if (shots.map((m) => m[1]).join('|') !== '/images/geo/ai-medical.webp|/images/geo/ai-diploma-1.webp|/images/geo/ai-diploma-2.webp|/images/geo/ai-cities.webp') e(`AI screenshots: ${shots.map((m) => m[1]).join(', ')}`);
+const caps = [...main.matchAll(/<figure class="ai-example">[\s\S]*?<figcaption>([^<]*)<\/figcaption>/g)].map((m) => txt(m[1]));
+if (caps.length !== 3 || !caps[1].includes('jednu odpověď na dvou snímcích')) e('three figures, the diploma query as one answer on two screenshots');
+if (/KB P|SK P|kb-?preklady|Třída Míru|Příkop|Opletalova|604 496/i.test(shots.map((m) => m[4]).join(' ') + caps.join(' ') + JSON.stringify(ld.filter((n) => n['@type'] === 'ImageObject')))) e('the client must not be named in alt / captions / markup');
+if (!mainTxt.includes('Odpovědi AI se mění a zmínku v nich zaručit nelze.')) e('no-guarantee note under the examples');
+const imgNodes = ld.filter((n) => n['@type'] === 'ImageObject' && String(n['@id']).includes('#img-ai-'));
+if (imgNodes.length !== 4 || !(art.image ?? []).every((r) => imgNodes.some((n) => n['@id'] === r['@id'])) || imgNodes.some((n) => !n.caption || !caps.includes(txt(n.caption)))) e('ImageObject nodes (4) must match the visible captions and be referenced from Article.image');
 // Consistency with the rest of the site: menu item, no geo option in forms, GEO/AEO line on service pages
 const home = readFileSync('dist/index.html', 'utf8');
 if (!/<ul class="nav">[\s\S]*?href="\/seo-a-geo\/"[^>]*>SEO a GEO\/AEO</.test(home)) e('top menu must have the "SEO a GEO/AEO" item');

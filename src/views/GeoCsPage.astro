@@ -110,6 +110,18 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <p>{C.caseText}</p>
       <a class="link-arrow" href={t('caseKb')}>{C.caseLink}</a>
       <p><a class="link-arrow" href={t('caseSeason')}>SEO v nízké sezóně: případová studie, část 2</a></p>
+      <p>{C.examplesIntro}</p>
+      <div class="ai-examples">
+        {C.examples.map((ex) => (
+          <figure class="ai-example">
+            <div class:list={['ai-example__imgs', { 'ai-example__imgs--pair': ex.images.length > 1 }]}>
+              {ex.images.map((im) => <img src={im.src} width={im.width} height={im.height} alt={im.alt} loading="lazy" decoding="async" />)}
+            </div>
+            <figcaption>{ex.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="muted small">{C.examplesNote}</p>
     </div>
   </section>
 
