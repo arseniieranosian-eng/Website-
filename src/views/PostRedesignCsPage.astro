@@ -68,7 +68,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.urlTitle}</h2>
       <p class="answer">{C.urlAnswer}</p>
-      <p>{C.urlText}</p>
+      <p>{C.urlText} <a href={t('postRedirects')}>{C.urlLinkText}</a>.</p>
       <figure class="post-figure"><IndexIllustration kind="e404" aria={fig('e404').aria} /><figcaption>{fig('e404').caption}</figcaption></figure>
       <figure class="quote-fig">
         <blockquote cite={cite}><p>{C.quote}</p></blockquote>

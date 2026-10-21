@@ -52,7 +52,8 @@ const raw = {
 
   urlTitle: 'Změnily se adresy bez přesměrování?',
   urlAnswer: 'Je to nejčastější technická příčina. Když se po redesignu změní adresy a staré se nepřesměrují, návštěvníci i Google skončí na chybě 404 a web ztratí viditelnost.',
-  urlText: 'Otevřete v prohlížeči několik starých adres, například ze starého sitemapu nebo ze seznamu stránek v Search Console. Přesměrování 301 pošle návštěvníka i Google ze staré adresy na odpovídající novou stránku. Podrobný postup nastavení připravuji v samostatném článku.',
+  urlText: 'Otevřete v prohlížeči několik starých adres, například ze starého sitemapu nebo ze seznamu stránek v Search Console. Přesměrování 301 pošle návštěvníka i Google ze staré adresy na odpovídající novou stránku. Podrobný postup nastavení najdete v článku',
+  urlLinkText: 'Přesměrování 301 a chyby 404',
   quote: 'Po redesignu se často ztrácejí hlavně adresy, ne obsah. Než začnete psát nové texty, ověřte, kam vedou ty staré.',
 
   indexTitle: 'Zůstal na webu zákaz indexace po vývoji?',

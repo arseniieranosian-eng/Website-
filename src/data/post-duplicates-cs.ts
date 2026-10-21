@@ -80,6 +80,8 @@ const raw = {
   fixText: 'Po opravě Google web projde znovu. V reportu Stránky pak zkontrolujte, zda se statusy změnily.',
   quote: 'Duplicity většinou nevznikají záměrně: jde o stejný obsah na dvou adresách. Důležité je Googlu jasně říct, kterou verzi má vybrat.',
 
+  redirectLead: 'Jak přesměrování 301 správně nastavit a ověřit, vysvětluji v článku',
+  redirectLinkText: 'Přesměrování 301 a chyby 404',
   redesignLead: 'Duplicity často vzniknou při změně webu, o tom je článek',
   redesignLinkText: 'Po redesignu klesla návštěvnost',
 

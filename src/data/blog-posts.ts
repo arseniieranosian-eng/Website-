@@ -7,6 +7,7 @@ import { POST_SEO_AUDIT_CS, POST_SEO_AUDIT_PUBLISHED } from './post-seo-audit-cs
 import { POST_DUPLICATES_CS, POST_DUPLICATES_PUBLISHED } from './post-duplicates-cs';
 import { POST_REDESIGN_CS, POST_REDESIGN_PUBLISHED } from './post-redesign-cs';
 import { POST_ADS_CS, POST_ADS_PUBLISHED } from './post-ads-cs';
+import { POST_REDIRECTS_CS, POST_REDIRECTS_PUBLISHED } from './post-redirects-cs';
 
 export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: string; description: string; image?: { src: string; width: number; height: number; alt: string } }
 
@@ -17,6 +18,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postDuplicates', lang: 'cs', date: POST_DUPLICATES_PUBLISHED, title: META.postDuplicates.cs.h1, description: META.postDuplicates.cs.description, image: POST_DUPLICATES_CS.cover },
   { key: 'postRedesign', lang: 'cs', date: POST_REDESIGN_PUBLISHED, title: META.postRedesign.cs.h1, description: META.postRedesign.cs.description, image: POST_REDESIGN_CS.cover },
   { key: 'postAds', lang: 'cs', date: POST_ADS_PUBLISHED, title: META.postAds.cs.h1, description: META.postAds.cs.description, image: POST_ADS_CS.cover },
+  { key: 'postRedirects', lang: 'cs', date: POST_REDIRECTS_PUBLISHED, title: META.postRedirects.cs.h1, description: META.postRedirects.cs.description, image: POST_REDIRECTS_CS.cover },
 ];
 
 export const dedicatedPosts = (lang: Lang) => ALL.filter((p) => p.lang === lang).sort((a, b) => b.date.localeCompare(a.date));

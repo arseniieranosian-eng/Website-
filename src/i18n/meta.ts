@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postRedirects: {
+    cs: {
+      name: 'Přesměrování 301 a chyby 404',
+      title: 'Přesměrování 301: jak ho nastavit a ověřit | Eranosian',
+      description: 'Po změně adres webu pomůže správné přesměrování 301. Postup, nejčastější chyby a kontrolní seznam. Bezplatný audit technických chyb.',
+      h1: 'Přesměrování 301 a chyby 404: co dělat po změně adres webu',
+    },
+    en: { name: '301 redirects and 404 errors', title: '301 redirects and 404 errors', description: '301 redirects and 404 errors', h1: '301 redirects and 404 errors' },
+    ru: { name: 'Редирект 301 и ошибки 404', title: 'Редирект 301 и ошибки 404', description: 'Редирект 301 и ошибки 404', h1: 'Редирект 301 и ошибки 404' },
+  },
   postAds: {
     cs: {
       name: 'SEO a reklama',

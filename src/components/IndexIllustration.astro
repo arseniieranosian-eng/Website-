@@ -1,6 +1,6 @@
 ---
 // Drawn illustrations (not screenshots) for the indexing article. Real SVG text, light palette, 640 × 300.
-interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual' | 'parts' | 'dupreport' | 'addresses' | 'drop' | 'e404' | 'flow'; aria: string }
+interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual' | 'parts' | 'dupreport' | 'addresses' | 'drop' | 'e404' | 'map' | 'chain' | 'flow'; aria: string }
 const { kind, aria } = Astro.props;
 ---
 <svg class="post-illus" viewBox="0 0 640 300" role="img" aria-label={aria} xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, Arial, sans-serif">
@@ -173,6 +173,44 @@ const { kind, aria } = Astro.props;
       ))}
       <text x="28" y="232" font-size="13" fill="#5b6272">Nejdřív základ webu, pak měření, pak reklama na nejlepší stránky</text>
       <text x="28" y="252" font-size="13" fill="#5b6272">a přesun rozpočtu tam, kde funguje.</text>
+    </>
+  )}
+  {kind === 'map' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Mapa přesměrování</text>
+      <text x="28" y="76" font-size="13" font-weight="600" fill="#5b6272">Stará adresa</text>
+      <text x="360" y="76" font-size="13" font-weight="600" fill="#5b6272">Nová adresa</text>
+      {[['/sluzby/seo', '/seo/'], ['/o-nas/tym', '/o-mne/'], ['/blog/clanek-12', '/blog/nazev-clanku/']].map(([a, b], i) => (
+        <>
+          <rect x="28" y={92 + i * 56} width="270" height="40" rx="8" fill="#f4f6fa" stroke="#e3e7ef" />
+          <text x="44" y={117 + i * 56} font-size="15" fill="#0b0b0f">{a}</text>
+          <path d={`M308 ${112 + i * 56}h38m-8 -7l8 7l-8 7`} stroke="#1f4fd8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="318" y={104 + i * 56} font-size="11" font-weight="700" fill="#1f4fd8">301</text>
+          <rect x="360" y={92 + i * 56} width="252" height="40" rx="8" fill="#fff" stroke="#1f4fd8" />
+          <text x="376" y={117 + i * 56} font-size="15" fill="#0b0b0f">{b}</text>
+        </>
+      ))}
+      <text x="28" y="272" font-size="13" fill="#5b6272">Každá stará adresa vede na nejbližší odpovídající novou stránku. Ukázkové adresy.</text>
+    </>
+  )}
+  {kind === 'chain' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Řetězec přesměrování</text>
+      {[['A', '/stara', '#b3261e'], ['B', '/mezi', '#b3261e'], ['C', '/nova/', '#1e8e3e']].map(([l, u, c], i) => (
+        <>
+          <rect x={28 + i * 210} y="76" width="170" height="60" rx="10" fill="#fff" stroke={c} stroke-width="2" />
+          <text x={113 + i * 210} y="102" font-size="18" font-weight="700" text-anchor="middle" fill={c}>{l}</text>
+          <text x={113 + i * 210} y="124" font-size="14" text-anchor="middle" fill="#0b0b0f">{u}</text>
+          {i < 2 && <path d={`M${200 + i * 210} 106h30m-7 -6l7 6l-7 6`} stroke="#5b6272" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />}
+        </>
+      ))}
+      <text x="28" y="176" font-size="14" font-weight="600" fill="#b3261e">A → B → C: zpomaluje a mate Google</text>
+      <rect x="28" y="196" width="170" height="44" rx="10" fill="#fff" stroke="#1e8e3e" stroke-width="2" />
+      <text x="113" y="224" font-size="14" text-anchor="middle" fill="#0b0b0f">A /stara</text>
+      <path d="M208 218h80m-8 -6l8 6l-8 6" stroke="#1e8e3e" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <rect x="298" y="196" width="170" height="44" rx="10" fill="#fff" stroke="#1e8e3e" stroke-width="2" />
+      <text x="383" y="224" font-size="14" text-anchor="middle" fill="#0b0b0f">C /nova/</text>
+      <text x="480" y="224" font-size="13" font-weight="600" fill="#1e8e3e">přímo A → C</text>
     </>
   )}
 </svg>

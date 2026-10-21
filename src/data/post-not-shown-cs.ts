@@ -66,8 +66,10 @@ const raw = {
 
   redTitle: 'Změnily se po redesignu adresy bez přesměrování?',
   redAnswer: 'Když se po redesignu změní adresy a staré se nepřesměrují, Google je může ztratit. To je častá příčina propadu po změně webu.',
-  redText: 'Správným řešením je přesměrování 301 ze staré adresy na novou. Redesignu se věnuji v článku',
-  redLinkText: 'Po redesignu klesla návštěvnost',
+  redText: 'Správným řešením je přesměrování 301 ze staré adresy na novou, jak ho nastavit, vysvětluji v článku',
+  redLinkText: 'Přesměrování 301 a chyby 404',
+  redText2: 'Co se po redesignu stalo s návštěvností, najdete v článku',
+  redLinkText2: 'Po redesignu klesla návštěvnost',
 
   manTitle: 'Existuje ruční opatření nebo bezpečnostní problém?',
   manAnswer: 'Je to vzácné, ale stojí za to to zkontrolovat v Search Console v sekcích Ruční akce a Problémy se zabezpečením.',
