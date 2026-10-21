@@ -16,7 +16,7 @@ export const HOME_CS = {
   formTitle: 'Bezplatný SEO audit',
 
   navTitle: 'Kam dál? Vyberte podle toho, co potřebujete',
-  navAnswer: 'Nevíte, kterou službu zvolit? Vyberte situaci, která je vám nejblíž, a otevře se správná stránka.',
+  navAnswer: 'Nevíte, kam jít dál? Vyberte situaci, která je vám nejblíž, a otevře se správná stránka.',
   nav: [
     { need: 'Chci jen zkontrolovat web', page: 'audit' as const, text: 'Krátká prezentace s hlavními technickými chybami do 24 hodin, zdarma.' },
     { need: 'Potřebuji poradit a mít plán', page: 'consulting' as const, text: 'Odpovědi na vaše otázky a plán, co dělat dál.' },
