@@ -507,3 +507,10 @@ table.compare { min-width: 0; }
 .hero--dark .btn--secondary { color: #fff; border-color: rgb(255 255 255 / 55%); background: rgb(255 255 255 / 6%); }
 .hero--dark .btn--secondary:hover { background: rgb(255 255 255 / 14%); border-color: #fff; color: #fff; }
 .hero--dark .hero-form { box-shadow: 0 18px 50px rgb(0 0 0 / 45%); }
+
+/* Czech home hero: who am I (photo + name + role) above the headline */
+.hero-person { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.hero-person img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid rgb(255 255 255 / 85%); box-shadow: 0 4px 16px rgb(0 0 0 / 40%); }
+.hero-person p { margin: 0; }
+.hero-person__name { font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+.hero-person .eyebrow { margin: 3px 0 0; }

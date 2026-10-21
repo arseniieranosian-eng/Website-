@@ -9,6 +9,7 @@ import { KB_FORMULA_CS, SEASON_FORMULA_CS, HALF_FORMULA_CS, TYPO_FORMULA_CS, EDU
 export const HOME_CS = {
   lang: 'cs' as const,
   updatedLabel: 'Aktualizováno',
+  heroName: 'Arsenii Eranosian',
   eyebrow: 'SEO specialista v Praze',
   lead: 'Jsem SEO a GEO/AEO specialista v Praze a pracuji osobně, jeden člověk od auditu po reporty. Pomáhám firmám získávat poptávky z Googlu, Seznamu i odpovědí AI. Začněte bezplatným auditem technických chyb webu: krátká prezentace do 24 hodin, bez callu a bez závazků.',
   heroAudit: 'Chci bezplatný audit',
