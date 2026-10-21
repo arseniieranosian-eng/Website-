@@ -6,7 +6,7 @@ const URL_PATH = '/pripadove-studie/seo-vzdelavaci-platforma/';
 const RU_PATH = '/ru/kejsy/seo-obrazovatelnaya-platforma/';
 const H1 = 'SEO pro novou vzdělávací platformu: +55 % organické návštěvnosti za 7 měsíců';
 const SECTIONS = [H1, 'Jaká byla výchozí situace?', 'Proč jsme na začátku zvolili málo hledané dotazy?', 'Co jsme dělali?', 'Jaké byly výsledky za 7 měsíců?', 'Čemu se z případu naučit?', 'Časté otázky k případové studii', 'Související služby', 'Spouštíte nový web a nevíte, kde začít?'];
-const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/konzultace/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-prekladatelska-agentura/'];
+const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/konzultace/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/'];
 // Out of scope / not confirmed: absolute numbers, sign-ups, rankings, Instagram, community, other figures, the client
 const FORBIDDEN = ['Instagram', 'community', 'komunit', 'zapojení', 'tržb', 'já jsem vybudoval', 'já jsem zvýšil', 'ChatGPT', 'AggregateRating', 'KB P'];
 

@@ -1,10 +1,10 @@
 import type { Lang, PageKey, ServiceKey } from '../i18n/routes';
-import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, EDU_LINE_CS, SEASON_LINE, SEASON_LINE_CS } from './case-summary';
+import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, EDU_LINE_CS, SEASON_LINE, SEASON_LINE_CS, HALF_LINE_CS } from './case-summary';
 
 type L<T = string> = Record<Lang, T>;
 
 export interface CaseStudy {
-  key: Extract<PageKey, 'caseKb' | 'caseTypo' | 'caseEdu' | 'caseSeason'>;
+  key: Extract<PageKey, 'caseKb' | 'caseHalf' | 'caseTypo' | 'caseEdu' | 'caseSeason'>;
   langs?: readonly Lang[]; // languages the case page exists in (default: all)
   industry: L;
   teaser: L;
@@ -21,18 +21,18 @@ export const CASES: CaseStudy[] = [
     industry: CASE_LABEL,
     teaser: CASE_LINE,
     challenge: {
-      cs: 'Web ve čtyřech jazycích nepřinášel žádné poptávky (ani jeden odeslaný formulář) a zhruba polovina sekcí, které takový web potřebuje, neexistovala.',
+      cs: 'Web fungoval, ale nepřiváděl nové klienty: byl postavený pro lidi, kteří firmu už znají a jen potřebují objednat.',
       en: 'The website worked, but it did not bring new clients: it was built for people who already know the company and just need to order.',
       ru: 'Сайт работал, но не приводил новых клиентов: он был построен для тех, кто уже знает компанию и просто хочет заказать.',
     },
     solution: {
-      cs: ['Web jako systém tří druhů stránek', 'Samostatné stránky pro Prahu, Brno a Pardubice', 'Lokalizace každé jazykové verze, ne jen překlad', 'Týdenní reporty s ověřitelnými zdroji'],
+      cs: ['Samostatná stránka pro každé město s lokálním obsahem', 'Obsah jako trychtýř: články vedoucí ke stránkám služeb', 'Lokalizace jednotlivých jazykových verzí, ne jen překlad', 'Technické SEO: strukturovaná data a rychlost webu'],
       en: ['A separate page for every city with local content', 'Content as a funnel: articles leading to the service pages', 'Localisation of each language version, not just translation', 'Technical SEO: structured data and site speed'],
       ru: ['Отдельная страница для каждого города с локальным контентом', 'Контент как воронка: статьи ведут на страницы услуг', 'Локализация каждой языковой версии, а не просто перевод', 'Техническое SEO: структурированные данные и скорость сайта'],
     },
     metrics: [
-      { value: { cs: '+65–70\u00a0%', en: '×8', ru: '×8' }, label: { cs: 'poptávek měsíčně, tři měsíce po sobě (formulář a e-mail)', en: 'enquiries in June vs May (form and e-mail; the real number is higher)', ru: 'заявок в июне по сравнению с маем (форма и e-mail; реальное число выше)' } },
-      { value: { cs: '×3', en: 'B2B', ru: 'B2B' }, label: { cs: 'B2B poptávky (+200\u00a0%), léto 2026', en: 'first B2B client after 4 months of work', ru: 'первый B2B-клиент после 4 месяцев работы' } },
+      { value: '×8', label: { cs: 'poptávek v červnu oproti květnu (formulář a e-mail; reálné číslo je vyšší)', en: 'enquiries in June vs May (form and e-mail; the real number is higher)', ru: 'заявок в июне по сравнению с маем (форма и e-mail; реальное число выше)' } },
+      { value: 'B2B', label: { cs: 'první B2B klient po 4 měsících práce', en: 'first B2B client after 4 months of work', ru: 'первый B2B-клиент после 4 месяцев работы' } },
     ],
     services: ['start', 'fullSeo'],
   },
@@ -73,6 +73,20 @@ CASES.push({
   solution: { cs: ['Diagnóza trychtýře a byznys modelu', 'Technická vrstva a strukturovaná data', 'Stránky služeb pro komerční záměr', 'Blog a FAQ jako horní část trychtýře', 'Lokální stránky podle měst'], en: [], ru: ['Диагноз воронки и бизнес-модели', 'Технический слой и структурированные данные', 'Страницы услуг под коммерческий интент', 'Блог и FAQ как верх воронки', 'Локальные страницы по городам'] },
   metrics: [
     { value: '×24', label: { cs: 'poptávky z webu: jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně, od nízké základny', en: '', ru: 'заявки с сайта: весна (март–май) → лето (июнь–август) 2026, одно окно, не год к году, от низкой базы' } },
+  ],
+  services: ['start', 'fullSeo'],
+});
+
+CASES.push({
+  key: 'caseHalf',
+  langs: ['cs'],
+  industry: { cs: 'Překladatelská agentura · půl roku práce', en: '', ru: '' },
+  teaser: { cs: HALF_LINE_CS, en: '', ru: '' },
+  challenge: { cs: 'Web ve čtyřech jazycích nepřinášel žádné poptávky (ani jeden odeslaný formulář) a zhruba polovina sekcí, které takový web potřebuje, neexistovala.', en: '', ru: '' },
+  solution: { cs: ['Web jako systém tří druhů stránek', 'Samostatné stránky pro Prahu, Brno a Pardubice', 'Lokalizace každé jazykové verze, ne jen překlad', 'Týdenní reporty s ověřitelnými zdroji'], en: [], ru: [] },
+  metrics: [
+    { value: { cs: '+65–70\u00a0%', en: '', ru: '' }, label: { cs: 'poptávek měsíčně, tři měsíce po sobě (formulář a e-mail)', en: '', ru: '' } },
+    { value: { cs: '×3', en: '', ru: '' }, label: { cs: 'B2B poptávky (+200\u00a0%), léto 2026', en: '', ru: '' } },
   ],
   services: ['start', 'fullSeo'],
 });

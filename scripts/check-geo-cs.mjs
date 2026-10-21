@@ -5,7 +5,7 @@ const BASE = 'https://www.seo-eranosian.com';
 const URL_PATH = '/seo-a-geo/';
 const H1 = 'SEO + GEO/AEO: dvě v jednom';
 const SECTIONS = [H1, 'Co je GEO a co je AEO?', 'Jaký je rozdíl mezi SEO a GEO/AEO?', 'Proč dělám SEO a GEO/AEO dohromady?', 'Co o tom říká Google?', 'Co konkrétně dělám pro GEO/AEO', 'Garantujete zmínku v odpovědích AI?', 'Platím za GEO/AEO zvlášť?', 'Jak vás vidí AI a kde to ověřím?', 'Příklady z praxe', 'Časté otázky o GEO a AEO', 'Chcete začít u základu?'];
-const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
+const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/o-mne/'];
 const FORBIDDEN = ['SEO služby cena', 'od 2 000 Kč', 'od 15 000 Kč', '50 000 Kč', 'zaručíme', 'zaručujeme zmínku'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');

@@ -5,7 +5,7 @@ const BASE = 'https://www.seo-eranosian.com';
 const URL_PATH = '/o-mne/';
 const H1 = 'Arsenii Eranosian: SEO a GEO/AEO specialista v Praze';
 const SECTIONS = [H1, 'Jak přistupuji k SEO?', 'Jaké mám zkušenosti?', 'Co jsem řešil v konzultacích?', 'S jakými trhy a jazyky pracuji?', 'Jaké nástroje používám?', 'Kde si mě ověříte?', 'Co říkají klienti?', 'Časté otázky o mně', 'Jste v SEO na začátku, nebo chcete druhý pohled?'];
-const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/'];
+const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/'];
 // Figures / claims the brief rules out; client names never appear
 const FORBIDDEN = ['777', 'YoY', '3 roky', 'tři roky', 'za tři roky', '55–60', '65–70', 'B2B ×3', '×6', '300×', 'KB P', 'QUBIS', 'Unimenty', 'short call', 'krátký call', 'USA', 'Screaming'];
 

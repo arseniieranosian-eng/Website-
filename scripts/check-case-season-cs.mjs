@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://www.seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/seo-v-nizke-sezone/';
 const RU_PATH = '/ru/kejsy/seo-v-nizkij-sezon/';
-const P1 = '/pripadove-studie/seo-prekladatelska-agentura/';
+const P1 = '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/';
 const H1 = 'SEO v nízké sezóně pro překladatelskou agenturu: poptávky z webu vzrostly 24×';
 const FORMULA = 'Poptávky z formuláře ×24 (+2300 %): jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně. Od nízké základny';
 const SECTIONS = [H1, 'Proč se organická návštěvnost nepřeváděla na poptávky?', 'Co jsem udělal v technické vrstvě?', 'Jak jsem přestavěl stránky služeb pro komerční záměr?', 'Proč blog a FAQ jako horní část trychtýře?', 'Co daly lokální stránky podle měst?', 'Jaké byly výsledky za léto?', 'Byla to sezóna? Co ukázal Google Trends', 'Šest praktických závěrů', 'Časté otázky k případové studii', 'Související služby', 'Chcete stejný trychtýř pro svůj web?'];
@@ -52,7 +52,7 @@ if (cards.join('|') !== '×24 poptávky z webu|+357 % kliky|+398 % zobrazení') 
 if (!mainTxt.includes('data se upřesňují')) e('dates note until confirmed');
 const byline = h.match(/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time> · Projekt: překladatelská agentura, březen – srpen 2026 · Část 2<\/p>/);
 if (!byline) e('byline');
-if (!mainTxt.includes('Toto je Část 2. Hlavní případová studie: půl roku práce na webu')) e('link to Part 1 in the hero');
+if (!mainTxt.includes('Toto je Část 2. Část 1: první 4 měsíce práce')) e('link to Part 1 in the hero');
 if (!mainTxt.includes('telefonáty a messengery se neměří, takže reálný růst je vyšší')) e('data note');
 
 // One formula, word for word

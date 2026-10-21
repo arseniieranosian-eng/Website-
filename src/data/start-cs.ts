@@ -5,7 +5,7 @@ import { START_PAYMENTS, START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
 import { MAPS_MIN_MONTHS } from './maps-shared';
 import { CONSULTING_CS } from './consulting-cs';
-import { CASE_LINE, TYPO_LINE_CS, EDU_LINE_CS, SEASON_LINE_CS } from './case-summary';
+import { CASE_LINE, TYPO_LINE_CS, EDU_LINE_CS, SEASON_LINE_CS, HALF_LINE_CS } from './case-summary';
 
 const [PAY1, PAY2] = START_PAYMENTS;
 const price = fmtKc(START_PRICE);
@@ -116,6 +116,8 @@ export const START_CS = {
   caseLink3: 'Příklad: SEO pro novou vzdělávací platformu (start nového webu)',
   caseText4: SEASON_LINE_CS,
   caseLink4: 'SEO v nízké sezóně (část 2)',
+  caseText5: HALF_LINE_CS,
+  caseLink5: 'Půl roku práce na webu překladatelské agentury',
 
   reviewsTitle: 'Co říkají klienti',
   reviewsLink: 'Všechny reference',

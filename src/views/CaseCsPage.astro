@@ -1,35 +1,41 @@
 ---
-// The main case study (cs), brief of 21.10.2026: "půl roku práce". Content: data/case-cs.ts. Charts are HTML/SVG with real text
-// (only the language shares exist as data); no blog links; two quotes (the author's and the agency owner's).
+// The anonymised case study (cs), built from the brief of 20.10.2026. Content: data/case-cs.ts.
+// Hidden until the data exists: the "Co bude dál?" block and a reviews block (none for this project).
 import Base from '../layouts/Base.astro';
-import QuoteAuthor from '../components/QuoteAuthor.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { caseCsSchemas } from '../lib/schema-case-cs';
 import { CASE_CS as C } from '../data/case-cs';
+import { SEASON_LINE_CS } from '../data/case-summary';
 import { serviceByKey } from '../data/services';
 
 const lang = C.lang;
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
-const MOD = lastModified(['src/views/CaseCsPage.astro', 'src/data/case-cs.ts', 'src/data/case-summary.ts'], '2026-10-21');
+const MOD = lastModified(['src/views/CaseCsPage.astro', 'src/data/case-cs.ts'], '2026-10-20');
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
-const OG = '/images/pripadove-studie/og-seo-prekladatelska-agentura.png';
-const cite = new URL(t('caseKb'), site).href;
-const oq = C.ownerQuote;
-const authorQuote = 'SEO není magie. Je to systém, a správně postavený systém funguje i mimo sezónu, v malých městech i tehdy, když začínáte od nuly.';
 
-// Language-share bar chart (SVG with real text); bars scaled to the largest share
-const max = Math.max(...C.langRows.map((r) => r.pct));
-const BAR_H = 34, GAP = 16, LABEL_W = 130, W = 640, BAR_MAX = W - LABEL_W - 70;
-const chartH = C.langRows.length * (BAR_H + GAP) + 8;
+// stacked bar chart geometry (SVG, real text)
+const ch = C.channels;
+const W = 640, H = 300, top = 30, base = 250, left = 20, bw = 62, gap = 40;
+const max = Math.max(...ch.data.map((r) => r[0] + r[1] + r[2]));
+const k = (base - top - 20) / max;
+const COLORS = ['#3fa535', '#2563eb', '#8b5cf6'];
+const bars = ch.data.map((row, i) => {
+  const x = left + 10 + i * (bw + gap);
+  let y0 = base;
+  const segs = row.map((v, j) => { const h = v * k; y0 -= h; return { x, y: y0, h, fill: COLORS[j] }; });
+  return { x, segs, label: ch.months[i], top: y0 };
+});
+const lastTop = bars[bars.length - 1].top;
+import QuoteAuthor from "../components/QuoteAuthor.astro";
 ---
-<Base {...pageProps('caseKb', lang)} ogType="article" ogImage={OG} schema={caseCsSchemas(site, C, { modified: MOD, authorQuote })}>
+<Base {...pageProps('caseKb', lang)} ogType="article" schema={caseCsSchemas(site, C, { modified: MOD })}>
   <!-- HERO -->
   <section class="page-hero">
     <div class="container">
@@ -37,148 +43,175 @@ const chartH = C.langRows.length * (BAR_H + GAP) + 8;
       <h1>{C.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.project}</p>
       <p class="lead">{C.answer}</p>
-      <dl class="stats stats--three">{C.cards.map((c) => <div><dt>{c.label}</dt><dd>{c.value}</dd></div>)}</dl>
       <p class="muted small">{C.dataNote}</p>
-      <p><a class="link-arrow" href={t('caseSeason')}>{C.seasonLink}</a></p>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroCta}</a></div>
     </div>
   </section>
 
-  <!-- GOALS -->
+  <!-- START -->
   <section class="section section--tight">
-    <div class="container narrow">
-      <h2>{C.goalsTitle}</h2>
-      <p class="answer">{C.goalsAnswer}</p>
-      <ol class="checks">{C.goals.map((x) => <li>{x}</li>)}</ol>
-    </div>
-  </section>
-
-  <!-- STARTING POINT -->
-  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.startTitle}</h2>
       <p class="answer">{C.startAnswer}</p>
-      <ul class="checks">{C.startList.map((x) => <li>{x}</li>)}</ul>
       <p>{C.startText}</p>
     </div>
   </section>
 
-  <!-- WHAT WAS BUILT -->
-  <section class="section">
-    <div class="container narrow">
-      <h2>{C.builtTitle}</h2>
-      <p class="answer">{C.builtAnswer}</p>
-      <ul class="checks">{C.builtTypes.map((x) => <li>{x}</li>)}</ul>
-      <ul class="checks">{C.builtSections.map((x) => <li>{x}</li>)}</ul>
-      <p>{C.builtText}</p>
-    </div>
-  </section>
-
-  <!-- RESULTS (owner's quote right after the first paragraph, then the table) -->
+  <!-- LOCAL PAGES -->
   <section class="section section--grey">
     <div class="container narrow">
-      <h2>{C.resTitle}</h2>
-      <p class="answer">{C.resAnswer}</p>
-      <figure class="owner-quote">
-        <blockquote cite={cite}><p>{oq.text}</p></blockquote>
-        <figcaption>
-          <img src={oq.photo.src} width={oq.photo.width} height={oq.photo.height} alt={oq.photo.alt} loading="lazy" decoding="async" />
-          <span>— <a href={oq.instagram} rel="me noopener nofollow" target="_blank">{oq.name}</a>, {oq.role}</span>
-        </figcaption>
-      </figure>
-    </div>
-    <div class="container">
-      <div class="table-wrap">
-        <table class="compare results-table">
-          <thead><tr>{C.resTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
-          <tbody>{C.resTable.rows.map((r) => <tr>{r.map((c, i) => i === 1 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
-        </table>
-      </div>
-    </div>
-    <div class="container narrow">
-      <p class="muted small">{C.resCaption}</p>
-      <p>{C.seasonFormula} (<a href={t('caseSeason')}>{C.seasonFormulaLink}</a>)</p>
+      <h2>{C.localTitle}</h2>
+      <p class="answer">{C.localAnswer}</p>
+      {C.localText.map((p) => <p>{p}</p>)}
+      <p><strong>{C.localResult}</strong></p>
+      <p>{C.localDecision}</p>
     </div>
   </section>
 
-  <!-- WHO STARTED TO COME: language shares (percentages only) -->
+  <!-- CONTENT AS A FUNNEL -->
   <section class="section">
     <div class="container narrow">
-      <h2>{C.langTitle}</h2>
-      <p class="answer">{C.langAnswer}</p>
-      <h3>{C.langChartTitle}</h3>
-      <svg class="lang-chart" viewBox={`0 0 ${W} ${chartH}`} role="img" aria-label={C.langAria} xmlns="http://www.w3.org/2000/svg">
-        {C.langRows.map((r, i) => (
-          <g transform={`translate(0 ${i * (BAR_H + GAP) + 4})`}>
-            <text x="0" y={BAR_H / 2 + 6} class="lang-chart__label">{r.name}</text>
-            <rect x={LABEL_W} y="0" width={Math.max(4, Math.round((r.pct / max) * BAR_MAX))} height={BAR_H} rx="6" class={i === 0 ? 'lang-chart__bar lang-chart__bar--main' : 'lang-chart__bar'} />
-            <text x={LABEL_W + Math.max(4, Math.round((r.pct / max) * BAR_MAX)) + 10} y={BAR_H / 2 + 6} class="lang-chart__pct">{`${r.pct} %`}</text>
-          </g>
-        ))}
-      </svg>
-      <div class="table-wrap">
-        <table class="compare">
-          <thead><tr>{C.langTableHead.map((h) => <th scope="col">{h}</th>)}</tr></thead>
-          <tbody>{C.langRows.map((r) => <tr><td>{r.rank}</td><th scope="row">{r.name}</th><td>{`${r.pct} %`}</td></tr>)}</tbody>
-        </table>
-      </div>
-      <p class="muted small">{C.langCaption}</p>
-      <p>{C.langText}</p>
-      <figure class="lang-shot">
-        <img src={C.langImage.src} width={C.langImage.width} height={C.langImage.height} alt={C.langImage.alt} loading="lazy" decoding="async" />
-        <figcaption class="muted small">{C.langImage.caption}</figcaption>
+      <h2>{C.funnelTitle}</h2>
+      <p class="answer">{C.funnelAnswer}</p>
+      <p>{C.funnelText}</p>
+    </div>
+  </section>
+
+  <!-- LOCALISATION -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.localizeTitle}</h2>
+      <p class="answer">{C.localizeAnswer}</p>
+      <ul class="checks">{C.localize.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.localizeResult}</p>
+      <figure class="case-figure">
+        <img src={C.faqImage.src} width={C.faqImage.width} height={C.faqImage.height} alt={C.faqImage.alt} loading="lazy" decoding="async" />
+        <figcaption class="muted small">{C.faqImage.caption}</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- CITIES -->
-  <section class="section section--grey">
+  <!-- TECHNICAL SEO -->
+  <section class="section">
     <div class="container narrow">
-      <h2>{C.citiesTitle}</h2>
-      <p class="answer">{C.citiesAnswer}</p>
-      <ul class="checks">{C.cities.map((x) => <li>{x}</li>)}</ul>
-      <p>{C.citiesText}</p>
+      <h2>{C.techTitle}</h2>
+      <p class="answer">{C.techAnswer}</p>
+      {C.tech.map((b) => (
+        <>
+          <h3>{b.title}</h3>
+          <p>{b.text}</p>
+          {b.title === 'Rychlost webu' && (
+            <figure class="case-figure">
+              <div class="speed-compare" role="img" aria-label={C.speed.caption}>
+                <div class="speed-compare__card speed-compare__card--before">
+                  <p class="speed-compare__tag">{C.speed.before.tag}</p>
+                  <p class="speed-compare__value">{C.speed.before.value}</p>
+                  <p class="speed-compare__title">{C.speed.before.title}</p>
+                  <p class="speed-compare__text">{C.speed.before.text}</p>
+                </div>
+                <div class="speed-compare__card speed-compare__card--after">
+                  <p class="speed-compare__tag">{C.speed.after.tag}</p>
+                  <p class="speed-compare__value">{C.speed.after.value}</p>
+                  <p class="speed-compare__title">{C.speed.after.title}</p>
+                  <p class="speed-compare__text">{C.speed.after.text}</p>
+                  <p class="speed-compare__gain">{C.speed.gain}</p>
+                </div>
+              </div>
+              <figcaption class="muted small">{C.speed.caption}</figcaption>
+            </figure>
+          )}
+        </>
+      ))}
     </div>
   </section>
 
-  <!-- AI -->
+  <!-- RESULTS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.resultsTitle}</h2>
+      <p class="answer">{C.resultsAnswer}</p>
+      <ul class="checks">{C.results.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.resultsNote}</p>
+    </div>
+  </section>
+
+  <!-- AI CHANNEL -->
   <section class="section">
     <div class="container narrow">
       <h2>{C.aiTitle}</h2>
       <p class="answer">{C.aiAnswer}</p>
-      <p>{C.aiText}</p>
-      <a class="link-arrow" href={t('geo')}>{C.aiLink}</a>
+      {C.aiText.map((p) => <p>{p}</p>)}
+      <p>{C.aiMore.before}<a href={t('geo')}>{C.aiMore.link}</a>{C.aiMore.after}</p>
+      <figure class="case-figure">
+        <svg class="channel-chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={ch.alt}>
+          <rect x="0" y="0" width={W} height={H} rx="14" fill="#16263e" />
+          <text x="24" y="24" fill="#ffffff" font-size="16" font-weight="700">{ch.title}</text>
+          {bars.map((b) => (
+            <g>
+              {b.segs.filter((s) => s.h > 0).map((s) => <rect x={b.x} y={s.y} width={bw} height={s.h} fill={s.fill} />)}
+              <text x={b.x + bw / 2} y={base + 18} fill="#9aa6b8" font-size="12" text-anchor="middle">{b.label}</text>
+            </g>
+          ))}
+          <line x1="16" y1={base} x2={W - 16} y2={base} stroke="#2b3a52" />
+          <text x={W - 24} y="24" fill="#a78bfa" font-size="12" font-weight="700" text-anchor="end">{ch.note}</text>
+          <line x1={W - 150} y1="30" x2={bars[5].x + bw / 2} y2={lastTop - 3} stroke="#8b5cf6" stroke-width="1.5" />
+          {ch.legend.map((l, i) => (
+            <g>
+              <rect x={24 + i * 190} y={H - 30} width="12" height="12" rx="3" fill={COLORS[i]} />
+              <text x={42 + i * 190} y={H - 20} fill="#e6eaf2" font-size="12">{l}</text>
+            </g>
+          ))}
+        </svg>
+        <figcaption class="muted small">{ch.caption}</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- SIX CONCLUSIONS -->
+  <!-- SIX STEPS -->
   <section class="section section--grey">
     <div class="container narrow">
-      <h2>{C.lessonTitle}</h2>
-      <ol class="case-steps">{C.lesson.map((s) => <li><h3>{s.title}</h3><p>{s.text}</p></li>)}</ol>
+      <h2>{C.stepsTitle}</h2>
+      <ol class="case-steps">
+        {C.steps.map((s) => <li><h3>{s.title}</h3><p>{s.text}</p></li>)}
+      </ol>
     </div>
   </section>
 
-  <!-- AUTHOR QUOTE (after the conclusions, before the FAQ) -->
-  <section class="section section--tight">
+  <!-- PULL QUOTE -->
+  <section class="section">
     <div class="container narrow">
       <blockquote class="pullquote">
-        <p>{authorQuote}</p>
+        <p>„{C.quote.text}“</p>
         <QuoteAuthor />
       </blockquote>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
-      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p>{f.link && <p><a class="link-arrow" href={t(f.link)}>{f.linkText}</a></p>}</div>)}</div>
+      <div class="faq-open">
+        {C.faq.map((f) => {
+          const part = 'SEO + GEO/AEO';
+          const [before, after] = f.a.split(part);
+          return <div><h3>{f.q}</h3><p>{after === undefined ? f.a : <>{before}<a href={t('geo')}>{part}</a>{after}</>}</p></div>;
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTINUATION: PART 2 -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>Pokračování: Část 2</h2>
+      <p>{SEASON_LINE_CS}</p>
+      <a class="link-arrow" href={t('caseSeason')}>SEO v nízké sezóně</a>
+      <p><a class="link-arrow" href={t('caseHalf')}>Půl roku práce na stejném webu: případová studie</a></p>
     </div>
   </section>
 
   <!-- RELATED SERVICES (no prices) -->
-  <section class="section section--grey">
+  <section class="section">
     <div class="container">
       <h2>{C.relatedTitle}</h2>
       <div class="grid grid-4">
@@ -194,7 +227,7 @@ const chartH = C.langRows.length * (BAR_H + GAP) + 8;
   </section>
 
   <!-- SOFT CLOSE -->
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.ctaTitle}</h2>
       <p>{C.ctaText}</p>
@@ -202,7 +235,6 @@ const chartH = C.langRows.length * (BAR_H + GAP) + 8;
         <a class="btn btn--primary btn--lg" href={t('audit')}>{C.ctaAudit}</a>
         <a class="btn btn--secondary btn--lg" href={t('contact')}>{C.ctaContact}</a>
       </div>
-      {C.nextCases.map((n) => <p><a class="link-arrow" href={t(n.key)}>{n.text}</a></p>)}
     </div>
   </section>
 </Base>
