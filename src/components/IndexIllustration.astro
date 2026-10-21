@@ -1,0 +1,69 @@
+---
+// Drawn illustrations (not screenshots) for the indexing article. Real SVG text, light palette, 640 × 300.
+interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps'; aria: string }
+const { kind, aria } = Astro.props;
+---
+<svg class="post-illus" viewBox="0 0 640 300" role="img" aria-label={aria} xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, Arial, sans-serif">
+  <rect x="0.5" y="0.5" width="639" height="299" rx="12" fill="#fff" stroke="#e3e7ef" />
+  {kind === 'site' && (
+    <>
+      <rect x="24" y="22" width="592" height="40" rx="20" fill="#fff" stroke="#c9d0de" />
+      <circle cx="46" cy="42" r="7" fill="none" stroke="#5b6272" stroke-width="2" /><path d="M51 47l6 6" stroke="#5b6272" stroke-width="2" stroke-linecap="round" />
+      <text x="68" y="48" font-size="16" fill="#0b0b0f">site:vasedomena.cz</text>
+      <text x="28" y="88" font-size="13" fill="#5b6272">Přibližně 120 výsledků</text>
+      {[0, 1, 2].map((i) => (
+        <>
+          <text x="28" y={116 + i * 62} font-size="12" fill="#5b6272">vasedomena.cz › {['', 'sluzby', 'kontakt'][i]}</text>
+          <text x="28" y={136 + i * 62} font-size="17" fill="#1f4fd8">{['Úvodní stránka | Vaše firma', 'Naše služby | Vaše firma', 'Kontakt | Vaše firma'][i]}</text>
+          <rect x="28" y={146 + i * 62} width={470 - i * 50} height="7" rx="3.5" fill="#e3e7ef" />
+        </>
+      ))}
+    </>
+  )}
+  {kind === 'inspect' && (
+    <>
+      <rect x="24" y="22" width="592" height="40" rx="8" fill="#f4f6fa" stroke="#c9d0de" />
+      <circle cx="46" cy="42" r="7" fill="none" stroke="#5b6272" stroke-width="2" /><path d="M51 47l6 6" stroke="#5b6272" stroke-width="2" stroke-linecap="round" />
+      <text x="68" y="48" font-size="15" fill="#0b0b0f">https://vasedomena.cz/sluzby/</text>
+      <rect x="24" y="84" width="592" height="196" rx="10" fill="#fff" stroke="#e3e7ef" />
+      <circle cx="56" cy="124" r="16" fill="#1e8e3e" /><path d="M48 124l6 6 11-12" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="84" y="130" font-size="18" font-weight="700" fill="#0b0b0f">Adresa URL je v Googlu</text>
+      <text x="48" y="172" font-size="14" fill="#5b6272">Stránka byla nalezena, prolezena a zařazena do indexu.</text>
+      <rect x="48" y="196" width="400" height="8" rx="4" fill="#e3e7ef" /><rect x="48" y="216" width="320" height="8" rx="4" fill="#e3e7ef" />
+      <rect x="440" y="238" width="156" height="30" rx="15" fill="none" stroke="#1f4fd8" />
+      <text x="518" y="258" font-size="13" font-weight="600" fill="#1f4fd8" text-anchor="middle">Požádat o indexaci</text>
+    </>
+  )}
+  {kind === 'pages' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Stránky</text>
+      <rect x="28" y="56" width="300" height="26" rx="6" fill="#1e8e3e" />
+      <rect x="328" y="56" width="120" height="26" rx="6" fill="#9aa3b5" />
+      <text x="28" y="104" font-size="13" fill="#5b6272">Indexované (ukázkově 75 %)</text>
+      <text x="328" y="104" font-size="13" fill="#5b6272">Neindexované (25 %)</text>
+      <text x="28" y="140" font-size="14" font-weight="700" fill="#0b0b0f">Důvody, proč se stránky neindexují</text>
+      {['Vyloučeno značkou noindex', 'Zablokováno souborem robots.txt', 'Duplicitní stránka, canonical na jinou adresu'].map((r, i) => (
+        <>
+          <line x1="28" x2="612" y1={156 + i * 44} y2={156 + i * 44} stroke="#e3e7ef" />
+          <text x="28" y={184 + i * 44} font-size="14" fill="#0b0b0f">{r}</text>
+          <text x="612" y={184 + i * 44} font-size="14" fill="#5b6272" text-anchor="end">{['4', '2', '11'][i]}</text>
+        </>
+      ))}
+    </>
+  )}
+  {kind === 'sitemaps' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Mapy webu</text>
+      <text x="28" y="76" font-size="13" fill="#5b6272">Přidat novou mapu webu</text>
+      <rect x="28" y="88" width="420" height="36" rx="8" fill="#f4f6fa" stroke="#c9d0de" />
+      <text x="40" y="111" font-size="14" fill="#0b0b0f">https://vasedomena.cz/sitemap.xml</text>
+      <rect x="464" y="88" width="100" height="36" rx="18" fill="#1f4fd8" />
+      <text x="514" y="111" font-size="14" font-weight="600" fill="#fff" text-anchor="middle">Odeslat</text>
+      <text x="28" y="168" font-size="13" fill="#5b6272">Odeslané mapy webu</text>
+      <rect x="28" y="180" width="584" height="76" rx="10" fill="#fff" stroke="#e3e7ef" />
+      <text x="44" y="206" font-size="14" font-weight="600" fill="#0b0b0f">sitemap.xml</text>
+      <text x="44" y="236" font-size="13" fill="#1e8e3e">● Úspěch</text>
+      <text x="612" y="236" font-size="13" fill="#5b6272" text-anchor="end">Zjištěné stránky: 120 (ukázkově)</text>
+    </>
+  )}
+</svg>

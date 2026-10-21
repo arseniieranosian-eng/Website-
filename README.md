@@ -104,3 +104,7 @@ The lead form posts to `/send.php` (in `public/`, copied to `dist/`), which e-ma
 
 ## Canonical host: seo-eranosian.com (without www)
 Since 21.10.2026 the canonical host is `https://seo-eranosian.com` (no `www`): `astro.config.mjs` (`site`), canonical, sitemap, robots, hreflang, Open Graph, JSON-LD ids and the `.htaccess` redirect targets all use it. The redirect `www` → no-`www` (and HTTP → HTTPS) is set ONLY in the hosting panel (Webserver → Nastavení), never in `.htaccess` (a duplicate once caused ERR_TOO_MANY_REDIRECTS). In Search Console use a Domain property and inspect `https://seo-eranosian.com/...`.
+
+## Blog article «Jak zjistit, jestli je web indexovaný» (cs)
+
+`/blog/jak-zjistit-jestli-je-web-indexovany/`, a dedicated page (not Markdown): `src/data/post-indexing-cs.ts`, `src/lib/schema-post-indexing.ts`, `src/views/PostIndexingCsPage.astro`, `src/components/IndexIllustration.astro`, check `scripts/check-post-indexing-cs.mjs`. Dedicated articles are listed on the blog index through `src/data/blog-posts.ts` (the index and its sitemap entry become indexable once one exists). The four pictures are drawn illustrations labelled "ilustrace" (replace with real Search Console screenshots later). Before each review (every 90 days, next 19. 1. 2027) check the Czech names of the Search Console items against a live account. Links to the funnel articles 1, 3 and 5 are to be added when they are published.

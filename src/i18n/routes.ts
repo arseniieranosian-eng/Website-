@@ -25,6 +25,7 @@ export const ROUTES = {
   caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
   reviews: { cs: '/recenze/', en: '/en/reviews/', ru: '/ru/otzyvy/' },
   blog: { cs: '/blog/', en: '/en/blog/', ru: '/ru/blog/' },
+  postIndexing: { cs: '/blog/jak-zjistit-jestli-je-web-indexovany/', en: '/en/blog/how-to-check-if-a-site-is-indexed/', ru: '/ru/blog/kak-proverit-indeksaciyu-sajta/' },
   faq: { cs: '/caste-dotazy/', en: '/en/faq/', ru: '/ru/voprosy-i-otvety/' },
   about: { cs: '/o-mne/', en: '/en/about/', ru: '/ru/obo-mne/' },
   contact: { cs: '/kontakt/', en: '/en/contact/', ru: '/ru/kontakty/' },
@@ -43,11 +44,12 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
   caseEdu: 'cases',
   caseSeason: 'cases',
   caseHalf: 'cases',
+  postIndexing: 'blog',
 };
 
 // Pages that exist in some languages only (no hreflang alternates for the missing ones; the language switcher falls
 // back to the home page). The cs/en addresses of these pages are placeholders and are never built.
-export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'] };
+export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.

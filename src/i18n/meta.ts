@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postIndexing: {
+    cs: {
+      name: 'Jak zjistit, jestli je web indexovaný',
+      title: 'Jak zjistit, jestli je web indexovaný v Googlu | Eranosian',
+      description: 'Jak za 5 minut zjistit, zda Google vidí váš web: operátor site: i Google Search Console. Co dělat, když stránky chybí. Bezplatný audit technických chyb.',
+      h1: 'Jak zjistit, jestli je web indexovaný v Googlu: 5 jednoduchých způsobů',
+    },
+    en: { name: 'How to check if a site is indexed', title: 'How to check if a site is indexed', description: 'How to check if a site is indexed', h1: 'How to check if a site is indexed' },
+    ru: { name: 'Как проверить индексацию сайта', title: 'Как проверить индексацию сайта', description: 'Как проверить индексацию сайта', h1: 'Как проверить индексацию сайта' },
+  },
   caseKb: {
     cs: {
       name: 'SEO pro překladatelskou agenturu',

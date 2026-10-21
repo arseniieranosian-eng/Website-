@@ -7,17 +7,21 @@ import { DEFAULT_LANG, LANGS, ROUTES, path, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { postsByLang } from '../lib/blog';
+import { dedicatedPosts } from '../data/blog-posts';
+import { formatDate } from '../i18n/ui';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const ui = t(lang);
 const m = META.blog[lang];
 const posts = await postsByLang(lang);
+const own = dedicatedPosts(lang);
+const hasAny = async (l: Lang) => (await postsByLang(l)).length + dedicatedPosts(l).length > 0;
 
 // A language version of the blog is indexable (and in hreflang) only once it has posts.
-const withPosts = (await Promise.all(LANGS.map(async (l) => ((await postsByLang(l)).length ? l : null)))).filter((l): l is Lang => !!l);
+const withPosts = (await Promise.all(LANGS.map(async (l) => ((await hasAny(l)) ? l : null)))).filter((l): l is Lang => !!l);
 const alternates = Object.fromEntries(withPosts.map((l) => [l, ROUTES.blog[l]]));
-const empty = posts.length === 0;
+const empty = posts.length + own.length === 0;
 const czechHasPosts = withPosts.includes(DEFAULT_LANG);
 
 const C = {
@@ -39,7 +43,17 @@ const C = {
           </div>
         </div>
       ) : (
-        <div class="grid grid-3">{posts.map((p) => <PostCard post={p} lang={lang} heading="h2" />)}</div>
+        <div class="grid grid-3">
+          {own.map((p) => (
+            <a class="card card--link post-card" href={ROUTES[p.key][lang]}>
+              <time class="post-card-date" datetime={p.date}>{formatDate(new Date(p.date), lang)}</time>
+              <h2>{p.title}</h2>
+              <p>{p.description}</p>
+              <span class="link-arrow">{ui.readMore}</span>
+            </a>
+          ))}
+          {posts.map((p) => <PostCard post={p} lang={lang} heading="h2" />)}
+        </div>
       )}
       {lang !== DEFAULT_LANG && czechHasPosts && (
         <p class="note">{ui.blogOtherLang} <a href={path('blog', DEFAULT_LANG)} hreflang={DEFAULT_LANG}>{ui.blogOtherLangLink}</a></p>

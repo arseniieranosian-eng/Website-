@@ -1,0 +1,148 @@
+---
+// Blog article "Jak zjistit, jestli je web indexovaný v Googlu" (cs), brief of 21.10.2026. Content: data/post-indexing-cs.ts.
+// One main CTA (free audit). Links to funnel articles 1, 3, 5 are added when they exist.
+import Base from '../layouts/Base.astro';
+import IndexIllustration from '../components/IndexIllustration.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postIndexingSchemas } from '../lib/schema-post-indexing';
+import { POST_INDEXING_CS as C } from '../data/post-indexing-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/views/PostIndexingCsPage.astro', 'src/data/post-indexing-cs.ts', 'src/components/IndexIllustration.astro'], '2026-10-21');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-jak-zjistit-indexaci.png';
+const cite = new URL(t('postIndexing'), site).href;
+const fig = (k: string) => C.figures.find((f) => f.kind === k)!;
+// Reading time from the visible text (about 200 words a minute)
+const words = JSON.stringify(C).replace(/"[a-zA-Z]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postIndexing', lang)} ogType="article" ogImage={OG} schema={postIndexingSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.postIndexing.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <!-- FIVE METHODS -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.methodsTitle}</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.methods.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.methods.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p>{C.forWhom}</p>
+    </div>
+  </section>
+
+  <!-- WHAT IT MEANS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whatTitle}</h2>
+      <p class="answer">{C.whatAnswer}</p>
+      <p>{C.whatText}</p>
+      <p>{C.whatSymptom}</p>
+    </div>
+  </section>
+
+  <!-- site: -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.siteTitle}</h2>
+      <p class="answer">{C.siteAnswer}</p>
+      <ol class="steps">{C.siteSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+      <p>{C.siteText}</p>
+      <figure class="post-figure"><IndexIllustration kind="site" aria={fig('site').aria} /><figcaption>{fig('site').caption}</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- SEARCH CONSOLE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.gscTitle}</h2>
+      <p class="answer">{C.gscAnswer}</p>
+      {C.gscBlocks.map((b, i) => (
+        <>
+          <h3>{b.h3}</h3>
+          <ol class="steps">{b.steps.map((s) => <li><span>{s}</span></li>)}</ol>
+          <figure class="post-figure"><IndexIllustration kind={['inspect', 'pages', 'sitemaps'][i] as any} aria={fig(['inspect', 'pages', 'sitemaps'][i]).aria} /><figcaption>{fig(['inspect', 'pages', 'sitemaps'][i]).caption}</figcaption></figure>
+        </>
+      ))}
+      <p>{C.gscNoAccess}</p>
+    </div>
+  </section>
+
+  <!-- BING -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.bingTitle}</h2>
+      <p class="answer">{C.bingAnswer}</p>
+      <p>{C.bingText}</p>
+      <p><a class="link-arrow" href={t('geo')}>{C.bingLinkText}</a></p>
+    </div>
+  </section>
+
+  <!-- WHY NOT INDEXED -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+      <ul class="checks">{C.whyList.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.whyText}</p>
+    </div>
+  </section>
+
+  <!-- HOW OFTEN + author quote -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.oftenTitle}</h2>
+      <p class="answer">{C.oftenAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <!-- WHAT TO DO + main CTA -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.fixTitle}</h2>
+      <p class="answer">{C.fixAnswer}</p>
+      <ol class="steps">{C.fixSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+      <p>{C.bridge}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.endTitle}</h2>
+      <p>{C.endText}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <p>{C.nextText}</p>
+      <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
+    </div>
+  </section>
+</Base>
