@@ -1,6 +1,6 @@
 ---
 // Drawn illustrations (not screenshots) for the indexing article. Real SVG text, light palette, 640 × 300.
-interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual' | 'parts'; aria: string }
+interface Props { kind: 'site' | 'inspect' | 'pages' | 'sitemaps' | 'wp' | 'manual' | 'parts' | 'dupreport' | 'addresses'; aria: string }
 const { kind, aria } = Astro.props;
 ---
 <svg class="post-illus" viewBox="0 0 640 300" role="img" aria-label={aria} xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, Arial, sans-serif">
@@ -103,6 +103,35 @@ const { kind, aria } = Astro.props;
         </>
       ))}
       <text x="28" y="252" font-size="13" fill="#1f4fd8" font-weight="600">Bezplatný audit pokrývá jen první část: technické chyby.</text>
+    </>
+  )}
+  {kind === 'dupreport' && (
+    <>
+      <text x="28" y="40" font-size="16" font-weight="700" fill="#0b0b0f">Stránky</text>
+      <text x="28" y="72" font-size="14" font-weight="700" fill="#0b0b0f">Důvody, proč se stránky neindexují</text>
+      {['Duplicitní stránka bez kanonické stránky zvolené uživatelem', 'Alternativní stránka se správnou značkou canonical', 'Vyloučeno značkou noindex'].map((r, i) => (
+        <>
+          <line x1="28" x2="612" y1={90 + i * 50} y2={90 + i * 50} stroke="#e3e7ef" />
+          <text x="28" y={120 + i * 50} font-size="14" fill="#0b0b0f">{r}</text>
+          <text x="612" y={120 + i * 50} font-size="14" fill="#5b6272" text-anchor="end">{['6', '3', '2'][i]}</text>
+        </>
+      ))}
+      <line x1="28" x2="612" y1="240" y2="240" stroke="#e3e7ef" />
+      <text x="28" y="272" font-size="13" fill="#5b6272">Hodnoty jsou ukázkové; názvy důvodů se v Search Console mohou lišit.</text>
+    </>
+  )}
+  {kind === 'addresses' && (
+    <>
+      {[['http://vasedomena.cz/sluzba', 'http'], ['https://vasedomena.cz/sluzba/', 'https'], ['https://www.vasedomena.cz/sluzba/', 'www']].map(([u], i) => (
+        <>
+          <rect x="28" y={28 + i * 66} width="584" height="48" rx="24" fill="#fff" stroke="#c4cde0" />
+          <circle cx="56" cy={52 + i * 66} r="7" fill="#9aa3b5" />
+          <text x="76" y={58 + i * 66} font-size="17" fill="#0b0b0f">{u}</text>
+          <text x="596" y={58 + i * 66} font-size="13" fill="#5b6272" text-anchor="end">stejná stránka</text>
+        </>
+      ))}
+      <text x="28" y="258" font-size="14" font-weight="600" fill="#1f4fd8">Tři adresy, jeden obsah: Google vybere jednu a ostatní nezařadí.</text>
+      <text x="28" y="282" font-size="13" fill="#5b6272">Řešení: přesměrování 301 na jednu verzi.</text>
     </>
   )}
 </svg>

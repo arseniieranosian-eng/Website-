@@ -49,6 +49,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <ul class="checks">{C.parts.map((x) => <li>{x}</li>)}</ul>
       <figure class="post-figure"><IndexIllustration kind="parts" aria={C.figure.aria} /><figcaption>{C.figure.caption}</figcaption></figure>
       <p>{C.partsLinkLead} <a href={t('postIndexing')}>{C.partsLinkText}</a>.</p>
+      <p>{C.partsDupLead} <a href={t('postDuplicates')}>{C.partsDupLinkText}</a>.</p>
     </div>
   </section>
 

@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postDuplicates: {
+    cs: {
+      name: 'Duplicitní obsah',
+      title: 'Duplicitní obsah: co to je a jak ho vyřešit | Eranosian',
+      description: 'Co je duplicitní obsah, odkud se bere a proč webu škodí. Jak ho poznat v Search Console a vyřešit přes 301 nebo canonical. Bezplatný audit technických chyb.',
+      h1: 'Duplicitní obsah: co to je, jak ho poznat a jak ho vyřešit',
+    },
+    en: { name: 'Duplicate content', title: 'Duplicate content', description: 'Duplicate content', h1: 'Duplicate content' },
+    ru: { name: 'Дубли контента', title: 'Дубли контента', description: 'Дубли контента', h1: 'Дубли контента' },
+  },
   postSeoAudit: {
     cs: {
       name: 'Co je SEO audit',

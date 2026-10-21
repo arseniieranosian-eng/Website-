@@ -61,7 +61,8 @@ const raw = {
 
   dupTitle: 'Jsou na webu duplicity nebo canonical na jinou stránku?',
   dupAnswer: 'Pokud je podobných stránek víc, Google si vybere jednu a ostatní nezařadí. Canonical na jinou adresu může stránku stejně vyřadit.',
-  dupText: 'Duplicitám se podrobně věnuji v samostatném článku, který připravuji.',
+  dupText: 'Duplicitám se podrobně věnuji v článku',
+  dupLinkText: 'Duplicitní obsah',
 
   redTitle: 'Změnily se po redesignu adresy bez přesměrování?',
   redAnswer: 'Když se po redesignu změní adresy a staré se nepřesměrují, Google je může ztratit. To je častá příčina propadu po změně webu.',

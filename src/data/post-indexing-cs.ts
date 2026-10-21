@@ -34,7 +34,9 @@ const raw = {
 
   whatTitle: 'Co znamená, že je web indexovaný?',
   whatAnswer: 'Indexovaný web znamená, že Google stránku našel, přečetl a uložil do svého indexu, takže se může zobrazit ve výsledcích. Stav „nalezeno“ nebo „prolezeno“ ještě neznamená, že je stránka v indexu.',
-  whatText: 'Google stránku nejdřív najde (například v mapě webu nebo přes odkaz), pak ji prolezne a přečte a teprve potom ji může zařadit do indexu. Každý z těchto kroků se může zastavit a stránka se pak ve výsledcích neobjeví. Duplicitní obsah je častá příčina, tomu se věnuji v samostatném článku.',
+  whatText: 'Google stránku nejdřív najde (například v mapě webu nebo přes odkaz), pak ji prolezne a přečte a teprve potom ji může zařadit do indexu. Každý z těchto kroků se může zastavit a stránka se pak ve výsledcích neobjeví.',
+  whatDupLead: 'Duplicitní obsah je častá příčina, tomu se věnuji v samostatném článku',
+  whatDupLinkText: 'Duplicitní obsah',
   whatSymptom: 'Pokud se web nezobrazuje v Googlu vůbec, začněte tímto článkem a pak se vraťte k příčinám.',
   whatSymptomLead: 'Příčiny najdete v článku',
   whatSymptomLinkText: 'Proč se web nezobrazuje v Googlu',

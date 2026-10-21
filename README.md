@@ -116,3 +116,7 @@ Since 21.10.2026 the canonical host is `https://seo-eranosian.com` (no `www`): `
 ## Blog article «Co je SEO audit» (cs)
 
 `/blog/co-je-seo-audit/`: `src/data/post-seo-audit-cs.ts`, `src/lib/schema-post-seo-audit.ts`, `src/views/PostSeoAuditCsPage.astro`, check `scripts/check-post-seo-audit-cs.mjs`. «SEO audit zdarma» stays with `/audit-zdarma/`; the list «co bezplatný audit nenajde» repeats the "not included" table of the audit page (`data/audit-cs.ts`): update both together. No price, no crawler name. The other two articles link to it. Links to funnel articles 5 and 10 and the back-link from the consultation page are to be added when those exist.
+
+## Blog article «Duplicitní obsah» (cs)
+
+`/blog/duplicitni-obsah/`: `src/data/post-duplicates-cs.ts`, `src/lib/schema-post-duplicates.ts`, `src/views/PostDuplicatesCsPage.astro`, check `scripts/check-post-duplicates-cs.mjs`. Illustrations (`IndexIllustration.astro` kinds `addresses`, `dupreport`) are drawn, not screenshots; check the Czech names of the duplicate statuses in Search Console on a live account. The articles «Proč se web nezobrazuje v Googlu», «Jak zjistit, jestli je web indexovaný» and «Co je SEO audit» link to it. Links to the redesign article (2) and article 3 are to be added when published.

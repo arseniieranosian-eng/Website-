@@ -38,6 +38,9 @@ const raw = {
   partsLinkLead: 'Jednu ze základních technických otázek, zda je web v Googlu, vysvětluji v článku',
   partsLinkText: 'Jak zjistit, jestli je web indexovaný v Googlu',
 
+  partsDupLead: 'Duplicitní stránky, jednu z nejčastějších technických chyb, vysvětluji v článku',
+  partsDupLinkText: 'Duplicitní obsah',
+
   typesTitle: 'Jaké typy SEO auditu existují?',
   typesAnswer: 'Liší se hloubkou: bezplatný technický audit ukáže technické chyby, širší audit v konzultaci přidá strukturu a plán a při průběžné práci je audit součástí realizace.',
   types: {

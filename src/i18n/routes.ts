@@ -25,6 +25,7 @@ export const ROUTES = {
   caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
   reviews: { cs: '/recenze/', en: '/en/reviews/', ru: '/ru/otzyvy/' },
   blog: { cs: '/blog/', en: '/en/blog/', ru: '/ru/blog/' },
+  postDuplicates: { cs: '/blog/duplicitni-obsah/', en: '/en/blog/duplicate-content/', ru: '/ru/blog/dublikaty-kontenta/' },
   postSeoAudit: { cs: '/blog/co-je-seo-audit/', en: '/en/blog/what-is-an-seo-audit/', ru: '/ru/blog/chto-takoe-seo-audit/' },
   postNotShown: { cs: '/blog/proc-se-web-nezobrazuje-v-googlu/', en: '/en/blog/why-is-my-site-not-in-google/', ru: '/ru/blog/pochemu-sajt-ne-v-google/' },
   postIndexing: { cs: '/blog/jak-zjistit-jestli-je-web-indexovany/', en: '/en/blog/how-to-check-if-a-site-is-indexed/', ru: '/ru/blog/kak-proverit-indeksaciyu-sajta/' },
@@ -49,11 +50,12 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
   postIndexing: 'blog',
   postNotShown: 'blog',
   postSeoAudit: 'blog',
+  postDuplicates: 'blog',
 };
 
 // Pages that exist in some languages only (no hreflang alternates for the missing ones; the language switcher falls
 // back to the home page). The cs/en addresses of these pages are placeholders and are never built.
-export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'] };
+export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.
