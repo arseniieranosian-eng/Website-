@@ -28,7 +28,7 @@ const raw = {
   ],
   cardsNote: 'Kliky a zobrazení: Search Console, data se upřesňují.',
   dataNote: 'Název klienta a absolutní čísla nezveřejňuji, stejně jako bych chránil vaše data. Počítám poptávky z formuláře; e-mail se měří zvlášť a telefonáty a messengery se neměří, takže reálný růst je vyšší. Růst se počítá od nízké základny.',
-  part1Link: 'Toto je Část 2. Část 1: první 4 měsíce práce',
+  part1Link: 'Toto je Část 2. Hlavní případová studie: půl roku práce na webu',
   heroCta: 'Chci audit zdarma',
 
   diagTitle: 'Proč se organická návštěvnost nepřeváděla na poptávky?',
@@ -113,7 +113,7 @@ const raw = {
   ctaText: 'Bezplatný audit ukáže technické chyby vašeho webu.',
   ctaAudit: 'Chci audit zdarma',
   ctaContact: 'Napište mi',
-  part1Back: 'Část 1: první 4 měsíce práce',
+  part1Back: 'Hlavní případová studie: půl roku práce na webu',
   nextCases: [
     { key: 'caseTypo' as const, text: 'Sousední případová studie: SEO pro tiskárnu' },
     { key: 'caseEdu' as const, text: 'Sousední případová studie: SEO pro novou vzdělávací platformu' },

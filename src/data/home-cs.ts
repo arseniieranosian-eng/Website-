@@ -45,7 +45,7 @@ export const HOME_CS = {
   resultsTitle: 'Jaké výsledky už mají moji klienti?',
   resultsAnswer: 'Čtyři případové studie z různých situací: nový web, nízká sezóna, růst návštěvnosti a firma s pobočkami. U každé uvádím období a zdroj čísel.',
   cases: [
-    { label: 'Firma s pobočkami', name: 'Překladatelská agentura, část 1', formula: KB_FORMULA_CS, page: 'caseKb' as const },
+    { label: 'Firma s pobočkami', name: 'Překladatelská agentura: půl roku práce', formula: KB_FORMULA_CS, page: 'caseKb' as const },
     { label: 'Nízká sezóna', name: 'Překladatelská agentura, část 2', formula: SEASON_FORMULA_CS, page: 'caseSeason' as const },
     { label: 'Růst návštěvnosti', name: 'Tiskárna', formula: TYPO_FORMULA_CS, page: 'caseTypo' as const },
     { label: 'Nový web', name: 'Vzdělávací platforma', formula: EDU_FORMULA_CS, page: 'caseEdu' as const },

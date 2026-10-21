@@ -466,3 +466,22 @@ table.compare { min-width: 0; }
 .ai-example__imgs--pair { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 560px) { .ai-example__imgs--pair { grid-template-columns: repeat(2, minmax(0, 280px)); justify-content: center; } }
 .ai-example figcaption { margin-top: 10px; color: var(--text-muted); font-size: 0.92rem; }
+
+/* Main case study (cs): owner's quote with photo, language-share chart and screenshot */
+.owner-quote { margin: 20px 0; padding: 8px 0 8px 24px; border-left: 4px solid var(--orange, #ff6b1a); }
+.owner-quote blockquote { margin: 0 0 12px; }
+.owner-quote blockquote p { margin: 0; font-size: 1.35rem; line-height: 1.45; font-weight: 600; }
+.owner-quote figcaption { display: flex; align-items: center; gap: 12px; color: var(--text-muted); }
+.owner-quote figcaption img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; }
+.owner-quote figcaption a { color: var(--text); font-weight: 700; text-decoration: none; }
+.owner-quote figcaption a:hover { color: var(--blue); text-decoration: underline; }
+.lang-chart { display: block; width: 100%; max-width: 640px; height: auto; margin: 8px 0 20px; }
+.lang-chart__label { font: 600 15px/1 inherit; fill: var(--text); }
+.lang-chart__pct { font: 700 16px/1 inherit; fill: var(--text); }
+.lang-chart__bar { fill: #9aa7c0; }
+.lang-chart__bar--main { fill: var(--blue); }
+.lang-shot { margin: 20px 0 0; }
+.lang-shot img { display: block; width: 100%; max-width: 520px; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+
+.results-table th[scope="row"] { min-width: 150px; }
+.results-table td { min-width: 110px; }

@@ -32,7 +32,7 @@ const raw = {
   expTitle: 'Jaké mám zkušenosti?',
   expAnswer: 'Pracuji v SEO od roku 2024 na projektech ve čtyřech zemích. U každého projektu uvádím roli, období a doložený výsledek; názvy klientů nezveřejňuji.',
   exp: [
-    { head: 'Překladatelská agentura (Česko) · SEO specialista na kontrakt · březen – září 2026', text: `${SEASON_FORMULA_CS}; lokální stránky podle měst, FAQ a blog jako horní část trychtýře.`, links: [{ text: 'Část 1', page: 'caseKb' as const }, { text: 'Část 2', page: 'caseSeason' as const }], linksLead: 'Případové studie: ' },
+    { head: 'Překladatelská agentura (Česko) · SEO specialista na kontrakt · březen – září 2026', text: `${SEASON_FORMULA_CS}; lokální stránky podle měst, FAQ a blog jako horní část trychtýře.`, links: [{ text: 'Půl roku práce', page: 'caseKb' as const }, { text: 'Nízká sezóna', page: 'caseSeason' as const }], linksLead: 'Případové studie: ' },
     { head: 'Tiskárna (ruskojazyčný trh) · SEO specialista na volné noze · léto 2024 – léto 2025', text: `${TYPO_FORMULA_CS}; technický základ, architektura klíčových slov, 20+ vstupních stránek na WordPressu.`, links: [{ text: 'Případová studie', page: 'caseTypo' as const }], linksLead: '' },
     { head: 'Vzdělávací platforma (Bulharsko) · marketér (SEO), stáž · březen – září 2025', text: `${EDU_FORMULA_CS.replace(/, březen → září 2025 \(7 měsíců\)/, ' za 7 měsíců')}; výzkum klíčových slov a návrh struktury webu a blogu.`, links: [{ text: 'Případová studie', page: 'caseEdu' as const }], linksLead: '' },
     { head: 'Digitální marketing (Indie) · SEO stážista · 2024 (5 měsíců)', text: '+60 % organické návštěvnosti za 5 měsíců (relativní data); on-page a off-page optimalizace; první profesní SEO projekt.', links: [], linksLead: '' },

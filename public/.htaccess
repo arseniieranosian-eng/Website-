@@ -25,10 +25,10 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/ru/uslugi/?$ https://www.seo-eranosian.com/ru/
 
   # case study: the client was anonymised, the address changed
-  RedirectMatch 301 ^/pripadove-studie/kb-preklady/?$ https://www.seo-eranosian.com/pripadove-studie/seo-prekladatelska-agentura-4-mesice/
+  RedirectMatch 301 ^/pripadove-studie/kb-preklady/?$ https://www.seo-eranosian.com/pripadove-studie/seo-prekladatelska-agentura/
+  RedirectMatch 301 ^/pripadove-studie/seo-prekladatelska-agentura-4-mesice/?$ https://www.seo-eranosian.com/pripadove-studie/seo-prekladatelska-agentura/
   RedirectMatch 301 ^/en/case-studies/kb-preklady/?$ https://www.seo-eranosian.com/en/case-studies/seo-translation-agency-4-months/
   RedirectMatch 301 ^/ru/kejsy/kb-preklady/?$ https://www.seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/
-  RedirectMatch 301 ^/pripadove-studie/seo-prekladatelska-agentura/?$ https://www.seo-eranosian.com/pripadove-studie/seo-prekladatelska-agentura-4-mesice/
   RedirectMatch 301 ^/en/case-studies/seo-translation-agency/?$ https://www.seo-eranosian.com/en/case-studies/seo-translation-agency-4-months/
   RedirectMatch 301 ^/ru/kejsy/seo-perevodcheskoe-agentstvo/?$ https://www.seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/
 </IfModule>

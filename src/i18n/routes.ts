@@ -21,7 +21,7 @@ export const ROUTES = {
   caseTypo: { cs: '/pripadove-studie/seo-tiskarna/', en: '/en/case-studies/seo-print-shop/', ru: '/ru/kejsy/seo-tipografiya/' },
   caseEdu: { cs: '/pripadove-studie/seo-vzdelavaci-platforma/', en: '/en/case-studies/seo-education-platform/', ru: '/ru/kejsy/seo-obrazovatelnaya-platforma/' },
   caseSeason: { cs: '/pripadove-studie/seo-v-nizke-sezone/', en: '/en/case-studies/seo-in-low-season/', ru: '/ru/kejsy/seo-v-nizkij-sezon/' },
-  caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
+  caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
   reviews: { cs: '/recenze/', en: '/en/reviews/', ru: '/ru/otzyvy/' },
   blog: { cs: '/blog/', en: '/en/blog/', ru: '/ru/blog/' },
   faq: { cs: '/caste-dotazy/', en: '/en/faq/', ru: '/ru/voprosy-i-otvety/' },

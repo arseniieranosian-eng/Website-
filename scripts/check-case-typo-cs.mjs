@@ -6,7 +6,7 @@ const URL_PATH = '/pripadove-studie/seo-tiskarna/';
 const RU_PATH = '/ru/kejsy/seo-tipografiya/';
 const H1 = 'SEO pro tiskárnu: organická návštěvnost vzrostla 8,75× za 12 měsíců';
 const SECTIONS = [H1, 'Jaká byla výchozí situace webu?', 'Co jsem udělal v prvních 30 dnech?', 'Jak jsem postavil architekturu klíčových slov podle komerčního záměru?', 'Proč 20+ vstupních stránek a jak jsou postavené?', 'Jak jsem sledoval propady návštěvnosti?', 'Jaké byly výsledky za 12 měsíců?', 'V jakém pořadí dělat SEO?', 'Dá se to zopakovat v Česku?', 'Časté otázky k případové studii', 'Související služby', 'Chcete stejný postup pro svůj web?'];
-const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/konzultace/', '/mapy/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/'];
+const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/konzultace/', '/mapy/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-prekladatelska-agentura/'];
 const FORBIDDEN = ['777', 'YoY', 'meziročně', '+55', '+64', '30 % potenciálu', 'crawl budget', 'Screaming', 'AggregateRating', 'KB P', 'ChatGPT'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');

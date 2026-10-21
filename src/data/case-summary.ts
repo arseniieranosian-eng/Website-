@@ -11,7 +11,7 @@ export const CASE_LABEL: Record<Lang, string> = {
 };
 
 export const CASE_LINE: Record<Lang, string> = {
-  cs: 'Překladatelská agentura se třemi pobočkami: za 4 měsíce SEO práce vzrostl počet poptávek v červnu 8× oproti květnu (formulář a e-mail), agentura získala prvního B2B klienta a objevila se v odpovědích Google AI Overview.',
+  cs: 'Překladatelská agentura: za půl roku práce (březen–září 2026) rostly poptávky tři měsíce po sobě o 65–70\u00a0% měsíčně, B2B poptávky se ztrojnásobily a web se objevil v Google AI Overview.',
   en: 'A translation agency with three branches: over 4 months of SEO work, enquiries in June grew 8× compared with May (form and e-mail), the agency won its first B2B client and appeared in Google AI Overview answers.',
   ru: 'Переводческое агентство с тремя филиалами: за 4 месяца SEO-работы число заявок в июне выросло в 8 раз по сравнению с маем (форма и e-mail), агентство получило первого B2B-клиента и появилось в ответах Google AI Overview.',
 };
@@ -52,4 +52,4 @@ export const SEASON_LINE_CS: string = `Překladatelská agentura, část 2. ${SE
 
 // Short result formulas for the Czech home page "Jaké výsledky už mají moji klienti?" block (one place; the case pages carry
 // the same figures). Part 1: ×8 June vs May, form leads (the data window is still being aligned with Part 2).
-export const KB_FORMULA_CS = 'Poptávky z formuláře ×8 (červen proti květnu)';
+export const KB_FORMULA_CS = 'Poptávky tři měsíce po sobě +65–70\u00a0% měsíčně, B2B poptávky ×3 (+200\u00a0%), březen–září 2026';

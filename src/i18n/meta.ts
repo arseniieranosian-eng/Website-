@@ -222,8 +222,8 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO pro překladatelskou agenturu',
       title: 'Případová studie SEO překladatelské agentury | Eranosian',
-      description: 'Jak jsem pomohl překladatelské agentuře získat prvního B2B klienta přes SEO: lokální stránky ve 3 městech, obsah a AI Overviews. Přečtěte si postup.',
-      h1: 'SEO pro překladatelskou agenturu se třemi pobočkami',
+      description: 'Jak jsem za půl roku postavil web překladatelské agentury, který měl nulu poptávek: lokální stránky, B2B poptávky a nové vstupní body. Audit zdarma.',
+      h1: 'Případová studie SEO pro překladatelskou agenturu: půl roku od nuly k růstu poptávek',
     },
     en: {
       name: 'SEO for a translation agency',

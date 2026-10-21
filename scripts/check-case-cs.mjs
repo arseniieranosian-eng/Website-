@@ -1,88 +1,124 @@
-// Post-build check of the anonymised case study (cs) against its brief of 20.10.2026, plus the site-wide anonymisation.
+// Post-build check of the main case study (cs, brief of 21.10.2026), plus the site-wide anonymisation.
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BASE = 'https://www.seo-eranosian.com';
-const URL_PATH = '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/';
-const H1 = 'SEO pro překladatelskou agenturu se třemi pobočkami';
-const SECTIONS = [H1, 'Jaký byl výchozí stav webu?', 'Proč jedna stránka pro každé město?', 'Jak funguje obsah jako trychtýř?', 'Proč lokalizovat, a ne jen překládat?', 'Co jsem udělal v technickém SEO?', 'Jaké byly výsledky?', 'Jak se v analytice objevil nový kanál AI Assistant?', 'Šest kroků pro váš web', 'Časté otázky k případové studii', 'Související služby', 'Chcete stejný postup pro svůj web?'];
-const LINKS = ['/pripadove-studie/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/konzultace/', '/seo-a-geo/', '/audit-zdarma/', '/kontakt/', '/o-mne/'];
-// Figures not confirmed by the author must not appear on the case page (the partner agency's review elsewhere is a quote)
-const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', '24×', '6× zobraz', '300×', '×300', '65–70', 'ChatGPT v odpovědích', 'naše agentura'];
+const URL_PATH = '/pripadove-studie/seo-prekladatelska-agentura/';
+const H1 = 'Případová studie SEO pro překladatelskou agenturu: půl roku od nuly k růstu poptávek';
+const SECTIONS = [H1, 'Jaké byly cíle zakázky?', 'Jak web vypadal na začátku?', 'Co jsem postavil?', 'Jaké byly výsledky za půl roku?', 'Jací klienti na web začali chodit?', 'Jak se chovala jednotlivá města?', 'Objevil se web v AI vyhledávání?', 'Co bych zopakoval na jakémkoli podobném projektu?', 'Časté otázky k případové studii', 'Související služby', 'Máte web, který „funguje“, ale nepřivádí klienty?'];
+const LINKS = ['/pripadove-studie/', '/pripadove-studie/seo-v-nizke-sezone/', '/seo-a-geo/', '/start-3-mesice/', '/full-seo/', '/mapy/', '/konzultace/', '/audit-zdarma/', '/kontakt/', '/o-mne/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/'];
+// Never on the page: client name / domain, absolute numbers of the language table, old formulas, unconfirmed claims
+const FORBIDDEN = ['KB P', 'kbpreklady', 'kb-preklady', '×8', '×300', '6× zobraz', '+400', '141', ' 74 ', 'Američan', 'Rakušan', 'Němc', '55–60', 'jsme '];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-const txt = (s) => dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
+const txt = (s) => norm(dec(s.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/ ([.,:;!?)])/g, '$1').replace(/\( /g, '('));
 const errors = [];
 const e = (m) => errors.push(m);
 
-const h = readFileSync('dist/pripadove-studie/seo-prekladatelska-agentura-4-mesice/index.html', 'utf8');
+const h = readFileSync('dist/pripadove-studie/seo-prekladatelska-agentura/index.html', 'utf8');
 const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
 const body = txt(h);
 const mainTxt = txt(main);
-const flat = body.replace(/\( /g, '(').replace(/ ([.,:;)])/g, '$1');
-const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
-const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
+const title = norm(dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]));
+const desc = norm(dec(h.match(/<meta name="description" content="([^"]*)"/)[1]));
 if (title !== 'Případová studie SEO překladatelské agentury | Eranosian' || title.length < 50 || title.length > 60) e(`title: ${title} (${title.length})`);
-if (desc.length < 120 || desc.length > 160 || /jsme /.test(desc)) e(`description (${desc.length}) must be 120-160 chars, first person singular`);
+if (desc !== 'Jak jsem za půl roku postavil web překladatelské agentury, který měl nulu poptávek: lokální stránky, B2B poptávky a nové vstupní body. Audit zdarma.') e(`description: ${desc}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
+if (/nízk\S* sezón|útlumov/i.test(title + desc + H1)) e('"SEO v nízké sezóně" stays with Part 2 (not in Title / H1 / Description)');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-if (!h.includes('<meta property="og:type" content="article">')) e('og:type article');
-if (!h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:locale cs_CZ');
-for (const [l, p] of [['cs', URL_PATH], ['en', '/en/case-studies/seo-translation-agency-4-months/'], ['ru', '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/'], ['x-default', URL_PATH]]) {
-  if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
-}
+if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:type article / og:locale cs_CZ');
+if (!h.includes(`<meta property="og:image" content="${BASE}/images/pripadove-studie/og-seo-prekladatelska-agentura.png">`)) e('og:image card');
+for (const [l, p] of [['cs', URL_PATH], ['en', '/en/case-studies/seo-translation-agency-4-months/'], ['ru', '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/'], ['x-default', URL_PATH]]) if (!h.includes(`hreflang="${l}" href="${BASE}${p}"`)) e(`hreflang ${l} -> ${p}`);
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
-for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
+for (const f of FORBIDDEN) if (mainTxt.includes(f) || desc.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/<form|<video|★|AggregateRating|ratingValue/.test(main)) e('no form / video / stars on this page');
-// hero: direct answer + author line + data note
+if (/href="\/blog\/|<form|<video|★|AggregateRating|ratingValue/.test(main)) e('no blog links / form / video / stars on this page');
+if (/Czech Republic|"agentura"/.test(mainTxt)) e('stray text');
+
+// Hero
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 const words = lead.split(/\s+/).length;
-if (!lead.startsWith('Za 4 měsíce SEO práce') || words < 40 || words > 60) e(`hero answer must be 40-60 words (${words})`);
-if (!mainTxt.includes('Přesná čísla a identitu klienta nezveřejňuji')) e('data note missing');
-const byline = h.match(/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time> · Projekt: březen–červen/);
-// Hidden / absent blocks
-if (/Co bude dál\?/.test(mainTxt)) e('"Co bude dál?" stays hidden until the autumn data exists');
-if (/Co říkají klienti/.test(mainTxt)) e('no reviews block on this page');
-// Six steps, pull quote
-const steps = [...(h.match(/<ol class="case-steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><h3>([\s\S]*?)<\/h3>/g)].length;
-if (steps !== 6) e(`six steps expected, found ${steps}`);
-const bq = h.match(/<blockquote class="pullquote">[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<cite>/);
-// Images: the one screenshot has alt + figcaption + dimensions; charts are real HTML/SVG text
-const img = main.match(/<img[^>]*faq-lokalizace-cs-uk\.webp[^>]*>/);
-if (!img || !/alt="Porovnání časté dotazy[^"]+"/.test(img[0]) || !/width="720"/.test(img[0]) || !/height="730"/.test(img[0]) || !/loading="lazy"/.test(img[0])) e('FAQ screenshot: alt, width, height, lazy');
-if (!/<svg class="channel-chart"[^>]*role="img"/.test(h)) e('channel chart must be an accessible SVG');
-if (!body.includes('Ilustrativní schéma podle vzorce, který vidím na živém projektu. Nejde o přesná data klienta.')) e('mandatory caption of the illustrative chart missing');
-if (!body.includes('Mobilní načítání podle PageSpeed Insights: z 5-6 s na 3,6 s')) e('speed caption missing');
-if (/~40 ?%/.test(main)) e('the "~40 %" claim must not be used (28-40 %)');
+if (!lead.startsWith('Za půl roku (březen–září 2026) jsem u překladatelské agentury') || words < 40 || words > 60) e(`hero answer (${words} words)`);
+const cards = [...(main.match(/<dl class="stats[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dt>([^<]*)<\/dt><dd>([^<]*)<\/dd>/g)].map((m) => `${norm(m[2])} ${norm(m[1])}`);
+if (cards.join('|') !== '+65–70 % poptávek měsíčně (3 měsíce po sobě)|×3 (+200 %) B2B poptávky|6 měsíců práce') e(`hero cards: ${cards.join('|')}`);
+const byline = h.match(/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time> · Projekt: překladatelská agentura, březen – září 2026/);
+if (!byline) e('byline');
+if (!mainTxt.includes('Čísla a vývoj webu potvrdil klient.') || !mainTxt.includes('Název klienta a absolutní čísla nezveřejňuji')) e('data note / client confirmation line');
+if (!mainTxt.includes('Jak se projekt choval v letní sezóně: SEO v nízké sezóně')) e('link to Part 2 in the hero');
+// Czech number typography
+const main0 = main.replace(/<(script|style)[\s\S]*?<\/\1>/g, '').replace(/<[^>]+>/g, ' ');
+if (/\d %/.test(main0) || !main0.includes('65–70\u00a0%')) e('non-breaking space before %');
+// Results table, owner's quote right after the first paragraph (before the table), separate ×24 line with its own definition
+const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
+if (!rows.some((r) => r.join('|') === 'Cíl|Metrika|Výsledek|Období|Zdroj') || rows.filter((r) => r.length === 5 && ['Podpora prodeje', 'Povědomí o firmě'].includes(r[0])).length !== 8) e('results table: header + 8 rows');
+if (!mainTxt.includes('Poptávky z formuláře ×24 (+2300 %): jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně. Od nízké základny')) e('the separate ×24 line with its own definition');
+const OQ = 'Největší překvapení bylo, že poptávky rostly i v létě, kdy je v našem oboru nejklidněji.';
+const iq = mainTxt.indexOf(OQ);
+if (!(mainTxt.indexOf('Jaké byly výsledky za půl roku?') < iq && iq < mainTxt.indexOf('Cíl Metrika Výsledek'))) e("owner's quote: after the first results paragraph, before the table");
+if (!/<figure class="owner-quote">\s*<blockquote cite="[^"]*seo-prekladatelska-agentura\/"><p>[^<]*<\/p><\/blockquote>\s*<figcaption>\s*<img src="\/images\/pripadove-studie\/majitelka\.jpg"[^>]*alt="Yelyzaveta Butyrina, majitelka překladatelské agentury"[^>]*>\s*<span>— <a href="https:\/\/www\.instagram\.com\/elzabutirina\/"[^>]*>Yelyzaveta Butyrina<\/a>, majitelka překladatelské agentury<\/span>/.test(main)) e("owner's quote figure: photo with alt, name linking to her Instagram, role");
+// Language shares: SVG chart with real text, table, screenshot (counts / site name covered)
+if (!/<svg class="lang-chart"[^>]*role="img"[^>]*aria-label="Sloupcový graf: česká verze 52[^"]*"/.test(main)) e('language chart: accessible SVG');
+const lrows = rows.filter((r) => r.length === 3 && /^\d$/.test(r[0]));
+if (JSON.stringify(lrows) !== JSON.stringify([['1', 'Česká', '52 %'], ['2', 'Anglická', '26 %'], ['3', 'Ukrajinská', '18 %'], ['4', 'Ruská', '4 %']])) e(`language table: ${JSON.stringify(lrows)}`);
+if (!/<img src="\/images\/pripadove-studie\/poptavky-jazykove-verze\.webp" width="1000" height="743" alt="[^"]+" loading="lazy"/.test(main)) e('language screenshot: size, alt, lazy');
+if (!mainTxt.includes('Absolutní počty neuvádím.')) e('no absolute counts note');
+// Answer-first
+for (const [hd, ans] of [['Jaké byly cíle zakázky?', 'Zakázka měla dva cíle'], ['Jak web vypadal na začátku?', 'Překladatelská agentura s pobočkami'], ['Co jsem postavil?', 'Přestal jsem brát stránky'], ['Jaké byly výsledky za půl roku?', 'Poptávky šly tři měsíce po sobě'], ['Jací klienti na web začali chodit?', 'Od 24. 5. do 20. 9. 2026'], ['Jak se chovala jednotlivá města?', 'Lokální propagace běžela'], ['Objevil se web v AI vyhledávání?', 'Ano, v Google AI Overview']]) {
+  if (!new RegExp(`${hd.replace(/[?.„“]/g, '\\$&')}</h2>\\s*<p class="answer">${ans.replace(/\./g, '\\.')}`).test(h)) e(`answer-first: ${hd}`);
+}
+const six = (h.match(/Co bych zopakoval na jakémkoli podobném projektu\?<\/h2>\s*<ol class="case-steps">([\s\S]*?)<\/ol>/) || [, ''])[1];
+if ([...six.matchAll(/<li><h3>/g)].length !== 6) e('six conclusions expected');
+// Author quote between the conclusions and the FAQ, signed with the photo and the link
+const AQ = 'SEO není magie. Je to systém, a správně postavený systém funguje i mimo sezónu, v malých městech i tehdy, když začínáte od nuly.';
+const ia = mainTxt.indexOf(AQ);
+if (!(mainTxt.indexOf('Co bych zopakoval') < ia && ia < mainTxt.indexOf('Časté otázky k případové studii'))) e('author quote between the conclusions and the FAQ');
+if (!/<cite><a href="\/o-mne\/">Arsenii Eranosian<\/a><span>SEO a GEO\/AEO specialista<\/span><\/cite>/.test(main)) e('author quote signature');
+const wc = mainTxt.split(/\s+/).length;
+if (wc < 1000 || wc > 2400) e(`word count ${wc}`);
 
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
-const ht = by('HowTo');
-const wp = by('WebPage'), art = by('Article'), fq = by('FAQPage'), bc = by('BreadcrumbList'), qt = by('Quotation'), im = ld.find((n) => n['@type'] === 'ImageObject' && String(n['@id']).endsWith('#img-faq'));
-if (ld.some((n) => ['Service', 'Offer', 'Review', 'VideoObject'].includes(n['@type']))) e('no Service / Offer / Review / VideoObject in the markup');
-if (wp.name !== title || wp.description !== desc || wp.inLanguage !== 'cs') e('WebPage name / description / inLanguage');
+const wp = by('WebPage'), art = by('Article'), fq = by('FAQPage'), bc = by('BreadcrumbList'), ser = by('CreativeWorkSeries');
+const quotes = ld.filter((n) => n['@type'] === 'Quotation');
+if (ld.some((n) => ['Service', 'Offer', 'Review', 'AggregateRating', 'VideoObject'].includes(n['@type']))) e('no Service / Offer / Review / ratings / VideoObject in the markup');
+if (norm(wp.name) !== title || norm(wp.description) !== desc || wp.inLanguage !== 'cs') e('WebPage name / description / inLanguage');
+if (wp.relatedLink !== `${BASE}/pripadove-studie/seo-v-nizke-sezone/`) e('WebPage.relatedLink = Part 2');
+if (wp.primaryImageOfPage !== `${BASE}/images/pripadove-studie/og-seo-prekladatelska-agentura.png`) e('primaryImageOfPage');
 if (!byline || byline[1] !== wp.dateModified || art.dateModified !== wp.dateModified) e(`dateModified ${wp.dateModified} must match the visible byline`);
-if (wp.mainEntity['@id'] !== `${BASE}${URL_PATH}#article`) e('WebPage.mainEntity must be the Article');
-if (art.headline !== H1 || art.author['@id'] !== by('Person')['@id'] || art.datePublished !== '2026-10-19') e('Article headline / author / datePublished');
+if (wp.mainEntity['@id'] !== `${BASE}${URL_PATH}#article` || art.mainEntityOfPage['@id'] !== wp['@id']) e('WebPage / Article references');
+if (norm(art.headline) !== H1 || art.author['@id'] !== by('Person')['@id'] || art.datePublished !== '2026-10-21') e('Article headline / author / datePublished');
+if (art.isPartOf['@id'] !== `${BASE}/pripadove-studie/#seo-case-series` || ser?.['@id'] !== art.isPartOf['@id'] || ser.name !== 'SEO případová studie překladatelské agentury') e('case series');
 const ment = (art.mentions ?? []).map((m) => m['@id']);
 for (const p of ['/start-3-mesice/', '/full-seo/', '/mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
-if (!art.image.some((i) => i['@id'] === im['@id']) || !body.includes(im.caption) || im.width !== 720 || im.height !== 730) e('ImageObject must match the visible figure');
-// HowTo: the six steps, name and text word for word as in the visible numbered list
-if (!ht || ht.name !== 'Šest kroků pro váš web' || ht.step.length !== 6) e('HowTo: "Šest kroků pro váš web" with 6 steps expected');
+if (quotes.length !== 2) e('two Quotation nodes (the author and the owner)');
 else {
-  const li = [...(h.match(/<ol class="case-steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/li>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-  ht.step.forEach((st, i) => { if (!li[i] || li[i][0] !== st.name || li[i][1] !== st.text) e(`HowTo step ${i + 1} != the visible list item`); });
+  const [q1, q2] = quotes;
+  if (q1['@id'] !== `${BASE}${URL_PATH}#quote-1` || q1.text !== AQ || q1.creator['@id'] !== by('Person')['@id'] || q1.inLanguage !== 'cs' || q1.isPartOf['@id'] !== wp['@id']) e('Quotation #quote-1 (author)');
+  const owner = ld.find((n) => n['@id'] === q2.creator?.['@id']);
+  if (q2['@id'] !== `${BASE}${URL_PATH}#quote-2` || q2.text !== OQ || !owner || owner['@type'] !== 'Person' || owner.name !== 'Yelyzaveta Butyrina' || owner.jobTitle !== 'majitelka překladatelské agentury' || !(owner.sameAs ?? []).includes('https://www.instagram.com/elzabutirina/')) e('Quotation #quote-2 (owner with Instagram)');
 }
-if (!bq || !mainTxt.includes(qt.text) || qt.creator['@id'] !== by('Person')['@id']) e('Quotation must equal the visible pull quote');
-if (fq.mainEntity.length !== 4 || !fq.mainEntity.every((q) => flat.includes(q.name) && flat.includes(q.acceptedAnswer.text))) e('4 FAQ Q/A not visible verbatim');
+const imgs = ld.filter((n) => n['@type'] === 'ImageObject' && /#img-(owner|languages)$/.test(n['@id']));
+if (imgs.length !== 2 || imgs.some((n) => !n.contentUrl || !n.caption || !n.width || !n.height)) e('ImageObject: owner photo + language screenshot');
+if (!(art.image ?? []).some((r) => r['@id'] === `${BASE}${URL_PATH}#img-languages`)) e('Article.image → language screenshot');
+if (fq.mainEntity.length !== 5 || !fq.mainEntity.every((q) => body.includes(norm(q.name)) && body.includes(norm(q.acceptedAnswer.text)))) e('5 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Případové studie > SEO pro překladatelskou agenturu' || bc.itemListElement.at(-1).item || bc.itemListElement[1].item !== `${BASE}/pripadove-studie/`) e('breadcrumb (three levels)');
-for (const [hd, ans] of [['Jaký byl výchozí stav webu?', 'Web fungoval'], ['Proč jedna stránka pro každé město?', 'Agentura má pobočky'], ['Jak funguje obsah jako trychtýř?', 'Stránka služby zachytí'], ['Proč lokalizovat, a ne jen překládat?', 'Web běží ve čtyřech jazycích'], ['Co jsem udělal v technickém SEO?', 'Zaměřil jsem se na tři oblasti'], ['Jaké byly výsledky?', 'Za 4 měsíce práce'], ['Jak se v analytice objevil nový kanál AI Assistant?', 'V GA4 jsem našel']]) {
-  if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
-}
+if (/KB P|kbpreklady|Instagram/.test(JSON.stringify(ld.filter((n) => !['Person', 'ProfessionalService', 'WebSite', 'ImageObject'].includes(n['@type']) || n['@id']?.includes('#owner'))).replace(/instagram\.com\/(elzabutirina|mr\.eranosian)/g, ''))) e('client name / domain in the markup');
+
+// Site: listed with the new formula, linked from the service pages, old addresses gone from the sitemap
+const list = readFileSync('dist/pripadove-studie/index.html', 'utf8');
+if (!list.includes(`href="${URL_PATH}"`) || /seo-prekladatelska-agentura-4-mesice/.test(list)) e('case list card (new address only)');
+const sm = readFileSync('dist/sitemap.xml', 'utf8');
+if (!sm.includes(`${BASE}${URL_PATH}`) || /pripadove-studie\/kb-preklady|agentura-4-mesice\/<\/loc>|cs\/seo-prekladatelska-agentura-4-mesice/.test(sm.replace(/\/en\/|\/ru\//g, '')) && /pripadove-studie\/seo-prekladatelska-agentura-4-mesice/.test(sm)) e('sitemap: new address only for cs');
+const CL = 'Překladatelská agentura: za půl roku práce (březen–září 2026) rostly poptávky tři měsíce po sobě o 65–70 % měsíčně, B2B poptávky se ztrojnásobily a web se objevil v Google AI Overview.';
+for (const p of ['dist/start-3-mesice/index.html', 'dist/full-seo/index.html', 'dist/konzultace/index.html']) if (!txt(readFileSync(p, 'utf8')).includes(CL)) e(`${p}: the one case line`);
+// The redirects of the old addresses (the old 4-month address and kb-preklady point to the new page)
+const ht = readFileSync('public/.htaccess', 'utf8');
+if (!/\^\/pripadove-studie\/kb-preklady\/\?\$ https:\/\/www\.seo-eranosian\.com\/pripadove-studie\/seo-prekladatelska-agentura\/\n/.test(ht) || !/\^\/pripadove-studie\/seo-prekladatelska-agentura-4-mesice\/\?\$ https:\/\/www\.seo-eranosian\.com\/pripadove-studie\/seo-prekladatelska-agentura\/\n/.test(ht)) e('.htaccess: 301 from kb-preklady and the 4-month address to the new address');
+if (/\^\/pripadove-studie\/seo-prekladatelska-agentura\/\?\$/.test(ht)) e('.htaccess: no redirect away from the new address (loop)');
 
 // Site-wide anonymisation: the client's name and the old addresses appear nowhere in the built pages / sitemap
 const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); return statSync(p).isDirectory() ? walk(p) : /\.(html|xml|txt)$/.test(p) ? [p] : []; });

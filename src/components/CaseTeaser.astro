@@ -16,6 +16,6 @@ const H = heading;
     <span class="link-arrow">{t(lang).caseRead}</span>
   </div>
   <dl class="stats stats--compact">
-    {c.metrics.map((m) => <div><dt>{m.label[lang]}</dt><dd>{m.value}</dd></div>)}
+    {c.metrics.map((m) => <div><dt>{m.label[lang]}</dt><dd>{typeof m.value === 'string' ? m.value : m.value[lang]}</dd></div>)}
   </dl>
 </a>
