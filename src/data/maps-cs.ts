@@ -123,6 +123,12 @@ export const MAPS_CS = {
   reviewsTitle: 'Co říkají klienti',
   reviewsLink: 'Všechny reference',
 
+  // "Související články": posts that help to decide on local promotion and to prepare the website behind it.
+  articlesTitle: 'Související články',
+  articlesLead: 'Praktické články o tom, jak vybrat první krok v SEO, jak SEO souvisí s reklamou a co ukáže audit webu.',
+  articlesMore: 'Číst článek',
+  articles: ['postChoose', 'postAds', 'postSeoAudit', 'postNotShown'] as const,
+
   faqTitle: 'Časté otázky o propagaci v mapách',
   faq: [
     { q: 'Jak probíhá platba?', a: `Platíte za konkrétní výsledky: ${CS_RATES.map((r) => `${fmtKc(r.price)} ${r.unit}`).join(', ')} — vždy za 1 profil. Výhodnější je balíček Full za ${full} měsíčně, který zahrnuje všechny metriky i práci s recenzemi.` },

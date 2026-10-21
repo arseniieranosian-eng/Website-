@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/lokalni-seo-mapy/';
 const H1 = 'Lokální SEO: propagace na Google Maps a Mapy.com';
-const SECTIONS = [H1, 'Kolik stojí propagace na Google Maps a Mapy.com?', 'Pro koho je propagace v mapách vhodná?', 'Co je součástí propagace v mapách', 'Jaké metriky z map sleduji?', 'Lokální stránky pro pobočky a provozovny', 'Jak probíhá propagace v mapách', 'Kdy přijdou první výsledky v mapách?', 'Mapy jsou součástí balíčků Start a Full SEO', 'Co říkají klienti', 'Časté otázky o propagaci v mapách', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí propagace na Google Maps a Mapy.com?', 'Pro koho je propagace v mapách vhodná?', 'Co je součástí propagace v mapách', 'Jaké metriky z map sleduji?', 'Lokální stránky pro pobočky a provozovny', 'Jak probíhá propagace v mapách', 'Kdy přijdou první výsledky v mapách?', 'Mapy jsou součástí balíčků Start a Full SEO', 'Co říkají klienti', 'Související články', 'Časté otázky o propagaci v mapách', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', 'Seznam Mapy', 'od 1 měsíce', 'měsíční monitoring', 'vytvářím stránky', 'vytvářím lokální stránky', 'Co to přineslo klientům', 'agentura Praha'];
 const IMAGES = ['price-slide-1', 'price-slide-2', 'branch-brno', 'branch-pardubice', 'branch-praha'];
@@ -84,6 +84,9 @@ for (const [hd, ans] of [['Kolik stojí propagace na Google Maps a Mapy.com?', '
 const home = txt(readFileSync('dist/index.html', 'utf8'));
 if (!home.includes('Od 4 měsíců') || home.includes('Od 1 měsíce')) e('home services card must say "Od 4 měsíců"');
 
+// Related articles: four cards with covers (choosing the first step, advertising, SEO audit, no-show)
+const ra = (h.match(/Související články<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 4 || !ra.includes('/blog/audit-konzultace-nebo-start/')) e('related articles: four cards with covers');
 if (errors.length) {
   console.error(`\nCzech Maps page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);
