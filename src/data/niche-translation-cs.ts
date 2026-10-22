@@ -1,5 +1,5 @@
 // Czech content of the niche landing page /seo-pro-prekladatelske-agentury-praha/ (brief of 22.10.2026), the first of the series
-// /seo-pro-[obor]-[mesto]/. Commercial page: no guarantees, no prices, no blog links, "já" (never "my"), the word "agentura" is never used about
+// /seo-pro-[obor]-[mesto]/. Commercial page: no guarantees, no blog links, "já" (never "my"), the word "agentura" is never used about
 // the author (it appears only as the niche / client type). The case wording uses only the approved formula (3 months in a row +65–70 % month over
 // month, B2B ×3, March–September 2026; no ×8, no ×24, no +400 %); the city result of the brief is not used (no data yet, decision 6 open).
 // Reviews: none from translation agencies exist in the shared source, so the block is a link to all reviews. The video block (9 min, real

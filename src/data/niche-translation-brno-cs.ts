@@ -2,7 +2,7 @@
 // NOT published (routes.ts: NICHE_READY.nicheBrno = false) until it has the three parts that make it different from the Prague page: (a) its own
 // video with two other sites, (b) verified observations of the Brno search results with a date, (c) its own FAQ (written below, points 3 and 5
 // are Brno-specific) and the local block. The build stops if the flag is on and the video or the market observations are missing.
-// Shared wording (capacity rule, audit, formats, reviews, closing text) comes from niche-shared.ts. No guarantees, no prices, no blog links,
+// Shared wording (capacity rule, audit, formats, reviews, closing text) comes from niche-shared.ts. No guarantees, no blog links,
 // "já", the word "agentura" is never used about the author. The case uses only the approved formula; the Brno lines repeat the case page
 // WITHOUT the AI Overview claim (its date, conditions and a screenshot are still missing). The quote is a draft for the author's approval.
 import { HALF_FORMULA_CS } from './case-summary';

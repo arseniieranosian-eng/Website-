@@ -10,6 +10,7 @@ import { path, type PageKey } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import RelatedPosts from './RelatedPosts.astro';
+import ServiceCards from './ServiceCards.astro';
 import { nicheTranslationSchemas } from '../lib/schema-niche-translation';
 
 interface Props { C: any; V: any; pageKey: PageKey; files: string[]; modifiedFallback: string }
@@ -139,17 +140,12 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </div>
   </section>
 
-  <!-- FORMATS (no prices) -->
+  <!-- FORMATS: the same service cards (price, duration) as on the home page -->
   <section class="section">
-    <div class="container narrow">
+    <div class="container">
       <h2>{C.formatsTitle}</h2>
       <p class="answer">{C.formatsAnswer}</p>
-      <div class="table-wrap">
-        <table class="compare">
-          <thead><tr>{C.formats.head.map((h: string) => <th scope="col">{h}</th>)}</tr></thead>
-          <tbody>{C.formats.rows.map((r: any) => <tr><th scope="row"><a href={t(r.page)}>{r.label}</a></th><td>{r.who}</td><td>{r.what}</td></tr>)}</tbody>
-        </table>
-      </div>
+      <ServiceCards lang={lang} />
       <p>{C.formatsNote}</p>
     </div>
   </section>
