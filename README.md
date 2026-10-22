@@ -164,3 +164,7 @@ All the code is in place but the page is switched off (`NICHE_READY.nicheBrno = 
 ## Blog article A «Jak získat klienty pro překladatelskou agenturu: přehled kanálů» (cs, brief of 22.10.2026)
 
 `/blog/jak-ziskat-klienty-pro-prekladatelskou-agenturu/`: `src/data/post-clients-cs.ts`, `src/lib/schema-post-clients.ts`, `src/views/PostClientsCsPage.astro`, check `scripts/check-post-clients-cs.mjs`. Six channels in a table without numbers and without «best / cheapest» claims; advertising only as a category (the author does not run it); «2–3 měsíce» only as the experience with the author's own services. The author's observations block is NOT written (none supplied). H1 differs from Title by «přehled kanálů». Linked from the article B and from the Prague / Brno landing pages («Další články pro agentury»). Links to the future articles C, F, H are to be added when they exist.
+
+## Blog article C: B2B clients for a translation agency (cs)
+
+`/blog/jak-ziskat-b2b-klienty-pro-prekladatelskou-agenturu/` — content in `src/data/post-b2b-cs.ts`, schema in `src/lib/schema-post-b2b.ts`, view `PostB2bCsPage.astro`, check `scripts/check-post-b2b-cs.mjs`. Czech only. No author-observations block (no data supplied), no stats; the firm-type table is marked as orientační. Back-links from articles A and B and from the Prague/Brno landings.

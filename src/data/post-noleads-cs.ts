@@ -71,6 +71,8 @@ const raw = {
   ],
 
   b2bTitle: 'Mluví web i k firmám, nebo jen ke koncovým zákazníkům?',
+  b2bLead: 'Co má stránka pro firmy ukázat, vysvětluji v článku',
+  b2bLinkText: 'Jak získat B2B klienty pro překladatelskou agenturu',
   b2bAnswer: 'Web, který mluví jen ke koncovým zákazníkům, neosloví firmy, které zadávají pravidelné zakázky. Zkontrolujte, zda existuje samostatná stránka pro firmy a zda odpovídá na jejich otázky: obory, termíny a způsob spolupráce. Bez ní poptávky z B2B zůstávají nízké. Firmy navíc obvykle porovnávají více dodavatelů.',
 
   changesTitle: 'Nezmizelo něco po redesignu nebo změně adres?',

@@ -55,6 +55,8 @@ const raw = {
   ],
   pickLead: 'Pořadí kontroly webu najdete v článku',
   pickLinkText: 'Proč překladatelská agentura nemá poptávky z webu?',
+  pickB2bLead: 'Jak připravit stránku pro firmy, vysvětluji v článku',
+  pickB2bLinkText: 'Jak získat B2B klienty pro překladatelskou agenturu',
 
   adsTitle: 'Čím se SEO liší od reklamy pro překladatelskou agenturu?',
   adsAnswer: 'SEO buduje stránky, které přivádějí poptávky dlouhodobě, ale první výsledky přicházejí později, u mých služeb obvykle po 2–3 měsících. Reklama přináší poptávky rychle, ale jen po dobu, kdy za ni platíte. Reklamu nespravuji. Obě cesty se dají kombinovat podle situace.',
