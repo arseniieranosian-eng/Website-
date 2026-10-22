@@ -1,7 +1,7 @@
 ---
 // Small decorative illustration for one trust-bar tile (the tile's text carries the meaning, so the drawing is hidden from
 // assistive technology). Palette: the site's blue and orange on a pale tile.
-interface Props { kind: 'visits' | 'forms' | 'platform' | 'markets' | 'langs' }
+interface Props { kind: 'visits' | 'forms' | 'platform' | 'markets' | 'langs' | 'years' }
 const { kind } = Astro.props;
 ---
 <svg class="trust-art" viewBox="0 0 96 56" width="96" height="56" fill="none" aria-hidden="true" focusable="false">
@@ -24,6 +24,12 @@ const { kind } = Astro.props;
   {kind === 'markets' && (<>
     <circle cx="48" cy="28" r="19" fill="#fff" stroke="#1f4fd8" stroke-width="2" /><path d="M29 28h38M48 9c-8 9-8 29 0 38M48 9c8 9 8 29 0 38" stroke="#a4baf0" stroke-width="1.8" />
     <g fill="#ff6a1a"><circle cx="40" cy="20" r="3.2" /><circle cx="58" cy="22" r="3.2" /><circle cx="52" cy="38" r="3.2" /><circle cx="38" cy="34" r="3.2" /></g>
+  </>)}
+  {kind === 'years' && (<>
+    <rect x="22" y="12" width="40" height="34" rx="6" fill="#fff" stroke="#1f4fd8" stroke-width="2" /><path d="M22 22h40" stroke="#1f4fd8" stroke-width="2" />
+    <path d="M32 8v8M52 8v8" stroke="#1f4fd8" stroke-width="2.4" stroke-linecap="round" />
+    <g fill="#a4baf0"><rect x="29" y="28" width="6" height="5" rx="1" /><rect x="39" y="28" width="6" height="5" rx="1" /><rect x="49" y="28" width="6" height="5" rx="1" /><rect x="29" y="37" width="6" height="5" rx="1" /><rect x="39" y="37" width="6" height="5" rx="1" /></g>
+    <rect x="49" y="37" width="6" height="5" rx="1" fill="#ff6a1a" /><path d="M70 40 76 34 82 40M76 34v14" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
   </>)}
   {kind === 'langs' && (<>
     <g stroke-width="1.8"><rect x="12" y="10" width="34" height="18" rx="6" fill="#1f4fd8" stroke="#1f4fd8" /><path d="M20 28v6l7-6" fill="#1f4fd8" stroke="#1f4fd8" stroke-linejoin="round" />

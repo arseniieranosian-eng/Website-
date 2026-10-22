@@ -52,7 +52,7 @@ if (!mainTxt.includes('I check technical errors such as indexing and duplicate p
 
 // Trust bar: 4 tiles with periods, right after the hero
 const tb = main.indexOf('class="trust-bar"');
-const tiles = [...(main.match(/<dl class="stats">[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dt>([\s\S]*?)<\/dt><dd>([^<]*)<\/dd>/g)].map((m) => txt(m[1]) + ' | ' + norm(m[2]));
+const tiles = [...(main.match(/<dl class="stats[^"]*">[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dt>([\s\S]*?)<\/dt><dd>([^<]*)<\/dd>/g)].map((m) => txt(m[1]) + ' | ' + norm(m[2]));
 if (tb < 0 || !(main.indexOf('class="hero') < tb) || tb > main.indexOf('Which service fits you?') || tiles.length !== 4) e('trust bar: four HTML tiles right after the hero');
 const need = ['print shop, July 2024 → July 2025', 'educational platform, March → September 2025 (7 months), relative data from the low base of a new site', 'translation agency, March–September 2026', 'Czech, Russian, Bulgarian, Indian'];
 for (const n of need) if (!tiles.some((x) => x.includes(n))) e(`trust tile: ${n}`);

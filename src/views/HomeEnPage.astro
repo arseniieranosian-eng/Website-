@@ -12,6 +12,7 @@ import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { homeCsSchemas } from '../lib/schema-home-cs';
 import { HOME_EN as C } from '../data/home-en';
+import TrustArt from '../components/TrustArt.astro';
 import { TRUST_EN as T } from '../data/trust-en';
 import { REVIEWS } from '../data/reviews';
 
@@ -58,8 +59,8 @@ const m = META.home[lang];
     <div class="container">
       <h2>{C.trustTitle}</h2>
       <div class="trust-bar">
-        <dl class="stats">
-          {T.tiles.map((x) => <div><dt>{x.label}<span class="stat-caption">{x.caption}</span></dt><dd>{x.value}</dd></div>)}
+        <dl class="stats stats--five stats--four">
+          {T.tiles.map((x) => <div><dt>{x.label}<span class="stat-caption">{x.caption}</span></dt><dd>{x.value}</dd><TrustArt kind={x.art} /></div>)}
         </dl>
         <p class="muted small">{T.note}</p>
         <p><a class="link-arrow" href={t('cases')}>{T.more}</a></p>

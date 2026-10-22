@@ -15,6 +15,7 @@ import { META } from '../i18n/meta';
 import { path, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
+import TrustArt from '../components/TrustArt.astro';
 import { PROOF } from '../data/site';
 import { featuredReviews } from '../data/reviews';
 import { homeFaq } from '../data/faq';
@@ -134,8 +135,8 @@ const C = {
   <section class="section section--tight">
     <div class="container">
       <h2 class="sr-only">{C.proofTitle}</h2>
-      <dl class="stats">
-        {PROOF.map((p) => <div><dt>{p.label[lang]}</dt><dd>{p.value}</dd></div>)}
+      <dl class="stats stats--five stats--four">
+        {PROOF.map((p) => <div><dt>{p.label[lang]}</dt><dd>{p.value}</dd><TrustArt kind={p.art} /></div>)}
       </dl>
       <p class="center"><a class="link-arrow" href={path('cases', lang)}>{C.proofLink}</a></p>
     </div>

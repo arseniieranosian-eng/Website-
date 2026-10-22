@@ -565,3 +565,7 @@ table.compare { min-width: 0; }
 .niche-group__head { display: flex; align-items: center; gap: 16px; margin: 24px 0 16px; }
 .niche-group__head .niche-group__title { margin: 0; }
 .niche-art { flex: none; width: 72px; height: auto; display: block; }
+
+/* Four-tile variant of the bar with illustrations (en, ru) */
+@media (min-width: 700px) { .stats--five.stats--four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .stats--five.stats--four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

@@ -48,9 +48,9 @@ export const SITE = {
 
 // "Numbers as proof" block on the home page → links to case studies.
 // ×8 (leads) goes first: the site is about enquiries. Figures are the author's own (About page / LinkedIn); the translation-agency case is anonymous (data/case-summary.ts).
-export const PROOF: { value: string; label: Record<Lang, string> }[] = [
-  { value: '×8', label: { cs: 'poptávek v červnu oproti květnu (překladatelská agentura)', en: 'enquiries in June vs May (translation agency)', ru: 'заявок в июне по сравнению с маем (переводческое агентство)' } },
-  { value: '+775 %', label: { cs: 'organická návštěvnost webu tiskárny meziročně', en: 'organic traffic growth for a print shop website, YoY', ru: 'рост органического трафика сайта типографии за год' } },
-  { value: '55–60 %', label: { cs: 'průměrný růst návštěvnosti na projekt', en: 'average traffic growth per project', ru: 'средний рост трафика на проект' } },
-  { value: '3', label: { cs: 'roky praxe v SEO', en: 'years in SEO', ru: 'года опыта в SEO' } },
+export const PROOF: { art: 'forms' | 'visits' | 'platform' | 'years'; value: string; label: Record<Lang, string> }[] = [
+  { art: 'forms', value: '×8', label: { cs: 'poptávek v červnu oproti květnu (překladatelská agentura)', en: 'enquiries in June vs May (translation agency)', ru: 'заявок в июне по сравнению с маем (переводческое агентство)' } },
+  { art: 'visits', value: '+775 %', label: { cs: 'organická návštěvnost webu tiskárny meziročně', en: 'organic traffic growth for a print shop website, YoY', ru: 'рост органического трафика сайта типографии за год' } },
+  { art: 'platform', value: '55–60 %', label: { cs: 'průměrný růst návštěvnosti na projekt', en: 'average traffic growth per project', ru: 'средний рост трафика на проект' } },
+  { art: 'years', value: '3', label: { cs: 'roky praxe v SEO', en: 'years in SEO', ru: 'года опыта в SEO' } },
 ];
