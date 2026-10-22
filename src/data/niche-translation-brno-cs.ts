@@ -22,6 +22,11 @@ export const NICHE_BRNO_VIDEO: null | {
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
 } = null;
 
+// Google AI Overview for "překlady Brno": a screenshot with the client covered (public/images/niche-ai-overview-brno.webp, the third-party
+// thumbnail is covered too). It is wired into the page as `caseImage` ONLY with the date of the screenshot (like the Prague one:
+// "Snímek obrazovky z DD. MM. RRRR."). Until the date is known the page does not show it and does not claim an AI Overview for Brno.
+export const NICHE_BRNO_AI_SHOT: null | { date: string } = null;
+
 if (NICHE_READY.nicheBrno && (!NICHE_BRNO_MARKET || !NICHE_BRNO_VIDEO)) {
   throw new Error('The Brno landing page is switched on (NICHE_READY.nicheBrno) but the market observations or the video are missing: it would be a doorway copy of the Prague page.');
 }
@@ -87,6 +92,7 @@ const raw = {
   caseCity: [
     'Brno: výrazný letní růst s několika vrcholy; na podzim aktivita mírně polevila, ale zůstala výrazně nad dubnovým startem; u klíčových dotazů top 5 a výš.',
   ],
+  caseImage: NICHE_BRNO_AI_SHOT ? { src: '/images/niche-ai-overview-brno.webp', width: 670, height: 484, alt: 'Google AI Overview pro dotaz „překlady Brno“: mezi uvedenými překladatelskými službami je i brněnská pobočka klienta, jejíž název, adresa a logo jsou zakryté', caption: `Google AI Overview pro dotaz „překlady Brno“: mezi uvedenými službami je i brněnská pobočka klienta (název, adresa a logo jsou zakryté). Snímek obrazovky z ${NICHE_BRNO_AI_SHOT.date}.` } : null,
   caseNote: 'Název klienta a absolutní čísla nezveřejňuji. Městská data nejsou součástí celkové formule.',
   caseLink: 'Přečíst celou případovou studii',
 
