@@ -73,6 +73,7 @@ const raw = {
   caseTitle: 'Jak to funguje v praxi? Případová studie',
   caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní. Postup, výsledky i omezení najdete v celé případové studii.',
   caseFormula: HALF_FORMULA_CS,
+  caseImage: { src: '/images/niche-ai-overview-prekladatelska-agentura.webp', width: 760, height: 438, alt: 'Google AI Overview pro dotaz „překlady Praha“: mezi uvedenými překladatelskými agenturami je i web klienta, jehož název, adresa a logo jsou zakryté', caption: 'Google AI Overview pro dotaz „překlady Praha“: mezi uvedenými překladatelskými agenturami je i web klienta (název, adresa a logo jsou zakryté). Snímek obrazovky.' },
   caseNote: 'Název klienta a absolutní čísla nezveřejňuji.',
   caseLink: 'Přečíst celou případovou studii',
 

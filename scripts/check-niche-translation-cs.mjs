@@ -50,6 +50,8 @@ for (const hd of SECTIONS.slice(1, 8)) {
 }
 // Case: approved formula only
 if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026)')) e('case formula');
+// Case screenshot: the client is covered (no name, address or logo in the text), alt and caption in Czech
+if (!/<img src="\/images\/niche-ai-overview-prekladatelska-agentura\.webp" width="760" height="438" alt="Google AI Overview[^"]*zakryté" loading="lazy"/.test(main) || /KB P|kb-?preklady|Opletalova/i.test(h)) e('case screenshot with the client covered');
 // Capacity rule: one source, the date, the three steps
 if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Údaj platí k 22. 10. 2026')) e('capacity rule');
 if (/zbývá|volných míst|\d ze 3/.test(mainTxt)) e('no counter / places left');
