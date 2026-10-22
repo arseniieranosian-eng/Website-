@@ -82,7 +82,11 @@ export const path = (key: PageKey, lang: Lang): string => ROUTES[key][lang];
 export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] as const satisfies readonly PageKey[];
 
 // Pages of the "SEO pro" menu item (Czech menu only): the niche landing pages /seo-pro-[obor]-[mesto]/.
-export const NICHE_MENU = ['nicheTranslation'] as const satisfies readonly PageKey[];
+// Grouped by niche: "SEO pro" → "Překladatelské agentury" → Praha (Brno and Pardubice are added to `items` when their pages are published).
+export const NICHE_GROUPS = [
+  { id: 'translation', label: 'Překladatelské agentury', items: [{ page: 'nicheTranslation', label: 'Praha' }] },
+] as const satisfies readonly { id: string; label: string; items: readonly { page: PageKey; label: string }[] }[];
+export const NICHE_MENU: readonly PageKey[] = NICHE_GROUPS.flatMap((g) => g.items.map((i) => i.page));
 
 export const postPath = (lang: Lang, slug: string): string => `${LANG_PREFIX[lang]}blog/${slug}/`;
 
