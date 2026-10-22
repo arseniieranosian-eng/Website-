@@ -69,6 +69,24 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </div>
   </section>
 
+  <!-- CONTROL AREAS TABLE (niches that have one; the answer is the quotable element) -->
+  {C.areas && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{C.areas.title}</h2>
+        <p class="answer">{C.areas.answer}</p>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr>{C.areas.head.map((h: string) => <th scope="col">{h}</th>)}</tr></thead>
+            <tbody>{C.areas.rows.map((r: string[]) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c: string) => <td>{c}</td>)}</tr>)}</tbody>
+          </table>
+        </div>
+        {C.areas.observations && C.areas.observations.length > 0 && <><h3>{C.areas.observationsTitle}</h3><ul class="checks">{C.areas.observations.map((x: string) => <li>{x}</li>)}</ul><p class="muted small">{C.areas.checkedLabel}: {C.areas.checked}</p></>}
+        <p class="muted small">{C.areas.note}</p>
+      </div>
+    </section>
+  )}
+
   <!-- LOCAL PRESENCE (cities that have their own block) -->
   {C.local && (
     <section class="section">
@@ -104,7 +122,19 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </section>
   )}
 
-  <!-- CASE -->
+  <!-- EXPERIENCE (niches without a case study: only what the author has confirmed) -->
+  {C.experience && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{C.experience.title}</h2>
+        <p class="answer">{C.experience.answer}</p>
+        {C.experience.points && <ul class="checks">{C.experience.points.map((x: string) => <li>{x}</li>)}</ul>}
+      </div>
+    </section>
+  )}
+
+  <!-- CASE (niches with a case study) -->
+  {C.caseTitle && (
   <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.caseTitle}</h2>
@@ -119,6 +149,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
       <p><a class="link-arrow" href={t('caseHalf')}>{C.caseLink}</a></p>
     </div>
   </section>
+  )}
 
   <!-- HOW I WORK -->
   <section class="section">
@@ -185,6 +216,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
         <h2>{C.endTitle}</h2>
         <p>{C.endText}</p>
         {C.otherCities && C.otherCities.length > 0 && <p>{C.otherCitiesLead} {C.otherCities.map((o: any, i: number) => <>{i > 0 && ', '}<a href={t(o.page)}>{o.label}</a></>)}</p>}
+        {C.otherNiches && C.otherNiches.items.length > 0 && <p>{C.otherNiches.lead} {C.otherNiches.items.map((o: any, i: number) => <>{i > 0 && ', '}<a href={t(o.page)}>{o.label}</a></>)}</p>}
         <p class="small">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
       </div>
       <div class="btn-row">

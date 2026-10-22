@@ -1,0 +1,6 @@
+---
+// Niche landing page "SEO pro realitní kanceláře v Praze" (cs), brief of 22.10.2026. Built only when NICHE_READY.nicheRealty is true (routes.ts).
+import NicheLanding from '../components/NicheLanding.astro';
+import { NICHE_REALTY_CS as C, NICHE_REALTY_VIDEO as V } from '../data/niche-realty-cs';
+---
+<NicheLanding C={C} V={V} pageKey="nicheRealty" files={['src/views/NicheRealtyCsPage.astro', 'src/data/niche-realty-cs.ts']} modifiedFallback="2026-10-22" />

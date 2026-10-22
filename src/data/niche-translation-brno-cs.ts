@@ -145,6 +145,7 @@ const raw = {
   endText: NICHE_SHARED_CS.end.text,
   endCta: NICHE_SHARED_CS.end.cta,
   endContact: NICHE_SHARED_CS.end.contact,
+  otherNiches: NICHE_READY.nicheRealty ? { lead: 'Další obory:', items: [{ page: 'nicheRealty' as const, label: 'Realitní kanceláře v Praze' }] } : null,
   otherCitiesLead: 'Další města:',
   otherCities: [{ page: 'nicheTranslation' as const, label: 'Praha' }, ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice' as const, label: 'Pardubice' }] : [])],
 
