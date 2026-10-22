@@ -122,7 +122,7 @@ const raw = {
   endContact: NICHE_SHARED_CS.end.contact,
 
   otherCitiesLead: 'Další města:',
-  otherCities: NICHE_READY.nicheBrno ? [{ page: 'nicheBrno' as const, label: 'Brno' }] : [],
+  otherCities: [...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno' as const, label: 'Brno' }] : []), ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice' as const, label: 'Pardubice' }] : [])],
 
   schema: {
     serviceName: 'SEO a GEO/AEO pro překladatelské agentury',

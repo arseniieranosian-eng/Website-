@@ -156,6 +156,7 @@ const raw = {
   nextCases: [
     { key: 'nicheTranslation' as const, text: 'SEO pro překladatelské agentury v Praze' },
     ...(NICHE_READY.nicheBrno ? [{ key: 'nicheBrno' as const, text: 'SEO pro překladatelské agentury v Brně' }] : []),
+    ...(NICHE_READY.nichePardubice ? [{ key: 'nichePardubice' as const, text: 'SEO pro překladatelské agentury v Pardubicích' }] : []),
     { key: 'caseTypo' as const, text: 'Sousední případová studie: SEO pro tiskárnu' },
     { key: 'caseEdu' as const, text: 'Sousední případová studie: SEO pro novou vzdělávací platformu' },
     { key: 'caseSeason' as const, text: 'Navazující případová studie: SEO v nízké sezóně' },

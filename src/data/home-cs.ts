@@ -46,6 +46,7 @@ export const HOME_CS = {
       cards: [
         { page: 'nicheTranslation' as const, title: 'SEO pro překladatelské agentury v Praze', text: 'Stránky jazykových párů, služeb a měst, indexace jazykových verzí a lokální přítomnost.' },
         ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno' as const, title: 'SEO pro překladatelské agentury v Brně', text: 'Stránky jazykových párů, služeb a lokality, indexace jazykových verzí a Mapy.com.' }] : []),
+        ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice' as const, title: 'SEO pro překladatelské agentury v Pardubicích', text: 'Stránky jazykových párů, služeb a lokality, indexace jazykových verzí a Mapy.com.' }] : []),
       ],
     },
   ],

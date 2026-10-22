@@ -24,6 +24,7 @@ export const ROUTES = {
   caseHalf: { cs: '/pripadove-studie/seo-prekladatelska-agentura/', en: '/en/case-studies/seo-translation-agency-half-year/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/' },
   nicheTranslation: { cs: '/seo-pro-prekladatelske-agentury-praha/', en: '/en/seo-for-translation-agencies-prague/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-praga/' },
   nicheBrno: { cs: '/seo-pro-prekladatelske-agentury-brno/', en: '/en/seo-for-translation-agencies-brno/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-brno/' },
+  nichePardubice: { cs: '/seo-pro-prekladatelske-agentury-pardubice/', en: '/en/seo-for-translation-agencies-pardubice/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-pardubice/' },
   caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
   reviews: { cs: '/recenze/', en: '/en/reviews/', ru: '/ru/otzyvy/' },
   blog: { cs: '/blog/', en: '/en/blog/', ru: '/ru/blog/' },
@@ -76,10 +77,12 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 // Niche landing pages of the series that are not published yet. A page is built (and listed in the sitemap, the menu and the links of other
 // pages) only when its flag is true. The Brno page needs three parts of its own (video with two other sites, verified market observations
 // with a date, own FAQ) so that it is not a doorway copy of the Prague page: the build stops if the flag is on and the data is missing.
-export const NICHE_READY = { nicheBrno: true } as const;
+// The Pardubice page (brief of 22.10.2026, the highest doorway risk of the series) needs its own video with two other sites and a dated analysis
+// of the Pardubice results; both are still missing, so it stays off (the build stops if the flag is on and they are missing).
+export const NICHE_READY = { nicheBrno: true, nichePardubice: false } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
-  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], nicheTranslation: ['cs'] };
+  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], nicheTranslation: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.
@@ -97,7 +100,7 @@ export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] 
 // Pages of the "SEO pro" menu item (Czech menu only): the niche landing pages /seo-pro-[obor]-[mesto]/.
 // Grouped by niche: "SEO pro" → "Překladatelské agentury" → Praha (Brno and Pardubice are added to `items` when their pages are published).
 export const NICHE_GROUPS = [
-  { id: 'translation', label: 'Překladatelské agentury', items: [{ page: 'nicheTranslation', label: 'Praha' }, ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno', label: 'Brno' } as const] : [])] },
+  { id: 'translation', label: 'Překladatelské agentury', items: [{ page: 'nicheTranslation', label: 'Praha' }, ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno', label: 'Brno' } as const] : []), ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice', label: 'Pardubice' } as const] : [])] },
 ] as const satisfies readonly { id: string; label: string; items: readonly { page: PageKey; label: string }[] }[];
 export const NICHE_MENU: readonly PageKey[] = NICHE_GROUPS.flatMap((g) => g.items.map((i) => i.page));
 
