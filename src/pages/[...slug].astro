@@ -43,6 +43,7 @@ import PostChooseCsPage from '../views/PostChooseCsPage.astro';
 import NicheTranslationCsPage from '../views/NicheTranslationCsPage.astro';
 import NicheTranslationBrnoCsPage from '../views/NicheTranslationBrnoCsPage.astro';
 import PostNoLeadsCsPage from '../views/PostNoLeadsCsPage.astro';
+import PostClientsCsPage from '../views/PostClientsCsPage.astro';
 import Blog from '../views/Blog.astro';
 import PostView from '../views/Post.astro';
 import Faq from '../views/Faq.astro';
@@ -66,7 +67,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, nicheTranslation: null, nicheBrno: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null,
+  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, nicheTranslation: null, nicheBrno: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -91,6 +92,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postNewSite' && props.lang === 'cs' && <PostNewSiteCsPage />}
 {props.key === 'postChoose' && props.lang === 'cs' && <PostChooseCsPage />}
 {props.key === 'postNoLeads' && props.lang === 'cs' && <PostNoLeadsCsPage />}
+{props.key === 'postClients' && props.lang === 'cs' && <PostClientsCsPage />}
 {props.key === 'caseHalf' && props.lang === 'cs' && <CaseHalfCsPage />}
 {props.key === 'nicheTranslation' && props.lang === 'cs' && <NicheTranslationCsPage />}
 {props.key === 'nicheBrno' && props.lang === 'cs' && <NicheTranslationBrnoCsPage />}

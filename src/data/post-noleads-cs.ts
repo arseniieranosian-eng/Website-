@@ -104,6 +104,8 @@ const raw = {
 
   endTitle: 'Nevíte, kde je příčina?',
   endText: 'Když si nejste jistí, co na webu překladatelské agentury brzdí poptávky, podívám se na technické chyby webu.',
+  clientsLead: 'Odkud mohou překladatelské agentury brát klienty, vysvětluji v článku',
+  clientsLinkText: 'Jak získat klienty pro překladatelskou agenturu',
   caseLead: 'Jak vypadala práce na webu překladatelské agentury v praxi, popisuje',
   caseLinkText: 'případová studie',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',

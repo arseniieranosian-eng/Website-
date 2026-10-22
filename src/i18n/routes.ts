@@ -27,6 +27,7 @@ export const ROUTES = {
   caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
   reviews: { cs: '/recenze/', en: '/en/reviews/', ru: '/ru/otzyvy/' },
   blog: { cs: '/blog/', en: '/en/blog/', ru: '/ru/blog/' },
+  postClients: { cs: '/blog/jak-ziskat-klienty-pro-prekladatelskou-agenturu/', en: '/en/blog/how-to-get-clients-for-a-translation-agency/', ru: '/ru/blog/kak-poluchit-klientov-perevodcheskomu-agentstvu/' },
   postNoLeads: { cs: '/blog/proc-prekladatelska-agentura-nema-poptavky/', en: '/en/blog/why-translation-agency-no-leads/', ru: '/ru/blog/pochemu-agentstvo-ne-poluchaet-zayavki/' },
   postChoose: { cs: '/blog/audit-konzultace-nebo-start/', en: '/en/blog/audit-consulting-or-start/', ru: '/ru/blog/audit-konsultaciya-ili-start/' },
   postNewSite: { cs: '/blog/novy-web-a-google-ho-nevidi/', en: '/en/blog/new-site-not-in-google/', ru: '/ru/blog/novyj-sajt-ne-vidit-google/' },
@@ -65,6 +66,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
   postNewSite: 'blog',
   postChoose: 'blog',
   postNoLeads: 'blog',
+  postClients: 'blog',
 };
 
 // Pages that exist in some languages only (no hreflang alternates for the missing ones; the language switcher falls
@@ -75,7 +77,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 export const NICHE_READY = { nicheBrno: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
-  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], nicheTranslation: ['cs'] };
+  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], nicheTranslation: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.

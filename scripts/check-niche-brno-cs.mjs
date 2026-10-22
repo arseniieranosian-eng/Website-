@@ -45,7 +45,7 @@ if (!hs.some((x) => /^Co jsem viděl na webech/.test(x))) e('video block (the sa
 if (JSON.stringify(hsNoVideo) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/blog\/(?!proc-prekladatelska-agentura-nema-poptavky\/)|<form/.test(main)) e("no blog links except the one article for agencies, no form on this page");
+if (/href="\/blog\/(?!(?:proc-prekladatelska-agentura-nema-poptavky|jak-ziskat-klienty-pro-prekladatelskou-agenturu)\/)|<form/.test(main)) e("no blog links except the two articles for agencies, no form on this page");
 // "agentura" is never used about the author
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 // Hero: the direct answer, the date, the button; no quote, no numbers of the case
