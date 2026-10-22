@@ -61,7 +61,8 @@ for (const hd of SECTIONS.slice(1, 9)) {
 }
 // Case: approved formula only
 if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026)')) e('case formula (no city line without confirmed data)');
-if (/AI Overview|ChatGPT/.test(mainTxt)) e('no AI Overview / ChatGPT claim for Pardubice without confirmation');
+if (/ChatGPT/.test(mainTxt) || (/AI Overview/.test(mainTxt) && !mainTxt.includes('Snímek obrazovky z 16. 10. 2026.'))) e('AI Overview only with the dated screenshot, no ChatGPT claim');
+if (!/<img src="\/images\/niche-ai-overview-pardubice\.webp" width="678" height="498" alt="Google AI Overview[^"]*zakryté" loading="lazy"/.test(main)) e('Pardubice screenshot with the client covered');
 if (/KB P|kb-?preklady|Přikop|Correct/i.test(h)) e('no client or third-party name in the text');
 if (!/Zkontrolováno: \d/.test(mainTxt)) e('market observations with the date of the check');
 if (!/Další články pro agentury<\/h2>[\s\S]*?href="\/blog\/proc-prekladatelska-agentura-nema-poptavky\/"/.test(main)) e('card of the article for agencies');

@@ -78,8 +78,8 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 // pages) only when its flag is true. The Brno page needs three parts of its own (video with two other sites, verified market observations
 // with a date, own FAQ) so that it is not a doorway copy of the Prague page: the build stops if the flag is on and the data is missing.
 // The Pardubice page (brief of 22.10.2026, the highest doorway risk of the series) needs its own video with two other sites and a dated analysis
-// of the Pardubice results; both are still missing, so it stays off (the build stops if the flag is on and they are missing).
-export const NICHE_READY = { nicheBrno: true, nichePardubice: false } as const;
+// of the Pardubice results; the video (same as Brno, by the author) and the dated observation (16. 10. 2026) now exist, so it is on.
+export const NICHE_READY = { nicheBrno: true, nichePardubice: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
   nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], nicheTranslation: ['cs'] };

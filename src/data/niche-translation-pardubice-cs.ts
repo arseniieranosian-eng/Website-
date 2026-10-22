@@ -15,19 +15,26 @@ export const NICHE_PARDUBICE_PUBLISHED = '2026-10-22';
 
 // Verified observations of the Google.cz / Seznam results for Pardubice (how many local players, which formats, how the map block looks) with
 // the date of the check. Missing: nothing may be invented here.
-export const NICHE_PARDUBICE_MARKET: null | { checked: string; observations: string[] } = null;
+export const NICHE_PARDUBICE_MARKET: null | { checked: string; observations: string[] } = {
+  checked: '16. 10. 2026',
+  observations: [
+    'Pro dotaz „překlady Pardubice“ ukazuje Google AI Overview jako první pobočku klienta z případové studie, s adresou, otevírací dobou a telefonem; jako další firmy uvádí jiné překladatelské agentury z města.',
+  ],
+};
 
-// The review video with two other sites that belong to the Pardubice market / region. Missing; when it exists it has the same shape as NICHE_VIDEO
-// (YouTube id, poster, size, duration, intro, recording date, chapters, observations, transcript, right of reply).
+// The review video: by the author's decision of 22.10.2026 the SAME recording as on the Prague and Brno pages (the brief asked for another one with two
+// other sites; a conscious exception, the duplicate-content risk is accepted). Chapters / observations / transcript come with it when they exist.
+import { NICHE_VIDEO } from './niche-translation-cs';
+
 export const NICHE_PARDUBICE_VIDEO: null | {
   youtube: string; poster: string; width: number; height: number; duration: string; title: string; recorded?: string;
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
-} = null;
+} = NICHE_VIDEO ? { ...NICHE_VIDEO, title: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?' } : null;
 
 // Google AI Overview for "překlady Pardubice": the screenshot with the client, the contact data and the third-party agencies covered
 // (public/images/niche-ai-overview-pardubice.webp, 678×498). Wired into the page as `caseImage` ONLY when the date of the screenshot is known
 // ("Snímek obrazovky z DD. MM. RRRR."): set `{ date: '…' }` here. Until then the page does not show it and claims no AI Overview for Pardubice.
-export const NICHE_PARDUBICE_AI_SHOT: null | { date: string } = null;
+export const NICHE_PARDUBICE_AI_SHOT: null | { date: string } = { date: '16. 10. 2026' };
 
 if (NICHE_READY.nichePardubice && (!NICHE_PARDUBICE_MARKET || !NICHE_PARDUBICE_VIDEO)) {
   throw new Error('The Pardubice landing page is switched on (NICHE_READY.nichePardubice) but the market analysis or the video are missing: it would be a doorway copy of the Prague and Brno pages.');
