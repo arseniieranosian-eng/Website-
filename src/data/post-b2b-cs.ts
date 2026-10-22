@@ -47,7 +47,8 @@ const raw = {
     'Kontakt na konkrétního člověka.',
     'Příklady práce bez jmen klientů.',
   ],
-  pageText: 'Jak pracovat se stránkami jazykových párů, popíšu v samostatném článku.',
+  pageText: 'Které jazykové páry mají mít vlastní stránku, rozebírám v článku',
+  pageLinkText: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár?',
   quote: 'Firma nevybírá jednou větou. Vybírá podle toho, jestli z webu pozná, že s ní může spolupracovat i příště.',
 
   typesTitle: 'Co hledají různé typy firem?',

@@ -168,3 +168,7 @@ All the code is in place but the page is switched off (`NICHE_READY.nicheBrno = 
 ## Blog article C: B2B clients for a translation agency (cs)
 
 `/blog/jak-ziskat-b2b-klienty-pro-prekladatelskou-agenturu/` — content in `src/data/post-b2b-cs.ts`, schema in `src/lib/schema-post-b2b.ts`, view `PostB2bCsPage.astro`, check `scripts/check-post-b2b-cs.mjs`. Czech only. No author-observations block (no data supplied), no stats; the firm-type table is marked as orientační. Back-links from articles A and B and from the Prague/Brno landings.
+
+## Blog article D: a page for every language pair (cs)
+
+`/blog/stranka-pro-kazdy-jazykovy-par/` — content in `src/data/post-pairs-cs.ts`, schema in `src/lib/schema-post-pairs.ts`, view `PostPairsCsPage.astro`, check `scripts/check-post-pairs-cs.mjs`. Czech only. No author-observations block (no data supplied); the decision table is marked as orientační; no demand thresholds. Back-links from articles A, B, C and the niche landings. Tool names (Search Console, Sklik, Keyword Planner) and the wording on low-value content are to be checked before publishing.

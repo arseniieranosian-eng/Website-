@@ -28,7 +28,7 @@ export const NICHE_SHARED_CS = walk({
     },
     note: 'První výsledky se obvykle objeví za 2–3 měsíce; garance neexistuje.',
   },
-  articles: { title: 'Další články pro agentury', lead: 'Praktické články pro majitele překladatelských agentur.', more: 'Číst článek', keys: ['postNoLeads', 'postClients', 'postB2b'] as const },
+  articles: { title: 'Další články pro agentury', lead: 'Praktické články pro majitele překladatelských agentur.', more: 'Číst článek', keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs'] as const },
   reviews: { title: 'Co říkají klienti?', answer: 'Recenze od klientů najdete na samostatné stránce, vždy s uvedením zdroje.', link: 'Všechny recenze' },
   end: {
     title: 'Zjistěte, jestli má váš web technické chyby',

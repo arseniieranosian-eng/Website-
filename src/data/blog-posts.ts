@@ -13,6 +13,7 @@ import { POST_CHOOSE_CS, POST_CHOOSE_PUBLISHED } from './post-choose-cs';
 import { POST_NOLEADS_CS, POST_NOLEADS_PUBLISHED } from './post-noleads-cs';
 import { POST_CLIENTS_CS, POST_CLIENTS_PUBLISHED } from './post-clients-cs';
 import { POST_B2B_CS, POST_B2B_PUBLISHED } from './post-b2b-cs';
+import { POST_PAIRS_CS, POST_PAIRS_PUBLISHED } from './post-pairs-cs';
 
 export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: string; description: string; image?: { src: string; width: number; height: number; alt: string } }
 
@@ -28,6 +29,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postChoose', lang: 'cs', date: POST_CHOOSE_PUBLISHED, title: META.postChoose.cs.h1, description: META.postChoose.cs.description, image: POST_CHOOSE_CS.cover },
   { key: 'postNoLeads', lang: 'cs', date: POST_NOLEADS_PUBLISHED, title: META.postNoLeads.cs.h1, description: META.postNoLeads.cs.description, image: POST_NOLEADS_CS.cover },
   { key: 'postClients', lang: 'cs', date: POST_CLIENTS_PUBLISHED, title: META.postClients.cs.h1, description: META.postClients.cs.description, image: POST_CLIENTS_CS.cover },
+  { key: 'postPairs', lang: 'cs', date: POST_PAIRS_PUBLISHED, title: META.postPairs.cs.h1, description: META.postPairs.cs.description, image: POST_PAIRS_CS.cover },
   { key: 'postB2b', lang: 'cs', date: POST_B2B_PUBLISHED, title: META.postB2b.cs.h1, description: META.postB2b.cs.description, image: POST_B2B_CS.cover },
 ];
 

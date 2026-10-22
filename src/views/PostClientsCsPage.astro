@@ -80,6 +80,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <p class="answer">{C.webAnswer}</p>
       <ul class="checks">{C.web.map((x) => <li>{x}</li>)}</ul>
       <p><a class="link-arrow" href={t('postNoLeads')}>{C.webLinkText}</a></p>
+      <p>{C.webPairsLead}{' '}<a href={t('postPairs')}>{C.webPairsLinkText}</a>.</p>
     </div>
   </section>
 

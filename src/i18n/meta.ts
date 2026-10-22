@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postPairs: {
+    cs: {
+      name: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár',
+      title: 'Stránky jazykových párů SEO: kdy dává smysl | Eranosian',
+      description: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár? Ne vždy: kdy dává smysl a co má obsahovat. Bezplatný audit technických chyb.',
+      h1: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár?',
+    },
+    en: { name: 'Does a translation agency need a page for every language pair', title: 'Does a translation agency need a page for every language pair', description: 'Does a translation agency need a page for every language pair', h1: 'Does a translation agency need a page for every language pair?' },
+    ru: { name: 'Нужна ли переводческому агентству страница для каждой языковой пары', title: 'Нужна ли агентству страница для каждой пары', description: 'Нужна ли переводческому агентству страница для каждой языковой пары', h1: 'Нужна ли переводческому агентству страница для каждой языковой пары?' },
+  },
   postB2b: {
     cs: {
       name: 'Jak získat B2B klienty pro překladatelskou agenturu',

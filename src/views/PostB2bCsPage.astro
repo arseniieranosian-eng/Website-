@@ -47,7 +47,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <h2>{C.pageTitle}</h2>
       <p class="answer">{C.pageAnswer}</p>
       <ul class="checks">{C.page.map((x) => <li>{x}</li>)}</ul>
-      <p>{C.pageText}</p>
+      <p>{C.pageText}{' '}<a href={t('postPairs')}>{C.pageLinkText}</a>.</p>
       <figure class="quote-fig">
         <blockquote cite={cite}><p>{C.quote}</p></blockquote>
         <QuoteCaption lang={lang} />

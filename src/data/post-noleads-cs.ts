@@ -70,6 +70,8 @@ const raw = {
     'Město: pokud působíte lokálně, stránka by měla město opravdu jmenovat.',
   ],
 
+  pairsLead: 'Kdy má smysl samostatná stránka pro jazykový pár, rozebírám v článku',
+  pairsLinkText: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár?',
   b2bTitle: 'Mluví web i k firmám, nebo jen ke koncovým zákazníkům?',
   b2bLead: 'Co má stránka pro firmy ukázat, vysvětluji v článku',
   b2bLinkText: 'Jak získat B2B klienty pro překladatelskou agenturu',

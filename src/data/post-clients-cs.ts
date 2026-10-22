@@ -55,6 +55,8 @@ const raw = {
   ],
   pickLead: 'Pořadí kontroly webu najdete v článku',
   pickLinkText: 'Proč překladatelská agentura nemá poptávky z webu?',
+  webPairsLead: 'Kdy má smysl samostatná stránka pro jazykový pár, rozebírám v článku',
+  webPairsLinkText: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár?',
   pickB2bLead: 'Jak připravit stránku pro firmy, vysvětluji v článku',
   pickB2bLinkText: 'Jak získat B2B klienty pro překladatelskou agenturu',
 

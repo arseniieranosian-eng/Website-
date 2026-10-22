@@ -77,6 +77,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <h2>{C.pagesTitle}</h2>
       <p class="answer">{C.pagesAnswer}</p>
       <ul class="checks">{C.pages.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.pairsLead}{' '}<a href={t('postPairs')}>{C.pairsLinkText}</a>.</p>
     </div>
   </section>
 
