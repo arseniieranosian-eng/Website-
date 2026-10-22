@@ -14,7 +14,14 @@ import { walk } from '../lib/cs-typo';
 export const NICHE_REALTY_PUBLISHED = '2026-10-22';
 
 // Verified observations of the Google.cz / Seznam results for Praha (portals, maps, firms, formats) with the date of the check. Missing.
-export const NICHE_REALTY_MARKET: null | { checked: string; observations: string[] } = null;
+export const NICHE_REALTY_MARKET: null | { checked: string; observations: string[] } = {
+  checked: '22. 10. 2026',
+  observations: [
+    'Pro dotaz „realitní kancelář Praha“ ukazuje Google nad organickými výsledky blok s mapou.',
+    'V organických výsledcích jsou vedle sebe weby samotných kanceláří (sítě i jednotlivé firmy) a katalogy či žebříčky firem: seznam „nejlepších firem“ a adresář kanceláří a makléřů.',
+    'Google AI Overview vypisuje několik kanceláří s krátkým popisem a adresou pobočky a vedle nich ukazuje karty dvou firem.',
+  ],
+};
 
 // The author's own dated observations of real-estate sites (shown under the control-areas table). Missing.
 export const NICHE_REALTY_OBSERVATIONS: null | { checked: string; observations: string[] } = {
