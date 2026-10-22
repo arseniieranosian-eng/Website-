@@ -24,6 +24,11 @@ export const NICHE_PARDUBICE_VIDEO: null | {
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
 } = null;
 
+// Google AI Overview for "překlady Pardubice": the screenshot with the client, the contact data and the third-party agencies covered
+// (public/images/niche-ai-overview-pardubice.webp, 678×498). Wired into the page as `caseImage` ONLY when the date of the screenshot is known
+// ("Snímek obrazovky z DD. MM. RRRR."): set `{ date: '…' }` here. Until then the page does not show it and claims no AI Overview for Pardubice.
+export const NICHE_PARDUBICE_AI_SHOT: null | { date: string } = null;
+
 if (NICHE_READY.nichePardubice && (!NICHE_PARDUBICE_MARKET || !NICHE_PARDUBICE_VIDEO)) {
   throw new Error('The Pardubice landing page is switched on (NICHE_READY.nichePardubice) but the market analysis or the video are missing: it would be a doorway copy of the Prague and Brno pages.');
 }
@@ -86,7 +91,7 @@ const raw = {
   caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní.',
   caseFormula: HALF_FORMULA_CS,
   caseCity: null as string[] | null,
-  caseImage: null,
+  caseImage: NICHE_PARDUBICE_AI_SHOT ? { src: '/images/niche-ai-overview-pardubice.webp', width: 678, height: 498, alt: 'Google AI Overview pro dotaz „překlady Pardubice“: mezi uvedenými službami je i pobočka klienta v Pardubicích, jejíž název, adresa a kontaktní údaje jsou zakryté', caption: `Google AI Overview pro dotaz „překlady Pardubice“: mezi uvedenými službami je i pobočka klienta (název, adresa, kontakt a další firmy jsou zakryté). Snímek obrazovky z ${NICHE_PARDUBICE_AI_SHOT.date}.` } : null,
   caseNote: 'Název klienta a absolutní čísla nezveřejňuji. Městská data nejsou součástí celkové formule.',
   caseLink: 'Přečíst celou případovou studii',
 
