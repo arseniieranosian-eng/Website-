@@ -8,7 +8,7 @@ import AuthorMedia from '../components/AuthorMedia.astro';
 import TrustBarCs from '../components/TrustBarCs.astro';
 import WhyTrustCs from '../components/WhyTrustCs.astro';
 import { META } from '../i18n/meta';
-import { path } from '../i18n/routes';
+import { path, NICHE_GROUPS } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { homeCsSchemas } from '../lib/schema-home-cs';
@@ -98,15 +98,20 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
     <div class="container">
       <h2>{C.nichesTitle}</h2>
       <p class="answer">{C.nichesAnswer}</p>
-      <div class="grid grid-3">
-        {C.niches.map((n) => (
-          <a class="card card--link" href={t(n.page)}>
-            <h3>{n.title}</h3>
-            <p>{n.text}</p>
-            <span class="link-arrow">{C.servicesMore}</span>
-          </a>
-        ))}
-      </div>
+      {C.nicheGroups.map((g) => (
+        <div class="niche-group">
+          <h3 class="niche-group__title">{NICHE_GROUPS.find((x) => x.id === g.id)?.label}</h3>
+          <div class="grid grid-3">
+            {g.cards.map((n) => (
+              <a class="card card--link" href={t(n.page)}>
+                <h4>{n.title}</h4>
+                <p>{n.text}</p>
+                <span class="link-arrow">{C.servicesMore}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 

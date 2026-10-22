@@ -547,3 +547,8 @@ table.compare { min-width: 0; }
 .toc { margin: 0 0 20px; padding-left: 1.2em; display: grid; gap: 4px; }
 .toc a { color: var(--blue); text-decoration: none; }
 .toc a:hover { text-decoration: underline; }
+
+/* Home: the niche name above its city cards */
+.niche-group + .niche-group { margin-top: 32px; }
+.niche-group__title { margin: 24px 0 16px; font-size: 1.35rem; }
+.niche-group .card h4 { margin: 0 0 8px; font-size: 1.15rem; line-height: 1.3; }

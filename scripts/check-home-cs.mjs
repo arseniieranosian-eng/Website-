@@ -32,7 +32,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f) || desc.includes(f) || title.includes(f)) e(`forbidden text: ${f}`);
 // "agentura" only inside the case names (the brief names the translation-agency case that way)
-if (/agentur/i.test(mainTxt.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro|překladatelské agentury v (?:Praze|Brně))/g, ''))) e('the word "agentura" must not be used (except in the case name)');
+if (/agentur/i.test(mainTxt.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro|překladatelské agentury v (?:Praze|Brně)|Překladatelské agentury)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/href="\/blog\//.test(main)) e('no blog links in the body of the home page (the menu and the footer have one)');
 if (/★|AggregateRating|ratingValue/.test(h)) e('no stars / AggregateRating');
