@@ -81,6 +81,9 @@ export const path = (key: PageKey, lang: Lang): string => ROUTES[key][lang];
 // Pages listed in the header's "Services" dropdown, in order. SEO + GEO/AEO is an explanatory page, not a service, so it is not here.
 export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] as const satisfies readonly PageKey[];
 
+// Pages of the "SEO pro" menu item (Czech menu only): the niche landing pages /seo-pro-[obor]-[mesto]/.
+export const NICHE_MENU = ['nicheTranslation'] as const satisfies readonly PageKey[];
+
 export const postPath = (lang: Lang, slug: string): string => `${LANG_PREFIX[lang]}blog/${slug}/`;
 
 export const alternatesFor = (key: PageKey): Partial<Record<Lang, string>> =>

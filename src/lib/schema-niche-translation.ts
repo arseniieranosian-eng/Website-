@@ -13,7 +13,7 @@ export function nicheTranslationSchemas(site: URL, C: typeof NICHE_CS, opts: { m
   const url = abs(path('nicheTranslation', lang));
   const m = META.nicheTranslation[lang];
   const id = ids(site);
-  const v = NICHE_VIDEO;
+  const v = NICHE_VIDEO && NICHE_VIDEO.transcript && NICHE_VIDEO.recorded ? { ...NICHE_VIDEO, transcript: NICHE_VIDEO.transcript, recorded: NICHE_VIDEO.recorded } : null;
   const node = (n: object) => n;
   return [
     node({
@@ -53,13 +53,13 @@ export function nicheTranslationSchemas(site: URL, C: typeof NICHE_CS, opts: { m
           name: v.intro,
           description: v.intro,
           thumbnailUrl: abs(v.poster),
-          uploadDate: v.uploadDate,
+          uploadDate: v.recorded.split('. ').reverse().map((x) => x.padStart(2, '0')).join('-'),
           duration: v.duration,
-          contentUrl: abs(v.src),
+          embedUrl: `https://drive.google.com/file/d/${v.drive}/preview`,
           inLanguage: lang,
           transcript: v.transcript,
           author: { '@id': id.person },
-          hasPart: v.chapters.map((c) => ({ '@type': 'Clip', name: c.title, startOffset: c.start, endOffset: c.end, url: `${url}#video&t=${c.start}` })),
+          hasPart: (v.chapters ?? []).map((c) => ({ '@type': 'Clip', name: c.title, startOffset: c.start, endOffset: c.end, url: `${url}#video&t=${c.start}` })),
         })]
       : []),
     {

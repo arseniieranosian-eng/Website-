@@ -79,7 +79,8 @@ const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/
 if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 6 questions');
 if (ld.some((n) => ['AggregateRating', 'Review', 'Offer'].includes(n['@type']))) e('no ratings / reviews / offers');
 const hasVideoBlock = /id="rozbor-webu"/.test(main);
-if (hasVideoBlock !== !!ld.find((n) => n['@type'] === 'VideoObject')) e('VideoObject only together with the video block');
+if (hasVideoBlock && (!/data-drive="1y7-xJcchsH2rsOh50_9AHpyMxdmtLzJL"/.test(main) || !/<img src="\/media\/rozbor-webu-prekladatelskych-agentur-poster\.webp"[^>]*alt="Náhled videa/.test(main) || !/Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes <a href="\/kontakt\/">kontaktní stránku<\/a>\./.test(main))) e('video block: Drive id, poster with alt, right of reply');
+if (ld.find((n) => n['@type'] === 'VideoObject') && !/Přepis videa/.test(main)) e('VideoObject only with a visible transcript');
 const bc = ld.find((n) => n['@type'] === 'BreadcrumbList');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1) e('breadcrumb: Domů → the page');
 // Inbound links: home, the case study, the free-audit page

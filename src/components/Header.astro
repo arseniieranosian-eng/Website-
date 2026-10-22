@@ -1,6 +1,6 @@
 ---
 import { META } from '../i18n/meta';
-import { LANGS, SERVICE_MENU, path, type Lang, type PageKey } from '../i18n/routes';
+import { LANGS, NICHE_MENU, SERVICE_MENU, path, type Lang, type PageKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
 
 interface Props {
@@ -16,6 +16,8 @@ const ui = t(lang);
 const NAV: PageKey[] = ['cases', 'geo', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' ? (['blog'] as PageKey[]) : [])];
 const label = (k: PageKey) => (k === 'geo' ? ui.navGeo : META[k][lang].name);
 const current = (k: PageKey) => pageKey === k || (k === 'cases' && pageKey === 'caseKb');
+const showNiches = lang === 'cs' && NICHE_MENU.length > 0; // the landing pages exist in Czech only
+const inNiches = (NICHE_MENU as readonly PageKey[]).includes(pageKey as PageKey);
 const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as PageKey);
 ---
 <header class="site-header">
@@ -39,6 +41,18 @@ const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as Page
               ))}
             </ul>
           </li>
+          {showNiches && (
+            <li class="nav-dd">
+              <button class={inNiches ? 'nav-dd__btn is-current' : 'nav-dd__btn'} type="button" aria-expanded="false" aria-controls="nav-niches">
+                SEO pro<span class="nav-dd__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="nav-sub" id="nav-niches">
+                {NICHE_MENU.map((k) => (
+                  <li><a href={path(k, lang)} aria-current={pageKey === k ? 'page' : undefined}>{META[k][lang].name}</a></li>
+                ))}
+              </ul>
+            </li>
+          )}
           {NAV.map((k) => (
             <li><a href={path(k, lang)} aria-current={current(k) ? 'page' : undefined}>{label(k)}</a></li>
           ))}
@@ -63,12 +77,13 @@ const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as Page
     document.documentElement.classList.toggle('nav-open', open);
   });
 
-  // "Services" dropdown: opens on hover (CSS), on click/tap and from the keyboard; closes on Esc, outside click or focus leaving.
-  const dd = document.querySelector<HTMLElement>('.nav-dd');
-  const ddBtn = dd?.querySelector<HTMLButtonElement>('.nav-dd__btn');
-  const setOpen = (open: boolean) => ddBtn?.setAttribute('aria-expanded', String(open));
-  ddBtn?.addEventListener('click', () => setOpen(ddBtn.getAttribute('aria-expanded') !== 'true'));
-  document.addEventListener('click', (e) => { if (dd && !dd.contains(e.target as Node)) setOpen(false); });
-  dd?.addEventListener('keydown', (e) => { if (e.key === 'Escape') { setOpen(false); ddBtn?.focus(); } });
-  dd?.addEventListener('focusout', (e) => { if (!dd.contains((e as FocusEvent).relatedTarget as Node)) setOpen(false); });
+  // Dropdowns ("Services", "SEO pro"): open on hover (CSS), on click/tap and from the keyboard; close on Esc, outside click or focus leaving.
+  document.querySelectorAll<HTMLElement>('.nav-dd').forEach((dd) => {
+    const ddBtn = dd.querySelector<HTMLButtonElement>('.nav-dd__btn');
+    const setOpen = (open: boolean) => ddBtn?.setAttribute('aria-expanded', String(open));
+    ddBtn?.addEventListener('click', () => setOpen(ddBtn.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('click', (e) => { if (!dd.contains(e.target as Node)) setOpen(false); });
+    dd.addEventListener('keydown', (e) => { if (e.key === 'Escape') { setOpen(false); ddBtn?.focus(); } });
+    dd.addEventListener('focusout', (e) => { if (!dd.contains((e as FocusEvent).relatedTarget as Node)) setOpen(false); });
+  });
 </script>

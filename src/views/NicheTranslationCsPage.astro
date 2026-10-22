@@ -57,22 +57,25 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </div>
   </section>
 
-  <!-- VIDEO: market review (only when the video, chapters and transcript exist) -->
+  <!-- VIDEO: review of two public sites (facade: the Google Drive player loads on click) -->
   {V && (
     <section class="section" id="rozbor-webu">
       <div class="container narrow">
         <h2>{C.videoTitle}</h2>
         <p class="answer">{V.intro}</p>
-        <figure class="audit-video">
-          <video controls preload="none" poster={V.poster} width={V.width} height={V.height}><source src={V.src} type="video/mp4" /></video>
-          <figcaption class="muted small">{C.videoRecordedLabel}: {V.recorded}</figcaption>
+        <figure class="niche-video" data-drive={V.drive}>
+          <button class="niche-video__facade" type="button" aria-label={C.videoPlay}>
+            <img src={V.poster} width={V.width} height={V.height} alt="Náhled videa: rozbor webů dvou překladatelských agentur" loading="lazy" decoding="async" />
+            <span class="niche-video__play" aria-hidden="true"></span>
+          </button>
+          <figcaption class="muted small">
+            {V.recorded && <>{C.videoRecordedLabel}: {V.recorded} · </>}<a href={`https://drive.google.com/file/d/${V.drive}/view`} target="_blank" rel="noopener">{C.videoOpen}</a>
+          </figcaption>
         </figure>
-        <h3>{C.videoChaptersTitle}</h3>
-        <ol class="steps">{V.chapters.map((c) => <li><span>{tc(c.start)} · {c.title}</span></li>)}</ol>
-        <h3>{C.videoObsTitle}</h3>
-        <ul class="checks">{V.observations.map((x) => <li>{x}</li>)}</ul>
-        <details><summary>{C.videoTranscriptTitle}</summary><p>{V.transcript}</p></details>
-        <p class="muted small">{V.contact}</p>
+        {V.chapters && V.chapters.length > 0 && <><h3>{C.videoChaptersTitle}</h3><ol class="steps">{V.chapters.map((c) => <li><span>{tc(c.start)} · {c.title}</span></li>)}</ol></>}
+        {V.observations && V.observations.length > 0 && <><h3>{C.videoObsTitle}</h3><ul class="checks">{V.observations.map((x) => <li>{x}</li>)}</ul></>}
+        {V.transcript && <details><summary>{C.videoTranscriptTitle}</summary><p>{V.transcript}</p></details>}
+        <p class="muted small">{V.contact} <a href={t('contact')}>{V.contactLink}</a>.</p>
       </div>
     </section>
   )}
@@ -155,3 +158,17 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </div>
   </section>
 </Base>
+<script>
+  document.querySelectorAll<HTMLElement>('.niche-video').forEach((fig) => {
+    const btn = fig.querySelector<HTMLButtonElement>('.niche-video__facade');
+    btn?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://drive.google.com/file/d/${fig.dataset.drive}/preview`;
+      f.allow = 'autoplay; fullscreen';
+      f.allowFullscreen = true;
+      f.title = 'Rozbor webů dvou překladatelských agentur';
+      f.className = 'niche-video__frame';
+      btn.replaceWith(f);
+    });
+  });
+</script>

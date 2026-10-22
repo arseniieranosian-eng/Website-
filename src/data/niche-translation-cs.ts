@@ -12,12 +12,23 @@ import { walk } from '../lib/cs-typo';
 // First publication of this address; do NOT bump it when the page is edited (dateModified comes from git).
 export const NICHE_PUBLISHED = '2026-10-22';
 
-// The review video with the market analysis. Fill in when the file, the recording date, the chapters (timecodes), 3-5 observations and
-// the transcript exist; see the brief (2.4) for the rules (only what was visible on public sites at the recording date, neutral tone).
+// The review video with the market analysis (9 minutes, two real public websites), embedded from Google Drive (the file must be shared as
+// "anyone with the link"). Shown as a facade (poster + play button), the player loads on click. Chapters, observations, the transcript
+// and the recording date are optional: they are rendered when present (the brief wants them), and VideoObject is added only when both the
+// transcript and the recording date exist. Rules of the block: only what was visible on the public sites at the recording date, neutral tone.
 export const NICHE_VIDEO: null | {
-  src: string; poster: string; width: number; height: number; duration: string; uploadDate: string; recorded: string;
-  intro: string; chapters: { title: string; start: number; end: number }[]; observations: string[]; transcript: string; contact: string;
-} = null;
+  drive: string; poster: string; width: number; height: number; duration: string; recorded?: string;
+  intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
+} = {
+  drive: '1y7-xJcchsH2rsOh50_9AHpyMxdmtLzJL',
+  poster: '/media/rozbor-webu-prekladatelskych-agentur-poster.webp',
+  width: 1280,
+  height: 652,
+  duration: 'PT9M',
+  intro: 'V 9minutovém videu procházím veřejné weby dvou překladatelských agentur: strukturu, stránky služeb, jazykové verze a indexaci. Popisuji jen to, co bylo na webech vidět v době natáčení. Nehodnotím kvalitu překladů ani byznys.',
+  contact: 'Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes',
+  contactLink: 'kontaktní stránku',
+};
 
 const raw = {
   lang: 'cs' as const,
@@ -31,6 +42,8 @@ const raw = {
   videoTitle: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?',
   videoRecordedLabel: 'Natočeno',
   videoChaptersTitle: 'Kapitoly',
+  videoPlay: 'Přehrát video',
+  videoOpen: 'Otevřít video v novém okně',
   videoObsTitle: 'Co bylo na webech vidět',
   videoTranscriptTitle: 'Přepis videa',
 
