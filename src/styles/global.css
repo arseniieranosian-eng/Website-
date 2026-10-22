@@ -550,9 +550,18 @@ table.compare { min-width: 0; }
 
 /* Home: the niche name above its city cards */
 .niche-group + .niche-group { margin-top: 32px; }
-.niche-group__title { margin: 24px 0 16px; font-size: 1.35rem; }
+.niche-group__title { margin: 0; font-size: 1.35rem; }
 .niche-group .card h4 { margin: 0 0 8px; font-size: 1.15rem; line-height: 1.3; }
 
 /* Trust bar: a small illustration above each tile */
 .stats--five .trust-art { display: block; width: 72px; height: auto; margin: 0 0 14px; }
-.stats--five > div { justify-content: flex-end; }
+/* Same rows in every tile: illustration, figure, then the text, so the figures line up across the bar */
+.stats--five > div { flex-direction: column; justify-content: flex-start; }
+.stats--five .trust-art { order: 1; }
+.stats--five dd { order: 2; margin-bottom: 8px; line-height: 1.2; }
+.stats--five dt { order: 3; }
+
+/* Home: niche heading with its small illustration */
+.niche-group__head { display: flex; align-items: center; gap: 16px; margin: 24px 0 16px; }
+.niche-group__head .niche-group__title { margin: 0; }
+.niche-art { flex: none; width: 72px; height: auto; display: block; }

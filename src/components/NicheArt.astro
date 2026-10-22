@@ -1,0 +1,16 @@
+---
+// Small decorative illustration for a niche heading (the heading carries the meaning, so the drawing is hidden from assistive
+// technology). One drawing per niche id from NICHE_GROUPS in routes.ts; add a branch here when a new niche appears.
+interface Props { kind: string }
+const { kind } = Astro.props;
+---
+<svg class="niche-art" viewBox="0 0 96 56" width="96" height="56" fill="none" aria-hidden="true" focusable="false">
+  <rect x="0.5" y="0.5" width="95" height="55" rx="10" fill="#f4f6fa" stroke="#e3e7ef" />
+  {kind === 'translation' && (<>
+    <path d="M10 26 17 20 25 22 31 16 40 18 46 24 43 30 36 32 32 40 22 40 14 36Z" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" />
+    <circle cx="28" cy="29" r="2.6" fill="#ff6a1a" />
+    <rect x="52" y="9" width="30" height="17" rx="6" fill="#1f4fd8" /><path d="M60 26v5l6-5" fill="#1f4fd8" stroke="#1f4fd8" stroke-width="1.6" stroke-linejoin="round" />
+    <rect x="46" y="30" width="30" height="17" rx="6" fill="#ff6a1a" /><path d="M68 47v5l-6-5" fill="#ff6a1a" stroke="#ff6a1a" stroke-width="1.6" stroke-linejoin="round" />
+    <g fill="#fff" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle"><text x="67" y="21">A</text><text x="61" y="42">Я</text></g>
+  </>)}
+</svg>

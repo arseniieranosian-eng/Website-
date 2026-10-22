@@ -5,6 +5,7 @@ import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
+import NicheArt from '../components/NicheArt.astro';
 import TrustBarCs from '../components/TrustBarCs.astro';
 import WhyTrustCs from '../components/WhyTrustCs.astro';
 import { META } from '../i18n/meta';
@@ -100,7 +101,10 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
       <p class="answer">{C.nichesAnswer}</p>
       {C.nicheGroups.map((g) => (
         <div class="niche-group">
-          <h3 class="niche-group__title">{NICHE_GROUPS.find((x) => x.id === g.id)?.label}</h3>
+          <div class="niche-group__head">
+            <NicheArt kind={g.id} />
+            <h3 class="niche-group__title">{NICHE_GROUPS.find((x) => x.id === g.id)?.label}</h3>
+          </div>
           <div class="grid grid-3">
             {g.cards.map((n) => (
               <a class="card card--link" href={t(n.page)}>
