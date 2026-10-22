@@ -6,7 +6,7 @@ const URL_PATH = '/seo-pro-prekladatelske-agentury-praha/';
 const H1 = 'SEO pro překladatelské agentury v Praze';
 const TITLE = 'SEO a GEO/AEO pro překladatelské agentury Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro překladatelské agentury v Praze: jazykové páry, služby, B2B stránky. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Proč překladatelské agentury potřebují SEO?', 'Co pro překladatelskou agenturu konkrétně dělám?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
+const SECTIONS = [H1, 'Proč překladatelské agentury potřebují SEO?', 'Co pro překladatelskou agenturu konkrétně dělám?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Další články pro agentury', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/pripadove-studie/seo-prekladatelska-agentura/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentur', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', 'Kč', '5k'];
 
@@ -34,7 +34,7 @@ const hsNoVideo = hs.filter((x) => !/přesto\.cz/.test(x));
 if (JSON.stringify(hsNoVideo) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/blog\/|<form/.test(main)) e('no blog links / form on this page');
+if (/href="\/blog\/(?!proc-prekladatelska-agentura-nema-poptavky\/)|<form/.test(main)) e("no blog links except the one article for agencies, no form on this page");
 // "agentura" is never used about the author
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 // Hero: the direct answer, the date, the button; no quote, no numbers of the case
@@ -53,6 +53,7 @@ if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měs�
 // Case screenshot: the client is covered (no name, address or logo in the text), alt and caption in Czech
 if (!/<img src="\/images\/niche-ai-overview-prekladatelska-agentura\.webp" width="760" height="438" alt="Google AI Overview[^"]*zakryté" loading="lazy"/.test(main) || /KB P|kb-?preklady|Opletalova/i.test(h)) e('case screenshot with the client covered');
 if (!mainTxt.includes('Snímek obrazovky z 16. 10. 2026.')) e('case screenshot: dated 16. 10. 2026');
+if (!/Další články pro agentury<\/h2>[\s\S]*?href="\/blog\/proc-prekladatelska-agentura-nema-poptavky\/"/.test(main)) e('card of the article for agencies');
 // Capacity rule: one source, the date, the three steps
 if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Údaj platí k 22. 10. 2026')) e('capacity rule');
 if (/zbývá|volných míst|\d ze 3/.test(mainTxt)) e('no counter / places left');

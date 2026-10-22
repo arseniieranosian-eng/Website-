@@ -9,13 +9,14 @@ import { META } from '../i18n/meta';
 import { path, type PageKey } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
+import RelatedPosts from './RelatedPosts.astro';
 import { nicheTranslationSchemas } from '../lib/schema-niche-translation';
 
 interface Props { C: any; V: any; pageKey: PageKey; files: string[]; modifiedFallback: string }
 const { C, V, pageKey, files, modifiedFallback } = Astro.props;
 const lang = C.lang;
 const site = Astro.site!;
-const MOD = lastModified(['src/components/NicheLanding.astro', 'src/data/niche-shared.ts', 'src/data/case-summary.ts', ...files], modifiedFallback);
+const MOD = lastModified(['src/components/NicheLanding.astro', 'src/data/blog-posts.ts', 'src/data/niche-shared.ts', 'src/data/case-summary.ts', ...files], modifiedFallback);
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 const t = (k: PageKey) => path(k, lang);
@@ -161,6 +162,17 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
       <p><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></p>
     </div>
   </section>
+
+  <!-- OTHER ARTICLES FOR AGENCIES -->
+  {C.articles && (
+    <section class="section">
+      <div class="container">
+        <h2>{C.articles.title}</h2>
+        <p>{C.articles.lead}</p>
+        <RelatedPosts lang={lang} keys={[...C.articles.keys]} more={C.articles.more} />
+      </div>
+    </section>
+  )}
 
   <!-- FAQ -->
   <section class="section">

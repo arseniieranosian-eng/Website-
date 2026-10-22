@@ -228,6 +228,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
   },
+  postNoLeads: {
+    cs: {
+      name: 'Proč překladatelská agentura nemá poptávky z webu?',
+      title: 'Web překladatelské agentury nepřináší poptávky | Eranosian',
+      description: 'Web překladatelské agentury nepřináší poptávky? Ukazuji, co zkontrolovat první: indexaci, jazykové verze, stránky pro firmy. Požádejte o bezplatný audit.',
+      h1: 'Proč překladatelská agentura nemá poptávky z webu?',
+    },
+    en: { name: 'Why a translation agency gets no leads from its website', title: 'Why a translation agency gets no leads', description: 'Why a translation agency gets no leads', h1: 'Why a translation agency gets no leads' },
+    ru: { name: 'Почему у переводческого агентства нет заявок с сайта', title: 'Почему у агентства нет заявок', description: 'Почему у агентства нет заявок', h1: 'Почему у агентства нет заявок' },
+  },
   postChoose: {
     cs: {
       name: 'Audit zdarma, konzultace, nebo Start',

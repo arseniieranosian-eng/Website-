@@ -118,6 +118,8 @@ const raw = {
   nextLead: 'Další krok:',
   chooseLead: 'Nevíte, čím začít?',
   chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
+  agencyLead: 'Máte web překladatelské agentury a chybí poptávky?',
+  agencyLinkText: 'Proč překladatelská agentura nemá poptávky z webu?',
   nextLinkText: 'Duplicitní obsah: co to je a jak ho vyřešit',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',

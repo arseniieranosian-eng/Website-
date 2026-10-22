@@ -107,6 +107,8 @@ const raw = {
   nextLinkText: 'Jak zjistit, jestli je web indexovaný v Googlu',
   chooseLead: 'Nevíte, čím začít?',
   chooseLinkText: 'Audit zdarma, konzultace, nebo Start',
+  agencyLead: 'Máte web překladatelské agentury a chybí poptávky?',
+  agencyLinkText: 'Proč překladatelská agentura nemá poptávky z webu?',
   authorNote: 'Napsal Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Víc o mně a o tom, jak pracuji, najdete na stránce',
   authorLinkText: 'O mně',
 

@@ -129,6 +129,8 @@ const raw = {
   reviewsAnswer: NICHE_SHARED_CS.reviews.answer,
   reviewsLink: NICHE_SHARED_CS.reviews.link,
 
+  articles: NICHE_SHARED_CS.articles,
+
   faqTitle: 'Často kladené otázky',
   faq: [
     { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu v Brně?', a: 'První výsledky se obvykle objeví za 2–3 měsíce. Garantovat je nelze, záleží na stavu webu a konkurenci v oboru.' },
