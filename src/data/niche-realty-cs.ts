@@ -17,7 +17,14 @@ export const NICHE_REALTY_PUBLISHED = '2026-10-22';
 export const NICHE_REALTY_MARKET: null | { checked: string; observations: string[] } = null;
 
 // The author's own dated observations of real-estate sites (shown under the control-areas table). Missing.
-export const NICHE_REALTY_OBSERVATIONS: null | { checked: string; observations: string[] } = null;
+export const NICHE_REALTY_OBSERVATIONS: null | { checked: string; observations: string[] } = {
+  checked: 'říjen 2026',
+  observations: [
+    'Při auditu webu z oboru nemovitostí jsem našel technicky rozbité stránky: na některých se zdvojila značka <body> a title. Takové stránky opravuji jako první.',
+    'Na části stránek chyběl nadpis H1, hlavní signál pro vyhledávač o tom, o čem stránka je.',
+    'Obrázky bez alternativního textu a stránky se stejným title, které si ve výsledcích vyhledávání konkurují.',
+  ],
+};
 
 // Optional review video of public real-estate sites (same shape as NICHE_VIDEO). Decision of the author pending.
 export const NICHE_REALTY_VIDEO: null | {
@@ -26,7 +33,14 @@ export const NICHE_REALTY_VIDEO: null | {
 } = null;
 
 // "Jaké mám zkušenosti s weby nemovitostí?": only what the author confirms (projects, analyses, observations). Missing: the block is not rendered.
-export const NICHE_REALTY_EXPERIENCE: null | { title: string; answer: string; points?: string[] } = null;
+export const NICHE_REALTY_EXPERIENCE: null | { title: string; answer: string; points?: string[] } = {
+  title: 'Jaké mám zkušenosti s weby nemovitostí?',
+  answer: 'V říjnu 2026 jsem zpracoval SEO audit a strategii propagace na 12 měsíců pro web z oboru nemovitostí. Výsledky z tohoto projektu zatím neuvádím: jde o čerstvý audit, ne o dokončenou práci. Název klienta nezveřejňuji.',
+  points: [
+    'Audit zahrnoval současný technický stav webu, srovnání s konkurencí a plán na 12 měsíců.',
+    'Případovou studii pro tento obor zatím nemám a výsledky překladatelské případové studie sem nepřenáším.',
+  ],
+};
 
 if (NICHE_READY.nicheRealty && !NICHE_REALTY_MARKET) {
   throw new Error('The real-estate landing page is switched on (NICHE_READY.nicheRealty) but the analysis of the Praha results is missing: the page would be generic.');

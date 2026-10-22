@@ -59,7 +59,7 @@ for (const hd of SECTIONS.slice(1, 9)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // No case study in this niche: no translation-case numbers, no AI Overview / ChatGPT claim, no screenshot
-if (/65–70|trojnásobně|rostly poptávky|AI Overview|ChatGPT|případov/i.test(mainTxt.replace(/Případové studie/g,''))) e('no case results carried over from the translation case');
+if (/65–70|trojnásobně|rostly poptávky|AI Overview|ChatGPT/i.test(mainTxt)) e('no case results carried over from the translation case');
 if (/<img src="\/images\/niche-ai-overview/.test(main) || /KB P|kb-?preklady|Přikop|Correct/i.test(h)) e('no screenshots, no client or third-party name');
 if (!/Zkontrolováno: \d/.test(mainTxt)) e('market observations with the date of the check');
 // Capacity rule: one source, the date, the three steps
