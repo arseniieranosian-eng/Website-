@@ -153,6 +153,7 @@ const raw = {
   ctaAudit: 'Chci audit zdarma',
   ctaContact: 'Napište mi',
   nextCases: [
+    { key: 'nicheTranslation' as const, text: 'SEO pro překladatelské agentury v Praze' },
     { key: 'caseTypo' as const, text: 'Sousední případová studie: SEO pro tiskárnu' },
     { key: 'caseEdu' as const, text: 'Sousední případová studie: SEO pro novou vzdělávací platformu' },
     { key: 'caseSeason' as const, text: 'Navazující případová studie: SEO v nízké sezóně' },

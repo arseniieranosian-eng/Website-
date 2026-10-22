@@ -93,6 +93,23 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
     </div>
   </section>
 
+  <!-- SECTORS AND CITIES -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.nichesTitle}</h2>
+      <p class="answer">{C.nichesAnswer}</p>
+      <div class="grid grid-3">
+        {C.niches.map((n) => (
+          <a class="card card--link" href={t(n.page)}>
+            <h3>{n.title}</h3>
+            <p>{n.text}</p>
+            <span class="link-arrow">{C.servicesMore}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- SEO + GEO/AEO -->
   <section class="section section--dark">
     <div class="container narrow">

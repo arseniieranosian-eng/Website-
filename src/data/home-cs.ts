@@ -36,6 +36,10 @@ export const HOME_CS = {
   ],
   servicesMore: 'Více',
 
+  nichesTitle: 'Obory a města',
+  nichesAnswer: 'Pro některé obory mám samostatné stránky s tím, co v nich dělám a jak postupuji.',
+  niches: [{ page: 'nicheTranslation' as const, title: 'SEO pro překladatelské agentury v Praze', text: 'Stránky jazykových párů, služeb a měst, indexace jazykových verzí a lokální přítomnost.' }],
+
   quote: 'SEO není o aktivitě, ale o pořadí priorit. Nejdřív odstraníte, co Googlu brání web pochopit, pak postavíte architekturu podle byznysu a teprve potom škálujete obsah.',
 
   geoTitle: 'Co je GEO/AEO a proč ho dělám spolu se SEO?',

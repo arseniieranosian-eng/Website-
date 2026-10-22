@@ -3,8 +3,8 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BASE = 'https://seo-eranosian.com';
-const SECTIONS = ['SEO, které přivádí poptávky. Ve vyhledávačích i v AI.', 'Kam dál? Vyberte podle toho, co potřebujete', 'Jaké služby nabízím?', 'Co je GEO/AEO a proč ho dělám spolu se SEO?', 'Jaké výsledky už mají moji klienti?', 'Co říkají klienti?', 'Proč mi klienti věří?', 'Časté otázky', 'Kdo za tím stojí?', 'Zjistěte, kolik zákazníků vám uniká'];
-const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-prekladatelska-agentura/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/', '/caste-dotazy/', '/o-mne/', '/kontakt/', '/ochrana-osobnich-udaju/'];
+const SECTIONS = ['SEO, které přivádí poptávky. Ve vyhledávačích i v AI.', 'Kam dál? Vyberte podle toho, co potřebujete', 'Jaké služby nabízím?', 'Obory a města', 'Co je GEO/AEO a proč ho dělám spolu se SEO?', 'Jaké výsledky už mají moji klienti?', 'Co říkají klienti?', 'Proč mi klienti věří?', 'Časté otázky', 'Kdo za tím stojí?', 'Zjistěte, kolik zákazníků vám uniká'];
+const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/pripadove-studie/seo-v-nizke-sezone/', '/pripadove-studie/seo-prekladatelska-agentura/', '/pripadove-studie/seo-tiskarna/', '/pripadove-studie/seo-vzdelavaci-platforma/', '/recenze/', '/seo-pro-prekladatelske-agentury-praha/', '/caste-dotazy/', '/o-mne/', '/kontakt/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['první pozice', 'YoY', '3 roky', 'průměrný růst', '55–60', 'ChatGPT v odpovědích', 'technický stav a rychlost', '4–8 týdnů', '3–6 měsíců', 'krátký call po auditu', 'SEO agentur', '6×', '300×', 'B2B ×3'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -32,7 +32,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f) || desc.includes(f) || title.includes(f)) e(`forbidden text: ${f}`);
 // "agentura" only inside the case names (the brief names the translation-agency case that way)
-if (/agentur/i.test(mainTxt.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
+if (/agentur/i.test(mainTxt.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro|překladatelské agentury v Praze)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/href="\/blog\//.test(main)) e('no blog links in the body of the home page (the menu and the footer have one)');
 if (/★|AggregateRating|ratingValue/.test(h)) e('no stars / AggregateRating');

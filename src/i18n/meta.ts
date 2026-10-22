@@ -318,6 +318,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'How to check if a site is indexed', title: 'How to check if a site is indexed', description: 'How to check if a site is indexed', h1: 'How to check if a site is indexed' },
     ru: { name: 'Как проверить индексацию сайта', title: 'Как проверить индексацию сайта', description: 'Как проверить индексацию сайта', h1: 'Как проверить индексацию сайта' },
   },
+  nicheTranslation: {
+    cs: {
+      name: 'SEO pro překladatelské agentury v Praze',
+      title: 'SEO a GEO/AEO pro překladatelské agentury Praha | Eranosian',
+      description: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Praze: jazykové páry, služby, B2B stránky. Začněte bezplatným auditem technických chyb.',
+      h1: 'SEO pro překladatelské agentury v Praze',
+    },
+    en: { name: 'SEO for translation agencies in Prague', title: 'SEO for translation agencies in Prague', description: 'SEO for translation agencies in Prague', h1: 'SEO for translation agencies in Prague' },
+    ru: { name: 'SEO для переводческих агентств в Праге', title: 'SEO для переводческих агентств в Праге', description: 'SEO для переводческих агентств в Праге', h1: 'SEO для переводческих агентств в Праге' },
+  },
   caseKb: {
     cs: {
       name: 'SEO pro překladatelskou agenturu',
