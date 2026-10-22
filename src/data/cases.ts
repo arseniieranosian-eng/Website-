@@ -79,14 +79,14 @@ CASES.push({
 
 CASES.push({
   key: 'caseHalf',
-  langs: ['cs'],
-  industry: { cs: 'Překladatelská agentura · půl roku práce', en: '', ru: '' },
-  teaser: { cs: HALF_LINE_CS, en: '', ru: '' },
-  challenge: { cs: 'Web ve čtyřech jazycích nepřinášel žádné poptávky (ani jeden odeslaný formulář) a zhruba polovina sekcí, které takový web potřebuje, neexistovala.', en: '', ru: '' },
-  solution: { cs: ['Web jako systém tří druhů stránek', 'Samostatné stránky pro Prahu, Brno a Pardubice', 'Lokalizace každé jazykové verze, ne jen překlad', 'Týdenní reporty s ověřitelnými zdroji'], en: [], ru: [] },
+  langs: ['cs', 'ru'],
+  industry: { cs: 'Překladatelská agentura · půl roku práce', en: '', ru: 'Переводческое агентство · полгода работы' },
+  teaser: { cs: HALF_LINE_CS, en: '', ru: 'За полгода заявки три месяца подряд росли на 65–70 % месяц к месяцу, B2B-заявки выросли в три раза, а сайт появился в Google AI Overview.' },
+  challenge: { cs: 'Web ve čtyřech jazycích nepřinášel žádné poptávky (ani jeden odeslaný formulář) a zhruba polovina sekcí, které takový web potřebuje, neexistovala.', en: '', ru: 'Сайт на четырёх языках не приносил заявок (ни одной отправленной формы), а примерно половины нужных разделов не было.' },
+  solution: { cs: ['Web jako systém tří druhů stránek', 'Samostatné stránky pro Prahu, Brno a Pardubice', 'Lokalizace každé jazykové verze, ne jen překlad', 'Týdenní reporty s ověřitelnými zdroji'], en: [], ru: ['Сайт как система из трёх типов страниц', 'Отдельные страницы для Праги, Брно и Пардубице', 'Локализация каждой языковой версии, а не только перевод', 'Еженедельные отчёты с проверяемыми источниками'] },
   metrics: [
-    { value: { cs: '+65–70\u00a0%', en: '', ru: '' }, label: { cs: 'poptávek měsíčně, tři měsíce po sobě (formulář a e-mail)', en: '', ru: '' } },
-    { value: { cs: '×3', en: '', ru: '' }, label: { cs: 'B2B poptávky (+200\u00a0%), léto 2026', en: '', ru: '' } },
+    { value: { cs: '+65–70\u00a0%', en: '', ru: '+65–70\u00a0%' }, label: { cs: 'poptávek měsíčně, tři měsíce po sobě (formulář a e-mail)', en: '', ru: 'заявок в месяц, три месяца подряд (форма и почта)' } },
+    { value: { cs: '×3', en: '', ru: '×3' }, label: { cs: 'B2B poptávky (+200\u00a0%), léto 2026', en: '', ru: 'B2B-заявки, лето 2026' } },
   ],
   services: ['start', 'fullSeo'],
 });

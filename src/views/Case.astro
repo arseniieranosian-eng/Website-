@@ -54,6 +54,15 @@ const schema = part2
       </div>
     </section>
   )}
+  {part2 && (
+    <section class="section section--tight">
+      <div class="container narrow">
+        <h2>Полная история проекта</h2>
+        <p>Обзор всего пути за март–сентябрь 2026: исходное состояние, структура сайта, поведение городов и языковых версий.</p>
+        <a class="link-arrow" href={path('caseHalf', lang)}>Кейс за полгода</a>
+      </div>
+    </section>
+  )}
   <section class="section section--grey">
     <div class="container grid grid-2">
       <div class="card"><h2>{C.challenge}</h2><p>{c.challenge[lang]}</p></div>

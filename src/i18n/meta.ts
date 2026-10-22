@@ -226,7 +226,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Případová studie SEO pro překladatelskou agenturu: půl roku od nuly k růstu poptávek',
     },
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
-    ru: { name: 'SEO для переводческого агентства: полгода', title: 'SEO для переводческого агентства: полгода', description: 'SEO для переводческого агентства: полгода', h1: 'SEO для переводческого агентства: полгода' },
+    ru: {
+      name: 'SEO для переводческого агентства: полгода',
+      title: 'Кейс SEO переводческое агентство: рост заявок | Eranosian',
+      description: 'Разбор полугода SEO для переводческого агентства: исходное состояние, структура сайта, поведение городов и языковых версий. Начните с бесплатного аудита.',
+      h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
+    },
   },
   postPairs: {
     cs: {

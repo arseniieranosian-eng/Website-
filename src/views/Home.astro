@@ -197,6 +197,7 @@ const C = {
     <div class="container">
       <h2>{C.caseTitle}</h2>
       <CaseTeaser lang={lang} />
+      {lang === 'ru' && <p class="center"><a class="link-arrow" href={path('caseHalf', lang)}>Полная история проекта: кейс за полгода</a></p>}
     </div>
   </section>
 

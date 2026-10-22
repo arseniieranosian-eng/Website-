@@ -24,6 +24,7 @@ import Cases from '../views/Cases.astro';
 import Case from '../views/Case.astro';
 import CaseCsPage from '../views/CaseCsPage.astro';
 import CaseHalfCsPage from '../views/CaseHalfCsPage.astro';
+import CaseHalfRuPage from '../views/CaseHalfRuPage.astro';
 import CaseTypoRuPage from '../views/CaseTypoRuPage.astro';
 import CaseTypoCsPage from '../views/CaseTypoCsPage.astro';
 import CaseEduRuPage from '../views/CaseEduRuPage.astro';
@@ -101,6 +102,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postB2b' && props.lang === 'cs' && <PostB2bCsPage />}
 {props.key === 'postPairs' && props.lang === 'cs' && <PostPairsCsPage />}
 {props.key === 'caseHalf' && props.lang === 'cs' && <CaseHalfCsPage />}
+{props.key === 'caseHalf' && props.lang === 'ru' && <CaseHalfRuPage />}
 {props.key === 'nicheTranslation' && props.lang === 'cs' && <NicheTranslationCsPage />}
 {props.key === 'nicheBrno' && props.lang === 'cs' && <NicheTranslationBrnoCsPage />}
 {props.key === 'nichePardubice' && props.lang === 'cs' && <NicheTranslationPardubiceCsPage />}
