@@ -1,0 +1,33 @@
+---
+// Small decorative illustration for one trust-bar tile (the tile's text carries the meaning, so the drawing is hidden from
+// assistive technology). Palette: the site's blue and orange on a pale tile.
+interface Props { kind: 'visits' | 'forms' | 'platform' | 'markets' | 'langs' }
+const { kind } = Astro.props;
+---
+<svg class="trust-art" viewBox="0 0 96 56" width="96" height="56" fill="none" aria-hidden="true" focusable="false">
+  <rect x="0.5" y="0.5" width="95" height="55" rx="10" fill="#f4f6fa" stroke="#e3e7ef" />
+  {kind === 'visits' && (<>
+    <rect x="16" y="36" width="10" height="10" rx="2" fill="#c9d6f7" /><rect x="30" y="31" width="10" height="15" rx="2" fill="#a4baf0" />
+    <rect x="44" y="24" width="10" height="22" rx="2" fill="#6f90e6" /><rect x="58" y="15" width="10" height="31" rx="2" fill="#1f4fd8" />
+    <path d="M18 28 36 20 50 14 74 8" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /><path d="M67 7.5 75 7.5 73 15" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+  </>)}
+  {kind === 'forms' && (<>
+    <rect x="22" y="12" width="34" height="32" rx="5" fill="#fff" stroke="#1f4fd8" stroke-width="2" />
+    <path d="M29 22h20M29 29h20M29 36h12" stroke="#a4baf0" stroke-width="2.4" stroke-linecap="round" />
+    <rect x="50" y="26" width="26" height="18" rx="4" fill="#ff6a1a" /><path d="M53 30l10 7 10-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </>)}
+  {kind === 'platform' && (<>
+    <path d="M14 22 42 11l28 11-28 11z" fill="#1f4fd8" /><path d="M26 29v9c0 3 7 6 16 6s16-3 16-6v-9l-16 6z" fill="#6f90e6" />
+    <path d="M70 22v14" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" /><circle cx="70" cy="39" r="3" fill="#ff6a1a" />
+    <path d="M78 20 84 14 90 20M84 14v14" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(-6 0)" />
+  </>)}
+  {kind === 'markets' && (<>
+    <circle cx="48" cy="28" r="19" fill="#fff" stroke="#1f4fd8" stroke-width="2" /><path d="M29 28h38M48 9c-8 9-8 29 0 38M48 9c8 9 8 29 0 38" stroke="#a4baf0" stroke-width="1.8" />
+    <g fill="#ff6a1a"><circle cx="40" cy="20" r="3.2" /><circle cx="58" cy="22" r="3.2" /><circle cx="52" cy="38" r="3.2" /><circle cx="38" cy="34" r="3.2" /></g>
+  </>)}
+  {kind === 'langs' && (<>
+    <g stroke-width="1.8"><rect x="12" y="10" width="34" height="18" rx="6" fill="#1f4fd8" stroke="#1f4fd8" /><path d="M20 28v6l7-6" fill="#1f4fd8" stroke="#1f4fd8" stroke-linejoin="round" />
+    <rect x="50" y="22" width="34" height="18" rx="6" fill="#ff6a1a" stroke="#ff6a1a" /><path d="M76 40v6l-7-6" fill="#ff6a1a" stroke="#ff6a1a" stroke-linejoin="round" /></g>
+    <g fill="#fff" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle"><text x="29" y="23">cs en</text><text x="67" y="35">ru uk</text></g>
+  </>)}
+</svg>

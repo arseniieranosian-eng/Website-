@@ -552,3 +552,7 @@ table.compare { min-width: 0; }
 .niche-group + .niche-group { margin-top: 32px; }
 .niche-group__title { margin: 24px 0 16px; font-size: 1.35rem; }
 .niche-group .card h4 { margin: 0 0 8px; font-size: 1.15rem; line-height: 1.3; }
+
+/* Trust bar: a small illustration above each tile */
+.stats--five .trust-art { display: block; width: 72px; height: auto; margin: 0 0 14px; }
+.stats--five > div { justify-content: flex-end; }

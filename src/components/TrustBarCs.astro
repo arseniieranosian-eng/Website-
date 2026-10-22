@@ -2,10 +2,11 @@
 // Trust bar as HTML text (not an image, not a carousel). Data: data/trust-cs.ts.
 import { path } from '../i18n/routes';
 import { TRUST_CS as T } from '../data/trust-cs';
+import TrustArt from './TrustArt.astro';
 ---
 <div class="trust-bar">
   <dl class="stats stats--five">
-    {T.tiles.map((x) => <div><dt>{x.label}<span class="stat-caption">{x.caption}</span></dt><dd>{x.value}</dd></div>)}
+    {T.tiles.map((x) => <div><dt>{x.label}<span class="stat-caption">{x.caption}</span></dt><dd>{x.value}</dd><TrustArt kind={x.art} /></div>)}
   </dl>
   <p class="muted small">{T.note}</p>
   <p><a class="link-arrow" href={path('cases', 'cs')}>{T.more}</a></p>
