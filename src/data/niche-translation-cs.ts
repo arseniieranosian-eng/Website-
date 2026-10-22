@@ -13,15 +13,15 @@ import { NICHE_READY } from '../i18n/routes';
 // First publication of this address; do NOT bump it when the page is edited (dateModified comes from git).
 export const NICHE_PUBLISHED = '2026-10-22';
 
-// The review video with the market analysis (9 minutes, two real public websites), embedded from Google Drive (the file must be shared as
+// The review video with the market analysis (9 minutes, two real public websites), embedded from YouTube (youtube-nocookie player; was Google Drive: the file had to be shared as
 // "anyone with the link"). Shown as a facade (poster + play button), the player loads on click. Chapters, observations, the transcript
 // and the recording date are optional: they are rendered when present (the brief wants them), and VideoObject is added only when both the
 // transcript and the recording date exist. Rules of the block: only what was visible on the public sites at the recording date, neutral tone.
 export const NICHE_VIDEO: null | {
-  drive: string; poster: string; width: number; height: number; duration: string; recorded?: string;
+  youtube: string; poster: string; width: number; height: number; duration: string; recorded?: string;
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
 } = {
-  drive: '1y7-xJcchsH2rsOh50_9AHpyMxdmtLzJL',
+  youtube: 'l2-SXybLlss',
   poster: '/media/rozbor-webu-prekladatelskych-agentur-poster.webp',
   width: 1280,
   height: 652,
@@ -45,7 +45,7 @@ const raw = {
   videoRecordedLabel: 'Natočeno',
   videoChaptersTitle: 'Kapitoly',
   videoPlay: 'Přehrát video',
-  videoOpen: 'Otevřít video v novém okně',
+  videoOpen: 'Otevřít video na YouTube',
   videoObsTitle: 'Co bylo na webech vidět',
   videoTranscriptTitle: 'Přepis videa',
 

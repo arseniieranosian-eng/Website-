@@ -54,7 +54,7 @@ export function nicheTranslationSchemas(site: URL, C: any, opts: { modified: str
           thumbnailUrl: abs(v.poster),
           uploadDate: v.recorded.split('. ').reverse().map((x: string) => x.padStart(2, '0')).join('-'),
           duration: v.duration,
-          embedUrl: `https://drive.google.com/file/d/${v.drive}/preview`,
+          embedUrl: `https://www.youtube-nocookie.com/embed/${v.youtube}`,
           inLanguage: lang,
           transcript: v.transcript,
           author: { '@id': id.person },

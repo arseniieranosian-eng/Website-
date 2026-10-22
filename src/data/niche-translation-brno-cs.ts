@@ -26,7 +26,7 @@ export const NICHE_BRNO_MARKET: null | { checked: string; observations: string[]
 import { NICHE_VIDEO } from './niche-translation-cs';
 
 export const NICHE_BRNO_VIDEO: null | {
-  drive: string; poster: string; width: number; height: number; duration: string; title: string; recorded?: string;
+  youtube: string; poster: string; width: number; height: number; duration: string; title: string; recorded?: string;
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
 } = NICHE_VIDEO ? { ...NICHE_VIDEO, title: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?' } : null;
 

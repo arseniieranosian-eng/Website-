@@ -81,19 +81,19 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </section>
   )}
 
-  <!-- VIDEO: review of two public sites (facade: the Google Drive player loads on click) -->
+  <!-- VIDEO: review of two public sites (facade: the YouTube player loads on click) -->
   {V && (
     <section class="section" id="rozbor-webu">
       <div class="container narrow">
         <h2>{V.title ?? C.videoTitle}</h2>
         <p class="answer">{V.intro}</p>
-        <figure class="niche-video" data-drive={V.drive}>
+        <figure class="niche-video" data-youtube={V.youtube}>
           <button class="niche-video__facade" type="button" aria-label={C.videoPlay}>
             <img src={V.poster} width={V.width} height={V.height} alt="Náhled videa: rozbor webů dvou překladatelských agentur" loading="lazy" decoding="async" />
             <span class="niche-video__play" aria-hidden="true"></span>
           </button>
           <figcaption class="muted small">
-            {V.recorded && <>{C.videoRecordedLabel}: {V.recorded} · </>}<a href={`https://drive.google.com/file/d/${V.drive}/view`} target="_blank" rel="noopener">{C.videoOpen}</a>
+            {V.recorded && <>{C.videoRecordedLabel}: {V.recorded} · </>}<a href={`https://youtu.be/${V.youtube}`} target="_blank" rel="noopener">{C.videoOpen}</a>
           </figcaption>
         </figure>
         {V.chapters && V.chapters.length > 0 && <><h3>{C.videoChaptersTitle}</h3><ol class="steps">{V.chapters.map((c: any) => <li><span>{tc(c.start)} · {c.title}</span></li>)}</ol></>}
@@ -199,8 +199,8 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     const btn = fig.querySelector<HTMLButtonElement>('.niche-video__facade');
     btn?.addEventListener('click', () => {
       const f = document.createElement('iframe');
-      f.src = `https://drive.google.com/file/d/${fig.dataset.drive}/preview`;
-      f.allow = 'autoplay; fullscreen';
+      f.src = `https://www.youtube-nocookie.com/embed/${fig.dataset.youtube}?autoplay=1&rel=0`;
+      f.allow = "autoplay; fullscreen; picture-in-picture";
       f.allowFullscreen = true;
       f.title = 'Rozbor webů dvou překladatelských agentur';
       f.className = 'niche-video__frame';
