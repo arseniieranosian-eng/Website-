@@ -41,7 +41,7 @@ const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x) || /^Co jsem viděl na webech/.test(x));
 const hsNoVideo = hs.filter((x) => !/^Co jsem viděl na webech/.test(x));
-if (!hs.some((x) => /^Co jsem viděl na webech/.test(x)) || /přesto\.cz|skrivanek/i.test(mainTxt)) e('own video block, and not the Prague sites');
+if (!hs.some((x) => /^Co jsem viděl na webech/.test(x))) e('video block (the same recording as on the Prague page, by the author\'s decision)');
 if (JSON.stringify(hsNoVideo) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
@@ -60,7 +60,9 @@ for (const hd of SECTIONS.slice(1, 9)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // Case: approved formula only
-if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026)') || !mainTxt.includes('Brno: výrazný letní růst') || /AI Overview/.test(mainTxt)) e('case formula, Brno lines, no AI Overview claim without confirmation');
+if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026)') || !mainTxt.includes('Brno: výrazný letní růst')) e('case formula and the Brno line');
+if (/AI Overview/.test(mainTxt) && !mainTxt.includes('Snímek obrazovky z 16. 10. 2026.')) e('AI Overview only with the dated screenshot');
+if (!/<img src="\/images\/niche-ai-overview-brno\.webp" width="670" height="484" alt="Google AI Overview[^"]*zakryté" loading="lazy"/.test(main) || /KB P|kb-?preklady|Přikop|Correct/i.test(h)) e('Brno screenshot with the client covered, no client or third-party name in the text');
 if (!/Zkontrolováno: \d/.test(mainTxt)) e('market observations with the date of the check');
 // Capacity rule: one source, the date, the three steps
 if (!/Další města:[\s\S]*seo-pro-prekladatelske-agentury-praha/.test(main)) e('Další města: Praha');

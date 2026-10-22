@@ -22,7 +22,6 @@ const t = (k: PageKey) => path(k, lang);
 const cite = new URL(t(pageKey), site).href;
 const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 ---
----
 <Base {...pageProps(pageKey, lang)} schema={nicheTranslationSchemas(site, C, { modified: MOD, key: pageKey, video: V })}>
   <!-- HERO -->
   <section class="page-hero">
@@ -75,7 +74,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
         <h2>{C.local.title}</h2>
         <p class="answer">{C.local.answer}</p>
         <ul class="checks">{C.local.points.map((x: string) => <li>{x}</li>)}</ul>
-        <p>{C.local.more} <a href={t('maps')}>{C.local.moreLink}</a></p>
+        <p>{C.local.more}{' '}<a href={t('maps')}>{C.local.moreLink}</a></p>
       </div>
     </section>
   )}

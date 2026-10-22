@@ -70,7 +70,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 // Niche landing pages of the series that are not published yet. A page is built (and listed in the sitemap, the menu and the links of other
 // pages) only when its flag is true. The Brno page needs three parts of its own (video with two other sites, verified market observations
 // with a date, own FAQ) so that it is not a doorway copy of the Prague page: the build stops if the flag is on and the data is missing.
-export const NICHE_READY = { nicheBrno: false } as const;
+export const NICHE_READY = { nicheBrno: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
   nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], nicheTranslation: ['cs'] };

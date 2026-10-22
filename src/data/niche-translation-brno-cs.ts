@@ -13,19 +13,27 @@ import { walk } from '../lib/cs-typo';
 export const NICHE_BRNO_PUBLISHED = '2026-10-22';
 
 // Verified observations of the Google.cz / Seznam results for Brno: the queries, what the results show, the date of the check.
-export const NICHE_BRNO_MARKET: null | { checked: string; observations: string[] } = null;
+export const NICHE_BRNO_MARKET: null | { checked: string; observations: string[] } = {
+  checked: '16. 10. 2026',
+  observations: [
+    'Pro dotaz „překlady Brno“ ukazuje Google AI Overview několik ověřených překladatelských služeb v Brně, mezi nimi i brněnskou pobočku klienta z případové studie.',
+    'Výsledky u služeb zobrazují údaje z profilu: adresu, informaci o otevření a odkaz na oficiální web. Proto má smysl, aby byly údaje v profilech shodné s webem.',
+  ],
+};
 
-// The review video (about 9 minutes, two other public sites, Brno market); same rules as on the Prague page. Needs `title`
-// ("Co jsem viděl na webech [A] a [B]?"), the recording date, chapters, observations, transcript.
+// The review video: by the author's decision of 22.10.2026 the SAME recording as on the Prague page (the brief asked for another one with two
+// other sites; this is a conscious exception, the duplicate-content risk is accepted). Same rules, same chapters / observations / transcript when they exist.
+import { NICHE_VIDEO } from './niche-translation-cs';
+
 export const NICHE_BRNO_VIDEO: null | {
   drive: string; poster: string; width: number; height: number; duration: string; title: string; recorded?: string;
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
-} = null;
+} = NICHE_VIDEO ? { ...NICHE_VIDEO, title: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?' } : null;
 
 // Google AI Overview for "překlady Brno": a screenshot with the client covered (public/images/niche-ai-overview-brno.webp, the third-party
 // thumbnail is covered too). It is wired into the page as `caseImage` ONLY with the date of the screenshot (like the Prague one:
 // "Snímek obrazovky z DD. MM. RRRR."). Until the date is known the page does not show it and does not claim an AI Overview for Brno.
-export const NICHE_BRNO_AI_SHOT: null | { date: string } = null;
+export const NICHE_BRNO_AI_SHOT: null | { date: string } = { date: '16. 10. 2026' };
 
 if (NICHE_READY.nicheBrno && (!NICHE_BRNO_MARKET || !NICHE_BRNO_VIDEO)) {
   throw new Error('The Brno landing page is switched on (NICHE_READY.nicheBrno) but the market observations or the video are missing: it would be a doorway copy of the Prague page.');
