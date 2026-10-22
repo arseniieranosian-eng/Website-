@@ -36,7 +36,8 @@ if (title !== TITLE || title.length > 60) e(`title: ${title} (${title.length})`)
 if (desc !== DESC || desc.length > 160) e(`description: ${desc} (${desc.length})`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h) || /<meta name="robots"[^>]*noindex/.test(h)) e('Czech-only page, indexable, no hreflang');
+const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + ' ' + m[2]);
+if (/<meta name="robots"[^>]*noindex/.test(h) || JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `ru ${BASE}/ru/seo-dlya-agentstv-nedvizhimosti-praga/`, `x-default ${BASE}${URL_PATH}`])) e('indexable; hreflang pair cs ↔ ru (+ x-default = cs): ' + JSON.stringify(alts));
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x) || /^Co jsem viděl na webech/.test(x));

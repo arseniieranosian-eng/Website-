@@ -40,3 +40,12 @@ export const NICHE_SHARED_CS = walk({
   capacityAnswer: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti: neříkám, že se mezi mými klienty nikdy neobjeví konkurent, říkám, kolik firem z oboru beru najednou. Údaj platí k ${NICHE_CAPACITY_DATE} a při změně ho aktualizuji.`,
   capacityShort: `Nejvýše tři firmy z jednoho oboru. Údaj platí k ${NICHE_CAPACITY_DATE}.`,
 });
+
+// Russian wording of the shared blocks (same rules as the Czech source above: three firms per niche, audit scope, 2–3 months, no guarantees).
+export const NICHE_CAPACITY_DATE_RU = '22.10.2026';
+export const NICHE_SHARED_RU = {
+  capacityTitle: 'Как я сотрудничаю с агентствами недвижимости?',
+  capacityAnswer: `Я работаю одновременно не более чем с тремя компаниями из одной ниши. Это ограничение по загрузке, а не обещание эксклюзивности: я не говорю, что среди моих клиентов никогда не будет конкурентов, я говорю, сколько компаний из ниши беру одновременно. Данные на ${NICHE_CAPACITY_DATE_RU}, при изменении обновляю.`,
+  auditNot: ['ключевые слова', 'конкуренты', 'карты', 'видимость в AI-поиске', 'скорость загрузки', 'мобильная версия'],
+  formatsNote: 'Первые результаты обычно через 2–3 месяца; гарантий нет.',
+};

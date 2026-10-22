@@ -366,7 +366,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO pro realitní kanceláře v Praze',
     },
     en: { name: 'SEO for real estate agencies in Prague', title: 'SEO for real estate agencies in Prague', description: 'SEO for real estate agencies in Prague', h1: 'SEO for real estate agencies in Prague' },
-    ru: { name: 'SEO для агентств недвижимости в Праге', title: 'SEO для агентств недвижимости в Праге', description: 'SEO для агентств недвижимости в Праге', h1: 'SEO для агентств недвижимости в Праге' },
+    ru: {
+      name: 'SEO для агентств недвижимости в Праге',
+      title: 'Продвижение агентства недвижимости в Праге | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Начните с бесплатного аудита технических ошибок.',
+      h1: 'SEO для агентств недвижимости в Праге',
+    },
   },
   nichePardubice: {
     cs: {

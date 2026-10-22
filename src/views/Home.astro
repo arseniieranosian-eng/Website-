@@ -16,6 +16,8 @@ import { path, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import TrustArt from '../components/TrustArt.astro';
+import NicheArt from '../components/NicheArt.astro';
+import { NICHE_READY } from '../i18n/routes';
 import { PROOF } from '../data/site';
 import { featuredReviews } from '../data/reviews';
 import { homeFaq } from '../data/faq';
@@ -151,6 +153,29 @@ const C = {
       <ServiceCards lang={lang} />
     </div>
   </section>
+
+  <!-- 3b. Niches and cities (ru): the real-estate landing page -->
+  {lang === 'ru' && NICHE_READY.nicheRealty && (
+    <section class="section">
+      <div class="container">
+        <h2>Ниши и города</h2>
+        <p class="answer">Для некоторых ниш у меня есть отдельные страницы с тем, что я в них делаю и как работаю.</p>
+        <div class="niche-group">
+          <div class="niche-group__head">
+            <NicheArt kind="realty" />
+            <h3 class="niche-group__title">Агентства недвижимости</h3>
+          </div>
+          <div class="grid grid-3">
+            <a class="card card--link" href={path('nicheRealty', lang)}>
+              <h4>SEO для агентств недвижимости в Праге</h4>
+              <p>Страницы объектов и районов, индексация и дубли из фильтров, локальное присутствие.</p>
+              <span class="link-arrow">{ui.more}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- 4. SEO + GEO/AEO -->
   <section class="section section--dark">

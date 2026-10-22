@@ -44,6 +44,7 @@ import NicheTranslationCsPage from '../views/NicheTranslationCsPage.astro';
 import NicheTranslationBrnoCsPage from '../views/NicheTranslationBrnoCsPage.astro';
 import NicheTranslationPardubiceCsPage from '../views/NicheTranslationPardubiceCsPage.astro';
 import NicheRealtyCsPage from '../views/NicheRealtyCsPage.astro';
+import NicheRealtyRuPage from '../views/NicheRealtyRuPage.astro';
 import PostNoLeadsCsPage from '../views/PostNoLeadsCsPage.astro';
 import PostClientsCsPage from '../views/PostClientsCsPage.astro';
 import PostB2bCsPage from '../views/PostB2bCsPage.astro';
@@ -102,6 +103,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nicheBrno' && props.lang === 'cs' && <NicheTranslationBrnoCsPage />}
 {props.key === 'nichePardubice' && props.lang === 'cs' && <NicheTranslationPardubiceCsPage />}
 {props.key === 'nicheRealty' && props.lang === 'cs' && <NicheRealtyCsPage />}
+{props.key === 'nicheRealty' && props.lang === 'ru' && <NicheRealtyRuPage />}
 {props.key === 'caseTypo' && props.lang === 'cs' && <CaseTypoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'ru' && <CaseTypoRuPage />}
 {props.key === 'caseEdu' && props.lang === 'cs' && <CaseEduCsPage />}
