@@ -1,0 +1,203 @@
+---
+// Generic niche landing page (cs) for the series /seo-pro-[obor]-[mesto]/. Content comes from the page's own data file (see
+// data/niche-translation-cs.ts and data/niche-translation-brno-cs.ts); the wording shared by the whole niche is in data/niche-shared.ts.
+// Optional blocks (present only in the data of a city that has them): `market` (verified observations of the local search results),
+// `local` (the local-presence block), `caseCity` (the city lines of the case study). The video block appears when `V` is set.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path, type PageKey } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheTranslationSchemas } from '../lib/schema-niche-translation';
+
+interface Props { C: any; V: any; pageKey: PageKey; files: string[]; modifiedFallback: string }
+const { C, V, pageKey, files, modifiedFallback } = Astro.props;
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/components/NicheLanding.astro', 'src/data/niche-shared.ts', 'src/data/case-summary.ts', ...files], modifiedFallback);
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: PageKey) => path(k, lang);
+const cite = new URL(t(pageKey), site).href;
+const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+---
+---
+<Base {...pageProps(pageKey, lang)} schema={nicheTranslationSchemas(site, C, { modified: MOD, key: pageKey, video: V })}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META[pageKey][lang].h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        {V && <a class="link-arrow" href="#rozbor-webu">{C.heroVideoLink}</a>}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SEO -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+      <ul class="checks">{C.why.map((x: any) => <li>{x}</li>)}</ul>
+      <p>{C.whyText}</p>
+      {C.market && (
+        <>
+          <h3>{C.market.title}</h3>
+          {C.market.paragraphs.map((p: string) => <p>{p}</p>)}
+          <p class="muted small">{C.market.checkedLabel}: {C.market.checked}</p>
+        </>
+      )}
+    </div>
+  </section>
+
+  <!-- WHAT I DO + author quote -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <p class="answer">{C.doAnswer}</p>
+      <p>{C.doIntro}</p>
+      {C.do.map((x: any) => <><h3>{x.h}</h3><p>{x.text}</p></>)}
+      <figure class="quote-fig" style="margin-top: 28px">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <!-- LOCAL PRESENCE (cities that have their own block) -->
+  {C.local && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{C.local.title}</h2>
+        <p class="answer">{C.local.answer}</p>
+        <ul class="checks">{C.local.points.map((x: string) => <li>{x}</li>)}</ul>
+        <p>{C.local.more} <a href={t('maps')}>{C.local.moreLink}</a></p>
+      </div>
+    </section>
+  )}
+
+  <!-- VIDEO: review of two public sites (facade: the Google Drive player loads on click) -->
+  {V && (
+    <section class="section" id="rozbor-webu">
+      <div class="container narrow">
+        <h2>{V.title ?? C.videoTitle}</h2>
+        <p class="answer">{V.intro}</p>
+        <figure class="niche-video" data-drive={V.drive}>
+          <button class="niche-video__facade" type="button" aria-label={C.videoPlay}>
+            <img src={V.poster} width={V.width} height={V.height} alt="Náhled videa: rozbor webů dvou překladatelských agentur" loading="lazy" decoding="async" />
+            <span class="niche-video__play" aria-hidden="true"></span>
+          </button>
+          <figcaption class="muted small">
+            {V.recorded && <>{C.videoRecordedLabel}: {V.recorded} · </>}<a href={`https://drive.google.com/file/d/${V.drive}/view`} target="_blank" rel="noopener">{C.videoOpen}</a>
+          </figcaption>
+        </figure>
+        {V.chapters && V.chapters.length > 0 && <><h3>{C.videoChaptersTitle}</h3><ol class="steps">{V.chapters.map((c: any) => <li><span>{tc(c.start)} · {c.title}</span></li>)}</ol></>}
+        {V.observations && V.observations.length > 0 && <><h3>{C.videoObsTitle}</h3><ul class="checks">{V.observations.map((x: string) => <li>{x}</li>)}</ul></>}
+        {V.transcript && <details><summary>{C.videoTranscriptTitle}</summary><p>{V.transcript}</p></details>}
+        <p class="muted small">{V.contact}{' '}<a href={t('contact')}>{V.contactLink}</a>.</p>
+      </div>
+    </section>
+  )}
+
+  <!-- CASE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.caseTitle}</h2>
+      <p class="answer">{C.caseAnswer}</p>
+      <p class="card">{C.caseFormula}</p>
+      {C.caseImage && (      <figure class="case-figure">
+          <img src={C.caseImage.src} width={C.caseImage.width} height={C.caseImage.height} alt={C.caseImage.alt} loading="lazy" decoding="async" />
+          <figcaption class="muted small">{C.caseImage.caption}</figcaption>
+        </figure>)}
+      {C.caseCity && <ul class="checks">{C.caseCity.map((x: string) => <li>{x}</li>)}</ul>}
+      <p class="muted small">{C.caseNote}</p>
+      <p><a class="link-arrow" href={t('caseHalf')}>{C.caseLink}</a></p>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopAnswer}</p>
+      <ol class="steps">{C.coopSteps.map((s: string) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <!-- FREE AUDIT -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.auditTitle}</h2>
+      <p class="answer">{C.auditAnswer}</p>
+      <p>{C.auditNotLead}</p>
+      <ul class="checks">{C.auditNot.map((x: string) => <li>{x}</li>)}</ul>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.auditCta}</a></div>
+    </div>
+  </section>
+
+  <!-- FORMATS (no prices) -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.formatsTitle}</h2>
+      <p class="answer">{C.formatsAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.formats.head.map((h: string) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.formats.rows.map((r: any) => <tr><th scope="row"><a href={t(r.page)}>{r.label}</a></th><td>{r.who}</td><td>{r.what}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p>{C.formatsNote}</p>
+    </div>
+  </section>
+
+  <!-- REVIEWS (shared source: only a link while there are no reviews from translation agencies) -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.reviewsTitle}</h2>
+      <p class="answer">{C.reviewsAnswer}</p>
+      <p><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f: any) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        {C.otherCities && C.otherCities.length > 0 && <p>{C.otherCitiesLead} {C.otherCities.map((o: any, i: number) => <>{i > 0 && ', '}<a href={t(o.page)}>{o.label}</a></>)}</p>}
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+        <a class="btn btn--ghost-light btn--lg" href={t('contact')}>{C.endContact}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+<script>
+  document.querySelectorAll<HTMLElement>('.niche-video').forEach((fig) => {
+    const btn = fig.querySelector<HTMLButtonElement>('.niche-video__facade');
+    btn?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://drive.google.com/file/d/${fig.dataset.drive}/preview`;
+      f.allow = 'autoplay; fullscreen';
+      f.allowFullscreen = true;
+      f.title = 'Rozbor webů dvou překladatelských agentur';
+      f.className = 'niche-video__frame';
+      btn.replaceWith(f);
+    });
+  });
+</script>

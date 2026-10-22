@@ -1,0 +1,142 @@
+// Czech content of the niche landing page /seo-pro-prekladatelske-agentury-brno/ (brief of 22.10.2026), the second page of the series. It is
+// NOT published (routes.ts: NICHE_READY.nicheBrno = false) until it has the three parts that make it different from the Prague page: (a) its own
+// video with two other sites, (b) verified observations of the Brno search results with a date, (c) its own FAQ (written below, points 3 and 5
+// are Brno-specific) and the local block. The build stops if the flag is on and the video or the market observations are missing.
+// Shared wording (capacity rule, audit, formats, reviews, closing text) comes from niche-shared.ts. No guarantees, no prices, no blog links,
+// "já", the word "agentura" is never used about the author. The case uses only the approved formula; the Brno lines repeat the case page
+// WITHOUT the AI Overview claim (its date, conditions and a screenshot are still missing). The quote is a draft for the author's approval.
+import { HALF_FORMULA_CS } from './case-summary';
+import { NICHE_SHARED_CS } from './niche-shared';
+import { NICHE_READY } from '../i18n/routes';
+import { walk } from '../lib/cs-typo';
+
+export const NICHE_BRNO_PUBLISHED = '2026-10-22';
+
+// Verified observations of the Google.cz / Seznam results for Brno: the queries, what the results show, the date of the check.
+export const NICHE_BRNO_MARKET: null | { checked: string; observations: string[] } = null;
+
+// The review video (about 9 minutes, two other public sites, Brno market); same rules as on the Prague page. Needs `title`
+// ("Co jsem viděl na webech [A] a [B]?"), the recording date, chapters, observations, transcript.
+export const NICHE_BRNO_VIDEO: null | {
+  drive: string; poster: string; width: number; height: number; duration: string; title: string; recorded?: string;
+  intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
+} = null;
+
+if (NICHE_READY.nicheBrno && (!NICHE_BRNO_MARKET || !NICHE_BRNO_VIDEO)) {
+  throw new Error('The Brno landing page is switched on (NICHE_READY.nicheBrno) but the market observations or the video are missing: it would be a doorway copy of the Prague page.');
+}
+
+const raw = {
+  lang: 'cs' as const,
+  published: NICHE_BRNO_PUBLISHED,
+  authorLabel: 'Autor',
+  authorName: 'Arsenii Eranosian',
+  updatedLabel: 'Aktualizováno',
+
+  lead: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Brně. Stavím stránky jazykových párů, služeb pro firmy a měst, hlídám indexaci jazykových verzí a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.',
+  heroAudit: 'Chci bezplatný audit',
+  heroVideoLink: 'Podívat se na rozbor webů',
+
+  whyTitle: 'Proč překladatelské agentury v Brně potřebují SEO?',
+  whyAnswer: 'Překladatelská agentura v Brně potřebuje SEO, protože firmy hledají dodavatele překladů ve vyhledávání: podle jazykového páru, oboru a města. Bez vlastních stránek pro tyto dotazy poptávky odcházejí ke konkurenci. SEO přivádí poptávky z Googlu a Seznamu průběžně, ne jen po dobu placené kampaně.',
+  why: [
+    'B2B poptávky překlady Brno: firmy a kanceláře hledají překladatele podle oboru.',
+    'Jazykové páry: lidé hledají konkrétní kombinaci, například překlad z češtiny do angličtiny.',
+    'Město: brněnské agentury potřebují stránky, které Brno opravdu jmenují.',
+  ],
+  whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury Brno, který přivádí nové klienty a zakázky z vyhledávání.',
+  market: NICHE_BRNO_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Brno', paragraphs: NICHE_BRNO_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_BRNO_MARKET.checked } : null,
+
+  doTitle: 'Co pro překladatelskou agenturu v Brně konkrétně dělám?',
+  doAnswer: 'Pro překladatelskou agenturu v Brně stavím stránky jazykových párů, služeb, oborů a lokality, upravuji stránku pro firmy (B2B), hlídám indexaci a duplicity mezi jazykovými verzemi a připravuji obsah i pro AI odpovědi. K tomu patří lokální přítomnost v Google Maps a na Mapy.com.',
+  doIntro: 'Optimalizace webu překladatelské agentury není jedna úprava, ale několik stránek a nastavení, které na sebe navazují:',
+  do: [
+    { h: 'Stránky jazykových párů', text: 'Samostatná stránka pro jazykový pár dává smysl tam, kde na pár existuje poptávka. Není potřeba ji dělat vždy.' },
+    { h: 'Stránky služeb a oborů', text: 'Firma obvykle nehledá „překlady“ obecně, ale například právní, technický nebo lékařský překlad. Každá služba a obor má mít stránku, která na dotaz odpoví.' },
+    { h: 'Stránka pro firmy (B2B)', text: 'Firmy rozhodují jinak než jednotlivci: chtějí vědět, jak se pracuje na opakovaných zakázkách a v jakých oborech. Stránka pro firmy to popíše srozumitelně a vede k poptávce.' },
+    { h: 'Jazykové verze: indexace a duplicity', text: 'U vícejazyčného webu hlídám, aby Google viděl každou jazykovou verzi a nepletl si je s kopiemi. Duplicity mezi verzemi jsou častá technická chyba.' },
+    { h: 'Lokální přítomnost v Brně: Google Maps a Mapy.com pro agentury', text: 'Pro agentury s kanceláří v Brně je důležitý profil na Google Maps a na Mapy.com. Lokální SEO překladatelské agentury Brno stojí na jednotných údajích, recenzích a stránce, která na profil navazuje.' },
+    { h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
+  ],
+  quote: 'U překladatelské agentury v Brně se poptávka rozhoduje v detailech: jazykový pár, obor, město. Stránky, které je nepopisují, nemá Google co ukázat.',
+
+  local: {
+    title: 'Jak funguje lokální přítomnost agentury v Brně?',
+    answer: 'Profil na Google Maps a Mapy.com pomáhá agentuře v Brně, aby ji firmy našly při hledání s městem. Nezaručuje pozici ani počet poptávek. Zkontroluji, zda jsou údaje (název, adresa, kontakt, obory) shodné s webem, a doplním, co chybí. Ověřím také odkazy z profilu.',
+    points: [
+      'Údaje o firmě (název, adresa, kontakt, obory) jsou shodné na webu i v profilech.',
+      'Odkazy z profilu vedou na správné stránky webu.',
+      'Mapy.com provozuje Seznam, proto profil pomáhá i těm, kdo vyhledávají přes Seznam.',
+      'Google Maps a Mapy.com mají každá svůj profil, údaje je potřeba udržovat v obou.',
+    ],
+    more: 'Lokální propagaci řeší samostatná služba',
+    moreLink: 'SEO pro Mapy',
+  },
+
+  videoTitle: 'Co jsem viděl na webech [A] a [B]?',
+  videoRecordedLabel: 'Natočeno',
+  videoChaptersTitle: 'Kapitoly',
+  videoObsTitle: 'Co bylo na webech vidět',
+  videoTranscriptTitle: 'Přepis videa',
+  videoPlay: 'Přehrát video',
+  videoOpen: 'Otevřít video v novém okně',
+
+  caseTitle: 'Jak to funguje v praxi? Případová studie',
+  caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní. Brněnská pobočka měla vlastní průběh.',
+  caseFormula: HALF_FORMULA_CS,
+  caseCity: [
+    'Brno: výrazný letní růst s několika vrcholy; na podzim aktivita mírně polevila, ale zůstala výrazně nad dubnovým startem; u klíčových dotazů top 5 a výš.',
+  ],
+  caseNote: 'Název klienta a absolutní čísla nezveřejňuji. Městská data nejsou součástí celkové formule.',
+  caseLink: 'Přečíst celou případovou studii',
+
+  coopTitle: NICHE_SHARED_CS.capacityTitle,
+  coopAnswer: NICHE_SHARED_CS.capacityAnswer,
+  coopHowToName: 'Jak spolupráce probíhá',
+  coopStepNames: ['Bezplatný audit', 'Rozhodnutí o formátu', 'Práce podle formátu'],
+  coopSteps: [
+    'Začneme bezplatným auditem technických chyb webu.',
+    'Rozhodneme se pro formát spolupráce.',
+    'Pracuji podle zvoleného formátu.',
+  ],
+
+  auditTitle: NICHE_SHARED_CS.audit.title,
+  auditAnswer: NICHE_SHARED_CS.audit.answer,
+  auditNotLead: NICHE_SHARED_CS.audit.notLead,
+  auditNot: NICHE_SHARED_CS.audit.not,
+  auditCta: NICHE_SHARED_CS.audit.cta,
+
+  formatsTitle: NICHE_SHARED_CS.formats.title,
+  formatsAnswer: NICHE_SHARED_CS.formats.answer,
+  formats: NICHE_SHARED_CS.formats.table,
+  formatsNote: NICHE_SHARED_CS.formats.note,
+
+  reviewsTitle: NICHE_SHARED_CS.reviews.title,
+  reviewsAnswer: NICHE_SHARED_CS.reviews.answer,
+  reviewsLink: NICHE_SHARED_CS.reviews.link,
+
+  faqTitle: 'Často kladené otázky',
+  faq: [
+    { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu v Brně?', a: 'První výsledky se obvykle objeví za 2–3 měsíce. Garantovat je nelze, záleží na stavu webu a konkurenci v oboru.' },
+    { q: 'Jak se liší SEO od reklamy pro agenturu v Brně?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
+    { q: 'Pomůže agentuře v Brně profil na Mapy.com a Google Maps?', a: 'Může pomoci, aby ji firmy našly při hledání s názvem města. Profil nezaručuje pozici ani počet poptávek. Důležité je, aby byly údaje v profilu shodné s webem a aby odkazy z profilu vedly na správné stránky. Mapy.com provozuje Seznam, takže profil pomáhá i těm, kdo hledají přes Seznam.' },
+    { q: 'Potřebuje agentura samostatné stránky pro jazykové páry?', a: 'Ne vždy, jen tam, kde je poptávka.' },
+    { q: 'Jak se SEO řeší u agentury s pobočkou v Brně a v dalších městech?', a: 'Každé město potřebuje vlastní lokální stránku a profil na Google Maps a na Mapy.com s jednotnými údaji. Města mají různé podmínky i konkurenci, proto stránka pro Brno popisuje brněnskou nabídku a nekopíruje text stránky pro jiné město.' },
+    { q: 'S kolika firmami z oboru pracujete současně?', a: NICHE_SHARED_CS.capacityShort.replace('Nejvýše tři firmy z jednoho oboru.', 'Nejvýše se třemi.') },
+  ],
+
+  endTitle: NICHE_SHARED_CS.end.title,
+  endText: NICHE_SHARED_CS.end.text,
+  endCta: NICHE_SHARED_CS.end.cta,
+  endContact: NICHE_SHARED_CS.end.contact,
+  otherCitiesLead: 'Další města:',
+  otherCities: [{ page: 'nicheTranslation' as const, label: 'Praha' }],
+
+  schema: {
+    serviceName: 'SEO a GEO/AEO pro překladatelské agentury',
+    areaServed: 'Brno',
+    audience: 'překladatelské agentury',
+  },
+};
+
+export const NICHE_BRNO_CS = walk(raw);

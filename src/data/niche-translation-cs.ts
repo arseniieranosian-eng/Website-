@@ -8,6 +8,7 @@
 import { HALF_FORMULA_CS } from './case-summary';
 import { NICHE_SHARED_CS } from './niche-shared';
 import { walk } from '../lib/cs-typo';
+import { NICHE_READY } from '../i18n/routes';
 
 // First publication of this address; do NOT bump it when the page is edited (dateModified comes from git).
 export const NICHE_PUBLISHED = '2026-10-22';
@@ -32,6 +33,7 @@ export const NICHE_VIDEO: null | {
 
 const raw = {
   lang: 'cs' as const,
+  published: NICHE_PUBLISHED,
   authorLabel: 'Autor',
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
@@ -87,28 +89,20 @@ const raw = {
     'Pracuji podle zvoleného formátu.',
   ],
 
-  auditTitle: 'Co zahrnuje bezplatný audit?',
-  auditAnswer: 'Bezplatný audit zkontroluje technické chyby webu: indexaci, duplicitní obsah a další technické problémy. U vícejazyčných webů se dívám zvlášť na indexaci jazykových verzí a duplicity mezi nimi. Výsledek dostanete jako krátkou prezentaci do 24 hodin, bez hovoru a bez závazků.',
-  auditNotLead: 'Do auditu nepatří:',
-  auditNot: ['klíčová slova', 'konkurence', 'mapy', 'viditelnost v AI vyhledávání', 'rychlost načítání', 'mobilní verze'],
-  auditCta: 'Chci bezplatný audit',
+  auditTitle: NICHE_SHARED_CS.audit.title,
+  auditAnswer: NICHE_SHARED_CS.audit.answer,
+  auditNotLead: NICHE_SHARED_CS.audit.notLead,
+  auditNot: NICHE_SHARED_CS.audit.not,
+  auditCta: NICHE_SHARED_CS.audit.cta,
 
-  formatsTitle: 'Jaké formáty spolupráce existují?',
-  formatsAnswer: 'Můžete začít bezplatným auditem, konzultací, SEO startem na 3 měsíce, nebo Full SEO na rok. Pro lokální přítomnost je samostatná služba Mapy. Každá stránka služby vysvětluje, co přesně formát obsahuje.',
-  formats: {
-    head: ['Formát', 'Pro koho', 'Co zahrnuje'],
-    rows: [
-      { page: 'consulting' as const, label: 'SEO konzultace', who: 'pro ty, kdo potřebují odpovědi a plán', what: '1 hodina, nebo audit s plánem na 12 měsíců' },
-      { page: 'start' as const, label: 'SEO start na 3 měsíce', who: 'pro ty, kdo chtějí postavit základ webu', what: '3 měsíce: audit, opravy, klíčová slova a klíčové stránky' },
-      { page: 'fullSeo' as const, label: 'Full SEO na rok', who: 'pro ty, kdo chtějí dlouhodobý růst', what: '12 měsíců: strategie, čtvrtletní priority a měsíční obsah; GEO/AEO v každé službě' },
-      { page: 'maps' as const, label: 'SEO pro Mapy', who: 'pro agentury, které hledají zákazníky lokálně', what: 'Google Maps a Mapy.com, od 4 měsíců' },
-    ],
-  },
-  formatsNote: 'První výsledky se obvykle objeví za 2–3 měsíce; garance neexistuje.',
+  formatsTitle: NICHE_SHARED_CS.formats.title,
+  formatsAnswer: NICHE_SHARED_CS.formats.answer,
+  formats: NICHE_SHARED_CS.formats.table,
+  formatsNote: NICHE_SHARED_CS.formats.note,
 
-  reviewsTitle: 'Co říkají klienti?',
-  reviewsAnswer: 'Recenze od klientů najdete na samostatné stránce, vždy s uvedením zdroje.',
-  reviewsLink: 'Všechny recenze',
+  reviewsTitle: NICHE_SHARED_CS.reviews.title,
+  reviewsAnswer: NICHE_SHARED_CS.reviews.answer,
+  reviewsLink: NICHE_SHARED_CS.reviews.link,
 
   faqTitle: 'Často kladené otázky',
   faq: [
@@ -120,10 +114,13 @@ const raw = {
     { q: 'Kolik firem z oboru obsluhujete současně?', a: NICHE_SHARED_CS.capacityShort },
   ],
 
-  endTitle: 'Zjistěte, jestli má váš web technické chyby',
-  endText: 'Bezplatný audit ukáže technické chyby webu překladatelské agentury: indexaci, duplicity a další technické problémy. Krátkou prezentaci pošlu do 24 hodin, bez hovoru a bez závazků.',
-  endCta: 'Chci bezplatný audit',
-  endContact: 'Napište mi',
+  endTitle: NICHE_SHARED_CS.end.title,
+  endText: NICHE_SHARED_CS.end.text,
+  endCta: NICHE_SHARED_CS.end.cta,
+  endContact: NICHE_SHARED_CS.end.contact,
+
+  otherCitiesLead: 'Další města:',
+  otherCities: NICHE_READY.nicheBrno ? [{ page: 'nicheBrno' as const, label: 'Brno' }] : [],
 
   schema: {
     serviceName: 'SEO a GEO/AEO pro překladatelské agentury',

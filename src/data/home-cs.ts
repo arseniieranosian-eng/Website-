@@ -2,6 +2,7 @@
 // (consulting-shared, start-shared, fullseo-shared); case formulas from case-summary.ts (one place). No blog, no "agentura",
 // no "3 roky zkušeností", no average growth, no guarantees. Maps show no price until the payment terms are decided.
 import { fmtKc, PRICES } from './consulting-shared';
+import { NICHE_READY } from '../i18n/routes';
 import { START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
 import { KB_FORMULA_CS, SEASON_FORMULA_CS, HALF_FORMULA_CS, TYPO_FORMULA_CS, EDU_FORMULA_CS } from './case-summary';
@@ -38,7 +39,10 @@ export const HOME_CS = {
 
   nichesTitle: 'Obory a města',
   nichesAnswer: 'Pro některé obory mám samostatné stránky s tím, co v nich dělám a jak postupuji.',
-  niches: [{ page: 'nicheTranslation' as const, title: 'SEO pro překladatelské agentury v Praze', text: 'Stránky jazykových párů, služeb a měst, indexace jazykových verzí a lokální přítomnost.' }],
+  niches: [
+    { page: 'nicheTranslation' as const, title: 'SEO pro překladatelské agentury v Praze', text: 'Stránky jazykových párů, služeb a měst, indexace jazykových verzí a lokální přítomnost.' },
+    ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno' as const, title: 'SEO pro překladatelské agentury v Brně', text: 'Stránky jazykových párů, služeb a lokality, indexace jazykových verzí a Mapy.com.' }] : []),
+  ],
 
   quote: 'SEO není o aktivitě, ale o pořadí priorit. Nejdřív odstraníte, co Googlu brání web pochopit, pak postavíte architekturu podle byznysu a teprve potom škálujete obsah.',
 

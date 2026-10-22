@@ -23,6 +23,7 @@ export const ROUTES = {
   caseSeason: { cs: '/pripadove-studie/seo-v-nizke-sezone/', en: '/en/case-studies/seo-in-low-season/', ru: '/ru/kejsy/seo-v-nizkij-sezon/' },
   caseHalf: { cs: '/pripadove-studie/seo-prekladatelska-agentura/', en: '/en/case-studies/seo-translation-agency-half-year/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/' },
   nicheTranslation: { cs: '/seo-pro-prekladatelske-agentury-praha/', en: '/en/seo-for-translation-agencies-prague/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-praga/' },
+  nicheBrno: { cs: '/seo-pro-prekladatelske-agentury-brno/', en: '/en/seo-for-translation-agencies-brno/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-brno/' },
   caseKb: { cs: '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', en: '/en/case-studies/seo-translation-agency-4-months/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/' },
   reviews: { cs: '/recenze/', en: '/en/reviews/', ru: '/ru/otzyvy/' },
   blog: { cs: '/blog/', en: '/en/blog/', ru: '/ru/blog/' },
@@ -66,7 +67,13 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 
 // Pages that exist in some languages only (no hreflang alternates for the missing ones; the language switcher falls
 // back to the home page). The cs/en addresses of these pages are placeholders and are never built.
-export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = { caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], nicheTranslation: ['cs'] };
+// Niche landing pages of the series that are not published yet. A page is built (and listed in the sitemap, the menu and the links of other
+// pages) only when its flag is true. The Brno page needs three parts of its own (video with two other sites, verified market observations
+// with a date, own FAQ) so that it is not a doorway copy of the Prague page: the build stops if the flag is on and the data is missing.
+export const NICHE_READY = { nicheBrno: false } as const;
+
+export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
+  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], nicheTranslation: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.
@@ -84,7 +91,7 @@ export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] 
 // Pages of the "SEO pro" menu item (Czech menu only): the niche landing pages /seo-pro-[obor]-[mesto]/.
 // Grouped by niche: "SEO pro" → "Překladatelské agentury" → Praha (Brno and Pardubice are added to `items` when their pages are published).
 export const NICHE_GROUPS = [
-  { id: 'translation', label: 'Překladatelské agentury', items: [{ page: 'nicheTranslation', label: 'Praha' }] },
+  { id: 'translation', label: 'Překladatelské agentury', items: [{ page: 'nicheTranslation', label: 'Praha' }, ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno', label: 'Brno' } as const] : [])] },
 ] as const satisfies readonly { id: string; label: string; items: readonly { page: PageKey; label: string }[] }[];
 export const NICHE_MENU: readonly PageKey[] = NICHE_GROUPS.flatMap((g) => g.items.map((i) => i.page));
 

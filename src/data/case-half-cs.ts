@@ -8,6 +8,7 @@
 import { SEASON_FORMULA_CS } from './case-summary';
 import { CASE_SEASON_CS } from './case-season-cs';
 import { walk } from '../lib/cs-typo';
+import { NICHE_READY } from '../i18n/routes';
 
 // First publication of this address (the page replaces the old "Část 1"); do NOT bump it when the page is edited.
 export const CASE_HALF_PUBLISHED = '2026-10-21';
@@ -154,6 +155,7 @@ const raw = {
   ctaContact: 'Napište mi',
   nextCases: [
     { key: 'nicheTranslation' as const, text: 'SEO pro překladatelské agentury v Praze' },
+    ...(NICHE_READY.nicheBrno ? [{ key: 'nicheBrno' as const, text: 'SEO pro překladatelské agentury v Brně' }] : []),
     { key: 'caseTypo' as const, text: 'Sousední případová studie: SEO pro tiskárnu' },
     { key: 'caseEdu' as const, text: 'Sousední případová studie: SEO pro novou vzdělávací platformu' },
     { key: 'caseSeason' as const, text: 'Navazující případová studie: SEO v nízké sezóně' },

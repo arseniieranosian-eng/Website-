@@ -1,0 +1,6 @@
+---
+// Niche landing page "SEO pro překladatelské agentury v Brně" (cs), brief of 22.10.2026. Built only when NICHE_READY.nicheBrno is true (routes.ts).
+import NicheLanding from '../components/NicheLanding.astro';
+import { NICHE_BRNO_CS as C, NICHE_BRNO_VIDEO as V } from '../data/niche-translation-brno-cs';
+---
+<NicheLanding C={C} V={V} pageKey="nicheBrno" files={['src/views/NicheTranslationBrnoCsPage.astro', 'src/data/niche-translation-brno-cs.ts']} modifiedFallback="2026-10-22" />
