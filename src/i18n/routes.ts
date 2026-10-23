@@ -102,12 +102,13 @@ export const path = (key: PageKey, lang: Lang): string => ROUTES[key][lang];
 // Pages listed in the header's "Services" dropdown, in order. SEO + GEO/AEO is an explanatory page, not a service, so it is not here.
 export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] as const satisfies readonly PageKey[];
 
-// Pages of the "SEO pro" menu item (Czech menu only): the niche landing pages /seo-pro-[obor]-[mesto]/.
+// Pages of the "SEO pro" menu item (Czech) / "SEO для" (Russian): the niche landing pages /seo-pro-[obor]-[mesto]/. A page is listed in a language only if it
+// exists in it (the Russian menu shows the real-estate niche only).
 // Grouped by niche: "SEO pro" → "Překladatelské agentury" → Praha (Brno and Pardubice are added to `items` when their pages are published).
 export const NICHE_GROUPS = [
-  { id: 'translation', label: 'Překladatelské agentury', items: [{ page: 'nicheTranslation', label: 'Praha' }, ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno', label: 'Brno' } as const] : []), ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice', label: 'Pardubice' } as const] : [])] },
-  ...(NICHE_READY.nicheRealty ? [{ id: 'realty', label: 'Realitní kanceláře', items: [{ page: 'nicheRealty', label: 'Praha' }] } as const] : []),
-] as const satisfies readonly { id: string; label: string; items: readonly { page: PageKey; label: string }[] }[];
+  { id: 'translation', label: 'Překladatelské agentury', labelRu: 'Переводческие агентства', items: [{ page: 'nicheTranslation', label: 'Praha', labelRu: 'Прага' }, ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno', label: 'Brno', labelRu: 'Брно' } as const] : []), ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice', label: 'Pardubice', labelRu: 'Пардубице' } as const] : [])] },
+  ...(NICHE_READY.nicheRealty ? [{ id: 'realty', label: 'Realitní kanceláře', labelRu: 'Агентства недвижимости', items: [{ page: 'nicheRealty', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
+] as const satisfies readonly { id: string; label: string; labelRu?: string; items: readonly { page: PageKey; label: string; labelRu?: string }[] }[];
 export const NICHE_MENU: readonly PageKey[] = NICHE_GROUPS.flatMap((g) => g.items.map((i) => i.page));
 
 export const postPath = (lang: Lang, slug: string): string => `${LANG_PREFIX[lang]}blog/${slug}/`;
