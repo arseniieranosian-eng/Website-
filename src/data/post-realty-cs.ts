@@ -52,6 +52,8 @@ const raw = {
   portalsAnswer: 'Realitní portály přivádějí lidi, kteří už hledají konkrétní nemovitost, ale kancelář tam stojí vedle mnoha dalších a řídí se pravidly platformy. Hodí se pro rychlý kontakt s poptávkou, ale na jejich provozovateli závisí. Konkrétní podmínky jednotlivých portálů zde neuvádím, najdete je u nich.',
 
   webTitle: 'Proč mít vlastní web, když jsou portály?',
+  webLead: 'Pokud web nepřináší poptávky, začněte pořadím kontroly v článku',
+  webLinkText: 'Proč web realitní kanceláře nepřináší poptávky?',
   webAnswer: 'Vlastní web je kanál, který kancelář sama řídí: obsah, značku i způsob, jak zachytí poptávku. Klienty nepřináší hned a sám nestačí, lidé ho musí najít, například ve vyhledávání nebo z reklamy. Může portály doplňovat, ne nutně nahrazovat. Záleží na tom, co a jak na něm nabídnete.',
 
   refTitle: 'Jakou roli hrají doporučení a reputace?',

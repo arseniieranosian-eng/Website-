@@ -243,6 +243,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
     },
   },
+  postRealtyNoLeads: {
+    cs: {
+      name: 'Proč web realitní kanceláře nepřináší poptávky',
+      title: 'Web realitní kanceláře bez poptávek: příčiny | Eranosian',
+      description: 'Proč web realitní kanceláře nepřináší poptávky? Tabulka příčin, jak je poznat a co zkontrolovat jako první. Požádejte o bezplatný audit technických chyb.',
+      h1: 'Proč web realitní kanceláře nepřináší poptávky?',
+    },
+    en: { name: 'Why a real estate agency website brings no enquiries', title: 'Why a real estate agency website brings no enquiries', description: 'Why a real estate agency website brings no enquiries', h1: 'Why a real estate agency website brings no enquiries' },
+    ru: { name: 'Почему сайт агентства недвижимости не приносит заявок', title: 'Почему сайт агентства недвижимости не приносит заявок', description: 'Почему сайт агентства недвижимости не приносит заявок', h1: 'Почему сайт агентства недвижимости не приносит заявок' },
+  },
   postRealty: {
     cs: {
       name: 'Jak získat klienty pro realitní kancelář',

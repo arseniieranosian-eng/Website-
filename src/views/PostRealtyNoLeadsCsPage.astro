@@ -1,0 +1,126 @@
+---
+// Blog article N2 "Proč web realitní kanceláře nepřináší poptávky?" (cs), brief of 23.10.2026. Content: data/post-realty-noleads-cs.ts.
+// The quote is shown only when QUOTE_CONFIRMED is true; no observations, no portal names, no figures.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postRealtyNoLeadsSchemas } from '../lib/schema-post-realty-noleads';
+import { POST_REALTY_NOLEADS_CS as C, QUOTE_CONFIRMED } from '../data/post-realty-noleads-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/views/PostRealtyNoLeadsCsPage.astro', 'src/data/post-realty-noleads-cs.ts'], '2026-10-22');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-proc-web-realitni-kancelare.png';
+const cite = new URL(t('postRealtyNoLeads'), site).href;
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postRealtyNoLeads', lang)} ogType="article" ogImage={OG} schema={postRealtyNoLeadsSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postRealtyNoLeads.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+      <p>{C.forWhom}</p>
+      <p class="muted small">{C.tocTitle}:</p>
+      <ol class="toc">{C.toc.map((x) => <li><a href={`#${x.id}`}>{x.text}</a></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="priciny">
+    <div class="container narrow">
+      <h2>{C.causesTitle}</h2>
+      <p class="answer">{C.causesAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.causes.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.causes.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.causesNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="google">
+    <div class="container narrow">
+      <h2>{C.googleTitle}</h2>
+      <p class="answer">{C.googleAnswer}</p>
+      <p>{C.googleLead}{' '}<a href={t('postNotShown')}>{C.googleLinkText}</a> {C.googleAuditLead}{' '}<a href={t('audit')}>{C.googleAuditLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="portaly">
+    <div class="container narrow">
+      <h2>{C.portalsTitle}</h2>
+      <p class="answer">{C.portalsAnswer}</p>
+      <p>{C.portalsOverviewLead}{' '}<a href={t('postRealty')}>{C.portalsOverviewLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="sluzby">
+    <div class="container narrow">
+      <h2>{C.servicesTitle}</h2>
+      <p class="answer">{C.servicesAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section" id="lokalita">
+    <div class="container narrow">
+      <h2>{C.localTitle}</h2>
+      <p class="answer">{C.localAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="kontakt">
+    <div class="container narrow">
+      <h2>{C.contactTitle}</h2>
+      <p class="answer">{C.contactAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section" id="mereni">
+    <div class="container narrow">
+      <h2>{C.measureTitle}</h2>
+      <p class="answer">{C.measureAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="prvni">
+    <div class="container narrow">
+      <h2>{C.firstTitle}</h2>
+      <p class="answer">{C.firstAnswer}</p>
+      <ol class="checks">{C.first.map((x) => <li>{x}</li>)}</ol>
+      {QUOTE_CONFIRMED && (
+        <figure class="quote-fig">
+          <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+          <QuoteCaption lang={lang} />
+        </figure>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p>{f.links && <p class="small">{f.links.map((l, i) => <>{i > 0 && ' · '}<a class="link-arrow" href={t(l.page)}>{l.text}</a></>)}</p>}</div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.endTitle}</h2>
+      <p>{C.endText}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <p>{C.endConsulting}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>.</p>
+      <p>{C.landingLead}{' '}<a href={t('nicheRealty')}>{C.landingLinkText}</a>.</p>
+      <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
+    </div>
+  </section>
+</Base>
