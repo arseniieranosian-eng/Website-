@@ -44,6 +44,7 @@ const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {pageKey === 'home' && lang === 'cs' && <meta name="seznam-wmt" content="smOudwpeaYUPsXVuqqvEDh2HY4hbh3Pb" />}
     {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
     {!noindex && hreflangs.length > 1 && hreflangs.map(({ l, href }) => <link rel="alternate" hreflang={l} href={href} />)}
     {!noindex && hreflangs.length > 1 && xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
