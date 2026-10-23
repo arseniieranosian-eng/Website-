@@ -4,7 +4,7 @@ import { CASE_LABEL, CASE_LINE, TYPO_LINE, TYPO_LINE_CS, EDU_LINE, EDU_LINE_CS, 
 type L<T = string> = Record<Lang, T>;
 
 export interface CaseStudy {
-  key: Extract<PageKey, 'caseKb' | 'caseHalf' | 'caseTypo' | 'caseEdu' | 'caseSeason'>;
+  key: Extract<PageKey, 'caseKb' | 'caseHalf' | 'caseTypo' | 'caseEdu' | 'caseSeason' | 'caseRazbor'>;
   langs?: readonly Lang[]; // languages the case page exists in (default: all)
   industry: L;
   teaser: L;
@@ -89,6 +89,18 @@ CASES.push({
     { value: { cs: '×3', en: '', ru: '×3' }, label: { cs: 'B2B poptávky (+200\u00a0%), léto 2026', en: '', ru: 'B2B-заявки, лето 2026' } },
   ],
   services: ['start', 'fullSeo'],
+});
+
+// Review ("Разбор"), not a result: no metrics (a review has no figures; nothing may look like a result).
+CASES.push({
+  key: 'caseRazbor',
+  langs: ['ru'],
+  industry: { cs: '', en: '', ru: 'Разбор · агентство недвижимости' },
+  teaser: { cs: '', en: '', ru: 'Как проходит консультация с аудитом и планом на 12 месяцев: с чем пришёл владелец, что я увидел и что предложил. Результатов пока нет.' },
+  challenge: { cs: '', en: '', ru: '' },
+  solution: { cs: [], en: [], ru: [] },
+  metrics: [],
+  services: ['consulting'],
 });
 
 export const caseByKey = (key: CaseStudy['key']) => CASES.find((c) => c.key === key)!;

@@ -68,10 +68,8 @@ const area = (main.match(/Какие области проверяю[\s\S]*?<\/t
 const rows = [...area.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 7 || rows[0].join('|') !== 'Область|Как понять|Что проверить сначала') e('control-areas table: header + 6 rows');
 if (!mainTxt.includes('Бесплатный аудит охватывает технические ошибки (индексация, дубли); остальные области разбираются в консультации или в работе.')) e('table note on the scope of the free audit');
-// Audit example: three slides with alt text, caption, no client / third-party names
-const figs = [...main.matchAll(/<img src="\/images\/niche-realty-audit-([123])\.webp" width="\d+" height="\d+" alt="([^"]+)"/g)];
-if (figs.length !== 3) e('three audit-example slides with alt text');
-if (!mainTxt.includes('Фрагменты презентации для агентства недвижимости в Праге, октябрь 2026. Данные клиента скрыты.')) e('caption of the audit example');
+// Audit example: short description + a link to the mini-case (the slides live on that page), no client / third-party names
+if (/<img[^>]*niche-realty-audit|<img[^>]*razbor-slide/.test(main) || !/href="\/ru\/kejsy\/razbor-agentstvo-nedvizhimosti-praga\/"/.test(main)) e('audit example: link to the mini-case, no slides on this page');
 // One quote
 const Q = 'Агентство недвижимости выигрывает не тем, что у него много объектов, а тем, что их легко найти.';
 if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: входит в каждую услугу') || mainTxt.indexOf(Q) > mainTxt.lastIndexOf('Какие области проверяю') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');

@@ -203,6 +203,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO для новой образовательной платформы: +55% органического трафика за 7 месяцев',
     },
   },
+  caseRazbor: {
+    cs: { name: 'Rozbor webu realitní kanceláře v Praze', title: 'Rozbor webu realitní kanceláře v Praze', description: 'Rozbor webu realitní kanceláře v Praze', h1: 'Rozbor webu realitní kanceláře v Praze' },
+    en: { name: 'Review of a real estate agency website in Prague', title: 'Review of a real estate agency website in Prague', description: 'Review of a real estate agency website in Prague', h1: 'Review of a real estate agency website in Prague' },
+    ru: {
+      name: 'Разбор сайта агентства недвижимости в Праге',
+      title: 'SEO аудит агентства недвижимости: разбор и план | Eranosian',
+      description: 'Честная оценка конкуренции, три направления продвижения и план на 12 месяцев для агентства недвижимости в Праге. Без обещаний. Закажите консультацию.',
+      h1: 'Разбор сайта агентства недвижимости в Праге: что я увидел и что предложил',
+    },
+  },
   caseSeason: {
     cs: {
       name: 'SEO v nízké sezóně',

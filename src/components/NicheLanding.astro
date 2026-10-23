@@ -129,12 +129,13 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
         <h2>{C.auditExample.title}</h2>
         <p class="answer">{C.auditExample.answer}</p>
         {C.auditExample.paragraphs.map((p: string) => <p>{p}</p>)}
-        {C.auditExample.slides.map((s: any) => (
+        {C.auditExample.link && <p><a class="link-arrow" href={t(C.auditExample.link.page)}>{C.auditExample.link.text}</a></p>}
+        {(C.auditExample.slides ?? []).map((s: any) => (
           <figure class="case-figure">
             <img src={s.src} width={s.width} height={s.height} alt={s.alt} loading="lazy" decoding="async" />
           </figure>
         ))}
-        <p class="muted small">{C.auditExample.caption}</p>
+        {C.auditExample.caption && <p class="muted small">{C.auditExample.caption}</p>}
       </div>
     </section>
   )}

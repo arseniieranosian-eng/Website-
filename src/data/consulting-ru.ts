@@ -104,6 +104,7 @@ export const CONSULTING_RU: ConsultingContent = {
   caseText2: TYPO_LINE,
   caseLink2: 'Кейс «SEO для типографии»',
   caseLink: 'Вся история',
+  caseLink3: 'Разбор сайта агентства недвижимости: как проходит консультация',
 
   reviewsTitle: 'Что говорят клиенты',
   reviewsLink: 'Все отзывы',

@@ -20,6 +20,7 @@ export const ROUTES = {
   cases: { cs: '/pripadove-studie/', en: '/en/case-studies/', ru: '/ru/kejsy/' },
   caseTypo: { cs: '/pripadove-studie/seo-tiskarna/', en: '/en/case-studies/seo-print-shop/', ru: '/ru/kejsy/seo-tipografiya/' },
   caseEdu: { cs: '/pripadove-studie/seo-vzdelavaci-platforma/', en: '/en/case-studies/seo-education-platform/', ru: '/ru/kejsy/seo-obrazovatelnaya-platforma/' },
+  caseRazbor: { cs: '/pripadove-studie/rozbor-webu-realitni-kancelare-praha/', en: '/en/case-studies/review-real-estate-agency-prague/', ru: '/ru/kejsy/razbor-agentstvo-nedvizhimosti-praga/' },
   caseSeason: { cs: '/pripadove-studie/seo-v-nizke-sezone/', en: '/en/case-studies/seo-in-low-season/', ru: '/ru/kejsy/seo-v-nizkij-sezon/' },
   caseHalf: { cs: '/pripadove-studie/seo-prekladatelska-agentura/', en: '/en/case-studies/seo-translation-agency-half-year/', ru: '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/' },
   nicheTranslation: { cs: '/seo-pro-prekladatelske-agentury-praha/', en: '/en/seo-for-translation-agencies-prague/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-praga/' },
@@ -59,6 +60,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
   caseTypo: 'cases',
   caseEdu: 'cases',
   caseSeason: 'cases',
+  caseRazbor: 'cases',
   caseHalf: 'cases',
   postIndexing: 'blog',
   postNotShown: 'blog',
@@ -87,7 +89,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 export const NICHE_READY = { nicheBrno: true, nichePardubice: true, nicheRealty: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
-  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], nicheRealty: NICHE_READY.nicheRealty ? ['cs', 'ru'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs', 'ru'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], postPairs: ['cs'], nicheTranslation: ['cs'] };
+  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], nicheRealty: NICHE_READY.nicheRealty ? ['cs', 'ru'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs', 'ru'], caseRazbor: ['ru'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], postPairs: ['cs'], nicheTranslation: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.

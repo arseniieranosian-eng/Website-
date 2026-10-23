@@ -15,7 +15,7 @@ const H = heading;
     <p>{c.teaser[lang]}</p>
     <span class="link-arrow">{t(lang).caseRead}</span>
   </div>
-  <dl class="stats stats--compact">
+  {c.metrics.length > 0 && <dl class="stats stats--compact">
     {c.metrics.map((m) => <div><dt>{m.label[lang]}</dt><dd>{typeof m.value === 'string' ? m.value : m.value[lang]}</dd></div>)}
-  </dl>
+  </dl>}
 </a>

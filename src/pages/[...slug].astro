@@ -25,6 +25,7 @@ import Case from '../views/Case.astro';
 import CaseCsPage from '../views/CaseCsPage.astro';
 import CaseHalfCsPage from '../views/CaseHalfCsPage.astro';
 import CaseHalfRuPage from '../views/CaseHalfRuPage.astro';
+import CaseRazborRuPage from '../views/CaseRazborRuPage.astro';
 import CaseTypoRuPage from '../views/CaseTypoRuPage.astro';
 import CaseTypoCsPage from '../views/CaseTypoCsPage.astro';
 import CaseEduRuPage from '../views/CaseEduRuPage.astro';
@@ -73,7 +74,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null,
+  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -103,6 +104,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postPairs' && props.lang === 'cs' && <PostPairsCsPage />}
 {props.key === 'caseHalf' && props.lang === 'cs' && <CaseHalfCsPage />}
 {props.key === 'caseHalf' && props.lang === 'ru' && <CaseHalfRuPage />}
+{props.key === 'caseRazbor' && props.lang === 'ru' && <CaseRazborRuPage />}
 {props.key === 'nicheTranslation' && props.lang === 'cs' && <NicheTranslationCsPage />}
 {props.key === 'nicheBrno' && props.lang === 'cs' && <NicheTranslationBrnoCsPage />}
 {props.key === 'nichePardubice' && props.lang === 'cs' && <NicheTranslationPardubiceCsPage />}
