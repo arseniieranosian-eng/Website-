@@ -152,7 +152,7 @@ const raw = {
   reviewsAnswer: NICHE_SHARED_CS.reviews.answer,
   reviewsLink: NICHE_SHARED_CS.reviews.link,
 
-  articles: { title: 'Další články', lead: 'Praktické články pro majitele realitních kanceláří.', more: 'Číst článek', keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall'] as const },
+  articles: { title: 'Další články', lead: 'Praktické články pro majitele realitních kanceláří.', more: 'Číst článek', keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings'] as const },
 
   faqTitle: 'Často kladené otázky',
   faq: [

@@ -99,6 +99,8 @@ export const AUDIT_CS = {
   nicheLink: 'SEO pro překladatelské agentury v Praze',
   nicheLead2: 'Pro účetní kanceláře, se zaměřením na indexaci stránek služeb a duplicity mezi nimi:',
   nicheLink2: 'SEO pro účetní kanceláře v Praze',
+  nicheLead3: 'Pro realitní kanceláře: indexace nabídek a duplicity z filtrů rozebírám v článku',
+  nicheLink3: 'Nabídky nemovitostí a SEO',
   reviewsLink: 'Všechny recenze',
 
   // "Související články": the posts of the audit funnel (not the Start-funnel article about advertising), in reading order.

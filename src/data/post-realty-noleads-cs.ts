@@ -59,6 +59,8 @@ const raw = {
 
   portalsTitle: 'Stačí, když mám nabídky jen na portálech?',
   portalsAnswer: 'Pokud jsou nabídky jen na portálech, web nemá vlastní stránky, které by vyhledávač mohl zobrazit. Nabídky na vlastním webu s unikátním popisem a samostatnou adresou dávají vyhledávači co indexovat, ale přinášejí i technická rizika, například duplicity. Podrobnosti rozebírám v samostatných článcích o nabídkách a portálech.',
+  portalsListingsLead: 'Indexaci nabídek, duplicity z filtrů a prodané nabídky rozebírám v článku',
+  portalsListingsLinkText: 'Nabídky nemovitostí a SEO',
   portalsOverviewLead: 'Přehled kanálů, odkud klienti přicházejí, najdete v článku',
   portalsOverviewLinkText: 'Jak získat klienty pro realitní kancelář',
 

@@ -243,6 +243,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
     },
   },
+  postRealtyListings: {
+    cs: {
+      name: 'Nabídky nemovitostí a SEO',
+      title: 'SEO nabídky nemovitostí: indexace a duplicity | Eranosian',
+      description: 'Jak se nabídky nemovitostí indexují, odkud se berou duplicity z filtrů a co s prodanými nabídkami. Zjistěte, co zachytí bezplatný audit technických chyb.',
+      h1: 'Nabídky nemovitostí a SEO: indexace, duplicity filtrů, prodané nabídky',
+    },
+    en: { name: 'Property listings and SEO', title: 'Property listings and SEO', description: 'Property listings and SEO', h1: 'Property listings and SEO: indexing, filter duplicates, sold listings' },
+    ru: { name: 'Объявления о недвижимости и SEO', title: 'Объявления о недвижимости и SEO', description: 'Объявления о недвижимости и SEO', h1: 'Объявления о недвижимости и SEO: индексация, дубли фильтров, проданные объекты' },
+  },
   postRealtySmall: {
     cs: {
       name: 'Má SEO smysl pro malou realitní kancelář',
