@@ -7,7 +7,7 @@ import { walk } from '../lib/cs-typo';
 
 // First publication of this address; do NOT bump it when the page is edited (dateModified comes from git).
 export const POST_REALTY_PUBLISHED = '2026-10-23';
-export const QUOTE_CONFIRMED = false;
+export const QUOTE_CONFIRMED = true;
 
 const raw = {
   lang: 'cs' as const,
@@ -90,7 +90,7 @@ const raw = {
     'Po několika měsících vyhodnoťte, co funguje, a teprve pak přidejte další.',
   ],
 
-  // DRAFT: published only when QUOTE_CONFIRMED is true
+  // Confirmed by the author (23.10.2026): published
   quote: 'Nejdřív zjistěte, odkud klienti přicházejí dnes, a teprve potom vybírejte další kanál.',
 
   faqTitle: 'Časté otázky',

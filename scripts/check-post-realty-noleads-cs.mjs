@@ -51,8 +51,10 @@ if (rows.length !== 9 || rows[0].join('|') !== 'Příčina|Jak to poznáte|Co s 
 // Illustrations: 4, labelled, with accessible names
 const figs = [...main.matchAll(/<figure class="post-figure">([\s\S]*?)<\/figure>/g)].map((m) => m[1]);
 if (figs.length !== 0 || figs.some((f) => !/<svg[^>]*role="img"[^>]*aria-label="Ilustrace:/.test(f) || !/<figcaption>Ilustrace:/.test(f))) e('no illustrations');
-// Author quote: a draft, NOT published until the author confirms it (QUOTE_CONFIRMED = false): no quote block, no Quotation
-if (/<blockquote|quote-fig/.test(main)) e('the author quote must not be published until confirmed');
+// Author quote: confirmed by the author (23.10.2026): one figure with the signature, after the last section, not in the first 100 words
+const QUOTE = 'Nejdřív ověřte, jestli je web ve vyhledávání, a teprve pak řešte, co na něm chybí.';
+if (!new RegExp(`<figure class="quote-fig">\\s*<blockquote cite="${BASE}${URL_PATH}"><p>${QUOTE.replace(/\./g, '\\.')}</p></blockquote>\\s*<figcaption>[\\s\\S]*?— <a href="/o-mne/">Arsenii Eranosian</a>`).test(main) || [...main.matchAll(/<blockquote/g)].length !== 1) e('one author quote figure with the signature');
+if (mainTxt.indexOf(QUOTE) < mainTxt.lastIndexOf('Co zkontrolovat jako první?') || mainTxt.split(' ').slice(0, 100).join(' ').includes(QUOTE)) e('the quote after the section "Co zkontrolovat jako první?", not in the first 100 words');
 // JSON-LD equals the visible text
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 const g = ld['@graph'];
@@ -62,7 +64,8 @@ const post = node('BlogPosting')[0];
 if (!post || post['@id'] !== `${U}#article` || post.headline !== H1 || post.author['@id'] !== `${BASE}/#arsenii` || !post.datePublished || post.dateModified !== h.match(/Aktualizováno: <time datetime="([^"]+)"/)[1]) e('BlogPosting');
 const wp = node('WebPage')[0];
 if (!wp || wp['@id'] !== `${U}#webpage` || wp.mainEntity['@id'] !== `${U}#article` || wp.inLanguage !== 'cs') e('WebPage');
-if (node('Quotation').length) e('no Quotation until the quote is confirmed');
+const qn = node('Quotation')[0];
+if (node('Quotation').length !== 1 || qn.text !== QUOTE || qn['@id'] !== `${U}#quote-1`) e('one Quotation = the visible quote');
 const visSteps = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)].map((m) => [...m[1].matchAll(/<li><span>([\s\S]*?)<\/span><\/li>/g)].map((x) => txt(x[1])));
 if (node('HowTo').length) e('no HowTo on this article');
 const faq = node('FAQPage')[0];
