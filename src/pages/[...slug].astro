@@ -118,11 +118,12 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'caseSeason' && props.lang === 'ru' && <CaseSeasonRuPage />}
 {props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage />}
 {props.key === 'consulting' && props.lang === 'ru' && <ConsultingPage lang="ru" />}
+{props.key === 'consulting' && props.lang === 'en' && <ConsultingPage lang="en" />}
 {props.key === 'start' && props.lang === 'cs' && <StartCsPage />}
 {props.key === 'start' && props.lang === 'ru' && <StartPage />}
 {props.key === 'fullSeo' && props.lang === 'cs' && <FullSeoCsPage />}
 {props.key === 'fullSeo' && props.lang === 'ru' && <FullSeoPage />}
 {props.key === 'maps' && props.lang === 'cs' && <MapsCsPage />}
 {props.key === 'maps' && props.lang === 'ru' && <MapsPage />}
-{props.key && isService(props.key) && !(props.key === 'consulting' && props.lang !== 'en') && !(props.key === 'start' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'fullSeo' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'maps' && (props.lang === 'ru' || props.lang === 'cs')) && <Service lang={props.lang} service={props.key} />}
+{props.key && isService(props.key) && !(props.key === 'consulting') && !(props.key === 'start' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'fullSeo' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'maps' && (props.lang === 'ru' || props.lang === 'cs')) && <Service lang={props.lang} service={props.key} />}
 {View && <View lang={props.lang} />}

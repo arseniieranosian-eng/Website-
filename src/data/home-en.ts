@@ -23,7 +23,7 @@ export const HOME_EN = {
     head: ['Service', 'What it is', 'Best for', 'Time'],
     rows: [
       { page: 'audit' as const, label: 'Free audit', what: 'technical errors: indexing, duplicate pages, other technical problems', best: 'checking your site for technical errors', time: 'presentation within 24 hours' },
-      { page: 'consulting' as const, label: 'Consulting', what: 'one hour, or an audit with a 12-month plan', best: 'answers and an action plan', time: 'one-off' },
+      { page: 'consulting' as const, label: 'SEO consulting in Prague', what: 'one hour, or an audit with a 12-month plan', best: 'answers and an action plan', time: 'one-off' },
       { page: 'start' as const, label: '3-month start', what: 'audit, fixes, key-page optimisation', best: 'building the foundation', time: '3 months' },
       { page: 'fullSeo' as const, label: 'Full SEO', what: 'strategy, quarterly priorities, new content each month', best: 'long-term growth', time: '12 months' },
       { page: 'maps' as const, label: 'Maps (Google + Mapy.com)', what: 'local SEO on Google Maps and Mapy.com', best: 'businesses that win customers locally', time: 'from 4 months' },

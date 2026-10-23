@@ -71,16 +71,16 @@ export function consultingSchemas(site: URL, C: ConsultingContent, opts: { modif
       })),
       ...(reviews.length ? { review: reviews } : {}),
     },
-    {
+    ...(sc.howToName ? [{
       '@type': 'HowTo',
       name: sc.howToName,
       step: C.steps.map((text) => ({ '@type': 'HowToStep', text })),
-    },
+    }] : []),
     {
       '@type': 'FAQPage',
       mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
     },
-    {
+    ...(C.video ? [{
       '@type': 'VideoObject',
       name: C.video.name,
       description: C.video.caption,
@@ -88,6 +88,6 @@ export function consultingSchemas(site: URL, C: ConsultingContent, opts: { modif
       thumbnailUrl: abs(SITE.videoPoster),
       uploadDate: SITE.videoUploadDate,
       contentUrl: abs(SITE.video!),
-    },
+    }] : []),
   ];
 }

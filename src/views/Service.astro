@@ -90,6 +90,16 @@ const C = {
     </section>
   )}
 
+  {lang === 'en' && (service === 'start' || service === 'fullSeo') && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>Consultation first?</h2>
+        <p>If you are not sure which format fits, a one-hour consultation or a consultation with an audit and a 12-month plan can come first. It is self-contained, with no obligation to continue.</p>
+        <p><a class="link-arrow" href={path('consulting', lang)}>SEO consulting in Prague</a></p>
+      </div>
+    </section>
+  )}
+
   <section class="section section--grey" id="form">
     <div class="container narrow">
       <h2>{ui.formTitle}</h2>

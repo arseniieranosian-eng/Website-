@@ -62,7 +62,7 @@ if (!mainTxt.includes('Data are relative, clients anonymous, results as of the e
 // Hub table: five services, no prices, links to the EN pages
 const tbl = (main.match(/Which service fits you\?[\s\S]*?<\/table>/) || [''])[0];
 const rows = [...tbl.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
-if (rows.length !== 6 || rows[0].join('|') !== 'Service|What it is|Best for|Time' || !rows.slice(1).map((r) => r[0]).join('|').startsWith('Free audit|Consulting|3-month start|Full SEO|Maps')) e(`hub table: ${JSON.stringify(rows.map((r) => r[0]))}`);
+if (rows.length !== 6 || rows[0].join('|') !== 'Service|What it is|Best for|Time' || !rows.slice(1).map((r) => r[0]).join('|').startsWith('Free audit|SEO consulting in Prague|3-month start|Full SEO|Maps')) e(`hub table: ${JSON.stringify(rows.map((r) => r[0]))}`);
 if (/[€$]|Kč|CZK|\bEUR\b/.test(tbl) || /(\d[\d,. ]*)\s?(Kč|CZK|EUR)/.test(mainTxt)) e('no prices on the home page');
 if (!mainTxt.includes('GEO/AEO is included in every service. Results depend on niche, competition and the starting point and cannot be guaranteed.')) e('hub note');
 // Answer-first

@@ -1,6 +1,6 @@
 ---
-// /konzultace/ (cs) and /ru/konsultacii/ (ru), built from the briefs of 19.10.2026.
-// Content lives in data/consulting.ts (cs) and data/consulting-ru.ts (ru); en uses the generic Service template.
+// /ru/konsultacii/ (ru, brief of 19.10.2026) and /en/consulting/ (en, brief of 23.10.2026); the Czech page is ConsultingCsPage.
+// Content lives in data/consulting-ru.ts and data/consulting-en.ts. The English page has no video (C.video is absent).
 import Base from '../layouts/Base.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import LeadForm from '../components/LeadForm.astro';
@@ -11,23 +11,25 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { consultingSchemas } from '../lib/schema-consulting';
-import { fmtKc, PRICES } from '../data/consulting-shared';
+import { fmtKc, fmtCzk, PRICES } from '../data/consulting-shared';
 import { CONSULTING_RU } from '../data/consulting-ru';
+import { CONSULTING_EN } from '../data/consulting-en';
 import { reviewsWithFallback } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
-interface Props { lang: 'ru' }
+interface Props { lang: 'ru' | 'en' }
 const { lang } = Astro.props;
-const C = CONSULTING_RU;
+const C = lang === 'en' ? CONSULTING_EN : CONSULTING_RU;
+const money = lang === 'en' ? fmtCzk : fmtKc;
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
 const MOD = lastModified(
-  ['src/views/ConsultingPage.astro', lang === 'ru' ? 'src/data/consulting-ru.ts' : 'src/data/consulting.ts', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'],
+  ['src/views/ConsultingPage.astro', lang === 'ru' ? 'src/data/consulting-ru.ts' : 'src/data/consulting-en.ts', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'],
   '2026-10-19',
 );
 const [y, mo, d] = MOD.split('-').map(Number);
-const modText = lang === 'ru' ? `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}` : `${d}. ${mo}. ${y}`;
+const modText = lang === 'ru' || lang === 'en' ? `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}` : `${d}. ${mo}. ${y}`;
 
 // Russian page: prefer reviews that were written in Russian.
 const reviews = reviewsWithFallback('consulting', 3, 3, lang === 'ru' ? 'ru' : undefined);
@@ -43,20 +45,22 @@ const others = [
 <Base {...pageProps('consulting', lang)} schema={consultingSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
   <section class="page-hero">
-    <div class="container hero-split">
+    <div class:list={['container', { 'hero-split': C.video }]}>
       <div>
         <h1>{C.h1}</h1>
-        <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+        <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time>{C.durationLine && <> · {C.durationLine}</>}</p>
         <p class="lead">{C.lead}</p>
         <div class="btn-row">
           <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      <figure class="hero-video">
-        <AuthorMedia alt={C.video.alt} variant="video" />
-        <figcaption class="muted small">{C.video.caption}</figcaption>
-      </figure>
+      {C.video && (
+        <figure class="hero-video">
+          <AuthorMedia alt={C.video.alt} variant="video" />
+          <figcaption class="muted small">{C.video.caption}</figcaption>
+        </figure>
+      )}
     </div>
   </section>
 
@@ -70,7 +74,7 @@ const others = [
         {C.offers.map((o) => (
           <article class="card offer">
             <h3>{o.name}</h3>
-            <p class="price"><strong>{fmtKc(PRICES[o.id])}</strong> · {o.duration}</p>
+            <p class="price"><strong>{money(PRICES[o.id])}</strong> · {o.duration}</p>
             <p>{o.cardText}</p>
             <a class="btn btn--secondary" href="#form" data-prefill={o.prefill}>{o.cta}</a>
           </article>
@@ -91,19 +95,32 @@ const others = [
   <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.forWhomTitle}</h2>
+      {C.forWhomAnswer && <p class="answer">{C.forWhomAnswer}</p>}
       <ul class="checks">{C.forWhom.map((x) => <li>{x}</li>)}</ul>
       <p class="muted">{C.forWhomNote}</p>
     </div>
   </section>
 
+  <!-- WHAT IS INCLUDED (en) -->
+  {C.includesTitle && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{C.includesTitle}</h2>
+        <p class="answer">{C.includesAnswer}</p>
+        <p><a class="link-arrow" href={t('geo')}>{C.includesGeoLink}</a></p>
+      </div>
+    </section>
+  )}
+
   <!-- HOW IT WORKS -->
-  <section class="section">
+  <section class={C.includesTitle ? 'section section--grey' : 'section'}>
     <div class="container">
       <h2>{C.stepsTitle}</h2>
+      {C.stepsAnswer && <p class="answer">{C.stepsAnswer}</p>}
       <ol class="steps steps--row">{C.steps.map((x) => <li>{x}</li>)}</ol>
-      <h3 class="examples-title">{C.examplesTitle}</h3>
+      {C.examples && <h3 class="examples-title">{C.examplesTitle}</h3>}
       <div class="examples">
-        {C.examples.map((ex) => (
+        {(C.examples ?? []).map((ex) => (
           <figure class="examples__group">
             <h4>{ex.title}</h4>
             <p class="muted">{ex.text}</p>
@@ -111,7 +128,7 @@ const others = [
           </figure>
         ))}
       </div>
-      <p class="muted small">{C.examplesNote}</p>
+      {C.examplesNote && <p class="muted small">{C.examplesNote}</p>}
     </div>
   </section>
 
@@ -129,7 +146,7 @@ const others = [
   <section class={C.market ? 'section' : 'section section--grey'}>
     <div class="container narrow">
       <h2>{C.channelsTitle}</h2>
-      <p>{C.channels}</p>
+      <p class={lang === 'en' ? 'answer' : undefined}>{C.channels}</p>
     </div>
   </section>
 
@@ -137,19 +154,39 @@ const others = [
   <section class={C.market ? 'section section--grey' : 'section'}>
     <div class="container narrow">
       <h2>{C.longTermTitle}</h2>
+      {C.longTermAnswer && <p class="answer">{C.longTermAnswer}</p>}
+      {C.formatsTable && (
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr>{C.formatsTable.head.map((h) => <th scope="col">{h ? h : <span class="sr-only">Format</span>}</th>)}</tr></thead>
+            <tbody>{C.formatsTable.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+          </table>
+        </div>
+      )}
       <p>{C.longTermIntro}</p>
       <ul class="link-list">
         <li><a href={t('start')}>{name('start')}</a></li>
         <li><a href={t('fullSeo')}>{name('fullSeo')}</a></li>
       </ul>
-      <p>{C.longTermGeo.before}<a href={t('geo')}>{C.longTermGeo.link}</a>{C.longTermGeo.after}</p>
+      {C.longTermGeo && <p>{C.longTermGeo.before}<a href={t('geo')}>{C.longTermGeo.link}</a>{C.longTermGeo.after}</p>}
     </div>
   </section>
+
+  <!-- NOT INCLUDED (en) -->
+  {C.notIncludedTitle && (
+    <section class="section section--grey">
+      <div class="container narrow">
+        <h2>{C.notIncludedTitle}</h2>
+        <p class="answer">{C.notIncludedAnswer}</p>
+      </div>
+    </section>
+  )}
 
   <!-- CASE -->
   <section class={C.market ? 'section' : 'section section--grey'}>
     <div class="container narrow">
       <h2>{C.caseTitle}</h2>
+      {C.caseLabel && <p class="eyebrow">{C.caseLabel}</p>}
       <p>{C.caseText}</p>
       <a class="link-arrow" href={t('caseKb')}>{C.caseLink}</a>
       {C.caseText2 && <p>{C.caseText2}</p>}

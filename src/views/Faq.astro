@@ -21,7 +21,10 @@ const C = {
 <Base {...pageProps('faq', lang)} schema={[faqSchema(FAQ, lang)]}>
   <PageHero h1={m.h1} lead={C.lead}><a class="link-arrow" href={path('contact', lang)}>{C.link}</a></PageHero>
   <section class="section section--tight">
-    <div class="container narrow"><FaqList items={FAQ} lang={lang} /></div>
+    <div class="container narrow">
+      <FaqList items={FAQ} lang={lang} />
+      {lang === 'en' && <p><a class="link-arrow" href={path('consulting', lang)}>More questions about the paid SEO consultation: SEO consulting in Prague</a></p>}
+    </div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
 </Base>

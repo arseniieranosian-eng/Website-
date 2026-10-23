@@ -61,9 +61,9 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     },
     en: {
       name: 'Consulting',
-      title: 'SEO Consulting – Website Review & Action Plan | Prague',
-      description: 'SEO consulting online or in person in Prague. A review of your website, answers to your questions and a written, prioritised action plan.',
-      h1: 'SEO consulting',
+      title: 'SEO Consultation Prague: 1 Hour or Audit + Plan | Eranosian',
+      description: 'SEO consulting in Prague, online or in person: answers to your questions in one hour, or a full site review with a 12-month action plan. Book a consultation.',
+      h1: 'SEO consulting in Prague',
     },
     ru: {
       name: 'Консультации',
