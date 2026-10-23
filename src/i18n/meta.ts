@@ -243,6 +243,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
     },
   },
+  postRealty: {
+    cs: {
+      name: 'Jak získat klienty pro realitní kancelář',
+      title: 'Klienti pro realitní kancelář: přehled kanálů | Eranosian',
+      description: 'Odkud se berou klienti realitní kanceláře? Porovnávám portály, vlastní web, doporučení, reklamu a SEO a ukazuji, čím začít. Požádejte o bezplatný audit.',
+      h1: 'Jak získat klienty pro realitní kancelář: přehled kanálů',
+    },
+    en: { name: 'How to get clients for a real estate agency', title: 'How to get clients for a real estate agency', description: 'How to get clients for a real estate agency', h1: 'How to get clients for a real estate agency' },
+    ru: { name: 'Как получить клиентов агентству недвижимости', title: 'Как получить клиентов агентству недвижимости', description: 'Как получить клиентов агентству недвижимости', h1: 'Как получить клиентов агентству недвижимости' },
+  },
   postPairs: {
     cs: {
       name: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár',
