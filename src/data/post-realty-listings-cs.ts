@@ -6,9 +6,9 @@
 // (not shown, duplicates, 301 and 404); N4 and N6–N10 are named without a link until published. No HowTo, no Service, no ratings, no prices, no legal topics.
 import { walk } from '../lib/cs-typo';
 
-// First publication of this address; do NOT bump it when the page is edited (dateModified comes from git).
-export const POST_REALTY_LISTINGS_PUBLISHED = '2026-10-23';
-export const QUOTE_CONFIRMED = false;
+// Publication date chosen by the author (24. 10. 2026); do NOT bump it when the page is edited. The visible "Aktualizováno" never precedes it (see the view).
+export const POST_REALTY_LISTINGS_PUBLISHED = '2026-10-24';
+export const QUOTE_CONFIRMED = true;
 export const DOCS_CHECKED = '23. 10. 2026';
 
 const raw = {
@@ -103,7 +103,7 @@ const raw = {
   auditStartLead: 'nebo',
   auditStartLinkText: 'SEO start na 3 měsíce',
 
-  // DRAFT: published only when QUOTE_CONFIRMED is true (the author must also confirm his position on sold listings)
+  // Confirmed by the author (23.10.2026): published
   quote: 'U nabídek rozhoduje pořádek: každá stránka má mít jasný důvod existovat a jasný konec.',
 
   faqTitle: 'Časté otázky',

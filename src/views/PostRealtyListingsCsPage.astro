@@ -8,11 +8,11 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { postRealtyListingsSchemas } from '../lib/schema-post-realty-listings';
-import { POST_REALTY_LISTINGS_CS as C, QUOTE_CONFIRMED, DOCS_CHECKED } from '../data/post-realty-listings-cs';
+import { POST_REALTY_LISTINGS_CS as C, POST_REALTY_LISTINGS_PUBLISHED, QUOTE_CONFIRMED, DOCS_CHECKED } from '../data/post-realty-listings-cs';
 
 const lang = C.lang;
 const site = Astro.site!;
-const MOD = lastModified(['src/views/PostRealtyListingsCsPage.astro', 'src/data/post-realty-listings-cs.ts'], '2026-10-22');
+const MOD = [lastModified(['src/views/PostRealtyListingsCsPage.astro', 'src/data/post-realty-listings-cs.ts'], '2026-10-22'), POST_REALTY_LISTINGS_PUBLISHED].sort().pop()!;
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
