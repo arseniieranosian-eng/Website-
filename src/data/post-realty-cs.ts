@@ -68,6 +68,8 @@ const raw = {
   seoAnswer: 'SEO a GEO/AEO dávají smysl, pokud chcete získávat klienty i z vyhledávání, máte co nabídnout a můžete počkat. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám a v realitním oboru zatím nemám vlastní případovou studii. Podrobnosti jsou na stránce SEO pro realitní kanceláře.',
   seoLead: 'Co v oboru dělám a jak postupuji, popisuji na stránce',
   seoLinkText: 'SEO pro realitní kanceláře v Praze',
+  seoSmallLead: 'Jestli SEO dává smysl právě pro malou kancelář, rozebírám v článku',
+  seoSmallLinkText: 'Má SEO smysl pro malou realitní kancelář?',
   seoAuditLead: 'Technické chyby webu zkontroluje',
   seoAuditLinkText: 'bezplatný audit',
 

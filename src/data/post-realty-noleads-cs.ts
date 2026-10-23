@@ -85,6 +85,8 @@ const raw = {
     'Má každá lokalita vlastní stránku s vlastním obsahem?',
   ],
 
+  firstSmallLead: 'Jestli SEO dává smysl právě pro malou kancelář, rozebírám v článku',
+  firstSmallLinkText: 'Má SEO smysl pro malou realitní kancelář?',
   // Confirmed by the author (23.10.2026): published
   quote: 'Nejdřív ověřte, jestli je web ve vyhledávání, a teprve pak řešte, co na něm chybí.',
 

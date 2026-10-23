@@ -243,6 +243,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
     },
   },
+  postRealtySmall: {
+    cs: {
+      name: 'Má SEO smysl pro malou realitní kancelář',
+      title: 'SEO pro malou realitní kancelář: kdy má smysl | Eranosian',
+      description: 'Má SEO smysl pro malou realitní kancelář? Kdy ano, kdy ne, jaké cíle jsou reálné a co zkontrolovat jako první. Požádejte o bezplatný audit technických chyb.',
+      h1: 'Má SEO smysl pro malou realitní kancelář?',
+    },
+    en: { name: 'Does SEO make sense for a small real estate agency', title: 'Does SEO make sense for a small real estate agency', description: 'Does SEO make sense for a small real estate agency', h1: 'Does SEO make sense for a small real estate agency?' },
+    ru: { name: 'Имеет ли смысл SEO для небольшого агентства недвижимости', title: 'Имеет ли смысл SEO для небольшого агентства недвижимости', description: 'Имеет ли смысл SEO для небольшого агентства недвижимости', h1: 'Имеет ли смысл SEO для небольшого агентства недвижимости?' },
+  },
   postRealtyNoLeads: {
     cs: {
       name: 'Proč web realitní kanceláře nepřináší poptávky',

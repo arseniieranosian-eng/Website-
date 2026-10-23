@@ -97,6 +97,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <h2>{C.firstTitle}</h2>
       <p class="answer">{C.firstAnswer}</p>
       <ol class="checks">{C.first.map((x) => <li>{x}</li>)}</ol>
+      <p>{C.firstSmallLead}{' '}<a href={t('postRealtySmall')}>{C.firstSmallLinkText}</a>.</p>
       {QUOTE_CONFIRMED && (
         <figure class="quote-fig">
           <blockquote cite={cite}><p>{C.quote}</p></blockquote>

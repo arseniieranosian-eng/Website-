@@ -596,3 +596,6 @@ table.compare { min-width: 0; }
 .page-hero .card a:not(.btn) { color: var(--blue); }
 .page-hero .price-badge, .page-hero .chips li, .page-hero .badge { color: var(--blue-dark); }
 .page-hero .price-badge { font-weight: 600; }
+
+/* Spacing rule: whatever follows a table (a heading, a paragraph, a list, a figure) gets a normal gap; a small grey note under the table stays close */
+.table-wrap + :not(.muted):not(.small):not(.table-wrap) { margin-top: 28px; }
