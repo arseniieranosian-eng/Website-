@@ -31,6 +31,7 @@ export const SITE = {
   socials: [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arsenii-eranosian-seo/' },
     { name: 'Instagram', url: 'https://www.instagram.com/mr.eranosian/' },
+    { name: 'Threads', url: 'https://www.threads.com/@mr.eranosian' },
   ],
   // Author media. Photo is used across the site; the vertical video (with sound,
   // click-to-play) is shown on the consulting page. Set video to null to hide it.

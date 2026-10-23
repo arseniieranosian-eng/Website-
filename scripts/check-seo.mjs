@@ -49,7 +49,7 @@ for (const file of walk(DIST)) {
   const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => {
     try { return JSON.parse(m[1]); } catch { err(`${url}: invalid JSON-LD`); return null; }
   }).filter(Boolean);
-  const socialLinks = [...html.matchAll(/<a [^>]*href="(https:\/\/www\.(?:linkedin|instagram)\.com[^"]*)"[^>]*rel="me/g)].map((m) => m[1]);
+  const socialLinks = [...html.matchAll(/<a [^>]*href="(https:\/\/www\.(?:linkedin|instagram|threads)\.com[^"]*)"[^>]*rel="me/g)].map((m) => m[1]);
   pages.set(url, { ld, socialLinks, url, title, description, noindex, canonical, alternates, h1s, hrefs, hasCrumbs });
 }
 
