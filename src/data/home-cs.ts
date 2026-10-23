@@ -49,6 +49,10 @@ export const HOME_CS = {
         ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice' as const, title: 'SEO pro překladatelské agentury v Pardubicích', text: 'Stránky jazykových párů, služeb a lokality, indexace jazykových verzí a Mapy.com.' }] : []),
       ],
     },
+    ...(NICHE_READY.nicheAccounting ? [{
+      id: 'accounting' as const,
+      cards: [{ page: 'nicheAccounting' as const, title: 'SEO pro účetní kanceláře v Praze', text: 'Samostatné stránky služeb, FAQ, struktura webu a technický základ.' }],
+    }] : []),
     ...(NICHE_READY.nicheRealty ? [{
       id: 'realty' as const,
       cards: [{ page: 'nicheRealty' as const, title: 'SEO pro realitní kanceláře v Praze', text: 'Stránky nabídek a čtvrtí, indexace a duplicity z filtrů a lokální přítomnost.' }],
