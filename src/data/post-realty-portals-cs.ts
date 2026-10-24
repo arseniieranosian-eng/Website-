@@ -7,7 +7,7 @@ import { walk } from '../lib/cs-typo';
 
 // First publication of this address; do NOT bump it when the page is edited (dateModified comes from git).
 export const POST_REALTY_PORTALS_PUBLISHED = '2026-10-24';
-export const QUOTE_CONFIRMED = false;
+export const QUOTE_CONFIRMED = true;
 
 const raw = {
   lang: 'cs' as const,
@@ -82,7 +82,7 @@ const raw = {
   seoSmallLead: 'Jestli SEO dává smysl právě pro malou kancelář, rozebírám v článku',
   seoSmallLinkText: 'Má SEO smysl pro malou realitní kancelář?',
 
-  // DRAFT: published only when QUOTE_CONFIRMED is true
+  // Confirmed by the author (24.10.2026): published
   quote: 'Portál a vlastní web nejsou soupeři: portál přivádí rychle, web buduje značku, a obojí se dá spojit.',
 
   faqTitle: 'Časté otázky',
