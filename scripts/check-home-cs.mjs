@@ -104,7 +104,7 @@ const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); 
 for (const f of walk('dist').filter((x) => !/(^|\/)blog\/index\.html$/.test(x) && !/(^|\/)404/.test(x))) {
   const c = readFileSync(f, 'utf8').replace(/<main[\s\S]*?<\/main>/, '');
   const hasBlog = /<a href="\/blog\/"/.test(c);
-  const other = /<a href="\/(en|ru)\/blog\/"/.test(c);
+  const other = /<a href="\/en\/blog\/"/.test(c); // the ru Blog is in the menu since 24.10.2026
   const isCs = !/^dist\/(en|ru)\//.test(f);
   if (other) e(`${f}: the en / ru Blog must not be in the menu / footer yet`);
   if (isCs && !hasBlog && !/(^|\/)(dekujeme|404)/.test(f)) e(`${f}: the Czech menu / footer must have the Blog`);

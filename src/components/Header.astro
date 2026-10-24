@@ -12,8 +12,8 @@ interface Props {
 const { lang, pageKey, alternates, langFallback } = Astro.props;
 const ui = t(lang);
 // "Services" is a dropdown of the service pages (there is no services collection page); the rest are plain links.
-// The blog is in the menu of the Czech version only (the first posts are coming); en / ru follow when they have posts.
-const NAV: PageKey[] = ['cases', 'geo', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' ? (['blog'] as PageKey[]) : [])];
+// The blog is in the menu of the Czech and Russian versions (the Russian section is open since 24.10.2026, noindex until its first post); en follows when it has posts.
+const NAV: PageKey[] = ['cases', 'geo', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' || lang === 'ru' ? (['blog'] as PageKey[]) : [])];
 const label = (k: PageKey) => (k === 'geo' ? ui.navGeo : META[k][lang].name);
 const current = (k: PageKey) => pageKey === k || (k === 'cases' && pageKey === 'caseKb');
 // Niche menu ("SEO pro" in Czech, "SEO для" in Russian): only the groups and pages that exist in the current language.
