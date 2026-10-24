@@ -26,6 +26,7 @@ export const ROUTES = {
   nicheTranslation: { cs: '/seo-pro-prekladatelske-agentury-praha/', en: '/en/seo-for-translation-agencies-prague/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-praga/' },
   nicheBrno: { cs: '/seo-pro-prekladatelske-agentury-brno/', en: '/en/seo-for-translation-agencies-brno/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-brno/' },
   nicheAccounting: { cs: '/seo-pro-ucetni-kancelare-praha/', en: '/en/seo-for-accounting-firms-prague/', ru: '/ru/seo-dlya-buhgalterskih-firm-praga/' },
+  nicheTypography: { cs: '/seo-pro-tiskarny-a-polygrafii/', en: '/en/seo-for-printing-companies/', ru: '/ru/seo-dlya-tipografij/' },
   nicheFinance: { cs: '/seo-pro-financni-poradce-cesko/', en: '/en/seo-for-financial-consultants-czechia/', ru: '/ru/seo-dlya-finansovyh-konsultantov-chehiya/' },
   nicheRealty: { cs: '/seo-pro-realitni-kancelare-praha/', en: '/en/seo-for-real-estate-agencies-prague/', ru: '/ru/seo-dlya-agentstv-nedvizhimosti-praga/' },
   nichePardubice: { cs: '/seo-pro-prekladatelske-agentury-pardubice/', en: '/en/seo-for-translation-agencies-pardubice/', ru: '/ru/seo-dlya-perevodcheskih-agentstv-pardubice/' },
@@ -103,10 +104,10 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 // nicheFinance (Russian only, brief of 24.10.2026): the author's dated observation of 8 sites (last three months to 24.10.2026) and the confirmed quote exist, so it is on.
 // nicheRealty (first page of the real-estate niche): needs the author's own dated observations of real-estate sites and a verified analysis of the
 // Praha results; both exist since 22.10.2026 (observations from the audit slides, results analysis of 22. 10. 2026), so it is on.
-export const NICHE_READY = { nicheBrno: true, nichePardubice: true, nicheRealty: true, nicheAccounting: true, nicheFinance: true } as const;
+export const NICHE_READY = { nicheBrno: true, nichePardubice: true, nicheRealty: true, nicheAccounting: true, nicheFinance: true, nicheTypography: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
-  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], nicheRealty: NICHE_READY.nicheRealty ? ['cs', 'ru'] : [], nicheAccounting: NICHE_READY.nicheAccounting ? ['cs'] : [], nicheFinance: NICHE_READY.nicheFinance ? ['ru'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs', 'ru'], caseRazbor: ['ru'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], postPairs: ['cs'], postRealty: ['cs'], postRealtyNoLeads: ['cs'], postRealtySmall: ['cs'], postRealtyListings: ['cs'], postRealtyPortals: ['cs'], postFinanceChannels: ['ru'], postAccountingChannels: ['cs'], nicheTranslation: ['cs'] };
+  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], nicheRealty: NICHE_READY.nicheRealty ? ['cs', 'ru'] : [], nicheAccounting: NICHE_READY.nicheAccounting ? ['cs'] : [], nicheFinance: NICHE_READY.nicheFinance ? ['ru'] : [], nicheTypography: NICHE_READY.nicheTypography ? ['cs'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs', 'ru'], caseRazbor: ['ru'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], postPairs: ['cs'], postRealty: ['cs'], postRealtyNoLeads: ['cs'], postRealtySmall: ['cs'], postRealtyListings: ['cs'], postRealtyPortals: ['cs'], postFinanceChannels: ['ru'], postAccountingChannels: ['cs'], nicheTranslation: ['cs'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.
@@ -127,6 +128,7 @@ export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] 
 export const NICHE_GROUPS = [
   { id: 'translation', label: 'Překladatelské agentury', labelRu: 'Переводческие агентства', items: [{ page: 'nicheTranslation', label: 'Praha', labelRu: 'Прага' }, ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno', label: 'Brno', labelRu: 'Брно' } as const] : []), ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice', label: 'Pardubice', labelRu: 'Пардубице' } as const] : [])] },
   ...(NICHE_READY.nicheAccounting ? [{ id: 'accounting', label: 'Účetní kanceláře', labelRu: 'Бухгалтерские фирмы', items: [{ page: 'nicheAccounting', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
+  ...(NICHE_READY.nicheTypography ? [{ id: 'printing', label: 'Tiskárny a polygrafie', labelRu: 'Типографии', items: [{ page: 'nicheTypography', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),
   ...(NICHE_READY.nicheFinance ? [{ id: 'finance', label: 'Finanční poradci', labelRu: 'Финансовые консультанты', items: [{ page: 'nicheFinance', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),
   ...(NICHE_READY.nicheRealty ? [{ id: 'realty', label: 'Realitní kanceláře', labelRu: 'Агентства недвижимости', items: [{ page: 'nicheRealty', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
 ] as const satisfies readonly { id: string; label: string; labelRu?: string; items: readonly { page: PageKey; label: string; labelRu?: string }[] }[];

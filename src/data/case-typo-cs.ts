@@ -108,6 +108,8 @@ const raw = {
 
   relatedTitle: 'Související služby',
   related: ['start', 'fullSeo', 'consulting', 'maps'] as const,
+  relatedNicheLead: 'Pro tiskárny a polygrafické firmy mám samostatnou stránku:',
+  relatedNicheLink: 'SEO a GEO/AEO pro tiskárny a polygrafii',
   more: 'Více',
   ctaTitle: 'Chcete stejný postup pro svůj web?',
   ctaText: 'Bezplatný audit ukáže technické chyby vašeho webu.',

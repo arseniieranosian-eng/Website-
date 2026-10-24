@@ -53,6 +53,10 @@ export const HOME_CS = {
       id: 'accounting' as const,
       cards: [{ page: 'nicheAccounting' as const, title: 'SEO pro účetní kanceláře v Praze', text: 'Samostatné stránky služeb, FAQ, struktura webu a technický základ.' }],
     }] : []),
+    ...(NICHE_READY.nicheTypography ? [{
+      id: 'printing' as const,
+      cards: [{ page: 'nicheTypography' as const, title: 'SEO a GEO/AEO pro tiskárny a polygrafii', text: 'Katalog, varianty produktů, kalkulačky a FAQ, technický základ webu.' }],
+    }] : []),
     ...(NICHE_READY.nicheRealty ? [{
       id: 'realty' as const,
       cards: [{ page: 'nicheRealty' as const, title: 'SEO pro realitní kanceláře v Praze', text: 'Stránky nabídek a čtvrtí, indexace a duplicity z filtrů a lokální přítomnost.' }],
