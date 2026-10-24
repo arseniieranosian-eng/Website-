@@ -56,6 +56,7 @@ import PostRealtyCsPage from '../views/PostRealtyCsPage.astro';
 import PostRealtyNoLeadsCsPage from '../views/PostRealtyNoLeadsCsPage.astro';
 import PostRealtySmallCsPage from '../views/PostRealtySmallCsPage.astro';
 import PostRealtyListingsCsPage from '../views/PostRealtyListingsCsPage.astro';
+import PostRealtyPortalsCsPage from '../views/PostRealtyPortalsCsPage.astro';
 import Blog from '../views/Blog.astro';
 import PostView from '../views/Post.astro';
 import Faq from '../views/Faq.astro';
@@ -79,7 +80,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null,
+  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -111,6 +112,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postRealtyNoLeads' && props.lang === 'cs' && <PostRealtyNoLeadsCsPage />}
 {props.key === 'postRealtySmall' && props.lang === 'cs' && <PostRealtySmallCsPage />}
 {props.key === 'postRealtyListings' && props.lang === 'cs' && <PostRealtyListingsCsPage />}
+{props.key === 'postRealtyPortals' && props.lang === 'cs' && <PostRealtyPortalsCsPage />}
 {props.key === 'caseHalf' && props.lang === 'cs' && <CaseHalfCsPage />}
 {props.key === 'caseHalf' && props.lang === 'ru' && <CaseHalfRuPage />}
 {props.key === 'caseRazbor' && props.lang === 'ru' && <CaseRazborRuPage />}

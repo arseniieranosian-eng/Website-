@@ -1,0 +1,121 @@
+---
+// Blog article N4 "Vlastní web, nebo realitní portály? Jak spolu fungují" (cs), brief of 24.10.2026. Content: data/post-realty-portals-cs.ts.
+// Logic only (no observations, no portal names); the quote is shown only when QUOTE_CONFIRMED is true.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postRealtyPortalsSchemas } from '../lib/schema-post-realty-portals';
+import { POST_REALTY_PORTALS_CS as C, POST_REALTY_PORTALS_PUBLISHED, QUOTE_CONFIRMED } from '../data/post-realty-portals-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostRealtyPortalsCsPage.astro', 'src/data/post-realty-portals-cs.ts'], '2026-10-22'), POST_REALTY_PORTALS_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-vlastni-web-nebo-portaly.png';
+const cite = new URL(t('postRealtyPortals'), site).href;
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postRealtyPortals', lang)} ogType="article" ogImage={OG} schema={postRealtyPortalsSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postRealtyPortals.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+      <p>{C.forWhom}</p>
+      <p class="muted small">{C.tocTitle}:</p>
+      <ol class="toc">{C.toc.map((x) => <li><a href={`#${x.id}`}>{x.text}</a></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="portaly">
+    <div class="container narrow">
+      <h2>{C.portalsTitle}</h2>
+      <p class="answer">{C.portalsAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="web">
+    <div class="container narrow">
+      <h2>{C.webTitle}</h2>
+      <p class="answer">{C.webAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section" id="rozdil">
+    <div class="container narrow">
+      <h2>{C.diffTitle}</h2>
+      <p class="answer">{C.diffAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.diff.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.diff.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.diffNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="nezavislost">
+    <div class="container narrow">
+      <h2>{C.freeTitle}</h2>
+      <p class="answer">{C.freeAnswer}</p>
+      <p>{C.freeLead}{' '}<a href={t('postRealty')}>{C.freeLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="kdy">
+    <div class="container narrow">
+      <h2>{C.whenTitle}</h2>
+      <p class="answer">{C.whenAnswer}</p>
+      <p>{C.whenLead}</p>
+      <ul class="checks">{C.when.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.whenLead2}{' '}<a href={t('consulting')}>{C.whenLink2}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="propojeni">
+    <div class="container narrow">
+      <h2>{C.linkTitle}</h2>
+      <p class="answer">{C.linkAnswer}</p>
+      <p>{C.linkLead}{' '}<a href={t('postRealtyListings')}>{C.linkLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="seo">
+    <div class="container narrow">
+      <h2>{C.seoTitle}</h2>
+      <p class="answer">{C.seoAnswer}</p>
+      <p>{C.seoLead}{' '}<a href={t('nicheRealty')}>{C.seoLinkText}</a>. {C.seoSmallLead}{' '}<a href={t('postRealtySmall')}>{C.seoSmallLinkText}</a>.</p>
+      {QUOTE_CONFIRMED && (
+        <figure class="quote-fig">
+          <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+          <QuoteCaption lang={lang} />
+        </figure>
+      )}
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p>{f.links && <p class="small">{f.links.map((l, i) => <>{i > 0 && ' · '}<a class="link-arrow" href={t(l.page)}>{l.text}</a></>)}</p>}</div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.endTitle}</h2>
+      <p>{C.endText}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <p>{C.endNote}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>.</p>
+      <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
+    </div>
+  </section>
+</Base>

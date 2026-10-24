@@ -25,7 +25,7 @@ const raw = {
   toc: [
     { id: 'kanaly', text: 'Odkud se berou klienti realitní kanceláře?' },
     { id: 'portaly', text: 'Co přinášejí realitní portály?' },
-    { id: 'web', text: 'Proč mít vlastní web, když jsou portály?' },
+    { id: 'web', text: 'Jakou roli hraje vlastní web?' },
     { id: 'doporuceni', text: 'Jakou roli hrají doporučení a reputace?' },
     { id: 'reklama', text: 'Kdy dává smysl placená reklama?' },
     { id: 'seo', text: 'Kdy dává smysl SEO a GEO/AEO?' },
@@ -51,7 +51,9 @@ const raw = {
   portalsTitle: 'Co přinášejí realitní portály?',
   portalsAnswer: 'Realitní portály přivádějí lidi, kteří už hledají konkrétní nemovitost, ale kancelář tam stojí vedle mnoha dalších a řídí se pravidly platformy. Hodí se pro rychlý kontakt s poptávkou, ale na jejich provozovateli závisí. Konkrétní podmínky jednotlivých portálů zde neuvádím, najdete je u nich.',
 
-  webTitle: 'Proč mít vlastní web, když jsou portály?',
+  webTitle: 'Jakou roli hraje vlastní web?',
+  webPortalsLead: 'Srovnání portálů a vlastního webu rozebírám v článku',
+  webPortalsLinkText: 'Vlastní web, nebo realitní portály? Jak spolu fungují',
   webLead: 'Pokud web nepřináší poptávky, začněte pořadím kontroly v článku',
   webLinkText: 'Proč web realitní kanceláře nepřináší poptávky?',
   webAnswer: 'Vlastní web je kanál, který kancelář sama řídí: obsah, značku i způsob, jak zachytí poptávku. Klienty nepřináší hned a sám nestačí, lidé ho musí najít, například ve vyhledávání nebo z reklamy. Může portály doplňovat, ne nutně nahrazovat. Záleží na tom, co a jak na něm nabídnete.',
@@ -98,7 +100,7 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Odkud mají realitní kanceláře klienty?', a: 'Realitní kanceláře získávají klienty z portálů, doporučení, vlastního webu, placené reklamy, sociálních sítí a map. Poměr se liší podle velikosti kanceláře, oblasti a rozpočtu a obecné číslo uvádět nelze. Jaký kanál je pro vás nejlepší, zjistíte tak, že sledujete, odkud přicházejí vaši skuteční klienti.' },
-    { q: 'Má smysl vlastní web realitní kanceláře, když jsou portály?', a: 'Má, ale nenahrazuje portály, jen je doplňuje. Vlastní web řídíte sami: značku, obsah i způsob, jak zachytíte poptávku. Klienty nepřináší hned a musí ho lidé najít. Podrobnější srovnání portálů a vlastního webu bude v samostatném článku. Hodí se zejména tehdy, když chcete, aby vás klienti našli i mimo portály.' },
+    { q: 'Jakou roli hraje vlastní web v získávání klientů?', a: 'Má, ale nenahrazuje portály, jen je doplňuje. Vlastní web řídíte sami: značku, obsah i způsob, jak zachytíte poptávku. Klienty nepřináší hned a musí ho lidé najít. Podrobnější srovnání portálů a vlastního webu najdete v samostatném článku. Hodí se zejména tehdy, když chcete, aby vás klienti našli i mimo portály.', links: [{ page: 'postRealtyPortals' as const, text: 'Vlastní web, nebo realitní portály?' }] },
     { q: 'Kolik stojí marketing realitní kanceláře?', a: 'Cena závisí na zvolených kanálech a jejich rozsahu: portály, reklama a SEO mají každé jiný model placení. Konkrétní částky zde neuvádím. Ceny mých služeb najdete na stránkách konzultace, tříměsíčního Startu a Full SEO. Technické chyby webu zkontroluje bezplatný audit bez závazku.', links: [{ page: 'consulting' as const, text: 'SEO konzultace' }, { page: 'start' as const, text: 'SEO start na 3 měsíce' }, { page: 'fullSeo' as const, text: 'Full SEO na rok' }, { page: 'audit' as const, text: 'Bezplatný audit' }] },
     { q: 'Kdy začne SEO přinášet první poptávky?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám. Rychlost závisí na stavu webu, konkurenci a rozsahu úprav. V realitním oboru zatím nemám vlastní případovou studii, takže pro něj žádný termín neslibuji a odhad vychází až z auditu.' },
     { q: 'Je lepší reklama, nebo SEO pro realitní kancelář?', a: 'Nelze říct obecně. Reklama obvykle přivede návštěvníky rychleji, ale jen po dobu placení. SEO pracuje déle a nemá záruku výsledku, ale nezávisí na každém kliknutí. Vyberte podle rozpočtu, časového horizontu a schopnosti obsah udržovat. Reklamu nespravuji, proto doporučení nestavím na mém zájmu.' },

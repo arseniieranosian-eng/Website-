@@ -243,6 +243,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
     },
   },
+  postRealtyPortals: {
+    cs: {
+      name: 'Vlastní web, nebo realitní portály',
+      title: 'Realitní portály vs vlastní web: co se hodí | Eranosian',
+      description: 'Má smysl vlastní web realitní kanceláře, když jsou portály? Jak se doplňují, kdy stačí portál a co ověří bezplatný audit technických chyb. Bez slibů.',
+      h1: 'Vlastní web, nebo realitní portály? Jak spolu fungují',
+    },
+    en: { name: 'Own website or real estate portals', title: 'Own website or real estate portals', description: 'Own website or real estate portals', h1: 'Own website or real estate portals? How they work together' },
+    ru: { name: 'Собственный сайт или порталы недвижимости', title: 'Собственный сайт или порталы недвижимости', description: 'Собственный сайт или порталы недвижимости', h1: 'Собственный сайт или порталы недвижимости? Как они работают вместе' },
+  },
   postRealtyListings: {
     cs: {
       name: 'Nabídky nemovitostí a SEO',

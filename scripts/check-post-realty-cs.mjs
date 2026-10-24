@@ -6,7 +6,7 @@ const URL_PATH = '/blog/jak-ziskat-klienty-pro-realitni-kancelar/';
 const H1 = 'Jak získat klienty pro realitní kancelář: přehled kanálů';
 const TITLE = 'Klienti pro realitní kancelář: přehled kanálů | Eranosian';
 const DESC = 'Odkud se berou klienti realitní kanceláře? Porovnávám portály, vlastní web, doporučení, reklamu a SEO a ukazuji, čím začít. Požádejte o bezplatný audit.';
-const SECTIONS = [H1, 'Odkud se berou klienti realitní kanceláře?', 'Co přinášejí realitní portály?', 'Proč mít vlastní web, když jsou portály?', 'Jakou roli hrají doporučení a reputace?', 'Kdy dává smysl placená reklama?', 'Kdy dává smysl SEO a GEO/AEO?', 'Jak vybrat kanál podle velikosti kanceláře?', 'Jak začít: první tři kroky', 'Časté otázky', 'Chcete vědět, v jakém stavu je web vaší kanceláře?'];
+const SECTIONS = [H1, 'Odkud se berou klienti realitní kanceláře?', 'Co přinášejí realitní portály?', 'Jakou roli hraje vlastní web?', 'Jakou roli hrají doporučení a reputace?', 'Kdy dává smysl placená reklama?', 'Kdy dává smysl SEO a GEO/AEO?', 'Jak vybrat kanál podle velikosti kanceláře?', 'Jak začít: první tři kroky', 'Časté otázky', 'Chcete vědět, v jakém stavu je web vaší kanceláře?'];
 const LINKS = ['/blog/', '/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-pro-realitni-kancelare-praha/', '/o-mne/'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'ChatGPT v ', 'Kč', 'SEO agentur', 'první místo', 'Sreality', 'Bezrealitky', 'Reas', 'Google Ads', 'Sklik', 'levnější', 'účinnější', '×8', '×24', '+400', '65–70', 'Correct', 'KB P', 'Quantum'];
 
