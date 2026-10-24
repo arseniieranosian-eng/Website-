@@ -602,3 +602,6 @@ table.compare { min-width: 0; }
 
 /* Spacing rule: whatever follows a table (a heading, a paragraph, a list, a figure) gets a normal gap; a small grey note under the table stays close */
 .table-wrap + :not(.muted):not(.small):not(.table-wrap) { margin-top: 28px; }
+/* Four-column comparison tables (articles): tighter cells, the first column wraps */
+table.compare--4 th, table.compare--4 td { padding: 12px 12px; font-size: 0.9rem; }
+table.compare--4 th[scope='row'] { white-space: normal; width: 22%; }

@@ -36,7 +36,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/)?(?:ru\/)?blog\/|<form|seo-dlya-perevodcheskih|seo-dlya-agentstv|kejsy\/seo-perevodcheskoe/.test(main)) e('no blog links, no form, no links to other niches / the translation case');
+if (/href="\/(?:en\/)?(?:ru\/)?blog\/(?!kak-poluchit-klientov-finansovomu-konsultantu-chehiya\/")|<form|seo-dlya-perevodcheskih|seo-dlya-agentstv|kejsy\/seo-perevodcheskoe/.test(main)) e('no blog links, no form, no links to other niches / the translation case');
 if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt)) e('"агентство" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
@@ -94,6 +94,7 @@ for (const q of fq.mainEntity) if (!mainTxt.includes(norm(q.acceptedAnswer.text)
 if (!qt || qt.text !== 'Финансовые тексты пишет консультант, а моя задача — чтобы сайт был понятен поиску и ИИ.') e('Quotation');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1 && !bc.itemListElement[1].name.includes('финансовых')) e('breadcrumbs: two levels');
 
+if (!main.includes('href="/ru/blog/kak-poluchit-klientov-finansovomu-konsultantu-chehiya/"') || !mainTxt.includes('Другие материалы')) e('block "Другие материалы" with F1');
 // Inbound: sitemap, ru home, audit, header
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
 if (!sm.includes(`${BASE}${URL_PATH}`)) e('sitemap');

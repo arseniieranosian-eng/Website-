@@ -47,6 +47,7 @@ import NicheTranslationBrnoCsPage from '../views/NicheTranslationBrnoCsPage.astr
 import NicheTranslationPardubiceCsPage from '../views/NicheTranslationPardubiceCsPage.astro';
 import NicheRealtyCsPage from '../views/NicheRealtyCsPage.astro';
 import NicheRealtyRuPage from '../views/NicheRealtyRuPage.astro';
+import PostFinanceChannelsRuPage from '../views/PostFinanceChannelsRuPage.astro';
 import NicheFinanceRuPage from '../views/NicheFinanceRuPage.astro';
 import NicheAccountingCsPage from '../views/NicheAccountingCsPage.astro';
 import PostNoLeadsCsPage from '../views/PostNoLeadsCsPage.astro';
@@ -81,7 +82,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheFinance: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null,
+  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheFinance: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postFinanceChannels: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -122,6 +123,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nichePardubice' && props.lang === 'cs' && <NicheTranslationPardubiceCsPage />}
 {props.key === 'nicheRealty' && props.lang === 'cs' && <NicheRealtyCsPage />}
 {props.key === 'nicheRealty' && props.lang === 'ru' && <NicheRealtyRuPage />}
+{props.key === 'postFinanceChannels' && props.lang === 'ru' && <PostFinanceChannelsRuPage />}
 {props.key === 'nicheFinance' && props.lang === 'ru' && <NicheFinanceRuPage />}
 {props.key === 'nicheAccounting' && props.lang === 'cs' && <NicheAccountingCsPage />}
 {props.key === 'caseTypo' && props.lang === 'cs' && <CaseTypoCsPage />}

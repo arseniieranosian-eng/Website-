@@ -2,6 +2,7 @@
 // Niche landing page "SEO для финансовых консультантов в Чехии" (ru), brief of 24.10.2026. Content: data/niche-finance-ru.ts. Own structure (like the accounting page):
 // query table, causes with the dated observation, checklist, YMYL note with one Google source, GEO/AEO, roles + quote, formats table, price/timing, fit, FAQ. No prices, no video.
 import Base from '../layouts/Base.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -121,6 +122,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.articlesTitle}</h2>
+      <RelatedPosts lang={lang} keys={['postFinanceChannels']} more={C.articlesMore} />
     </div>
   </section>
 
