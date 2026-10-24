@@ -55,6 +55,7 @@ if (figs.length !== 0 || figs.some((f) => !/<svg[^>]*role="img"[^>]*aria-label="
 const QUOTE = 'Portál a vlastní web nejsou soupeři: portál přivádí rychle, web buduje značku, a obojí se dá spojit.';
 if (!new RegExp(`<figure class="quote-fig">\\s*<blockquote cite="${BASE}${URL_PATH}"><p>${QUOTE.replace(/\./g, '\\.')}</p></blockquote>\\s*<figcaption>[\\s\\S]*?— <a href="/o-mne/">Arsenii Eranosian</a>`).test(main) || [...main.matchAll(/<blockquote/g)].length !== 1) e('one author quote figure with the signature');
 if (mainTxt.indexOf(QUOTE) < mainTxt.lastIndexOf('Kdy dává smysl SEO a GEO/AEO pro vlastní web?') || mainTxt.split(' ').slice(0, 100).join(' ').includes(QUOTE)) e('the quote after the SEO section, not in the first 100 words');
+if (!mainTxt.includes('Za posledních pět měsíců (k 24. 10. 2026) jsem si prohlédl 13 webů realitních kanceláří.')) e('the dated observation (13 websites, five months)');
 // JSON-LD equals the visible text
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 const g = ld['@graph'];

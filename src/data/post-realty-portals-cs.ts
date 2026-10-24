@@ -1,5 +1,5 @@
 // Czech content of the blog article /blog/vlastni-web-nebo-realitni-portaly/ (brief N4 of 24.10.2026), the middle of the real-estate funnel N1–N10. Defaults taken (no answers to the brief's
-// questions): slug fine, no portal names (nothing is said about the conditions, prices, shares of leads or client contacts of any portal), no observations (logic only), publication date = the
+// questions): slug fine, no portal names (nothing is said about the conditions, prices, shares of leads or client contacts of any portal), one dated observation only (13 realtors' websites viewed in the last five months, as of 24. 10. 2026, answer of the author; no findings are claimed), publication date = the
 // date of the brief, the author's quote is a DRAFT and is NOT published until the author confirms it (QUOTE_CONFIRMED = false: no quote block, no Quotation). The portal is never belittled. The
 // article owns "jak získat klienty bez portálů" (N1 only mentions it). Links: N1, N2, N3, N5 (published); N8 and N10 are named without a link until they exist. No HowTo, no Service, no ratings,
 // no prices, no legal topics (rights to content), no web-building offer ("tvorbu webů nenabízím").
@@ -51,6 +51,7 @@ const raw = {
     ],
   },
   diffNote: 'Tabulka vychází z obecné logiky, bez čísel a bez hodnocení konkrétních portálů.',
+  diffObservation: 'Za posledních pět měsíců (k 24. 10. 2026) jsem si prohlédl 13 webů realitních kanceláří. Nejde o průzkum a obecná čísla z toho neodvozuji.',
 
   freeTitle: 'Jak nezávisle fungovat, aniž byste portály opustili?',
   freeAnswer: 'Nezávislost na jediném kanálu znamená mít víc zdrojů klientů: portály, doporučení, vlastní web a mapy. Žádný z nich nemusíte opouštět. Cílem je, aby výpadek nebo změna podmínek jednoho kanálu neohrozila celý přísun poptávek. Přehled kanálů a práci s mapami rozebírám v samostatných článcích.',
