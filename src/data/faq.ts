@@ -67,9 +67,9 @@ export const FAQ: FaqItem[] = [
       ru: 'Как строится сотрудничество?',
     },
     a: {
-      cs: 'Začínáme bezplatným auditem a krátkým callem. Pak vyberete formu spolupráce, já připravím plán a pravidelně reportuji výsledky. Na všechno máte jednoho člověka – mě.',
-      en: 'We start with a free audit and a short call. Then you choose the format, I prepare a plan and report results regularly. You always deal with one person – me.',
-      ru: 'Начинаем с бесплатного аудита и короткого созвона. Затем вы выбираете формат, я готовлю план и регулярно отчитываюсь о результатах. Вы всегда общаетесь с одним человеком — со мной.',
+      cs: 'Začínáme bezplatným auditem: pošlu vám krátkou prezentaci, bez hovoru. Pak vyberete formu spolupráce (call je až u placených služeb), já připravím plán a pravidelně reportuji výsledky. Na všechno máte jednoho člověka – mě.',
+      en: 'We start with a free audit: I send you a short presentation, no call. Then you choose the format (a call comes only with paid services), I prepare a plan and report results regularly. You always deal with one person – me.',
+      ru: 'Начинаем с бесплатного аудита: я присылаю короткую презентацию, без созвона. Затем вы выбираете формат (созвон бывает только в платных услугах), я готовлю план и регулярно отчитываюсь о результатах. Вы всегда общаетесь с одним человеком — со мной.',
     },
   },
   {
