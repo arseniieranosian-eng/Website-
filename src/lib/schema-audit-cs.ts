@@ -78,6 +78,7 @@ export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDI
       description: x.description,
       thumbnailUrl: abs(x.poster),
       uploadDate: x.uploadDate,
+      duration: x.duration,
       embedUrl: `https://www.youtube.com/embed/${x.youtube}`,
       url: `https://youtube.com/shorts/${x.youtube}`,
       inLanguage: 'en',

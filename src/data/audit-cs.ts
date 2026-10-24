@@ -24,7 +24,7 @@ export const AUDIT_VIDEO: {
 // until the upload date and the exact content of each Short are confirmed. The poster is a neutral card, not a frame.
 export const AUDIT_EXAMPLES: {
   id: string; niche: string; youtube: string; poster: string; presentationLang: string; text: string;
-  name: string; description: string; uploadDate: string;
+  name: string; description: string; uploadDate: string; duration: string;
 }[] = [
   {
     id: 'machinery-software',
@@ -36,6 +36,7 @@ export const AUDIT_EXAMPLES: {
     name: 'Včera přišla první poptávka z webu | SEO',
     description: 'Krátké video (YouTube Shorts) s ukázkou bezplatného SEO auditu pro web v angličtině: poptávka z formuláře (kontakty zakryté) a prezentace s technickými chybami, oba záběry anonymizované.',
     uploadDate: '2026-10-24',
+    duration: 'PT40S',
   },
 ];
 
