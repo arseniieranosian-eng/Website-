@@ -1,0 +1,140 @@
+---
+// Niche landing page "SEO для финансовых консультантов в Чехии" (ru), brief of 24.10.2026. Content: data/niche-finance-ru.ts. Own structure (like the accounting page):
+// query table, causes with the dated observation, checklist, YMYL note with one Google source, GEO/AEO, roles + quote, formats table, price/timing, fit, FAQ. No prices, no video.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheFinanceSchemas } from '../lib/schema-niche-finance';
+import { NICHE_FINANCE_RU as C } from '../data/niche-finance-ru';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/views/NicheFinanceRuPage.astro', 'src/data/niche-finance-ru.ts'], '2026-10-24');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('nicheFinance', lang)} schema={nicheFinanceSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.nicheFinance.ru.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        <a class="btn btn--secondary btn--lg" href={t('consulting')}>{C.heroConsulting}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.searchTitle}</h2>
+      <p class="answer">{C.searchAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.search.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.search.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.search.note}</p>
+      <p>{C.searchVisa}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+      <p>{C.whyObservation}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.needTitle}</h2>
+      <p class="answer">{C.needAnswer}</p>
+      <ul class="checks">{C.need.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.ymylTitle}</h2>
+      <p class="answer">{C.ymylAnswer}</p>
+      <p class="muted small">{C.ymylChecked}{' '}<a href={C.ymylSource.url} target="_blank" rel="noopener">{C.ymylSource.label}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.geoTitle}</h2>
+      <p class="answer">{C.geoAnswer}</p>
+      <p><a class="link-arrow" href={t('geo')}>{C.geoLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.rolesTitle}</h2>
+      <p class="answer">{C.rolesAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={new URL(t('nicheFinance'), site).href}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.steps.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.steps.rows.map((r) => <tr><th scope="row">{r.name}</th><td>{r.text}</td><td><a href={t(r.page)}>{r.link}</a></td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+      <p>{C.priceNote}{' '}<a href={t('cases')}>{C.priceNoteLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.fitTitle}</h2>
+      <p class="answer">{C.fitAnswer}</p>
+      <p>{C.fitText}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p><a href={t('consulting')}>{C.endConsulting}</a></p>
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>

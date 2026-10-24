@@ -18,6 +18,10 @@ const { kind } = Astro.props;
     <rect x="54" y="14" width="30" height="34" rx="5" fill="#1f4fd8" /><rect x="59" y="19" width="20" height="8" rx="2" fill="#c9d6f7" />
     <g fill="#fff"><circle cx="62" cy="34" r="2.2" /><circle cx="69" cy="34" r="2.2" /><circle cx="76" cy="34" r="2.2" /><circle cx="62" cy="41" r="2.2" /><circle cx="69" cy="41" r="2.2" /></g><circle cx="76" cy="41" r="2.2" fill="#ff6a1a" />
   </>)}
+  {kind === 'finance' && (<>
+    <rect x="14" y="30" width="10" height="16" rx="2" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.6" /><rect x="29" y="22" width="10" height="24" rx="2" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.6" /><rect x="44" y="14" width="10" height="32" rx="2" fill="#1f4fd8" />
+    <circle cx="70" cy="28" r="14" fill="#fff" stroke="#ff6a1a" stroke-width="2" /><path d="M65 28h10M70 23v10" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" />
+  </>)}
   {kind === 'realty' && (<>
     <path d="M16 30 38 12l22 18v16H16z" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" />
     <rect x="31" y="34" width="14" height="12" rx="1.5" fill="#fff" stroke="#1f4fd8" stroke-width="1.6" />
