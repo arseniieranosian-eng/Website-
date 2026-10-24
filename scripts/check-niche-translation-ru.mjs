@@ -56,7 +56,7 @@ if ((mainTxt.match(/в 24 раза/g) || []).length !== 1) e('"24 раза" once
 if (!mainTxt.includes('чешская 52 %, английская 26 %, украинская 18 %, русская 4 % ') && !mainTxt.includes('чешская 52 %, английская 26 %, украинская 18 %, русская 4 %')) e('language split');
 if (!mainTxt.includes('Брно: топ-5 по ключевым запросам и показ в Google AI Overview (на конец проекта). Пардубице: верхние локальные позиции (на конец проекта).')) e('Brno / Pardubice lines');
 if (!mainTxt.includes('разовый снимок на дату, не гарантия') || !mainTxt.includes('16.10.2026')) e('AI Overview snapshot caption');
-if (!mainTxt.includes('В июне 2026 я посмотрел сайты переводческих агентств.')) e('observation line');
+if (!mainTxt.includes('С марта по конец сентября 2026 года я регулярно просматривал сайты переводческих агентств.')) e('observation line');
 if (/\d[\d\s]{3,}(?:посещени|заявок в месяц|визит)|1 200|10 500/.test(mainTxt)) e('no absolute figures');
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 5 || rows[0].join('|') !== 'Что входит|Что не входит') e('audit table: header + 4 rows');

@@ -1,6 +1,6 @@
 // Russian niche landing page /ru/seo-dlya-perevodcheskih-agentstv-praga/ "SEO для переводческих агентств в Праге" (brief of 24.10.2026), the localisation of the Czech Praha page (hreflang pair cs ↔ ru).
 // Own section order of the brief: why, what I do (4 steps + 6 H3), practice (case with metric + window per line), how I work, audit scope, formats, clients (a link), FAQ, CTA. Defaults taken
-// (no answers to the brief's questions): "В июне 2026" belongs to the author's viewing of agency sites (one neutral line, no numbers, no names, no video); reviews = a link to /ru/otzyvy/; only the
+// (no answers to the brief's questions): the author viewed agency sites regularly from March to the end of September 2026 (answer of 24.10.2026; one neutral line, no numbers, no names, no video); reviews = a link to /ru/otzyvy/; only the
 // facts already published on the Czech page and in the RU cases (Brno / Pardubice end-of-project lines, the language split, the AI Overview snapshot of 16.10.2026) are used; the number of branches in FAQ 4
 // as in the published case. The "×24" line stands alone with its window (spring → summer 2026) and is never merged with +65–70 %. No client or agency names, no absolute figures, no competitors, no
 // legal conclusions, no guarantees, "агентство" never about the author, only "GEO/AEO". The capacity status (24.10.2026) is the same on cs / ru. Review every 90 days (23.01.2027).
@@ -51,7 +51,7 @@ export const NICHE_TRANSLATION_RU = {
     'Заявки через форму по языковым версиям (24.05–20.09.2026): чешская 52 %, английская 26 %, украинская 18 %, русская 4 %. Первая конверсия на русской версии появилась в конце июля 2026. Проценты ориентировочные, основа небольшая.',
   ],
   practiceImage: { src: '/images/niche-ai-overview-prekladatelska-agentura.webp', width: 760, height: 438, alt: 'Google AI Overview по запросу «překlady Praha»: среди перечисленных переводческих агентств есть сайт клиента, его название, адрес и логотип скрыты', caption: 'Google AI Overview по запросу «překlady Praha»: среди агентств есть сайт клиента (название, адрес и логотип скрыты). Снимок от 16.10.2026: разовый снимок на дату, не гарантия.' },
-  practiceObservation: 'В июне 2026 я посмотрел сайты переводческих агентств. Это наблюдение на ту дату, а не исследование, и общих выводов или цифр из него я не делаю.',
+  practiceObservation: 'С марта по конец сентября 2026 года я регулярно просматривал сайты переводческих агентств. Это мои наблюдения, а не исследование, и общих выводов или цифр из них я не делаю.',
   practiceNote: 'Название клиента и абсолютные числа не публикую.',
   practiceLead2: 'Весь ход проекта описан в',
   practiceLink: 'полном кейсе',

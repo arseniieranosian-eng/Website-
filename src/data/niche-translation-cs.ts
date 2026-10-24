@@ -26,7 +26,6 @@ export const NICHE_VIDEO: null | {
   width: 1280,
   height: 652,
   duration: 'PT9M',
-  recorded: 'červen 2026',
   intro: 'V 9minutovém videu procházím veřejné weby dvou překladatelských agentur: strukturu, stránky služeb, jazykové verze a indexaci. Popisuji jen to, co bylo na webech vidět v době natáčení. Nehodnotím kvalitu překladů ani byznys.',
   contact: 'Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes',
   contactLink: 'kontaktní stránku',
