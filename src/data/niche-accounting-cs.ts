@@ -94,6 +94,9 @@ const raw = {
     { q: 'S kolika kancelářemi pracujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to limit mé kapacity, ne výhradní spolupráce. Stav pro obor účetnictví k ${NICHE_ACCOUNTING_STATUS_DATE}: volno. Údaj aktualizuji při každé změně a stejný platí pro českou, ruskou i anglickou verzi webu.` },
   ],
 
+  articlesTitle: 'Další články',
+  articlesMore: 'Číst článek',
+
   endTitle: 'Požádejte o bezplatný audit technických chyb',
   endText: 'Bezplatný audit ukáže technické chyby webu účetní kanceláře: indexaci, duplicity a další technické problémy. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazků.',
   endCta: 'Požádat o bezplatný audit',

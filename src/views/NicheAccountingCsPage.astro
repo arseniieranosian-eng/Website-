@@ -2,6 +2,7 @@
 // Niche landing page "SEO pro účetní kanceláře v Praze" (cs), brief of 23.10.2026. Content: data/niche-accounting-cs.ts. Own structure (not the template of the translation /
 // real-estate pages): query table, structure problem, checklist, GEO/AEO, formats table with links, honest experience block, FAQ. No prices, no quote, no video.
 import Base from '../layouts/Base.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -108,6 +109,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.articlesTitle}</h2>
+      <RelatedPosts lang={lang} keys={['postAccountingChannels']} more={C.articlesMore} />
     </div>
   </section>
 

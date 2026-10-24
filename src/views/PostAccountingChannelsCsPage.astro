@@ -1,0 +1,118 @@
+---
+// Blog article U1 "Jak získat klienty pro účetní kancelář: přehled kanálů" (cs), brief of 24.10.2026. Content: data/post-accounting-channels-cs.ts.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postAccountingChannelsSchemas } from '../lib/schema-post-accounting-channels';
+import { POST_ACCOUNTING_CHANNELS_CS as C, POST_ACCOUNTING_CHANNELS_PUBLISHED } from '../data/post-accounting-channels-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostAccountingChannelsCsPage.astro', 'src/data/post-accounting-channels-cs.ts'], '2026-10-24'), POST_ACCOUNTING_CHANNELS_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-jak-ziskat-klienty-pro-ucetni-kancelar.png';
+const cite = new URL(t('postAccountingChannels'), site).href;
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postAccountingChannels', lang)} ogType="article" ogImage={OG} schema={postAccountingChannelsSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postAccountingChannels.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+      <p>{C.disclosure}</p>
+      <p class="muted small">{C.tocTitle}:</p>
+      <ol class="toc">{C.toc.map((x) => <li><a href={`#${x.id}`}>{x.text}</a></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="kanaly">
+    <div class="container narrow">
+      <h2>{C.channelsTitle}</h2>
+      <p class="answer">{C.channelsAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare compare--4">
+          <thead><tr>{C.channels.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.channels.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}{r[0].startsWith('Mapy') && i === 3 && <>{' '}(<a href={t('maps')}>{C.channels.mapsLink}</a>)</>}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="doporuceni">
+    <div class="container narrow">
+      <h2>{C.recTitle}</h2>
+      <p class="answer">{C.recAnswer}</p>
+      <p>{C.recText}</p>
+    </div>
+  </section>
+
+  <section class="section" id="web">
+    <div class="container narrow">
+      <h2>{C.webTitle}</h2>
+      <p class="answer">{C.webAnswer}</p>
+      <p>{C.webLead}{' '}<a href={t('nicheAccounting')}>{C.webLinkText}</a>.</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="mapy">
+    <div class="container narrow">
+      <h2>{C.mapsTitle}</h2>
+      <p class="answer">{C.mapsAnswer}</p>
+      <p>{C.mapsLead}{' '}<a href={t('maps')}>{C.mapsLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="reklama">
+    <div class="container narrow">
+      <h2>{C.adsTitle}</h2>
+      <p class="answer">{C.adsAnswer}</p>
+      <p>{C.adsText}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="vyber">
+    <div class="container narrow">
+      <h2>{C.chooseTitle}</h2>
+      <p class="answer">{C.chooseAnswer}</p>
+      <p>{C.chooseLead}</p>
+      <ul class="checks">{C.choose.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section" id="start">
+    <div class="container narrow">
+      <h2>{C.startTitle}</h2>
+      <p class="answer">{C.startAnswerBefore}{' '}<a href={t('audit')}>{C.startAnswerLink}</a>. {C.startAnswerAfter}</p>
+      <ol class="steps">{C.start.map((x) => <li><span>{x}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.endTitle}</h2>
+      <p>{C.endText}{' '}<a href={t('nicheAccounting')}>{C.endLandingLink}</a>.</p>
+      <p>{C.endAudit}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <p>{C.endConsulting}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>. {C.endGrow}{' '}<a href={t('start')}>{C.endStart}</a>{' '}{C.endOr}{' '}<a href={t('fullSeo')}>{C.endFull}</a>.</p>
+    </div>
+  </section>
+</Base>

@@ -243,6 +243,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
     },
   },
+  postAccountingChannels: {
+    cs: {
+      name: 'Jak získat klienty pro účetní kancelář',
+      title: 'Jak získat klienty pro účetní kancelář: kanály | Eranosian',
+      description: 'Jak získat klienty pro účetní kancelář: doporučení, web a SEO, mapy, reklama i sítě. Přehled kanálů bez slibů. Zdarma technický audit webu.',
+      h1: 'Jak získat klienty pro účetní kancelář: přehled kanálů',
+    },
+    en: { name: 'How to get clients for an accounting firm', title: 'How to get clients for an accounting firm', description: 'How to get clients for an accounting firm', h1: 'How to get clients for an accounting firm: an overview of channels' },
+    ru: { name: 'Как получить клиентов бухгалтерской фирме', title: 'Как получить клиентов бухгалтерской фирме', description: 'Как получить клиентов бухгалтерской фирме', h1: 'Как получить клиентов бухгалтерской фирме: обзор каналов' },
+  },
   postFinanceChannels: {
     cs: { name: 'Jak získat klienty pro finančního poradce', title: 'Jak získat klienty pro finančního poradce', description: 'Jak získat klienty pro finančního poradce', h1: 'Jak získat klienty pro finančního poradce v Česku: přehled kanálů' },
     en: { name: 'How to get clients as a financial consultant', title: 'How to get clients as a financial consultant', description: 'How to get clients as a financial consultant', h1: 'How to get clients as a financial consultant in Czechia: an overview of channels' },
