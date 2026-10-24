@@ -524,6 +524,9 @@ table.compare { min-width: 0; }
 .niche-video__facade img { display: block; width: 100%; height: auto; }
 .niche-video__play { position: absolute; inset: 0; margin: auto; width: 72px; height: 72px; border-radius: 50%; background: rgb(255 106 26 / 95%); box-shadow: 0 6px 24px rgb(0 0 0 / 45%); }
 .niche-video__play::before { content: ''; position: absolute; left: 29px; top: 22px; border-style: solid; border-width: 14px 0 14px 22px; border-color: transparent transparent transparent #fff; }
+.niche-video--short { max-width: 360px; margin-left: 0; margin-right: 0; }
+.niche-video--short .niche-video__frame { aspect-ratio: 9 / 16; }
+.audit-example { margin: 20px 0 28px; }
 .niche-video__frame { display: block; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: var(--radius); }
 
 /* "SEO pro" menu: a second level (niche → cities). Mobile: inline accordion; desktop: a flyout on the right */

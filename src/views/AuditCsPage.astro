@@ -10,7 +10,7 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { auditCsSchemas } from '../lib/schema-audit-cs';
-import { AUDIT_CS as C, AUDIT_VIDEO as V } from '../data/audit-cs';
+import { AUDIT_CS as C, AUDIT_VIDEO as V, AUDIT_EXAMPLES as EX } from '../data/audit-cs';
 import { REVIEWS } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
@@ -114,6 +114,26 @@ import QuoteCaption from '../components/QuoteCaption.astro';
           <p>{C.videoText}</p>
         </>
       )}
+      {EX.length > 0 && (
+        <>
+          <h3>{C.examplesTitle}</h3>
+          <p>{C.examplesLead}</p>
+          {EX.map((x) => (
+            <div class="audit-example">
+              <p><strong>{C.examplesNiche}:</strong> {x.niche}</p>
+              <p class="muted small">{C.examplesLang}: {x.presentationLang}</p>
+              <figure class="niche-video niche-video--short" data-youtube={x.youtube}>
+                <button class="niche-video__facade" type="button" aria-label={C.examplesPlay}>
+                  <img src={x.poster} width="720" height="1280" alt={`Náhled videa: ukázka auditu, obor ${x.niche}`} loading="lazy" decoding="async" />
+                  <span class="niche-video__play" aria-hidden="true"></span>
+                </button>
+                <figcaption class="muted small"><a href={`https://youtube.com/shorts/${x.youtube}`} target="_blank" rel="noopener">{C.examplesOpen}</a></figcaption>
+              </figure>
+              <p>{x.text}</p>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   </section>
 
@@ -186,3 +206,17 @@ import QuoteCaption from '../components/QuoteCaption.astro';
     </div>
   </section>
 </Base>
+<script>
+  document.querySelectorAll<HTMLElement>('.niche-video').forEach((fig) => {
+    const btn = fig.querySelector<HTMLButtonElement>('.niche-video__facade');
+    btn?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${fig.dataset.youtube}?autoplay=1&rel=0`;
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      f.title = 'Ukázka auditu';
+      f.className = 'niche-video__frame';
+      btn.replaceWith(f);
+    });
+  });
+</script>

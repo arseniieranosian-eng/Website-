@@ -66,6 +66,11 @@ const checks = [...(h.match(/Co v bezplatném auditu zkontroluji\?[\s\S]*?<ul cl
 if (checks !== 3) e(`three checks expected, found ${checks}`);
 if (!mainTxt.includes('Bezplatný audit je') && false) e('');
 
+// Audit examples by niche (YouTube Shorts facade, no client names, no VideoObject until the date is confirmed)
+if (!mainTxt.includes('Příklady auditů podle oboru') || !mainTxt.includes('Obor: Vývoj specializovaného softwaru pro automatizaci strojírenských a kovoobráběcích podniků')) e('audit example: heading / niche');
+if (!/data-youtube="J6w0iMTKJJk"/.test(h) || !h.includes('href="https://youtube.com/shorts/J6w0iMTKJJk"')) e('audit example: YouTube Short');
+if (/<iframe/.test(h)) e('YouTube player must load only on click');
+
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = by('WebPage'), sv = by('Service'), fq = by('FAQPage'), bc = by('BreadcrumbList'), ht = by('HowTo'), vd = by('VideoObject');
@@ -99,7 +104,7 @@ if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.cr
 const hasVideo = /<video/.test(h);
 if (hasVideo !== Boolean(vd)) e('<video> and VideoObject must appear together');
 if (hasVideo) {
-  if (!/<video[^>]*controls[^>]*preload="metadata"[^>]*poster=/.test(h) || /autoplay/.test(h)) e('video: controls, preload=metadata, poster, no autoplay');
+  if (!/<video[^>]*controls[^>]*preload="metadata"[^>]*poster=/.test(h) || /<video[^>]*autoplay/.test(h)) e('video: controls, preload=metadata, poster, no autoplay');
   if (!body.includes(norm(vd.description)) || !body.includes(norm(vd.transcript))) e('video description / transcript must be visible');
   if (!vd.contentUrl || vd.embedUrl || wp.video?.['@id'] !== vd['@id'] || vd.name !== 'Ukázka výstupu bezplatného SEO auditu (anonymizováno)') e('VideoObject fields');
 }
