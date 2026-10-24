@@ -19,7 +19,7 @@ for (const P of PAGES) {
   const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
   const url = `${BASE}${P.path}`;
   // one figure, exact markup, one link to /o-mne/
-  const figs = [...main.matchAll(/<figure class="quote-fig">\s*<blockquote cite="([^"]*)"><p>([^<]*)<\/p><\/blockquote>\s*<figcaption><img src="\/images\/author-1-avatar\.jpg"[^>]*><span>— <a href="\/o-mne\/">Arsenii Eranosian<\/a>, SEO a GEO\/AEO specialista<\/span><\/figcaption>\s*<\/figure>/g)];
+  const figs = [...main.matchAll(/<figure class="quote-fig">\s*<blockquote cite="([^"]*)"><p>([^<]*)<\/p><\/blockquote>\s*<figcaption><img src="\/images\/author-2-avatar\.jpg"[^>]*><span>— <a href="\/o-mne\/">Arsenii Eranosian<\/a>, SEO a GEO\/AEO specialista<\/span><\/figcaption>\s*<\/figure>/g)];
   if (figs.length !== 1 || figs[0][1] !== url || dec(figs[0][2]) !== P.text) { e(`${P.path}: one quote figure with cite = page URL, the text and the signature linking to /o-mne/`); continue; }
   // position: right after the named block, before the next one (not in the hero)
   const i = main.indexOf('class="quote-fig"');

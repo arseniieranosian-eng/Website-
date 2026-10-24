@@ -87,7 +87,7 @@ for (const [hd, ans] of [['Что проверяет бесплатный SEO-а
 }
 // Quote after "Чего в бесплатном аудите нет", before "Как проходит SEO-аудит"
 const QT = 'Честнее сразу сказать, чего в бесплатном аудите нет, чем обещать больше, чем он способен дать.';
-const qf = h.match(/<figure class="quote-fig">\s*<blockquote cite="([^"]*)"><p>([^<]*)<\/p><\/blockquote>\s*<figcaption><img src="\/images\/author-1-avatar\.jpg"[^>]*><span>— <a href="\/ru\/obo-mne\/">Арсений Ераносьян<\/a>, SEO- и GEO\/AEO-специалист<\/span><\/figcaption>/);
+const qf = h.match(/<figure class="quote-fig">\s*<blockquote cite="([^"]*)"><p>([^<]*)<\/p><\/blockquote>\s*<figcaption><img src="\/images\/author-2-avatar\.jpg"[^>]*><span>— <a href="\/ru\/obo-mne\/">Арсений Ераносьян<\/a>, SEO- и GEO\/AEO-специалист<\/span><\/figcaption>/);
 if (!qf || qf[2] !== QT || qf[1] !== `${BASE}${URL_PATH}`) e('quote figure: text, cite, caption with a link to /ru/obo-mne/');
 const iq = mainTxt.indexOf(QT);
 if (!(mainTxt.indexOf('Чего в бесплатном аудите нет') < iq && iq < mainTxt.indexOf('Как проходит SEO-аудит'))) e('quote position: after the "not included" block, before the stages');
