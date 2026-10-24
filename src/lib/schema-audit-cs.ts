@@ -1,4 +1,4 @@
-import type { AUDIT_CS, AUDIT_VIDEO } from '../data/audit-cs';
+import type { AUDIT_CS, AUDIT_VIDEO, AUDIT_EXAMPLES } from '../data/audit-cs';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { ids } from './schema';
@@ -6,7 +6,7 @@ import { ids } from './schema';
 // Page-specific JSON-LD for /audit-zdarma/ (brief of 20.10.2026). Service describes exactly what the audit contains
 // (technical errors): nothing about keywords, competitors, maps, AI or speed. Offer price 0 CZK; consultation prices
 // never enter this markup. No AggregateRating, no Review. VideoObject only while the sample video is on the page.
-export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDIT_VIDEO, opts: { modified: string }) {
+export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDIT_VIDEO, examples: typeof AUDIT_EXAMPLES, opts: { modified: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('audit', lang));
@@ -25,7 +25,7 @@ export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDI
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
       mainEntity: { '@id': `${url}#service` },
-      ...(video ? { video: { '@id': `${url}#video` } } : {}),
+      ...(video || examples.length ? { video: [...(video ? [{ '@id': `${url}#video` }] : []), ...examples.map((x) => ({ '@id': `${url}#video-${x.id}` }))] } : {}),
     },
     {
       '@type': 'Service',
@@ -71,6 +71,20 @@ export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDI
           isPartOf: { '@id': `${url}#webpage` },
         }]
       : []),
+    ...examples.map((x) => ({
+      '@type': 'VideoObject',
+      '@id': `${url}#video-${x.id}`,
+      name: x.name,
+      description: x.description,
+      thumbnailUrl: abs(x.poster),
+      uploadDate: x.uploadDate,
+      embedUrl: `https://www.youtube.com/embed/${x.youtube}`,
+      url: `https://youtube.com/shorts/${x.youtube}`,
+      inLanguage: 'en',
+      author: { '@id': id.person },
+      about: { '@id': `${url}#service` },
+      isPartOf: { '@id': `${url}#webpage` },
+    })),
     {
       '@type': 'FAQPage',
       mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),

@@ -24,6 +24,7 @@ export const AUDIT_VIDEO: {
 // until the upload date and the exact content of each Short are confirmed. The poster is a neutral card, not a frame.
 export const AUDIT_EXAMPLES: {
   id: string; niche: string; youtube: string; poster: string; presentationLang: string; text: string;
+  name: string; description: string; uploadDate: string;
 }[] = [
   {
     id: 'machinery-software',
@@ -31,7 +32,10 @@ export const AUDIT_EXAMPLES: {
     youtube: 'J6w0iMTKJJk',
     poster: '/images/audit-example-machinery-software.webp',
     presentationLang: 'angličtina',
-    text: 'Audit webu v angličtině pro majitelku anglicky mluvícího webu. Prezentace byla v angličtině. Video je krátký záznam, ve kterém listuji hotovou prezentací; nahoře jsou popsány okolnosti auditu. Klienta nejmenuji.',
+    text: 'Audit webu v angličtině pro majitelku anglicky mluvícího webu. Prezentace byla v angličtině. Video je krátký záznam: ukazuje poptávku na bezplatný audit z formuláře na tomto webu (jméno a kontakty jsou zakryté) a hotovou prezentaci, kterou jsem poslal. V záběru je i snímek o signálech canonical (1 canonical na neindexovatelnou stránku, 8 stránek s canonical na jinou adresu). Nahoře ve videu je popis: audit jsem udělal a poslal ještě týž den, jak jsem slíbil. Klienta nejmenuji.',
+    name: 'Včera přišla první poptávka z webu | SEO',
+    description: 'Krátké video (YouTube Shorts) s ukázkou bezplatného SEO auditu pro web v angličtině: poptávka z formuláře (kontakty zakryté) a prezentace s technickými chybami, oba záběry anonymizované.',
+    uploadDate: '2026-10-24',
   },
 ];
 
@@ -91,6 +95,7 @@ export const AUDIT_CS = {
   examplesTitle: 'Příklady auditů podle oboru',
   examplesLead: 'U každého příkladu uvádím obor webu. Klienty nejmenuji. Další příklady přidám, jakmile budou hotové.',
   examplesNiche: 'Obor',
+  sampleNiche: 'Obor ukázky: e-shop s kosmetikou a parfémy.',
   examplesLang: 'Jazyk prezentace',
   examplesPlay: 'Přehrát video',
   examplesOpen: 'Otevřít na YouTube',

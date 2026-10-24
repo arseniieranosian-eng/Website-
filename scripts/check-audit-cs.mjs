@@ -73,7 +73,9 @@ if (/<iframe/.test(h)) e('YouTube player must load only on click');
 
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
-const wp = by('WebPage'), sv = by('Service'), fq = by('FAQPage'), bc = by('BreadcrumbList'), ht = by('HowTo'), vd = by('VideoObject');
+const wp = by('WebPage'), sv = by('Service'), fq = by('FAQPage'), bc = by('BreadcrumbList'), ht = by('HowTo'), vd = ld.find((n) => n['@type'] === 'VideoObject' && n.contentUrl), ex = ld.find((n) => n['@type'] === 'VideoObject' && n.embedUrl);
+if (!ex || ex.uploadDate !== '2026-10-24' || ex.name !== 'Včera přišla první poptávka z webu | SEO' || !wp.video.some((v) => v['@id'] === ex['@id'])) e('example VideoObject');
+if (!mainTxt.includes('Obor ukázky: e-shop s kosmetikou a parfémy.')) e('sample niche');
 if (ld.some((n) => ['AggregateRating', 'Review'].includes(n['@type'])) || sv.review) e('no AggregateRating / Review');
 if (/klíčov|konkurenc|mapy|viditelnost|rychlost|Core Web|mobiln/i.test(JSON.stringify([sv.name, sv.serviceType, sv.description, sv.offers]))) e('Service markup must describe technical errors only');
 if (wp.name !== title || wp.description !== desc || wp.inLanguage !== 'cs') e('WebPage name / description / inLanguage');
@@ -106,7 +108,7 @@ if (hasVideo !== Boolean(vd)) e('<video> and VideoObject must appear together');
 if (hasVideo) {
   if (!/<video[^>]*controls[^>]*preload="metadata"[^>]*poster=/.test(h) || /<video[^>]*autoplay/.test(h)) e('video: controls, preload=metadata, poster, no autoplay');
   if (!body.includes(norm(vd.description)) || !body.includes(norm(vd.transcript))) e('video description / transcript must be visible');
-  if (!vd.contentUrl || vd.embedUrl || wp.video?.['@id'] !== vd['@id'] || vd.name !== 'Ukázka výstupu bezplatného SEO auditu (anonymizováno)') e('VideoObject fields');
+  if (!vd.contentUrl || vd.embedUrl || !wp.video?.some((v) => v['@id'] === vd['@id']) || vd.name !== 'Ukázka výstupu bezplatného SEO auditu (anonymizováno)') e('VideoObject fields');
 }
 // One source: the case line equals the shared one, the consultation prices come from the consultation page
 if (!mainTxt.includes('Překladatelská agentura se třemi pobočkami')) e('case line from the shared source');

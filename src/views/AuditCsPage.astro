@@ -31,7 +31,7 @@ const notes = { 'make-up-agency': 'Agentura, přes kterou jsem pracoval s překl
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 import QuoteCaption from '../components/QuoteCaption.astro';
 ---
-<Base {...pageProps('audit', lang)} schema={auditCsSchemas(site, C, V, { modified: MOD })}>
+<Base {...pageProps('audit', lang)} schema={auditCsSchemas(site, C, V, EX, { modified: MOD })}>
   <!-- HERO -->
   <section class="page-hero">
     <div class="container">
@@ -104,6 +104,7 @@ import QuoteCaption from '../components/QuoteCaption.astro';
       {V && (
         <>
           <h3>{C.videoTitle}</h3>
+          <p>{C.sampleNiche}</p>
           <figure class="audit-video">
             <video controls preload="metadata" poster={V.poster} width={V.width} height={V.height}>
               <source src={V.src} type="video/mp4" />
