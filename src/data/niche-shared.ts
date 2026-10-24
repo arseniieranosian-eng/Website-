@@ -41,6 +41,15 @@ export const NICHE_SHARED_CS = walk({
   capacityShort: `Nejvýše tři firmy z jednoho oboru. Údaj platí k ${NICHE_CAPACITY_DATE}.`,
 });
 
+// Translation niche (Praha, Brno, Pardubice cs + the ru Praha page): its status date is 24. 10. 2026 (brief of 24.10.2026); the other niches keep their own dates.
+export const NICHE_CAPACITY_DATE_TRANSLATION = '24. 10. 2026';
+export const NICHE_CAPACITY_DATE_TRANSLATION_RU = '24.10.2026';
+export const NICHE_SHARED_CS_TR = {
+  ...NICHE_SHARED_CS,
+  capacityAnswer: NICHE_SHARED_CS.capacityAnswer.replace(NICHE_CAPACITY_DATE, NICHE_CAPACITY_DATE_TRANSLATION),
+  capacityShort: NICHE_SHARED_CS.capacityShort.replace(NICHE_CAPACITY_DATE, NICHE_CAPACITY_DATE_TRANSLATION),
+};
+
 // Russian wording of the shared blocks (same rules as the Czech source above: three firms per niche, audit scope, 2–3 months, no guarantees).
 export const NICHE_CAPACITY_DATE_RU = '22.10.2026';
 export const NICHE_SHARED_RU = {

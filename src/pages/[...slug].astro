@@ -49,6 +49,7 @@ import NicheRealtyCsPage from '../views/NicheRealtyCsPage.astro';
 import NicheRealtyRuPage from '../views/NicheRealtyRuPage.astro';
 import PostAccountingChannelsCsPage from '../views/PostAccountingChannelsCsPage.astro';
 import PostFinanceChannelsRuPage from '../views/PostFinanceChannelsRuPage.astro';
+import NicheTranslationRuPage from '../views/NicheTranslationRuPage.astro';
 import NicheTypographyCsPage from '../views/NicheTypographyCsPage.astro';
 import NicheFinanceRuPage from '../views/NicheFinanceRuPage.astro';
 import NicheAccountingCsPage from '../views/NicheAccountingCsPage.astro';
@@ -121,6 +122,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'caseHalf' && props.lang === 'ru' && <CaseHalfRuPage />}
 {props.key === 'caseRazbor' && props.lang === 'ru' && <CaseRazborRuPage />}
 {props.key === 'nicheTranslation' && props.lang === 'cs' && <NicheTranslationCsPage />}
+{props.key === 'nicheTranslation' && props.lang === 'ru' && <NicheTranslationRuPage />}
 {props.key === 'nicheBrno' && props.lang === 'cs' && <NicheTranslationBrnoCsPage />}
 {props.key === 'nichePardubice' && props.lang === 'cs' && <NicheTranslationPardubiceCsPage />}
 {props.key === 'nicheRealty' && props.lang === 'cs' && <NicheRealtyCsPage />}

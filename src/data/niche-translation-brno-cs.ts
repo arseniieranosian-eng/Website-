@@ -6,7 +6,7 @@
 // "já", the word "agentura" is never used about the author. The case uses only the approved formula; the Brno lines repeat the case page
 // WITHOUT the AI Overview claim (its date, conditions and a screenshot are still missing). The quote is a draft for the author's approval.
 import { HALF_FORMULA_CS } from './case-summary';
-import { NICHE_SHARED_CS } from './niche-shared';
+import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS } from './niche-shared';
 import { NICHE_READY } from '../i18n/routes';
 import { walk } from '../lib/cs-typo';
 

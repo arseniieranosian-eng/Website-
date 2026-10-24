@@ -1,0 +1,128 @@
+---
+// Russian niche landing page "SEO для переводческих агентств в Праге" (ru), brief of 24.10.2026: localisation of the Czech Praha page (hreflang pair cs ↔ ru from ONLY_LANGS).
+// Content: data/niche-translation-ru.ts. Own section order of the brief; no prices, no quote, no video, no agency names.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheTranslationRuSchemas } from '../lib/schema-niche-translation-ru';
+import { NICHE_TRANSLATION_RU as C, NICHE_TRANSLATION_RU_PUBLISHED } from '../data/niche-translation-ru';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/NicheTranslationRuPage.astro', 'src/data/niche-translation-ru.ts', 'src/data/niche-shared.ts'], '2026-10-25'), NICHE_TRANSLATION_RU_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('nicheTranslation', lang)} schema={nicheTranslationRuSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.nicheTranslation.ru.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+      <p>{C.whyText}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <p class="answer">{C.doAnswer}</p>
+      <ol class="steps">{C.do.map((x) => <li><span>{x}</span></li>)}</ol>
+      {C.doParts.map((p) => (
+        <>
+          <h3>{p.h}</h3>
+          <p>{p.text}{p.link && <>{' '}<a href={t(p.link.page)}>{p.link.text}</a>.</>}</p>
+        </>
+      ))}
+      <p>{C.doNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.practiceTitle}</h2>
+      <p class="answer">{C.practiceAnswer}</p>
+      <p>{C.practiceLead}</p>
+      <ul class="checks">{C.practice.map((x) => <li>{x}</li>)}</ul>
+      <figure class="post-figure">
+        <img src={C.practiceImage.src} width={C.practiceImage.width} height={C.practiceImage.height} alt={C.practiceImage.alt} loading="lazy" decoding="async" />
+        <figcaption>{C.practiceImage.caption}</figcaption>
+      </figure>
+      <p>{C.practiceObservation}</p>
+      <p class="muted small">{C.practiceNote}</p>
+      <p>{C.practiceLead2}{' '}<a href={t('caseHalf')}>{C.practiceLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopAnswer}</p>
+      <p>{C.coopLinks.map((l, i) => <>{i > 0 && ' · '}<a class="link-arrow" href={t(l.page)}>{l.text}</a></>)}</p>
+      <p class="muted small">{C.coopNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.auditTitle}</h2>
+      <p class="answer">{C.auditAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.audit.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.audit.rows.map((r) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p>{C.auditChecksLead}</p>
+      <ul class="checks">{C.auditChecks.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.auditNote}{' '}{C.auditLead}{' '}<a href={t('audit')}>{C.auditLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.formatsTitle}</h2>
+      <p class="answer">{C.formatsAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.reviewsTitle}</h2>
+      <p>{C.reviewsText}{' '}<a href={t('reviews')}>{C.reviewsLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>

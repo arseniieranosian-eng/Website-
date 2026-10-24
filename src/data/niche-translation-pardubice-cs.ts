@@ -7,7 +7,7 @@
 // the word "agentura" is never used about the author. The case uses only the approved formula; the city lines stay empty until the periods and
 // relative figures for Pardubice are confirmed (and no AI Overview / ChatGPT claim). The quote is a draft for the author's approval.
 import { HALF_FORMULA_CS } from './case-summary';
-import { NICHE_SHARED_CS, NICHE_CAPACITY_DATE } from './niche-shared';
+import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS, NICHE_CAPACITY_DATE_TRANSLATION as NICHE_CAPACITY_DATE } from './niche-shared';
 import { NICHE_READY } from '../i18n/routes';
 import { walk } from '../lib/cs-typo';
 

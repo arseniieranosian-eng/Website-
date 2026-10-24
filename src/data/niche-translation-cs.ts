@@ -6,7 +6,7 @@
 // companies) is rendered only when NICHE_VIDEO is set: until then no chapters, observations, transcript or VideoObject exist. The "Další města"
 // block (Brno, Pardubice) appears when those pages are published. The quote is a draft for the author's approval.
 import { HALF_FORMULA_CS } from './case-summary';
-import { NICHE_SHARED_CS } from './niche-shared';
+import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS } from './niche-shared';
 import { walk } from '../lib/cs-typo';
 import { NICHE_READY } from '../i18n/routes';
 
@@ -26,6 +26,7 @@ export const NICHE_VIDEO: null | {
   width: 1280,
   height: 652,
   duration: 'PT9M',
+  recorded: 'červen 2026',
   intro: 'V 9minutovém videu procházím veřejné weby dvou překladatelských agentur: strukturu, stránky služeb, jazykové verze a indexaci. Popisuji jen to, co bylo na webech vidět v době natáčení. Nehodnotím kvalitu překladů ani byznys.',
   contact: 'Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes',
   contactLink: 'kontaktní stránku',

@@ -26,7 +26,10 @@ if (title !== TITLE || title.length > 60) e(`title: ${title} (${title.length})`)
 if (desc !== DESC || desc.length > 160) e(`description: ${desc} (${desc.length})`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h) || /<meta name="robots"[^>]*noindex/.test(h)) e('Czech-only page, indexable, no hreflang');
+if (/<meta name="robots"[^>]*noindex/.test(h)) e('indexable');
+// hreflang pair cs ↔ ru (the Russian version exists since 24.10.2026; the site convention adds x-default = cs)
+const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + ' ' + m[2]);
+if (JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `ru ${BASE}/ru/seo-dlya-perevodcheskih-agentstv-praga/`, `x-default ${BASE}${URL_PATH}`])) e('hreflang pair cs ↔ ru: ' + JSON.stringify(alts));
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x) || /přesto\.cz/.test(x));
@@ -55,7 +58,7 @@ if (!/<img src="\/images\/niche-ai-overview-prekladatelska-agentura\.webp" width
 if (!mainTxt.includes('Snímek obrazovky z 16. 10. 2026.')) e('case screenshot: dated 16. 10. 2026');
 if (!/Další články pro agentury<\/h2>[\s\S]*?href="\/blog\/proc-prekladatelska-agentura-nema-poptavky\/"/.test(main)) e('card of the article for agencies');
 // Capacity rule: one source, the date, the three steps
-if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Údaj platí k 22. 10. 2026')) e('capacity rule');
+if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Údaj platí k 24. 10. 2026')) e('capacity rule');
 if (/zbývá|volných míst|\d ze 3/.test(mainTxt)) e('no counter / places left');
 // Audit
 if (!mainTxt.includes('Bezplatný audit zkontroluje technické chyby webu: indexaci, duplicitní obsah a další technické problémy.') || !mainTxt.includes('Výsledek dostanete jako krátkou prezentaci do 24 hodin')) e('audit wording');
