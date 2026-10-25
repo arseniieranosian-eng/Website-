@@ -23,7 +23,7 @@ const body = txt(h);
 const mainTxt = txt(main);
 const title = norm(dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]));
 const desc = norm(dec(h.match(/<meta name="description" content="([^"]*)"/)[1]));
-if (title !== 'SEO v nízké sezóně: poptávky 24× za léto | Eranosian' || title.length < 50 || title.length > 60) e(`title: ${title} (${title.length})`);
+if (title !== 'SEO v nízké sezóně: poptávky 24× za léto | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
 if (desc !== 'Jak jsem za léto zvýšil poptávky z webu překladatelské agentury 24×, zatímco zájem o široký dotaz klesal. Případová studie, část 2. Audit zdarma.') e(`description: ${desc}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');

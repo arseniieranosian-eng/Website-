@@ -21,7 +21,7 @@ const body = txt(h);
 const mainTxt = txt(main);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
-if (title !== 'Bezplatný SEO audit webu: technické chyby | Eranosian' || title.length < 50 || title.length > 60) e(`title: ${title} (${title.length})`);
+if (title !== 'Bezplatný SEO audit webu: technické chyby | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
 if (desc !== 'Bezplatná kontrola technických chyb webu: indexace, duplicity a další problémy. Prezentace do 24 hodin, bez callu a bez závazků. Požádejte o audit.') e(`description: ${desc}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');

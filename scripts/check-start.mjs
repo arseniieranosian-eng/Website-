@@ -18,8 +18,8 @@ const h = readFileSync('dist/ru/start-3-mesyaca/index.html', 'utf8');
 const body = txt(h);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
-if (title.length < 50 || title.length > 60) e(`title length ${title.length}: ${title}`);
-if (desc.length < 120 || desc.length > 160) e(`description length ${desc.length}`);
+if (title.length < 35 || title.length > 55) e(`title length ${title.length}: ${title}`);
+if (desc.length < 120 || desc.length > 150) e(`description length ${desc.length}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 for (const [l, p] of [['cs', '/start-3-mesice/'], ['en', '/en/3-month-start/'], ['ru', URL_PATH], ['x-default', '/start-3-mesice/']]) {

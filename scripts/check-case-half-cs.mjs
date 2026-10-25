@@ -22,7 +22,7 @@ const body = txt(h);
 const mainTxt = txt(main);
 const title = norm(dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]));
 const desc = norm(dec(h.match(/<meta name="description" content="([^"]*)"/)[1]));
-if (title !== 'Případová studie SEO překladatelské agentury | Eranosian' || title.length < 50 || title.length > 60) e(`title: ${title} (${title.length})`);
+if (title !== 'Případová studie SEO překladatelské agentury' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
 if (desc !== 'Jak jsem za půl roku postavil web překladatelské agentury, který měl nulu poptávek: lokální stránky, B2B poptávky a nové vstupní body. Audit zdarma.') e(`description: ${desc}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (/nízk\S* sezón|útlumov/i.test(title + desc + H1)) e('"SEO v nízké sezóně" stays with Part 2 (not in Title / H1 / Description)');

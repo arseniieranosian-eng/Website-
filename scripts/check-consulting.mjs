@@ -30,8 +30,8 @@ for (const [lang, P] of Object.entries(PAGES)) {
   const body = txt(h);
   const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
   const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
-  if (title.length < 50 || title.length > 60) e(`title length ${title.length}: ${title}`);
-  if (desc.length < 120 || desc.length > 160) e(`description length ${desc.length}`);
+  if (title.length < 35 || title.length > 55) e(`title length ${title.length}: ${title}`);
+  if (desc.length < 120 || desc.length > 150) e(`description length ${desc.length}`);
   if (title.replace(/ \| Eranosian$/, '') === P.h1) e('title must differ from H1');
   if (!h.includes(`<link rel="canonical" href="${BASE}${P.url}">`)) e('canonical missing/wrong');
   for (const l of ['cs', 'en', 'ru', 'x-default']) if (!new RegExp(`hreflang="${l}" href="${BASE}[^"]+"`).test(h)) e(`hreflang ${l} missing`);

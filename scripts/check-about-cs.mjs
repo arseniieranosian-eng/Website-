@@ -21,7 +21,7 @@ const body = txt(h);
 const mainTxt = txt(main);
 const title = norm(dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]));
 const desc = norm(dec(h.match(/<meta name="description" content="([^"]*)"/)[1]));
-if (title !== 'Arsenii Eranosian: SEO a GEO/AEO specialista | O mně' || title.length < 45 || title.length > 60) e(`title: ${title} (${title.length})`);
+if (title !== 'Arsenii Eranosian: SEO a GEO/AEO specialista | O mně' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
 if (desc !== 'Jsem Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Začínám od byznys modelu, ne od klíčových slov. Podívejte se na projekty. Napište mi.') e(`description: ${desc}`);
 if (title.replace(/ \| O mně$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
