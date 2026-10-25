@@ -632,3 +632,32 @@ table.compare--4 th[scope='row'] { white-space: normal; width: 22%; }
 .section--ai .engines li { display: inline-flex; align-items: center; gap: 0; border: 1px solid rgb(157 180 255 / 28%); border-radius: 999px; background: rgb(255 255 255 / 5%); backdrop-filter: blur(6px); color: #e6ecff; padding: 7px 15px; font-size: 0.85rem; }
 .section--ai .engines li::before { content: ''; display: inline-block; flex: none; width: 6px; height: 6px; margin: 0 9px 0 0; border-radius: 50%; background: #8fa8ff; box-shadow: 0 0 8px #8fa8ff; }
 .section--ai .engines li:nth-child(3n+2)::before { background: #ffb27a; box-shadow: 0 0 8px #ff8a4a; }
+
+/* ===== One rhythm for text blocks (all pages, all languages) =====
+   - sections are separated by more air (and by a hairline when two neighbours share a background);
+   - every H3 inside article-like content starts a clearly separated sub-block: a hairline above and generous space around it, bigger on phones;
+   - paragraphs, lists, steps and tables end with the same gap; FAQ items are separated by hairlines. */
+:root { --flow: 1.15em; --h3-gap: 2.1em; }
+p { margin-bottom: var(--flow); line-height: 1.65; }
+ul, ol { margin-bottom: var(--flow); }
+.checks, .steps, .toc, .feature-list { margin-bottom: 1.5em; }
+.steps { margin-top: 0.4em; }
+.steps + p, .checks + p, .toc + p { margin-top: 1.5em; }
+
+.section { padding: 64px 0; }
+.section--tight { padding: 36px 0 64px; }
+@media (min-width: 768px) { .section { padding: 72px 0; } .section--tight { padding: 40px 0 72px; } }
+.section:not(.section--grey):not(.section--dark):not(.section--ai):not(.page-hero) + .section:not(.section--grey):not(.section--dark):not(.section--ai) { border-top: 1px solid var(--line); }
+
+.container.narrow > h3, .prose h3 { margin: var(--h3-gap) 0 0.55em; padding-top: 1.3em; border-top: 1px solid var(--line); font-size: 1.2rem; }
+.container.narrow > h2 + h3, .container.narrow > .answer + h3:first-of-type { margin-top: 1.6em; }
+.container.narrow > h2 + h3 { margin-top: 0.2em; padding-top: 0; border-top: 0; }
+.container.narrow > h3 + p, .prose h3 + p { margin-top: 0; }
+@media (max-width: 767px) {
+  :root { --h3-gap: 2.5em; }
+  .container.narrow > h3, .prose h3 { padding-top: 1.5em; font-size: 1.25rem; }
+  .section--tight { padding: 32px 0 60px; }
+}
+.section--dark .container.narrow > h3, .section--ai .container.narrow > h3 { border-top-color: rgb(255 255 255 / 16%); }
+
+.faq-open > div { padding: 22px 0; }
