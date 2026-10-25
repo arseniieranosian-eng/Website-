@@ -7,6 +7,8 @@ import FaqList from '../components/FaqList.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
 import ServiceCards from '../components/ServiceCards.astro';
+import StartHeroArt from '../components/StartHeroArt.astro';
+import FullHeroArt from '../components/FullHeroArt.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import Icon from '../components/Icon.astro';
 import { META } from '../i18n/meta';
@@ -40,6 +42,8 @@ const C = {
       <a class="btn btn--primary btn--lg" href="#form">{C.form}</a>
       <a class="btn btn--secondary btn--lg" href={path('audit', lang)}>{ui.ctaAudit}</a>
     </div>
+    {service === 'start' && <StartHeroArt slot="art" />}
+    {service === 'fullSeo' && <FullHeroArt slot="art" />}
   </PageHero>
 
   <section class="section section--tight">

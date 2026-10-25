@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
+import FullHeroArt from '../components/FullHeroArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -35,16 +36,19 @@ const others = [
 <Base {...pageProps('fullSeo', lang)} schema={fullSeoSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
   <section class="page-hero">
-    <div class="container">
-      <p class="eyebrow">{C.packageName}</p>
-      <h1>{C.h1}</h1>
-      <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
-      <p class="lead">{C.lead}</p>
-      <p class="price-badge">{C.badge}</p>
-      <div class="btn-row">
-        <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
-        <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+    <div class="container hero-art-split">
+      <div>
+        <p class="eyebrow">{C.packageName}</p>
+        <h1>{C.h1}</h1>
+        <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+        <p class="lead">{C.lead}</p>
+        <p class="price-badge">{C.badge}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+          <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        </div>
       </div>
+      <FullHeroArt />
     </div>
   </section>
 
