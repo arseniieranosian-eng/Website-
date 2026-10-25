@@ -661,3 +661,10 @@ ul, ol { margin-bottom: var(--flow); }
 .section--dark .container.narrow > h3, .section--ai .container.narrow > h3 { border-top-color: rgb(255 255 255 / 16%); }
 
 .faq-open > div { padding: 22px 0; }
+
+/* "What I do" items with a small illustration (translation-agency landing, cs): the same hairline-separated sub-blocks as the plain H3s */
+.do-art { flex: none; width: 80px; height: auto; display: block; }
+.do-item { display: flex; gap: 16px; align-items: flex-start; margin: var(--h3-gap) 0 0; padding-top: 1.3em; border-top: 1px solid var(--line); }
+.do-item h3 { margin: 0 0 0.45em; font-size: 1.2rem; }
+.do-item p { margin: 0; }
+@media (max-width: 767px) { .do-art { width: 64px; } .do-item { gap: 14px; padding-top: 1.5em; } }

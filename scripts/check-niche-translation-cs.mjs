@@ -83,7 +83,7 @@ if (!how || how.step.length !== 3 || how.step.some((s, i) => norm(s.text) !== vi
 const qn = ld.filter((n) => n['@type'] === 'Quotation');
 if (qn.length !== 1 || qn[0].text !== Q || qn[0].creator['@id'] !== `${BASE}/#arsenii`) e('Quotation');
 const fq = by('FAQPage');
-const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
+const visFaq = [...((main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [""])[0]).matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 6 questions');
 if (ld.some((n) => ['AggregateRating', 'Review', 'Offer'].includes(n['@type']))) e('no ratings / reviews / offers');
 const hasVideoBlock = /id="rozbor-webu"/.test(main);

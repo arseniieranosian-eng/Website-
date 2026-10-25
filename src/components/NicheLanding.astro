@@ -11,6 +11,7 @@ import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import RelatedPosts from './RelatedPosts.astro';
 import ServiceCards from './ServiceCards.astro';
+import DoArt from './DoArt.astro';
 import { nicheTranslationSchemas } from '../lib/schema-niche-translation';
 
 interface Props { C: any; V: any; pageKey: PageKey; files: string[]; modifiedFallback: string }
@@ -61,7 +62,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
       <h2>{C.doTitle}</h2>
       <p class="answer">{C.doAnswer}</p>
       <p>{C.doIntro}</p>
-      {C.do.map((x: any) => <><h3>{x.h}</h3><p>{x.text}</p></>)}
+      {C.do.map((x: any) => x.art ? <div class="do-item"><DoArt kind={x.art} /><div><h3>{x.h}</h3><p>{x.text}</p></div></div> : <><h3>{x.h}</h3><p>{x.text}</p></>)}
       <figure class="quote-fig" style="margin-top: 28px">
         <blockquote cite={cite}><p>{C.quote}</p></blockquote>
         <QuoteCaption lang={lang} />
