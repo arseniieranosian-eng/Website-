@@ -102,12 +102,12 @@ const m = META.home[lang];
   </section>
 
   <!-- SEO + GEO/AEO -->
-  <section class="section section--dark">
+  <section class="section section--ai">
     <div class="container narrow">
       <h2>{C.geoTitle}</h2>
       <p class="lead">{C.geoAnswer}</p>
-      <ul class="checks">{C.geoPlatforms.map((p) => <li>{p}</li>)}</ul>
       <a class="btn btn--ghost-light" href={t('geo')}>{C.geoLink}</a>
+      <ul class="checks engines">{C.geoPlatforms.map((p) => <li>{p}</li>)}</ul>
     </div>
   </section>
 

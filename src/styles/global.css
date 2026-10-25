@@ -618,3 +618,17 @@ table.compare--4 th[scope='row'] { white-space: normal; width: 22%; }
 .section--ai .engines span::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 9px; border-radius: 50%; background: #8fa8ff; box-shadow: 0 0 8px #8fa8ff; vertical-align: 1px; }
 .section--ai .engines span:nth-child(3n+2)::before { background: #ffb27a; box-shadow: 0 0 8px #ff8a4a; }
 @media (min-width: 900px) { .section--ai .split .engines { align-self: end; justify-content: flex-end; margin-top: 0; max-width: 460px; justify-self: end; } }
+
+/* The same AI band inside long pages (GEO/AEO sections of landing pages and cases): tighter padding, light text on the dark field */
+.section--ai-sm { padding: 48px 0; }
+@media (min-width: 768px) { .section--ai-sm { padding: 64px 0; } }
+.section--ai .answer { color: #e8edff; max-width: 46em; }
+.section--ai .link-arrow { color: #9db4ff; }
+.section--ai .checks li { color: #c3cbe6; }
+.section--ai .checks li:not(:has(.icon))::before { background: #8fa8ff; box-shadow: 0 0 8px #8fa8ff; }
+
+/* platform chips as a real list (English home) */
+.section--ai ul.engines { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 0; }
+.section--ai .engines li { display: inline-flex; align-items: center; gap: 0; border: 1px solid rgb(157 180 255 / 28%); border-radius: 999px; background: rgb(255 255 255 / 5%); backdrop-filter: blur(6px); color: #e6ecff; padding: 7px 15px; font-size: 0.85rem; }
+.section--ai .engines li::before { content: ''; display: inline-block; flex: none; width: 6px; height: 6px; margin: 0 9px 0 0; border-radius: 50%; background: #8fa8ff; box-shadow: 0 0 8px #8fa8ff; }
+.section--ai .engines li:nth-child(3n+2)::before { background: #ffb27a; box-shadow: 0 0 8px #ff8a4a; }

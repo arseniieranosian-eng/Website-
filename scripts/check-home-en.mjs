@@ -70,7 +70,7 @@ for (const [hd, ans] of [['Which service fits you?', 'Start with a free technica
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="(answer|lead)">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 // GEO platforms list and link
-if (!/<ul class="checks">(?:<li>(?:Google|Seznam|ChatGPT|Gemini|Perplexity|AI Overviews)<\/li>){6}<\/ul>/.test(main)) e('platform list');
+if (!/<ul class="checks engines">(?:<li>(?:Google|Seznam|ChatGPT|Gemini|Perplexity|AI Overviews)<\/li>){6}<\/ul>/.test(main)) e('platform list');
 // Cases: three cards, formulas, links to the EN case list
 const cases = (main.match(/<h2>Case studies<\/h2>[\s\S]*?<\/section>/) || [''])[0];
 if ([...cases.matchAll(/<a class="card card--link" href="\/en\/case-studies\/"/g)].length !== 3) e('three case cards linking to /en/case-studies/');
