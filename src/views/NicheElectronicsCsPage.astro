@@ -33,8 +33,9 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.doTitle}</h2>
       <p class="answer">{C.doAnswer}</p>
+      <p>{C.doListLead}</p>
       <ul class="checks">{C.do.map((x) => <li>{x}</li>)}</ul>
-      <p>{C.doLead}{' '}{C.doLinks.map((l, i) => <>{i > 0 && ' · '}<a href={t(l.page)}>{l.text}</a></>)}{' '}· <a href={t('maps')}>{C.doMapsLink}</a>. {C.doGeoLead}{' '}<a href={t('geo')}>{C.doGeoLink}</a>.</p>
+      <p>{C.doLead}{' '}{C.doLinks.map((l, i) => <>{i > 0 && ' · '}<a href={t(l.page)}>{l.text}</a></>)}. {C.doGeoLead}{' '}<a href={t('geo')}>{C.doGeoLink}</a>.</p>
     </div>
   </section>
 
@@ -42,10 +43,11 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.forTitle}</h2>
       <p class="answer">{C.forAnswer}</p>
+      <p><a class="link-arrow" href="#bezplatny-audit">{C.forNext}</a></p>
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section section--grey" id="bezplatny-audit">
     <div class="container narrow">
       <h2>{C.auditTitle}</h2>
       <p class="answer">{C.auditAnswer}</p>
@@ -62,22 +64,15 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section">
     <div class="container narrow">
-      <h2>{C.adsTitle}</h2>
-      <p class="answer">{C.adsAnswer}</p>
-      <figure class="owner-quote">
-        <blockquote cite={new URL(t('nicheElectronics'), site).href}><p>{C.adsQuote.text}</p></blockquote>
-        <figcaption>
-          <img src={C.adsQuote.photo.src} width={C.adsQuote.photo.width} height={C.adsQuote.photo.height} alt={C.adsQuote.photo.alt} loading="lazy" decoding="async" />
-          <span>— <a href={C.adsQuote.instagram} rel="me noopener nofollow" target="_blank">{C.adsQuote.name}</a>, {C.adsQuote.role}, {C.adsQuote.city}</span>
-        </figcaption>
-      </figure>
-      <p class="muted small">{C.adsQuote.disclosure}</p>
+      <h2>{C.mapsTitle}</h2>
+      <p class="answer">{C.mapsAnswer}</p>
+      <p>{C.mapsLead}{' '}<a class="link-arrow" href={t('maps')}>{C.mapsLink}</a></p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.coopTitle}</h2>
       <p class="answer">{C.coopAnswer}</p>
@@ -85,7 +80,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section">
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>

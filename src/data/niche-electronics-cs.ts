@@ -1,3 +1,5 @@
+// v2 of 25.10.2026 (rules A–F): commercial intent only; the PPC objection block and the quote of Yelizaveta Butyrina (written consent, role PPC specialistka, Praha, photo and Instagram of the case page)
+// moved to funnel article 4 (open question 11, default), so the landing has NO quote and NO Quotation; the maps block is a short offer. The area is Praha (answer of 25.10.2026).
 // Czech niche landing page /seo-pro-obchody-s-elektronikou/ "SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI" (brief of 25.10.2026; cs only, hreflang self-reference only, no x-default). Rules A–D of the brief:
 // the H1 carries the result but no disclaimer (the disclaimer stands under the H1, in "Pro koho" and in the FAQ); a proof line under the H1 (the translation case, marked as another niche, then "v oboru zatím výsledky nemám");
 // commercial FAQ; prices in the cooperation block and in the FAQ come from the single sources of the service pages (consulting-shared / start-shared / fullseo-shared), the date moves with them.
@@ -37,11 +39,12 @@ const raw = {
   diffLead: 'Typy stránek, na kterých to stojí:',
   diff: ['kategorie', 'produktové stránky a jejich varianty', 'filtry a parametry v adrese', 'vyprodané a vyřazené zboží', 'vnitřní vyhledávání'],
 
-  doTitle: 'Co pro obchod s technikou dělám?',
+  doTitle: 'S čím obchodům s technikou pomáhám',
   doAnswer: 'Kontroluji technický základ e-shopu, aby vyhledávače viděly kategorie, produkty a jejich varianty, a navrhuji strukturu kategorií a filtrů. Doporučuji obsah kategorií a odpovědi na časté dotazy a připravuji web na doporučení v odpovědích AI. Strukturu, texty a značení produktů řeším v placených formátech.',
+  doListLead: 'Co dostanete:',
   do: [
-    'technický základ e-shopu',
-    'struktura kategorií a filtrů',
+    'technická kontrola e-shopu',
+    'návrh struktury kategorií a filtrů',
     'doporučení k textům kategorií',
     'FAQ',
     'příprava na GEO/AEO: přímé odpovědi, tabulky, aktuální údaje',
@@ -52,11 +55,11 @@ const raw = {
     { page: 'start' as const, text: 'SEO start na 3 měsíce' },
     { page: 'fullSeo' as const, text: 'Full SEO na rok' },
   ],
-  doMapsLink: 'SEO pro Mapy',
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
 
   forTitle: 'Pro koho je to a pro koho ne?',
+  forNext: 'Co bezplatný audit obsahuje:',
   forAnswer: 'Služba je pro internetové obchody s elektronikou a technikou i pro prodejny s e-shopem, které chtějí, aby je zájemci našli v Google a v odpovědích AI. Není pro toho, kdo čeká zaručený počet objednávek nebo první místo ve vyhledávání; to poctivě slíbit nelze.',
 
   auditTitle: 'Co obsahuje bezplatný audit a co ne?',
@@ -71,7 +74,7 @@ const raw = {
     ],
   },
   auditNote: 'Strukturu, obsah, konverzi, FAQ a značení produktů audit nehodnotí: to řeší placená konzultace nebo balíček Start.',
-  auditChecksLead: 'Co technicky zkontrolovat na webu obchodu s technikou:',
+  auditChecksLead: 'Co technicky zkontroluji na vašem e-shopu:',
   auditChecks: [
     'jsou kategorie a produkty v indexu',
     'nevznikají duplicity z filtrů a parametrů v adrese',
@@ -88,19 +91,12 @@ const raw = {
   auditExampleLink: 'krátké anonymní video (36 sekund) na stránce auditu',
   auditExampleNote: 'Je to ukázka výstupu auditu, ne případová studie obchodu s technikou.',
 
-  adsTitle: 'Nestačí obchodu reklama?',
-  adsQuote: {
-    text: 'Za každé kliknutí se platí, takže je škoda poslat ho na stránku, kde zákazník nenajde produkt, cenu ani dostupnost.',
-    name: 'Yelizaveta Butyrina',
-    role: 'PPC specialistka',
-    city: 'Praha',
-    instagram: 'https://www.instagram.com/elzabutirina/',
-    photo: { src: '/images/pripadove-studie/majitelka.jpg', width: 150, height: 150, alt: 'Yelizaveta Butyrina, PPC specialistka' },
-    disclosure: 'S paní Butyrinou spolupracuji: její agentura je partnerem v projektu z případové studie. Citace je její osobní názor, ne statistika ani příslib.',
-  },
-  adsAnswer: 'Reklamní karty produktů ve vyhledávání jsou vidět hned, ale za kliknutí se platí i tehdy, když návštěvník skončí na slabé stránce. Reklama se proto vyplatí spíš tam, kam vede na dobře připravený web s jasnými kategoriemi, produkty a údaji. SEO a reklamu lze kombinovat; jedno druhé nenahrazuje.',
+  mapsTitle: 'Profil prodejny na mapách',
+  mapsAnswer: 'Profily prodejny na Google a Mapy.com vedu v balíčcích Start a Full SEO: hovory, trasy, přechody na web a recenze. Existuje i samostatná služba Mapy. Do bezplatného auditu mapy nepatří. První místo na mapách nezaručuji. Podrobnosti a podmínky najdete na stránce služby.',
+  mapsLead: 'Služba je popsaná na stránce',
+  mapsLink: 'SEO pro Mapy',
 
-  coopTitle: 'Jak spolupráce probíhá a kolik stojí?',
+  coopTitle: 'Jak začít a kolik stojí',
   coopAnswer: `Začnete bezplatným technickým auditem. Konzultace stojí ${Q} za hodinu nebo ${A} s auditem webu a plánem na 12 měsíců, balíček Start na 3 měsíce ${S}, Full SEO od ${F} měsíčně. Pracuji současně nejvýše se třemi firmami z jednoho oboru; k ${ELECTRONICS_CAPACITY_DATE} je obor volný.`,
   coopLinks: [
     { page: 'consulting' as const, text: 'SEO konzultace' },

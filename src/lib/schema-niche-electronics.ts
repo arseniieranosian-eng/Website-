@@ -4,7 +4,7 @@ import { path } from '../i18n/routes';
 import { ids } from './schema';
 
 // Page-specific JSON-LD of the electronics stores niche landing (cs): WebPage (mainEntity → Service) + Service (provider → Person, areaServed Česko, no Offer, no prices) + FAQPage.
-// BreadcrumbList and the global graph come from the layout. The PPC specialist's quote is a Quotation (confirmed by her) with her Person node. No AggregateRating, no manual Review, no VideoObject, no HowTo, no Quotation.
+// BreadcrumbList and the global graph come from the layout. No AggregateRating, no manual Review, no VideoObject, no HowTo, no Quotation.
 export function nicheElectronicsSchemas(site: URL, C: any, opts: { modified: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
@@ -14,8 +14,6 @@ export function nicheElectronicsSchemas(site: URL, C: any, opts: { modified: str
   return [
     { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.h1, description: m.description, inLanguage: lang, datePublished: C.published ?? NICHE_ELECTRONICS_PUBLISHED, dateModified: opts.modified, isPartOf: { '@id': id.website }, author: { '@id': id.person }, breadcrumb: { '@id': `${url}#breadcrumb` }, mainEntity: { '@id': `${url}#service` } },
     { '@type': 'Service', '@id': `${url}#service`, name: C.schema.serviceName, serviceType: C.schema.serviceType, provider: { '@id': id.person }, areaServed: { '@type': 'City', name: C.schema.areaServed }, description: C.schema.description, url },
-    { '@type': 'Quotation', '@id': `${url}#quote-ads`, text: C.adsQuote.text, creator: { '@id': `${url}#ppc` }, inLanguage: lang, isPartOf: { '@id': `${url}#webpage` } },
-    { '@type': 'Person', '@id': `${url}#ppc`, name: C.adsQuote.name, jobTitle: C.adsQuote.role, image: abs(C.adsQuote.photo.src), sameAs: [C.adsQuote.instagram] },
     { '@type': 'FAQPage', mainEntity: C.faq.map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   ];
 }
