@@ -41,13 +41,23 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 
   <section class="section">
     <div class="container narrow">
+      <h2>{C.seeTitle}</h2>
+      <p class="answer">{C.seeAnswer}</p>
+      <p>{C.seeLead}</p>
+      <ul class="checks">{C.see.map((x) => <li>{x}</li>)}</ul>
+      <p><a class="link-arrow" href={t('consulting')}>{C.seeLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
       <h2>{C.forTitle}</h2>
       <p class="answer">{C.forAnswer}</p>
       <p><a class="link-arrow" href="#bezplatny-audit">{C.forNext}</a></p>
     </div>
   </section>
 
-  <section class="section section--grey" id="bezplatny-audit">
+  <section class="section" id="bezplatny-audit">
     <div class="container narrow">
       <h2>{C.auditTitle}</h2>
       <p class="answer">{C.auditAnswer}</p>
@@ -64,7 +74,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.mapsTitle}</h2>
       <p class="answer">{C.mapsAnswer}</p>
@@ -72,7 +82,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section">
     <div class="container narrow">
       <h2>{C.coopTitle}</h2>
       <p class="answer">{C.coopAnswer}</p>
@@ -80,7 +90,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>

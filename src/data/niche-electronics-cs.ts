@@ -57,6 +57,17 @@ const raw = {
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
 
+  seeTitle: 'Co vidím na webech obchodů s elektronikou a co s tím dělám?',
+  seeAnswer: 'K 15. 10. 2026 jsem si prohlédl 12 webů obchodů s elektronikou. Nejčastěji chybí FAQ nebo je nedostatečné, téměř vždy chybí blog, nadpisy nejsou formulované jako otázky a často chybí strukturovaná data. Tyto body nejsou součástí bezplatného auditu, řeší se v konzultaci a v balíčku Start.',
+  seeLead: 'Problém a co nabízím:',
+  see: [
+    'chybí FAQ nebo je nedostatečné → sada otázek a formát odpovědí',
+    'chybí blog → struktura blogu a témata článků',
+    'nadpisy nejsou otázky → nadpisy sekcí ve formě otázky',
+    'chybí strukturovaná data → značení produktů v rámci placené práce',
+  ],
+  seeLink: 'Rozebrat můj web na konzultaci',
+
   forTitle: 'Pro koho je to a pro koho ne?',
   forNext: 'Co bezplatný audit obsahuje:',
   forAnswer: 'Služba je pro internetové obchody s elektronikou a technikou v Praze i pro prodejny s e-shopem, které chtějí, aby je zájemci našli v Google a v odpovědích AI. Není pro toho, kdo čeká zaručený počet objednávek nebo první místo ve vyhledávání; to poctivě slíbit nelze.',
