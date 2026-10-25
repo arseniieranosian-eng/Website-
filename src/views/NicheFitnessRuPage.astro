@@ -1,0 +1,114 @@
+---
+// Niche landing page "SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге" (ru), brief of 25.10.2026 (rules A–G). Content: data/niche-fitness-ru.ts. Commercial intent only: help, the author's
+// dated observation (verbatim), for whom, audit scope table + technical checklist, maps offer, start and prices (single sources), FAQ. No quote, no case, no video, no funnel articles yet.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheFitnessSchemas } from '../lib/schema-niche-fitness';
+import { NICHE_FITNESS_RU as C, NICHE_FITNESS_RU_PUBLISHED } from '../data/niche-fitness-ru';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/NicheFitnessRuPage.astro', 'src/data/niche-fitness-ru.ts', 'src/data/consulting-shared.ts', 'src/data/start-shared.ts', 'src/data/fullseo-shared.ts'], '2026-10-25'), NICHE_FITNESS_RU_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('nicheFitness', lang)} schema={nicheFitnessSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.nicheFitness.ru.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <p>{C.proof}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.helpTitle}</h2>
+      <p class="answer">{C.helpAnswer}</p>
+      <p>{C.helpLead}</p>
+      <ul class="checks">{C.help.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.helpLinksLead}{' '}{C.helpLinks.map((l, i) => <>{i > 0 && ' · '}<a href={t(l.page)}>{l.text}</a></>)}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.seeTitle}</h2>
+      <p class="answer">{C.seeAnswer}</p>
+      <p>{C.seeCriterion}</p>
+      <p>{C.seeLead}</p>
+      <ul class="checks">{C.see.map((x) => <li>{x}</li>)}</ul>
+      <p><a class="link-arrow" href={t('consulting')}>{C.seeLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.forTitle}</h2>
+      <p class="answer">{C.forAnswer}</p>
+      <p>{C.forLang}</p>
+      <p><a class="link-arrow" href="#besplatnyj-audit">{C.auditTitle}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="besplatnyj-audit">
+    <div class="container narrow">
+      <h2>{C.auditTitle}</h2>
+      <p class="answer">{C.auditAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.audit.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.audit.rows.map((r) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p>{C.auditNote}</p>
+      <p>{C.auditChecksLead}</p>
+      <ul class="checks">{C.auditChecks.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.auditLead}{' '}<a href={t('audit')}>{C.auditLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.mapsTitle}</h2>
+      <p class="answer">{C.mapsAnswer}</p>
+      <p>{C.mapsLead}{' '}<a class="link-arrow" href={t('maps')}>{C.mapsLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopAnswer}</p>
+      <p>{C.coopLinks.map((l, i) => <>{i > 0 && ' · '}<a class="link-arrow" href={t(l.page)}>{l.text}</a></>)}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>
