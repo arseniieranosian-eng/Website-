@@ -4,6 +4,7 @@
 import Base from '../layouts/Base.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import ReviewCards from '../components/ReviewCards.astro';
+import LogoStrip from '../components/LogoStrip.astro';
 import TrustBarCs from '../components/TrustBarCs.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -45,6 +46,8 @@ const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
       <AuthorMedia alt={C.photoAlt} eager />
     </div>
   </section>
+
+  <LogoStrip lang={lang} />
 
   <!-- TRUST BAR -->
   <section class="section section--tight">

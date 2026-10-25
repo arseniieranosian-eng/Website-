@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import LogoStrip from '../components/LogoStrip.astro';
 import PageHero from '../components/PageHero.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
@@ -90,6 +91,7 @@ const profile = {
 ---
 <Base {...pageProps('about', lang)} schema={[profile]}>
   <PageHero h1={m.h1} lead={C.lead} />
+  <LogoStrip lang={lang} />
   <section class="section section--tight">
     <div class="container split">
       <AuthorMedia alt={C.alt} eager />
