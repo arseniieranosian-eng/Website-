@@ -103,7 +103,7 @@ import QuoteCaption from '../components/QuoteCaption.astro';
       <p class="answer">{C.getAnswer}</p>
       {V && (
         <>
-          <h3>{C.videoTitle}</h3>
+          <h3 id="vystup-auditu">{C.videoTitle}</h3>
           <p>{C.sampleNiche}</p>
           <figure class="audit-video">
             <video controls preload="metadata" poster={V.poster} width={V.width} height={V.height}>
