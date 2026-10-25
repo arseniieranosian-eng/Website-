@@ -4,15 +4,16 @@ import { META } from '../i18n/meta';
 import { path, type Lang, type ServiceKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import Icon from './Icon.astro';
-interface Props { lang: Lang; keys?: ServiceKey[]; heading?: 'h2' | 'h3' }
-const { lang, keys, heading = 'h3' } = Astro.props;
+import ServiceArt from './ServiceArt.astro';
+interface Props { lang: Lang; keys?: ServiceKey[]; heading?: 'h2' | 'h3'; art?: boolean }
+const { lang, keys, heading = 'h3', art = false } = Astro.props;
 const list = keys ? SERVICES.filter((s) => keys.includes(s.key)) : SERVICES;
 const H = heading;
 ---
 <div class:list={['grid', list.length > 2 ? 'grid-4' : 'grid-2']}>
   {list.map((s) => (
     <a class="card card--link service-card" href={path(s.key, lang)}>
-      <span class="icon-box"><Icon name={s.icon} /></span>
+      {art ? <span class="svc-card-art"><ServiceArt kind={s.key} size={96} /></span> : <span class="icon-box"><Icon name={s.icon} /></span>}
       <H>{META[s.key][lang].name}</H>
       <p>{s.short[lang]}</p>
       <span class="meta">{s.duration[lang]}</span>

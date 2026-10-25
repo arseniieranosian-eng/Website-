@@ -2,6 +2,7 @@
 // Niche landing page "SEO для финансовых консультантов в Чехии" (ru), brief of 24.10.2026. Content: data/niche-finance-ru.ts. Own structure (like the accounting page):
 // query table, causes with the dated observation, checklist, YMYL note with one Google source, GEO/AEO, roles + quote, formats table, price/timing, fit, FAQ. No prices, no video.
 import Base from '../layouts/Base.astro';
+import ServiceArt from '../components/ServiceArt.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
@@ -49,7 +50,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <div class="table-wrap">
         <table class="compare">
           <thead><tr>{C.steps.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
-          <tbody>{C.steps.rows.map((r) => <tr><th scope="row">{r.name}</th><td>{r.text}</td><td><a href={t(r.page)}>{r.link}</a></td></tr>)}</tbody>
+          <tbody>{C.steps.rows.map((r) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={r.page} />{r.name}</span></th><td>{r.text}</td><td><a href={t(r.page)}>{r.link}</a></td></tr>)}</tbody>
         </table>
       </div>
     </div>

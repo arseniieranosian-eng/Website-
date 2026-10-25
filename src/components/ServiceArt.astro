@@ -1,0 +1,32 @@
+---
+// Small decorative illustration for a service in the service lists and tables of the niche landing pages (same style and palette as NicheArt / DoArt).
+// The name next to it carries the meaning, so the drawing is hidden from assistive technology. kind: audit, consulting, start, fullSeo, maps.
+interface Props { kind: string; size?: number }
+const { kind, size = 72 } = Astro.props;
+---
+<svg class="svc-art" viewBox="0 0 96 56" width={size} height={Math.round((size * 56) / 96)} fill="none" aria-hidden="true" focusable="false">
+  <rect x="0.5" y="0.5" width="95" height="55" rx="10" fill="#f4f6fa" stroke="#e3e7ef" />
+  {kind === 'audit' && (<>
+    <rect x="16" y="9" width="34" height="38" rx="5" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><path d="M23 19h20M23 26h20M23 33h11" stroke="#a4baf0" stroke-width="2" stroke-linecap="round" />
+    <circle cx="62" cy="31" r="12" fill="#c9d6f7" fill-opacity="0.7" stroke="#1f4fd8" stroke-width="2.4" /><path d="M71 40l8 8" stroke="#1f4fd8" stroke-width="3.2" stroke-linecap="round" />
+    <path d="M57 31l4 4 7-8" stroke="#ff6a1a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+  </>)}
+  {kind === 'consulting' && (<>
+    <rect x="12" y="10" width="42" height="22" rx="8" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" /><path d="M22 32v8l9-8" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" /><path d="M21 19h24M21 25h14" stroke="#1f4fd8" stroke-width="2.2" stroke-linecap="round" />
+    <rect x="44" y="24" width="40" height="20" rx="8" fill="#ff6a1a" /><path d="M72 44v7l-8-7" fill="#ff6a1a" stroke="#ff6a1a" stroke-width="1.6" stroke-linejoin="round" /><path d="M52 31h24M52 37h12" stroke="#fff" stroke-width="2.2" stroke-linecap="round" />
+  </>)}
+  {kind === 'start' && (<>
+    <rect x="12" y="34" width="16" height="12" rx="2" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.6" /><rect x="30" y="26" width="16" height="20" rx="2" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.6" /><rect x="48" y="18" width="16" height="28" rx="2" fill="#1f4fd8" />
+    <path d="M72 46V10" stroke="#1f4fd8" stroke-width="2.2" stroke-linecap="round" /><path d="M72 11h14l-4 5 4 5H72z" fill="#ff6a1a" />
+  </>)}
+  {kind === 'fullSeo' && (<>
+    <path d="M24 28a20 20 0 0 1 34-14" stroke="#1f4fd8" stroke-width="2.6" stroke-linecap="round" /><path d="M58 8v8h-8" stroke="#1f4fd8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M72 28a20 20 0 0 1-34 14" stroke="#1f4fd8" stroke-width="2.6" stroke-linecap="round" /><path d="M38 48v-8h8" stroke="#1f4fd8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M32 33l7-8 6 5 9-11" stroke="#ff6a1a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" /><circle cx="54" cy="19" r="2.6" fill="#ff6a1a" />
+  </>)}
+  {kind === 'maps' && (<>
+    <path d="M10 14l22-4 22 6 22-6 10 4v32l-10-4-22 6-22-6-22 4z" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.6" stroke-linejoin="round" />
+    <path d="M32 10v36M54 16v36M76 10v32" stroke="#1f4fd8" stroke-opacity="0.35" stroke-width="1.4" />
+    <path d="M48 12c-6 0-10 4.200-10 9.200 0 6.400 10 16 10 16s10-9.600 10-16C58 16.200 54 12 48 12z" fill="#ff6a1a" /><circle cx="48" cy="21" r="3.500" fill="#fff" />
+  </>)}
+</svg>

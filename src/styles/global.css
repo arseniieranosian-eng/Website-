@@ -685,3 +685,11 @@ ul, ol { margin-bottom: var(--flow); }
 @keyframes film-grain { 0% { background-position: 0 0; } 25% { background-position: -40px 22px; } 50% { background-position: 30px -35px; } 75% { background-position: -18px -12px; } 100% { background-position: 0 0; } }
 @media (max-width: 767px) { .logo-strip__list { gap: 40px; } .logo-strip__list img { height: 44px; } .logo-strip__track { animation-duration: 34s, 2.4s; } }
 @media (prefers-reduced-motion: reduce) { .logo-strip__track, .logo-strip__viewport::after { animation: none; } .logo-strip__viewport { overflow-x: auto; } }
+
+/* Service illustrations in the service tables and cards of the niche landing pages */
+.svc-art { flex: none; display: block; }
+.svc-name { display: flex; align-items: center; gap: 14px; }
+.svc-card-art { display: block; margin-bottom: 14px; }
+.svc-card-art .svc-art { width: 96px; height: auto; }
+@media (max-width: 767px) { .svc-name .svc-art { width: 56px; height: auto; } .svc-name { gap: 10px; } }
+.grid + p { margin-top: 24px; }
