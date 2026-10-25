@@ -20,6 +20,7 @@ import { POST_REALTY_SMALL_CS, POST_REALTY_SMALL_PUBLISHED } from './post-realty
 import { POST_REALTY_LISTINGS_CS, POST_REALTY_LISTINGS_PUBLISHED } from './post-realty-listings-cs';
 import { POST_ACCOUNTING_CHANNELS_CS, POST_ACCOUNTING_CHANNELS_PUBLISHED } from './post-accounting-channels-cs';
 import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './post-finance-channels-ru';
+import { POST_REALTY_DISTRICTS_CS, POST_REALTY_DISTRICTS_PUBLISHED } from './post-realty-districts-cs';
 import { POST_REALTY_PORTALS_CS, POST_REALTY_PORTALS_PUBLISHED } from './post-realty-portals-cs';
 
 export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: string; description: string; image?: { src: string; width: number; height: number; alt: string } }
@@ -38,6 +39,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postChoose', lang: 'cs', date: POST_CHOOSE_PUBLISHED, title: META.postChoose.cs.h1, description: META.postChoose.cs.description, image: POST_CHOOSE_CS.cover },
   { key: 'postNoLeads', lang: 'cs', date: POST_NOLEADS_PUBLISHED, title: META.postNoLeads.cs.h1, description: META.postNoLeads.cs.description, image: POST_NOLEADS_CS.cover },
   { key: 'postClients', lang: 'cs', date: POST_CLIENTS_PUBLISHED, title: META.postClients.cs.h1, description: META.postClients.cs.description, image: POST_CLIENTS_CS.cover },
+  { key: 'postRealtyDistricts', lang: 'cs', date: POST_REALTY_DISTRICTS_PUBLISHED, title: META.postRealtyDistricts.cs.h1, description: META.postRealtyDistricts.cs.description, image: POST_REALTY_DISTRICTS_CS.cover },
   { key: 'postRealtyPortals', lang: 'cs', date: POST_REALTY_PORTALS_PUBLISHED, title: META.postRealtyPortals.cs.h1, description: META.postRealtyPortals.cs.description, image: POST_REALTY_PORTALS_CS.cover },
   { key: 'postRealtyListings', lang: 'cs', date: POST_REALTY_LISTINGS_PUBLISHED, title: META.postRealtyListings.cs.h1, description: META.postRealtyListings.cs.description, image: POST_REALTY_LISTINGS_CS.cover },
   { key: 'postRealtySmall', lang: 'cs', date: POST_REALTY_SMALL_PUBLISHED, title: META.postRealtySmall.cs.h1, description: META.postRealtySmall.cs.description, image: POST_REALTY_SMALL_CS.cover },

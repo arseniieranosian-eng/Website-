@@ -263,6 +263,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Как получить клиентов финансовому консультанту в Чехии: обзор каналов',
     },
   },
+  postRealtyDistricts: {
+    cs: {
+      name: 'Stránky čtvrtí a lokalit realitní kanceláře',
+      title: 'Stránky čtvrtí na webu realitky: jak psát | Eranosian',
+      description: 'Co má obsahovat stránka čtvrti na webu realitky, kolik stránek vytvořit a kdy jde o šablonové doorway stránky. Tabulka a checklist.',
+      h1: 'Jak napsat stránku čtvrti na web realitní kanceláře?',
+    },
+    en: { name: 'Neighbourhood pages of a real estate agency', title: 'Neighbourhood pages of a real estate agency', description: 'Neighbourhood pages of a real estate agency', h1: 'How to write a neighbourhood page for a real estate agency website?' },
+    ru: { name: 'Страницы районов и локаций сайта агентства недвижимости', title: 'Страницы районов и локаций сайта агентства недвижимости', description: 'Страницы районов и локаций сайта агентства недвижимости', h1: 'Как написать страницу района для сайта агентства недвижимости?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',

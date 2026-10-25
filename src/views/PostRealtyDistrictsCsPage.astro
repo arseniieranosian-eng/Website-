@@ -1,0 +1,111 @@
+---
+// Blog article N7 "Jak napsat stránku čtvrti na web realitní kanceláře?" (cs), brief of 25.10.2026. Content: data/post-realty-districts-cs.ts.
+// General principles only: no district data, no observations, no quote, no audit CTA (the closing block is one link to the landing page).
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postRealtyDistrictsSchemas } from '../lib/schema-post-realty-districts';
+import { POST_REALTY_DISTRICTS_CS as C, POST_REALTY_DISTRICTS_PUBLISHED, GOOGLE_POLICY_URL } from '../data/post-realty-districts-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostRealtyDistrictsCsPage.astro', 'src/data/post-realty-districts-cs.ts'], '2026-10-25'), POST_REALTY_DISTRICTS_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-stranky-ctvrti-realitni-kancelare.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postRealtyDistricts', lang)} ogType="article" ogImage={OG} schema={postRealtyDistrictsSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postRealtyDistricts.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whatTitle}</h2>
+      <p class="answer">{C.whatAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.askTitle}</h2>
+      <p class="answer">{C.askAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.ask.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.ask.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.goodTitle}</h2>
+      <p class="answer">{C.goodAnswer}</p>
+      <p>{C.goodLead}</p>
+      <ul class="checks">{C.good.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.doorTitle}</h2>
+      <p class="answer">{C.doorAnswer}</p>
+      <p class="small"><a class="link-arrow" href={GOOGLE_POLICY_URL} rel="noopener">{C.doorSource}</a> <span class="muted">{C.doorChecked}</span></p>
+      <p>{C.doorLead}</p>
+      <ul class="checks">{C.door.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.doorFix}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.countTitle}</h2>
+      <p class="answer">{C.countAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.linkTitle}</h2>
+      <p class="answer">{C.linkAnswer}</p>
+      <p>{C.linkLead}{' '}<a href={t('postRealtyListings')}>{C.linkLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.freshTitle}</h2>
+      <p class="answer">{C.freshAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      <ul class="link-list">
+        <li><a href={t('postRealtyListings')}>{META.postRealtyListings.cs.h1}</a></li>
+        <li><a href={t('postRealtyPortals')}>{META.postRealtyPortals.cs.h1}</a></li>
+      </ul>
+      <p class="muted">{C.endText}{' '}<a href={t('nicheRealty')}>{C.endLinkText}</a>. {C.endText2}</p>
+    </div>
+  </section>
+</Base>
