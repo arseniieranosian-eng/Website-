@@ -693,3 +693,6 @@ ul, ol { margin-bottom: var(--flow); }
 .svc-card-art .svc-art { width: 96px; height: auto; }
 @media (max-width: 767px) { .svc-name .svc-art { width: 56px; height: auto; } .svc-name { gap: 10px; } }
 .grid + p { margin-top: 24px; }
+
+/* Case cards on the home pages: a small illustration above the label */
+.case-card .case-art { width: 96px; height: auto; margin-bottom: 14px; }

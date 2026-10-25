@@ -41,10 +41,10 @@ export const HOME_EN = {
   geoLink: 'How SEO + GEO/AEO works',
 
   resultsTitle: 'Case studies',
+  // Two cases on the home page (the rest are on the case-studies page, linked below); each with a small illustration.
   cases: [
-    { label: 'Translation agency, six months', name: 'From zero enquiries to growth', formula: HALF_FORMULA_EN.replace(', March–September 2026', '') + ', AI Overview visibility', page: 'cases' as const },
-    { label: 'Print shop', name: 'Organic traffic growth', formula: TYPO_FORMULA_EN, page: 'cases' as const },
-    { label: 'Educational platform', name: 'A new site from a low base', formula: EDU_FORMULA_EN, page: 'cases' as const },
+    { label: 'Translation agency, six months', name: 'From zero enquiries to growth', formula: HALF_FORMULA_EN.replace(', March–September 2026', '') + ', AI Overview visibility', page: 'cases' as const, art: 'half' },
+    { label: 'Print shop', name: 'Organic traffic growth', formula: TYPO_FORMULA_EN, page: 'cases' as const, art: 'typo' },
   ],
   resultsMore: 'All case studies',
   caseMore: 'Case studies',

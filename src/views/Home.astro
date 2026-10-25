@@ -4,6 +4,8 @@ import LogoStrip from '../components/LogoStrip.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
+import CaseArt from '../components/CaseArt.astro';
+import { TYPO_FORMULA } from '../data/case-summary';
 import ReviewCards from '../components/ReviewCards.astro';
 import PostCard from '../components/PostCard.astro';
 import FaqList from '../components/FaqList.astro';
@@ -274,8 +276,27 @@ const C = {
   <section class="section">
     <div class="container">
       <h2>{C.caseTitle}</h2>
-      <CaseTeaser lang={lang} />
-      {lang === 'ru' && <p class="center"><a class="link-arrow" href={path('caseHalf', lang)}>Полная история проекта: кейс за полгода</a></p>}
+      {lang === 'ru' ? (
+        <>
+          <div class="grid grid-2">
+            <a class="card card--link case-card" href={path('caseHalf', lang)}>
+              <CaseArt kind="half" />
+              <p class="eyebrow">Полгода работы</p>
+              <h3>Переводческое агентство: полгода работы</h3>
+              <p>Заявки три месяца подряд +65–70 % в месяц, B2B-заявки ×3 (+200 %), март–сентябрь 2026</p>
+              <span class="link-arrow">Читать кейс</span>
+            </a>
+            <a class="card card--link case-card" href={path('caseTypo', lang)}>
+              <CaseArt kind="typo" />
+              <p class="eyebrow">Рост трафика</p>
+              <h3>Типография</h3>
+              <p>{TYPO_FORMULA}</p>
+              <span class="link-arrow">Читать кейс</span>
+            </a>
+          </div>
+          <p><a class="link-arrow" href={path('cases', lang)}>Все кейсы</a></p>
+        </>
+      ) : <CaseTeaser lang={lang} />}
     </div>
   </section>
 

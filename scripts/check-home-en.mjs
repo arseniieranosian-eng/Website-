@@ -73,8 +73,8 @@ for (const [hd, ans] of [['Which service fits you?', 'Start with a free technica
 if (!/<ul class="checks engines">(?:<li>(?:Google|Seznam|ChatGPT|Gemini|Perplexity|AI Overviews)<\/li>){6}<\/ul>/.test(main)) e('platform list');
 // Cases: three cards, formulas, links to the EN case list
 const cases = (main.match(/<h2>Case studies<\/h2>[\s\S]*?<\/section>/) || [''])[0];
-if ([...cases.matchAll(/<a class="card card--link" href="\/en\/case-studies\/"/g)].length !== 3) e('three case cards linking to /en/case-studies/');
-for (const f of ['Enquiries up 65–70 % month over month for three months in a row, B2B enquiries tripled, AI Overview visibility', 'Organic traffic +775 %, July 2024 → July 2025 (1,200 → 10,500 visits per month)', '+55 % organic traffic, March → September 2025 (7 months), relative data from the low base of a new site']) if (!txt(cases).includes(f)) e(`case formula: ${f}`);
+if ([...cases.matchAll(/<a class="card card--link case-card" href="\/en\/case-studies\/"/g)].length !== 2) e('two case cards linking to /en/case-studies/');
+for (const f of ['Enquiries up 65–70 % month over month for three months in a row, B2B enquiries tripled, AI Overview visibility', 'Organic traffic +775 %, July 2024 → July 2025 (1,200 → 10,500 visits per month)']) if (!txt(cases).includes(f)) e(`case formula: ${f}`);
 // One pull quote between the cases and the reviews, signed with a link to /en/about/
 const Q = 'SEO is not about activity, it is about priorities. First remove what stops Google understanding the site, then build the architecture around the business, then scale content.';
 if (!(mainTxt.indexOf('All case studies') < mainTxt.indexOf(Q) && mainTxt.indexOf(Q) < mainTxt.indexOf('What clients say'))) e('quote between the cases and the reviews');

@@ -91,7 +91,7 @@ for (const f of walk('dist')) {
   if (/KB P[ŘR]EKLADY|KB Překlady|kb-preklady/i.test(c)) e(`${f}: the client's name / old case address must not appear`);
   // ×24 is confirmed only as the Part-2 formula (spring → summer 2026, one window); ×300+ stays banned everywhere
   const vis = c.replace(/<script[\s\S]*?<\/script>/g, '');
-  if (/×300\+/.test(vis) || ((/×24/.test(vis) || /24×/.test(vis)) && !vis.includes('одно окно, не год к году') && !vis.includes('jedno okno, ne meziročně'))) e(`${f}: unconfirmed figure (×24 without its window / 24× / ×300+) present`);
+  if (/×300\+/.test(vis) || ((/×24/.test(vis) || /24×/.test(vis)) && !vis.includes('одно окно, не год к году') && !vis.includes('jedno okno, ne meziročně') && !vis.includes('jaro → léto 2026'))) e(`${f}: unconfirmed figure (×24 without its window / 24× / ×300+) present`);
 }
 
 if (errors.length) {

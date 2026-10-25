@@ -2,6 +2,7 @@
 // The Czech home page (hub), built from the brief of 20.10.2026. Content: data/home-cs.ts. No blog links (the blog is empty),
 // reviews from the shared source without the figures that are not confirmed.
 import Base from '../layouts/Base.astro';
+import CaseArt from '../components/CaseArt.astro';
 import LogoStrip from '../components/LogoStrip.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
@@ -140,7 +141,8 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
       <div class="section-head"><div><h2>{C.resultsTitle}</h2><p class="answer">{C.resultsAnswer}</p></div></div>
       <div class="grid grid-2">
         {C.cases.map((c) => (
-          <a class="card card--link" href={t(c.page)}>
+          <a class="card card--link case-card" href={t(c.page)}>
+            <CaseArt kind={c.art} />
             <p class="eyebrow">{c.label}</p>
             <h3>{c.name}</h3>
             <p>{c.formula}</p>

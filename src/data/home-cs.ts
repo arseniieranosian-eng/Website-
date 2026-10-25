@@ -83,12 +83,10 @@ export const HOME_CS = {
 
   resultsTitle: 'Jaké výsledky už mají moji klienti?',
   resultsAnswer: 'Pět případových studií z různých situací: nový web, nízká sezóna, růst návštěvnosti a firma s pobočkami (první čtyři měsíce i půl roku práce). U každé uvádím období a zdroj čísel.',
+  // Two cases on the home page (the rest are on the case-studies page, linked below); each with a small illustration.
   cases: [
-    { label: 'Firma s pobočkami', name: 'Překladatelská agentura, část 1', formula: KB_FORMULA_CS, page: 'caseKb' as const },
-    { label: 'Nízká sezóna', name: 'Překladatelská agentura, část 2', formula: SEASON_FORMULA_CS, page: 'caseSeason' as const },
-    { label: 'Půl roku práce', name: 'Překladatelská agentura: půl roku práce', formula: HALF_FORMULA_CS, page: 'caseHalf' as const },
-    { label: 'Růst návštěvnosti', name: 'Tiskárna', formula: TYPO_FORMULA_CS, page: 'caseTypo' as const },
-    { label: 'Nový web', name: 'Vzdělávací platforma', formula: EDU_FORMULA_CS, page: 'caseEdu' as const },
+    { label: 'Půl roku práce', name: 'Překladatelská agentura: půl roku práce', formula: HALF_FORMULA_CS, page: 'caseHalf' as const, art: 'half' },
+    { label: 'Růst návštěvnosti', name: 'Tiskárna', formula: TYPO_FORMULA_CS, page: 'caseTypo' as const, art: 'typo' },
   ],
   resultsMore: 'Všechny případové studie',
   resultsNote: 'Názvy klientů a absolutní čísla nezveřejňuji. Počty a procenta jsou relativní data.',
