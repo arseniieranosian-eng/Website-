@@ -24,7 +24,7 @@ export const AUDIT_VIDEO: {
 // until the upload date and the exact content of each Short are confirmed. The poster is a neutral card, not a frame.
 export const AUDIT_EXAMPLES: {
   id: string; niche: string; youtube: string; poster: string; presentationLang: string; text: string;
-  name: string; description: string; uploadDate: string; duration: string;
+  name: string; description: string; uploadDate: string; duration: string; landing?: 'nicheMachinery';
 }[] = [
   {
     id: 'machinery-software',
@@ -37,6 +37,7 @@ export const AUDIT_EXAMPLES: {
     description: 'Krátké video (YouTube Shorts) s ukázkou bezplatného SEO auditu pro web v angličtině: poptávka z formuláře (kontakty zakryté) a prezentace s technickými chybami, oba záběry anonymizované.',
     uploadDate: '2026-10-24',
     duration: 'PT36S',
+    landing: 'nicheMachinery',
   },
 ];
 
@@ -96,6 +97,8 @@ export const AUDIT_CS = {
   examplesTitle: 'Příklady auditů podle oboru',
   examplesLead: 'U každého příkladu uvádím obor webu. Klienty nejmenuji. Další příklady přidám, jakmile budou hotové.',
   examplesNiche: 'Obor',
+  examplesLandingLead: 'Pro strojírenské a výrobní firmy mám samostatnou stránku:',
+  examplesLandingLink: 'SEO a GEO/AEO pro strojírenské firmy',
   sampleNiche: 'Obor ukázky: e-shop s kosmetikou a parfémy.',
   examplesLang: 'Jazyk prezentace',
   examplesPlay: 'Přehrát video',

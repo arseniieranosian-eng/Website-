@@ -117,7 +117,7 @@ import QuoteCaption from '../components/QuoteCaption.astro';
       )}
       {EX.length > 0 && (
         <>
-          <h3>{C.examplesTitle}</h3>
+          <h3 id="priklady-auditu">{C.examplesTitle}</h3>
           <p>{C.examplesLead}</p>
           {EX.map((x) => (
             <div class="audit-example">
@@ -131,6 +131,7 @@ import QuoteCaption from '../components/QuoteCaption.astro';
                 <figcaption class="muted small"><a href={`https://youtube.com/shorts/${x.youtube}`} target="_blank" rel="noopener">{C.examplesOpen}</a></figcaption>
               </figure>
               <p>{x.text}</p>
+              {x.landing && <p>{C.examplesLandingLead}{' '}<a href={t(x.landing)}>{C.examplesLandingLink}</a>.</p>}
             </div>
           ))}
         </>

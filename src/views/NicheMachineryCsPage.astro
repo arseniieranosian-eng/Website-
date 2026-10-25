@@ -1,0 +1,111 @@
+---
+// Niche landing page "SEO a GEO/AEO pro strojírenské firmy" (cs), brief of 25.10.2026. Content: data/niche-machinery-cs.ts. Own structure: differences of the niche, 3 steps, for whom,
+// the audit example from the related niche (links only), audit scope table and checklist, cooperation, FAQ. No prices, no quote, no video embed, no funnel articles yet.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheMachinerySchemas } from '../lib/schema-niche-machinery';
+import { NICHE_MACHINERY_CS as C, NICHE_MACHINERY_PUBLISHED, MACHINERY_SHORT_URL } from '../data/niche-machinery-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/NicheMachineryCsPage.astro', 'src/data/niche-machinery-cs.ts'], '2026-10-25'), NICHE_MACHINERY_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('nicheMachinery', lang)} schema={nicheMachinerySchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.nicheMachinery.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.diffTitle}</h2>
+      <p class="answer">{C.diffAnswer}</p>
+      <p>{C.diffText}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <p class="answer">{C.doAnswer}</p>
+      <ol class="steps">{C.do.map((x) => <li><span>{x}</span></li>)}</ol>
+      <p>{C.doGeoLead}{' '}<a href={t('geo')}>{C.doGeoLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.forTitle}</h2>
+      <p class="answer">{C.forAnswer}</p>
+      <div class="grid grid-2">
+        <div><h3>{C.forYes.title}</h3><ul class="checks">{C.forYes.items.map((x) => <li>{x}</li>)}</ul></div>
+        <div><h3>{C.forNo.title}</h3><ul class="checks">{C.forNo.items.map((x) => <li>{x}</li>)}</ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.exampleTitle}</h2>
+      <p class="answer">{C.exampleAnswer}</p>
+      <p>{C.exampleFindings}</p>
+      <p>{C.exampleLead}{' '}<a href={t('audit') + '#priklady-auditu'}>{C.exampleLink}</a>{' '}{C.exampleOr}{' '}<a href={MACHINERY_SHORT_URL} target="_blank" rel="noopener">{C.exampleShort}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.auditTitle}</h2>
+      <p class="answer">{C.auditAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.audit.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.audit.rows.map((r) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p>{C.auditChecksLead}</p>
+      <ul class="checks">{C.auditChecks.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.auditNote}{' '}{C.auditLead}{' '}<a href={t('audit')}>{C.auditLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopAnswer}</p>
+      <p>{C.coopLinks.map((l, i) => <>{i > 0 && ' · '}<a class="link-arrow" href={t(l.page)}>{l.text}</a></>)}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>
