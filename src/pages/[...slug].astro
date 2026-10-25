@@ -67,6 +67,7 @@ import PostRealtyCsPage from '../views/PostRealtyCsPage.astro';
 import PostRealtyNoLeadsCsPage from '../views/PostRealtyNoLeadsCsPage.astro';
 import PostRealtySmallCsPage from '../views/PostRealtySmallCsPage.astro';
 import PostRealtyListingsCsPage from '../views/PostRealtyListingsCsPage.astro';
+import PostRealtyLocalCsPage from '../views/PostRealtyLocalCsPage.astro';
 import PostRealtyDistrictsCsPage from '../views/PostRealtyDistrictsCsPage.astro';
 import PostRealtyPortalsCsPage from '../views/PostRealtyPortalsCsPage.astro';
 import Blog from '../views/Blog.astro';
@@ -92,7 +93,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postFinanceChannels: null, postAccountingChannels: null,
+  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postRealtyLocal: null, postFinanceChannels: null, postAccountingChannels: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -126,6 +127,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postRealtyListings' && props.lang === 'cs' && <PostRealtyListingsCsPage />}
 {props.key === 'postRealtyPortals' && props.lang === 'cs' && <PostRealtyPortalsCsPage />}
 {props.key === 'postRealtyDistricts' && props.lang === 'cs' && <PostRealtyDistrictsCsPage />}
+{props.key === 'postRealtyLocal' && props.lang === 'cs' && <PostRealtyLocalCsPage />}
 {props.key === 'caseHalf' && props.lang === 'cs' && <CaseHalfCsPage />}
 {props.key === 'caseHalf' && props.lang === 'ru' && <CaseHalfRuPage />}
 {props.key === 'caseRazbor' && props.lang === 'ru' && <CaseRazborRuPage />}

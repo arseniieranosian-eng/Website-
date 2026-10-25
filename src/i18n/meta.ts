@@ -263,6 +263,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Как получить клиентов финансовому консультанту в Чехии: обзор каналов',
     },
   },
+  postRealtyLocal: {
+    cs: {
+      name: 'Lokální přítomnost realitní kanceláře',
+      title: 'Lokální přítomnost realitky: profily a NAP | Eranosian',
+      description: 'Co patří do profilu realitní kanceláře na Google, Mapy.com a Firmy.cz a proč má být stejný název, adresa a telefon. Přehled s tabulkou a checklistem.',
+      h1: 'Jak má realitní kancelář vypadat na mapách a v katalozích?',
+    },
+    en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
+    ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
+  },
   postRealtyDistricts: {
     cs: {
       name: 'Stránky čtvrtí a lokalit realitní kanceláře',

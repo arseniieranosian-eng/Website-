@@ -127,7 +127,7 @@ export const MAPS_CS = {
   articlesTitle: 'Související články',
   articlesLead: 'Praktické články o tom, jak vybrat první krok v SEO, jak SEO souvisí s reklamou a co ukáže audit webu.',
   articlesMore: 'Číst článek',
-  articles: ['postChoose', 'postAds', 'postSeoAudit', 'postNotShown'] as const,
+  articles: ['postChoose', 'postAds', 'postSeoAudit', 'postNotShown', 'postRealtyLocal'] as const,
 
   faqTitle: 'Časté otázky o propagaci v mapách',
   faq: [

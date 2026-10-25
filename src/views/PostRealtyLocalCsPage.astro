@@ -1,0 +1,117 @@
+---
+// Blog article N8 "Jak má realitní kancelář vypadat na mapách a v katalozích?" (cs), brief of 25.10.2026. Content: data/post-realty-local-cs.ts.
+// Informational: no prices, no CTA, no link to the maps service; the closing block is one link to the landing page.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postRealtyLocalSchemas } from '../lib/schema-post-realty-local';
+import { POST_REALTY_LOCAL_CS as C, POST_REALTY_LOCAL_PUBLISHED } from '../data/post-realty-local-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostRealtyLocalCsPage.astro', 'src/data/post-realty-local-cs.ts'], '2026-10-25'), POST_REALTY_LOCAL_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const [py, pm, pd] = POST_REALTY_LOCAL_PUBLISHED.split('-').map(Number);
+const pubText = `${pd}. ${pm}. ${py}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-lokalni-pritomnost-realitni-kancelare.png';
+---
+<Base {...pageProps('postRealtyLocal', lang)} ogType="article" ogImage={OG} schema={postRealtyLocalSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postRealtyLocal.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a>, {C.authorRole} · {C.publishedLabel} <time datetime={POST_REALTY_LOCAL_PUBLISHED}>{pubText}</time> · {C.updatedLabel} <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whatTitle}</h2>
+      <p class="answer">{C.whatAnswer}</p>
+      <p>{C.whatMore}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whereTitle}</h2>
+      <p class="answer">{C.whereAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.where.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.where.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.whereNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.napTitle}</h2>
+      <p class="answer">{C.napAnswer}</p>
+      <p>{C.napLead}</p>
+      <ul class="checks">{C.nap.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.profileTitle}</h2>
+      <p class="answer">{C.profileAnswer}</p>
+      <p>{C.profileLead}</p>
+      <ul class="checks">{C.profile.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.agentsTitle}</h2>
+      <p class="answer">{C.agentsAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.offerTitle}</h2>
+      <p class="answer">{C.offerAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.webTitle}</h2>
+      <p class="answer">{C.webAnswer}{' '}<a href={t('postRealtyDistricts')}>{C.webLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.checkTitle}</h2>
+      <p class="answer">{C.checkAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      <ul class="link-list">
+        <li><a href={t('postRealtyDistricts')}>{META.postRealtyDistricts.cs.h1}</a></li>
+        <li><a href={t('postRealtyListings')}>{C.relatedListingsText}</a></li>
+      </ul>
+      <p class="muted">{C.endText}{' '}<a href={t('nicheRealty')}>{C.endLinkText}</a>. {C.endText2}</p>
+    </div>
+  </section>
+</Base>

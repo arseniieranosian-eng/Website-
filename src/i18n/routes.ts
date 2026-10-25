@@ -41,6 +41,7 @@ export const ROUTES = {
   postAccountingChannels: { cs: '/blog/jak-ziskat-klienty-pro-ucetni-kancelar/', en: '/en/blog/how-to-get-clients-for-an-accounting-firm/', ru: '/ru/blog/kak-poluchit-klientov-buhgalterskoj-firme/' },
   postRealtyPortals: { cs: '/blog/vlastni-web-nebo-realitni-portaly/', en: '/en/blog/own-website-or-real-estate-portals/', ru: '/ru/blog/sobstvennyj-sajt-ili-portaly-nedvizhimosti/' },
   postRealtyDistricts: { cs: '/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/', en: '/en/blog/neighbourhood-pages-for-a-real-estate-agency-website/', ru: '/ru/blog/stranicy-rajonov-i-lokaciy-sajta-agentstva-nedvizhimosti/' },
+  postRealtyLocal: { cs: '/blog/lokalni-pritomnost-realitni-kancelare/', en: '/en/blog/local-presence-of-a-real-estate-agency/', ru: '/ru/blog/lokalnoe-prisutstvie-agentstva-nedvizhimosti/' },
   postRealtyListings: { cs: '/blog/nabidky-nemovitosti-seo-indexace-duplicity/', en: '/en/blog/property-listings-seo-indexing-duplicates/', ru: '/ru/blog/ob-yavleniya-nedvizhimosti-seo-indeksaciya-dubli/' },
   postRealtySmall: { cs: '/blog/ma-seo-smysl-pro-malou-realitni-kancelar/', en: '/en/blog/does-seo-make-sense-for-a-small-real-estate-agency/', ru: '/ru/blog/imeet-li-smysl-seo-dlya-nebolshogo-agentstva-nedvizhimosti/' },
   postRealtyNoLeads: { cs: '/blog/proc-web-realitni-kancelare-neprinasi-poptavky/', en: '/en/blog/why-a-real-estate-agency-website-brings-no-enquiries/', ru: '/ru/blog/pochemu-sajt-agentstva-nedvizhimosti-ne-prinosit-zayavok/' },
@@ -96,6 +97,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
   postRealtyListings: 'blog',
   postRealtyPortals: 'blog',
   postRealtyDistricts: 'blog',
+  postRealtyLocal: 'blog',
   postFinanceChannels: 'blog',
   postAccountingChannels: 'blog',
 };
@@ -113,7 +115,7 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 export const NICHE_READY = { nicheBrno: true, nichePardubice: true, nicheRealty: true, nicheAccounting: true, nicheFinance: true, nicheTypography: true, nicheMachinery: true, nicheGaming: true, nicheElectronics: true, nicheFitness: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
-  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], nicheRealty: NICHE_READY.nicheRealty ? ['cs', 'ru'] : [], nicheAccounting: NICHE_READY.nicheAccounting ? ['cs'] : [], nicheFinance: NICHE_READY.nicheFinance ? ['ru'] : [], nicheTypography: NICHE_READY.nicheTypography ? ['cs'] : [], nicheMachinery: NICHE_READY.nicheMachinery ? ['cs'] : [], nicheGaming: NICHE_READY.nicheGaming ? ['cs', 'ru'] : [], nicheElectronics: NICHE_READY.nicheElectronics ? ['cs', 'ru'] : [], nicheFitness: NICHE_READY.nicheFitness ? ['ru'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs', 'ru'], caseRazbor: ['ru'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], postPairs: ['cs'], postRealty: ['cs'], postRealtyNoLeads: ['cs'], postRealtySmall: ['cs'], postRealtyListings: ['cs'], postRealtyPortals: ['cs'], postRealtyDistricts: ['cs'], postFinanceChannels: ['ru'], postAccountingChannels: ['cs'], nicheTranslation: ['cs', 'ru'] };
+  nicheBrno: NICHE_READY.nicheBrno ? ['cs'] : [], nichePardubice: NICHE_READY.nichePardubice ? ['cs'] : [], nicheRealty: NICHE_READY.nicheRealty ? ['cs', 'ru'] : [], nicheAccounting: NICHE_READY.nicheAccounting ? ['cs'] : [], nicheFinance: NICHE_READY.nicheFinance ? ['ru'] : [], nicheTypography: NICHE_READY.nicheTypography ? ['cs'] : [], nicheMachinery: NICHE_READY.nicheMachinery ? ['cs'] : [], nicheGaming: NICHE_READY.nicheGaming ? ['cs', 'ru'] : [], nicheElectronics: NICHE_READY.nicheElectronics ? ['cs', 'ru'] : [], nicheFitness: NICHE_READY.nicheFitness ? ['ru'] : [], caseTypo: ['cs', 'ru'], caseEdu: ['cs', 'ru'], caseSeason: ['cs', 'ru'], caseHalf: ['cs', 'ru'], caseRazbor: ['ru'], postIndexing: ['cs'], postNotShown: ['cs'], postSeoAudit: ['cs'], postDuplicates: ['cs'], postRedesign: ['cs'], postAds: ['cs'], postRedirects: ['cs'], postNewSite: ['cs'], postChoose: ['cs'], postNoLeads: ['cs'], postClients: ['cs'], postB2b: ['cs'], postPairs: ['cs'], postRealty: ['cs'], postRealtyNoLeads: ['cs'], postRealtySmall: ['cs'], postRealtyListings: ['cs'], postRealtyPortals: ['cs'], postRealtyDistricts: ['cs'], postRealtyLocal: ['cs'], postFinanceChannels: ['ru'], postAccountingChannels: ['cs'], nicheTranslation: ['cs', 'ru'] };
 export const langsFor = (key: PageKey): readonly Lang[] => ONLY_LANGS[key] ?? LANGS;
 
 // Pages kept out of the index and sitemap.
