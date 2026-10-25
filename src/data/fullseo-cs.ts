@@ -19,7 +19,7 @@ export const FULLSEO_CS = {
   quote: 'Rok SEO není sprint. Strategie, čtvrtletní priority a nový obsah každý měsíc se sčítají, proto Full SEO dává smysl tam, kde chcete růst dlouhodobě.',
   label: `Délka: ${FULLSEO_MONTHS} měsíců`,
   h1: 'Full SEO na rok',
-  lead: 'Celoroční SEO od A do Z: pracuji na vašem webu i mimo něj, vedu profily na mapách Google a Mapy.com a každý týden vám ukážu, co je hotovo a jaké jsou výsledky. Jsem SEO specialista v Praze.',
+  lead: 'Celoroční SEO od A do Z: pracuji na vašem webu i mimo něj, vedu profily na mapách Google, Mapy.com a Firmy.cz a každý týden vám ukážu, co je hotovo a jaké jsou výsledky. Jsem SEO specialista v Praze.',
   updatedLabel: 'Aktualizováno',
   badge: `${from} · ${FULLSEO_MONTHS} měsíců`,
   heroPrimary: 'Mám zájem o službu',
@@ -35,7 +35,7 @@ export const FULLSEO_CS = {
     'Pro firmy, pro které je web hlavním zdrojem poptávek.',
     'Pro e-shopy a služby v konkurenčních oborech: SEO pro e-shop.',
     'Pro firmy bez vlastního SEO specialisty.',
-    'Pro podniky, kterým záleží na hovorech z map Google a Mapy.com.',
+    'Pro podniky, kterým záleží na hovorech z map Google, Mapy.com a Firmy.cz.',
   ],
 
   includesTitle: 'Co je v ceně Full SEO na rok',
@@ -57,9 +57,9 @@ export const FULLSEO_CS = {
       items: <Include[]>[
         { text: 'Linkbuilding: publikace, katalogy, PR články, odkazy z jiných webů.' },
         {
-          text: 'Vedení profilů na mapách Google a Mapy.com (Seznam) bez omezení počtu profilů: hovory, trasy, přechody na web a recenze.',
+          text: 'Vedení profilů na mapách Google, Mapy.com a Firmy.cz (Seznam) bez omezení počtu profilů: hovory, trasy, přechody na web a recenze.',
           // Wording of this OfferCatalog item as given in the brief (differs slightly from the visible sentence).
-          catalog: 'Vedení profilů na mapách Google a Mapy.com bez omezení počtu profilů: hovory, trasy, přechody na web, recenze',
+          catalog: 'Vedení profilů na mapách Google, Mapy.com a Firmy.cz bez omezení počtu profilů: hovory, trasy, přechody na web, recenze',
         },
       ],
     },
@@ -72,9 +72,9 @@ export const FULLSEO_CS = {
     },
   ],
 
-  mapsTitle: 'Mapy Google a Mapy.com jsou součástí balíčku',
+  mapsTitle: 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku',
   maps: {
-    first: 'Profily na Google i Mapy.com vedu bez omezení počtu po celou dobu spolupráce, včetně hovorů, tras, přechodů na web a recenzí. Stejně jako ve Startu na 3 měsíce. Pokud potřebujete jen mapy, je tu ',
+    first: 'Profily na Google, Mapy.com a Firmy.cz vedu bez omezení počtu po celou dobu spolupráce, včetně hovorů, tras, přechodů na web a recenzí. Stejně jako ve Startu na 3 měsíce. Pokud potřebujete jen mapy, je tu ',
     link: 'samostatná služba Mapy',
     after: `: od ${MAPS_MIN_MONTHS} měsíců, s platbou za výsledek.`,
   },
@@ -122,7 +122,7 @@ export const FULLSEO_CS = {
   faq: [
     { q: 'Kolik stojí Full SEO na rok?', a: `Od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, přesná cena závisí na rozsahu práce a oboru.` },
     { q: 'Jak dlouho než uvidím výsledky?', a: 'Obvykle za 2-3 měsíce.' },
-    { q: 'Jsou mapy součástí balíčku?', a: 'Ano, profily na Google i Mapy.com bez omezení počtu, včetně hovorů, tras a recenzí.' },
+    { q: 'Jsou mapy součástí balíčku?', a: 'Ano, profily na Google, Mapy.com a Firmy.cz bez omezení počtu, včetně hovorů, tras a recenzí.' },
     { q: 'Jak často dostanu report?', a: 'Týdenní report, call podle zájmu.' },
     { q: 'Čím se liší Full SEO od Startu na 3 měsíce?', a: `Start je intenzivní první etapa na 3 měsíce za ${startPrice}: technický základ, struktura webu a mapy. Full SEO je práce na 12 měsíců podle roční strategie, ${from}, s obsahem každý měsíc, linkbuildingem a čtvrtletními plány.` },
     { q: 'Garantujete první místo v Google?', a: 'Ne, garantuji transparentní práci a měřitelné cíle.' },

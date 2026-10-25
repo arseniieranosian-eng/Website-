@@ -18,14 +18,14 @@ export const START_CS = {
   // The author's quote (after the block named in the brief of 20.10.2026); text word for word in the page and in the Quotation node.
   quote: 'Start není o rychlých trucích. Je to tři měsíce práce na základu webu: technika, struktura a hlavní stránky, aby měl další růst na čem stát.',
   h1: 'SEO start na 3 měsíce',
-  lead: 'Intenzivní první etapa SEO: po dobu 3 měsíců se naplno věnuji vašemu webu i mapám Google a Mapy.com. Technický audit a opravy, struktura podle poptávky, optimalizace hlavních stránek, měření a týdenní reporty. Jsem SEO specialista v Praze.',
+  lead: 'Intenzivní první etapa SEO: po dobu 3 měsíců se naplno věnuji vašemu webu i mapám Google, Mapy.com a Firmy.cz. Technický audit a opravy, struktura podle poptávky, optimalizace hlavních stránek, měření a týdenní reporty. Jsem SEO specialista v Praze.',
   updatedLabel: 'Aktualizováno',
   badge: `${price} · 3 měsíce · týdenní reporty`,
   heroPrimary: 'Mám zájem o službu',
   heroAudit: 'Audit zdarma',
 
   priceTitle: 'Kolik stojí SEO start na 3 měsíce?',
-  priceAnswer: `SEO start na 3 měsíce stojí ${price}. Platba: ${fmtKc(PAY1)} na začátku a ${fmtKc(PAY2)} po dohodě. V ceně je práce na webu i na mapách Google a Mapy.com, týdenní reporty a call podle zájmu.`,
+  priceAnswer: `SEO start na 3 měsíce stojí ${price}. Platba: ${fmtKc(PAY1)} na začátku a ${fmtKc(PAY2)} po dohodě. V ceně je práce na webu i na mapách Google, Mapy.com a Firmy.cz, týdenní reporty a call podle zájmu.`,
   // JSON-LD Offer.description: the first FAQ answer without its final period.
   offerTerms: `${price}, ${payment}`,
 
@@ -49,12 +49,12 @@ export const START_CS = {
       ],
     },
     {
-      title: 'Mapy Google a Mapy.com',
+      title: 'Mapy Google, Mapy.com a Firmy.cz',
       items: <Include[]>[
         {
-          text: 'Profily na Google i Mapy.com bez omezení počtu.',
+          text: 'Profily na Google, Mapy.com a Firmy.cz bez omezení počtu.',
           // Wording of this OfferCatalog item as given in the brief (it merges the three map bullets).
-          catalog: 'Profily na Google i Mapy.com bez omezení počtu: hovory, trasy, přechody na web, recenze',
+          catalog: 'Profily na Google, Mapy.com a Firmy.cz bez omezení počtu: hovory, trasy, přechody na web, recenze',
         },
         { text: 'Sledování hovorů, tras a přechodů na web.', inCatalog: false },
         { text: 'Práce s recenzemi.', inCatalog: false },
@@ -69,9 +69,9 @@ export const START_CS = {
     },
   ],
 
-  mapsTitle: 'Mapy Google a Mapy.com jsou součástí balíčku',
+  mapsTitle: 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku',
   maps: {
-    first: 'Profily na Google i Mapy.com vedu bez omezení počtu, včetně hovorů, tras, přechodů na web a recenzí. Ve Startu jsou mapy součástí širšího balíčku na 3 měsíce. ',
+    first: 'Profily na Google, Mapy.com a Firmy.cz vedu bez omezení počtu, včetně hovorů, tras, přechodů na web a recenzí. Ve Startu jsou mapy součástí širšího balíčku na 3 měsíce. ',
     link: 'Samostatná služba Mapy',
     after: ` je dlouhodobá, od ${MAPS_MIN_MONTHS} měsíců, s platbou za výsledek.`,
   },
@@ -99,7 +99,7 @@ export const START_CS = {
       ['Délka', '3 měsíce', '12 měsíců'],
       ['Cena', `${price} (${fmtKc(PAY1)} na začátku, ${fmtKc(PAY2)} po dohodě)`, `od ${fmtKc(FULLSEO_MONTHLY)} měsíčně`],
       ['Zaměření', 'Technický základ, struktura webu, optimalizace hlavních stránek, měření', 'Roční strategie, obsah každý měsíc, linkbuilding, čtvrtletní plány, výsledky roku'],
-      ['Mapy Google a Mapy.com', 'Ano, bez omezení počtu profilů', 'Ano, bez omezení počtu profilů'],
+      ['Mapy Google, Mapy.com a Firmy.cz', 'Ano, bez omezení počtu profilů', 'Ano, bez omezení počtu profilů'],
       ['Reporty', 'Týdenní, call podle zájmu', 'Týdenní, call podle zájmu'],
     ],
   },
@@ -133,7 +133,7 @@ export const START_CS = {
     { q: 'Kolik stojí SEO start na 3 měsíce?', a: `${price}, ${payment}.` },
     { q: 'Jak často dostanu report?', a: 'Týdenní report, call podle zájmu.' },
     { q: 'Kdy přijdou první výsledky?', a: 'Obvykle za 2-3 měsíce.' },
-    { q: 'Jsou mapy součástí balíčku?', a: 'Ano, profily na Google i Mapy.com bez omezení počtu, včetně hovorů, tras a recenzí.' },
+    { q: 'Jsou mapy součástí balíčku?', a: 'Ano, profily na Google, Mapy.com a Firmy.cz bez omezení počtu, včetně hovorů, tras a recenzí.' },
     { q: 'Čím se liší Start od Full SEO na rok?', a: `Start je intenzivní první etapa na 3 měsíce za ${price}: technický základ, struktura webu a mapy. Full SEO je práce na 12 měsíců podle roční strategie, od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, s obsahem každý měsíc, linkbuildingem a čtvrtletními plány.` },
     { q: 'Garantujete první místo v Google?', a: 'Ne, garantuji transparentní práci a měřitelné cíle.' },
   ],

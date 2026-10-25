@@ -4,11 +4,11 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/start-3-mesice/';
 const H1 = 'SEO start na 3 měsíce';
-const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu', 'Mapy Google a Mapy.com jsou součástí balíčku', 'Jak probíhá SEO start', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům', 'Co říkají klienti', 'Související články', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu', 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku', 'Jak probíhá SEO start', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům', 'Co říkají klienti', 'Související články', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['agentura Praha', 'SEO agentura', 'měsíční report', '4–8 týdnů', 'Jak probíhá spolupráce', 'Marketingové týmy', 'in-house'];
 // Wording of the maps item of the OfferCatalog is fixed by the brief (merges the three map bullets).
-const MAPS_ITEM = 'Profily na Google i Mapy.com bez omezení počtu: hovory, trasy, přechody na web, recenze';
+const MAPS_ITEM = 'Profily na Google, Mapy.com a Firmy.cz bez omezení počtu: hovory, trasy, přechody na web, recenze';
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 // Visible text only: <script> / <style> contents (incl. the JSON-LD itself) are removed first.
@@ -37,7 +37,7 @@ for (const f of FORBIDDEN) if (body.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/<video|★|AggregateRating|ratingValue|VideoObject/.test(h)) e('video / stars / AggregateRating / VideoObject must not be on this page');
 const h3s = [...h.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/g)].map((m) => txt(m[1]));
-for (const g of ['Práce na webu', 'Mapy Google a Mapy.com', 'GEO/AEO a reporting']) if (!h3s.includes(g)) e(`missing H3 group: ${g}`);
+for (const g of ['Práce na webu', 'Mapy Google, Mapy.com a Firmy.cz', 'GEO/AEO a reporting']) if (!h3s.includes(g)) e(`missing H3 group: ${g}`);
 
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
@@ -77,7 +77,7 @@ const EXPECT = [
   ['Délka', '3 měsíce', '12 měsíců'],
   ['Cena', '50 000 Kč (25 000 Kč na začátku, 25 000 Kč po dohodě)', 'od 15 000 Kč měsíčně'],
   ['Zaměření', 'Technický základ, struktura webu, optimalizace hlavních stránek, měření', 'Roční strategie, obsah každý měsíc, linkbuilding, čtvrtletní plány, výsledky roku'],
-  ['Mapy Google a Mapy.com', 'Ano, bez omezení počtu profilů', 'Ano, bez omezení počtu profilů'],
+  ['Mapy Google, Mapy.com a Firmy.cz', 'Ano, bez omezení počtu profilů', 'Ano, bez omezení počtu profilů'],
   ['Reporty', 'Týdenní, call podle zájmu', 'Týdenní, call podle zájmu'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);

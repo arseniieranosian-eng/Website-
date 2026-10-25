@@ -1,5 +1,6 @@
 // v2 of 25.10.2026 (rules A–F): commercial intent only; the PPC objection block and the quote of Yelizaveta Butyrina (written consent, role PPC specialistka, Praha, photo and Instagram of the case page)
 // moved to funnel article 4 (open question 11, default), so the landing has NO quote and NO Quotation; the maps block is a short offer. The area is Praha (answer of 25.10.2026).
+// v3 of 25.10.2026 (pair with the Russian page): the translation case is removed from the proof line (the Russian page has none; default of the brief), the area Praha is stated, the maps profiles name Firmy.cz.
 // Czech niche landing page /seo-pro-obchody-s-elektronikou/ "SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI" (brief of 25.10.2026; cs only, hreflang self-reference only, no x-default). Rules A–D of the brief:
 // the H1 carries the result but no disclaimer (the disclaimer stands under the H1, in "Pro koho" and in the FAQ); a proof line under the H1 (the translation case, marked as another niche, then "v oboru zatím výsledky nemám");
 // commercial FAQ; prices in the cooperation block and in the FAQ come from the single sources of the service pages (consulting-shared / start-shared / fullseo-shared), the date moves with them.
@@ -29,9 +30,7 @@ const raw = {
   updatedLabel: 'Aktualizováno',
 
   lead: 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: technický základ e-shopu, kategorie, filtry, varianty produktů, odpovědi na časté dotazy a přípravu na doporučení v odpovědích AI. Začíná se bezplatným technickým auditem, bez hovoru a bez závazku. Počet objednávek ani pozice negarantuji.',
-  proofLead: 'Například u',
-  proofLink: 'překladatelské agentury',
-  proofTail: ', se kterou pracuji od března 2026, rostly poptávky z webu o 65–70 % měsíc po měsíci tři měsíce po sobě. V oboru obchodů s elektronikou zatím výsledky nemám.',
+  proof: 'V oboru obchodů s elektronikou zatím výsledky nemám.',
   heroAudit: 'Chci bezplatný technický audit',
 
   diffTitle: 'Čím se SEO obchodu s technikou liší od jiných oborů?',
@@ -60,7 +59,7 @@ const raw = {
 
   forTitle: 'Pro koho je to a pro koho ne?',
   forNext: 'Co bezplatný audit obsahuje:',
-  forAnswer: 'Služba je pro internetové obchody s elektronikou a technikou i pro prodejny s e-shopem, které chtějí, aby je zájemci našli v Google a v odpovědích AI. Není pro toho, kdo čeká zaručený počet objednávek nebo první místo ve vyhledávání; to poctivě slíbit nelze.',
+  forAnswer: 'Služba je pro internetové obchody s elektronikou a technikou v Praze i pro prodejny s e-shopem, které chtějí, aby je zájemci našli v Google a v odpovědích AI. Není pro toho, kdo čeká zaručený počet objednávek nebo první místo ve vyhledávání; to poctivě slíbit nelze.',
 
   auditTitle: 'Co obsahuje bezplatný audit a co ne?',
   auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby e-shopu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nálezy předem neslibuji, liší se web od webu. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi.',
@@ -92,7 +91,7 @@ const raw = {
   auditExampleNote: 'Je to ukázka výstupu auditu, ne případová studie obchodu s technikou.',
 
   mapsTitle: 'Profil prodejny na mapách',
-  mapsAnswer: 'Profily prodejny na Google a Mapy.com vedu v balíčcích Start a Full SEO: hovory, trasy, přechody na web a recenze. Existuje i samostatná služba Mapy. Do bezplatného auditu mapy nepatří. První místo na mapách nezaručuji. Podrobnosti a podmínky najdete na stránce služby.',
+  mapsAnswer: 'Profily prodejny na Google, Mapy.com (Seznam) a Firmy.cz vedu v balíčcích Start a Full SEO: hovory, trasy, přechody na web a recenze. Existuje i samostatná služba Mapy. Do bezplatného auditu mapy nepatří. První místo na mapách nezaručuji. Podrobnosti a podmínky najdete na stránce služby.',
   mapsLead: 'Služba je popsaná na stránce',
   mapsLink: 'SEO pro Mapy',
 
@@ -108,7 +107,7 @@ const raw = {
   faq: [
     { q: 'Kolik stojí SEO pro e-shop s elektronikou?', a: `Konzultace stojí ${Q} za hodinu, konzultace s auditem webu a plánem na 12 měsíců ${A}. Balíček Start na 3 měsíce stojí ${S}, Full SEO začíná od ${F} měsíčně podle rozsahu a oboru. Bezplatný technický audit je zdarma. Aktuální ceny najdete na stránkách služeb.` },
     { q: 'Co dostanu po bezplatném auditu a co bude dál?', a: 'Po auditu dostanete prezentaci technických chyb webu do 24 hodin, bez hovoru a bez závazku. Co dál, rozhodnete sami: konzultace, balíček Start nebo Full SEO. Strukturu, obsah, konverzi a FAQ audit neřeší, ty patří do placených formátů. Audit také nezahrnuje klíčová slova, konkurenci, mapy ani viditelnost v AI.' },
-    { q: 'Čím se liší Start od Full SEO?', a: `Start je tříměsíční balíček za ${S}: ${fmtKc(PAY1)} se platí na začátku a ${fmtKc(PAY2)} po dohodě. Full SEO je dlouhodobá práce od ${F} měsíčně podle rozsahu a oboru. Oba formáty zahrnují vedení profilů na Google a Mapy.com. Co se vám hodí, ukáže bezplatný audit.` },
+    { q: 'Čím se liší Start od Full SEO?', a: `Start je tříměsíční balíček za ${S}: ${fmtKc(PAY1)} se platí na začátku a ${fmtKc(PAY2)} po dohodě. Full SEO je dlouhodobá práce od ${F} měsíčně podle rozsahu a oboru. Oba formáty zahrnují vedení profilů na Google, Mapy.com a Firmy.cz. Co se vám hodí, ukáže bezplatný audit.` },
     { q: 'Jak vypadá spolupráce krok za krokem?', a: 'Začnete bezplatným technickým auditem. Pokud chcete řešit i strukturu a obsah webu, následuje konzultace a poté balíček Start na 3 měsíce nebo průběžné Full SEO. Rozsah práce upřesníme na konzultaci. První změny u svých projektů vidím obvykle za 2–3 měsíce, bez záruky.' },
     { q: 'Zaručíte objednávky nebo pozice?', a: 'Ne. Počet objednávek ani pozice nezaručuji, protože výsledek závisí i na konkurenci, poptávce a rozhodnutích vyhledávačů. Zaručit mohu jen to, co dělám: technický audit, doporučení a práci v dohodnutém rozsahu. V oboru obchodů s elektronikou zatím výsledky nemám, proto je neuvádím.' },
     { q: 'Můžu začít jen konzultací?', a: `Ano. Konzultace za ${Q} je hodina odpovědí na otázky k webu a SEO se stručným písemným shrnutím. Varianta za ${A} zahrnuje audit webu a prezentaci s plánem na 12 měsíců, připravené do 2 pracovních dnů od zaslání webu. Start nebo Full SEO si můžete objednat později.` },

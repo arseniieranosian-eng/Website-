@@ -481,7 +481,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI',
     },
     en: { name: 'SEO for electronics stores', title: 'SEO for electronics stores', description: 'SEO for electronics stores', h1: 'SEO and GEO/AEO for electronics stores' },
-    ru: { name: 'SEO для магазинов электроники', title: 'SEO для магазинов электроники', description: 'SEO для магазинов электроники', h1: 'SEO и GEO/AEO для магазинов электроники' },
+    ru: {
+      name: 'SEO для магазинов электроники',
+      title: 'SEO для магазинов электроники в Праге | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для магазинов электроники в Праге: категории, фильтры, варианты товаров. Без гарантий. Старт: бесплатный технический аудит.',
+      h1: 'SEO и GEO/AEO для магазинов электроники в Праге: заказы из Google и ИИ',
+    },
   },
   nicheGaming: {
     cs: {

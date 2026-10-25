@@ -158,7 +158,7 @@ const C = {
   </section>
 
   <!-- 3b. Niches and cities (ru): the real-estate landing page -->
-  {lang === 'ru' && (NICHE_READY.nicheRealty || NICHE_READY.nicheFinance || NICHE_READY.nicheBrno || NICHE_READY.nicheGaming || NICHE_READY.nicheFitness) && (
+  {lang === 'ru' && (NICHE_READY.nicheRealty || NICHE_READY.nicheFinance || NICHE_READY.nicheBrno || NICHE_READY.nicheGaming || NICHE_READY.nicheFitness || NICHE_READY.nicheElectronics) && (
     <section class="section">
       <div class="container">
         <h2>Ниши и города</h2>
@@ -176,6 +176,21 @@ const C = {
             </a>
           </div>
         </div>
+        {NICHE_READY.nicheElectronics && (
+          <div class="niche-group">
+            <div class="niche-group__head">
+              <NicheArt kind="electronics" />
+              <h3 class="niche-group__title">Магазины электроники</h3>
+            </div>
+            <div class="grid grid-3">
+              <a class="card card--link" href={path('nicheElectronics', lang)}>
+                <h4>SEO для магазинов электроники в Праге</h4>
+                <p>Категории, фильтры и варианты товаров, FAQ и технический базис интернет-магазина.</p>
+                <span class="link-arrow">{ui.more}</span>
+              </a>
+            </div>
+          </div>
+        )}
         {NICHE_READY.nicheFitness && (
           <div class="niche-group">
             <div class="niche-group__head">
