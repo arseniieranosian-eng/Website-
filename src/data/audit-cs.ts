@@ -1,5 +1,5 @@
 // Czech content of /audit-zdarma/ (brief of 20.10.2026): the free audit is technical errors only (indexation, duplicates,
-// other technical problems from a site crawl and Google Search Console data). Result: a short presentation within 24 hours,
+// other technical problems found when checking the site). Result: a short presentation within 24 hours,
 // free, no call, no obligations. Prices of the consultation come from consulting-shared.ts (one source).
 // Out of scope and never promised here: keywords and rankings as a deliverable, competitors, maps, AI visibility, speed,
 // Core Web Vitals (named only in the "not included" table), mobile version, call, "5–10 steps".
@@ -53,11 +53,11 @@ export const AUDIT_CS = {
   heroPrimary: 'Chci bezplatný audit',
 
   checksTitle: 'Co v bezplatném auditu zkontroluji?',
-  checksAnswer: 'Kontroluji technické chyby webu: chyby indexace, duplicitní stránky a další technické problémy, které vidím z crawlu webu a z dat Google Search Console.',
+  checksAnswer: 'Kontroluji technické chyby webu: chyby indexace, duplicitní stránky a další technické problémy, které vidím při kontrole webu.',
   checks: [
     'chyby indexace (stránky, které Google nemůže nebo nechce indexovat);',
     'duplicitní stránky a obsah;',
-    'další technické chyby z crawlu webu a Search Console.',
+    'další technické chyby webu.',
   ],
   // JSON-LD Service.description: shown word for word as the summary line under the list.
   summary: 'Bezplatná kontrola technických chyb webu: chyby indexace, duplicity a další technické problémy. Výstupem je krátká prezentace do 24 hodin, bez callu a bez závazků.',
@@ -83,7 +83,7 @@ export const AUDIT_CS = {
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   stages: [
     { name: 'Vyplníte formulář', text: 'Vyplníte formulář s adresou webu.' },
-    { name: 'Zkontroluji web', text: 'Zkontroluji web (crawl webu a data z Google Search Console).' },
+    { name: 'Zkontroluji web', text: 'Zkontroluji web.' },
     { name: 'Dostanete prezentaci', text: 'Do 24 hodin dostanete krátkou prezentaci s hlavními technickými chybami.' },
     { name: 'Rozhodnete se', text: 'Sami se rozhodnete, zda budete pokračovat.' },
   ],
