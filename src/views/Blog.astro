@@ -8,7 +8,7 @@ import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { postsByLang, postUrl } from '../lib/blog';
 import { ids } from '../lib/schema';
-import { dedicatedPosts } from '../data/blog-posts';
+import { dedicatedPosts, dedicatedPostGroups } from '../data/blog-posts';
 import { formatDate } from '../i18n/ui';
 
 interface Props { lang: Lang }
@@ -17,6 +17,7 @@ const ui = t(lang);
 const m = META.blog[lang];
 const posts = await postsByLang(lang);
 const own = dedicatedPosts(lang);
+const groups = dedicatedPostGroups(lang);
 const hasAny = async (l: Lang) => (await postsByLang(l)).length + dedicatedPosts(l).length > 0;
 
 // A language version of the blog is indexable (and in hreflang) only once it has posts.
@@ -46,7 +47,7 @@ const collection = {
   mainEntity: {
     '@type': 'ItemList',
     itemListElement: [
-      ...own.map((p) => ({ title: p.title, href: ROUTES[p.key][lang] })),
+      ...groups.flatMap((g) => g.posts).map((p) => ({ title: p.title, href: ROUTES[p.key][lang] })),
       ...posts.map((p) => ({ title: p.data.title, href: postUrl(p) })),
     ].map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.title, url: new URL(it.href, site).href })),
   },
@@ -65,18 +66,30 @@ const collection = {
           </div>
         </div>
       ) : (
-        <div class="grid grid-3">
-          {own.map((p) => (
-            <a class="card card--link post-card" href={ROUTES[p.key][lang]}>
-              {p.image && <img class="post-card-img" src={p.image.src} width={p.image.width} height={p.image.height} alt={p.image.alt} loading="lazy" decoding="async" />}
-              <time class="post-card-date" datetime={p.date}>{formatDate(new Date(p.date), lang)}</time>
-              <h2>{p.title}</h2>
-              <p>{p.description}</p>
-              <span class="link-arrow">{ui.readMore}</span>
-            </a>
+        <>
+          {groups.map(({ group, posts: gp }) => (
+            <section class="blog-group" id={group.id}>
+              <h2>{group.title[lang]}</h2>
+              <p class="muted">{group.lead[lang]}</p>
+              <div class="grid grid-3">
+                {gp.map((p) => (
+                  <a class="card card--link post-card" href={ROUTES[p.key][lang]}>
+                    {p.image && <img class="post-card-img" src={p.image.src} width={p.image.width} height={p.image.height} alt={p.image.alt} loading="lazy" decoding="async" />}
+                    <time class="post-card-date" datetime={p.date}>{formatDate(new Date(p.date), lang)}</time>
+                    <h3>{p.title}</h3>
+                    <p>{p.description}</p>
+                    <span class="link-arrow">{ui.readMore}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
           ))}
-          {posts.map((p) => <PostCard post={p} lang={lang} heading="h2" />)}
-        </div>
+          {posts.length > 0 && (
+            <section class="blog-group">
+              <div class="grid grid-3">{posts.map((p) => <PostCard post={p} lang={lang} heading="h3" />)}</div>
+            </section>
+          )}
+        </>
       )}
       {lang !== DEFAULT_LANG && czechHasPosts && (
         <p class="note">{ui.blogOtherLang} <a href={path('blog', DEFAULT_LANG)} hreflang={DEFAULT_LANG}>{ui.blogOtherLangLink}</a></p>

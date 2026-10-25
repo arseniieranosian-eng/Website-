@@ -52,3 +52,54 @@ const ALL: DedicatedPost[] = [
 ];
 
 export const dedicatedPosts = (lang: Lang) => ALL.filter((p) => p.lang === lang).sort((a, b) => b.date.localeCompare(a.date));
+
+// Blog index groups: every article belongs to one funnel (the goal it leads the reader to). The index shows one section per group (order below, newest article first inside a group).
+type L3 = Record<Lang, string>;
+export interface BlogGroup { id: string; title: L3; lead: L3; keys: PageKey[] }
+export const BLOG_GROUPS: BlogGroup[] = [
+  {
+    id: 'audit',
+    title: { cs: 'Bezplatný audit: technické chyby webu', en: 'Free audit: technical website errors', ru: 'Бесплатный аудит: технические ошибки сайта' },
+    lead: { cs: 'Články o problémech, které ukáže bezplatný audit: indexace, duplicity, přesměrování a změny webu.', en: 'Articles on the problems a free audit shows: indexing, duplicates, redirects and site changes.', ru: 'Статьи о проблемах, которые показывает бесплатный аудит: индексация, дубли, редиректы и изменения сайта.' },
+    keys: ['postIndexing', 'postNotShown', 'postSeoAudit', 'postDuplicates', 'postRedirects', 'postNewSite', 'postRedesign'],
+  },
+  {
+    id: 'choose',
+    title: { cs: 'Jak vybrat první krok v SEO', en: 'Choosing the first step in SEO', ru: 'Как выбрать первый шаг в SEO' },
+    lead: { cs: 'Audit, konzultace, Start nebo reklama: co se hodí jako první.', en: 'Audit, consultation, Start or ads: what fits first.', ru: 'Аудит, консультация, Старт или реклама: с чего начать.' },
+    keys: ['postChoose', 'postAds'],
+  },
+  {
+    id: 'translation',
+    title: { cs: 'Překladatelské agentury', en: 'Translation agencies', ru: 'Переводческие агентства' },
+    lead: { cs: 'Jak překladatelská agentura získává klienty a poptávky z webu.', en: 'How a translation agency gets clients and enquiries from its website.', ru: 'Как переводческое агентство получает клиентов и заявки с сайта.' },
+    keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs'],
+  },
+  {
+    id: 'realty',
+    title: { cs: 'Realitní kanceláře', en: 'Real estate agencies', ru: 'Агентства недвижимости' },
+    lead: { cs: 'Web, nabídky, čtvrti, mapy a portály z pohledu realitní kanceláře.', en: 'Website, listings, neighbourhoods, maps and portals from a real estate agency’s point of view.', ru: 'Сайт, объявления, районы, карты и порталы с точки зрения агентства недвижимости.' },
+    keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyLocal'],
+  },
+  {
+    id: 'accounting',
+    title: { cs: 'Účetní kanceláře', en: 'Accounting firms', ru: 'Бухгалтерские фирмы' },
+    lead: { cs: 'Jak účetní kancelář získává nové klienty.', en: 'How an accounting firm gets new clients.', ru: 'Как бухгалтерская фирма получает новых клиентов.' },
+    keys: ['postAccountingChannels'],
+  },
+  {
+    id: 'finance',
+    title: { cs: 'Finanční poradci', en: 'Financial consultants', ru: 'Финансовые консультанты' },
+    lead: { cs: 'Jak finanční poradce získává klienty.', en: 'How a financial consultant gets clients.', ru: 'Как финансовый консультант получает клиентов.' },
+    keys: ['postFinanceChannels'],
+  },
+];
+
+// Articles of a language grouped by funnel (empty groups are dropped). Articles that belong to no group would be lost, so the build fails on them.
+export const dedicatedPostGroups = (lang: Lang) => {
+  const posts = dedicatedPosts(lang);
+  const listed = new Set(BLOG_GROUPS.flatMap((g) => g.keys));
+  const orphan = ALL.filter((p) => !listed.has(p.key));
+  if (orphan.length) throw new Error(`blog articles without a group: ${orphan.map((p) => p.key).join(', ')}`);
+  return BLOG_GROUPS.map((g) => ({ group: g, posts: posts.filter((p) => g.keys.includes(p.key)) })).filter((x) => x.posts.length > 0);
+};

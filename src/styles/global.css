@@ -706,3 +706,8 @@ ul, ol { margin-bottom: var(--flow); }
 @media (min-width: 900px) { .hero-art-split { grid-template-columns: 1.25fr 0.75fr; gap: 56px; } .hero-art-split .hero-art { display: block; max-width: 420px; justify-self: end; } }
 .offer .svc-art { width: 96px; height: auto; margin-bottom: 14px; }
 .svc-name .row-art { flex: none; width: 36px; height: 36px; }
+
+/* Blog index: one section per funnel */
+.blog-group + .blog-group { margin-top: 64px; }
+.blog-group > h2 { margin-bottom: 0.3em; }
+.blog-group > .muted { margin-bottom: 20px; }
