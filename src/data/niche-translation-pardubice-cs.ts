@@ -47,6 +47,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
+  showWhy: false,
   lead: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích. Stavím stránky jazykových párů, služeb pro firmy a měst, hlídám indexaci jazykových verzí a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.',
   heroAudit: 'Chci bezplatný audit',
   heroVideoLink: 'Podívat se na rozbor webů',

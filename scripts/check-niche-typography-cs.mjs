@@ -8,7 +8,7 @@ const NAME = 'SEO a GEO/AEO pro tiskárny a polygrafii'; // the breadcrumb label
 const H1 = 'SEO a GEO/AEO pro tiskárny a polygrafii: poptávky z Googlu a AI';
 const TITLE = 'SEO pro tiskárny a polygrafii: katalog | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Bez slibů. Začněte technickým auditem zdarma.';
-const SECTIONS = [H1, 'Čím se SEO tiskárny liší od jiných oborů?', 'Co pro tiskárny a polygrafické firmy dělám?', 'Pro koho je to a pro koho ne?', 'Jaký výsledek měla případová studie tiskárny?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
+const SECTIONS = [H1, 'Co pro tiskárny a polygrafické firmy dělám?', 'Pro koho je to a pro koho ne?', 'Jaký výsledek měla případová studie tiskárny?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/pripadove-studie/seo-tiskarna/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'rychlé výsledky pro', 'SEO agentur', 'Kč', 'Sklik:', 'Petrohrad', 'Sankt', 'ofset', '1 200', '10 500', '775', 'tiskárnu', 'AggregateRating', 'na části webů', '9 webů'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -45,7 +45,7 @@ if (cnt(/href="\/pripadove-studie\/seo-tiskarna\/"/g) < 1 || cnt(/href="\/pripad
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy') || !lead.endsWith('nelze zaručit.')) e('hero lead');
-for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Lists and tables
 const ols = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];
 if (ols.length !== 1 || [...ols[0][1].matchAll(/<li><span>/g)].length !== 3) e('three steps list');

@@ -9,7 +9,7 @@ const NAME = 'SEO для переводческих агентств в Праг
 const H1 = 'SEO и GEO/AEO для переводческих агентств в Праге: заявки из Google и ИИ';
 const TITLE = 'SEO для бюро переводов в Праге: GEO/AEO | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для бюро переводов и переводческих агентств в Праге: страницы языковых пар, языковые версии, кейс. Бесплатный технический аудит.';
-const SECTIONS = [H1, 'Зачем переводческим агентствам SEO?', 'Что я делаю для переводческого агентства?', 'Как это работает на практике?', 'Как я работаю с агентствами?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Закажите бесплатный технический аудит'];
+const SECTIONS = [H1, 'Что я делаю для переводческого агентства?', 'Как это работает на практике?', 'Как я работаю с агентствами?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Закажите бесплатный технический аудит'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/', '/ru/otzyvy/', '/ru/obo-mne/'];
 const FORBIDDEN = ['гарантирую', 'гарантированно', 'первое место', 'топ-1', 'SEO агентств', 'Kč', 'нотариальн', 'заверенн', 'KB P', 'Quantum', 'Correct', 'AggregateRating', 'аудит за 24 часа', ' ×8', '×8 ', 'июнь к маю', 'GEO(?!/AEO)'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -46,7 +46,7 @@ if (cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) < 1 || cn
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Делаю SEO и GEO/AEO для бюро переводов и переводческих агентств в Праге') || !lead.endsWith('с цифрами и условиями.')) e('hero lead');
-for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Steps, H3s, case lines, audit table + checklist
 if ([...(main.match(/<ol class="steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><span>/g)].length !== 4) e('four steps');
 const h3 = [...main.matchAll(/<h3>([\s\S]*?)<\/h3>/g)].map((m) => txt(m[1]));

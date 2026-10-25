@@ -30,45 +30,6 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="container narrow">
-      <h2>{C.searchTitle}</h2>
-      <p class="answer">{C.searchAnswer}</p>
-      <div class="table-wrap">
-        <table class="compare">
-          <thead><tr>{C.search.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
-          <tbody>{C.search.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
-        </table>
-      </div>
-      <p class="muted small">{C.search.note}</p>
-    </div>
-  </section>
-
-  <section class="section section--grey">
-    <div class="container narrow">
-      <h2>{C.whyTitle}</h2>
-      <p class="answer">{C.whyAnswer}</p>
-      <p>{C.whyLead}</p>
-      <ul class="checks">{C.why.map((x) => <li>{x}</li>)}</ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container narrow">
-      <h2>{C.needTitle}</h2>
-      <p class="answer">{C.needAnswer}</p>
-      <ul class="checks">{C.need.map((x) => <li>{x}</li>)}</ul>
-    </div>
-  </section>
-
-  <section class="section section--ai section--ai-sm">
-    <div class="container narrow">
-      <h2>{C.geoTitle}</h2>
-      <p class="answer">{C.geoAnswer}</p>
-      <p><a class="link-arrow" href={t('geo')}>{C.geoLink}</a></p>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container narrow">
       <h2>{C.coopTitle}</h2>

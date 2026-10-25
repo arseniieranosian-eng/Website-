@@ -7,7 +7,7 @@ const URL_PATH = '/ru/seo-dlya-finansovyh-konsultantov-chehiya/';
 const H1 = 'SEO и GEO/AEO для финансовых консультантов в Чехии: заявки из Google и ИИ';
 const TITLE = 'Продвижение сайта финансового консультанта | Eranosian';
 const DESC = 'SEO для финансового консультанта: как разделить услуги по страницам, добавить FAQ и подготовить сайт для поиска и ИИ. Бесплатный аудит.';
-const SECTIONS = [H1, 'Как клиенты ищут финансового консультанта в Чехии?', 'Почему сайт финансового консультанта не приводит обращений из поиска?', 'Что нужно сайту финансового консультанта?', 'Чем финансовая тематика отличается в поиске?', 'Чем GEO/AEO помогает финансовому консультанту?', 'Как распределены роли в проекте?', 'Как выглядит работа?', 'Сколько это стоит и когда будут первые результаты?', 'Подходит ли это вам?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
+const SECTIONS = [H1, 'Как распределены роли в проекте?', 'Как выглядит работа?', 'Сколько это стоит и когда будут первые результаты?', 'Подходит ли это вам?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/', '/ru/obo-mne/'];
 const FORBIDDEN = ['гарантирую', 'гарантированно', 'больше клиентов', 'первое место', 'топ-1', 'SEO агентств', 'без первого взноса', 'AggregateRating', 'бесплатный аудит за 24 часа', 'аудит за 24 часа', 'ЧНБ', 'Sklik', 'Keyword Planner', 'Kč', 'виз и беженц', 'беженц'];
 
@@ -46,27 +46,19 @@ const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Я делаю SEO и GEO/AEO для финансовых консультантов в Чехии') || !lead.endsWith('Гарантий нет, кейса в этой нише пока нет.')) e('hero lead');
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Заказать бесплатный технический аудит<\/a>/.test(hero) || !/href="\/ru\/konsultacii\/">Консультация<\/a>/.test(hero)) e('hero buttons, no quote');
-for (const hd of SECTIONS.slice(1, 10)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 
 // Tables, checklist
 const tables = [...main.matchAll(/<table[\s\S]*?<\/table>/g)].map((m) => m[0]);
-if (tables.length !== 2) e(`two tables expected, found ${tables.length}`);
+if (tables.length !== 1) e(`one table expected, found ${tables.length}`);
 else {
   const rows = (t) => [...t.matchAll(/<tr>/g)].length - 1;
-  if (rows(tables[0]) !== 5 || rows(tables[1]) !== 5) e(`table rows: ${rows(tables[0])}, ${rows(tables[1])}`);
-  if (!/Направление[\s\S]*Как может звучать запрос[\s\S]*Что нужно сайту/.test(tables[0]) || !/Шаг[\s\S]*Что входит[\s\S]*Ссылка/.test(tables[1])) e('table headers');
+  if (rows(tables[0]) !== 5 || !/Шаг[\s\S]*Что входит[\s\S]*Ссылка/.test(tables[0])) e('formats table: header + 5 rows');
 }
-if (([...(main.match(/Что нужно сайту финансового консультанта\?[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) || [, ''])[1].matchAll(/<li>/g)]).length !== 6) e('checklist: 6 items');
-if (/\d[\d\s]*\s?(?:запросов в месяц|показов)/.test(mainTxt)) e('no search volumes');
-if (!mainTxt.includes('Объёмы запросов я здесь не называю')) e('volumes note');
-if (!mainTxt.includes('Консультанты работают с клиентами на разных визах и на нескольких языках') || (mainTxt.match(/визах/g) || []).length !== 1) e('one short visa sentence');
 
 // Observation: dated, no invented numbers
-if (!mainTxt.includes('За последние три месяца (к 24.10.2026) я просмотрел 8 сайтов финансовых консультантов. Это не исследование, и общих выводов или цифр из него я не делаю.')) e('observation sentence');
-if (/на \d+ из 8|ни на одном/.test(mainTxt)) e('no unconfirmed counts from the 8 sites');
 
 // YMYL source
-if (!mainTxt.includes('Рекомендации проверены 24.10.2026.') || !h.includes('href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content"')) e('Google source and check date');
 
 // Quote: one, confirmed, not in the first 100 words
 const quotes = [...main.matchAll(/<figure class="quote-fig">[\s\S]*?<\/figure>/g)];

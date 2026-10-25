@@ -8,7 +8,7 @@ const NAME = 'SEO a GEO/AEO pro strojírenské firmy'; // the breadcrumb label (
 const H1 = 'SEO a GEO/AEO pro strojírenské firmy: poptávky z Googlu a AI';
 const TITLE = 'SEO pro strojírenské firmy a výrobu | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: stránky technologií, PDF katalogy, poptávkový formulář. Bez slibů. Technický audit zdarma.';
-const SECTIONS = [H1, 'Čím se SEO strojírenské firmy liší od jiných oborů?', 'Co pro strojírenskou firmu dělám?', 'Pro koho je to a pro koho ne?', 'Ukázka auditu ze související oblasti', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
+const SECTIONS = [H1, 'Co pro strojírenskou firmu dělám?', 'Pro koho je to a pro koho ne?', 'Ukázka auditu ze související oblasti', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'rychlé výsledky pro', 'SEO agentur', 'Kč', 'Německ', 'export', 'ISO ', 'certifik', 'tiskárn', 'AggregateRating', 'na části webů', 'N webů', 'poptávky z Německa'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -43,7 +43,7 @@ for (const l of ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/'
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy') || !lead.endsWith('zatím výsledky nemám.')) e('hero lead');
-for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const ols = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];
 if (ols.length !== 1 || [...ols[0][1].matchAll(/<li><span>/g)].length !== 3) e('three steps list');
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));

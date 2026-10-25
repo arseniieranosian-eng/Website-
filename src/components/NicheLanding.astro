@@ -39,22 +39,35 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </div>
   </section>
 
-  <!-- WHY SEO -->
-  <section class="section section--tight">
-    <div class="container narrow">
-      <h2>{C.whyTitle}</h2>
-      <p class="answer">{C.whyAnswer}</p>
-      <ul class="checks">{C.why.map((x: any) => <li>{x}</li>)}</ul>
-      <p>{C.whyText}</p>
-      {C.market && (
-        <>
-          <h3>{C.market.title}</h3>
+  <!-- WHY SEO (the explanatory block is hidden on the niche landings since 25.10.2026: showWhy === false; the dated local-market analysis stays as its own block) -->
+  {C.showWhy === false ? (
+    C.market && (
+      <section class="section section--tight">
+        <div class="container narrow">
+          <h2>{C.market.title}</h2>
           {C.market.paragraphs.map((p: string) => <p>{p}</p>)}
           <p class="muted small">{C.market.checkedLabel}: {C.market.checked}</p>
-        </>
-      )}
-    </div>
-  </section>
+        </div>
+      </section>
+    )
+  ) : (
+    <section class="section section--tight">
+      <div class="container narrow">
+        <h2>{C.whyTitle}</h2>
+        <p class="answer">{C.whyAnswer}</p>
+        <ul class="checks">{C.why.map((x: any) => <li>{x}</li>)}</ul>
+        <p>{C.whyText}</p>
+        {C.market && (
+          <>
+            <h3>{C.market.title}</h3>
+            {C.market.paragraphs.map((p: string) => <p>{p}</p>)}
+            <p class="muted small">{C.market.checkedLabel}: {C.market.checked}</p>
+          </>
+        )}
+      </div>
+    </section>
+
+  )}
 
   <!-- WHAT I DO + author quote -->
   <section class="section section--grey">
@@ -71,7 +84,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
   </section>
 
   <!-- CONTROL AREAS TABLE (niches that have one; the answer is the quotable element) -->
-  {C.areas && (
+  {C.areas && C.showAreas !== false && (
     <section class="section">
       <div class="container narrow">
         <h2>{C.areas.title}</h2>

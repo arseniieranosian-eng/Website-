@@ -9,7 +9,7 @@ const NAME = 'SEO для агентств недвижимости в Праге
 const H1 = 'SEO и GEO/AEO для агентств недвижимости в Праге: заявки из Google и ИИ';
 const TITLE = 'Продвижение агентства недвижимости в Праге | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Начните с бесплатного аудита.';
-const SECTIONS = [H1, 'Зачем агентству недвижимости SEO?', 'Что я делаю для агентства недвижимости в Праге?', 'Какие области проверяю на сайтах агентств недвижимости в первую очередь?', 'Как выглядит аудит с планом на 12 месяцев?', 'Как я сотрудничаю с агентствами недвижимости?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
+const SECTIONS = [H1, 'Что я делаю для агентства недвижимости в Праге?', 'Как выглядит аудит с планом на 12 месяцев?', 'Как я сотрудничаю с агентствами недвижимости?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/otzyvy/', '/ru/obo-mne/', '/ru/kontakty/'];
 const FORBIDDEN = ['гарантирую', 'гарантированно', 'первое место', 'SEO агентство', 'Quantum', 'PriceHubble', 'Expats', 'KB P', 'kbpreklady', 'Correct', 'Přikop', '65–70', 'ChatGPT', 'AggregateRating', 'бесплатный аудит за 24 часа', 'купленн', 'Search Console'];
 
@@ -53,7 +53,7 @@ if (lead !== 'Я занимаюсь SEO и GEO/AEO для агентств не�
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Хочу бесплатный аудит<\/a>/.test(hero)) e('hero: button, no quote');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
-for (const hd of SECTIONS.slice(1, 8)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // No case study: no translation-case results
 if (/трёхкратно|рост[лш]и обращени|×24|×3|\+200/.test(mainTxt)) e('no case results carried over from the translation case');
 // Dated analysis of the Czech query and the honest note
@@ -67,13 +67,11 @@ if (cards.length !== 4 || ['/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full
 // Control-areas table: header + 6 rows
 const area = (main.match(/Какие области проверяю[\s\S]*?<\/table>/) || [''])[0];
 const rows = [...area.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
-if (rows.length !== 7 || rows[0].join('|') !== 'Область|Как понять|Что проверить сначала') e('control-areas table: header + 6 rows');
-if (!mainTxt.includes('Бесплатный аудит охватывает технические ошибки (индексация, дубли); остальные области разбираются в консультации или в работе.')) e('table note on the scope of the free audit');
 // Audit example: short description + a link to the mini-case (the slides live on that page), no client / third-party names
 if (/<img[^>]*niche-realty-audit|<img[^>]*razbor-slide/.test(main) || !/href="\/ru\/kejsy\/razbor-agentstvo-nedvizhimosti-praga\/"/.test(main)) e('audit example: link to the mini-case, no slides on this page');
 // One quote
 const Q = 'Агентство недвижимости выигрывает не тем, что у него много объектов, а тем, что их легко найти.';
-if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: входит в каждую услугу') || mainTxt.indexOf(Q) > mainTxt.lastIndexOf('Какие области проверяю') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');
+if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: входит в каждую услугу') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');
 // JSON-LD
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);

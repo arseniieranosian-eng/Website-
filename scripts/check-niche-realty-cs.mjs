@@ -8,7 +8,7 @@ const NAME = 'SEO pro realitní kanceláře v Praze'; // the breadcrumb label (M
 const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO a GEO/AEO pro realitní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze: stránky nabídek a čtvrtí, indexace, Mapy.com. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Proč realitní kanceláře potřebují SEO?', 'Co pro realitní kancelář v Praze konkrétně dělám?', 'Jaké oblasti u webů realitních kanceláří kontroluji jako první?', 'Jak spolupracuji s realitními kancelářemi?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
+const SECTIONS = [H1, 'Co pro realitní kancelář v Praze konkrétně dělám?', 'Jak spolupracuji s realitními kancelářemi?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/', '/seo-pro-prekladatelske-agentury-praha/'];
 const FORBIDDEN = ['prodej bytu Praha', 'marketing realitní kanceláře', 'SEO realitní kancelář Praha', 'realitní makléř', 'smlouv', 'provize', 'garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentura Pardubice', 'SEO agentura v Pardubicích', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', '5k'];
 
@@ -57,7 +57,7 @@ const hero = main.slice(0, heroEnd);
 if (/<blockquote|65–70|×3/.test(hero) || !/href="\/audit-zdarma\/">Chci bezplatný audit<\/a>/.test(hero)) e('hero: button, no quote, no case numbers');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">/.test(h)) e('visible date');
 // Answer-first
-for (const hd of SECTIONS.slice(1, 8)) {
+for (const hd of SECTIONS.slice(1, 6)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // No case study in this niche: no translation-case numbers, no AI Overview / ChatGPT claim, no screenshot
@@ -76,12 +76,10 @@ const CARDS = [['/konzultace/', 'Od 2 000 Kč'], ['/start-3-mesice/', '50 000 K�
 if (cards.length !== 4 || CARDS.some(([u, x], i) => cards[i]?.[0] !== u || !cards[i][1].includes(x))) e('four service cards with price and duration: ' + JSON.stringify(cards));
 // Table of the control areas: 6 rows, 3 columns, worded as areas of the check
 const rowsA = [...(main.match(/Jaké oblasti u webů realitních kanceláří kontroluji jako první\?[\s\S]*?<\/table>/) || [''])[0].matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
-if (rowsA.length !== 7 || rowsA[0].join('|') !== 'Oblast|Jak ji poznám|Co zkontrolovat první') e('control-areas table: header + 6 rows');
-if (!mainTxt.includes('Tabulka popisuje oblasti kontroly, ne zjištění o konkrétních webech.')) e('table note: areas of the check, not findings');
 if (/Jaké mám zkušenosti s weby nemovitostí\?/.test(mainTxt) && !/zkušenost|projekt/i.test(mainTxt)) e('experience block must carry confirmed content');
 // One quote after the "what I do" section, signed with the link
 const Q = 'U realitní kanceláře rozhoduje nejen cena nabídky, ale i to, jestli ji zájemce na webu najde dřív než na portálu.';
-if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: součást každé služby') || mainTxt.indexOf(Q) > mainTxt.lastIndexOf('Jaké oblasti u webů realitních kanceláří kontroluji jako první?') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');
+if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: součást každé služby') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');
 // JSON-LD
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);

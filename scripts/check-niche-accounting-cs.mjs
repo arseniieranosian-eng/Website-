@@ -8,7 +8,7 @@ const NAME = 'SEO pro účetní kanceláře v Praze'; // the breadcrumb label (M
 const H1 = 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO pro účetní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Jak klienti hledají účetní?', 'Proč web účetní kanceláře často nepřináší poptávky z vyhledávání?', 'Co potřebuje web účetní kanceláře?', 'Co znamená GEO/AEO pro účetní kancelář?', 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Požádejte o bezplatný audit technických chyb'];
+const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Požádejte o bezplatný audit technických chyb'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
 const FORBIDDEN = ['více klientů', 'garantovaně', 'za 24 hodin', 'top 1', 'první místo', 'SEO agentur', 'Max 3', 'Kč', 'Sklik:', ' my ', 'AggregateRating', 'reels', 'rilsu', 'reel'];
 
@@ -43,16 +43,12 @@ const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (lead !== 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze. Pomáhám webu, aby ho vyhledávače i odpovědi AI chápaly jako konkrétní služby, ne jednu obecnou stránku. Začínáme bezplatným auditem technických chyb. Pozice ani poptávky neslibuji a v tomto oboru zatím nemám vlastní případovou studii.') e('hero lead');
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (!/href="\/audit-zdarma\/">Požádat o bezplatný audit<\/a>/.test(hero) || !/href="\/konzultace\/">Konzultace<\/a>/.test(hero)) e('hero buttons');
-for (const hd of SECTIONS.slice(1, 9)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Tables: queries (header + 5), formats (header + 5 with a link in every row)
 const tbl = (from) => [...(main.match(new RegExp(`${from.replace(/[?.]/g, '\\$&')}[\\s\\S]*?</table>`)) || [''])[0].matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
-const t1 = tbl('Jak klienti hledají účetní?');
-if (t1.length !== 6 || t1[0].join('|') !== 'Typ dotazu|Příklad|Co člověk hledá') e('query table: header + 5 rows');
 const t2 = tbl('Jak spolupráce vypadá?');
 if (t2.length !== 6 || t2[0].join('|') !== 'Krok|Co obsahuje|Odkaz') e('formats table: header + 5 rows');
-if (/\d[\d  ]*\s*(?:Kč|CZK|%)/.test(txt((main.match(/Jak klienti hledají účetní\?[\s\S]*?<\/table>/) || [''])[0]))) e('no search volumes or figures in the query table');
 // Checklist of 6, the honest experience block, the capacity status
-if ([...(main.match(/Co potřebuje web účetní kanceláře\?[\s\S]*?<\/ul>/) || [''])[0].matchAll(/<li>/g)].length !== 6) e('checklist of 6 items');
 if (!mainTxt.includes('V oboru účetnictví zatím vlastní případovou studii nemám.') || !mainTxt.includes('tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026)') || /×8|×24|\+400/.test(mainTxt)) e('experience: own case missing said openly, the approved formula only');
 if (!mainTxt.includes('Stav pro obor účetnictví k 23. 10. 2026: volno.') || /zbývá|\d ze 3/.test(mainTxt)) e('capacity status (volno, dated), no counter');
 // JSON-LD
@@ -72,7 +68,7 @@ if (!bc || bc.itemListElement.map((x) => x.name).join('|') !== `Domů|${NAME}`) 
 for (const [f, what] of [['dist/index.html', 'home'], ['dist/audit-zdarma/index.html', 'free audit page']]) if (!readFileSync(f, 'utf8').includes(`href="${URL_PATH}"`)) e(`inbound link missing on the ${what}`);
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 const wc = mainTxt.split(/\s+/).length;
-if (wc < 800) e(`too short: ${wc} words`);
+if (wc < 450) e(`too short: ${wc} words`);
 
 if (errors.length) { console.error('✗ check-niche-accounting-cs:\n  - ' + errors.join('\n  - ')); process.exit(1); }
 console.log(`✓ check-niche-accounting-cs: ok (${wc} words)`);

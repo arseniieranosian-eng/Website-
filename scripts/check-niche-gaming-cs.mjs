@@ -8,7 +8,7 @@ const NAME = 'SEO a GEO/AEO pro počítačové herny v Praze'; // the breadcrumb
 const H1 = 'SEO a GEO/AEO pro počítačové herny v Praze: rezervace z Googlu a AI';
 const TITLE = 'SEO pro počítačové herny a herní kluby | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro počítačové herny a herní kluby v Praze: služby, tarify, rezervace, akce, FAQ. Bez slibů. Technický audit zdarma.';
-const SECTIONS = [H1, 'Čím se SEO počítačové herny liší od jiných oborů?', 'Co pro počítačovou hernu dělám?', 'Pro koho je to a pro koho ne?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
+const SECTIONS = [H1, 'Co pro počítačovou hernu dělám?', 'Pro koho je to a pro koho ne?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'SEO agentur', 'Kč', 'nezletil', 'děti', 'dětsk', 'školák', 'věkov', 'narozenin', 'bezpečnost', 'hazard', 'sázk', 'AggregateRating', '12 webů', 'často nacház'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -52,10 +52,9 @@ if (cnt(/href="\/start-3-mesice\/"/g) < 1 || cnt(/href="\/full-seo\/"/g) < 1) e(
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Dělám SEO a GEO/AEO pro počítačové herny, herní kluby a esport arény v Praze') || !lead.endsWith('Zákazníky ani pozice negarantuji.')) e('hero lead');
-for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Lists and tables
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;
-if (lists(/Typy stránek, na kterých to stojí:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 5) e('page types list: 5');
 if (lists(/Co pro počítačovou hernu dělám\?[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what I do: 6 bullets');
 if (lists(/Co se technicky kontroluje na webu počítačové herny:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('audit checklist: 6');
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));

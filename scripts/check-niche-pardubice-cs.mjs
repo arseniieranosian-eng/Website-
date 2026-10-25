@@ -8,7 +8,7 @@ const NAME = 'SEO pro překladatelské agentury v Pardubicích'; // the breadcru
 const H1 = 'SEO a GEO/AEO pro překladatelské agentury v Pardubicích: poptávky z Googlu a AI';
 const TITLE = 'SEO pro překladatelské agentury Pardubice | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích: jazykové páry, služby, Mapy.com. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Proč překladatelské agentury v Pardubicích potřebují SEO?', 'Co pro překladatelskou agenturu v Pardubicích konkrétně dělám?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Další články pro agentury', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
+const SECTIONS = [H1, 'Co pro překladatelskou agenturu v Pardubicích konkrétně dělám?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Další články pro agentury', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/pripadove-studie/seo-prekladatelska-agentura/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/', '/seo-pro-prekladatelske-agentury-praha/', '/seo-pro-prekladatelske-agentury-brno/'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentura Pardubice', 'SEO agentura v Pardubicích', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', '5k'];
 
@@ -57,7 +57,7 @@ const hero = main.slice(0, heroEnd);
 if (/<blockquote|65–70|×3/.test(hero) || !/href="\/audit-zdarma\/">Chci bezplatný audit<\/a>/.test(hero)) e('hero: button, no quote, no case numbers');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">/.test(h)) e('visible date');
 // Answer-first
-for (const hd of SECTIONS.slice(1, 8)) {
+for (const hd of SECTIONS.slice(1, 7)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // Case: approved formula only

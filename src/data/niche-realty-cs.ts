@@ -60,6 +60,8 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
+  showWhy: false,
+  showAreas: false,
   lead: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze. Stavím stránky nabídek, čtvrtí a služeb, hlídám indexaci a duplicity a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.',
   heroAudit: 'Chci bezplatný audit',
   heroVideoLink: 'Podívat se na rozbor webů',
