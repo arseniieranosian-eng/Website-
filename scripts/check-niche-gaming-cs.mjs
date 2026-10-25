@@ -25,7 +25,10 @@ if (title !== TITLE || title.length > 55 || title.length < 50) e(`title: ${title
 if (desc !== DESC || desc.length > 150) e(`description: ${desc} (${desc.length})`);
 if (title.replace(/ \| Eranosian$/, '') === H1 || /Mapy/.test(title)) e('title must differ from H1 and not contain "Mapy"');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h) || /<meta name="robots"[^>]*noindex/.test(h)) e('Czech only, indexable, no hreflang, no x-default');
+if (/<meta name="robots"[^>]*noindex/.test(h)) e('indexable');
+// hreflang pair cs ↔ ru (the Russian version exists since 25.10.2026; the site convention adds x-default = cs)
+const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + ' ' + m[2]);
+if (JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `ru ${BASE}/ru/seo-dlya-kompyuternyh-klubov-praga/`, `x-default ${BASE}${URL_PATH}`])) e('hreflang pair cs ↔ ru: ' + JSON.stringify(alts));
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
@@ -73,6 +76,6 @@ if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1)
 // Inbound
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 if (!readFileSync('dist/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('home link');
-if (readFileSync('dist/en/index.html', 'utf8').includes(URL_PATH) || readFileSync('dist/ru/index.html', 'utf8').includes(URL_PATH)) e('only the Czech version links to the page');
+if (readFileSync('dist/en/index.html', 'utf8').includes(URL_PATH)) e('the English home must not link the page');
 if (errors.length) { console.error('✗ check-niche-gaming-cs:\n  - ' + errors.join('\n  - ')); process.exit(1); }
 console.log(`✓ check-niche-gaming-cs: ok (${mainTxt.split(/\s+/).length} words)`);

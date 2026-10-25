@@ -8,6 +8,7 @@ import { walk } from '../lib/cs-typo';
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited.
 export const NICHE_GAMING_PUBLISHED = '2026-10-25';
 export const GAMING_CAPACITY_DATE = '25. 10. 2026';
+export const GAMING_CAPACITY_DATE_RU = '25.10.2026';
 
 const raw = {
   lang: 'cs' as const,

@@ -471,7 +471,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO a GEO/AEO pro počítačové herny v Praze',
     },
     en: { name: 'SEO for gaming clubs in Prague', title: 'SEO for gaming clubs in Prague', description: 'SEO for gaming clubs in Prague', h1: 'SEO and GEO/AEO for gaming clubs in Prague' },
-    ru: { name: 'SEO для компьютерных клубов в Праге', title: 'SEO для компьютерных клубов в Праге', description: 'SEO для компьютерных клубов в Праге', h1: 'SEO и GEO/AEO для компьютерных клубов в Праге' },
+    ru: {
+      name: 'SEO для компьютерных клубов',
+      title: 'SEO для компьютерных клубов: Прага, GEO/AEO | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для компьютерных клубов в Праге: сайт, бронирование, тарифы, акции, FAQ. Без гарантий. Бесплатный технический аудит.',
+      h1: 'SEO и GEO/AEO для компьютерных клубов в Праге',
+    },
   },
   nicheMachinery: {
     cs: {
