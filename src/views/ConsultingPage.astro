@@ -1,8 +1,9 @@
 ---
 // /ru/konsultacii/ (ru, brief of 19.10.2026) and /en/consulting/ (en, brief of 23.10.2026); the Czech page is ConsultingCsPage.
-// Content lives in data/consulting-ru.ts and data/consulting-en.ts. The English page has no video (C.video is absent).
+// Content lives in data/consulting-ru.ts and data/consulting-en.ts. Neither language has a video any more (removed on the author's instruction); the hero's right column is a decorative illustration.
 import Base from '../layouts/Base.astro';
-import AuthorMedia from '../components/AuthorMedia.astro';
+import ConsultHeroArt from '../components/ConsultHeroArt.astro';
+import ServiceArt from '../components/ServiceArt.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
@@ -45,7 +46,7 @@ const others = [
 <Base {...pageProps('consulting', lang)} schema={consultingSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
   <section class="page-hero">
-    <div class:list={['container', { 'hero-split': C.video }]}>
+    <div class="container hero-art-split">
       <div>
         <h1>{C.h1}</h1>
         <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time>{C.durationLine && <> · {C.durationLine}</>}</p>
@@ -55,12 +56,7 @@ const others = [
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      {C.video && (
-        <figure class="hero-video">
-          <AuthorMedia alt={C.video.alt} variant="video" />
-          <figcaption class="muted small">{C.video.caption}</figcaption>
-        </figure>
-      )}
+      <ConsultHeroArt />
     </div>
   </section>
 
@@ -73,6 +69,7 @@ const others = [
       <div class="grid grid-2 offers">
         {C.offers.map((o) => (
           <article class="card offer">
+            <ServiceArt kind={o.id} size={96} />
             <h3>{o.name}</h3>
             <p class="price"><strong>{money(PRICES[o.id])}</strong> · {o.duration}</p>
             <p>{o.cardText}</p>

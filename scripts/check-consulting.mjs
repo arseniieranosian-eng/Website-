@@ -1,6 +1,6 @@
 // Post-build check of the Russian consulting page (the Czech one is checked by check-consulting-cs.mjs) against their briefs:
 //  - title 50-60 chars, description 120-160, one H1, section order
-//  - JSON-LD matches the visible text (title, description, lead, FAQ, steps, offers, date, video)
+//  - JSON-LD matches the visible text (title, description, lead, FAQ, steps, offers, date,)
 //  - prices in JSON-LD are CZK only, no AggregateRating / stars, correct canonical and hreflang
 import { readFileSync } from 'node:fs';
 
@@ -43,12 +43,12 @@ for (const [lang, P] of Object.entries(PAGES)) {
   for (const f of P.forbidden) if (body.includes(f)) e(`forbidden text present: ${f}`);
   for (const l of P.links) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
   if (!/<table/.test(h) || !/<ol class="steps/.test(h)) e('table / ordered list missing');
-  if (!/<video[^>]*poster/.test(h)) e('video with poster missing');
+  if (/<video|intro\.mp4|VideoObject/.test(h)) e('video removed from the consulting page on the author\'s instruction');
   if (/★|AggregateRating|ratingValue/.test(h)) e('stars / AggregateRating found');
 
   const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
   const by = (t) => ld.find((n) => n['@type'] === t);
-  const wp = by('WebPage'), sv = by('Service'), ht = by('HowTo'), fq = by('FAQPage'), vd = by('VideoObject'), bc = by('BreadcrumbList');
+  const wp = by('WebPage'), sv = by('Service'), ht = by('HowTo'), fq = by('FAQPage'), bc = by('BreadcrumbList');
   if (wp.name !== title) e('WebPage.name != <title>');
   if (wp.description !== desc) e('WebPage.description != meta description');
   if (wp.inLanguage !== lang) e('WebPage.inLanguage');
@@ -61,8 +61,6 @@ for (const [lang, P] of Object.entries(PAGES)) {
   if (!ht.step.every((s) => body.includes(s.text))) e('HowTo steps not visible verbatim');
   if (fq.mainEntity.length !== 5 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('FAQ not visible verbatim');
   if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== P.crumbs || bc.itemListElement.at(-1).item) e('breadcrumb');
-  if (!body.includes(vd.description)) e('video description not visible');
-  if (vd.uploadDate !== '2026-10-19') e('uploadDate');
   if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 }
 

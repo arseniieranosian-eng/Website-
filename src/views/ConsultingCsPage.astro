@@ -35,20 +35,25 @@ const others = [
 ] as const;
 const cmp = C.compare;
 import WhyTrustCs from '../components/WhyTrustCs.astro';
+import ConsultHeroArt from '../components/ConsultHeroArt.astro';
+import ServiceArt from '../components/ServiceArt.astro';
 import QuoteFigure from '../components/QuoteFigure.astro';
 ---
 <Base {...pageProps('consulting', lang)} schema={consultingCsSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
   <section class="page-hero">
-    <div class="container">
-      <h1>{C.h1}</h1>
-      <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
-      <p class="lead">{C.lead}</p>
-      <p class="price-badge">{C.badge}</p>
-      <div class="btn-row">
-        <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
-        <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+    <div class="container hero-art-split">
+      <div>
+        <h1>{C.h1}</h1>
+        <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+        <p class="lead">{C.lead}</p>
+        <p class="price-badge">{C.badge}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+          <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        </div>
       </div>
+      <ConsultHeroArt />
     </div>
   </section>
 
@@ -61,7 +66,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
         <table class="compare">
           <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
           <tbody>
-            {C.offers.map((o) => <tr><th scope="row">{o.name}</th><td>{fmtKc(PRICES[o.id])}</td><td>{o.duration}</td><td>{o.gets}</td></tr>)}
+            {C.offers.map((o) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={o.id} />{o.name}</span></th><td style="white-space:nowrap">{fmtKc(PRICES[o.id])}</td><td>{o.duration}</td><td>{o.gets}</td></tr>)}
           </tbody>
         </table>
       </div>

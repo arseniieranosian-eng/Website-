@@ -126,12 +126,6 @@ export const CONSULTING_RU: ConsultingContent = {
   audit: 'Технические ошибки сайта: индексация, дубли и другие проблемы. Бесплатно, за 24 часа.',
   geo: 'Сайт, который находят и Google, и ChatGPT: SEO и оптимизация под ИИ-поиск в одном.',
 
-  video: {
-    name: 'SEO консультация с Arsenii Eranosian',
-    // Visible caption and VideoObject.description are the same text on purpose.
-    caption: 'Короткое видео: Arsenii Eranosian представляется и рассказывает о SEO.',
-    alt: 'Arsenii Eranosian на консультации',
-  },
   prefillStart: 'Интересует:',
 
   schema: {
@@ -147,6 +141,5 @@ export const CONSULTING_RU: ConsultingContent = {
     onlineChannel: 'Онлайн (видеосвязь)',
     cityChannel: 'Лично в Праге',
     howToName: 'Как проходит SEO консультация',
-    videoLanguage: 'ru',
   },
 };

@@ -696,3 +696,9 @@ ul, ol { margin-bottom: var(--flow); }
 
 /* Case cards on the home pages: a small illustration above the label */
 .case-card .case-art, .case-teaser .case-art { width: 96px; height: auto; margin-bottom: 14px; }
+
+/* Consulting hero: text left, decorative illustration right (desktop only) */
+.hero-art-split { display: grid; gap: 28px; align-items: center; }
+.hero-art-split .hero-art { display: none; width: 100%; height: auto; }
+@media (min-width: 900px) { .hero-art-split { grid-template-columns: 1.25fr 0.75fr; gap: 56px; } .hero-art-split .hero-art { display: block; max-width: 420px; justify-self: end; } }
+.offer .svc-art { width: 96px; height: auto; margin-bottom: 14px; }
