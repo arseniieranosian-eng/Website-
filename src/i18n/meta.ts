@@ -42,7 +42,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: {
       name: 'Free audit',
       title: 'Free SEO Audit of Your Website | Arsenii Eranosian',
-      description: 'Get a free SEO audit: technical health, keywords, competitors and AI visibility. Specific recommendations within 24 hours.',
+      description: 'Free check of your website\'s technical errors: indexing, duplicates and more. A short presentation within 24 hours, no call, no obligation.',
       h1: 'A free SEO audit of your website',
     },
     ru: {
