@@ -2,6 +2,7 @@
 // Russian niche landing page "SEO для переводческих агентств в Праге" (ru), brief of 24.10.2026: localisation of the Czech Praha page (hreflang pair cs ↔ ru from ONLY_LANGS).
 // Content: data/niche-translation-ru.ts. Own section order of the brief; no prices, no quote, no video, no agency names.
 import Base from '../layouts/Base.astro';
+import DoArt from '../components/DoArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -42,10 +43,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <p class="answer">{C.doAnswer}</p>
       <ol class="steps">{C.do.map((x) => <li><span>{x}</span></li>)}</ol>
       {C.doParts.map((p) => (
-        <>
-          <h3>{p.h}</h3>
-          <p>{p.text}{p.link && <>{' '}<a href={t(p.link.page)}>{p.link.text}</a>.</>}</p>
-        </>
+        <div class="do-item">
+          <DoArt kind={p.art} />
+          <div>
+            <h3>{p.h}</h3>
+            <p>{p.text}{p.link && <>{' '}<a href={t(p.link.page)}>{p.link.text}</a>.</>}</p>
+          </div>
+        </div>
       ))}
       <p>{C.doNote}</p>
     </div>

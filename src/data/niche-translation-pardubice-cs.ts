@@ -65,12 +65,12 @@ const raw = {
   doAnswer: 'Pro překladatelskou agenturu v Pardubicích stavím stránky jazykových párů, služeb, oborů a lokality, upravuji stránku pro firmy (B2B), hlídám indexaci a duplicity mezi jazykovými verzemi a připravuji obsah i pro AI odpovědi. K tomu patří lokální přítomnost v Google Maps a na Mapy.com.',
   doIntro: 'Optimalizace webu překladatelské agentury není jedna úprava, ale několik stránek a nastavení, které na sebe navazují:',
   do: [
-    { h: 'Stránky jazykových párů', text: 'Samostatná stránka pro jazykový pár dává smysl tam, kde na pár existuje poptávka. Není potřeba ji dělat vždy.' },
-    { h: 'Stránky služeb a oborů', text: 'Firma obvykle nehledá „překlady“ obecně, ale například právní, technický nebo lékařský překlad. Každá služba a obor má mít stránku, která na dotaz odpoví.' },
-    { h: 'Stránka pro firmy (B2B)', text: 'Firmy rozhodují jinak než jednotlivci: chtějí vědět, jak se pracuje na opakovaných zakázkách a v jakých oborech. Stránka pro firmy to popíše srozumitelně a vede k poptávce.' },
-    { h: 'Jazykové verze: indexace a duplicity', text: 'U vícejazyčného webu hlídám, aby Google viděl každou jazykovou verzi a nepletl si je s kopiemi. Duplicity mezi verzemi jsou častá technická chyba.' },
-    { h: 'Lokální přítomnost v Pardubicích', text: 'Pro agentury s kanceláří v Pardubicích je důležitý profil na Google Maps a na Mapy.com. Lokální SEO překladatelské agentury Pardubice stojí na jednotných údajích a na stránce, která na profil navazuje.' },
-    { h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
+    { art: 'pairs', h: 'Stránky jazykových párů', text: 'Samostatná stránka pro jazykový pár dává smysl tam, kde na pár existuje poptávka. Není potřeba ji dělat vždy.' },
+    { art: 'services', h: 'Stránky služeb a oborů', text: 'Firma obvykle nehledá „překlady“ obecně, ale například právní, technický nebo lékařský překlad. Každá služba a obor má mít stránku, která na dotaz odpoví.' },
+    { art: 'b2b', h: 'Stránka pro firmy (B2B)', text: 'Firmy rozhodují jinak než jednotlivci: chtějí vědět, jak se pracuje na opakovaných zakázkách a v jakých oborech. Stránka pro firmy to popíše srozumitelně a vede k poptávce.' },
+    { art: 'versions', h: 'Jazykové verze: indexace a duplicity', text: 'U vícejazyčného webu hlídám, aby Google viděl každou jazykovou verzi a nepletl si je s kopiemi. Duplicity mezi verzemi jsou častá technická chyba.' },
+    { art: 'local', h: 'Lokální přítomnost v Pardubicích', text: 'Pro agentury s kanceláří v Pardubicích je důležitý profil na Google Maps a na Mapy.com. Lokální SEO překladatelské agentury Pardubice stojí na jednotných údajích a na stránce, která na profil navazuje.' },
+    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
   ],
   quote: 'V menším městě se konkurence nepozná podle počtu firem, ale podle toho, kdo je vidět, když zákazník hledá.',
 

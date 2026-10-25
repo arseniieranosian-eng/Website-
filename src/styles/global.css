@@ -668,3 +668,4 @@ ul, ol { margin-bottom: var(--flow); }
 .do-item h3 { margin: 0 0 0.45em; font-size: 1.2rem; }
 .do-item p { margin: 0; }
 @media (max-width: 767px) { .do-art { width: 64px; } .do-item { gap: 14px; padding-top: 1.5em; } }
+.do-item + :not(.do-item) { margin-top: 1.8em; }
