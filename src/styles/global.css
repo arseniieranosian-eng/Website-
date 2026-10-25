@@ -702,3 +702,4 @@ ul, ol { margin-bottom: var(--flow); }
 .hero-art-split .hero-art { display: none; width: 100%; height: auto; }
 @media (min-width: 900px) { .hero-art-split { grid-template-columns: 1.25fr 0.75fr; gap: 56px; } .hero-art-split .hero-art { display: block; max-width: 420px; justify-self: end; } }
 .offer .svc-art { width: 96px; height: auto; margin-bottom: 14px; }
+.svc-name .row-art { flex: none; width: 36px; height: 36px; }

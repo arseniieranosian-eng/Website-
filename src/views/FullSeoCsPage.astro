@@ -5,6 +5,7 @@ import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import RowArt from '../components/RowArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -129,7 +130,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
         <table class="compare">
           <thead><tr><th scope="col"><span class="sr-only">{C.table.corner}</span></th>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
           <tbody>
-            {C.table.rows.map(([label, a, b]) => <tr><th scope="row">{label}</th><td>{a}</td><td>{b}</td></tr>)}
+            {C.table.rows.map(([label, a, b], i) => <tr><th scope="row"><span class="svc-name"><RowArt kind={['duration', 'price', 'focus', 'maps', 'reports'][i]} />{label}</span></th><td>{a}</td><td>{b}</td></tr>)}
           </tbody>
         </table>
       </div>

@@ -1,0 +1,29 @@
+---
+// Tiny icon for a criterion name in the comparison tables (Start vs Full SEO): duration, price, focus, maps, reports.
+// Same palette as ServiceArt; the row label carries the meaning, so the drawing is hidden from assistive technology.
+interface Props { kind: string }
+const { kind } = Astro.props;
+---
+<svg class="row-art" viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true" focusable="false">
+  <rect x="0.5" y="0.5" width="39" height="39" rx="9" fill="#f4f6fa" stroke="#e3e7ef" />
+  {kind === 'duration' && (<>
+    <rect x="8" y="10" width="24" height="22" rx="4" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><path d="M8 17h24" stroke="#1f4fd8" stroke-width="1.8" /><path d="M14 7v6M26 7v6" stroke="#1f4fd8" stroke-width="2" stroke-linecap="round" />
+    <path d="M14 24h4M22 24h4" stroke="#a4baf0" stroke-width="2.4" stroke-linecap="round" /><path d="M14 28.500h4" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" />
+  </>)}
+  {kind === 'price' && (<>
+    <circle cx="20" cy="20" r="12" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" /><circle cx="20" cy="20" r="8" stroke="#1f4fd8" stroke-opacity=".4" stroke-width="1.2" />
+    <path d="M23.500 15.500c-1-1.200-2.600-1.600-4-1.200-2 .6-2.200 3 0 3.800l2 .8c2.200.8 2 3.400 0 4.100-1.400.5-3.100.1-4.100-1.200" stroke="#ff6a1a" stroke-width="2.2" stroke-linecap="round" /><path d="M20 12.500v2M20 25.500v2" stroke="#ff6a1a" stroke-width="2.2" stroke-linecap="round" />
+  </>)}
+  {kind === 'focus' && (<>
+    <circle cx="19" cy="21" r="12" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><circle cx="19" cy="21" r="7" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" /><circle cx="19" cy="21" r="2.500" fill="#1f4fd8" />
+    <path d="M19 21l11-12" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" /><path d="M27 8h4v4" stroke="#ff6a1a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+  </>)}
+  {kind === 'maps' && (<>
+    <path d="M20 7c-5.500 0-9 4-9 8.500C11 22 20 33 20 33s9-11 9-17.500C29 11 25.500 7 20 7z" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" /><circle cx="20" cy="15.500" r="3.500" fill="#ff6a1a" />
+    <path d="M10 34h20" stroke="#1f4fd8" stroke-opacity=".4" stroke-width="2" stroke-linecap="round" />
+  </>)}
+  {kind === 'reports' && (<>
+    <rect x="9" y="7" width="22" height="26" rx="4" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" />
+    <path d="M14 27v-5M20 27v-9M26 27v-13" stroke="#1f4fd8" stroke-width="3.400" stroke-linecap="round" /><path d="M13 17l7-4 6-3" stroke="#ff6a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </>)}
+</svg>
