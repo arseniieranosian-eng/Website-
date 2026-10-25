@@ -37,7 +37,7 @@ export function fullSeoCsSchemas(site: URL, C: typeof FULLSEO_CS, opts: { modifi
       inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
-      primaryImageOfPage: abs('/images/og.png'),
+      primaryImageOfPage: abs('/images/og-card.png'),
       mainEntity: { '@id': `${url}#service` },
     },
     {

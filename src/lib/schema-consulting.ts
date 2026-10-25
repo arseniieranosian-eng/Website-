@@ -35,7 +35,7 @@ export function consultingSchemas(site: URL, C: ConsultingContent, opts: { modif
       inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
-      primaryImageOfPage: abs('/images/og.png'),
+      primaryImageOfPage: abs('/images/og-card.png'),
       mainEntity: { '@id': `${url}#service` },
     },
     {

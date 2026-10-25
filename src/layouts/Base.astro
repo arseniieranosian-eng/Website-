@@ -27,7 +27,7 @@ interface Props {
   langFallback?: Record<Lang, string>;
 }
 
-const { lang, title, description, path, alternates, breadcrumbs, noindex = false, pageKey, schema = [], ogType = 'website', ogImage = '/images/og.png', langFallback = ROUTES.home } = Astro.props;
+const { lang, title, description, path, alternates, breadcrumbs, noindex = false, pageKey, schema = [], ogType = 'website', ogImage = '/images/og-card.png', langFallback = ROUTES.home } = Astro.props;
 const site = Astro.site!;
 const abs = (p: string) => new URL(p, site).href;
 const canonical = abs(path);
@@ -55,6 +55,9 @@ const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
     <meta property="og:locale" content={OG_LOCALE[lang]} />
     <meta property="og:site_name" content={SITE.brand} />
     <meta property="og:image" content={abs(ogImage)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE.brand} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0B0B0F" />
     <link rel="icon" href="/favicon.ico" sizes="48x48" />

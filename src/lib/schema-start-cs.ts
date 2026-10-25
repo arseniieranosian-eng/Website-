@@ -36,7 +36,7 @@ export function startCsSchemas(site: URL, C: typeof START_CS, opts: { modified: 
       inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
-      primaryImageOfPage: abs('/images/og.png'),
+      primaryImageOfPage: abs('/images/og-card.png'),
       mainEntity: { '@id': `${url}#service` },
     },
     {

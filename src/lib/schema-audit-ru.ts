@@ -40,7 +40,7 @@ export function auditSchemas(site: URL, C: typeof AUDIT_RU, video: typeof AUDIT_
       inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
-      primaryImageOfPage: abs('/images/og.png'),
+      primaryImageOfPage: abs('/images/og-card.png'),
       mainEntity: { '@id': `${url}#service` },
       ...(video ? { video: { '@id': `${url}#video` } } : {}),
     },

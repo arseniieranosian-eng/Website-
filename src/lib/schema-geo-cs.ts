@@ -26,7 +26,7 @@ export function geoCsSchemas(site: URL, C: typeof GEO_CS, opts: { modified: stri
       inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
-      primaryImageOfPage: abs('/images/og.png'),
+      primaryImageOfPage: abs('/images/og-card.png'),
       mainEntity: { '@id': `${url}#article` },
     },
     {
