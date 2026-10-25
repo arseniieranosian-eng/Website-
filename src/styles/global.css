@@ -695,4 +695,4 @@ ul, ol { margin-bottom: var(--flow); }
 .grid + p { margin-top: 24px; }
 
 /* Case cards on the home pages: a small illustration above the label */
-.case-card .case-art { width: 96px; height: auto; margin-bottom: 14px; }
+.case-card .case-art, .case-teaser .case-art { width: 96px; height: auto; margin-bottom: 14px; }
