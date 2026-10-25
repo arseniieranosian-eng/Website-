@@ -61,20 +61,31 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 
   <section class="section section--grey">
     <div class="container narrow">
+      <h2>{C.obsTitle}</h2>
+      <p class="answer">{C.obsAnswer}</p>
+      <ul class="checks">{C.obsList.map((x: string) => <li>{x}</li>)}</ul>
+      <p>{C.obsText}</p>
+      <p class="muted small">{C.obsNote}</p>
+      <p><a class="link-arrow" href={t('consulting')}>{C.obsLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
       <h2>{C.fitTitle}</h2>
       <p class="answer">{C.fitAnswer}</p>
       <p>{C.fitText}</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section">
     <div class="container narrow">
       <h2>{C.articlesTitle}</h2>
       <RelatedPosts lang={lang} keys={['postAccountingChannels']} more={C.articlesMore} />

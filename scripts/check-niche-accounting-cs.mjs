@@ -8,7 +8,7 @@ const NAME = 'SEO pro účetní kanceláře v Praze'; // the breadcrumb label (M
 const H1 = 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO pro účetní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Požádejte o bezplatný audit technických chyb'];
+const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Co jsem zjistil na webech účetních kanceláří?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Požádejte o bezplatný audit technických chyb'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
 const FORBIDDEN = ['více klientů', 'garantovaně', 'za 24 hodin', 'top 1', 'první místo', 'SEO agentur', 'Max 3', 'Kč', 'Sklik:', ' my ', 'AggregateRating', 'reels', 'rilsu', 'reel'];
 
@@ -51,6 +51,7 @@ if (t2.length !== 6 || t2[0].join('|') !== 'Krok|Co obsahuje|Odkaz') e('formats 
 // Checklist of 6, the honest experience block, the capacity status
 if (!mainTxt.includes('V oboru účetnictví zatím vlastní případovou studii nemám.') || !mainTxt.includes('tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026)') || /×8|×24|\+400/.test(mainTxt)) e('experience: own case missing said openly, the approved formula only');
 if (!mainTxt.includes('Stav pro obor účetnictví k 23. 10. 2026: volno.') || /zbývá|\d ze 3/.test(mainTxt)) e('capacity status (volno, dated), no counter');
+if (!mainTxt.includes('K 25. 10. 2026 jsem si prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog.') || !mainTxt.includes('U všech 16 webů chybí strukturovaná data')) e('observation block: 16 sites, 14 without a blog, dated');
 // JSON-LD
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.filter((n) => n['@type'] === t);

@@ -1,6 +1,6 @@
 // Czech content of the niche landing page /seo-pro-ucetni-kancelare-praha/ (brief of 23.10.2026), the first page of the third niche (accounting firms).
 // Decisions of the author (answers to the brief's questions of 23.10.2026): no price on the page (links to the service pages), no search volumes (no Sklik data),
-// no observation about anchor menus (dropped: "забей"), the translation-agency case may be mentioned with its approved formula (consent given), the capacity status
+// the observation block of 25. 10. 2026 (16 sites, counts given by the author; added 25.10.2026, the earlier anchor-menu observation stays dropped), the translation-agency case may be mentioned with its approved formula (consent given), the capacity status
 // for accounting is "volno" (dated 23. 10. 2026), daňoví poradci may be named in the audience (the advertising rules for them are NOT checked: nothing legal is
 // written), no reel / video, no English version for now. No guarantees, no own case in this niche (said openly), no blog links, no "více klientů", the word
 // "agentura" is never used about the author, GEO/AEO always together. hreflang: none (Czech only).
@@ -79,6 +79,19 @@ const raw = {
   expTitle: 'Jaké mám zkušenosti s tímto oborem?',
   expAnswer: 'V oboru účetnictví zatím vlastní případovou studii nemám. Mám případovou studii z jiného oboru, překladatelské agentury: tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026). Jiný obor znamená i jiné výsledky.',
   expLink: 'Přečíst případovou studii překladatelské agentury',
+
+  obsTitle: 'Co jsem zjistil na webech účetních kanceláří?',
+  obsAnswer: 'K 25. 10. 2026 jsem si prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog. U všech 16 je FAQ nedostatečné, chybí strukturovaná data a web je málo připravený na AI: menu a nadpisy tomu neodpovídají.',
+  obsList: [
+    'U 14 z 16 webů není blog.',
+    'U všech 16 webů je FAQ nedostatečné.',
+    'U všech 16 webů chybí strukturovaná data (mikrodata).',
+    'U všech 16 webů jsou menu a nadpisy málo přizpůsobené AI.',
+    'U 5 webů je stránka služeb jen výpis služeb, bez samostatné stránky pro každou službu.',
+  ],
+  obsText: 'Web, který má přinášet poptávky, nemůže být jen vizitka. Služby, „o nás“ a časté dotazy by neměly ležet na jedné stránce: je potřeba je rozdělit na samostatné stránky, každou zvlášť optimalizovat a všechny vést k jednomu cíli, k poptávce. Samotný výpis služeb na jedné stránce nezaujme, každá služba potřebuje vlastní optimalizovanou stránku.',
+  obsNote: 'Jde o moje pozorování, ne o výzkum. Tyto body nejsou součástí bezplatného auditu, řeší se v konzultaci a v balíčku Start.',
+  obsLink: 'Konzultace: rozbor vašeho webu',
 
   fitTitle: 'Pro koho SEO dává smysl a pro koho ne?',
   fitAnswer: 'SEO dává smysl, pokud chcete získávat klienty i z vyhledávání a máte co nabídnout: jasné služby, ceny a kapacitu pro nové klienty. Nedává smysl, pokud klienty získáváte jen doporučením a vyhledávání nepotřebujete, nebo pokud nemáte kapacitu nové klienty přijmout. Rozhodnout vám pomůže krátká konzultace.',
