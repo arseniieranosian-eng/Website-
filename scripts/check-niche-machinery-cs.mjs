@@ -48,6 +48,7 @@ if (ols.length !== 1 || [...ols[0][1].matchAll(/<li><span>/g)].length !== 3) e('
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 5 || rows[0].join('|') !== 'Co obsahuje|Co neobsahuje') e('audit table: header + 4 rows');
 if (([...(main.match(/Co zkontrolovat na webu výrobní firmy:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) || [, ''])[1].matchAll(/<li>/g)]).length !== 5) e('audit checklist: 5 items');
+if (!mainTxt.includes('pracuji s češtinou, angličtinou, ruštinou, ukrajinštinou a němčinou: řeším jejich indexaci a strukturu.') || !mainTxt.includes('texty v těchto jazycích nepíšu')) e('language versions line');
 // Audit example: links only, findings as on the audit page, no client / domain
 if (!mainTxt.includes('V ukázce je například jedna canonical adresa na neindexovatelné stránce a osm stránek, u kterých canonical vede na jinou adresu.')) e('findings line');
 const audit = txt(readFileSync('dist/audit-zdarma/index.html', 'utf8'));

@@ -1,6 +1,6 @@
 // Czech niche landing page /seo-pro-strojirenske-firmy/ "SEO a GEO/AEO pro strojírenské firmy" (brief of 25.10.2026; cs only, hreflang self-reference only, whole Czechia). Own structure: how the niche differs, 3 steps,
 // for whom, the audit example from the related niche (a link only: no embed, no VideoObject), audit scope, cooperation, FAQ (7). Defaults taken (no answers to the brief's questions): slug as in the brief, the YouTube
-// Short link from the author (without tracking parameters), languages: only indexation and structure of the existing language versions (nothing about the German market, exports or German content), no funnel articles yet,
+// Short link from the author (without tracking parameters), languages (answer of 25.10.2026): cs, en, ru, uk, de; the author does not speak uk / de, only understands them, so the page says he works on indexation and structure of the versions and writes no texts in uk / de (nothing about the German market or exports), no funnel articles yet,
 // no observations of manufacturers' sites. The Title is shortened to <= 55 characters (the site rule of 25.10.2026). No guarantees (enquiries, positions, orders, AI citation), no prices, no competitors / portals / catalogues,
 // nothing about certificates, "agentura" never about the author, only "SEO a GEO/AEO". The findings of the audit example are quoted as on the audit page. Review every 90 days (23. 1. 2027).
 import { walk } from '../lib/cs-typo';
@@ -31,6 +31,7 @@ const raw = {
     'Stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ.',
     'Příprava na GEO/AEO.',
   ],
+  doLang: 'U jazykových verzí webu pracuji s češtinou, angličtinou, ruštinou, ukrajinštinou a němčinou: řeším jejich indexaci a strukturu. Ukrajinsky a německy nemluvím, rozumím jim, a texty v těchto jazycích nepíšu.',
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
 
