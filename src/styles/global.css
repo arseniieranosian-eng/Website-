@@ -605,3 +605,16 @@ table.compare { min-width: 0; }
 /* Four-column comparison tables (articles): tighter cells, the first column wraps */
 table.compare--4 th, table.compare--4 td { padding: 12px 12px; font-size: 0.9rem; }
 table.compare--4 th[scope='row'] { white-space: normal; width: 22%; }
+
+/* "SEO + GEO/AEO" band on the home pages: an AI-flavoured dark background (neural-network nodes on an indigo gradient), calm laconic text */
+.section--ai { position: relative; overflow: hidden; background: linear-gradient(90deg, rgb(8 10 32 / 88%) 0%, rgb(8 10 32 / 70%) 38%, rgb(8 10 32 / 0%) 72%), #0a0e2a url('/images/ai-bg.svg') center / cover no-repeat; color: #fff; padding: 72px 0; }
+@media (min-width: 768px) { .section--ai { padding: 104px 0; } }
+.section--ai h2 { color: #fff; font-size: clamp(1.6rem, 3.2vw, 2.3rem); letter-spacing: -0.02em; margin-bottom: 0.5em; max-width: 22ch; }
+.section--ai p, .section--ai .lead { color: #c3cbe6; max-width: 52ch; font-size: 1.05rem; line-height: 1.65; }
+.section--ai .eyebrow--light { color: #9db4ff; letter-spacing: 0.14em; }
+.section--ai .btn--ghost-light { margin-top: 8px; border-color: rgb(157 180 255 / 45%); background: rgb(157 180 255 / 8%); backdrop-filter: blur(4px); }
+.section--ai .engines { gap: 10px; margin-top: 28px; }
+.section--ai .engines span { border-color: rgb(157 180 255 / 28%); background: rgb(255 255 255 / 5%); backdrop-filter: blur(6px); color: #e6ecff; padding: 7px 15px; font-size: 0.85rem; }
+.section--ai .engines span::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 9px; border-radius: 50%; background: #8fa8ff; box-shadow: 0 0 8px #8fa8ff; vertical-align: 1px; }
+.section--ai .engines span:nth-child(3n+2)::before { background: #ffb27a; box-shadow: 0 0 8px #ff8a4a; }
+@media (min-width: 900px) { .section--ai .split .engines { align-self: end; justify-content: flex-end; margin-top: 0; max-width: 460px; justify-self: end; } }

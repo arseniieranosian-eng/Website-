@@ -120,11 +120,14 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
   </section>
 
   <!-- SEO + GEO/AEO -->
-  <section class="section section--dark">
+  <section class="section section--ai">
     <div class="container narrow">
       <h2>{C.geoTitle}</h2>
       <p class="lead">{C.geoAnswer}</p>
       <a class="btn btn--ghost-light" href={t('geo')}>{C.geoLink}</a>
+      <div class="engines" aria-hidden="true">
+        {['Google', 'Seznam', 'ChatGPT', 'Gemini', 'Perplexity', 'AI Overviews'].map((e) => <span>{e}</span>)}
+      </div>
     </div>
   </section>
 
