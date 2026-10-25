@@ -83,6 +83,14 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.adsTitle}</h2>
       <p class="answer">{C.adsAnswer}</p>
+      <figure class="owner-quote">
+        <blockquote cite={new URL(t('nicheElectronics'), site).href}><p>{C.adsQuote.text}</p></blockquote>
+        <figcaption>
+          <img src={C.adsQuote.photo.src} width={C.adsQuote.photo.width} height={C.adsQuote.photo.height} alt={C.adsQuote.photo.alt} loading="lazy" decoding="async" />
+          <span>— <a href={C.adsQuote.instagram} rel="me noopener nofollow" target="_blank">{C.adsQuote.name}</a>, {C.adsQuote.role}, {C.adsQuote.city}</span>
+        </figcaption>
+      </figure>
+      <p class="muted small">{C.adsQuote.disclosure}</p>
     </div>
   </section>
 

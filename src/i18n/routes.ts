@@ -131,7 +131,7 @@ export const SERVICE_MENU = ['audit', 'consulting', 'start', 'fullSeo', 'maps'] 
 export const NICHE_GROUPS = [
   { id: 'translation', label: 'Překladatelské agentury', labelRu: 'Переводческие агентства', items: [{ page: 'nicheTranslation', label: 'Praha', labelRu: 'Прага' }, ...(NICHE_READY.nicheBrno ? [{ page: 'nicheBrno', label: 'Brno', labelRu: 'Брно' } as const] : []), ...(NICHE_READY.nichePardubice ? [{ page: 'nichePardubice', label: 'Pardubice', labelRu: 'Пардубице' } as const] : [])] },
   ...(NICHE_READY.nicheAccounting ? [{ id: 'accounting', label: 'Účetní kanceláře', labelRu: 'Бухгалтерские фирмы', items: [{ page: 'nicheAccounting', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
-  ...(NICHE_READY.nicheElectronics ? [{ id: 'electronics', label: 'Obchody s elektronikou', labelRu: 'Магазины электроники', items: [{ page: 'nicheElectronics', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),
+  ...(NICHE_READY.nicheElectronics ? [{ id: 'electronics', label: 'Obchody s elektronikou', labelRu: 'Магазины электроники', items: [{ page: 'nicheElectronics', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
   ...(NICHE_READY.nicheGaming ? [{ id: 'gaming', label: 'Počítačové herny', labelRu: 'Компьютерные клубы', items: [{ page: 'nicheGaming', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
   ...(NICHE_READY.nicheMachinery ? [{ id: 'machinery', label: 'Strojírenské firmy', labelRu: 'Машиностроение', items: [{ page: 'nicheMachinery', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),
   ...(NICHE_READY.nicheTypography ? [{ id: 'printing', label: 'Tiskárny a polygrafie', labelRu: 'Типографии', items: [{ page: 'nicheTypography', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),

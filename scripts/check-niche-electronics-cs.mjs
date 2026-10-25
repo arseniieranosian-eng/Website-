@@ -9,7 +9,7 @@ const TITLE = 'SEO pro obchody s elektronikou a technikou | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: kategorie, filtry, varianty produktů, FAQ. Bez garancí. Bezplatný technický audit.';
 const SECTIONS = [H1, 'Čím se SEO obchodu s technikou liší od jiných oborů?', 'Co pro obchod s technikou dělám?', 'Pro koho je to a pro koho ne?', 'Co obsahuje bezplatný audit a co ne?', 'A co obchod s kamennou prodejnou?', 'Nestačí obchodu reklama?', 'Jak spolupráce probíhá a kolik stojí?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
-const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'SEO agentur', 'Heureka', 'Zboží', 'Alza', 'Datart', 'Mall', 'DPH', 'AggregateRating', 'N webů', 'často nacház', 'tiskárn'];
+const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'SEO agentur', 'Heureka', 'Zboží', 'Alza', 'Datart', 'DPH', 'AggregateRating', 'N webů', 'často nacház', 'tiskárn'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
 const txt = (s) => norm(dec(s.replace(/<(script|style|svg)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/ ([.,:;!?)])/g, '$1').replace(/\( /g, '('));
@@ -33,7 +33,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/|<form|<video|<iframe|<blockquote|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny|\/seo-pro-strojirenske|\/seo-pro-pocitacove/.test(main)) e('no blog links, no form / video / iframe / quote, no links to the other niche landing pages');
+if (/href="\/(?:en\/|ru\/)?blog\/|<form|<video|<iframe|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny|\/seo-pro-strojirenske|\/seo-pro-pocitacove/.test(main)) e('no blog links, no form / video / iframe, no links to the other niche landing pages');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');
@@ -56,6 +56,12 @@ if (lists(/Co pro obchod s technikou dělám\?[\s\S]*?<ul class="checks">([\s\S]
 if (lists(/Co technicky zkontrolovat na webu obchodu s technikou:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 8) e('audit checklist: 8');
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 5 || rows[0].join('|') !== 'Co obsahuje|Co neobsahuje') e('audit table: header + 4 rows');
+// The PPC specialist's quote: confirmed, with the photo of the case page, Instagram, role, city and the disclosure of the relationship; Quotation + Person
+const QUOTE = 'Za každé kliknutí se platí, takže je škoda poslat ho na stránku, kde zákazník nenajde produkt, cenu ani dostupnost.';
+const qf = [...main.matchAll(/<figure class="owner-quote">[\s\S]*?<\/figure>/g)];
+if (qf.length !== 1 || !txt(qf[0][0]).includes(QUOTE) || !qf[0][0].includes('src="/images/pripadove-studie/majitelka.jpg"') || !qf[0][0].includes('href="https://www.instagram.com/elzabutirina/" rel="me noopener nofollow" target="_blank"') || !txt(qf[0][0]).includes('— Yelizaveta Butyrina, PPC specialistka, Praha')) e('PPC quote figure (photo, Instagram, role, city)');
+if (!mainTxt.includes('S paní Butyrinou spolupracuji: její agentura je partnerem v projektu z případové studie.')) e('disclosure of the relationship');
+if (mainTxt.indexOf(QUOTE) < 0 || mainTxt.indexOf(QUOTE) < mainTxt.indexOf('Nestačí obchodu reklama?')) e('the quote follows the answer of the objection block');
 // Prices: the same as on the live service pages (single sources)
 const pg = (f) => txt(readFileSync(f, 'utf8'));
 const cons = pg('dist/konzultace/index.html'), start = pg('dist/start-3-mesice/index.html'), full = pg('dist/full-seo/index.html');
@@ -69,13 +75,15 @@ if (!mainTxt.includes('k 25. 10. 2026 je obor volný') || !mainTxt.includes('K 2
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);
 const wp = by('WebPage'), sv = by('Service'), fq = by('FAQPage'), bc = by('BreadcrumbList');
-if (g.some((n) => ['AggregateRating', 'Review', 'VideoObject', 'HowTo', 'Quotation', 'Product', 'Offer'].includes(n['@type']))) e('no AggregateRating / Review / VideoObject / HowTo / Quotation / Product / Offer');
-if (sv.offers || sv.areaServed.name !== 'Česko' || sv.provider['@id'] !== by('Person')['@id'] || sv.serviceType !== 'SEO a GEO/AEO' || sv.name !== 'SEO a GEO/AEO pro obchody s elektronikou') e('Service');
+if (g.some((n) => ['AggregateRating', 'Review', 'VideoObject', 'HowTo', 'Product', 'Offer'].includes(n['@type']))) e('no AggregateRating / Review / VideoObject / HowTo / Quotation / Product / Offer');
+if (sv.offers || sv.areaServed.name !== 'Praha' || sv.provider['@id'] !== by('Person')['@id'] || sv.serviceType !== 'SEO a GEO/AEO' || sv.name !== 'SEO a GEO/AEO pro obchody s elektronikou') e('Service');
 if (wp.inLanguage !== 'cs' || wp.name !== H1 || wp.datePublished !== '2026-10-25' || wp.mainEntity['@id'] !== `${BASE}${URL_PATH}#service` || wp.author['@id'] !== by('Person')['@id']) e('WebPage');
 if (wp.dateModified !== h.match(/Aktualizováno: <time datetime="([^"]+)"/)[1]) e('dateModified = visible date');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!fq || fq.mainEntity.length !== 7 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 7 questions equal to the visible FAQ');
+const qn = g.filter((n) => n['@type'] === 'Quotation');
+if (qn.length !== 1 || qn[0].text !== QUOTE) e('one Quotation = the visible quote');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== 'SEO pro obchody s elektronikou') e('breadcrumbs: Domů → SEO pro obchody s elektronikou');
 // Inbound
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

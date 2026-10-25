@@ -1,9 +1,9 @@
 // Czech niche landing page /seo-pro-obchody-s-elektronikou/ "SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI" (brief of 25.10.2026; cs only, hreflang self-reference only, no x-default). Rules A–D of the brief:
 // the H1 carries the result but no disclaimer (the disclaimer stands under the H1, in "Pro koho" and in the FAQ); a proof line under the H1 (the translation case, marked as another niche, then "v oboru zatím výsledky nemám");
 // commercial FAQ; prices in the cooperation block and in the FAQ come from the single sources of the service pages (consulting-shared / start-shared / fullseo-shared), the date moves with them.
-// Defaults taken (no answers to the brief's questions): slug and publication as in the brief, area Česko, the maps block included, NO observation block (no data), NO "Související články", NO VAT statement (the service pages
-// do not say whether the prices include it), the translation-agency client's consent is assumed to cover this line as the case page (open question 9), the PPC specialist's quote is NOT published (no name, role or written
-// consent: only the 47-word answer; no Quotation), the audit video is only linked (text link to the example on /audit-zdarma/, described as an example of an e-shop audit, not as a case). No Heureka / Zboží.cz (only "srovnávače"),
+// Answers of 25.10.2026: slug confirmed, the client's consent for the proof line confirmed, the area is PRAHA (Brno gets its own page), the PPC specialist's quote is confirmed by her (Yelizaveta Butyrina, Praha, spelled as on the case page; her photo and
+// Instagram are the ones of the case page; she is the owner of the partner agency of the translation case, so the relationship is disclosed). Defaults taken: publication as in the brief, the maps block included, NO observation block (no data), NO "Související články", NO VAT statement (the service pages
+// do not say whether the prices include it), the translation-agency client's consent is assumed to cover this line as the case page (open question 9), the audit video is only linked (text link to the example on /audit-zdarma/, described as an example of an e-shop audit, not as a case). No Heureka / Zboží.cz (only "srovnávače"),
 // no brands / shops / competitors, no guarantees, "agentura" never about the author, only "SEO a GEO/AEO", no Product/Offer, "2–3 měsíce" only about the author's own projects. Review every 90 days and at any price change (23. 1. 2027).
 import { walk } from '../lib/cs-typo';
 import { fmtKc, PRICES } from './consulting-shared';
@@ -93,6 +93,15 @@ const raw = {
   mapsLink: 'SEO pro Mapy',
 
   adsTitle: 'Nestačí obchodu reklama?',
+  adsQuote: {
+    text: 'Za každé kliknutí se platí, takže je škoda poslat ho na stránku, kde zákazník nenajde produkt, cenu ani dostupnost.',
+    name: 'Yelizaveta Butyrina',
+    role: 'PPC specialistka',
+    city: 'Praha',
+    instagram: 'https://www.instagram.com/elzabutirina/',
+    photo: { src: '/images/pripadove-studie/majitelka.jpg', width: 150, height: 150, alt: 'Yelizaveta Butyrina, PPC specialistka' },
+    disclosure: 'S paní Butyrinou spolupracuji: její agentura je partnerem v projektu z případové studie. Citace je její osobní názor, ne statistika ani příslib.',
+  },
   adsAnswer: 'Reklamní karty produktů ve vyhledávání jsou vidět hned, ale za kliknutí se platí i tehdy, když návštěvník skončí na slabé stránce. Reklama se proto vyplatí spíš tam, kam vede na dobře připravený web s jasnými kategoriemi, produkty a údaji. SEO a reklamu lze kombinovat; jedno druhé nenahrazuje.',
 
   coopTitle: 'Jak spolupráce probíhá a kolik stojí?',
@@ -121,7 +130,7 @@ const raw = {
   schema: {
     serviceName: 'SEO a GEO/AEO pro obchody s elektronikou',
     serviceType: 'SEO a GEO/AEO',
-    areaServed: 'Česko',
+    areaServed: 'Praha',
     description: 'SEO a GEO/AEO pro obchody s elektronikou a technikou: technický základ e-shopu, kategorie, filtry, varianty produktů, odpovědi na časté dotazy a příprava na doporučení v odpovědích AI.',
   },
 };
