@@ -363,8 +363,11 @@ table.compare { min-width: 0; }
 .steps + p { margin-top: 16px; }
 
 /* /ru/uslugi/full-seo/ */
-.include-group { margin-bottom: 20px; }
-.include-group h3 { margin: 1.2em 0 0.6em; color: var(--blue); }
+.include-group { display: grid; gap: 14px; margin: 0 0 20px; padding: 24px; background: #fff; border: 1px solid var(--line, #e3e7ef); border-radius: 16px; }
+.include-group h3 { margin: 0 0 0.6em; color: var(--blue); }
+.include-group .checks { margin-bottom: 0; }
+.include-group .group-art { width: 96px; height: auto; }
+@media (min-width: 768px) { .include-group { grid-template-columns: 96px 1fr; gap: 24px; align-items: start; padding: 28px 32px; } }
 
 /* Consultation examples (screenshots with client data hidden) */
 .examples-title { margin-top: 40px; }

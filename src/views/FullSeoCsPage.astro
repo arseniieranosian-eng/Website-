@@ -7,6 +7,7 @@ import ReviewCards from '../components/ReviewCards.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import FullHeroArt from '../components/FullHeroArt.astro';
 import RowArt from '../components/RowArt.astro';
+import GroupArt from '../components/GroupArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -17,6 +18,7 @@ import { reviewsWithFallback } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
 const lang = C.lang;
+const GROUP_ART = ['site', 'offsite', 'ai'];
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
@@ -76,8 +78,10 @@ import QuoteFigure from '../components/QuoteFigure.astro';
   <section class="section">
     <div class="container narrow">
       <h2>{C.includesTitle}</h2>
-      {C.groups.map((g) => (
+      {C.groups.map((g, gi) => (
         <div class="include-group">
+          <GroupArt kind={GROUP_ART[gi]} />
+          <div>
           <h3>{g.title}</h3>
           <ul class="checks">
             {g.items.map((i) => {
@@ -87,6 +91,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
               return <li><span>{before}<a href={t(l.page)}>{l.part}</a>{after}</span></li>;
             })}
           </ul>
+          </div>
         </div>
       ))}
     </div>

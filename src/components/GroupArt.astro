@@ -1,0 +1,24 @@
+---
+// Illustration for a group of the "What is included" block of the Full SEO pages (same palette and 96x56 card as ServiceArt).
+// The group heading carries the meaning, so the drawing is hidden from assistive technology. kind: site, offsite, ai.
+interface Props { kind: string }
+const { kind } = Astro.props;
+---
+<svg class="group-art" viewBox="0 0 96 56" width="96" height="56" fill="none" aria-hidden="true" focusable="false">
+  <rect x="0.5" y="0.5" width="95" height="55" rx="10" fill="#f4f6fa" stroke="#e3e7ef" />
+  {kind === 'site' && (<>
+    <rect x="12" y="10" width="52" height="38" rx="5" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><path d="M12 19h52" stroke="#1f4fd8" stroke-width="1.8" /><circle cx="18" cy="14.500" r="1.600" fill="#ff6a1a" /><circle cx="23.500" cy="14.500" r="1.600" fill="#a4baf0" />
+    <rect x="18" y="25" width="20" height="17" rx="3" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.4" /><path d="M43 26h15M43 32h15M43 38h9" stroke="#a4baf0" stroke-width="2.400" stroke-linecap="round" />
+    <circle cx="72" cy="34" r="9" fill="#ff6a1a" /><circle cx="72" cy="34" r="3.200" fill="#fff" /><path d="M72 22v4M72 42v4M60 34h4M80 34h4" stroke="#ff6a1a" stroke-width="3" stroke-linecap="round" />
+  </>)}
+  {kind === 'offsite' && (<>
+    <rect x="9" y="12" width="26" height="32" rx="4" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><path d="M15 21h14M15 28h14M15 35h8" stroke="#a4baf0" stroke-width="2.200" stroke-linecap="round" />
+    <rect x="61" y="12" width="26" height="32" rx="4" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" /><path d="M67 21h14M67 28h14M67 35h8" stroke="#1f4fd8" stroke-opacity=".5" stroke-width="2.200" stroke-linecap="round" />
+    <path d="M42 28h-3a5 5 0 010-10h6M54 28h3a5 5 0 000 10h-6" stroke="#ff6a1a" stroke-width="3" stroke-linecap="round" /><path d="M43 28h10" stroke="#ff6a1a" stroke-width="3" stroke-linecap="round" />
+  </>)}
+  {kind === 'ai' && (<>
+    <rect x="9" y="9" width="44" height="28" rx="9" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" /><path d="M20 37v9l10-9" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" />
+    <path d="M31 15l2.600 6.400L40 24l-6.400 2.600L31 33l-2.600-6.400L22 24l6.400-2.600z" fill="#ff6a1a" />
+    <path d="M62 46V34M72 46V26M82 46V16" stroke="#1f4fd8" stroke-width="7" stroke-linecap="round" /><path d="M60 28l11-8 12-8" stroke="#ff6a1a" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round" />
+  </>)}
+</svg>
