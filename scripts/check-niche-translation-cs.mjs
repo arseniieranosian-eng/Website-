@@ -3,7 +3,8 @@ import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-prekladatelske-agentury-praha/';
-const H1 = 'SEO pro překladatelské agentury v Praze';
+const NAME = 'SEO pro překladatelské agentury v Praze'; // the breadcrumb label (META name)
+const H1 = 'SEO a GEO/AEO pro překladatelské agentury v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO pro překladatelské agentury Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro překladatelské agentury v Praze: jazykové páry, služby, B2B stránky. Začněte bezplatným auditem technických chyb.';
 const SECTIONS = [H1, 'Proč překladatelské agentury potřebují SEO?', 'Co pro překladatelskou agenturu konkrétně dělám?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Další články pro agentury', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
@@ -90,7 +91,7 @@ const hasVideoBlock = /id="rozbor-webu"/.test(main);
 if (hasVideoBlock && (!/data-youtube="l2-SXybLlss"/.test(main) || !/<img src="\/media\/rozbor-webu-prekladatelskych-agentur-poster\.webp"[^>]*alt="Náhled videa/.test(main) || !/Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes <a href="\/kontakt\/">kontaktní stránku<\/a>\./.test(main))) e('video block: YouTube id, poster with alt, right of reply');
 if (ld.find((n) => n['@type'] === 'VideoObject') && !/Přepis videa/.test(main)) e('VideoObject only with a visible transcript');
 const bc = ld.find((n) => n['@type'] === 'BreadcrumbList');
-if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1) e('breadcrumb: Domů → the page');
+if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumb: Domů → the page');
 // Inbound links: home, the case study, the free-audit page
 for (const [f, what] of [['dist/index.html', 'home'], ['dist/pripadove-studie/seo-prekladatelska-agentura/index.html', 'case study'], ['dist/audit-zdarma/index.html', 'free audit page']]) if (!readFileSync(f, 'utf8').includes(`href="${URL_PATH}"`)) e(`inbound link missing on the ${what}`);
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

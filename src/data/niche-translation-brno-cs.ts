@@ -73,19 +73,7 @@ const raw = {
   ],
   quote: 'U překladatelské agentury v Brně se poptávka rozhoduje v detailech: jazykový pár, obor, město. Stránky, které je nepopisují, nemá Google co ukázat.',
 
-  local: {
-    title: 'Jak funguje lokální přítomnost agentury v Brně?',
-    answer: 'Profil na Google Maps a Mapy.com pomáhá agentuře v Brně, aby ji firmy našly při hledání s městem. Nezaručuje pozici ani počet poptávek. Zkontroluji, zda jsou údaje (název, adresa, kontakt, obory) shodné s webem, a doplním, co chybí. Ověřím také odkazy z profilu.',
-    points: [
-      'Údaje o firmě (název, adresa, kontakt, obory) jsou shodné na webu i v profilech.',
-      'Odkazy z profilu vedou na správné stránky webu.',
-      'Mapy.com provozuje Seznam, proto profil pomáhá i těm, kdo vyhledávají přes Seznam.',
-      'Google Maps a Mapy.com mají každá svůj profil, údaje je potřeba udržovat v obou.',
-    ],
-    more: 'Lokální propagaci řeší samostatná služba',
-    moreLink: 'SEO pro Mapy',
-  },
-
+  // The explanatory "how local presence works" block was removed on 25.10.2026 (niche landing pages are commercial: as little informational intent as possible).
   videoTitle: 'Co jsem viděl na webech [A] a [B]?',
   videoRecordedLabel: 'Natočeno',
   videoChaptersTitle: 'Kapitoly',

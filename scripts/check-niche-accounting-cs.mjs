@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-ucetni-kancelare-praha/';
-const H1 = 'SEO pro účetní kanceláře v Praze';
+const NAME = 'SEO pro účetní kanceláře v Praze'; // the breadcrumb label (META name)
+const H1 = 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO pro účetní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Začněte bezplatným auditem technických chyb.';
 const SECTIONS = [H1, 'Jak klienti hledají účetní?', 'Proč web účetní kanceláře často nepřináší poptávky z vyhledávání?', 'Co potřebuje web účetní kanceláře?', 'Co znamená GEO/AEO pro účetní kancelář?', 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Požádejte o bezplatný audit technických chyb'];
@@ -66,7 +67,7 @@ const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/
 if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 6 questions');
 if (ld.some((n) => ['Offer', 'Quotation', 'VideoObject', 'HowTo', 'AggregateRating', 'Review'].includes(n['@type']))) e('no Offer / Quotation / video / HowTo / ratings / Review');
 const bc = by('BreadcrumbList')[0];
-if (!bc || bc.itemListElement.map((x) => x.name).join('|') !== `Domů|${H1}`) e('breadcrumb: Domů → the page');
+if (!bc || bc.itemListElement.map((x) => x.name).join('|') !== `Domů|${NAME}`) e('breadcrumb: Domů → the page');
 // Inbound links, sitemap
 for (const [f, what] of [['dist/index.html', 'home'], ['dist/audit-zdarma/index.html', 'free audit page']]) if (!readFileSync(f, 'utf8').includes(`href="${URL_PATH}"`)) e(`inbound link missing on the ${what}`);
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

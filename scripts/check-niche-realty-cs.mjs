@@ -4,10 +4,11 @@ import { readFileSync, existsSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-realitni-kancelare-praha/';
-const H1 = 'SEO pro realitní kanceláře v Praze';
+const NAME = 'SEO pro realitní kanceláře v Praze'; // the breadcrumb label (META name)
+const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO a GEO/AEO pro realitní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze: stránky nabídek a čtvrtí, indexace, Mapy.com. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Proč realitní kanceláře potřebují SEO?', 'Co pro realitní kancelář v Praze konkrétně dělám?', 'Jaké oblasti u webů realitních kanceláří kontroluji jako první?', 'Jak funguje lokální přítomnost realitní kanceláře?', 'Jak spolupracuji s realitními kancelářemi?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
+const SECTIONS = [H1, 'Proč realitní kanceláře potřebují SEO?', 'Co pro realitní kancelář v Praze konkrétně dělám?', 'Jaké oblasti u webů realitních kanceláří kontroluji jako první?', 'Jak spolupracuji s realitními kancelářemi?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/', '/seo-pro-prekladatelske-agentury-praha/'];
 const FORBIDDEN = ['prodej bytu Praha', 'marketing realitní kanceláře', 'SEO realitní kancelář Praha', 'realitní makléř', 'smlouv', 'provize', 'garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentura Pardubice', 'SEO agentura v Pardubicích', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', '5k'];
 
@@ -56,7 +57,7 @@ const hero = main.slice(0, heroEnd);
 if (/<blockquote|65–70|×3/.test(hero) || !/href="\/audit-zdarma\/">Chci bezplatný audit<\/a>/.test(hero)) e('hero: button, no quote, no case numbers');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">/.test(h)) e('visible date');
 // Answer-first
-for (const hd of SECTIONS.slice(1, 9)) {
+for (const hd of SECTIONS.slice(1, 8)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // No case study in this niche: no translation-case numbers, no AI Overview / ChatGPT claim, no screenshot
@@ -102,7 +103,7 @@ const hasVideoBlock = /id="rozbor-webu"/.test(main);
 if (hasVideoBlock && (!/data-youtube="[^"]+"/.test(main) || !/<img src="\/media\/[^"]+"[^>]*alt="Náhled videa/.test(main) || !/Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes <a href="\/kontakt\/">kontaktní stránku<\/a>\./.test(main))) e('video block: YouTube id, poster with alt, right of reply');
 if (ld.find((n) => n['@type'] === 'VideoObject') && !/Přepis videa/.test(main)) e('VideoObject only with a visible transcript');
 const bc = ld.find((n) => n['@type'] === 'BreadcrumbList');
-if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1) e('breadcrumb: Domů → the page');
+if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumb: Domů → the page');
 // Inbound links: home, the Prague page (Další města), the case study
 for (const [f, what] of [['dist/index.html', 'home'], ['dist/seo-pro-prekladatelske-agentury-praha/index.html', 'translation Prague page']]) if (!readFileSync(f, 'utf8').includes(`href="${URL_PATH}"`)) e(`inbound link missing on the ${what}`);
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

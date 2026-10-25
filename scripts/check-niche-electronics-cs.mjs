@@ -7,7 +7,7 @@ const URL_PATH = '/seo-pro-obchody-s-elektronikou/';
 const H1 = 'SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI';
 const TITLE = 'SEO pro obchody s elektronikou a technikou | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: kategorie, filtry, varianty produktů, FAQ. Bez garancí. Bezplatný technický audit.';
-const SECTIONS = [H1, 'Čím se SEO obchodu s technikou liší od jiných oborů?', 'Co pro obchod s technikou dělám?', 'Pro koho je to a pro koho ne?', 'Co obsahuje bezplatný audit a co ne?', 'A co obchod s kamennou prodejnou?', 'Nestačí obchodu reklama?', 'Jak spolupráce probíhá a kolik stojí?', 'Časté otázky', 'Další krok'];
+const SECTIONS = [H1, 'Čím se SEO obchodu s technikou liší od jiných oborů?', 'Co pro obchod s technikou dělám?', 'Pro koho je to a pro koho ne?', 'Co obsahuje bezplatný audit a co ne?', 'Nestačí obchodu reklama?', 'Jak spolupráce probíhá a kolik stojí?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'SEO agentur', 'Heureka', 'Zboží', 'Alza', 'Datart', 'DPH', 'AggregateRating', 'N webů', 'často nacház', 'tiskárn'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -49,7 +49,7 @@ if (!mainTxt.includes('Například u překladatelské agentury, se kterou pracuj
 if (/×24|×3|8,75|1 200|10 500/.test(mainTxt)) e('no ×24 / ×3 / the print-shop figures');
 const caseTxt = txt(readFileSync('dist/pripadove-studie/seo-prekladatelska-agentura/index.html', 'utf8'));
 if (!/65\s?–\s?70\s?%/.test(caseTxt) || !/březen\s?–\s?září 2026/.test(caseTxt)) e('the proof line must match the live case page (65–70 %, březen–září 2026)');
-for (const hd of SECTIONS.slice(1, 8)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;
 if (lists(/Typy stránek, na kterých to stojí:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 5) e('page types list: 5');
 if (lists(/Co pro obchod s technikou dělám\?[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what I do: 6 bullets');

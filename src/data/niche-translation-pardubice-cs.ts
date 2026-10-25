@@ -74,18 +74,7 @@ const raw = {
   ],
   quote: 'V menším městě se konkurence nepozná podle počtu firem, ale podle toho, kdo je vidět, když zákazník hledá.',
 
-  local: {
-    title: 'Jak funguje lokální přítomnost agentury v Pardubicích?',
-    answer: 'Profil na Google Maps a Mapy.com pomáhá agentuře v Pardubicích, aby ji firmy našly při hledání s městem. Nezaručuje pozici ani počet poptávek. Zkontroluji, zda jsou údaje (název, adresa, kontakt, obory) shodné s webem, a doplním, co chybí. Ověřím také odkazy z profilu.',
-    points: [
-      'Údaje o firmě (název, adresa, kontakt, obory) jsou shodné na webu i v profilech.',
-      'Odkazy z profilu vedou na správné stránky webu.',
-      'Mapy.com provozuje Seznam: firma v Pardubicích s profilem tam je vidět i těm, kdo hledají přes Seznam.',
-    ],
-    more: 'Lokální propagaci řeší samostatná služba',
-    moreLink: 'SEO pro Mapy',
-  },
-
+  // The explanatory "how local presence works" block was removed on 25.10.2026 (niche landing pages are commercial: as little informational intent as possible).
   videoTitle: 'Co jsem viděl na webech dvou agentur z Pardubicka?',
   videoRecordedLabel: 'Natočeno',
   videoChaptersTitle: 'Kapitoly',

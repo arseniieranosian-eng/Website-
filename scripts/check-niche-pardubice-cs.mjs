@@ -4,10 +4,11 @@ import { readFileSync, existsSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-prekladatelske-agentury-pardubice/';
-const H1 = 'SEO pro překladatelské agentury v Pardubicích';
+const NAME = 'SEO pro překladatelské agentury v Pardubicích'; // the breadcrumb label (META name)
+const H1 = 'SEO a GEO/AEO pro překladatelské agentury v Pardubicích: poptávky z Googlu a AI';
 const TITLE = 'SEO pro překladatelské agentury Pardubice | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích: jazykové páry, služby, Mapy.com. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Proč překladatelské agentury v Pardubicích potřebují SEO?', 'Co pro překladatelskou agenturu v Pardubicích konkrétně dělám?', 'Jak funguje lokální přítomnost agentury v Pardubicích?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Další články pro agentury', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
+const SECTIONS = [H1, 'Proč překladatelské agentury v Pardubicích potřebují SEO?', 'Co pro překladatelskou agenturu v Pardubicích konkrétně dělám?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Další články pro agentury', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/pripadove-studie/seo-prekladatelska-agentura/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/', '/seo-pro-prekladatelske-agentury-praha/', '/seo-pro-prekladatelske-agentury-brno/'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentura Pardubice', 'SEO agentura v Pardubicích', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', '5k'];
 
@@ -56,7 +57,7 @@ const hero = main.slice(0, heroEnd);
 if (/<blockquote|65–70|×3/.test(hero) || !/href="\/audit-zdarma\/">Chci bezplatný audit<\/a>/.test(hero)) e('hero: button, no quote, no case numbers');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">/.test(h)) e('visible date');
 // Answer-first
-for (const hd of SECTIONS.slice(1, 9)) {
+for (const hd of SECTIONS.slice(1, 8)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // Case: approved formula only
@@ -78,7 +79,7 @@ const CARDS = [['/konzultace/', 'Od 2 000 Kč'], ['/start-3-mesice/', '50 000 K�
 if (cards.length !== 4 || CARDS.some(([u, x], i) => cards[i]?.[0] !== u || !cards[i][1].includes(x))) e('four service cards with price and duration: ' + JSON.stringify(cards));
 // One quote after the "what I do" section, signed with the link
 const Q = 'V menším městě se konkurence nepozná podle počtu firem, ale podle toho, kdo je vidět, když zákazník hledá.';
-if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: součást každé služby') || mainTxt.indexOf(Q) > mainTxt.indexOf('Jak funguje lokální přítomnost agentury v Pardubicích?') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');
+if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: součást každé služby') || mainTxt.indexOf(Q) > mainTxt.indexOf('Co jsem viděl na webech') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');
 // JSON-LD
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
@@ -100,7 +101,7 @@ const hasVideoBlock = /id="rozbor-webu"/.test(main);
 if (hasVideoBlock && (!/data-youtube="[^"]+"/.test(main) || !/<img src="\/media\/[^"]+"[^>]*alt="Náhled videa/.test(main) || !/Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes <a href="\/kontakt\/">kontaktní stránku<\/a>\./.test(main))) e('video block: YouTube id, poster with alt, right of reply');
 if (ld.find((n) => n['@type'] === 'VideoObject') && !/Přepis videa/.test(main)) e('VideoObject only with a visible transcript');
 const bc = ld.find((n) => n['@type'] === 'BreadcrumbList');
-if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1) e('breadcrumb: Domů → the page');
+if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumb: Domů → the page');
 // Inbound links: home, the Prague page (Další města), the case study
 for (const [f, what] of [['dist/index.html', 'home'], ['dist/seo-pro-prekladatelske-agentury-praha/index.html', 'Prague page'], ['dist/seo-pro-prekladatelske-agentury-brno/index.html', 'Brno page'], ['dist/pripadove-studie/seo-prekladatelska-agentura/index.html', 'case study']]) if (!readFileSync(f, 'utf8').includes(`href="${URL_PATH}"`)) e(`inbound link missing on the ${what}`);
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

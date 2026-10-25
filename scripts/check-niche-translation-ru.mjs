@@ -5,7 +5,8 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/seo-dlya-perevodcheskih-agentstv-praga/';
 const CS_PATH = '/seo-pro-prekladatelske-agentury-praha/';
-const H1 = 'SEO для переводческих агентств в Праге';
+const NAME = 'SEO для переводческих агентств в Праге'; // the breadcrumb label (META name)
+const H1 = 'SEO и GEO/AEO для переводческих агентств в Праге: заявки из Google и ИИ';
 const TITLE = 'SEO для бюро переводов в Праге: GEO/AEO | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для бюро переводов и переводческих агентств в Праге: страницы языковых пар, языковые версии, кейс. Бесплатный технический аудит.';
 const SECTIONS = [H1, 'Зачем переводческим агентствам SEO?', 'Что я делаю для переводческого агентства?', 'Как это работает на практике?', 'Как я работаю с агентствами?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Закажите бесплатный технический аудит'];
@@ -73,7 +74,7 @@ if (wp.inLanguage !== 'ru' || wp.name !== H1 || wp.datePublished !== '2026-10-25
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
-if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1) e('breadcrumbs: Главная → page');
+if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumbs: Главная → page');
 // Inbound and the shared status date
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 if (!readFileSync('dist/ru/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('ru home link');

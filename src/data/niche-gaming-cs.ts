@@ -40,16 +40,12 @@ const raw = {
     { page: 'start' as const, text: 'SEO start na 3 měsíce' },
     { page: 'fullSeo' as const, text: 'Full SEO na rok' },
   ],
+  doMapsLink: 'SEO pro Mapy',
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
 
   forTitle: 'Pro koho je to a pro koho ne?',
   forAnswer: 'Služba je pro jednu počítačovou hernu, menší síť klubů nebo esport arénu v Praze, která chce, aby ji zájemci našli na webu i v odpovědích AI. Není pro toho, kdo čeká zaručený počet zákazníků nebo první místo na mapách; to poctivě slíbit nelze.',
-
-  localTitle: 'Jak funguje lokální přítomnost herního klubu?',
-  localAnswer: 'Lokální přítomnost stojí na stejném názvu, adrese a telefonu na webu i v profilech, na aktuálních otevíracích hodinách a na odkazu z mapy na správnou stránku webu. Mapy do bezplatného auditu nepatří; jsou součástí balíčků Start a Full SEO, existuje i samostatná služba Mapy.',
-  localLead: 'Samostatnou službu popisuje stránka',
-  localLink: 'SEO pro Mapy',
 
   auditTitle: 'Co obsahuje bezplatný audit a co ne?',
   auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby webu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nálezy předem neslibuji, liší se web od webu. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi.',

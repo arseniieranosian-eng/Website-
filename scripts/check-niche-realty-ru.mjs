@@ -5,10 +5,11 @@ import { readFileSync, existsSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/seo-dlya-agentstv-nedvizhimosti-praga/';
 const CS_PATH = '/seo-pro-realitni-kancelare-praha/';
-const H1 = 'SEO для агентств недвижимости в Праге';
+const NAME = 'SEO для агентств недвижимости в Праге'; // the breadcrumb label (META name)
+const H1 = 'SEO и GEO/AEO для агентств недвижимости в Праге: заявки из Google и ИИ';
 const TITLE = 'Продвижение агентства недвижимости в Праге | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Начните с бесплатного аудита.';
-const SECTIONS = [H1, 'Зачем агентству недвижимости SEO?', 'Что я делаю для агентства недвижимости в Праге?', 'Какие области проверяю на сайтах агентств недвижимости в первую очередь?', 'Как работает локальное присутствие агентства недвижимости?', 'Как выглядит аудит с планом на 12 месяцев?', 'Как я сотрудничаю с агентствами недвижимости?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
+const SECTIONS = [H1, 'Зачем агентству недвижимости SEO?', 'Что я делаю для агентства недвижимости в Праге?', 'Какие области проверяю на сайтах агентств недвижимости в первую очередь?', 'Как выглядит аудит с планом на 12 месяцев?', 'Как я сотрудничаю с агентствами недвижимости?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/otzyvy/', '/ru/obo-mne/', '/ru/kontakty/'];
 const FORBIDDEN = ['гарантирую', 'гарантированно', 'первое место', 'SEO агентство', 'Quantum', 'PriceHubble', 'Expats', 'KB P', 'kbpreklady', 'Correct', 'Přikop', '65–70', 'ChatGPT', 'AggregateRating', 'бесплатный аудит за 24 часа', 'купленн', 'Search Console'];
 
@@ -52,7 +53,7 @@ if (lead !== 'Я занимаюсь SEO и GEO/AEO для агентств не�
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Хочу бесплатный аудит<\/a>/.test(hero)) e('hero: button, no quote');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
-for (const hd of SECTIONS.slice(1, 9)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 8)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // No case study: no translation-case results
 if (/трёхкратно|рост[лш]и обращени|×24|×3|\+200/.test(mainTxt)) e('no case results carried over from the translation case');
 // Dated analysis of the Czech query and the honest note
@@ -90,7 +91,7 @@ const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/
 if (!fq || fq.mainEntity.length !== 5 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');
 if (ld.some((n) => ['AggregateRating', 'Review', 'Offer', 'VideoObject'].includes(n['@type']))) e('no ratings / reviews / offers / video');
 const bc = by('BreadcrumbList');
-if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[0].name !== 'Главная' || bc.itemListElement[1].name !== H1) e('breadcrumb: Главная → the page');
+if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[0].name !== 'Главная' || bc.itemListElement[1].name !== NAME) e('breadcrumb: Главная → the page');
 // Inbound / hreflang partner / sitemap
 if (!readFileSync('dist/ru/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('inbound link missing on the Russian home page');
 if (!readFileSync('dist' + CS_PATH + 'index.html', 'utf8').includes(`hreflang="ru" href="${BASE}${URL_PATH}"`)) e('the Czech page must point to the Russian one');

@@ -43,7 +43,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.doTitle}</h2>
       <p class="answer">{C.doAnswer}</p>
       <ul class="checks">{C.do.map((x) => <li>{x}</li>)}</ul>
-      <p>{C.doLead}{' '}{C.doLinks.map((l, i) => <>{i > 0 && ' · '}<a href={t(l.page)}>{l.text}</a></>)}. {C.doGeoLead}{' '}<a href={t('geo')}>{C.doGeoLink}</a>.</p>
+      <p>{C.doLead}{' '}{C.doLinks.map((l, i) => <>{i > 0 && ' · '}<a href={t(l.page)}>{l.text}</a></>)}{' '}· <a href={t('maps')}>{C.doMapsLink}</a>. {C.doGeoLead}{' '}<a href={t('geo')}>{C.doGeoLink}</a>.</p>
     </div>
   </section>
 
@@ -68,14 +68,6 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <p>{C.auditChecksLead}</p>
       <ul class="checks">{C.auditChecks.map((x) => <li>{x}</li>)}</ul>
       <p>{C.auditLead}{' '}<a href={t('audit')}>{C.auditLink}</a>. {C.auditExampleLead}{' '}<a href={t('audit') + '#vystup-auditu'}>{C.auditExampleLink}</a>. {C.auditExampleNote}</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container narrow">
-      <h2>{C.mapsTitle}</h2>
-      <p class="answer">{C.mapsAnswer}</p>
-      <p>{C.mapsLead}{' '}<a href={t('maps')}>{C.mapsLink}</a>.</p>
     </div>
   </section>
 

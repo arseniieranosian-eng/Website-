@@ -105,18 +105,7 @@ const raw = {
     note: 'Tabulka popisuje oblasti kontroly, ne zjištění o konkrétních webech.',
   },
 
-  local: {
-    title: 'Jak funguje lokální přítomnost realitní kanceláře?',
-    answer: 'Profil na Google Maps a Mapy.com pomáhá realitní kanceláři v Praze, aby ji lidé našli při hledání s městem nebo čtvrtí. Nezaručuje pozici ani počet poptávek. Zkontroluji, zda jsou údaje (název, adresa, kontakt, služby) shodné s webem, a doplním, co chybí.',
-    points: [
-      'Údaje o kanceláři (název, adresa, kontakt, služby) jsou shodné na webu i v profilech.',
-      'Odkazy z profilu vedou na správné stránky webu.',
-      'Mapy.com provozuje Seznam, proto profil pomáhá i těm, kdo vyhledávají přes Seznam.',
-    ],
-    more: 'Lokální SEO pro kanceláře řeší samostatná služba',
-    moreLink: 'SEO pro Mapy',
-  },
-
+  // The explanatory "how local presence works" block was removed on 25.10.2026 (niche landing pages are commercial: as little informational intent as possible).
   videoTitle: 'Co jsem viděl na webech realitních kanceláří?',
   videoRecordedLabel: 'Natočeno',
   videoChaptersTitle: 'Kapitoly',

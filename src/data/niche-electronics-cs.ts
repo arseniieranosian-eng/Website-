@@ -52,6 +52,7 @@ const raw = {
     { page: 'start' as const, text: 'SEO start na 3 měsíce' },
     { page: 'fullSeo' as const, text: 'Full SEO na rok' },
   ],
+  doMapsLink: 'SEO pro Mapy',
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
 
@@ -86,11 +87,6 @@ const raw = {
   auditExampleLead: 'Příklad, jak vypadá výstup auditu e-shopu:',
   auditExampleLink: 'krátké anonymní video (36 sekund) na stránce auditu',
   auditExampleNote: 'Je to ukázka výstupu auditu, ne případová studie obchodu s technikou.',
-
-  mapsTitle: 'A co obchod s kamennou prodejnou?',
-  mapsAnswer: 'Má-li obchod i kamennou prodejnu, řeší se také profil na mapách: stejný název, adresa, telefon a otevírací doba na webu i v profilu. Mapy do bezplatného auditu nepatří; jsou součástí balíčků Start a Full SEO, existuje i samostatná služba Mapy. První místo na mapách nezaručuji.',
-  mapsLead: 'Samostatnou službu popisuje stránka',
-  mapsLink: 'SEO pro Mapy',
 
   adsTitle: 'Nestačí obchodu reklama?',
   adsQuote: {
