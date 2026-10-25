@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import LogoStrip from '../components/LogoStrip.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
@@ -132,6 +133,8 @@ const C = {
       </div>
     </div>
   </section>
+
+  <LogoStrip lang={lang} />
 
   <!-- 2. Proof numbers → case studies -->
   <section class="section section--tight">

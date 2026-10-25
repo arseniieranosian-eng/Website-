@@ -669,3 +669,19 @@ ul, ol { margin-bottom: var(--flow); }
 .do-item p { margin: 0; }
 @media (max-width: 767px) { .do-art { width: 64px; } .do-item { gap: 14px; padding-top: 1.5em; } }
 .do-item + :not(.do-item) { margin-top: 1.8em; }
+
+/* Logo strip (home): dark-gray "old film" silhouettes sliding in an endless loop, soft edges, grain and a flicker */
+.logo-strip { padding: 28px 0 24px; background: var(--white); border-bottom: 1px solid var(--line); overflow: hidden; }
+.logo-strip__caption { margin: 0 0 14px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8a8f9a; text-align: center; }
+.logo-strip__viewport { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.logo-strip__viewport::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.035; mix-blend-mode: multiply; animation: film-grain 0.9s steps(4) infinite;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.logo-strip__track { display: flex; width: max-content; animation: logo-scroll 42s linear infinite, film-flicker 2.4s steps(1) infinite; }
+.logo-strip__list { display: flex; align-items: center; gap: 56px; list-style: none; margin: 0; padding: 0 28px; }
+.logo-strip__list li { flex: none; display: block; }
+.logo-strip__list img { display: block; height: 56px; width: auto; max-width: none; opacity: 0.85; filter: contrast(1.08); }
+@keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes film-flicker { 0% { opacity: 0.92; } 18% { opacity: 1; } 31% { opacity: 0.86; } 47% { opacity: 0.97; } 66% { opacity: 0.9; } 83% { opacity: 1; } }
+@keyframes film-grain { 0% { background-position: 0 0; } 25% { background-position: -40px 22px; } 50% { background-position: 30px -35px; } 75% { background-position: -18px -12px; } 100% { background-position: 0 0; } }
+@media (max-width: 767px) { .logo-strip__list { gap: 40px; } .logo-strip__list img { height: 44px; } .logo-strip__track { animation-duration: 34s, 2.4s; } }
+@media (prefers-reduced-motion: reduce) { .logo-strip__track, .logo-strip__viewport::after { animation: none; } .logo-strip__viewport { overflow-x: auto; } }

@@ -2,6 +2,7 @@
 // The English home page /en/ (hub), built from the brief of 21.10.2026: a separate adaptation for English-speaking entrepreneurs and
 // expats in Czechia. Content: data/home-en.ts, trust bar: data/trust-en.ts. No blog links, reviews from the shared source.
 import Base from '../layouts/Base.astro';
+import LogoStrip from '../components/LogoStrip.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
@@ -53,6 +54,8 @@ const m = META.home[lang];
       </div>
     </div>
   </section>
+
+  <LogoStrip lang={lang} />
 
   <!-- TRUST BAR -->
   <section class="section section--tight" aria-label={C.trustTitle}>

@@ -1,0 +1,25 @@
+---
+// Endless logo strip under the hero of every home page: the logos are baked into dark-gray, grain-textured silhouettes ("old film" look, public/images/logos-strip/logo-1..8.webp), so they all look alike
+// and none shouts in its own colours. CSS only: two copies of the track slide left in a loop (paused for visitors who prefer reduced motion). The logos are decorative (alt=""), the caption names the block.
+import type { Lang } from '../i18n/routes';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const CAPTION = { cs: 'Klienti a projekty', en: 'Clients and projects', ru: 'Клиенты и проекты' }[lang];
+const LOGOS = [
+  { n: 1, w: 217 }, { n: 2, w: 130 }, { n: 3, w: 111 }, { n: 4, w: 101 }, { n: 5, w: 132 }, { n: 6, w: 85 }, { n: 7, w: 82 }, { n: 8, w: 239 },
+];
+---
+<section class="logo-strip" aria-label={CAPTION}>
+  <div class="container"><p class="logo-strip__caption">{CAPTION}</p></div>
+  <div class="logo-strip__viewport">
+    <div class="logo-strip__track">
+      {[0, 1].map((copy) => (
+        <ul class="logo-strip__list" aria-hidden={copy === 1 ? 'true' : undefined}>
+          {LOGOS.map((l) => (
+            <li><img src={`/images/logos-strip/logo-${l.n}.webp`} alt="" width={Math.round((l.w * 56) / 112)} height="56" loading="lazy" decoding="async" /></li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>

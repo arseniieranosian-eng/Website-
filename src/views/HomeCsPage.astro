@@ -2,6 +2,7 @@
 // The Czech home page (hub), built from the brief of 20.10.2026. Content: data/home-cs.ts. No blog links (the blog is empty),
 // reviews from the shared source without the figures that are not confirmed.
 import Base from '../layouts/Base.astro';
+import LogoStrip from '../components/LogoStrip.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
@@ -54,6 +55,8 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
       </div>
     </div>
   </section>
+
+  <LogoStrip lang={lang} />
 
   <!-- TRUST BAR (the same component and data as on /o-mne/, right after the hero) -->
   <section class="section section--tight" aria-label="Výsledky v číslech">
