@@ -204,7 +204,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     },
   },
   caseRazbor: {
-    cs: { name: 'Rozbor webu realitní kanceláře v Praze', title: 'Rozbor webu realitní kanceláře v Praze', description: 'Rozbor webu realitní kanceláře v Praze', h1: 'Rozbor webu realitní kanceláře v Praze' },
+    cs: {
+      name: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?',
+      title: 'Rozbor webu realitní kanceláře v Praze | Eranosian',
+      description: 'Rozbor webu malé pražské realitní kanceláře: co jsem viděl a co navrhl. Konzultace s auditem, prezentace 21.–22. 10. 2026. Více o konzultaci.',
+      h1: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?',
+    },
     en: { name: 'Review of a real estate agency website in Prague', title: 'Review of a real estate agency website in Prague', description: 'Review of a real estate agency website in Prague', h1: 'Review of a real estate agency website in Prague' },
     ru: {
       name: 'Разбор сайта агентства недвижимости в Праге',

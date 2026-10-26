@@ -161,6 +161,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
         <h2>{C.experience.title}</h2>
         <p class="answer">{C.experience.answer}</p>
         {C.experience.points && <ul class="checks">{C.experience.points.map((x: string) => <li>{x}</li>)}</ul>}
+        {C.experience.pointer && <p>{C.experience.pointer.text}{' '}<a href={path('caseRazbor', lang)}>{C.experience.pointer.link}</a></p>}
       </div>
     </section>
   )}

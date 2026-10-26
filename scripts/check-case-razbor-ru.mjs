@@ -28,7 +28,7 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (/\bрост\b|привело|×|кейс с результатом|за 24 часа/i.test(title + ' ' + desc)) e('no "рост / привело / × / за 24 часа" in the meta');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!/<html lang="ru"/.test(h) || /<meta name="robots"[^>]*noindex/.test(h)) e('lang ru, indexable');
-if (/<link rel="alternate"[^>]*hreflang="(?:cs|en)/.test(h)) e('no cs / en alternates (no such pages)');
+if (/<link rel="alternate"[^>]*hreflang="en/.test(h) || !/<link rel="alternate"[^>]*hreflang="cs[^>]*rozbor-webu-realitni-kancelare-praha/.test(h)) e('hreflang: the pair with the Czech review (since 26.10.2026), no en alternate');
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 if (!/<p class="eyebrow">Разбор<\/p>/.test(main)) e('label "Разбор" above the H1');

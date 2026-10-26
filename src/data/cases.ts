@@ -94,9 +94,9 @@ CASES.push({
 // Review ("Разбор"), not a result: no metrics (a review has no figures; nothing may look like a result).
 CASES.push({
   key: 'caseRazbor',
-  langs: ['ru'],
-  industry: { cs: '', en: '', ru: 'Разбор · агентство недвижимости' },
-  teaser: { cs: '', en: '', ru: 'Как проходит консультация с аудитом и планом на 12 месяцев: с чем пришёл владелец, что я увидел и что предложил. Результатов пока нет.' },
+  langs: ['cs', 'ru'],
+  industry: { cs: 'Rozbor, bez výsledků', en: '', ru: 'Разбор · агентство недвижимости' },
+  teaser: { cs: 'Jak probíhá konzultace s auditem a plánem na 12 měsíců: s čím přišel majitel malé pražské kanceláře, co jsem na webu viděl a co jsem navrhl. Výsledky zatím nejsou.', en: '', ru: 'Как проходит консультация с аудитом и планом на 12 месяцев: с чем пришёл владелец, что я увидел и что предложил. Результатов пока нет.' },
   challenge: { cs: '', en: '', ru: '' },
   solution: { cs: [], en: [], ru: [] },
   metrics: [],

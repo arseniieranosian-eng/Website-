@@ -113,6 +113,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
         ))}
       </div>
       <p class="muted small">{C.examplesNote}</p>
+      {C.examplesCase && <p>{C.examplesCase.text}{' '}<a href={t('caseRazbor')}>{C.examplesCase.link}</a></p>}
     </div>
   </section>
 

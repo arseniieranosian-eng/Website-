@@ -40,13 +40,15 @@ export const NICHE_REALTY_VIDEO: null | {
 } = null;
 
 // "Jaké mám zkušenosti s weby nemovitostí?": only what the author confirms (projects, analyses, observations). Missing: the block is not rendered.
-export const NICHE_REALTY_EXPERIENCE: null | { title: string; answer: string; points?: string[] } = {
+// Since 26.10.2026 the block ends with a pointer to the review of one Prague agency's website (it replaces the dormant "Moje pozorování" list, which is not rendered: showAreas is false).
+export const NICHE_REALTY_EXPERIENCE: null | { title: string; answer: string; points?: string[]; pointer?: { text: string; link: string } } = {
   title: 'Jaké mám zkušenosti s weby nemovitostí?',
   answer: 'V říjnu 2026 jsem zpracoval SEO audit a strategii propagace na 12 měsíců pro web z oboru nemovitostí. Výsledky z tohoto projektu zatím neuvádím: jde o čerstvý audit, ne o dokončenou práci. Název klienta nezveřejňuji.',
   points: [
     'Audit zahrnoval současný technický stav webu, srovnání s konkurencí a plán na 12 měsíců.',
     'Případovou studii pro tento obor zatím nemám a výsledky překladatelské případové studie sem nepřenáším.',
   ],
+  pointer: { text: 'Výsledky v této nice zatím nejsou. Podrobný rozbor webu jedné pražské kanceláře:', link: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?' },
 };
 
 if (NICHE_READY.nicheRealty && !NICHE_REALTY_MARKET) {

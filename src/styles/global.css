@@ -711,3 +711,7 @@ ul, ol { margin-bottom: var(--flow); }
 .blog-group + .blog-group { margin-top: 64px; }
 .blog-group > h2 { margin-bottom: 0.3em; }
 .blog-group > .muted { margin-bottom: 20px; }
+
+/* "No results yet" block of the review pages */
+.no-results { border-left: 4px solid var(--orange, #ff6a1a); }
+.no-results .eyebrow { margin-bottom: 0.4em; }

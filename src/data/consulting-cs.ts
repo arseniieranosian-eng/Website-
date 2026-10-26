@@ -91,6 +91,7 @@ export const CONSULTING_CS = {
     },
   ],
   examplesNote: 'Údaje a tváře klientů jsou skryté.',
+  examplesCase: { text: 'Rozbor, bez výsledků: konzultace s auditem pro malou pražskou realitní kancelář.', link: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?' },
 
   languagesTitle: 'V jakých jazycích konzultace probíhá?',
   languages, // identical to the FAQ answer below (one question = one answer)

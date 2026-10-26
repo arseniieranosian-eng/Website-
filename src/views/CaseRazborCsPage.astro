@@ -1,0 +1,130 @@
+---
+// Czech review "Co jsem navrhl pro web malé realitní kanceláře v Praze?" (cs), brief of 26.10.2026: a review, not a result. Content: data/case-razbor-cs.ts (localisation of the Russian page, facts compared on 26.10.2026).
+// No quote, no client name, no figures, no blog links.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { caseRazborCsSchemas } from '../lib/schema-case-razbor-cs';
+import { CASE_RAZBOR_CS as C, CASE_RAZBOR_CS_PUBLISHED } from '../data/case-razbor-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/CaseRazborCsPage.astro', 'src/data/case-razbor-cs.ts'], '2026-10-26'), CASE_RAZBOR_CS_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('caseRazbor', lang)} ogType="article" schema={caseRazborCsSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow">{C.label}</p>
+      <h1>{META.caseRazbor.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel} <time datetime={MOD}>{modText}</time> · {C.bylineRest}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whoTitle}</h2>
+      <p class="answer">{C.whoAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.howTitle}</h2>
+      <p class="answer">{C.howAnswerBefore}{' '}<a href={t('consulting')}>{C.howLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.seenTitle}</h2>
+      <p class="answer">{C.seenAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.table.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      {C.slides.map((s) => (
+        <figure class="case-figure">
+          <img src={s.src} width={s.width} height={s.height} alt={s.alt} loading="lazy" decoding="async" />
+        </figure>
+      ))}
+      <p class="muted small">{C.slidesCaption}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.rivalsTitle}</h2>
+      <p class="answer">{C.rivalsAnswer}</p>
+      <p class="muted small">{C.rivalsSource}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.chanceTitle}</h2>
+      <p class="answer">{C.chanceAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.dirTitle}</h2>
+      <p class="answer">{C.dirAnswer}</p>
+      {C.directions.map((x) => <><h3>{x.h}</h3><p>{x.text}</p></>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.planTitle}</h2>
+      <p class="answer">{C.planAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.unknownTitle}</h2>
+      <div class="card no-results">
+        <p class="eyebrow">{C.unknownBadge}</p>
+        <p class="answer">{C.unknownAnswer}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.anyTitle}</h2>
+      <p class="answer">{C.anyAnswer}</p>
+      <ul class="checks">{C.any.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p>{f.link && <p><a class="link-arrow" href={t(f.link)}>{f.linkText}</a></p>}</div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      {C.related.map((n) => <p><a class="link-arrow" href={t(n.key)}>{n.text}</a></p>)}
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.ctaTitle}</h2>
+      <p>{C.ctaBefore}{' '}<a href={t('consulting')}>{C.ctaConsulting}</a>{' '}{C.ctaMiddle}{' '}<a href={t('audit')}>{C.ctaAudit}</a>.</p>
+    </div>
+  </section>
+</Base>
