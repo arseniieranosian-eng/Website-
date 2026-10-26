@@ -88,6 +88,7 @@ const cite = new URL(t('caseRazbor'), site).href;
 
   <section class="section section--grey">
     <div class="container narrow">
+      <GroupArt kind="plan" />
       <h2>{C.planTitle}</h2>
       <p class="answer">{C.planAnswer}</p>
     </div>
@@ -102,6 +103,7 @@ const cite = new URL(t('caseRazbor'), site).href;
 
   <section class="section section--grey">
     <div class="container narrow">
+      <GroupArt kind="other" />
       <h2>{C.anyTitle}</h2>
       <p class="answer">{C.anyAnswer}</p>
       <ul class="checks">{C.any.map((x) => <li>{x}</li>)}</ul>

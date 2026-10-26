@@ -1,6 +1,6 @@
 ---
 // Illustration for a group of the "What is included" block of the Full SEO pages (same palette and 96x56 card as ServiceArt).
-// The group heading carries the meaning, so the drawing is hidden from assistive technology. kind: site, offsite, ai; longtail, content, english (the three directions of the real estate review pages).
+// The group heading carries the meaning, so the drawing is hidden from assistive technology. kind: site, offsite, ai; longtail, content, english (the three directions of the real estate review pages); plan (12-month plan in three stages), other (what applies to another small agency).
 interface Props { kind: string }
 const { kind } = Astro.props;
 ---
@@ -33,5 +33,17 @@ const { kind } = Astro.props;
   {kind === 'english' && (<>
     <circle cx="34" cy="28" r="18" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" /><ellipse cx="34" cy="28" rx="7" ry="18" stroke="#1f4fd8" stroke-width="1.6" /><path d="M16 28h36M19 18h30M19 38h30" stroke="#1f4fd8" stroke-width="1.6" stroke-linecap="round" />
     <rect x="56" y="14" width="30" height="20" rx="7" fill="#ff6a1a" /><path d="M64 34v6l7-6" fill="#ff6a1a" stroke="#ff6a1a" stroke-width="1.600" stroke-linejoin="round" /><text x="71" y="29" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff">EN</text>
+  </>)}
+  {kind === 'plan' && (<>
+    <path d="M12 38h72" stroke="#1f4fd8" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" />
+    <circle cx="20" cy="38" r="7" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><path d="M16.500 38l2.700 2.700 4.800-5.400" stroke="#1f4fd8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="48" cy="38" r="7" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" /><path d="M45 41.500l3-7 3 7z" fill="#1f4fd8" />
+    <circle cx="76" cy="38" r="7" fill="#ff6a1a" /><path d="M72.500 40l2.500-3 2 2 2.500-3.500" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="30" y="9" width="36" height="16" rx="5" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><path d="M30 15h36" stroke="#1f4fd8" stroke-width="1.8" /><path d="M37 20h4M45 20h4M53 20h4" stroke="#a4baf0" stroke-width="2.400" stroke-linecap="round" />
+  </>)}
+  {kind === 'other' && (<>
+    <path d="M10 32L26 18l16 14v16H10z" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" /><rect x="21" y="36" width="10" height="12" rx="2" fill="#fff" stroke="#1f4fd8" stroke-width="1.6" />
+    <path d="M46 28h12" stroke="#ff6a1a" stroke-width="2.800" stroke-linecap="round" /><path d="M54 22l6 6-6 6" stroke="#ff6a1a" stroke-width="2.800" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M62 32L76 20l14 12v16H62z" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" /><rect x="71" y="36" width="10" height="12" rx="2" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.6" /><path d="M73 28l3 3 5-6" stroke="#ff6a1a" stroke-width="0" />
   </>)}
 </svg>
