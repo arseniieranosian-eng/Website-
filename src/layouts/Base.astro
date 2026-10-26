@@ -41,6 +41,8 @@ const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
 <html lang={HTML_LANG[lang]}>
   <head>
     <meta charset="utf-8" />
+    <!-- Safety net against mixed content: the browser upgrades any http:// sub-resource to https:// (the pages themselves are served over HTTPS only). -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
