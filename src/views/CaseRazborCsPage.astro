@@ -2,6 +2,7 @@
 // Czech review "Co jsem navrhl pro web malé realitní kanceláře v Praze?" (cs), brief of 26.10.2026: a review, not a result. Content: data/case-razbor-cs.ts (localisation of the Russian page, facts compared on 26.10.2026).
 // No quote, no client name, no figures, no blog links.
 import Base from '../layouts/Base.astro';
+import GroupArt from '../components/GroupArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -14,6 +15,7 @@ const site = Astro.site!;
 const MOD = [lastModified(['src/views/CaseRazborCsPage.astro', 'src/data/case-razbor-cs.ts'], '2026-10-26'), CASE_RAZBOR_CS_PUBLISHED].sort().pop()!;
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
+const DIR_ART = ['longtail', 'content', 'english'];
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 ---
 <Base {...pageProps('caseRazbor', lang)} ogType="article" schema={caseRazborCsSchemas(site, C, { modified: MOD })}>
@@ -78,7 +80,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.dirTitle}</h2>
       <p class="answer">{C.dirAnswer}</p>
-      {C.directions.map((x) => <><h3>{x.h}</h3><p>{x.text}</p></>)}
+      {C.directions.map((x, i) => <div class="include-group"><GroupArt kind={DIR_ART[i]} /><div><h3>{x.h}</h3><p>{x.text}</p></div></div>)}
     </div>
   </section>
 

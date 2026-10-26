@@ -69,7 +69,7 @@ if (!wp || wp.name !== TITLE || wp.inLanguage !== 'ru' || wp.description !== DES
 if (!art || art.headline !== H1 || art.author['@id'] !== `${BASE}/#arsenii` || !art.datePublished) e('Article');
 if (by('Quotation').length !== 1 || by('Quotation')[0].text !== Q) e('Quotation');
 const fq = by('FAQPage')[0];
-const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
+const visFaq = [...(main.match(/<div class="faq-open">[\s\S]*$/) || [""])[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!fq || fq.mainEntity.length !== 5 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');
 if (ld.some((n) => ['Service', 'Offer', 'AggregateRating', 'Review', 'HowTo', 'VideoObject'].includes(n['@type']))) e('no Service / Offer / ratings / Review / HowTo / video');
 const bc = by('BreadcrumbList')[0];

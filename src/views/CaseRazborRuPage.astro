@@ -2,6 +2,7 @@
 // Russian mini-case "Разбор сайта агентства недвижимости в Праге" (ru), brief of 23.10.2026: a review, not a result. Content: data/case-razbor-ru.ts.
 // One quote (the author's); no client quote; no figures; no blog links.
 import Base from '../layouts/Base.astro';
+import GroupArt from '../components/GroupArt.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -15,6 +16,7 @@ const site = Astro.site!;
 const MOD = lastModified(['src/views/CaseRazborRuPage.astro', 'src/data/case-razbor-ru.ts'], '2026-10-23');
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const DIR_ART = ['longtail', 'content', 'english'];
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 const cite = new URL(t('caseRazbor'), site).href;
 ---
@@ -76,7 +78,7 @@ const cite = new URL(t('caseRazbor'), site).href;
     <div class="container narrow">
       <h2>{C.dirTitle}</h2>
       <p class="answer">{C.dirAnswer}</p>
-      {C.directions.map((x) => <><h3>{x.h}</h3><p>{x.text}</p></>)}
+      {C.directions.map((x, i) => <div class="include-group"><GroupArt kind={DIR_ART[i]} /><div><h3>{x.h}</h3><p>{x.text}</p></div></div>)}
       <figure class="quote-fig" style="margin-top: 28px">
         <blockquote cite={cite}><p>{C.quote}</p></blockquote>
         <QuoteCaption lang={lang} />
