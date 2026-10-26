@@ -298,6 +298,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'Why an accounting firm website brings no enquiries', title: 'Why an accounting firm website brings no enquiries', description: 'Why an accounting firm website brings no enquiries', h1: 'Why does an accounting firm website bring no enquiries?' },
     ru: { name: 'Почему сайт бухгалтерской фирмы не приносит заявок', title: 'Почему сайт бухгалтерской фирмы не приносит заявок', description: 'Почему сайт бухгалтерской фирмы не приносит заявок', h1: 'Почему сайт бухгалтерской фирмы не приносит заявок?' },
   },
+  postAccountingSmall: {
+    cs: {
+      name: 'Má SEO smysl pro malou účetní kancelář',
+      title: 'Malá účetní kancelář a SEO: kritéria | Eranosian',
+      description: 'SEO pro malou účetní kancelář: kdy dává smysl, kdy zatím ne a čím se liší od velkých. Kritéria, tabulka situací a checklist připravenosti.',
+      h1: 'Má SEO smysl pro malou účetní kancelář?',
+    },
+    en: { name: 'Does SEO make sense for a small accounting firm', title: 'Does SEO make sense for a small accounting firm', description: 'Does SEO make sense for a small accounting firm', h1: 'Does SEO make sense for a small accounting firm?' },
+    ru: { name: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы', title: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы', description: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы', h1: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',
