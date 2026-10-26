@@ -288,6 +288,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'Neighbourhood pages of a real estate agency', title: 'Neighbourhood pages of a real estate agency', description: 'Neighbourhood pages of a real estate agency', h1: 'How to write a neighbourhood page for a real estate agency website?' },
     ru: { name: 'Страницы районов и локаций сайта агентства недвижимости', title: 'Страницы районов и локаций сайта агентства недвижимости', description: 'Страницы районов и локаций сайта агентства недвижимости', h1: 'Как написать страницу района для сайта агентства недвижимости?' },
   },
+  postAccountingNoLeads: {
+    cs: {
+      name: 'Proč web účetní kanceláře nepřináší poptávky',
+      title: 'Web účetní kanceláře bez poptávek: příčiny | Eranosian',
+      description: 'Nemáte klienty z webu účetní kanceláře? Přehled možných příčin od viditelnosti v Googlu po první kontakt. S tabulkou symptomů a checklistem.',
+      h1: 'Proč web účetní kanceláře nepřináší poptávky?',
+    },
+    en: { name: 'Why an accounting firm website brings no enquiries', title: 'Why an accounting firm website brings no enquiries', description: 'Why an accounting firm website brings no enquiries', h1: 'Why does an accounting firm website bring no enquiries?' },
+    ru: { name: 'Почему сайт бухгалтерской фирмы не приносит заявок', title: 'Почему сайт бухгалтерской фирмы не приносит заявок', description: 'Почему сайт бухгалтерской фирмы не приносит заявок', h1: 'Почему сайт бухгалтерской фирмы не приносит заявок?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',
