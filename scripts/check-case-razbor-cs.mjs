@@ -55,8 +55,8 @@ for (const hd of SECTIONS.slice(1, 10)) {
 // Table (header + 4 rows), 3 slides with alt + caption, 4 bullets, 3 H3 directions
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 5 || rows[0].join('|') !== 'Nález|Návrh') e('table "Nález → Návrh": header + 4 rows');
-const slides = [...main.matchAll(/<img src="\/images\/razbor-slide-\d\.webp"[^>]*alt="Ukázka z prezentace[^"]+"/g)];
-if (slides.length !== 3 || !mainTxt.includes('Ukázky z prezentace, říjen 2026, údaje klienta skryté, originál v ruštině.')) e('3 slides with alt text and the caption');
+const slides = [...main.matchAll(/<img src="\/images\/razbor-cs-slide-\d\.webp"[^>]*alt="Ukázka z prezentace[^"]+"/g)];
+if (slides.length !== 3 || !mainTxt.includes('Ukázky z prezentace, říjen 2026, údaje klienta skryté.')) e('3 slides with alt text and the caption');
 if ([...(main.match(/<ul class="checks">[\s\S]*?<\/ul>/) || [''])[0].matchAll(/<li>/g)].length !== 4) e('4 bullets');
 const h3s = [...main.matchAll(/<h3>([\s\S]*?)<\/h3>/g)].map((m) => txt(m[1]));
 if (!['Úzké a dlouhé dotazy', 'Obsah odpovídající na otázky majitelů', 'Anglická verze webu'].every((x) => h3s.includes(x))) e('three H3 directions');

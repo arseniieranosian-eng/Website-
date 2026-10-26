@@ -1,7 +1,7 @@
 // Czech localisation of the Russian review "Разбор сайта агентства недвижимости в Праге" (brief of 26.10.2026): a REVIEW, not a result case. Facts compared with data/case-razbor-ru.ts on 26.10.2026 (item 9 of the brief):
 // the case, the dates 23.10.2026 (search results) and 21.–22.10.2026 (presentation), "about three weeks instead of two working days", the three directions, the four findings, the plan structure, "no results", the anonymity
 // and the definition of the free audit all agree, so the cs <-> ru hreflang pair is on (ONLY_LANGS). Differences that are not facts: the Czech page has no author quote (no Quotation allowed), four bullets in the last list
-// (the Russian page has five), and it names google.cz as the source of the 23.10.2026 observation (confirmed by the author on 26.10.2026). Defaults taken: slug as in the brief, slides described as "originál v ruštině",
+// (the Russian page has five), and it names google.cz as the source of the 23.10.2026 observation (confirmed by the author on 26.10.2026). Defaults taken: slug as in the brief, slides are the author's Czech originals of 26.10.2026 (public/images/razbor-cs-slide-*.webp; the names of an agency, a service and a competitor visible in them are covered with grey bars, like the other masked data),
 // no EN version, the description is 143 characters (not 154) so that the site-wide limit of 150 holds. The word "výsledky" appears where the brief's own texts use it (lead, byline, "Výsledky zatím nejsou", FAQ 5).
 import { walk } from '../lib/cs-typo';
 
@@ -39,11 +39,11 @@ const raw = {
     ],
   },
   slides: [
-    { src: '/images/razbor-slide-1.webp', width: 1067, height: 412, alt: 'Ukázka z prezentace k SEO rozboru: titulní slide' },
-    { src: '/images/razbor-slide-2.webp', width: 1072, height: 602, alt: 'Ukázka z prezentace k SEO rozboru: slide s čestným zhodnocením cíle' },
-    { src: '/images/razbor-slide-3.webp', width: 1068, height: 592, alt: 'Ukázka z prezentace k SEO rozboru: slide se směry růstu' },
+    { src: '/images/razbor-cs-slide-1.webp', width: 1080, height: 1372, alt: 'Ukázka z prezentace k SEO rozboru: titulní slide, kde se ztrácejí příležitosti a proč zpětné odkazy nepomohly' },
+    { src: '/images/razbor-cs-slide-2.webp', width: 1080, height: 1631, alt: 'Ukázka z prezentace k SEO rozboru: konkurence, čestné zhodnocení cíle a kde je reálná příležitost' },
+    { src: '/images/razbor-cs-slide-3.webp', width: 1080, height: 2042, alt: 'Ukázka z prezentace k SEO rozboru: technický základ, FAQ a plán na rok ve čtyřech etapách' },
   ],
-  slidesCaption: 'Ukázky z prezentace, říjen 2026, údaje klienta skryté, originál v ruštině.',
+  slidesCaption: 'Ukázky z prezentace, říjen 2026, údaje klienta skryté.',
 
   rivalsTitle: 'S kým malá kancelář soutěží?',
   rivalsAnswer: 'Podle výsledků vyhledávání z 23. 10. 2026 jsem viděl tři typy konkurentů: specializované projekty navázané na velké firmy, finanční služby s vlastními kalkulačkami a kanceláře s fungující online kalkulačkou. Názvy firem neuvádím. Kancelář proto nesoutěží s ostatními malými kancelářemi, ale s jinými typy webů.',
