@@ -318,6 +318,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'Local presence of an accounting firm', title: 'Local presence of an accounting firm', description: 'Local presence of an accounting firm', h1: 'How should an accounting firm appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие бухгалтерской фирмы', title: 'Локальное присутствие бухгалтерской фирмы', description: 'Локальное присутствие бухгалтерской фирмы', h1: 'Как бухгалтерской фирме выглядеть на картах и в каталогах?' },
   },
+  postAccountingPages: {
+    cs: {
+      name: 'Jak napsat stránku služby účetní kanceláře',
+      title: 'Stránky služeb účetní kanceláře: jak psát | Eranosian',
+      description: 'Stránky služeb účetní kanceláře: kdy mít samostatnou stránku, jak napsat úvod, pro koho je služba a jak stránky propojit. Přehled s příkladem.',
+      h1: 'Jak napsat stránku služby účetní kanceláře?',
+    },
+    en: { name: 'How to write a service page of an accounting firm', title: 'How to write a service page of an accounting firm', description: 'How to write a service page of an accounting firm', h1: 'How to write a service page of an accounting firm?' },
+    ru: { name: 'Как написать страницу услуги бухгалтерской фирмы', title: 'Как написать страницу услуги бухгалтерской фирмы', description: 'Как написать страницу услуги бухгалтерской фирмы', h1: 'Как написать страницу услуги бухгалтерской фирмы?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',

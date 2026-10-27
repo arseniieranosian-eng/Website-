@@ -35,7 +35,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/(?!(?:jak-ziskat-klienty-pro-ucetni-kancelar|proc-web-ucetni-kancelare-neprinasi-poptavky|ma-seo-smysl-pro-malou-ucetni-kancelar|lokalni-pritomnost-ucetni-kancelare)\/")|<form|\/seo-pro-prekladatelske|\/seo-pro-realitni/.test(main)) e('no blog links, no form, no links to the other niche landing pages');
+if (/href="\/(?:en\/|ru\/)?blog\/(?!(?:jak-ziskat-klienty-pro-ucetni-kancelar|proc-web-ucetni-kancelare-neprinasi-poptavky|ma-seo-smysl-pro-malou-ucetni-kancelar|lokalni-pritomnost-ucetni-kancelare|stranky-sluzeb-ucetni-kancelare)\/")|<form|\/seo-pro-prekladatelske|\/seo-pro-realitni/.test(main)) e('no blog links, no form, no links to the other niche landing pages');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');

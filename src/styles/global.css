@@ -716,3 +716,5 @@ ul, ol { margin-bottom: var(--flow); }
 .no-results { border-left: 4px solid var(--orange, #ff6a1a); }
 .no-results .eyebrow { margin-bottom: 0.4em; }
 .container > .group-art { display: block; width: 96px; height: auto; margin-bottom: 14px; }
+.example-box { margin-top: 20px; border-left: 4px solid var(--blue, #1f4fd8); }
+.example-box .eyebrow { margin-bottom: 0.4em; }

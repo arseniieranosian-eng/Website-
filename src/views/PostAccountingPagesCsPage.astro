@@ -1,0 +1,126 @@
+---
+// Blog article U4 "Jak napsat stránku služby účetní kanceláře?" (cs), brief of 26.10.2026. Content: data/post-accounting-pages-cs.ts.
+// Informational: no prices, no CTA, no audit link, the closing block is one link to the landing page.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postAccountingPagesSchemas } from '../lib/schema-post-accounting-pages';
+import { POST_ACCOUNTING_PAGES_CS as C, POST_ACCOUNTING_PAGES_PUBLISHED, GOOGLE_DOORWAY_URL } from '../data/post-accounting-pages-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostAccountingPagesCsPage.astro', 'src/data/post-accounting-pages-cs.ts'], '2026-10-27'), POST_ACCOUNTING_PAGES_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-stranky-sluzeb-ucetni-kancelare.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postAccountingPages', lang)} ogType="article" ogImage={OG} schema={postAccountingPagesSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postAccountingPages.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel} <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.leadBefore}{' '}<a href={t('postAccountingNoLeads')}>{C.leadLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whenTitle}</h2>
+      <p class="answer">{C.whenAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.whenTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.whenTable.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.whenNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.partsTitle}</h2>
+      <p class="answer">{C.partsAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.partsTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.partsTable.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.introTitle}</h2>
+      <p class="answer">{C.introAnswer}</p>
+      <div class="card example-box">
+        <p class="eyebrow">{C.exampleLabel}</p>
+        <p>{C.example}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whoTitle}</h2>
+      <p class="answer">{C.whoAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.stepsTitle}</h2>
+      <p class="answer">{C.stepsAnswer}</p>
+      <p>{C.stepsLead}</p>
+      <ul class="checks">{C.steps.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.headTitle}</h2>
+      <p class="answer">{C.headAnswer}</p>
+      <p>{C.headLead}</p>
+      <ul class="checks">{C.heads.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.linksTitle}</h2>
+      <p class="answer">{C.linksAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.avoidTitle}</h2>
+      <p class="answer">{C.avoidAnswer}</p>
+      <p class="small"><a class="link-arrow" href={GOOGLE_DOORWAY_URL} rel="noopener">{C.avoidSource}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3>{f.linkAfter ? <p>{f.a.split(f.linkAfter)[0]}<a href={t(f.linkKey)}>{f.linkAfter}</a>{f.a.split(f.linkAfter)[1]}</p> : <p>{f.a}</p>}</div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      <ul class="link-list">
+        <li><a href={t('postAccountingSmall')}>{META.postAccountingSmall.cs.h1}</a></li>
+      </ul>
+      <p class="muted">{C.endText}{' '}<a href={t('nicheAccounting')}>{C.endLinkText}</a>. {C.endText2}</p>
+    </div>
+  </section>
+</Base>
