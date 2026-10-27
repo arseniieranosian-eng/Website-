@@ -43,7 +43,7 @@ if (!/<input[^>]*name="website"[^>]*required/.test(h) || !/Адрес сайта
 
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
-const wp = by('WebPage'), sv = by('Service'), fq = by('FAQPage'), bc = by('BreadcrumbList'), ht = by('HowTo'), vd = by('VideoObject');
+const wp = by('WebPage'), sv = by('Service'), fq = by('FAQPage'), bc = by('BreadcrumbList'), ht = by('HowTo'), vd = ld.filter((n) => n['@type'] === 'VideoObject')[0], vdAll = ld.filter((n) => n['@type'] === 'VideoObject');
 const own = JSON.stringify([wp, sv, ht, fq, vd]);
 for (const f of ['ключев', 'конкурент', 'карт', 'видимост', 'скорост', 'Core Web Vitals', 'мобильн']) {
   // 'Карты'/'конкуренты' may only appear in the page's own FAQ/visible text, never in the service markup
@@ -95,13 +95,18 @@ const qn = ld.find((n) => n['@type'] === 'Quotation');
 if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'ru' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: optional until the anonymised file exists; when present everything must line up
 const hasVideo = /<video/.test(h);
-if (hasVideo !== Boolean(vd)) e('<video> on the page and VideoObject in JSON-LD must appear together');
+if ((h.match(/<video/g) || []).length !== vdAll.length) e('every <video> on the page needs its VideoObject in JSON-LD (and vice versa)');
 if (hasVideo) {
   if (!/<video[^>]*controls[^>]*preload="metadata"[^>]*poster=/.test(h) || /autoplay/.test(h)) e('video: controls, preload=metadata, poster, no autoplay');
   if (!body.includes(vd.description) || !body.includes(vd.transcript)) e('video description / transcript must be visible under the video');
   if (!body.includes('Пример презентации бесплатного SEO-аудита (32 секунды, без звука).')) e('video caption missing');
   if (!vd.contentUrl || vd.embedUrl) e('VideoObject: contentUrl only');
-  if (wp.video?.['@id'] !== vd['@id']) e('WebPage.video must reference the VideoObject');
+  if (!(Array.isArray(wp.video) ? wp.video : [wp.video]).some((v) => v?.['@id'] === vd['@id'])) e('WebPage.video must reference the VideoObject');
+  // second video: the other-niche example (added 27.10.2026)
+  if (!body.includes('Пример аудита для другой ниши') || !body.includes('разработка специализированного программного обеспечения для автоматизации машиностроительных и металлообрабатывающих предприятий') || !body.includes('Язык презентации: английский') || !body.includes('Пример презентации бесплатного SEO-аудита для сайта на английском языке (37 секунд, без звука).')) e('other-niche example: heading, niche, language and caption');
+  const v2 = vdAll.find((n) => /video-machinery-software/.test(n['@id']));
+  if (!v2 || !body.includes(v2.description) || !v2.contentUrl || v2.embedUrl) e('VideoObject of the other-niche example: visible description, contentUrl only');
+  if (/Windows|VEED/i.test(body)) e('no editor / OS names in the text');
 }
 void own;
 

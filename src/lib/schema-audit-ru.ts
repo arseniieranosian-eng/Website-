@@ -1,4 +1,4 @@
-import type { AUDIT_RU, AUDIT_VIDEO } from '../data/audit-ru';
+import type { AUDIT_RU, AUDIT_VIDEO, AuditExample } from '../data/audit-ru';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
@@ -7,7 +7,7 @@ import { ids } from './schema';
 // Page-specific JSON-LD for /ru/besplatnyj-audit/. The global Person / ProfessionalService / WebSite graph and the
 // BreadcrumbList come from the layout. The VideoObject is emitted only once the sample video exists
 // (AUDIT_VIDEO is not null). No AggregateRating. Nothing about keywords, competitors, maps, AI visibility or speed.
-export function auditSchemas(site: URL, C: typeof AUDIT_RU, video: typeof AUDIT_VIDEO, opts: { modified: string; reviews: Review[] }) {
+export function auditSchemas(site: URL, C: typeof AUDIT_RU, video: typeof AUDIT_VIDEO, examples: AuditExample[], opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('audit', lang));
@@ -42,7 +42,7 @@ export function auditSchemas(site: URL, C: typeof AUDIT_RU, video: typeof AUDIT_
       breadcrumb: { '@id': `${url}#breadcrumb` },
       primaryImageOfPage: abs('/images/og-card.png'),
       mainEntity: { '@id': `${url}#service` },
-      ...(video ? { video: { '@id': `${url}#video` } } : {}),
+      ...(video || examples.length ? { video: [...(video ? [{ '@id': `${url}#video` }] : []), ...examples.map((x) => ({ '@id': `${url}#video-${x.id}` }))] } : {}),
     },
     {
       '@type': 'Service',
@@ -88,6 +88,19 @@ export function auditSchemas(site: URL, C: typeof AUDIT_RU, video: typeof AUDIT_
           isPartOf: { '@id': `${url}#webpage` },
         }]
       : []),
+    ...examples.map((x) => ({
+      '@type': 'VideoObject',
+      '@id': `${url}#video-${x.id}`,
+      name: x.name,
+      description: x.description,
+      thumbnailUrl: abs(x.poster),
+      uploadDate: x.uploadDate,
+      duration: x.duration,
+      contentUrl: abs(x.src),
+      inLanguage: 'en',
+      author: { '@id': id.person },
+      isPartOf: { '@id': `${url}#webpage` },
+    })),
     {
       '@type': 'Quotation',
       '@id': `${url}#quote-1`,

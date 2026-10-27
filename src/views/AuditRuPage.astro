@@ -10,7 +10,7 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { auditSchemas } from '../lib/schema-audit-ru';
-import { AUDIT_RU as C, AUDIT_VIDEO as V } from '../data/audit-ru';
+import { AUDIT_RU as C, AUDIT_EXAMPLES_RU, AUDIT_VIDEO as V } from '../data/audit-ru';
 import { REVIEWS } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
@@ -37,7 +37,7 @@ const others = [
 ] as const;
 import QuoteCaption from '../components/QuoteCaption.astro';
 ---
-<Base {...pageProps('audit', lang)} schema={auditSchemas(site, C, V, { modified: MOD, reviews })}>
+<Base {...pageProps('audit', lang)} schema={auditSchemas(site, C, V, AUDIT_EXAMPLES_RU, { modified: MOD, reviews })}>
   <!-- HERO -->
   <section class="page-hero">
     <div class="container">
@@ -107,6 +107,25 @@ import QuoteCaption from '../components/QuoteCaption.astro';
           </figure>
           <p>{C.videoDescription}</p>
           <p>{C.videoText}</p>
+        </>
+      )}
+      {AUDIT_EXAMPLES_RU.length > 0 && (
+        <>
+          <h3 id="primery-auditov">{C.examplesTitle}</h3>
+          {AUDIT_EXAMPLES_RU.map((x) => (
+            <div class="audit-example">
+              <p><strong>{C.examplesNiche}:</strong> {x.niche}.</p>
+              <p class="muted small">{C.examplesLang}: {x.lang}</p>
+              <figure class="audit-video">
+                <video controls preload="metadata" poster={x.poster} width={x.width} height={x.height}>
+                  <source src={x.src} type="video/mp4" />
+                </video>
+                <figcaption class="muted small">{x.caption}</figcaption>
+              </figure>
+              <p>{x.description}</p>
+              <p>{x.text}</p>
+            </div>
+          ))}
         </>
       )}
       <p>{C.nicheLead}{' '}<a href={t('nicheFinance')}>{C.nicheLink}</a></p>

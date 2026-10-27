@@ -25,6 +25,28 @@ export const AUDIT_VIDEO: Video | null = {
   uploadDate: '2026-10-19',
 };
 
+// Sample audit for another niche (cs page has the same one as a YouTube Short): a screen recording of the English presentation for a software developer for machine-building and metalworking
+// companies (added 27.10.2026; the owner of the site agreed to the anonymous example). Prepared from the raw recording: no sound, the Windows task bar at the bottom cropped
+// (1280x680). The file still carries the watermarks of the editors it was exported from (VEED, CapCut): replace it with a clean export when there is one (same name, same prepare step).
+export interface AuditExample { id: string; src: string; poster: string; width: number; height: number; duration: string; uploadDate: string; niche: string; lang: string; caption: string; name: string; description: string; text: string }
+export const AUDIT_EXAMPLES_RU: AuditExample[] = [
+  {
+    id: 'machinery-software',
+    src: '/media/audit-example-machinery-software.mp4',
+    poster: '/media/audit-example-machinery-software-poster.jpg',
+    width: 1280,
+    height: 680,
+    duration: 'PT37S',
+    uploadDate: '2026-10-27',
+    niche: 'разработка специализированного программного обеспечения для автоматизации машиностроительных и металлообрабатывающих предприятий',
+    lang: 'английский',
+    caption: 'Пример презентации бесплатного SEO-аудита для сайта на английском языке (37 секунд, без звука).',
+    name: 'Пример презентации SEO-аудита для сайта на английском языке',
+    description: 'Пример презентации бесплатного SEO-аудита для сайта разработчика программного обеспечения для машиностроения: сводка по сайту, технические ошибки с приоритетами и следующие шаги. Презентация на английском.',
+    text: 'Аудит сделан для англоязычного сайта. По словам владелицы сайта, она ориентируется на американский рынок, но компания работает по всему миру. Название сайта в видео не показано.',
+  },
+];
+
 export const AUDIT_RU = {
   lang: 'ru' as const,
   h1: 'Бесплатный SEO-аудит вашего сайта',
@@ -72,6 +94,9 @@ export const AUDIT_RU = {
   videoCaption: 'Пример презентации бесплатного SEO-аудита (32 секунды, без звука).',
   videoName: 'Пример презентации бесплатного SEO-аудита',
   videoDescription: 'Пример презентации, которую вы получаете после бесплатного SEO-аудита: сводка по сайту, технические ошибки с приоритетами и что даёт платный разбор.',
+  examplesTitle: 'Пример аудита для другой ниши',
+  examplesNiche: 'Ниша',
+  examplesLang: 'Язык презентации',
   videoText: 'Слайды примера: сводка по сайту (сколько страниц просканировано, сколько ошибок и предупреждений, что в порядке и что мешает росту); часть товарных страниц не найдена в Google; слишком длинные тайтлы; шаблонные заголовки H1, H2 и мета-описания; сигналы для Google с приоритетами (адреса, закрытые от робота, страницы без canonical, адреса с параметрами); мелочи, которые накапливаются; что даёт платный разбор: ошибки с примерами страниц, решения и план на 12 месяцев.',
 
   nicheLead: 'Для финансовых консультантов в аудите отдельно смотрю индексацию страниц направлений и дубли между языковыми версиями. Подробнее:',
