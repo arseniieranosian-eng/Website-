@@ -20,6 +20,7 @@ import { POST_REALTY_SMALL_CS, POST_REALTY_SMALL_PUBLISHED } from './post-realty
 import { POST_REALTY_LISTINGS_CS, POST_REALTY_LISTINGS_PUBLISHED } from './post-realty-listings-cs';
 import { POST_ACCOUNTING_CHANNELS_CS, POST_ACCOUNTING_CHANNELS_PUBLISHED } from './post-accounting-channels-cs';
 import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './post-finance-channels-ru';
+import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
 import { POST_ACCOUNTING_TIME_CS, POST_ACCOUNTING_TIME_PUBLISHED } from './post-accounting-time-cs';
 import { POST_ACCOUNTING_PAGES_CS, POST_ACCOUNTING_PAGES_PUBLISHED } from './post-accounting-pages-cs';
 import { POST_ACCOUNTING_LOCAL_CS, POST_ACCOUNTING_LOCAL_PUBLISHED } from './post-accounting-local-cs';
@@ -45,6 +46,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postChoose', lang: 'cs', date: POST_CHOOSE_PUBLISHED, title: META.postChoose.cs.h1, description: META.postChoose.cs.description, image: POST_CHOOSE_CS.cover },
   { key: 'postNoLeads', lang: 'cs', date: POST_NOLEADS_PUBLISHED, title: META.postNoLeads.cs.h1, description: META.postNoLeads.cs.description, image: POST_NOLEADS_CS.cover },
   { key: 'postClients', lang: 'cs', date: POST_CLIENTS_PUBLISHED, title: META.postClients.cs.h1, description: META.postClients.cs.description, image: POST_CLIENTS_CS.cover },
+  { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
   { key: 'postAccountingTime', lang: 'cs', date: POST_ACCOUNTING_TIME_PUBLISHED, title: META.postAccountingTime.cs.h1, description: META.postAccountingTime.cs.description, image: POST_ACCOUNTING_TIME_CS.cover },
   { key: 'postAccountingPages', lang: 'cs', date: POST_ACCOUNTING_PAGES_PUBLISHED, title: META.postAccountingPages.cs.h1, description: META.postAccountingPages.cs.description, image: POST_ACCOUNTING_PAGES_CS.cover },
   { key: 'postAccountingLocal', lang: 'cs', date: POST_ACCOUNTING_LOCAL_PUBLISHED, title: META.postAccountingLocal.cs.h1, description: META.postAccountingLocal.cs.description, image: POST_ACCOUNTING_LOCAL_CS.cover },
@@ -72,6 +74,12 @@ export const BLOG_GROUPS: BlogGroup[] = [
     title: { cs: 'Bezplatný audit: technické chyby webu', en: 'Free audit: technical website errors', ru: 'Бесплатный аудит: технические ошибки сайта' },
     lead: { cs: 'Články o problémech, které ukáže bezplatný audit: indexace, duplicity, přesměrování a změny webu.', en: 'Articles on the problems a free audit shows: indexing, duplicates, redirects and site changes.', ru: 'Статьи о проблемах, которые показывает бесплатный аудит: индексация, дубли, редиректы и изменения сайта.' },
     keys: ['postIndexing', 'postNotShown', 'postSeoAudit', 'postDuplicates', 'postRedirects', 'postNewSite', 'postRedesign'],
+  },
+  {
+    id: 'consulting',
+    title: { cs: 'SEO konzultace: změny webu', en: 'SEO consultation: website changes', ru: 'SEO-консультация: изменения сайта' },
+    lead: { cs: 'Redesign a migrace webu z pohledu SEO: co zkontrolovat před spuštěním.', en: 'Website redesign and migration from the SEO point of view: what to check before launch.', ru: 'Редизайн и миграция сайта с точки зрения SEO: что проверить до запуска.' },
+    keys: ['postRedesignPlan'],
   },
   {
     id: 'choose',

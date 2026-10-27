@@ -1,0 +1,119 @@
+---
+// Blog article K1 "Jak zkontrolovat SEO před redesignem nebo migrací webu?" (cs), brief of 26.10.2026. Content: data/post-redesign-plan-cs.ts.
+// Informational: no prices, no CTA, no audit link, the closing block is one link to the landing page.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postRedesignPlanSchemas } from '../lib/schema-post-redesign-plan';
+import { POST_REDESIGN_PLAN_CS as C, POST_REDESIGN_PLAN_PUBLISHED } from '../data/post-redesign-plan-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostRedesignPlanCsPage.astro', 'src/data/post-redesign-plan-cs.ts'], '2026-10-28'), POST_REDESIGN_PLAN_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-redesign-webu-seo-pred-spustenim.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postRedesignPlan', lang)} ogType="article" ogImage={OG} schema={postRedesignPlanSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postRedesignPlan.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel} <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.diffTitle}</h2>
+      <p class="answer">{C.diffAnswer}</p>
+      <p class="muted small">{C.diffNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.recordTitle}</h2>
+      <p class="answer">{C.recordAnswer}</p>
+      <p>{C.recordLead}</p>
+      <ul class="checks">{C.record.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.mapTitle}</h2>
+      <p class="answer">{C.mapAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.mapTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.mapTable.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.mapNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.redirTitle}</h2>
+      <p class="answer">{C.redirAnswerBefore}{' '}<a href={t('postRedirects')}>{C.redirLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.keepTitle}</h2>
+      <p class="answer">{C.keepAnswer}</p>
+      <p>{C.keepLead}</p>
+      <ul class="checks">{C.keep.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.testTitle}</h2>
+      <p class="answer">{C.testAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.dayTitle}</h2>
+      <p class="answer">{C.dayAnswer}</p>
+      <p>{C.dayLead}</p>
+      <ul class="checks">{C.day.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.afterTitle}</h2>
+      <p class="answer">{C.afterAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      <ul class="link-list">
+        <li><a href={t('postRedesign')}>{META.postRedesign.cs.h1}</a></li>
+        <li><a href={t('postNewSite')}>{META.postNewSite.cs.h1}</a></li>
+      </ul>
+      <p class="muted">{C.endBefore}{' '}<a href={t('consulting')}>{C.endLinkText}</a>.</p>
+    </div>
+  </section>
+</Base>

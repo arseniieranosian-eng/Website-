@@ -338,6 +338,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'How long does SEO take for an accounting firm', title: 'How long does SEO take for an accounting firm', description: 'How long does SEO take for an accounting firm', h1: 'How long does SEO take for an accounting firm?' },
     ru: { name: 'Сколько времени занимает SEO для бухгалтерской фирмы', title: 'Сколько времени занимает SEO для бухгалтерской фирмы', description: 'Сколько времени занимает SEO для бухгалтерской фирмы', h1: 'Сколько времени занимает SEO для бухгалтерской фирмы?' },
   },
+  postRedesignPlan: {
+    cs: {
+      name: 'Jak zkontrolovat SEO před redesignem nebo migrací webu',
+      title: 'Redesign webu a SEO: checklist před startem | Eranosian',
+      description: 'Redesign webu a SEO: jak zafixovat starý web, připravit mapu URL a přesměrování a ověřit nový web před spuštěním. Tabulka a tři checklisty.',
+      h1: 'Jak zkontrolovat SEO před redesignem nebo migrací webu?',
+    },
+    en: { name: 'SEO before a website redesign or migration', title: 'SEO before a website redesign or migration', description: 'SEO before a website redesign or migration', h1: 'How to check SEO before a website redesign or migration?' },
+    ru: { name: 'SEO перед редизайном или миграцией сайта', title: 'SEO перед редизайном или миграцией сайта', description: 'SEO перед редизайном или миграцией сайта', h1: 'Как проверить SEO перед редизайном или миграцией сайта?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',

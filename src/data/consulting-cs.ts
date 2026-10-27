@@ -122,7 +122,7 @@ export const CONSULTING_CS = {
   articlesTitle: 'Související články',
   articlesLead: 'Praktické články o tom, jak vybrat první krok v SEO, co obsahuje audit a jak SEO souvisí s reklamou.',
   articlesMore: 'Číst článek',
-  articles: ['postChoose', 'postSeoAudit', 'postAds', 'postRedesign'] as const,
+  articles: ['postChoose', 'postSeoAudit', 'postAds', 'postRedesign', 'postRedesignPlan'] as const,
 
   faqTitle: 'Časté otázky o SEO konzultaci',
   faq: [
