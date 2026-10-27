@@ -1,0 +1,115 @@
+---
+// Blog article U5 "Jak má účetní kancelář vypadat na mapách a v katalozích?" (cs), brief of 26.10.2026. Content: data/post-accounting-local-cs.ts.
+// Informational: no prices, no CTA, no audit link, no link to the maps service; the closing block is one link to the landing page.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postAccountingLocalSchemas } from '../lib/schema-post-accounting-local';
+import { POST_ACCOUNTING_LOCAL_CS as C, POST_ACCOUNTING_LOCAL_PUBLISHED } from '../data/post-accounting-local-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostAccountingLocalCsPage.astro', 'src/data/post-accounting-local-cs.ts'], '2026-10-27'), POST_ACCOUNTING_LOCAL_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-lokalni-pritomnost-ucetni-kancelare.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postAccountingLocal', lang)} ogType="article" ogImage={OG} schema={postAccountingLocalSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postAccountingLocal.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel} <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.leadBefore}{' '}<a href={t('postAccountingChannels')}>{C.leadLinkText}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whatTitle}</h2>
+      <p class="answer">{C.whatAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whereTitle}</h2>
+      <p class="answer">{C.whereAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.where.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.where.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.whereNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.addressTitle}</h2>
+      <p class="answer">{C.addressAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.profileTitle}</h2>
+      <p class="answer">{C.profileAnswer}</p>
+      <p>{C.profileLead}</p>
+      <ul class="checks">{C.profile.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.napTitle}</h2>
+      <p class="answer">{C.napAnswer}</p>
+      <p>{C.napLead}</p>
+      <ul class="checks">{C.nap.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.branchTitle}</h2>
+      <p class="answer">{C.branchAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.webTitle}</h2>
+      <p class="answer">{C.webAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.checkTitle}</h2>
+      <p class="answer">{C.checkAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      <ul class="link-list">
+        <li><a href={t('postAccountingNoLeads')}>{META.postAccountingNoLeads.cs.h1}</a></li>
+      </ul>
+      <p class="muted">{C.endText}{' '}<a href={t('nicheAccounting')}>{C.endLinkText}</a>. {C.endText2}</p>
+    </div>
+  </section>
+</Base>

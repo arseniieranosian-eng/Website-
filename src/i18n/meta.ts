@@ -308,6 +308,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'Does SEO make sense for a small accounting firm', title: 'Does SEO make sense for a small accounting firm', description: 'Does SEO make sense for a small accounting firm', h1: 'Does SEO make sense for a small accounting firm?' },
     ru: { name: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы', title: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы', description: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы', h1: 'Имеет ли смысл SEO для небольшой бухгалтерской фирмы?' },
   },
+  postAccountingLocal: {
+    cs: {
+      name: 'Lokální přítomnost účetní kanceláře',
+      title: 'Lokální přítomnost účetní kanceláře a NAP | Eranosian',
+      description: 'Jak vyplnit profil účetní kanceláře na Google, Mapy.com a Firmy.cz, co s adresou při práci z domova a proč má být stejný název, adresa a telefon.',
+      h1: 'Jak má účetní kancelář vypadat na mapách a v katalozích?',
+    },
+    en: { name: 'Local presence of an accounting firm', title: 'Local presence of an accounting firm', description: 'Local presence of an accounting firm', h1: 'How should an accounting firm appear on maps and in directories?' },
+    ru: { name: 'Локальное присутствие бухгалтерской фирмы', title: 'Локальное присутствие бухгалтерской фирмы', description: 'Локальное присутствие бухгалтерской фирмы', h1: 'Как бухгалтерской фирме выглядеть на картах и в каталогах?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',

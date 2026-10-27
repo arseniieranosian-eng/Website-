@@ -84,9 +84,9 @@ for (const [hd, ans] of [['Kolik stojí propagace na Google Maps a Mapy.com?', '
 const home = txt(readFileSync('dist/index.html', 'utf8'));
 if (!home.includes('Od 4 měsíců') || home.includes('Od 1 měsíce')) e('home services card must say "Od 4 měsíců"');
 
-// Related articles: five cards with covers (choosing the first step, advertising, SEO audit, no-show, local presence of a realty agency)
+// Related articles: six cards with covers (choosing the first step, advertising, SEO audit, no-show, local presence of a realty agency)
 const ra = (h.match(/Související články<\/h2>[\s\S]*?<\/section>/) || [''])[0];
-if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 5 || !ra.includes('/blog/lokalni-pritomnost-realitni-kancelare/') || !ra.includes('/blog/audit-konzultace-nebo-start/')) e('related articles: five cards with covers');
+if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 6 || !ra.includes('/blog/lokalni-pritomnost-realitni-kancelare/') || !ra.includes('/blog/lokalni-pritomnost-ucetni-kancelare/') || !ra.includes('/blog/audit-konzultace-nebo-start/')) e('related articles: six cards with covers');
 if (errors.length) {
   console.error(`\nCzech Maps page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);
