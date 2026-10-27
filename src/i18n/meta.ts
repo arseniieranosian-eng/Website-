@@ -328,6 +328,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'How to write a service page of an accounting firm', title: 'How to write a service page of an accounting firm', description: 'How to write a service page of an accounting firm', h1: 'How to write a service page of an accounting firm?' },
     ru: { name: 'Как написать страницу услуги бухгалтерской фирмы', title: 'Как написать страницу услуги бухгалтерской фирмы', description: 'Как написать страницу услуги бухгалтерской фирмы', h1: 'Как написать страницу услуги бухгалтерской фирмы?' },
   },
+  postAccountingTime: {
+    cs: {
+      name: 'Jak dlouho trvá SEO pro účetní kancelář',
+      title: 'Jak dlouho trvá SEO u účetní kanceláře | Eranosian',
+      description: 'Za jak dlouho se SEO projeví u účetní kanceláře: faktory, etapy práce a co měřit v prvních měsících. Bez slibů lhůt. Přehled s tabulkami a checklisty.',
+      h1: 'Jak dlouho trvá SEO pro účetní kancelář?',
+    },
+    en: { name: 'How long does SEO take for an accounting firm', title: 'How long does SEO take for an accounting firm', description: 'How long does SEO take for an accounting firm', h1: 'How long does SEO take for an accounting firm?' },
+    ru: { name: 'Сколько времени занимает SEO для бухгалтерской фирмы', title: 'Сколько времени занимает SEO для бухгалтерской фирмы', description: 'Сколько времени занимает SEO для бухгалтерской фирмы', h1: 'Сколько времени занимает SEO для бухгалтерской фирмы?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',

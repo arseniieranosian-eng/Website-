@@ -20,6 +20,7 @@ import { POST_REALTY_SMALL_CS, POST_REALTY_SMALL_PUBLISHED } from './post-realty
 import { POST_REALTY_LISTINGS_CS, POST_REALTY_LISTINGS_PUBLISHED } from './post-realty-listings-cs';
 import { POST_ACCOUNTING_CHANNELS_CS, POST_ACCOUNTING_CHANNELS_PUBLISHED } from './post-accounting-channels-cs';
 import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './post-finance-channels-ru';
+import { POST_ACCOUNTING_TIME_CS, POST_ACCOUNTING_TIME_PUBLISHED } from './post-accounting-time-cs';
 import { POST_ACCOUNTING_PAGES_CS, POST_ACCOUNTING_PAGES_PUBLISHED } from './post-accounting-pages-cs';
 import { POST_ACCOUNTING_LOCAL_CS, POST_ACCOUNTING_LOCAL_PUBLISHED } from './post-accounting-local-cs';
 import { POST_ACCOUNTING_SMALL_CS, POST_ACCOUNTING_SMALL_PUBLISHED } from './post-accounting-small-cs';
@@ -44,6 +45,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postChoose', lang: 'cs', date: POST_CHOOSE_PUBLISHED, title: META.postChoose.cs.h1, description: META.postChoose.cs.description, image: POST_CHOOSE_CS.cover },
   { key: 'postNoLeads', lang: 'cs', date: POST_NOLEADS_PUBLISHED, title: META.postNoLeads.cs.h1, description: META.postNoLeads.cs.description, image: POST_NOLEADS_CS.cover },
   { key: 'postClients', lang: 'cs', date: POST_CLIENTS_PUBLISHED, title: META.postClients.cs.h1, description: META.postClients.cs.description, image: POST_CLIENTS_CS.cover },
+  { key: 'postAccountingTime', lang: 'cs', date: POST_ACCOUNTING_TIME_PUBLISHED, title: META.postAccountingTime.cs.h1, description: META.postAccountingTime.cs.description, image: POST_ACCOUNTING_TIME_CS.cover },
   { key: 'postAccountingPages', lang: 'cs', date: POST_ACCOUNTING_PAGES_PUBLISHED, title: META.postAccountingPages.cs.h1, description: META.postAccountingPages.cs.description, image: POST_ACCOUNTING_PAGES_CS.cover },
   { key: 'postAccountingLocal', lang: 'cs', date: POST_ACCOUNTING_LOCAL_PUBLISHED, title: META.postAccountingLocal.cs.h1, description: META.postAccountingLocal.cs.description, image: POST_ACCOUNTING_LOCAL_CS.cover },
   { key: 'postAccountingSmall', lang: 'cs', date: POST_ACCOUNTING_SMALL_PUBLISHED, title: META.postAccountingSmall.cs.h1, description: META.postAccountingSmall.cs.description, image: POST_ACCOUNTING_SMALL_CS.cover },
@@ -93,7 +95,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'accounting',
     title: { cs: 'Účetní kanceláře', en: 'Accounting firms', ru: 'Бухгалтерские фирмы' },
     lead: { cs: 'Jak účetní kancelář získává nové klienty.', en: 'How an accounting firm gets new clients.', ru: 'Как бухгалтерская фирма получает новых клиентов.' },
-    keys: ['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingLocal', 'postAccountingPages'],
+    keys: ['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingLocal', 'postAccountingPages', 'postAccountingTime'],
   },
   {
     id: 'finance',
