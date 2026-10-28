@@ -2,6 +2,7 @@
 // /ru/konsultacii/ (ru, brief of 19.10.2026) and /en/consulting/ (en, brief of 23.10.2026); the Czech page is ConsultingCsPage.
 // Content lives in data/consulting-ru.ts and data/consulting-en.ts. Neither language has a video any more (removed on the author's instruction); the hero's right column is a decorative illustration.
 import Base from '../layouts/Base.astro';
+import LogoStrip from '../components/LogoStrip.astro';
 import ConsultHeroArt from '../components/ConsultHeroArt.astro';
 import ServiceArt from '../components/ServiceArt.astro';
 import LeadForm from '../components/LeadForm.astro';
@@ -59,6 +60,8 @@ const others = [
       <ConsultHeroArt />
     </div>
   </section>
+
+  <LogoStrip lang={lang} />
 
   <!-- PRICE -->
   <section class="section section--tight">
