@@ -20,6 +20,7 @@ import { POST_REALTY_SMALL_CS, POST_REALTY_SMALL_PUBLISHED } from './post-realty
 import { POST_REALTY_LISTINGS_CS, POST_REALTY_LISTINGS_PUBLISHED } from './post-realty-listings-cs';
 import { POST_ACCOUNTING_CHANNELS_CS, POST_ACCOUNTING_CHANNELS_PUBLISHED } from './post-accounting-channels-cs';
 import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './post-finance-channels-ru';
+import { POST_SEO_PLAN_CS, POST_SEO_PLAN_PUBLISHED } from './post-seo-plan-cs';
 import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './post-select-specialist-cs';
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
 import { POST_ACCOUNTING_TIME_CS, POST_ACCOUNTING_TIME_PUBLISHED } from './post-accounting-time-cs';
@@ -47,6 +48,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postChoose', lang: 'cs', date: POST_CHOOSE_PUBLISHED, title: META.postChoose.cs.h1, description: META.postChoose.cs.description, image: POST_CHOOSE_CS.cover },
   { key: 'postNoLeads', lang: 'cs', date: POST_NOLEADS_PUBLISHED, title: META.postNoLeads.cs.h1, description: META.postNoLeads.cs.description, image: POST_NOLEADS_CS.cover },
   { key: 'postClients', lang: 'cs', date: POST_CLIENTS_PUBLISHED, title: META.postClients.cs.h1, description: META.postClients.cs.description, image: POST_CLIENTS_CS.cover },
+  { key: 'postSeoPlan', lang: 'cs', date: POST_SEO_PLAN_PUBLISHED, title: META.postSeoPlan.cs.h1, description: META.postSeoPlan.cs.description, image: POST_SEO_PLAN_CS.cover },
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
   { key: 'postAccountingTime', lang: 'cs', date: POST_ACCOUNTING_TIME_PUBLISHED, title: META.postAccountingTime.cs.h1, description: META.postAccountingTime.cs.description, image: POST_ACCOUNTING_TIME_CS.cover },
@@ -80,8 +82,8 @@ export const BLOG_GROUPS: BlogGroup[] = [
   {
     id: 'consulting',
     title: { cs: 'SEO konzultace: před rozhodnutím', en: 'SEO consultation: before you decide', ru: 'SEO-консультация: перед решением' },
-    lead: { cs: 'Redesign a migrace webu a výběr SEO specialisty: co zkontrolovat a na co se zeptat.', en: 'Website redesign and migration, and choosing an SEO specialist: what to check and what to ask.', ru: 'Редизайн и миграция сайта и выбор SEO-специалиста: что проверить и о чём спросить.' },
-    keys: ['postRedesignPlan', 'postSelectSpecialist'],
+    lead: { cs: 'Redesign a migrace webu, výběr SEO specialisty a SEO plán: co zkontrolovat a na co se zeptat.', en: 'Website redesign and migration, choosing an SEO specialist and the SEO plan: what to check and what to ask.', ru: 'Редизайн и миграция сайта, выбор SEO-специалиста и SEO-план: что проверить и о чём спросить.' },
+    keys: ['postRedesignPlan', 'postSelectSpecialist', 'postSeoPlan'],
   },
   {
     id: 'choose',

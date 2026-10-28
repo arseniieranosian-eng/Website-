@@ -85,9 +85,9 @@ for (const [hd, ans] of [['Kolik stojí SEO konzultace?', 'SEO konzultace stojí
 // The shared 50 000 Kč / 15 000 Kč come from one source
 if (!body.includes('Start na 3 měsíce (50 000 Kč)') || !body.includes('Full SEO na rok (od 15 000 Kč měsíčně)')) e('package prices in the comparison block');
 
-// Related articles: six cards with covers (choosing the first step, SEO audit, advertising, redesign, SEO before a redesign, choosing an SEO specialist)
+// Related articles: seven cards with covers (choosing the first step, SEO audit, advertising, redesign, SEO before a redesign, choosing an SEO specialist, 12-month SEO plan)
 const ra = (h.match(/Související články<\/h2>[\s\S]*?<\/section>/) || [''])[0];
-if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 6 || !ra.includes('/blog/jak-vybrat-seo-specialistu/') || !ra.includes('/blog/redesign-webu-seo-pred-spustenim/') || !ra.includes('/blog/audit-konzultace-nebo-start/')) e('related articles: six cards with covers (choosing the first step, SEO audit, advertising, redesign, SEO before a redesign, choosing an SEO specialist)');
+if ([...ra.matchAll(/<a class="card card--link post-card" href="\/blog\/[a-z0-9-]+\/"[^>]*>\s*<img class="post-card-img"/g)].length !== 7 || !ra.includes('/blog/seo-plan-na-12-mesicu/') || !ra.includes('/blog/jak-vybrat-seo-specialistu/') || !ra.includes('/blog/redesign-webu-seo-pred-spustenim/') || !ra.includes('/blog/audit-konzultace-nebo-start/')) e('related articles: seven cards with covers (choosing the first step, SEO audit, advertising, redesign, SEO before a redesign, choosing an SEO specialist, 12-month SEO plan)');
 if (errors.length) {
   console.error(`\nCzech consulting page check failed (${errors.length}):\n- ` + errors.join('\n- '));
   process.exit(1);

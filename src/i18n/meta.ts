@@ -358,6 +358,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'How to choose an SEO specialist', title: 'How to choose an SEO specialist', description: 'How to choose an SEO specialist', h1: 'How to choose an SEO specialist and what to ask them?' },
     ru: { name: 'Как выбрать SEO-специалиста', title: 'Как выбрать SEO-специалиста', description: 'Как выбрать SEO-специалиста', h1: 'Как выбрать SEO-специалиста и о чём его спросить?' },
   },
+  postSeoPlan: {
+    cs: {
+      name: 'Jak vypadá SEO plán na 12 měsíců',
+      title: 'SEO plán na 12 měsíců: co obsahuje | Eranosian',
+      description: 'Co má obsahovat SEO plán: cíl, výchozí stav, priority, etapy, měření a odpovědnosti. Plán není záruka výsledků. Přehled s tabulkou a třemi checklisty.',
+      h1: 'Jak vypadá SEO plán na 12 měsíců a co má obsahovat?',
+    },
+    en: { name: 'What a 12-month SEO plan looks like', title: 'What a 12-month SEO plan looks like', description: 'What a 12-month SEO plan looks like', h1: 'What does a 12-month SEO plan look like and what should it contain?' },
+    ru: { name: 'Как выглядит SEO-план на 12 месяцев', title: 'Как выглядит SEO-план на 12 месяцев', description: 'Как выглядит SEO-план на 12 месяцев', h1: 'Как выглядит SEO-план на 12 месяцев и что в нём должно быть?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',
