@@ -1,0 +1,121 @@
+---
+// Blog article K2 "Jak vybrat SEO specialistu a na co se ho zeptat?" (cs), brief of 26.10.2026. Content: data/post-select-specialist-cs.ts.
+// Informational: no prices, no CTA, no audit link, the closing block is one link to the landing page.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postSelectSpecialistSchemas } from '../lib/schema-post-select-specialist';
+import { POST_SELECT_SPECIALIST_CS as C, POST_SELECT_SPECIALIST_PUBLISHED } from '../data/post-select-specialist-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostSelectSpecialistCsPage.astro', 'src/data/post-select-specialist-cs.ts'], '2026-10-29'), POST_SELECT_SPECIALIST_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-jak-vybrat-seo-specialistu.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postSelectSpecialist', lang)} ogType="article" ogImage={OG} schema={postSelectSpecialistSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postSelectSpecialist.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel} <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <p class="answer">{C.doAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.askTitle}</h2>
+      <p class="answer">{C.askAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.askTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.askTable.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.askNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.promiseTitle}</h2>
+      <p class="answer">{C.promiseAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.warnTitle}</h2>
+      <p class="answer">{C.warnAnswer}</p>
+      <p>{C.warnLead}</p>
+      <ul class="checks">{C.warn.map((x) => <li>{x}</li>)}</ul>
+      <p class="muted small">{C.listNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.accessTitle}</h2>
+      <p class="answer">{C.accessAnswer}</p>
+      <p class="muted small">{C.accessNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.verifyTitle}</h2>
+      <p class="answer">{C.verifyAnswer}</p>
+      <p>{C.verifyLead}</p>
+      <ul class="checks">{C.verify.map((x) => <li>{x}</li>)}</ul>
+      <p class="muted small">{C.listNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.ownerTitle}</h2>
+      <p class="answer">{C.ownerAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.meetTitle}</h2>
+      <p class="answer">{C.meetAnswer}</p>
+      <p>{C.meetLead}</p>
+      <ul class="checks">{C.meet.map((x) => <li>{x}</li>)}</ul>
+      <p class="muted small">{C.listNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3>{f.linkAfter ? <p>{f.a.split(f.linkAfter)[0]}<a href={t(f.linkKey)}>{f.linkAfter}</a>{f.a.split(f.linkAfter)[1]}</p> : <p>{f.a}</p>}</div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      <ul class="link-list">
+        <li><a href={t('postChoose')}>{META.postChoose.cs.h1}</a></li>
+      </ul>
+      <p class="muted">{C.endBefore}{' '}<a href={t('consulting')}>{C.endLinkText}</a>.</p>
+    </div>
+  </section>
+</Base>

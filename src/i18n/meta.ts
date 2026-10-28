@@ -348,6 +348,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO before a website redesign or migration', title: 'SEO before a website redesign or migration', description: 'SEO before a website redesign or migration', h1: 'How to check SEO before a website redesign or migration?' },
     ru: { name: 'SEO перед редизайном или миграцией сайта', title: 'SEO перед редизайном или миграцией сайта', description: 'SEO перед редизайном или миграцией сайта', h1: 'Как проверить SEO перед редизайном или миграцией сайта?' },
   },
+  postSelectSpecialist: {
+    cs: {
+      name: 'Jak vybrat SEO specialistu a na co se ho zeptat',
+      title: 'Výběr SEO specialisty: otázky a signály | Eranosian',
+      description: 'Jak vybrat SEO specialistu: otázky před spoluprací, varovné signály, přístup do Search Console a ověření referencí. Podle doporučení Googlu.',
+      h1: 'Jak vybrat SEO specialistu a na co se ho zeptat?',
+    },
+    en: { name: 'How to choose an SEO specialist', title: 'How to choose an SEO specialist', description: 'How to choose an SEO specialist', h1: 'How to choose an SEO specialist and what to ask them?' },
+    ru: { name: 'Как выбрать SEO-специалиста', title: 'Как выбрать SEO-специалиста', description: 'Как выбрать SEO-специалиста', h1: 'Как выбрать SEO-специалиста и о чём его спросить?' },
+  },
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',
