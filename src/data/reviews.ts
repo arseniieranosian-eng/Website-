@@ -21,6 +21,7 @@ export interface Review {
   short?: Record<Lang, string>; // excerpt for compact cards (home, service pages)
   services: ServiceKey[];
   caseKey?: 'caseKb';
+  proof?: { src: string; width: number; height: number; alt: Record<Lang, string> }; // screenshot of the original message (shown on the reviews page only)
   featured?: number; // lower = shown first on the home page
   sample: boolean;
 }
@@ -88,6 +89,33 @@ export const REVIEWS: Review[] = [
       ru: 'Мне было приятно работать с Арсением в одной команде в Unimenty. Арсений неизменно демонстрировал высокий профессионализм, креативность и ориентацию на результат в каждом проекте, над которым мы работали вместе. […] Его коммуникативные навыки и проактивный подход делали его надёжным членом команды, на которого я всегда мог положиться в том, что качественная работа будет сделана в срок.',
     },
     services: ['fullSeo'],
+    sample: false,
+  },
+  {
+    id: 'machinery-software-audit',
+    origin: 'en',
+    source: 'E-mail',
+    role: {
+      cs: 'majitelka webu, vývoj specializovaného softwaru pro automatizaci strojírenských a kovoobráběcích podniků',
+      en: 'website owner, specialised software for automating machine-building and metalworking companies',
+      ru: 'владелица сайта, разработка специализированного ПО для автоматизации машиностроительных и металлообрабатывающих предприятий',
+    },
+    text: {
+      cs: 'Ano, moc se mi to líbí. Viděla jsem, kde potřebuji udělat změny. Moc děkuji.',
+      en: 'Yes, I really like it. I could see where I needed to make changes. Thank you so much.',
+      ru: 'Да, мне очень нравится. Я увидела, где мне нужно внести изменения. Большое спасибо.',
+    },
+    proof: {
+      src: '/images/reviews/audit-email-reply.webp',
+      width: 718,
+      height: 336,
+      alt: {
+        cs: 'Snímek e-mailové odpovědi klientky na bezplatný audit; jméno a kontakty jsou zakryté',
+        en: 'Screenshot of the client’s e-mail reply about the free audit; name and contacts are covered',
+        ru: 'Скриншот ответа клиентки на бесплатный аудит по электронной почте; имя и контакты скрыты',
+      },
+    },
+    services: [],
     sample: false,
   },
 ];

@@ -21,6 +21,7 @@ const { reviews, lang, compact = false, notes = {} } = Astro.props;
           {r.source && <span class="badge">{r.source}</span>}
           {r.sample && <span class="badge">{t(lang).sampleNote}</span>}
         </figcaption>
+        {!compact && r.proof && <img class="review__proof" src={r.proof.src} width={r.proof.width} height={r.proof.height} alt={r.proof.alt[lang]} loading="lazy" decoding="async" />}
       </figure>
     );
   })}
