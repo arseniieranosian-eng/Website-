@@ -83,7 +83,7 @@ export const CONSULTING_CS = {
       id: 'audit' as const,
       title: `Konzultace za ${fmtKc(PRICES.audit)}: podrobný audit a plán na 12 měsíců`,
       text: 'Ukázka z reportu k webu malé pražské realitní kanceláře: kde web ztrácí příležitosti, jaká je reálná konkurence a plán na 12 měsíců.',
-      caseLink: { text: 'Rozbor bez výsledků, jen audit a plán.', link: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?' },
+      caseLink: { text: 'Audit a plán na 12 měsíců.', link: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?' },
       images: [
         { src: '/images/consulting/audit-3000-1.webp', alt: 'Ukázka SEO auditu: technický základ, FAQ a plán na rok' },
         { src: '/images/consulting/audit-3000-2.webp', alt: 'Ukázka SEO auditu: konkurence a reálné příležitosti' },

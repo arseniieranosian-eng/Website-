@@ -42,7 +42,7 @@ if (cnt(/href="\/audit-zdarma\/"/g) !== 3 || cnt(/href="\/audit-zdarma\/#priklad
 for (const l of ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/']) if (cnt(new RegExp(`href="${l}"`, 'g')) !== 1) e(`${l} once`);
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy') || !lead.endsWith('zatím výsledky nemám.')) e('hero lead');
+if (!lead.startsWith('Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy') || !lead.endsWith('zaručit nelze.')) e('hero lead');
 for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const ols = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];
 if (ols.length !== 1 || [...ols[0][1].matchAll(/<li><span>/g)].length !== 3) e('three steps list');

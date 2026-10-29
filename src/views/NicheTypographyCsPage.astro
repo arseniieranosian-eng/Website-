@@ -33,7 +33,6 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.doTitle}</h2>
       <p class="answer">{C.doAnswer}</p>
       <ol class="steps">{C.do.map((x) => <li><span>{x}</span></li>)}</ol>
-      <p>{C.doNote}</p>
       <p>{C.doGeoLead}{' '}<a href={t('geo')}>{C.doGeoLink}</a>.</p>
     </div>
   </section>

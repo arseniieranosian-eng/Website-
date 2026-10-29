@@ -30,7 +30,6 @@ const raw = {
   updatedLabel: 'Aktualizováno',
 
   lead: 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: technický základ e-shopu, kategorie, filtry, varianty produktů, odpovědi na časté dotazy a přípravu na doporučení v odpovědích AI. Začíná se bezplatným technickým auditem, bez hovoru a bez závazku. Počet objednávek ani pozice negarantuji.',
-  proof: 'V oboru obchodů s elektronikou zatím výsledky nemám.',
   heroAudit: 'Chci bezplatný technický audit',
 
   diffTitle: 'Čím se SEO obchodu s technikou liší od jiných oborů?',
@@ -120,7 +119,7 @@ const raw = {
     { q: 'Co dostanu po bezplatném auditu a co bude dál?', a: 'Po auditu dostanete prezentaci technických chyb webu do 24 hodin, bez hovoru a bez závazku. Co dál, rozhodnete sami: konzultace, balíček Start nebo Full SEO. Strukturu, obsah, konverzi a FAQ audit neřeší, ty patří do placených formátů. Audit také nezahrnuje klíčová slova, konkurenci, mapy ani viditelnost v AI.' },
     { q: 'Čím se liší Start od Full SEO?', a: `Start je tříměsíční balíček za ${S}: ${fmtKc(PAY1)} se platí na začátku a ${fmtKc(PAY2)} po dohodě. Full SEO je dlouhodobá práce od ${F} měsíčně podle rozsahu a oboru. Oba formáty zahrnují vedení profilů na Google, Mapy.com a Firmy.cz. Co se vám hodí, ukáže bezplatný audit.` },
     { q: 'Jak vypadá spolupráce krok za krokem?', a: 'Začnete bezplatným technickým auditem. Pokud chcete řešit i strukturu a obsah webu, následuje konzultace a poté balíček Start na 3 měsíce nebo průběžné Full SEO. Rozsah práce upřesníme na konzultaci. První změny u svých projektů vidím obvykle za 2–3 měsíce, bez záruky.' },
-    { q: 'Zaručíte objednávky nebo pozice?', a: 'Ne. Počet objednávek ani pozice nezaručuji, protože výsledek závisí i na konkurenci, poptávce a rozhodnutích vyhledávačů. Zaručit mohu jen to, co dělám: technický audit, doporučení a práci v dohodnutém rozsahu. V oboru obchodů s elektronikou zatím výsledky nemám, proto je neuvádím.' },
+    { q: 'Zaručíte objednávky nebo pozice?', a: 'Ne. Počet objednávek ani pozice nezaručuji, protože výsledek závisí i na konkurenci, poptávce a rozhodnutích vyhledávačů. Zaručit mohu jen to, co dělám: technický audit, doporučení a práci v dohodnutém rozsahu.' },
     { q: 'Můžu začít jen konzultací?', a: `Ano. Konzultace za ${Q} je hodina odpovědí na otázky k webu a SEO se stručným písemným shrnutím. Varianta za ${A} zahrnuje audit webu a prezentaci s plánem na 12 měsíců, připravené do 2 pracovních dnů od zaslání webu. Start nebo Full SEO si můžete objednat později.` },
     { q: 'Kolik firem z oboru obsluhujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Jde o limit mé kapacity, ne o exkluzivitu. K ${ELECTRONICS_CAPACITY_DATE} je obor obchodů s elektronikou volný. Změní-li se to, údaj na stránce aktualizuji, aby byl vždy platný a stejný ve všech jazykových verzích.` },
   ],

@@ -48,7 +48,7 @@ if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing 
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou') || !lead.endsWith('Počet objednávek ani pozice negarantuji.')) e('hero lead (the disclaimer is on the first screen)');
 // Proof line (v3): only "no results in this niche" (the translation case is not used on the pair of pages), no figures
-if (!mainTxt.includes('V oboru obchodů s elektronikou zatím výsledky nemám.') || /překladatelsk|65–70/.test(mainTxt)) e('proof line: no results in the niche, no case');
+if (/výsledky nemám/.test(mainTxt) || /překladatelsk|65–70/.test(mainTxt)) e('proof line: no results in the niche, no case');
 if (/×24|×3|8,75|1 200|10 500/.test(mainTxt)) e('no ×24 / ×3 / the print-shop figures');
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;

@@ -17,7 +17,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
-  lead: 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: technický základ webu, stránky technologií a možností, PDF katalogy a poptávkový formulář. Začíná se bezplatným technickým auditem. Poptávky, pořadí ani citování umělou inteligencí zaručit nelze a v této oblasti zatím výsledky nemám.',
+  lead: 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: technický základ webu, stránky technologií a možností, PDF katalogy a poptávkový formulář. Začíná se bezplatným technickým auditem. Poptávky, pořadí ani citování umělou inteligencí zaručit nelze.',
   heroAudit: 'Objednat bezplatný technický audit',
 
   diffTitle: 'Čím se SEO strojírenské firmy liší od jiných oborů?',
@@ -25,7 +25,7 @@ const raw = {
   diffText: 'Rozhodují tu technické detaily a spolehlivost, ne rychlé nákupní rozhodnutí. Proto má smysl, aby web odpovídal na otázky odběratele ještě před prvním kontaktem.',
 
   doTitle: 'Co pro strojírenskou firmu dělám?',
-  doAnswer: 'Postupuji ve třech krocích: technický základ webu, stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ a příprava na GEO/AEO. Řeším také indexaci PDF katalogů a existujících jazykových verzí. U mých projektů se první změny obvykle objevují za 2–3 měsíce, záruka neexistuje a v této oblasti zatím výsledky nemám.',
+  doAnswer: 'Postupuji ve třech krocích: technický základ webu, stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ a příprava na GEO/AEO. Řeším také indexaci PDF katalogů a existujících jazykových verzí. U mých projektů se první změny obvykle objevují za 2–3 měsíce, záruka neexistuje.',
   do: [
     'Technický základ webu: indexace, duplicity a další technické problémy.',
     'Stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ.',
@@ -81,9 +81,9 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Zaručíte poptávky?', a: 'Ne. Počet poptávek, pořadí ve vyhledávání ani citování umělou inteligencí zaručit nelze, protože je ovlivňuje konkurence, stav webu a další faktory mimo můj dosah. Mohu připravit technický základ, strukturu stránek a FAQ. V této oblasti zatím výsledky nemám, takže žádné číslo slíbit nemohu.' },
+    { q: 'Zaručíte poptávky?', a: 'Ne. Počet poptávek, pořadí ve vyhledávání ani citování umělou inteligencí zaručit nelze, protože je ovlivňuje konkurence, stav webu a další faktory mimo můj dosah. Mohu připravit technický základ, strukturu stránek a FAQ. Žádné číslo slíbit nemohu.' },
     { q: 'Potřebuje výrobní firma web, když má stálé zákazníky?', a: 'Záleží na tom, odkud chcete zakázky získávat. Stálí zákazníci jsou dobrý základ, ale nový odběratel si dodavatele může před oslovením vyhledat. Web pak slouží k ověření důvěry a k zachycení poptávek od těch, kdo vás hledají sami. Výsledek zaručit nelze, začít lze bezplatným technickým auditem.' },
-    { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Záruka neexistuje, doba závisí na stavu webu, konkurenci a rozsahu úprav. V oblasti strojírenství a výroby zatím výsledky nemám, takže tuto dobu nelze brát jako slib pro váš web.' },
+    { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Záruka neexistuje, doba závisí na stavu webu, konkurenci a rozsahu úprav. Tuto dobu nelze brát jako slib pro váš web.' },
     { q: 'Jak se SEO liší od reklamy?', a: 'Reklama přivádí zájemce rychleji, ale jen po dobu, kdy za ni platíte. SEO potřebuje čas, zlepšení webu ale zůstávají, i když výsledek není zaručen. Pravidla reklamních platforem je před spuštěním vhodné ověřit. Kanály lze kombinovat, který přinese víc, předem říct nelze.' },
     { q: 'Zaručíte citování AI?', a: 'Ne. Citování umělou inteligencí zaručit nelze, ovlivňují ho systémy, které nekontroluji. Web připravuji tak, aby byl srozumitelný: přímé odpovědi, FAQ, přehledné tabulky a technický základ. Citování se pak dá ověřovat ručním testem vybraných otázek v ChatGPT, Perplexity a Google AI Overview.' },
     { q: 'Co dělá bezplatný audit u webu s PDF katalogy a více jazyky?', a: 'Kontroluje, zda se PDF katalogy a jazykové verze indexují a zda nevznikají duplicity s HTML stránkami, včetně canonical adres. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Co konkrétně se najde, předem říct nelze. Klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi audit neřeší.' },

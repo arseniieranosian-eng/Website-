@@ -36,7 +36,6 @@ const raw = {
     'Mapa dotazů podle nákupního trychtýře.',
     'Vstupní stránky pro služby a produkty.',
   ],
-  doNote: 'U tiskáren v Česku zatím výsledky nemám.',
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
 
@@ -82,8 +81,8 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Funguje to i v Česku?', a: 'Postup se přenést dá: nejdřív technický základ, potom mapa dotazů podle trychtýře a až poté vstupní stránky. Konkrétní čísla ani poptávka se nepřenesou, záleží na oboru, konkurenci a stavu webu. Případová studie běžela na ruskojazyčném trhu a u tiskáren v Česku zatím výsledky nemám, proto je nezaručuji.' },
-    { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Záruka neexistuje, doba závisí na stavu webu, konkurenci a rozsahu úprav. U tiskáren v Česku zatím výsledky nemám, takže tuto dobu nelze brát jako slib. Případová studie sledovala růst za 12 měsíců.' },
+    { q: 'Funguje to i v Česku?', a: 'Postup se přenést dá: nejdřív technický základ, potom mapa dotazů podle trychtýře a až poté vstupní stránky. Konkrétní čísla ani poptávka se nepřenesou, záleží na oboru, konkurenci a stavu webu. Případová studie běžela na ruskojazyčném trhu, proto je pro Česko nezaručuji.' },
+    { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Záruka neexistuje, doba závisí na stavu webu, konkurenci a rozsahu úprav. Tuto dobu nelze brát jako slib. Případová studie sledovala růst za 12 měsíců.' },
     { q: 'Je to pro e-shop i pro místní polygrafii?', a: 'Ano, postup je podobný, liší se důraz. E-shop řeší hlavně katalog, varianty produktů, filtry a kalkulačky. Místní polygrafie s menším webem řeší hlavně stránky služeb a jejich srozumitelnost pro vyhledávač i pro AI. Pokud si nejste jistí, začněte bezplatným technickým auditem.' },
     { q: 'Pracujete s více tiskárnami současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${TYPOGRAPHY_CAPACITY_DATE} je obor tiskáren a polygrafie volný. Jde o omezení kapacity, ne o exkluzivitu: neslibuji, že pro vás budu jediný, jen že počet souběžných firem z jednoho oboru je omezený.` },
     { q: 'Zaručíte, že mě bude citovat AI?', a: 'Ne. Citování umělou inteligencí zaručit nelze, ovlivňují ho systémy, které nekontroluji. Web připravuji tak, aby byl pro AI srozumitelný: přímé odpovědi, FAQ, přehledné tabulky a technický základ. Citování se pak dá ověřovat ručním testem vybraných otázek v ChatGPT, Perplexity a Google AI Overview.' },

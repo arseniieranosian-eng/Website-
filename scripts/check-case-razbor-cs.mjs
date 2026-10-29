@@ -81,8 +81,8 @@ for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 40 || n > 6
 if (g.some((n) => ['Review', 'AggregateRating', 'Quotation', 'Product', 'Offer', 'HowTo', 'VideoObject', 'Service'].includes(n['@type']))) e('forbidden JSON-LD types');
 // Pointers and index
 const landing = readFileSync('dist/seo-pro-realitni-kancelare-praha/index.html', 'utf8');
-if (!landing.includes(`href="${URL_PATH}"`) || !txt(landing).includes('Výsledky v této nice zatím nejsou.') || landing.includes('Moje pozorování')) e('landing page: pointer to the review instead of "Moje pozorování"');
-if (!/href="\/pripadove-studie\/rozbor-webu-realitni-kancelare-praha\/"[\s\S]{0,2500}Rozbor, bez výsledků/.test(readFileSync('dist/pripadove-studie/index.html', 'utf8'))) e('cases index card "Rozbor, bez výsledků"');
+if (!landing.includes(`href="${URL_PATH}"`) || landing.includes('Moje pozorování')) e('landing page: pointer to the review instead of "Moje pozorování"');
+if (!/href="\/pripadove-studie\/rozbor-webu-realitni-kancelare-praha\/"[\s\S]{0,2500}Rozbor webu/.test(readFileSync('dist/pripadove-studie/index.html', 'utf8'))) e('cases index card "Rozbor webu"');
 if (!readFileSync('dist/konzultace/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('consulting page links to the review');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');
 if (mainTxt.split(/\s+/).length < 600) e(`too short: ${mainTxt.split(/\s+/).length} words`);

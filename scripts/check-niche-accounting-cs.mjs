@@ -40,7 +40,7 @@ if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze. Pomáhám webu, aby ho vyhledávače i odpovědi AI chápaly jako konkrétní služby, ne jednu obecnou stránku. Začínáme bezplatným auditem technických chyb. Pozice ani poptávky neslibuji a v tomto oboru zatím nemám vlastní případovou studii.') e('hero lead');
+if (lead !== 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze. Pomáhám webu, aby ho vyhledávače i odpovědi AI chápaly jako konkrétní služby, ne jednu obecnou stránku. Začínáme bezplatným auditem technických chyb. Pozice ani poptávky neslibuji.') e('hero lead');
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (!/href="\/audit-zdarma\/">Požádat o bezplatný audit<\/a>/.test(hero) || !/href="\/konzultace\/">Konzultace<\/a>/.test(hero)) e('hero buttons');
 for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
@@ -49,7 +49,7 @@ const tbl = (from) => [...(main.match(new RegExp(`${from.replace(/[?.]/g, '\\$&'
 const t2 = tbl('Jak spolupráce vypadá?');
 if (t2.length !== 6 || t2[0].join('|') !== 'Krok|Co obsahuje|Odkaz') e('formats table: header + 5 rows');
 // Checklist of 6, the honest experience block, the capacity status
-if (!mainTxt.includes('V oboru účetnictví zatím vlastní případovou studii nemám.') || !mainTxt.includes('tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026)') || /×8|×24|\+400/.test(mainTxt)) e('experience: own case missing said openly, the approved formula only');
+if (!mainTxt.includes('tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026)') || /×8|×24|\+400/.test(mainTxt)) e('experience: own case missing said openly, the approved formula only');
 if (!mainTxt.includes('Stav pro obor účetnictví k 23. 10. 2026: volno.') || /zbývá|\d ze 3/.test(mainTxt)) e('capacity status (volno, dated), no counter');
 if (!mainTxt.includes('K 25. 10. 2026 jsem si prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog.') || !mainTxt.includes('U všech 16 webů chybí strukturovaná data')) e('observation block: 16 sites, 14 without a blog, dated');
 // JSON-LD

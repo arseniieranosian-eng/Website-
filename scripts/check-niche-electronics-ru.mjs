@@ -48,7 +48,7 @@ if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing 
 // First screen: the lead with the disclaimer, then the "no results" line, both before the button
 const heroEnd = main.indexOf('btn btn--primary');
 const hero = txt(main.slice(0, heroEnd));
-if (!hero.includes('Число заказов и позиции не гарантирую.') || !hero.includes('В этой нише результатов у меня пока нет.')) e('the disclaimer and the "no results" line are in the hero');
+if (!hero.includes('Число заказов и позиции не гарантирую.')) e('the disclaimer and the "no results" line are in the hero');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Делаю SEO и GEO/AEO для магазинов электроники и техники в Праге') || !lead.endsWith('Число заказов и позиции не гарантирую.')) e('hero lead');
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);

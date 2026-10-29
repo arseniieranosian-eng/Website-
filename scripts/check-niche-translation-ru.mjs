@@ -51,7 +51,7 @@ for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\
 if ([...(main.match(/<ol class="steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><span>/g)].length !== 4) e('four steps');
 const h3 = [...main.matchAll(/<h3>([\s\S]*?)<\/h3>/g)].map((m) => txt(m[1]));
 if (JSON.stringify(h3.slice(0, 6)) !== JSON.stringify(['Страницы языковых пар', 'Страницы услуг и отраслей', 'Страница для компаний (B2B-запросы)', 'Языковые версии: индексация и дубли', 'Локальное присутствие: Google Maps и Mapy.com', 'GEO/AEO как часть каждой услуги'])) e('six H3');
-if (!mainTxt.includes('По другим нишам и странам результатов у меня пока нет.')) e('no results elsewhere line');
+if (mainTxt.includes('результатов у меня пока нет')) e('no "no results" line');
 if (!mainTxt.includes('заявки через форму выросли в 24 раза (+2300 %).') || !mainTxt.includes('Если сравнить весну (март–май) и лето (июнь–август) 2026')) e('×24 line with its window');
 if ((mainTxt.match(/в 24 раза/g) || []).length !== 1) e('"24 раза" once, as a separate line');
 if (!mainTxt.includes('чешская 52 %, английская 26 %, украинская 18 %, русская 4 % ') && !mainTxt.includes('чешская 52 %, английская 26 %, украинская 18 %, русская 4 %')) e('language split');

@@ -43,7 +43,7 @@ if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}
 
 // Hero
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Я делаю SEO и GEO/AEO для финансовых консультантов в Чехии') || !lead.endsWith('Гарантий нет, кейса в этой нише пока нет.')) e('hero lead');
+if (!lead.startsWith('Я делаю SEO и GEO/AEO для финансовых консультантов в Чехии') || !lead.endsWith('Гарантий нет.')) e('hero lead');
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Заказать бесплатный технический аудит<\/a>/.test(hero) || !/href="\/ru\/konsultacii\/">Консультация<\/a>/.test(hero)) e('hero buttons, no quote');
 for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
@@ -67,7 +67,7 @@ if (mainTxt.indexOf('Финансовые тексты пишет консуль
 
 // Capacity rule
 if (!mainTxt.includes('По состоянию на 24.10.2026 в нише финансовых консультантов есть свободное место.') || /\d из 3|макс\. ?3/i.test(mainTxt)) e('capacity rule, no counter');
-if (!mainTxt.includes('Кейса в этой нише пока нет.')) e('no-case line');
+if (mainTxt.includes('Кейса в этой нише пока нет')) e('no-case line must be absent');
 // Audit button count: hero + table + CTA
 const auditLinks = (main.match(/href="\/ru\/besplatnyj-audit\/"/g) || []).length;
 if (auditLinks !== 3) e(`audit links: ${auditLinks} (hero, table, CTA)`);

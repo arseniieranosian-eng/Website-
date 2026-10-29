@@ -17,7 +17,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
-  lead: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze. Pomáhám webu, aby ho vyhledávače i odpovědi AI chápaly jako konkrétní služby, ne jednu obecnou stránku. Začínáme bezplatným auditem technických chyb. Pozice ani poptávky neslibuji a v tomto oboru zatím nemám vlastní případovou studii.',
+  lead: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze. Pomáhám webu, aby ho vyhledávače i odpovědi AI chápaly jako konkrétní služby, ne jednu obecnou stránku. Začínáme bezplatným auditem technických chyb. Pozice ani poptávky neslibuji.',
   heroAudit: 'Požádat o bezplatný audit',
   heroConsulting: 'Konzultace',
 
@@ -74,10 +74,10 @@ const raw = {
   },
 
   priceTitle: 'Kolik to stojí a kdy přijdou první výsledky?',
-  priceAnswer: 'Cena závisí na zvolené službě: konzultace, Start na 3 měsíce nebo Full SEO na rok. Aktuální ceny a rozsah najdete na stránkách jednotlivých služeb. První změny se u mých vlastních projektů obvykle objevují za 2–3 měsíce, záruku ale nedávám a u účetních kanceláří zatím vlastní výsledky nemám.',
+  priceAnswer: 'Cena závisí na zvolené službě: konzultace, Start na 3 měsíce nebo Full SEO na rok. Aktuální ceny a rozsah najdete na stránkách jednotlivých služeb. První změny se u mých vlastních projektů obvykle objevují za 2–3 měsíce, záruku ale nedávám.',
 
   expTitle: 'Jaké mám zkušenosti s tímto oborem?',
-  expAnswer: 'V oboru účetnictví zatím vlastní případovou studii nemám. Mám případovou studii z jiného oboru, překladatelské agentury: tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026). Jiný obor znamená i jiné výsledky.',
+  expAnswer: 'Mám případovou studii z jiného oboru, překladatelské agentury: tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026). Jiný obor znamená i jiné výsledky.',
   expLink: 'Přečíst případovou studii překladatelské agentury',
 
   obsTitle: 'Co jsem zjistil na webech účetních kanceláří?',
@@ -99,8 +99,8 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Má smysl SEO pro účetní kancelář?', a: 'Dává, pokud chcete získávat klienty i z vyhledávání, ne jen doporučením. Hledají vás lidé, kteří potřebují konkrétní službu, například vedení účetnictví pro s.r.o. Pokud vám stačí doporučení a kapacitu nemáte, SEO nepotřebujete. Výsledek nezaručuji a u účetních kanceláří zatím nemám vlastní případovou studii.' },
-    { q: 'Jak rychle SEO funguje?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám. Rychlost závisí na stavu webu, konkurenci a rozsahu úprav. U účetních kanceláří zatím nemám vlastní data, takže pro tento obor žádný termín neslibuji a konkrétní odhad vychází až z auditu.' },
+    { q: 'Má smysl SEO pro účetní kancelář?', a: 'Dává, pokud chcete získávat klienty i z vyhledávání, ne jen doporučením. Hledají vás lidé, kteří potřebují konkrétní službu, například vedení účetnictví pro s.r.o. Pokud vám stačí doporučení a kapacitu nemáte, SEO nepotřebujete. Výsledek nezaručuji.' },
+    { q: 'Jak rychle SEO funguje?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám. Rychlost závisí na stavu webu, konkurenci a rozsahu úprav. Pro konkrétní kancelář žádný termín neslibuji, odhad vychází až z auditu.' },
     { q: 'Kolik stojí SEO pro účetní kancelář?', a: 'Cena závisí na zvolené službě: konzultace, Start na 3 měsíce nebo Full SEO na rok. Konkrétní částky a rozsah najdete na stránkách jednotlivých služeb, žádné zvláštní ceny pro účetní kanceláře neuvádím. Bezplatný audit technických chyb je zdarma, bez hovoru a bez závazku.' },
     { q: 'Co znamená GEO/AEO pro účetní kancelář?', a: 'GEO/AEO je optimalizace obsahu pro odpovědi AI a vyhledávačů. U účetní kanceláře jde o stručné odpovědi na konkrétní otázky, jasné ceny a samostatné stránky služeb. Že vás ChatGPT nebo AI přehled v Googlu doporučí, nelze zaručit. Přehledný a aktuální obsah šanci na citaci jen zvyšuje.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit zkontroluje technické chyby: indexaci, duplicity a další technické problémy. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. V auditu nejsou klíčová slova, konkurence, mapy, viditelnost v AI, rychlost ani mobilní verze. Strukturu nabídky na webu řeší placená konzultace nebo Start.' },

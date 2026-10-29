@@ -52,7 +52,7 @@ const raw = {
   recText: 'Důvěra se často buduje už během spolupráce s klientem, proto doporučení vznikají přirozeně. Nelze je ale plánovat ani urychlit. Proto stojí za to myslet i na kanály, které lze ovlivnit vlastním časem nebo rozpočtem.',
 
   webTitle: 'Kdy dává smysl vlastní web a vyhledávání?',
-  webAnswer: 'Vlastní web dává smysl, když chce kancelář získávat klienty i mimo okruh doporučení a klient ji hledá sám v Googlu nebo se ptá AI. Web musí být srozumitelný pro vyhledávač i pro AI. U mých projektů se první změny obvykle objevují za 2–3 měsíce, záruka neexistuje a v této oblasti zatím výsledky nemám.',
+  webAnswer: 'Vlastní web dává smysl, když chce kancelář získávat klienty i mimo okruh doporučení a klient ji hledá sám v Googlu nebo se ptá AI. Web musí být srozumitelný pro vyhledávač i pro AI. U mých projektů se první změny obvykle objevují za 2–3 měsíce, záruka neexistuje.',
   webLead: 'Co v oboru dělám, popisuji na stránce',
   webLinkText: 'SEO pro účetní kanceláře v Praze',
   // Confirmed by the author (24.10.2026): published
@@ -95,7 +95,7 @@ const raw = {
     { q: 'Má smysl vlastní web účetní kanceláře?', a: 'Záleží na tom, odkud chcete klienty získávat. Pokud vás klienti hledají sami ve vyhledávání nebo se ptají AI, web jim umožní kancelář najít a posoudit. Pokud klienty získáváte jen z doporučení, může web sloužit hlavně k ověření důvěry. Výsledek nelze zaručit.' },
     { q: 'Který kanál je nejlepší pro účetní kancelář?', a: 'Univerzálně nejlepší kanál neexistuje. Doporučení jsou dobrý základ, web a mapy pomáhají těm, kdo hledají sami, reklama přináší rychlejší start za průběžnou platbu. Výběr závisí na vašem čase, rozpočtu a typu klientů. Začněte jedním až dvěma kanály a po několika měsících vyhodnoťte výsledky.' },
     { q: 'Vyplatí se placená reklama pro účetní kancelář?', a: 'Reklama může přivést poptávky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Vyplatí se, pokud máte rozpočet na testování a umíte vyhodnotit, odkud poptávky přišly. Výsledek nelze zaručit. Před spuštěním si prověřte pravidla reklamní platformy a své profese.' },
-    { q: 'Za jak dlouho se projeví SEO?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Záruka ale neexistuje a doba závisí na webu, konkurenci a rozsahu úprav. V oblasti účetních kanceláří zatím výsledky nemám, proto tuto dobu nelze brát jako příslib pro vaši kancelář.' },
+    { q: 'Za jak dlouho se projeví SEO?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Záruka ale neexistuje a doba závisí na webu, konkurenci a rozsahu úprav. Tuto dobu nelze brát jako příslib pro vaši kancelář.' },
   ],
 
   endTitle: 'Související stránky a další krok',

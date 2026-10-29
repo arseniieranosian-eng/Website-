@@ -55,7 +55,7 @@ if (([...(main.match(/Co se u webu tiskárny kontroluje:[\s\S]*?<ul class="check
 // Case block: metric + window, no absolute numbers, the transfer line
 if (!mainTxt.includes('Organická návštěvnost webu tiskárny vzrostla 8,75× za 12 měsíců (červenec 2024 → červenec 2025).') || !mainTxt.includes('Co se přenáší a co ne:')) e('case block');
 if ((mainTxt.match(/8,75×/g) || []).length !== 1 || /×8/.test(mainTxt)) e('8,75× once, with metric and window; no "×8"');
-if (!mainTxt.includes('U tiskáren v Česku zatím výsledky nemám.')) e('no results in Czechia line');
+if (mainTxt.includes('zatím výsledky nemám')) e('no "no results" line');
 if (!mainTxt.includes('k 24. 10. 2026 je obor tiskáren volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity line, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
