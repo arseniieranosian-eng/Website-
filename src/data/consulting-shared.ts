@@ -35,7 +35,7 @@ export interface ConsultingContent {
   forWhomAnswer?: string; // en: direct answer under the H2
   forWhomNote: string;
   examplesTitle?: string;
-  examples?: { id: keyof typeof PRICES; title: string; text: string; images: { src: string; alt: string }[] }[];
+  examples?: { id: keyof typeof PRICES; title: string; text: string; images: { src: string; alt: string }[]; caseLink?: { text: string; link: string } }[];
   examplesNote?: string;
   examplesCase?: { text: string; link: string }; // cs: pointer to the review of a real estate agency website (no results)
   includesTitle?: string; // en: "What is included" with the GEO/AEO link

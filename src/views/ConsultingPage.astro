@@ -124,6 +124,7 @@ const others = [
             <h4>{ex.title}</h4>
             <p class="muted">{ex.text}</p>
             <div class="examples__shots">{ex.images.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
+            {ex.caseLink && <p class="muted">{ex.caseLink.text}{' '}<a href={t('caseRazbor')}>{ex.caseLink.link}</a></p>}
           </figure>
         ))}
       </div>

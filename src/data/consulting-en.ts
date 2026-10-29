@@ -76,7 +76,7 @@ export const CONSULTING_EN = {
     {
       id: 'questions' as const,
       title: `Consultation for ${fmtCzk(PRICES.questions)}: answers to your questions`,
-      text: 'The client asks about SEO, I answer. The images show a video call and the feedback after it.',
+      text: 'The client, a woman, came with questions about SEO in digital marketing: she wanted to know where to start in SEO. The images show a video call and the feedback after it.',
       images: [
         { src: '/images/consulting/call-2000.webp', alt: 'Video call of an SEO consultation, the client’s face is hidden. The caption on the picture (in Russian) says: “I recently had an SEO consultation, he explained where it is best to start in SEO”' },
         { src: '/images/consulting/review-2000.webp', alt: 'The client’s e-mail feedback after an SEO consultation (original in Russian, names hidden)' },
@@ -90,7 +90,8 @@ export const CONSULTING_EN = {
     {
       id: 'audit' as const,
       title: `Consultation for ${fmtCzk(PRICES.audit)}: a detailed audit and a 12-month plan`,
-      text: 'A sample from the report: where the website loses opportunities, who the real competition is and a 12-month plan.',
+      text: 'A sample from the report on the website of a small Prague real estate agency: where the website loses opportunities, who the real competition is and a 12-month plan.',
+      caseLink: { text: 'A review without results, only an audit and a plan. The page is in Czech.', link: 'What I proposed for a small real estate agency website in Prague (in Czech)' },
       images: [
         { src: '/images/consulting/en/audit-3000-1.webp', alt: 'A sample of an SEO audit: the technical base, FAQ and a plan for the year' },
         { src: '/images/consulting/en/audit-3000-2.webp', alt: 'A sample of an SEO audit: the competition and real opportunities' },

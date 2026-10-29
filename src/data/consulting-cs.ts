@@ -73,7 +73,7 @@ export const CONSULTING_CS = {
     {
       id: 'questions' as const,
       title: `Konzultace za ${fmtKc(PRICES.questions)}: odpovědi na vaše otázky`,
-      text: 'Klient se ptá na SEO, já odpovídám. Na snímcích videohovor a zpětná vazba po něm.',
+      text: 'Za konzultací přišla klientka s otázkami k SEO v digitálním marketingu: chtěla vědět, od čeho má v SEO začít. Na snímcích videohovor a zpětná vazba po něm.',
       images: [
         { src: '/images/consulting/call-2000.webp', alt: 'Videohovor SEO konzultace, tvář klienta je znepřístupněna' },
         { src: '/images/consulting/review-2000.webp', alt: 'E-mailová zpětná vazba klienta po SEO konzultaci' },
@@ -82,7 +82,8 @@ export const CONSULTING_CS = {
     {
       id: 'audit' as const,
       title: `Konzultace za ${fmtKc(PRICES.audit)}: podrobný audit a plán na 12 měsíců`,
-      text: 'Ukázka z reportu: kde web ztrácí příležitosti, jaká je reálná konkurence a plán na 12 měsíců.',
+      text: 'Ukázka z reportu k webu malé pražské realitní kanceláře: kde web ztrácí příležitosti, jaká je reálná konkurence a plán na 12 měsíců.',
+      caseLink: { text: 'Rozbor bez výsledků, jen audit a plán.', link: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?' },
       images: [
         { src: '/images/consulting/audit-3000-1.webp', alt: 'Ukázka SEO auditu: technický základ, FAQ a plán na rok' },
         { src: '/images/consulting/audit-3000-2.webp', alt: 'Ukázka SEO auditu: konkurence a reálné příležitosti' },
@@ -91,7 +92,6 @@ export const CONSULTING_CS = {
     },
   ],
   examplesNote: 'Údaje a tváře klientů jsou skryté.',
-  examplesCase: { text: 'Rozbor, bez výsledků: konzultace s auditem pro malou pražskou realitní kancelář.', link: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?' },
 
   languagesTitle: 'V jakých jazycích konzultace probíhá?',
   languages, // identical to the FAQ answer below (one question = one answer)

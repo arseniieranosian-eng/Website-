@@ -117,12 +117,12 @@ import QuoteFigure from '../components/QuoteFigure.astro';
             <h4>{ex.title}</h4>
             <p class="muted">{ex.text}</p>
             <div class="examples__shots">{ex.images.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
+            {(ex as any).caseLink && <p class="muted">{(ex as any).caseLink.text}{' '}<a href={lang === 'en' ? path('caseRazbor', 'cs') : t('caseRazbor')} hreflang="cs">{(ex as any).caseLink.link}</a></p>}
             {(ex as any).translation && (ex as any).translation.length > 0 && <div class="examples__translation muted small">{(ex as any).translation.map((x: string) => <p>{x}</p>)}</div>}
           </figure>
         ))}
       </div>
       <p class="muted small">{C.examplesNote}</p>
-      {(C as any).examplesCase && <p>{C.examplesCase.text}{' '}<a href={t('caseRazbor')}>{C.examplesCase.link}</a></p>}
     </div>
   </section>
 
