@@ -1,0 +1,17 @@
+---
+// Trust bar as HTML text for the English and Russian home pages: the same five tiles and the same markup as TrustBarCs (cs). Data: data/trust-en.ts, data/trust-ru.ts.
+import { path, type Lang } from '../i18n/routes';
+import { TRUST_EN } from '../data/trust-en';
+import { TRUST_RU } from '../data/trust-ru';
+import TrustArt from './TrustArt.astro';
+interface Props { lang: Exclude<Lang, 'cs'> }
+const { lang } = Astro.props;
+const T = lang === 'ru' ? TRUST_RU : TRUST_EN;
+---
+<div class="trust-bar">
+  <dl class="stats stats--five">
+    {T.tiles.map((x) => <div><dt>{x.label}<span class="stat-caption">{x.caption}</span></dt><dd>{x.value}</dd><TrustArt kind={x.art} /></div>)}
+  </dl>
+  <p class="muted small">{T.note}</p>
+  <p><a class="link-arrow" href={path('cases', lang)}>{T.more}</a></p>
+</div>

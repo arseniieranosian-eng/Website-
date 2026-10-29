@@ -1,6 +1,6 @@
 ---
 // The English home page /en/ (hub), built from the brief of 21.10.2026: a separate adaptation for English-speaking entrepreneurs and
-// expats in Czechia. Content: data/home-en.ts, trust bar: data/trust-en.ts. No blog links, reviews from the shared source.
+// expats in Czechia. Content: data/home-en.ts, trust bar: data/trust-en.ts (same five tiles as the Czech and Russian versions). No blog links, reviews from the shared source.
 import Base from '../layouts/Base.astro';
 import CaseArt from '../components/CaseArt.astro';
 import LogoStrip from '../components/LogoStrip.astro';
@@ -14,8 +14,7 @@ import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { homeCsSchemas } from '../lib/schema-home-cs';
 import { HOME_EN as C } from '../data/home-en';
-import TrustArt from '../components/TrustArt.astro';
-import { TRUST_EN as T } from '../data/trust-en';
+import TrustBar from '../components/TrustBar.astro';
 import { REVIEWS } from '../data/reviews';
 
 const lang = C.lang;
@@ -58,18 +57,9 @@ const m = META.home[lang];
 
   <LogoStrip lang={lang} />
 
-  <!-- TRUST BAR -->
+  <!-- TRUST BAR (the same five tiles as on the Czech and Russian home pages) -->
   <section class="section section--tight" aria-label={C.trustTitle}>
-    <div class="container">
-      <h2>{C.trustTitle}</h2>
-      <div class="trust-bar">
-        <dl class="stats stats--five stats--four">
-          {T.tiles.map((x) => <div><dt>{x.label}<span class="stat-caption">{x.caption}</span></dt><dd>{x.value}</dd><TrustArt kind={x.art} /></div>)}
-        </dl>
-        <p class="muted small">{T.note}</p>
-        <p><a class="link-arrow" href={t('cases')}>{T.more}</a></p>
-      </div>
-    </div>
+    <div class="container"><TrustBar lang={lang} /></div>
   </section>
 
   <!-- WHICH SERVICE FITS YOU? (hub table, no prices) -->

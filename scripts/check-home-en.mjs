@@ -5,9 +5,9 @@ const BASE = 'https://seo-eranosian.com';
 const H1 = 'English-speaking SEO specialist in Prague: enquiries from Google, Seznam and AI';
 const TITLE = 'SEO & GEO/AEO Specialist in Prague | Arsenii Eranosian';
 const DESC = 'English-speaking SEO and GEO/AEO specialist in Prague for Google, Seznam and AI search. Start with a free technical audit: no call, no obligation.';
-const SECTIONS = [H1, 'Results with a method and a source', 'Which service fits you?', 'Why search in Czechia needs local knowledge', 'How do SEO and GEO/AEO work together?', 'Case studies', 'What clients say', 'Frequently asked questions', 'About me', 'Find out whether your site has technical errors'];
+const SECTIONS = [H1, 'Which service fits you?', 'Why search in Czechia needs local knowledge', 'How do SEO and GEO/AEO work together?', 'Case studies', 'What clients say', 'Frequently asked questions', 'About me', 'Find out whether your site has technical errors'];
 const LINKS = ['/en/free-audit/', '/en/consulting/', '/en/3-month-start/', '/en/full-seo/', '/en/maps/', '/en/seo-and-geo/', '/en/case-studies/', '/en/reviews/', '/en/faq/', '/en/about/', '/en/contact/', '/en/privacy-policy/'];
-const FORBIDDEN = ['we guarantee', 'guaranteed results', 'Years in SEO', '55–60', '×8', '×24', '8×', '6×', '300×', 'ChatGPT and AI Overviews', 'free audit and a short call', '4–8 weeks', 'page one', 'SEO agency', '/blog'];
+const FORBIDDEN = ['we guarantee', 'guaranteed results', 'Years in SEO', '55–60', '×8', '8×', '6×', '300×', 'ChatGPT and AI Overviews', 'free audit and a short call', '4–8 weeks', 'page one', 'SEO agency', '/blog'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
@@ -50,14 +50,14 @@ if (!/<input[^>]*name="website"/.test(h)) e('hero form');
 for (const o of ['Free SEO audit', 'Consulting', '3-month start', 'Full SEO', 'Maps', 'Other']) if (!h.includes(`>${o}`)) e(`form option: ${o}`);
 if (!mainTxt.includes('I check technical errors such as indexing and duplicate pages. You receive a short presentation within 24 hours, with no call and no obligation.')) e('text under the form');
 
-// Trust bar: 4 tiles with periods, right after the hero
+// Trust bar: the same 5 tiles as on the Czech and Russian home pages (since 29.10.2026), with periods, right after the hero
 const tb = main.indexOf('class="trust-bar"');
 const tiles = [...(main.match(/<dl class="stats[^"]*">[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dt>([\s\S]*?)<\/dt><dd>([^<]*)<\/dd>/g)].map((m) => txt(m[1]) + ' | ' + norm(m[2]));
-if (tb < 0 || !(main.indexOf('class="hero') < tb) || tb > main.indexOf('Which service fits you?') || tiles.length !== 4) e('trust bar: four HTML tiles right after the hero');
-const need = ['print shop, July 2024 → July 2025', 'educational platform, March → September 2025 (7 months), relative data from the low base of a new site', 'translation agency, March–September 2026', 'Czech, Russian, Bulgarian, Indian'];
+if (tb < 0 || !(main.indexOf('class="hero') < tb) || tb > main.indexOf('Which service fits you?') || tiles.length !== 5) e('trust bar: five HTML tiles right after the hero');
+const need = ['print shop, July 2024 → July 2025', 'translation agency, spring → summer 2026, from a low base', 'new educational platform, March → September 2025', 'Czechia, Russia, Bulgaria, India', 'I adapt content, not just translate it'];
 for (const n of need) if (!tiles.some((x) => x.includes(n))) e(`trust tile: ${n}`);
-if (!tiles.some((x) => /\+775/.test(x)) || !tiles.some((x) => /\+55/.test(x)) || !tiles.some((x) => /65–70/.test(x) && /tripled/.test(x))) e('trust tile figures');
-if (!mainTxt.includes('Data are relative, clients anonymous, results as of the end of each project.')) e('trust note');
+if (!tiles.some((x) => /\+775/.test(x)) || !tiles.some((x) => /×24/.test(x)) || !tiles.some((x) => /\+55/.test(x))) e('trust tile figures');
+if (!mainTxt.includes('Client names are not published. Counts and percentages are relative data.')) e('trust note');
 
 // Hub table: five services, no prices, links to the EN pages
 const tbl = (main.match(/Which service fits you\?[\s\S]*?<\/table>/) || [''])[0];

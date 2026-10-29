@@ -1,13 +1,14 @@
-// Trust bar (en): the same figures as the case pages and trust-cs.ts, each tile with its period. HTML text only.
-// The brief's fifth tile (a client review) is left out: the reviews block follows right below and its texts are long.
+// Trust bar (en): the same five tiles as trust-cs.ts (same figures, same periods), in English; used on the English home page (since 29.10.2026: the content of the bar is identical on all language versions).
+// HTML text only.
 
 export const TRUST_EN = {
   tiles: [
-    { art: 'visits' as const, value: '1,200 → 10,500', label: 'organic visits per month (+775 %)', caption: 'print shop, July 2024 → July 2025' },
-    { art: 'platform' as const, value: '+55 %', label: 'organic traffic', caption: 'educational platform, March → September 2025 (7 months), relative data from the low base of a new site' },
-    { art: 'forms' as const, value: '+65–70 %', label: 'enquiries month over month, three months in a row; B2B enquiries tripled', caption: 'translation agency, March–September 2026' },
-    { art: 'markets' as const, value: '4 markets', label: 'Czech, Russian, Bulgarian, Indian', caption: 'projects; content in Czech, English, Russian and Ukrainian' },
+    { art: 'visits' as const, value: '1,200 → 10,500', label: 'visits per month (+775 %)', caption: 'print shop, July 2024 → July 2025' },
+    { art: 'forms' as const, value: '×24', label: 'enquiries from the form', caption: 'translation agency, spring → summer 2026, from a low base' },
+    { art: 'platform' as const, value: '+55 %', label: 'organic traffic', caption: 'new educational platform, March → September 2025' },
+    { art: 'markets' as const, value: '4 markets', label: 'Czechia, Russia, Bulgaria, India', caption: 'projects by period in the experience overview' },
+    { art: 'langs' as const, value: '4 languages', label: 'of content: cs, en, ru, uk', caption: 'I adapt content, not just translate it' },
   ],
-  note: 'Data are relative, clients anonymous, results as of the end of each project.',
-  more: 'Case studies',
+  note: 'Client names are not published. Counts and percentages are relative data.',
+  more: 'All case studies',
 };
