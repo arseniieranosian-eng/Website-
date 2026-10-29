@@ -1,5 +1,6 @@
 import { PRICES, QUESTIONS_HOURS } from '../data/consulting-shared';
 import type { CONSULTING_CS } from '../data/consulting-cs';
+import type { CONSULTING_EN } from '../data/consulting-en';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
@@ -7,7 +8,7 @@ import { ids, quotationSchema } from './schema';
 
 // Page-specific JSON-LD for /konzultace/ (cs). The global Person / ProfessionalService / WebSite graph and
 // the BreadcrumbList come from the layout. No VideoObject (no video on this page), no AggregateRating. Prices in CZK only.
-export function consultingCsSchemas(site: URL, C: typeof CONSULTING_CS, opts: { modified: string; reviews: Review[] }) {
+export function consultingCsSchemas(site: URL, C: typeof CONSULTING_CS | typeof CONSULTING_EN, opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('consulting', lang));
@@ -80,11 +81,11 @@ export function consultingCsSchemas(site: URL, C: typeof CONSULTING_CS, opts: { 
       },
       ...(reviews.length ? { review: reviews } : {}),
     },
-    {
+    ...(lang === 'cs' ? [{
       '@type': 'HowTo',
       name: sc.howToName,
       step: C.steps.map((text, i) => ({ '@type': 'HowToStep', name: `Krok ${i + 1}`, text })),
-    },
+    }] : []),
     {
       '@type': 'FAQPage',
       mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),

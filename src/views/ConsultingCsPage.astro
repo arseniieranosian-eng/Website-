@@ -1,5 +1,5 @@
 ---
-// /konzultace/ (cs) built from the brief of 19.10.2026. Content: data/consulting-cs.ts, prices: data/consulting-shared.ts.
+// /konzultace/ (cs, brief of 19.10.2026) and /en/consulting/ (en, brief of 29.10.2026: the same content translated). Content: data/consulting-cs.ts and data/consulting-en.ts, prices: data/consulting-shared.ts.
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
@@ -10,18 +10,22 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { consultingCsSchemas } from '../lib/schema-consulting-cs';
-import { fmtKc, PRICES } from '../data/consulting-shared';
-import { CONSULTING_CS as C } from '../data/consulting-cs';
+import { fmtKc, fmtCzk, PRICES } from '../data/consulting-shared';
+import { CONSULTING_CS } from '../data/consulting-cs';
+import { CONSULTING_EN } from '../data/consulting-en';
 import { reviewsWithFallback } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
-const lang = C.lang;
+interface Props { lang?: 'cs' | 'en' }
+const lang = Astro.props.lang ?? 'cs';
+const C: typeof CONSULTING_CS = (lang === 'en' ? CONSULTING_EN : CONSULTING_CS) as any;
+const money = lang === 'en' ? fmtCzk : fmtKc;
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
-const MOD = lastModified(['src/views/ConsultingCsPage.astro', 'src/data/consulting-cs.ts', 'src/data/blog-posts.ts', 'src/components/RelatedPosts.astro', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'], '2026-10-19');
+const MOD = lastModified(['src/views/ConsultingCsPage.astro', lang === 'en' ? 'src/data/consulting-en.ts' : 'src/data/consulting-cs.ts', 'src/data/blog-posts.ts', 'src/components/RelatedPosts.astro', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'], '2026-10-19');
 const [y, mo, d] = MOD.split('-').map(Number);
-const modText = `${d}. ${mo}. ${y}`;
+const modText = lang === 'en' ? `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}` : `${d}. ${mo}. ${y}`;
 
 // 1-3 reviews tagged "consulting"; if there are none, the freshest ones for other services.
 const reviews = reviewsWithFallback('consulting', 3, 1);
@@ -65,11 +69,12 @@ import QuoteFigure from '../components/QuoteFigure.astro';
     <div class="container">
       <h2>{C.priceTitle}</h2>
       <p class="answer">{C.priceAnswer}</p>
+      {(C as any).priceNote && <p class="muted small price-note">{(C as any).priceNote}</p>}
       <div class="table-wrap">
         <table class="compare">
           <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
           <tbody>
-            {C.offers.map((o) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={o.id} />{o.name}</span></th><td style="white-space:nowrap">{fmtKc(PRICES[o.id])}</td><td>{o.duration}</td><td>{o.gets}</td></tr>)}
+            {C.offers.map((o) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={o.id} />{o.name}</span></th><td style="white-space:nowrap">{money(PRICES[o.id])}</td><td>{o.duration}</td><td>{o.gets}</td></tr>)}
           </tbody>
         </table>
       </div>
@@ -112,11 +117,12 @@ import QuoteFigure from '../components/QuoteFigure.astro';
             <h4>{ex.title}</h4>
             <p class="muted">{ex.text}</p>
             <div class="examples__shots">{ex.images.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
+            {(ex as any).translation && (ex as any).translation.length > 0 && <div class="examples__translation muted small">{(ex as any).translation.map((x: string) => <p>{x}</p>)}</div>}
           </figure>
         ))}
       </div>
       <p class="muted small">{C.examplesNote}</p>
-      {C.examplesCase && <p>{C.examplesCase.text}{' '}<a href={t('caseRazbor')}>{C.examplesCase.link}</a></p>}
+      {(C as any).examplesCase && <p>{C.examplesCase.text}{' '}<a href={t('caseRazbor')}>{C.examplesCase.link}</a></p>}
     </div>
   </section>
 
@@ -150,8 +156,8 @@ import QuoteFigure from '../components/QuoteFigure.astro';
       <h2>{C.caseTitle}</h2>
       <p>{C.caseText}</p>
       <a class="link-arrow" href={t('caseKb')}>{C.caseLink}</a>
-      <p>{C.caseText2}</p>
-      <a class="link-arrow" href={t('caseTypo')}>{C.caseLink2}</a>
+      {C.caseText2 && <p>{C.caseText2}</p>}
+      {C.caseLink2 && <a class="link-arrow" href={t('caseTypo')}>{C.caseLink2}</a>}
     </div>
   </section>
 
@@ -164,7 +170,8 @@ import QuoteFigure from '../components/QuoteFigure.astro';
   </section>
 
   <!-- FAQ: answers are visible, not hidden in tabs -->
-  <!-- RELATED ARTICLES -->
+  <!-- RELATED ARTICLES (Czech only: the blog has no English articles) -->
+  {C.articles && (
   <section class="section">
     <div class="container">
       <h2>{C.articlesTitle}</h2>
@@ -172,6 +179,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
       <RelatedPosts lang={lang} keys={[...C.articles]} more={C.articlesMore} />
     </div>
   </section>
+  )}
 
   <section class="section section--grey">
     <div class="container narrow">
@@ -183,7 +191,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
     </div>
   </section>
 
-  <WhyTrustCs />
+  <WhyTrustCs lang={lang} />
 
   <!-- FORM -->
   <section class="section section--grey" id="form">

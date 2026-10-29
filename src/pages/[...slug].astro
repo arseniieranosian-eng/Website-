@@ -172,9 +172,9 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'caseEdu' && props.lang === 'ru' && <CaseEduRuPage />}
 {props.key === 'caseSeason' && props.lang === 'cs' && <CaseSeasonCsPage />}
 {props.key === 'caseSeason' && props.lang === 'ru' && <CaseSeasonRuPage />}
-{props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage />}
+{props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage lang="cs" />}
 {props.key === 'consulting' && props.lang === 'ru' && <ConsultingPage lang="ru" />}
-{props.key === 'consulting' && props.lang === 'en' && <ConsultingPage lang="en" />}
+{props.key === 'consulting' && props.lang === 'en' && <ConsultingCsPage lang="en" />}
 {props.key === 'start' && props.lang === 'cs' && <StartCsPage />}
 {props.key === 'start' && props.lang === 'ru' && <StartPage />}
 {props.key === 'fullSeo' && props.lang === 'cs' && <FullSeoCsPage />}

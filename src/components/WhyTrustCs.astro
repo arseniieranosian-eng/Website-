@@ -3,9 +3,13 @@
 // Replaces the short "Kdo to dělá?" block on the Czech service pages and sits on the Czech home page.
 import { path } from '../i18n/routes';
 import { SITE } from '../data/site';
-import { WHY_TRUST_CS as W } from '../data/why-trust-cs';
-interface Props { tone?: 'white' | 'grey'; cases?: boolean } // cases=false: no link to the case list (the maps page has no case for now)
-const { tone = 'white', cases = true } = Astro.props;
+import { WHY_TRUST_CS } from '../data/why-trust-cs';
+import { WHY_TRUST_EN } from '../data/why-trust-en';
+import type { Lang } from '../i18n/routes';
+interface Props { tone?: 'white' | 'grey'; cases?: boolean; lang?: 'cs' | 'en' } // cases=false: no link to the case list (the maps page has no case for now)
+const { tone = 'white', cases = true, lang = 'cs' } = Astro.props;
+const W = lang === 'en' ? WHY_TRUST_EN : WHY_TRUST_CS;
+const L = lang === 'en' ? { reviews: 'Reviews', cases: 'Case studies' } : { reviews: 'Recenze', cases: 'Případové studie' };
 const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
 ---
 <section class:list={['section', { 'section--grey': tone === 'grey' }]} id="proc-mi-veri">
@@ -15,6 +19,6 @@ const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
     <div class="grid grid-4">
       {W.reasons.map((r) => <div class="card"><h3>{r.title}</h3><p>{r.text}</p></div>)}
     </div>
-    <p style="margin-top: 20px">{cases ? W.verifyLead : W.verifyLeadNoCases} <a href={linkedin} rel="me noopener" target="_blank">LinkedIn</a> · <a href={path('reviews', 'cs')}>Recenze</a>{cases && <> · <a href={path('cases', 'cs')}>Případové studie</a></>} · <a class="link-arrow" href={path('about', 'cs')}>{W.more}</a></p>
+    <p style="margin-top: 20px">{cases ? W.verifyLead : W.verifyLeadNoCases} <a href={linkedin} rel="me noopener" target="_blank">LinkedIn</a> · <a href={path('reviews', lang)}>{L.reviews}</a>{cases && <> · <a href={path('cases', lang)}>{L.cases}</a></>} · <a class="link-arrow" href={path('about', lang)}>{W.more}</a></p>
   </div>
 </section>

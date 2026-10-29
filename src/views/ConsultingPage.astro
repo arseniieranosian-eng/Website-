@@ -15,19 +15,18 @@ import { lastModified } from '../lib/lastmod';
 import { consultingSchemas } from '../lib/schema-consulting';
 import { fmtKc, fmtCzk, PRICES } from '../data/consulting-shared';
 import { CONSULTING_RU } from '../data/consulting-ru';
-import { CONSULTING_EN } from '../data/consulting-en';
 import { reviewsWithFallback } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
 interface Props { lang: 'ru' | 'en' }
 const { lang } = Astro.props;
-const C = lang === 'en' ? CONSULTING_EN : CONSULTING_RU;
+const C = CONSULTING_RU;
 const money = lang === 'en' ? fmtCzk : fmtKc;
 const site = Astro.site!;
 
 // Visible date and JSON-LD dateModified both come from git (see lib/lastmod.ts).
 const MOD = lastModified(
-  ['src/views/ConsultingPage.astro', lang === 'ru' ? 'src/data/consulting-ru.ts' : 'src/data/consulting-en.ts', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'],
+  ['src/views/ConsultingPage.astro', 'src/data/consulting-ru.ts', 'src/data/consulting-shared.ts', 'src/data/reviews.ts'],
   '2026-10-19',
 );
 const [y, mo, d] = MOD.split('-').map(Number);

@@ -1,135 +1,160 @@
-// English content of /en/consulting/ (brief of 23.10.2026): rewritten to the level of the Czech and Russian pages, for an English-speaking audience (enquiries, leads,
-// questions about language and the Czech market). The page has NO video (removed on the author's instruction; /media/intro.mp4 stays on the server for the cs and ru
-// pages). Prices come from consulting-shared.ts (one source for all languages); euro amounts are approximate and appear only in the visible text (about 25 CZK per euro,
-// not tied to a dated rate: the current CNB rate is still to be checked). No HowTo in JSON-LD, no guarantees, no "free" / "24 hours" in the meta, the word "agency" is
-// never used about the author, the niche capacity rule is not used here. The case line uses variant A of the brief (four-month window, "8×" explained by its window).
-import { fmtCzk, PRICES, type ConsultingContent } from './consulting-shared';
+// English content of /en/consulting/ (brief of 29.10.2026): the same content as the Czech page /konzultace/ (data/consulting-cs.ts), translated section by section, used by the same template (views/ConsultingCsPage.astro).
+// Prices come from consulting-shared.ts (one source for all languages); euro amounts are approximate and appear only in the visible text (about 25 CZK per euro, not tied to a dated rate: the current CNB rate is still to
+// be checked). No guarantees, the word "agency" is never used about the author. Differences from the Czech page that cannot be avoided: no "Related articles" block (the blog exists in Czech only), no second case line
+// (the print-shop case has no English page), no link to the Czech review of a real estate agency website. The three audit slides are English re-creations of the Czech ones (public/images/consulting/en/), the two other
+// example images are the original screenshots (Russian-language messages) with an English translation in the text below them.
+import { fmtCzk, PRICES, QUESTIONS_HOURS } from './consulting-shared';
+import { CASE_LINE } from './case-summary';
+import { START_PRICE } from './start-shared';
+import { FULLSEO_MONTHLY } from './fullseo-shared';
 
-export const CONSULTING_EN: ConsultingContent = {
-  lang: 'en',
+interface Include { text: string; link?: { part: string; page: 'geo' }; catalog?: string }
+
+const languages = 'The consultation is held in Czech, English and Russian. I can work with Ukrainian content. I also handle multilingual SEO and hreflang when needed.';
+
+export const CONSULTING_EN = {
+  lang: 'en' as const,
+  // The author's quote (same statement as on the Czech page); text word for word in the page and in the Quotation node.
+  quote: 'A consultation gives you answers and a plan. I do not do the work for you, and if you need implementation, I will say so straight away.',
   h1: 'SEO consulting in Prague',
-  durationLine: 'Duration: One-off or recurring',
-  lead: `An SEO consultation is a one-off session, online or in person in Prague, where I review your website and answer your questions. You can book one hour of answers for ${fmtCzk(PRICES.questions)}, or a consultation with a website audit, a presentation and a 12-month plan for ${fmtCzk(PRICES.audit)}. I do not promise rankings.`,
+  lead: 'An independent view of your website’s SEO and a clear plan of what to do next. I will answer your questions or prepare a website audit with a 12-month action plan and present it to you on the consultation. Online or in person in Prague.',
   updatedLabel: 'Updated',
-  heroPrimary: 'Book a consultation',
+  badge: `from ${fmtCzk(PRICES.questions)} · online or in Prague`,
+  heroPrimary: 'I am interested',
   heroAudit: 'Free audit',
 
   priceTitle: 'How much does an SEO consultation cost?',
-  // Euro amounts are approximate and appear only in the visible text (JSON-LD has CZK only).
-  priceAnswer: `A one-hour SEO consultation with answers to your questions costs ${fmtCzk(PRICES.questions)} (approx. €80). A consultation with a website audit, a presentation and a 12-month plan costs ${fmtCzk(PRICES.audit)} (approx. €120) and has no time limit. Euro amounts are approximate, at about 25 CZK per euro.`,
+  priceAnswer: `An SEO consultation costs ${fmtCzk(PRICES.questions)} (approx. €80) per hour, or ${fmtCzk(PRICES.audit)} (approx. €120) with a website audit and a consultation without a time limit. In the audit variant I prepare the audit and the presentation within 2 business days of receiving your website, and then we go through it together. The consultation takes place online or in person in Prague.`,
   priceNote: 'The main price is in Czech koruna; the euro amounts are only an estimate.',
   offers: [
     {
-      id: 'questions',
+      id: 'questions' as const,
       name: 'Answers to your questions',
       duration: '1 hour',
-      cardText: 'For specific questions about SEO or your website. You ask, I answer, and we decide what to do first. You get answers, priorities for the next steps and a short written summary.',
-      cta: 'Book one hour',
+      gets: 'Answers to your questions about your website and SEO and a short written summary after the call',
       prefill: `Interested in: Answers to your questions (${fmtCzk(PRICES.questions)}, 1 hour).`,
-      jsonName: 'Answers to your questions (1 hour)',
-      jsonDescription: 'A consultation on specific questions about SEO or your website',
     },
     {
-      id: 'audit',
+      id: 'audit' as const,
       name: 'Consultation + website audit',
-      duration: 'no time limit',
-      cardText: 'For those who need a plan. I analyse your site, prepare a presentation with growth points and a 12-month plan within 2 business days of receiving your site, and then we go through it on a call.',
-      cta: 'Book consultation with audit',
+      duration: 'No time limit',
+      gets: 'A website audit and a presentation with a 12-month action plan within 2 business days, then a consultation where we go through everything and I answer your questions',
       prefill: `Interested in: Consultation + website audit (${fmtCzk(PRICES.audit)}, 12-month plan).`,
-      jsonName: 'Consultation + website audit',
-      jsonDescription: 'A consultation, a website audit, a presentation and a 12-month plan',
     },
   ],
-  table: {
-    corner: 'Parameter',
-    head: ['Answers to your questions', 'Consultation + website audit'],
-    rows: [
-      ['Price', fmtCzk(PRICES.questions), fmtCzk(PRICES.audit)],
-      ['Duration', '1 hour', 'no time limit'],
-      ['Who it is for', 'specific questions about SEO or your website', 'business owners and teams with a website who need a plan'],
-      ['What you get', 'answers, priorities and a short written summary', 'a presentation with the audit, growth points and a 12-month plan (within 2 business days of receiving your site), then a call'],
-      ['Format', 'online or in person in Prague', 'online or in person in Prague'],
-    ],
-  },
+  table: { head: ['Option', 'Price', 'Duration', 'What you get'] },
+  priceCta: 'I am interested',
 
   forWhomTitle: 'Who is an SEO consultation for?',
   forWhom: [
-    'Business owners who want to understand SEO and get a second opinion on their website.',
-    'Marketing teams and in-house specialists who want to check their direction.',
-    'Website owners planning a redesign or migration.',
+    'For business owners who want an independent view of their website’s SEO.',
+    'For companies before a website redesign: what to keep and what to watch out for.',
+    'For companies before a website migration: how not to lose rankings and traffic.',
+    'For those who first want to understand what to do and only then decide whether to order SEO.',
+    'For international companies: the consultation is held in Czech, English or Russian.',
   ],
-  forWhomAnswer: 'An SEO consultation suits business owners who want to understand SEO, marketing teams and in-house specialists who want to check their direction, and website owners planning a redesign or migration. It is not for those who need the work done for them: implementation is not included, and longer work is covered by the 3-month Start and Full SEO.',
-  forWhomNote: 'A consultation is self-contained: you do not need to sign a long-term contract.',
 
-  includesTitle: 'What is included in an SEO consultation?',
-  includesAnswer: 'The one-hour format gives you answers to your specific questions, priorities for the next steps and a short written summary. The audit format gives you a website analysis before the call, a presentation with growth points and a 12-month plan, and a call to go through everything. GEO/AEO, optimisation for AI search, is covered in both formats.',
-  includesGeoLink: 'Read more about SEO and GEO/AEO',
+  includesTitle: 'What is included in an SEO consultation',
+  includes: <Include[]>[
+    { text: 'A review of your website before the consultation.' },
+    { text: 'The consultation online or in person in Prague.' },
+    { text: 'A website audit and a presentation with a 12-month action plan: in the audit variant, within 2 business days of receiving your website.', catalog: 'Website audit and a presentation with a 12-month action plan' },
+    { text: 'A short written summary after the one-hour consultation.', catalog: 'Short written summary after the one-hour consultation' },
+    { text: 'GEO/AEO: recommendations for optimisation for AI search.', link: { part: 'GEO/AEO', page: 'geo' as const } },
+    { text: 'Multilingual SEO and hreflang, if the website works in several languages.', catalog: 'Multilingual SEO and hreflang' },
+  ],
 
-  stepsTitle: 'How does an SEO consultation work?',
-  stepsAnswer: 'You send your website address and questions, and I review the site before we talk. In the audit format I prepare a presentation within two business days of receiving your site, and then we go through it on a call. After the one-hour format, you receive a short written summary.',
+  stepsTitle: 'How an SEO consultation works',
   steps: [
-    'Send me your website address and your questions through the form.',
-    'I review your site. In the audit format, I prepare a presentation with the audit, growth points and a 12-month plan within 2 business days.',
-    'We talk online or in person in Prague. In the audit format, I present the presentation and answer your questions with no time limit.',
-    'After the one-hour format, you receive a short written summary.',
+    'Send me your website address and your questions. Access to Google Search Console and GA4 allows a more precise analysis.',
+    'A review of your website before the consultation: in the audit variant, I prepare the audit and a presentation with growth points and a 12-month plan within 2 business days.',
+    'The joint consultation online or in person in Prague: in the audit variant, I present the presentation to you and answer your questions with no time limit.',
+    'After the one-hour consultation you receive a short written summary.',
   ],
+  examplesTitle: 'Examples of consultations',
+  examples: [
+    {
+      id: 'questions' as const,
+      title: `Consultation for ${fmtCzk(PRICES.questions)}: answers to your questions`,
+      text: 'The client asks about SEO, I answer. The images show a video call and the feedback after it.',
+      images: [
+        { src: '/images/consulting/call-2000.webp', alt: 'Video call of an SEO consultation, the client’s face is hidden. The caption on the picture (in Russian) says: “I recently had an SEO consultation, he explained where it is best to start in SEO”' },
+        { src: '/images/consulting/review-2000.webp', alt: 'The client’s e-mail feedback after an SEO consultation (original in Russian, names hidden)' },
+      ],
+      translation: [
+        'Translation of the messages in the screenshots (the originals are in Russian, the names are hidden):',
+        '“Dear Arsenii! Thank you for the consultation about SEO in digital marketing. It was very informative for me. I received a lot of valuable, useful information from your experience and practice. I had many questions, and in an hour and a half of talking I got a direction and a practical plan of action for this stage. I wish you success and inspiration in creating your projects.”',
+        '“Thank you, Arsenii! It is very comfortable to talk to you, you are a very tactful interlocutor and a pleasant person. I wish you success in all directions.”',
+      ],
+    },
+    {
+      id: 'audit' as const,
+      title: `Consultation for ${fmtCzk(PRICES.audit)}: a detailed audit and a 12-month plan`,
+      text: 'A sample from the report: where the website loses opportunities, who the real competition is and a 12-month plan.',
+      images: [
+        { src: '/images/consulting/en/audit-3000-1.webp', alt: 'A sample of an SEO audit: the technical base, FAQ and a plan for the year' },
+        { src: '/images/consulting/en/audit-3000-2.webp', alt: 'A sample of an SEO audit: the competition and real opportunities' },
+        { src: '/images/consulting/en/audit-3000-3.webp', alt: 'A sample of an SEO audit: where opportunities are lost' },
+      ],
+      translation: [],
+    },
+  ],
+  examplesNote: 'Client data and faces are hidden. The slides are an English version of a presentation made in Czech.',
 
-  channelsTitle: 'Online or in person in Prague?',
-  channels: 'Both formats are available online or in person in Prague, with the same content and the same price. Most work happens online, with clients in Czechia and abroad. I consult in Czech, English and Russian, and I can work with multilingual websites, including hreflang setup.',
+  languagesTitle: 'In which languages is the consultation held?',
+  languages, // identical to the FAQ answer below (one question = one answer)
 
-  longTermTitle: 'Consultation or ongoing work?',
-  longTermAnswer: 'Choose a consultation if you need direction, a second opinion or a plan that your own team will carry out. Choose the 3-month Start or Full SEO if you want me to do the work. A consultation is self-contained: there is no long-term contract and no obligation to continue afterwards.',
-  longTermIntro: 'If you want the work done for you, see:',
-  formatsTable: {
-    head: ['', 'Consultation', '3-month Start', 'Full SEO (1 year)'],
-    rows: [
-      ['What we do', 'answers or an audit with a 12-month plan, then a call', 'an audit, fixes, keywords and optimisation of your key pages', 'a year of strategy, content, links and technical monitoring, including GEO/AEO'],
-      ['Who it suits', 'those who need direction and will carry out the plan themselves', 'those who want me to build the foundation of the site', 'those who want long-term growth and want me to do the work'],
-    ],
+  compareTitle: 'Consultation, free audit, or Start and Full SEO?',
+  compare: {
+    audit: { before: '', link: 'The free audit', after: ' shows the errors of your website.' },
+    consulting: 'The consultation gives you answers to your questions and a plan, but I do not do the work.',
+    packages: {
+      start: 'Start for 3 months',
+      startPrice: ` (${fmtCzk(START_PRICE)}) and `,
+      full: 'Full SEO for a year',
+      fullPrice: ` (from ${fmtCzk(FULLSEO_MONTHLY)} per month) include implementation: I do the work on your website.`,
+    },
+    outro: { before: 'If a plan and answers are enough for you, choose the consultation. If you want someone to do the work for you, see ', start: 'Start', mid: ' or ', full: 'Full SEO', after: '.' },
   },
 
-  notIncludedTitle: 'What is not included in the consultation?',
-  notIncludedAnswer: 'Implementation on your website, content creation and link buying are not part of the consultation, and there is no long-term contract. I do not guarantee rankings, traffic or enquiries. If you want the work done, the 3-month Start and Full SEO cover implementation, content and technical monitoring.',
-
-  caseTitle: 'What did SEO work change for clients?',
-  caseLabel: 'SEO work',
-  caseText: 'Translation agency with three branches: over four months of SEO work, form and email enquiries in June 2026 were about 8× those of May (the four-month case window). First B2B client and appearances in Google AI Overview.',
-  caseLink: 'Read the case study',
+  caseTitle: 'What an SEO plan can bring',
+  caseText: CASE_LINE.en,
+  caseLink: 'The whole story',
 
   reviewsTitle: 'What clients say',
   reviewsLink: 'All reviews',
 
-  faqTitle: 'Frequently asked questions',
+  faqTitle: 'Frequently asked questions about the SEO consultation',
   faq: [
-    { q: 'How long does an SEO consultation take?', a: 'A one-hour consultation takes one hour. The consultation with an audit has no time limit: I prepare the website analysis and the presentation within two business days of receiving your site, and then we go through it on a call. The free audit is a different, shorter format with its own timing.' },
-    { q: 'What should I prepare for an SEO consultation?', a: 'Send me your website address and the questions you want answered. If you can share access to Google Search Console and GA4, the review is more precise, but it is not required. If you have a redesign, migration or new language version planned, mention it in your message.' },
-    { q: 'Is an SEO consultation worth it?', a: 'It depends on what you need. If you want a second opinion, a priority list or a 12-month plan that your team can carry out, a consultation is a reasonable format. If you want someone to do the work, it is not enough on its own. I cannot promise rankings or results from a consultation.' },
-    { q: 'What do I get from an SEO consultation?', a: 'In the one-hour format you get answers to your questions, priorities and a short written summary. In the audit format you get a presentation with an audit, growth points and a 12-month plan, plus a call. Implementation, content and link buying are not included, and there is no long-term contract.' },
-    { q: 'What is the difference between the free audit and a consultation with an audit?', a: 'The free audit checks only technical errors such as indexing and duplicates, comes as a presentation within 24 hours, and has no call and no obligation. A consultation with an audit is paid, covers growth points and a 12-month plan, and includes a call. Keywords, competitors and maps are not part of the free audit.' },
-    { q: 'Do you work in English with Czech-market websites?', a: 'Yes. I work in Czech, English and Russian, and I can handle Ukrainian content. Many of my projects are multilingual sites for the Czech market, including hreflang setup, and I work with Google and Mapy.com. You can send your questions and the website in English, and I will answer in the same language.' },
-    { q: 'Do you work with businesses outside Prague?', a: 'Yes. Most of the work is online, with clients across Czechia and abroad, and in-person meetings are available in Prague. The content and price of the consultation are the same online and in person, so the choice depends only on what is more convenient for you.' },
+    { q: 'How much does an SEO consultation cost?', a: `${fmtCzk(PRICES.questions)} per hour, or ${fmtCzk(PRICES.audit)} with a website audit and a consultation without a time limit.` },
+    { q: 'How long does the consultation take?', a: `${QUESTIONS_HOURS} hour, or without a limit in the audit variant. I prepare the audit and the presentation within 2 business days of receiving your website, and the consultation takes place only after that.` },
+    { q: 'Is the consultation online, or in person in Prague?', a: 'Both: online, or in person in Prague.' },
+    { q: 'What do I get after the consultation?', a: 'With the one-hour consultation, answers to your questions and a short written summary. With the audit variant, a detailed presentation with the audit, growth points and a 12-month plan, and a consultation where we go through it together.' },
+    { q: 'How is the consultation different from Start for 3 months or Full SEO?', a: 'In a consultation I do not do the work, you get a plan. Start for 3 months and Full SEO include implementation.' },
+    { q: 'In which languages is the consultation held?', a: languages },
   ],
   faqAll: 'All questions',
 
-  formTitle: 'Send an enquiry',
+  formTitle: 'Non-binding enquiry',
 
   otherTitle: 'Other services',
   more: 'Learn more',
-  audit: 'Technical errors of your site: indexing, duplicates and other issues. Free, as a presentation within 24 hours.',
-  geo: 'A site that both Google and ChatGPT can find: SEO and optimisation for AI search together.',
-
-  prefillStart: 'Interested in:',
+  audit: 'Technical errors of your website: indexing, duplicates and other issues. Free, within 24 hours.',
+  geo: 'A website that both Google and ChatGPT can find: SEO and optimisation for AI search together.',
 
   schema: {
     serviceName: 'SEO consultation',
     serviceType: 'SEO consultation',
-    audience: 'Business owners and marketing teams with an existing website',
-    availableLanguage: 'en',
+    audience: 'Business owners, companies before a website redesign or migration',
+    availableLanguage: ['cs', 'en', 'ru'],
     areaServed: [
-      { '@type': 'City', name: 'Prague' },
       { '@type': 'Country', name: 'Czechia' },
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'AdministrativeArea', name: 'European Union' },
     ],
-    onlineChannel: 'Online (video call)',
+    onlineChannel: 'Online',
     cityChannel: 'In person in Prague',
+    catalogName: 'What is included in an SEO consultation',
+    howToName: 'How an SEO consultation works',
   },
 };
