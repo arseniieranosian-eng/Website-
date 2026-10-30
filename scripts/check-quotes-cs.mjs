@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const PAGES = [
   { path: '/konzultace/', dir: 'konzultace', prev: 'Konzultace, audit zdarma, nebo Start a Full SEO?', next: 'Co může SEO plán přinést?', text: 'Konzultace dá odpovědi a plán. Práci za vás neprovádím, a když potřebujete realizaci, řeknu to rovnou.' },
-  { path: '/start-3-mesice/', dir: 'start-3-mesice', prev: 'Jak probíhá SEO start?', next: 'Kdy přijdou první výsledky SEO?', text: 'Start není o rychlých trucích. Je to tři měsíce práce na základu webu: technika, struktura a hlavní stránky, aby měl další růst na čem stát.' },
+  { path: '/start-3-mesice/', dir: 'start-3-mesice', prev: 'Jak probíhá SEO start?', next: 'Kdy přijdou první výsledky SEO?', text: 'Start není jen začátek. Za tři měsíce pokládám pevný základ: audit, plán na 12 měsíců, technické opravy, strukturu webu, obsah a práci s mapami. Na něm může web dál růst.' },
   { path: '/full-seo/', dir: 'full-seo', prev: 'Jak probíhá Full SEO na rok?', next: 'Kdy přijdou první výsledky SEO?', text: 'Rok SEO není sprint. Strategie, čtvrtletní priority a nový obsah každý měsíc se sčítají, proto Full SEO dává smysl tam, kde chcete růst dlouhodobě.' },
   { path: '/lokalni-seo-mapy/', dir: 'lokalni-seo-mapy', prev: 'Jaké metriky z map sleduji?', next: 'Lokální stránky pro pobočky a provozovny', text: 'V mapách nerozhoduje jen pozice. Rozhodují hovory, trasy a návštěvy webu, proto sleduji právě je.' },
 ];

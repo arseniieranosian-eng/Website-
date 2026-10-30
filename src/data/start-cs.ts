@@ -16,7 +16,7 @@ interface Include { text: string; link?: { part: string; page: 'geo' }; catalog?
 export const START_CS = {
   lang: 'cs' as const,
   // The author's quote (after the block named in the brief of 20.10.2026); text word for word in the page and in the Quotation node.
-  quote: 'Start není o rychlých trucích. Je to tři měsíce práce na základu webu: technika, struktura a hlavní stránky, aby měl další růst na čem stát.',
+  quote: 'Start není jen začátek. Za tři měsíce pokládám pevný základ: audit, plán na 12 měsíců, technické opravy, strukturu webu, obsah a práci s mapami. Na něm může web dál růst.',
   h1: 'SEO start na 3 měsíce',
   lead: 'Intenzivní první etapa SEO: po dobu 3 měsíců se naplno věnuji vašemu webu i mapám Google, Mapy.com a Firmy.cz. Technický audit a opravy, struktura podle poptávky, optimalizace hlavních stránek, měření a týdenní reporty. Jsem SEO specialista v Praze.',
   updatedLabel: 'Aktualizováno',
