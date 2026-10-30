@@ -3,8 +3,8 @@
 
 export const TRUST_EN = {
   tiles: [
-    { art: 'visits' as const, value: '1,200 → 10,500', label: 'visits per month (+775 %)', caption: 'print shop, July 2024 → July 2025' },
     { art: 'forms' as const, value: '×24', label: 'enquiries from the form', caption: 'translation agency, spring → summer 2026, from a low base' },
+    { art: 'visits' as const, value: '1,200 → 10,500', label: 'visits per month (+775 %)', caption: 'print shop, July 2024 → July 2025' },
     { art: 'platform' as const, value: '+55 %', label: 'organic traffic', caption: 'new educational platform, March → September 2025' },
     { art: 'markets' as const, value: '4 markets', label: 'Czechia, Russia, Bulgaria, India', caption: 'projects by period in the experience overview' },
     { art: 'langs' as const, value: '4 languages', label: 'of content: cs, en, ru, uk', caption: 'I adapt content, not just translate it' },

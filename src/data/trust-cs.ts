@@ -4,8 +4,8 @@ import { walk } from '../lib/cs-typo';
 
 export const TRUST_CS = walk({
   tiles: [
-    { art: 'visits' as const, value: '1 200 → 10 500', label: 'návštěv za měsíc (+775 %)', caption: 'tiskárna, červenec 2024 → červenec 2025' },
     { art: 'forms' as const, value: '×24', label: 'poptávek z formuláře', caption: 'překladatelská agentura, jaro → léto 2026, od nízké základny' },
+    { art: 'visits' as const, value: '1 200 → 10 500', label: 'návštěv za měsíc (+775 %)', caption: 'tiskárna, červenec 2024 → červenec 2025' },
     { art: 'platform' as const, value: '+55 %', label: 'organické návštěvnosti', caption: 'nová vzdělávací platforma, březen → září 2025' },
     { art: 'markets' as const, value: '4 trhy', label: 'Česko, Rusko, Bulharsko, Indie', caption: 'projekty podle období v přehledu zkušeností' },
     { art: 'langs' as const, value: '4 jazyky', label: 'obsahu: cs, en, ru, uk', caption: 'obsah adaptuji, ne jen překládám' },
