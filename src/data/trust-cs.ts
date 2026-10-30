@@ -9,7 +9,8 @@ export const TRUST_CS = walk({
     { art: 'platform' as const, value: '+55 %', label: 'organické návštěvnosti', caption: 'nová vzdělávací platforma, březen → září 2025' },
     { art: 'markets' as const, value: '4 trhy', label: 'Česko, Rusko, Bulharsko, Indie', caption: 'projekty podle období v přehledu zkušeností' },
     { art: 'langs' as const, value: '4 jazyky', label: 'obsahu: cs, en, ru, uk', caption: 'obsah adaptuji, ne jen překládám' },
+    { art: 'speed' as const, value: '≈ 12 h', label: 'průměrná doba odeslání bezplatného technického auditu', caption: 'odesílám do 24 hodin · bez hovoru, bez závazku' },
   ],
-  note: 'Názvy klientů nezveřejňuji. Počty a procenta jsou relativní data.',
+  note: 'Názvy klientů nezveřejňuji. Počty a procenta jsou relativní data. Průměrná doba odeslání vychází z mých auditů.',
   more: 'Všechny případové studie',
 });

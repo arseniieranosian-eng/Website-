@@ -60,7 +60,7 @@ for (const f of [FORMULAS[2], FORMULAS[4]]) if (!mainTxt.includes(f)) e(`case fo
 if (!mainTxt.includes('Názvy klientů a absolutní čísla nezveřejňuji. Počty a procenta jsou relativní data.')) e('results note');
 // Trust bar right after the hero, before the navigator: five HTML tiles with periods (same data as /o-mne/)
 const tb = main.indexOf('class="trust-bar"');
-if (tb < 0 || !(tb < main.indexOf('Kam dál?')) || !(main.indexOf('class="hero"') < tb) || [...main.matchAll(/<dl class="stats stats--five">[\s\S]*?<\/dl>/g)].length !== 1 || [...(main.match(/<dl class="stats stats--five">[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dd>/g)].length !== 5) e('trust bar: five tiles right after the hero, before "Kam dál?"');
+if (tb < 0 || !(tb < main.indexOf('Kam dál?')) || !(main.indexOf('class="hero"') < tb) || [...main.matchAll(/<dl class="stats stats--five">[\s\S]*?<\/dl>/g)].length !== 1 || [...(main.match(/<dl class="stats stats--five">[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dd>/g)].length !== 6) e('trust bar: six tiles right after the hero, before "Kam dál?"');
 if (/Výsledky v číslech<\/h2>/.test(main)) e('no old numbers heading');
 // The same formulas live on the case pages / the Start page (one source)
 if (!txt(readFileSync('dist/pripadove-studie/seo-v-nizke-sezone/index.html', 'utf8')).includes(FORMULAS[1])) e('season page: formula differs from the home page');

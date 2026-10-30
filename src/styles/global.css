@@ -737,3 +737,4 @@ ul, ol { margin-bottom: var(--flow); }
 .post-cta .post-cta__text { margin: 0 0 18px; color: #dbe3f7; max-width: 60ch; }
 .post-cta .btn-row { margin: 0; }
 @media (min-width: 900px) { .post-cta { padding: 36px 40px; } }
+@media (min-width: 700px) { .stats--five:has(> div:nth-child(6)) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

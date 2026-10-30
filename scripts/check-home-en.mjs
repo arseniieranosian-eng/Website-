@@ -53,7 +53,7 @@ if (!mainTxt.includes('I check technical errors such as indexing and duplicate p
 // Trust bar: the same 5 tiles as on the Czech and Russian home pages (since 29.10.2026), with periods, right after the hero
 const tb = main.indexOf('class="trust-bar"');
 const tiles = [...(main.match(/<dl class="stats[^"]*">[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dt>([\s\S]*?)<\/dt><dd>([^<]*)<\/dd>/g)].map((m) => txt(m[1]) + ' | ' + norm(m[2]));
-if (tb < 0 || !(main.indexOf('class="hero') < tb) || tb > main.indexOf('Which service fits you?') || tiles.length !== 5) e('trust bar: five HTML tiles right after the hero');
+if (tb < 0 || !(main.indexOf('class="hero') < tb) || tb > main.indexOf('Which service fits you?') || tiles.length !== 6) e('trust bar: six HTML tiles right after the hero');
 const need = ['print shop, July 2024 → July 2025', 'translation agency, spring → summer 2026, from a low base', 'new educational platform, March → September 2025', 'Czechia, Russia, Bulgaria, India', 'I adapt content, not just translate it'];
 for (const n of need) if (!tiles.some((x) => x.includes(n))) e(`trust tile: ${n}`);
 if (!tiles.some((x) => /\+775/.test(x)) || !tiles.some((x) => /×24/.test(x)) || !tiles.some((x) => /\+55/.test(x))) e('trust tile figures');
