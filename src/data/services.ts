@@ -76,9 +76,9 @@ export const SERVICES: Service[] = [
       ru: ['Полный технический аудит и исправления', 'Анализ ключевых слов и конкурентов', 'Проект структуры сайта', 'Оптимизация главных страниц', 'Настройка GA4 и Google Search Console', 'Ежемесячный отчёт и созвон'],
     },
     process: {
-      cs: ['1. měsíc: audit, analýza a plán', '2. měsíc: technické opravy a struktura', '3. měsíc: obsah, optimalizace a vyhodnocení'],
-      en: ['Month 1: audit, research and plan', 'Month 2: technical fixes and structure', 'Month 3: content, optimisation and review'],
-      ru: ['1-й месяц: аудит, анализ и план', '2-й месяц: технические исправления и структура', '3-й месяц: контент, оптимизация и итоги'],
+      cs: ['1. měsíc: audit, analýza, plán na 12 měsíců, technické opravy, struktura webu a mapy', '2. měsíc: obsah a optimalizace stránek podle dotazů klientů', '3. měsíc: škálování, odkazy, vyhodnocení a plán dalších kroků'],
+      en: ['Month 1: audit, keyword and competitor research, 12-month plan, technical fixes, site structure, maps work', 'Month 2: content and page optimisation for your clients’ queries', 'Month 3: scaling the reach, links, review and the plan ahead'],
+      ru: ['1-й месяц: аудит, анализ, план на 12 месяцев, технические исправления, структура сайта и карты', '2-й месяц: контент и оптимизация страниц под запросы клиентов', '3-й месяц: масштабирование, ссылки, итоги и план дальше'],
     },
     duration: { cs: `${fmtKc(START_PRICE)} · 3 měsíce`, en: '3 months', ru: `${fmtKc(START_PRICE)} · 3 месяца` },
     related: ['fullSeo', 'maps'],

@@ -79,9 +79,9 @@ export const START_CS = {
   stagesTitle: 'Jak probíhá SEO start',
   // The same strings are shown in the numbered list and emitted as HowToStep name/text (word for word).
   stages: [
-    { name: 'Měsíc 1', text: 'Audit, analýza a plán (včetně auditu profilů na mapách).' },
-    { name: 'Měsíc 2', text: 'Technické opravy a struktura webu (včetně optimalizace profilů na mapách).' },
-    { name: 'Měsíc 3', text: 'Obsah, optimalizace hlavních stránek a vyhodnocení.' },
+    { name: 'Měsíc 1', text: 'Audit, analýza klíčových slov a konkurence, plán na 12 měsíců, technické opravy, struktura webu a spuštění práce s mapami.' },
+    { name: 'Měsíc 2', text: 'Obsah a optimalizace stránek podle dotazů vašich klientů.' },
+    { name: 'Měsíc 3', text: 'Škálování: rozšiřujeme pokrytí dotazů vašich klientů, aby web našlo víc lidí než jen ti, kdo hledají přímo stránky služeb. Víc lidí, víc šancí na poptávky. Odkazy, vyhodnocení a plán dalších kroků.' },
   ],
   weekly: 'Každý týden dostanete report.',
 
