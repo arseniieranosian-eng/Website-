@@ -5,6 +5,7 @@ import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import AudienceArt from '../components/AudienceArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -68,7 +69,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
   <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.forWhomTitle}</h2>
-      <ul class="checks">{C.forWhom.map((x) => <li>{x}</li>)}</ul>
+      <ul class="checks audience">{C.forWhom.map((x, i) => <li><AudienceArt kind={['newsite', 'nosystem', 'redesign', 'maps'][i]} /><span>{x}</span></li>)}</ul>
     </div>
   </section>
 

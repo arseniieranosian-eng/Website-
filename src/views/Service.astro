@@ -11,6 +11,7 @@ import StartHeroArt from '../components/StartHeroArt.astro';
 import FullHeroArt from '../components/FullHeroArt.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import Icon from '../components/Icon.astro';
+import AudienceArt from '../components/AudienceArt.astro';
 import { META } from '../i18n/meta';
 import { path, type Lang, type ServiceKey } from '../i18n/routes';
 import GeoNote from '../components/GeoNote.astro';
@@ -52,7 +53,7 @@ const C = {
       <div class="grid grid-2">
         <div class="card">
           <h2>{C.forWhom}</h2>
-          <ul class="checks">{s.forWhom[lang].map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+          {s.key === 'start' ? <ul class="checks audience">{s.forWhom[lang].map((x, i) => <li><AudienceArt kind={['newsite', 'nosystem', 'redesign', 'maps'][i]} /><span>{x}</span></li>)}</ul> : <ul class="checks">{s.forWhom[lang].map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>}
         </div>
         <div class="card">
           <h2>{C.includes}</h2>

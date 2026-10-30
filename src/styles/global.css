@@ -723,3 +723,8 @@ ul, ol { margin-bottom: var(--flow); }
 .review__proof { display: block; width: 100%; height: auto; margin-top: 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); }
 .examples__translation { margin-top: 12px; }
 .examples__translation p { margin: 0 0 0.6em; }
+.checks.audience { gap: 14px; }
+.checks.audience li { align-items: center; gap: 16px; }
+.checks.audience li::before { display: none; }
+.audience-art { flex: none; }
+@media (max-width: 640px) { .audience-art { width: 64px; height: 37px; } }
