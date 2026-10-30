@@ -36,7 +36,7 @@ if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.st
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing link ${l}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 if (/<form|<video|★|AggregateRating|ratingValue|\[\?\]/.test(main)) e('no form / video / stars / [?] markers');
-if ((main.match(/href="\/audit-zdarma\/"/g) || []).length !== 1) e('free audit: exactly one soft link');
+if ((main.match(/href="\/audit-zdarma\/"/g) || []).length !== 2) e('free audit: one soft link and the closing CTA button');
 if (!/<img class="post-cover" src="\/images\/blog\/seo-a-reklama\.webp" width="1200" height="630" alt="Ilustrace:[^"]+"/.test(main) || main.indexOf('post-cover') > main.indexOf('<h1')) e('cover illustration before the H1');
 if (!/<a class="card card--link post-card" href="\/blog\/proc-se[^>]*>\s*<img class="post-card-img"/.test(readFileSync('dist/blog/index.html', 'utf8'))) e('blog card with the cover');
 // Byline
@@ -83,7 +83,7 @@ if (!q2n || q2n.text !== Q2) e('Quotation #2');
 const ppc = g.find((n) => n['@id'] === `${U}#ppc`);
 if (!ppc || ppc.name !== 'Ilya Naumuk' || !ppc.sameAs.includes('https://www.instagram.com/naum_official')) e('PPC specialist Person node');
 if (!/<a class="btn btn--primary btn--lg" href="\/start-3-mesice\/">SEO start na 3 měsíce<\/a>/.test(main) || !/btn btn--secondary btn--lg" href="\/konzultace\/">Domluvit konzultaci/.test(main)) e('closing buttons: Start (primary) + consultation');
-if (/class="btn[^"]*" href="\/audit-zdarma\/"/.test(main)) e('free audit is a soft text link, not a button');
+if ((main.match(/class="btn[^"]*" href="\/audit-zdarma\/"/g) || []).length !== 1) e('free audit: the closing CTA is the only button');
 if (!/relatedLink/.test(JSON.stringify(g)) || post.relatedLink !== `${BASE}/start-3-mesice/`) e('relatedLink → Start');
 // Length (brief: 1 200–1 600 words is the target; flag only when far off)
 const wc = mainTxt.split(/\s+/).length;

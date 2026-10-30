@@ -2,6 +2,7 @@
 // Blog article N3 "Má SEO smysl pro malou realitní kancelář?" (cs), brief of 23.10.2026. Content: data/post-realty-small-cs.ts.
 // Published 24. 10. 2026 (the author's date): the visible "Aktualizováno" and dateModified never precede it. The quote is confirmed; no observations, no portal names, no figures.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -110,9 +111,10 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.endTitle}</h2>
       <p>{C.endText}</p>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <PostCta lang={lang} postKey="postRealtySmall" />
       <p>{C.endConsulting}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>.</p>
       <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
     </div>
   </section>
+
 </Base>

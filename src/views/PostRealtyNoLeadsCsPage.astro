@@ -2,6 +2,7 @@
 // Blog article N2 "Proč web realitní kanceláře nepřináší poptávky?" (cs), brief of 23.10.2026. Content: data/post-realty-noleads-cs.ts.
 // The quote is shown only when QUOTE_CONFIRMED is true; no observations, no portal names, no figures.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -118,10 +119,11 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.endTitle}</h2>
       <p>{C.endText}</p>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <PostCta lang={lang} postKey="postRealtyNoLeads" />
       <p>{C.endConsulting}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>.</p>
       <p>{C.landingLead}{' '}<a href={t('nicheRealty')}>{C.landingLinkText}</a>.</p>
       <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
     </div>
   </section>
+
 </Base>

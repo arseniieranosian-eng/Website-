@@ -1,6 +1,7 @@
 ---
 // Blog article U1 "Jak získat klienty pro účetní kancelář: přehled kanálů" (cs), brief of 24.10.2026. Content: data/post-accounting-channels-cs.ts.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -111,8 +112,9 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <h2>{C.endTitle}</h2>
       <p>{C.endText}{' '}<a href={t('nicheAccounting')}>{C.endLandingLink}</a>.</p>
       <p>{C.endAudit}</p>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <PostCta lang={lang} postKey="postAccountingChannels" />
       <p>{C.endConsulting}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>. {C.endGrow}{' '}<a href={t('start')}>{C.endStart}</a>{' '}{C.endOr}{' '}<a href={t('fullSeo')}>{C.endFull}</a>.</p>
     </div>
   </section>
+
 </Base>

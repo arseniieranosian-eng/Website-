@@ -732,3 +732,8 @@ ul, ol { margin-bottom: var(--flow); }
 .stage-art { flex: none; }
 @media (min-width: 900px) { .steps--art li > .stage-art { order: -1; } .steps--art li { gap: 12px; } }
 @media (max-width: 899px) { .steps--art li { align-items: center; } .stage-art { width: 72px; height: 42px; } }
+.post-cta { margin: 1.5em 0 0.5em; padding: 28px 24px; border-radius: var(--radius); background: var(--navy); color: var(--white); }
+.post-cta .post-cta__title { margin: 0 0 8px; font-size: 1.5rem; line-height: 1.25; font-weight: 700; color: var(--white); }
+.post-cta .post-cta__text { margin: 0 0 18px; color: #dbe3f7; max-width: 60ch; }
+.post-cta .btn-row { margin: 0; }
+@media (min-width: 900px) { .post-cta { padding: 36px 40px; } }

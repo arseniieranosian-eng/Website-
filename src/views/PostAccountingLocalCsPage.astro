@@ -2,6 +2,7 @@
 // Blog article U5 "Jak má účetní kancelář vypadat na mapách a v katalozích?" (cs), brief of 26.10.2026. Content: data/post-accounting-local-cs.ts.
 // Informational: no prices, no CTA, no audit link, no link to the maps service; the closing block is one link to the landing page.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -110,6 +111,13 @@ const minutes = Math.max(3, Math.ceil(words / 200));
         <li><a href={t('postAccountingNoLeads')}>{META.postAccountingNoLeads.cs.h1}</a></li>
       </ul>
       <p class="muted">{C.endText}{' '}<a href={t('nicheAccounting')}>{C.endLinkText}</a>. {C.endText2}</p>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container narrow">
+      <PostCta lang={lang} postKey="postAccountingLocal" />
     </div>
   </section>
 </Base>

@@ -2,6 +2,7 @@
 // Blog article N8 "Jak má realitní kancelář vypadat na mapách a v katalozích?" (cs), brief of 25.10.2026. Content: data/post-realty-local-cs.ts.
 // Informational: no prices, no CTA, no link to the maps service; the closing block is one link to the landing page.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -112,6 +113,13 @@ const OG = '/images/blog/og-lokalni-pritomnost-realitni-kancelare.png';
         <li><a href={t('postRealtyListings')}>{C.relatedListingsText}</a></li>
       </ul>
       <p class="muted">{C.endText}{' '}<a href={t('nicheRealty')}>{C.endLinkText}</a>. {C.endText2}</p>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container narrow">
+      <PostCta lang={lang} postKey="postRealtyLocal" />
     </div>
   </section>
 </Base>

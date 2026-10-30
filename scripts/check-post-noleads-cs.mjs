@@ -36,7 +36,7 @@ if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.st
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing link ${l}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 if (/<form|<video|★|AggregateRating|ratingValue|\[\?\]/.test(main)) e('no form / video / stars / [?] markers');
-if ((main.match(/href="\/audit-zdarma\/"/g) || []).length < 2) e('audit links');
+if ((main.match(/href="\/audit-zdarma\/"/g) || []).length < 1) e('audit links');
 if (!/<img class="post-cover" src="\/images\/blog\/proc-prekladatelska-agentura-nema-poptavky\.webp" width="1200" height="630" alt="Ilustrace:[^"]+"/.test(main) || main.indexOf('post-cover') > main.indexOf('<h1')) e('cover illustration before the H1');
 if (!/<a class="card card--link post-card" href="\/blog\/proc-se[^>]*>\s*<img class="post-card-img"/.test(readFileSync('dist/blog/index.html', 'utf8'))) e('blog card with the cover');
 // Byline

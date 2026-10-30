@@ -40,9 +40,9 @@ if (/<form|<video|★|ratingValue|\[\?\]/.test(main)) e('no form / video / stars
 if (/seo-dlya-agentstv|seo-dlya-perevodcheskih|\/ru\/blog\/(?!kak-poluchit)/.test(main.replace(/href="\/ru\/blog\/"/g, ''))) e('no links to other niches / posts (F2–F4 do not exist yet)');
 if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt)) e('"агентство" about the author');
 const cnt = (re) => (main.match(re) || []).length;
-if (cnt(/href="\/ru\/besplatnyj-audit\/"/g) !== 2) e(`audit links: ${cnt(/href="\/ru\/besplatnyj-audit\/"/g)} (text, CTA)`);
+if (cnt(/href="\/ru\/besplatnyj-audit\/"/g) !== 1) e(`audit links: ${cnt(/href="\/ru\/besplatnyj-audit\/"/g)} (text)`);
 if (cnt(/href="\/ru\/konsultacii\/"/g) !== 1) e('consulting link once');
-if (cnt(/href="\/ru\/seo-dlya-finansovyh-konsultantov-chehiya\/"/g) < 1 || cnt(/href="\/ru\/seo-dlya-finansovyh-konsultantov-chehiya\/"/g) > 2) e('landing link 1–2 times');
+if (cnt(/href="\/ru\/seo-dlya-finansovyh-konsultantov-chehiya\/"/g) < 1 || cnt(/href="\/ru\/seo-dlya-finansovyh-konsultantov-chehiya\/"/g) > 3) e('landing link 1–3 times');
 if (cnt(/class="btn btn--primary/g) !== 1) e('one audit button (the final CTA)');
 if (!/<img class="post-cover" src="\/images\/blog\/kak-poluchit-klientov-finansovomu-konsultantu\.webp" width="1200" height="630" alt="Иллюстрация:[^"]+"/.test(main) || main.indexOf('post-cover') > main.indexOf('<h1')) e('cover illustration before the H1');
 if (!/Автор: <a href="\/ru\/obo-mne\/">Арсений Ераносьян<\/a> · Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time> · Чтение: \d+ мин/.test(h)) e('byline');

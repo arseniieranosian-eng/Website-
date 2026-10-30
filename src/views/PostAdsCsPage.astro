@@ -2,6 +2,7 @@
 // Blog article "SEO a reklama: proč reklama funguje lépe na optimalizovaném webu" (cs), brief of 21.10.2026. Content: data/post-ads-cs.ts.
 // Main CTA: SEO start na 3 měsíce (+ consultation); the free audit is only a soft text link, not a button.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import IndexIllustration from '../components/IndexIllustration.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
@@ -127,6 +128,13 @@ const minutes = Math.max(3, Math.ceil(words / 200));
         <a class="btn btn--secondary btn--lg" href={t('consulting')}>{C.ctaConsult}</a>
       </div>
       <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container narrow">
+      <PostCta lang={lang} postKey="postAds" />
     </div>
   </section>
 </Base>

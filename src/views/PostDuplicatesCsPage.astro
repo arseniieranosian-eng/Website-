@@ -2,6 +2,7 @@
 // Blog article "Duplicitní obsah: co to je, jak ho poznat a jak ho vyřešit" (cs), brief of 21.10.2026. Content: data/post-duplicates-cs.ts.
 // One main CTA (free audit). Links to funnel articles 2 (redesign) and 3 are added when they exist.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import IndexIllustration from '../components/IndexIllustration.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
@@ -123,10 +124,11 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.endTitle}</h2>
       <p>{C.endText}</p>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <PostCta lang={lang} postKey="postDuplicates" />
       <p>{C.nextLead} <a class="link-arrow" href={t('postSeoAudit')}>{C.nextLinkText}</a></p>
       <p>{C.chooseLead} <a class="link-arrow" href={t('postChoose')}>{C.chooseLinkText}</a></p>
       <p class="muted">{C.authorNote} <a href={t('about')}>{C.authorLinkText}</a>.</p>
     </div>
   </section>
+
 </Base>

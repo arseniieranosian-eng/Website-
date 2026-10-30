@@ -40,8 +40,8 @@ if (/seo-pro-prekladatelske|seo-pro-realitni|\/blog\/(?!jak-ziskat)[a-z]/.test(m
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 const cnt = (re) => (main.match(re) || []).length;
-if (cnt(/href="\/seo-pro-ucetni-kancelare-praha\/"/g) !== 2) e('landing link twice');
-if (cnt(/href="\/audit-zdarma\/"/g) !== 2) e(`audit links: ${cnt(/href="\/audit-zdarma\/"/g)} (step 7 and the closing button)`);
+if (cnt(/href="\/seo-pro-ucetni-kancelare-praha\/"/g) !== 3) e('landing link: text links and the closing CTA');
+if (cnt(/href="\/audit-zdarma\/"/g) !== 1) e(`audit links: ${cnt(/href="\/audit-zdarma\/"/g)} (step 7)`);
 if (cnt(/href="\/konzultace\/"/g) !== 1 || cnt(/href="\/start-3-mesice\/"/g) !== 1 || cnt(/href="\/full-seo\/"/g) !== 1) e('consulting / Start / Full SEO once each');
 if (cnt(/href="\/lokalni-seo-mapy\/"/g) < 2) e('maps link in the table and in the maps section');
 if (cnt(/class="btn btn--primary/g) !== 1) e('one audit button');

@@ -1,6 +1,7 @@
 ---
 // Blog article F1 "Как получить клиентов финансовому консультанту в Чехии: обзор каналов" (ru), brief of 24.10.2026. Content: data/post-finance-channels-ru.ts.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -108,8 +109,9 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.endTitle}</h2>
       <p>{C.endText}</p>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.cta}</a></div>
+      <PostCta lang={lang} postKey="postFinanceChannels" />
       <p>{C.endNote}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>.</p>
     </div>
   </section>
+
 </Base>

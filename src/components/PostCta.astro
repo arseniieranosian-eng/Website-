@@ -1,0 +1,46 @@
+---
+// Closing call to action of a blog article: a full block with one button to the page the article's funnel leads to
+// (the funnel is the article's group on the blog index, see BLOG_GROUPS). Texts: no prices, no guarantees.
+import { path, type Lang, type PageKey } from '../i18n/routes';
+import { BLOG_GROUPS } from '../data/blog-posts';
+interface Props { lang: Lang; postKey: PageKey }
+const { lang, postKey } = Astro.props;
+const gid = BLOG_GROUPS.find((g) => (g.keys as string[]).includes(postKey))?.id ?? 'audit';
+type Cta = { target: PageKey; title: string; text: string; button: string };
+const CTA: Record<string, Record<'cs' | 'ru', Cta>> = {
+  audit: {
+    cs: { target: 'audit', title: 'Chcete vědět, jak je na tom váš web?', text: 'Pošlete adresu webu a do 24 hodin dostanete prezentaci s nalezenými technickými chybami a doporučeními.', button: 'Získat bezplatný audit webu' },
+    ru: { target: 'audit', title: 'Хотите знать, как дела у вашего сайта?', text: 'Пришлите адрес сайта: в течение 24 часов вы получите презентацию с найденными техническими ошибками и рекомендациями.', button: 'Получить бесплатный аудит сайта' },
+  },
+  consulting: {
+    cs: { target: 'consulting', title: 'Chcete si web a plán projít s odborníkem?', text: 'Na SEO konzultaci společně projdeme váš web a vaše otázky a dostanete konkrétní doporučení.', button: 'Objednat SEO konzultaci' },
+    ru: { target: 'consulting', title: 'Хотите разобрать сайт и план со специалистом?', text: 'На SEO-консультации мы вместе разберём ваш сайт и ваши вопросы, и вы получите конкретные рекомендации.', button: 'Заказать SEO-консультацию' },
+  },
+  choose: {
+    cs: { target: 'audit', title: 'Nevíte, čím začít?', text: 'Pošlete adresu webu. Bezplatný audit ukáže, kde jsou největší problémy a jaký krok dává smysl jako první.', button: 'Získat bezplatný audit webu' },
+    ru: { target: 'audit', title: 'Не знаете, с чего начать?', text: 'Пришлите адрес сайта. Бесплатный аудит покажет, где главные проблемы и какой шаг имеет смысл сделать первым.', button: 'Получить бесплатный аудит сайта' },
+  },
+  translation: {
+    cs: { target: 'nicheTranslation', title: 'Hledáte SEO pro překladatelskou agenturu?', text: 'Na stránce o SEO pro překladatelské agentury najdete postup práce, případovou studii a další kroky.', button: 'SEO pro překladatelské agentury' },
+    ru: { target: 'nicheTranslation', title: 'Нужно SEO для переводческого агентства?', text: 'На странице о SEO для переводческих агентств — порядок работы, кейс и следующие шаги.', button: 'SEO для переводческих агентств' },
+  },
+  realty: {
+    cs: { target: 'nicheRealty', title: 'Hledáte SEO pro realitní kancelář?', text: 'Na stránce o SEO pro realitní kanceláře najdete postup práce, rozbor webu a další kroky.', button: 'SEO pro realitní kanceláře' },
+    ru: { target: 'nicheRealty', title: 'Нужно SEO для агентства недвижимости?', text: 'На странице о SEO для агентств недвижимости — порядок работы, разбор сайта и следующие шаги.', button: 'SEO для агентств недвижимости' },
+  },
+  accounting: {
+    cs: { target: 'nicheAccounting', title: 'Hledáte SEO pro účetní kancelář?', text: 'Na stránce o SEO pro účetní kanceláře najdete postup práce, moje pozorování webů a další kroky.', button: 'SEO pro účetní kanceláře' },
+    ru: { target: 'nicheAccounting', title: 'Нужно SEO для бухгалтерской фирмы?', text: 'На странице о SEO для бухгалтерских фирм — порядок работы, мои наблюдения по сайтам и следующие шаги.', button: 'SEO для бухгалтерских фирм' },
+  },
+  finance: {
+    cs: { target: 'nicheFinance', title: 'Hledáte SEO pro finančního poradce?', text: 'Na stránce o SEO pro finanční poradce najdete postup práce, moje pozorování webů a další kroky.', button: 'SEO pro finanční poradce' },
+    ru: { target: 'nicheFinance', title: 'Нужно SEO для финансового консультанта?', text: 'На странице о SEO для финансовых консультантов — порядок работы, мои наблюдения по сайтам и следующие шаги.', button: 'SEO для финансовых консультантов' },
+  },
+};
+const c = CTA[gid][lang === 'ru' ? 'ru' : 'cs'];
+---
+<div class="post-cta">
+  <p class="post-cta__title">{c.title}</p>
+  <p class="post-cta__text">{c.text}</p>
+  <div class="btn-row"><a class="btn btn--primary btn--lg" href={path(c.target, lang)}>{c.button}</a></div>
+</div>

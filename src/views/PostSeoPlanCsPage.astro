@@ -2,6 +2,7 @@
 // Blog article K3 "Jak vypadá SEO plán na 12 měsíců a co má obsahovat?" (cs), brief of 26.10.2026. Content: data/post-seo-plan-cs.ts.
 // Informational: no prices, no CTA, no audit link, the closing block is one link to the landing page.
 import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -116,6 +117,13 @@ const minutes = Math.max(3, Math.ceil(words / 200));
         <li><a href={t('postChoose')}>{META.postChoose.cs.h1}</a></li>
       </ul>
       <p class="muted">{C.endBefore}{' '}<a href={t('consulting')}>{C.endLinkText}</a>.</p>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container narrow">
+      <PostCta lang={lang} postKey="postSeoPlan" />
     </div>
   </section>
 </Base>
