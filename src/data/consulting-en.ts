@@ -54,7 +54,7 @@ export const CONSULTING_EN = {
     'For international companies: the consultation is held in Czech, English or Russian.',
   ],
 
-  includesTitle: 'What is included in an SEO consultation',
+  includesTitle: 'What is included in an SEO consultation?',
   includes: <Include[]>[
     { text: 'A review of your website before the consultation.' },
     { text: 'The consultation online or in person in Prague.' },

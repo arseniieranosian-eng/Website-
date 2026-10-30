@@ -75,7 +75,7 @@ const raw = {
     'Přímé poptávky: poptávky pro realitní kancelář přicházejí i mimo portály, pokud má web co ukázat.',
   ],
   whyText: 'Pořadí na portálech neurčuje váš web. Vlastní web si budujete sami a výsledky zůstávají vám.',
-  market: NICHE_REALTY_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Prahu', paragraphs: NICHE_REALTY_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_REALTY_MARKET.checked } : null,
+  market: NICHE_REALTY_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Prahu?', paragraphs: NICHE_REALTY_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_REALTY_MARKET.checked } : null,
 
   doTitle: 'Co pro realitní kancelář v Praze konkrétně dělám?',
   doAnswer: 'Pro realitní kancelář v Praze upravuji stránky nabídek a čtvrtí, hlídám indexaci, duplicity z filtrů a zastaralé nabídky, připravuji obsah i pro AI odpovědi a pracuji s profily na Google Maps a Mapy.com. Začínám kontrolou technických chyb a postupuji podle toho, co ukáže.',

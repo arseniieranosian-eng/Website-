@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/start-3-mesice/';
 const H1 = 'SEO start na 3 měsíce';
-const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu', 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku', 'Jak probíhá SEO start', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům', 'Co říkají klienti', 'Související články', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu?', 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku', 'Jak probíhá SEO start?', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům?', 'Co říkají klienti?', 'Související články', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['agentura Praha', 'SEO agentura', 'měsíční report', '4–8 týdnů', 'Jak probíhá spolupráce', 'Marketingové týmy', 'in-house'];
 // Wording of the maps item of the OfferCatalog is fixed by the brief (merges the three map bullets).

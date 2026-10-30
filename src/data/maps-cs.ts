@@ -56,7 +56,7 @@ export const MAPS_CS = {
     'Pro podniky v jakémkoli městě v Česku i v EU: pracuji na dálku.',
   ],
 
-  includesTitle: 'Co je součástí propagace v mapách',
+  includesTitle: 'Co je součástí propagace v mapách?',
   // The OfferCatalog in JSON-LD is built from these items (first sentence, or the `catalog` wording).
   includes: <Include[]>[
     { text: 'Založení nebo optimalizace profilu Google Business Profile.' },
@@ -77,7 +77,7 @@ export const MAPS_CS = {
   metricsAnswer: 'Sleduji tři metriky: hovory, trasy a prokliky na web z map. Právě podle nich se počítá výsledek práce.',
   metrics: ['Hovory z map Google a Mapy.com.', 'Trasy k vaší provozovně.', 'Prokliky na web z map.'],
   metricsExtra: 'Navíc: vývoj recenzí a pozic v mapách.',
-  branchesTitle: 'Jak vypadá vývoj metrik po pobočkách',
+  branchesTitle: 'Jak vypadá vývoj metrik po pobočkách?',
   branchesText: 'Příklad vývoje metrik z map u jednotlivých poboček, od dubna do září.',
   branchImages: [
     { src: '/images/maps/branch-brno.webp', alt: 'Vývoj metrik z map, pobočka Brno: výrazný nárůst přes léto, na podzim mírný pokles nad úrovní dubnového startu' },
@@ -96,7 +96,7 @@ export const MAPS_CS = {
     'Prolinkování s ostatními stránkami webu.',
   ],
 
-  stagesTitle: 'Jak probíhá propagace v mapách',
+  stagesTitle: 'Jak probíhá propagace v mapách?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   stages: [
     'Audit stávajících profilů a konkurence.',
@@ -120,7 +120,7 @@ export const MAPS_CS = {
     outro: '. Profily bez omezení počtu, metriky stejné.',
   },
 
-  reviewsTitle: 'Co říkají klienti',
+  reviewsTitle: 'Co říkají klienti?',
   reviewsLink: 'Všechny reference',
 
   // "Související články": posts that help to decide on local promotion and to prepare the website behind it.
@@ -155,8 +155,8 @@ export const MAPS_CS = {
     serviceType: 'Lokální SEO, propagace v mapách',
     offerName: 'Propagace na Google Maps a Mapy.com',
     audience: 'Firmy s kamennou provozovnou, terénní specialisté a firmy s více pobočkami',
-    catalogName: 'Co je součástí propagace v mapách',
-    howToName: 'Jak probíhá propagace v mapách',
+    catalogName: 'Co je součástí propagace v mapách?',
+    howToName: 'Jak probíhá propagace v mapách?',
     availableLanguage: ['cs', 'en', 'ru'],
     areaServed: [
       { '@type': 'Country', name: 'Česko' },

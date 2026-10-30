@@ -38,7 +38,7 @@ export const FULLSEO_CS = {
     'Pro podniky, kterým záleží na hovorech z map Google, Mapy.com a Firmy.cz.',
   ],
 
-  includesTitle: 'Co je v ceně Full SEO na rok',
+  includesTitle: 'Co je v ceně Full SEO na rok?',
   groups: [
     {
       title: 'Práce na webu',
@@ -79,7 +79,7 @@ export const FULLSEO_CS = {
     after: `: od ${MAPS_MIN_MONTHS} měsíců, s platbou za výsledek.`,
   },
 
-  stagesTitle: 'Jak probíhá Full SEO na rok',
+  stagesTitle: 'Jak probíhá Full SEO na rok?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   stages: [
     'Audit a roční strategie.',
@@ -141,8 +141,8 @@ export const FULLSEO_CS = {
     alternateName: 'Celoroční SEO',
     serviceType: 'Komplexní SEO služby',
     audience: 'Firmy, pro které je web hlavním zdrojem poptávek, e-shopy a služby v konkurenčních oborech',
-    catalogName: 'Co je v ceně Full SEO na rok',
-    howToName: 'Jak probíhá Full SEO na rok',
+    catalogName: 'Co je v ceně Full SEO na rok?',
+    howToName: 'Jak probíhá Full SEO na rok?',
     availableLanguage: ['cs', 'en', 'ru'],
     areaServed: [
       { '@type': 'Country', name: 'Česko' },

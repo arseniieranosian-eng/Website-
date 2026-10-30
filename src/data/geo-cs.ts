@@ -48,7 +48,7 @@ export const GEO_CS = {
   googleAnswer: 'Google ve své dokumentaci uvádí, že pro zobrazení v AI Overviews a AI Mode nejsou potřeba žádné zvláštní podmínky ani zvláštní značení a že platí běžné zásady SEO. Proto GEO/AEO nestavím proti SEO, ale na jeho základu.',
   googleLink: { text: 'oficiální dokumentace Google', href: 'https://developers.google.com/search/docs/appearance/ai-features', prefix: 'Zdroj: ' },
 
-  doTitle: 'Co konkrétně dělám pro GEO/AEO',
+  doTitle: 'Co konkrétně dělám pro GEO/AEO?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   steps: [
     'Audit viditelnosti v AI: které otázky testovat a které značky AI doporučuje.',
@@ -63,7 +63,7 @@ export const GEO_CS = {
 
   separateTitle: 'Platím za GEO/AEO zvlášť?',
   separateAnswer: 'Ne. GEO/AEO je součástí každé služby, není to samostatný balíček ani samostatná cena.',
-  includedTitle: 'Kde je GEO/AEO zahrnuto',
+  includedTitle: 'Kde je GEO/AEO zahrnuto?',
   included: [
     { text: 'Konzultace: doporučení pro GEO/AEO', link: 'Konzultace', page: 'consulting' as const },
     { text: 'Start na 3 měsíce', link: 'Start na 3 měsíce', page: 'start' as const },
@@ -119,7 +119,7 @@ export const GEO_CS = {
 
   schema: {
     termSetName: 'GEO a AEO',
-    howToName: 'Co konkrétně dělám pro GEO/AEO',
+    howToName: 'Co konkrétně dělám pro GEO/AEO?',
     geoAlt: 'Generative Engine Optimization',
     aeoAlt: 'Answer Engine Optimization',
   },

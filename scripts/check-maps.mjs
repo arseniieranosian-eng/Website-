@@ -4,9 +4,9 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/karty/';
 const H1 = 'Локальное SEO: Google Maps и Mapy.com';
-const SECTIONS = [H1, 'Сколько стоит продвижение в Google Maps и Mapy.com?', 'Кому подходит продвижение в картах', 'Что входит в продвижение в картах', 'Какие метрики карт отслеживаются?', 'Локальные страницы для точек и филиалов', 'Как проходит работа', 'Когда ждать первых результатов?', 'Карты входят в пакеты «Старт» и «Full SEO»', 'Что говорят клиенты', 'Частые вопросы о продвижении в картах', 'Оставить заявку', 'Другие услуги'];
+const SECTIONS = [H1, 'Сколько стоит продвижение в Google Maps и Mapy.com?', 'Кому подходит продвижение в картах?', 'Что входит в продвижение в картах?', 'Какие метрики карт отслеживаются?', 'Локальные страницы для точек и филиалов', 'Как проходит работа?', 'Когда ждать первых результатов?', 'Карты входят в пакеты «Старт» и «Full SEO»', 'Что говорят клиенты?', 'Частые вопросы о продвижении в картах', 'Оставить заявку', 'Другие услуги'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/seo-i-geo/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/politika-konfidencialnosti/'];
-const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', 'ежемесячный мониторинг', 'от 1 месяца', 'От 1 месяца', 'Seznam Mapy', 'создаю страницы', 'Что это дало клиентам', '[ПОДТВЕРДИТЬ'];
+const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', 'ежемесячный мониторинг', 'от 1 месяца', 'От 1 месяца', 'Seznam Mapy', 'создаю страницы', 'Что это дало клиентам?', '[ПОДТВЕРДИТЬ'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 // Visible text only: <script> / <style> contents (incl. the JSON-LD itself) are removed first.

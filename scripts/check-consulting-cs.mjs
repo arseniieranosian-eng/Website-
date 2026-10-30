@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/konzultace/';
 const H1 = 'SEO konzultace';
-const SECTIONS = [H1, 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace vhodná?', 'Co je součástí SEO konzultace', 'Jak probíhá SEO konzultace', 'V jakých jazycích konzultace probíhá?', 'Konzultace, audit zdarma, nebo Start a Full SEO?', 'Co může SEO plán přinést', 'Co říkají klienti', 'Související články', 'Časté otázky o SEO konzultaci', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí SEO konzultace?', 'Pro koho je SEO konzultace vhodná?', 'Co je součástí SEO konzultace?', 'Jak probíhá SEO konzultace?', 'V jakých jazycích konzultace probíhá?', 'Konzultace, audit zdarma, nebo Start a Full SEO?', 'Co může SEO plán přinést?', 'Co říkají klienti?', 'Související články', 'Časté otázky o SEO konzultaci', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['60–90', '60-90', 'Marketingové týmy', 'in-house', 'nahrávk', 'Jak probíhá spolupráce'];
 
@@ -63,7 +63,7 @@ if (o2.price !== '3000' || 'priceSpecification' in o2) e('offer 2 must be price 
 for (const o of sv.offers) if (!body.includes(o.name) || !body.includes(o.description)) e(`offer not visible verbatim: ${o.name}`);
 if (/€|EUR/.test(JSON.stringify(ld))) e('no euro in JSON-LD');
 const cat = sv.hasOfferCatalog;
-const lis = (h.match(/<h2[^>]*>Co je součástí SEO konzultace<\/h2>\s*<ul class="checks">([\s\S]*?)<\/ul>/) || [, ''])[1];
+const lis = (h.match(/<h2[^>]*>Co je součástí SEO konzultace\?<\/h2>\s*<ul class="checks">([\s\S]*?)<\/ul>/) || [, ''])[1];
 const incl = [...lis.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]).replace(/ ([:,.])/g, '$1'));
 if (!body.includes(cat.name) || cat.itemListElement.length !== 6 || incl.length !== 6) e('OfferCatalog / included list must have 6 items');
 else cat.itemListElement.forEach((i, k) => { if (!incl[k].toLowerCase().includes(i.itemOffered.name.toLowerCase())) e(`catalog item ${k + 1} not in visible list: ${i.itemOffered.name}`); });

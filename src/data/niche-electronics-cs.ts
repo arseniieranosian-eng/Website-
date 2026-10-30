@@ -105,7 +105,7 @@ const raw = {
   mapsLead: 'Služba je popsaná na stránce',
   mapsLink: 'SEO pro Mapy',
 
-  coopTitle: 'Jak začít a kolik stojí',
+  coopTitle: 'Jak začít a kolik stojí?',
   coopAnswer: `Začnete bezplatným technickým auditem. Konzultace stojí ${Q} za hodinu nebo ${A} s auditem webu a plánem na 12 měsíců, balíček Start na 3 měsíce ${S}, Full SEO od ${F} měsíčně. Pracuji současně nejvýše se třemi firmami z jednoho oboru; k ${ELECTRONICS_CAPACITY_DATE} je obor volný.`,
   coopLinks: [
     { page: 'consulting' as const, text: 'SEO konzultace' },

@@ -68,7 +68,7 @@ export const AUDIT_RU = {
   // JSON-LD Offer.description: a sentence of the lead, so the markup repeats the visible text.
   offerTerms: 'Бесплатно, без созвона и без обязательств',
 
-  notTitle: 'Чего в бесплатном аудите нет',
+  notTitle: 'Чего в бесплатном аудите нет?',
   notAnswer: 'Бесплатный аудит это только технические ошибки сайта. Всё остальное решается в других услугах.',
   not: [
     { label: 'Ключевые слова:', links: [{ text: 'Консультация', page: 'consulting' as const }], sep: '' },
@@ -79,7 +79,7 @@ export const AUDIT_RU = {
 
   quote: { text: 'Честнее сразу сказать, чего в бесплатном аудите нет, чем обещать больше, чем он способен дать.', author: 'Арсений Ераносьян', role: 'SEO- и GEO/AEO-специалист' },
 
-  stagesTitle: 'Как проходит SEO-аудит',
+  stagesTitle: 'Как проходит SEO-аудит?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   stages: [
     'Вы заполняете форму: адрес сайта и контакт.',
@@ -90,7 +90,7 @@ export const AUDIT_RU = {
 
   getTitle: 'Что вы получите после аудита?',
   getAnswer: 'Короткую презентацию с главными техническими ошибками сайта и рекомендациями. Она приходит в течение 24 часов, без созвона и без обязательств.',
-  videoTitle: 'Как выглядит презентация',
+  videoTitle: 'Как выглядит презентация?',
   videoCaption: 'Пример презентации бесплатного SEO-аудита (32 секунды, без звука).',
   videoName: 'Пример презентации бесплатного SEO-аудита',
   videoDescription: 'Пример презентации, которую вы получаете после бесплатного SEO-аудита: сводка по сайту, технические ошибки с приоритетами и что даёт платный разбор.',
@@ -116,7 +116,7 @@ export const AUDIT_RU = {
   },
   compareLinks: { consulting: 'Консультация', start: 'Старт на 3 месяца' },
 
-  reviewsTitle: 'Что говорят клиенты',
+  reviewsTitle: 'Что говорят клиенты?',
   reviewsLink: 'Все отзывы',
 
   faqTitle: 'Вопросы о бесплатном SEO-аудите',

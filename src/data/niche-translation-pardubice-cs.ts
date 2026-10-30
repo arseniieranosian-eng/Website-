@@ -60,7 +60,7 @@ const raw = {
     'Město: agentury v Pardubicích potřebují stránky, které Pardubice opravdu jmenují.',
   ],
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury Pardubice, který přivádí nové klienty a zakázky z vyhledávání.',
-  market: NICHE_PARDUBICE_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Pardubice', paragraphs: NICHE_PARDUBICE_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_PARDUBICE_MARKET.checked } : null,
+  market: NICHE_PARDUBICE_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Pardubice?', paragraphs: NICHE_PARDUBICE_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_PARDUBICE_MARKET.checked } : null,
 
   doTitle: 'Co pro překladatelskou agenturu v Pardubicích konkrétně dělám?',
   doAnswer: 'Pro překladatelskou agenturu v Pardubicích stavím stránky jazykových párů, služeb, oborů a lokality, upravuji stránku pro firmy (B2B), hlídám indexaci a duplicity mezi jazykovými verzemi a připravuji obsah i pro AI odpovědi. K tomu patří lokální přítomnost v Google Maps a na Mapy.com.',

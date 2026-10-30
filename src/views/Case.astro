@@ -23,7 +23,7 @@ const reviews = reviewsForCase('caseKb');
 const C = {
   cs: { results: 'Výsledky', challenge: 'Výchozí stav', solution: 'Co jsme udělali', ctaTitle: 'Chcete stejný postup pro svůj web?', ctaText: 'Bezplatný audit ukáže, kde jsou vaše největší příležitosti.' },
   en: { results: 'Results', challenge: 'Starting point', solution: 'What we did', ctaTitle: 'Want the same approach for your website?', ctaText: 'A free audit shows where your biggest opportunities are.' },
-  ru: { results: 'Результаты', challenge: 'Исходная ситуация', solution: 'Что мы сделали', ctaTitle: 'Хотите такой же подход для своего сайта?', ctaText: 'Бесплатный аудит покажет главные точки роста.' },
+  ru: { results: 'Результаты', challenge: 'Исходная ситуация', solution: 'Что мы сделали?', ctaTitle: 'Хотите такой же подход для своего сайта?', ctaText: 'Бесплатный аудит покажет главные точки роста.' },
 }[lang];
 // Russian Part 1 links on to Part 2 and joins the same case series in JSON-LD (Part 2 exists in Russian only).
 const url = new URL(path('caseKb', lang), Astro.site!).href;

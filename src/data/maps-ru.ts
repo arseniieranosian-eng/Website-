@@ -42,7 +42,7 @@ export const MAPS_RU = {
   // JSON-LD Offer.description: the visible answer without its final period.
   offerTerms: `Продвижение в картах оплачивается за результат: вы платите за реальные звонки, маршруты и переходы на сайт с карт. Минимальный срок работы ${term}`,
 
-  forWhomTitle: 'Кому подходит продвижение в картах',
+  forWhomTitle: 'Кому подходит продвижение в картах?',
   forWhom: [
     'Клиникам, салонам и ресторанам: люди выбирают место через поиск рядом.',
     'Выездным специалистам и сервисным услугам: важны звонки и охват районов.',
@@ -51,7 +51,7 @@ export const MAPS_RU = {
     'Бизнесам в любом городе Чехии и ЕС: работаю удалённо.',
   ],
 
-  includesTitle: 'Что входит в продвижение в картах',
+  includesTitle: 'Что входит в продвижение в картах?',
   // The OfferCatalog in JSON-LD is built from these items (first sentence, or the `catalog` wording).
   includes: <Include[]>[
     { text: 'Создание или оптимизация профиля Google Business Profile.' },
@@ -83,7 +83,7 @@ export const MAPS_RU = {
     'Перелинковка с другими страницами сайта.',
   ],
 
-  stagesTitle: 'Как проходит работа',
+  stagesTitle: 'Как проходит работа?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   stages: [
     'Аудит текущих профилей и конкурентов.',
@@ -107,7 +107,7 @@ export const MAPS_RU = {
     outro: '. Профили без ограничения, метрики те же.',
   },
 
-  reviewsTitle: 'Что говорят клиенты',
+  reviewsTitle: 'Что говорят клиенты?',
   reviewsLink: 'Все отзывы',
 
   faqTitle: 'Частые вопросы о продвижении в картах',
@@ -136,7 +136,7 @@ export const MAPS_RU = {
     offerName: 'Продвижение в Google Maps и Mapy.com',
     audience: 'Бизнесы с офлайн-точкой, выездные специалисты и компании с несколькими филиалами',
     channel: 'Удалённо, встречи лично в Праге',
-    catalogName: 'Что входит в продвижение в картах',
+    catalogName: 'Что входит в продвижение в картах?',
     howToName: 'Как проходит продвижение в картах',
     availableLanguage: 'ru',
     areaServed: [

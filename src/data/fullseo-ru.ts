@@ -30,7 +30,7 @@ export const FULLSEO_RU = {
   // JSON-LD Offer.description: this sentence is also the answer of the first FAQ item.
   priceTerms: `${From}, точная цена зависит от объёма работ и ниши`,
 
-  includesTitle: 'Что входит в SEO продвижение на год',
+  includesTitle: 'Что входит в SEO продвижение на год?',
   // One sentence per item. The OfferCatalog in JSON-LD is built from the first sentence of each item
   // (or `catalog`, where the brief fixes a different wording), so the list and the markup say the same.
   groups: <Group[]>[
@@ -69,7 +69,7 @@ export const FULLSEO_RU = {
   ],
   contentExample: 'Пример контента: статья «Какие документы нужно перевести для ПМЖ в Чехии» приводит клиентов из поиска.',
 
-  stagesTitle: 'Как проходит работа',
+  stagesTitle: 'Как проходит работа?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   stages: [
     { name: 'Шаг 1', text: 'Аудит и стратегия на год.' },
@@ -82,7 +82,7 @@ export const FULLSEO_RU = {
   resultsAnswer: 'Первые результаты SEO продвижения появляются через 2-3 месяца после начала работы.',
   resultsNote: 'Первое место в Google не гарантирую. Гарантирую прозрачную работу, понятный план и измеримые цели, согласованные в начале.',
 
-  forWhomTitle: 'Для кого подходит Full SEO на год',
+  forWhomTitle: 'Для кого подходит Full SEO на год?',
   forWhom: [
     'Компании, для которых сайт главный источник заявок.',
     'Интернет-магазины и услуги в конкурентных нишах.',
@@ -104,7 +104,7 @@ export const FULLSEO_RU = {
   },
   consultingNote: { before: 'Если вам нужны только ответы на вопросы и план, посмотрите ', link: 'консультацию', after: '.' },
 
-  caseTitle: 'Что это дало клиентам',
+  caseTitle: 'Что это дало клиентам?',
   caseText: CASE_LINE.ru,
   caseText2: TYPO_LINE,
   caseLink2: 'Кейс «SEO для типографии»',
@@ -112,7 +112,7 @@ export const FULLSEO_RU = {
   caseLink3: 'SEO в низкий сезон (часть 2)',
   caseLink: 'Вся история',
 
-  reviewsTitle: 'Что говорят клиенты',
+  reviewsTitle: 'Что говорят клиенты?',
   reviewsLink: 'Все отзывы',
 
   faqTitle: 'Частые вопросы о SEO продвижении на год',
@@ -137,7 +137,7 @@ export const FULLSEO_RU = {
     serviceName: 'SEO продвижение сайта на год',
     serviceType: 'SEO продвижение сайта',
     audience: 'Русскоговорящие владельцы бизнеса, для которых сайт главный источник заявок',
-    catalogName: 'Что входит в SEO продвижение на год',
+    catalogName: 'Что входит в SEO продвижение на год?',
     howToName: 'Как проходит SEO продвижение сайта на год',
     availableLanguage: 'ru',
     areaServed: [

@@ -28,7 +28,7 @@ export const START_RU = {
   // JSON-LD Offer.description: the visible payment sentence without its final period.
   payTerms: `Платить можно частями: ${pay}`,
 
-  includesTitle: 'Что входит в SEO продвижение на 3 месяца',
+  includesTitle: 'Что входит в SEO продвижение на 3 месяца?',
   // `link` turns the given part of the sentence into a link to that page. The OfferCatalog in JSON-LD is
   // built from the first sentence of each item, so the list and the markup always say the same.
   includes: <Include[]>[
@@ -47,7 +47,7 @@ export const START_RU = {
     { text: 'Еженедельный отчёт: что сделано, для чего и какие результаты. Созвон по желанию.' },
   ],
 
-  stagesTitle: 'Как проходит работа',
+  stagesTitle: 'Как проходит работа?',
   // The same strings are shown in the numbered list and emitted as HowToStep name/text (word for word).
   stages: [
     { name: 'Месяц 1', text: 'Аудит, анализ ключевых слов и конкурентов, план на 12 месяцев, технические исправления, структура сайта, запуск работы с картами.' },
@@ -60,7 +60,7 @@ export const START_RU = {
   resultsAnswer: 'Первые результаты SEO продвижения появляются через 2-3 месяца после начала работы.',
   resultsNote: 'Первое место в Google не гарантирую. Гарантирую прозрачную работу, понятный план и измеримые цели, согласованные в начале.',
 
-  forWhomTitle: 'Для кого подходит продвижение на 3 месяца',
+  forWhomTitle: 'Для кого подходит продвижение на 3 месяца?',
   forWhom: [
     'Новые сайты и интернет-магазины, которые начинают получать трафик из поиска.',
     'Компании, которые раньше не занимались SEO системно.',
@@ -76,7 +76,7 @@ export const START_RU = {
   compare: { before: 'Старт на 3 месяца: интенсивный первый этап с планом, внедрением и первыми результатами. ', link: 'Full SEO на год', after: ': работа в течение 12 месяцев по плану.' },
   consultingNote: { before: 'Если вам нужны только ответы на вопросы и план, посмотрите ', link: 'консультацию', after: '.' },
 
-  caseTitle: 'Что это дало клиентам',
+  caseTitle: 'Что это дало клиентам?',
   caseText: CASE_LINE.ru,
   caseText2: TYPO_LINE,
   caseLink2: 'Кейс «SEO для типографии»',
@@ -86,7 +86,7 @@ export const START_RU = {
   caseLink4: 'SEO в низкий сезон (часть 2)',
   caseLink: 'Вся история',
 
-  reviewsTitle: 'Что говорят клиенты',
+  reviewsTitle: 'Что говорят клиенты?',
   reviewsLink: 'Все отзывы',
 
   faqTitle: 'Частые вопросы о SEO продвижении на 3 месяца',
@@ -112,7 +112,7 @@ export const START_RU = {
     serviceName: 'SEO продвижение сайта на 3 месяца',
     serviceType: 'SEO продвижение сайта',
     audience: 'Русскоговорящие владельцы бизнеса, которым нужны заявки и звонки из поиска и с карт',
-    catalogName: 'Что входит в SEO продвижение на 3 месяца',
+    catalogName: 'Что входит в SEO продвижение на 3 месяца?',
     howToName: 'Как проходит SEO продвижение сайта на 3 месяца',
     availableLanguage: 'ru',
     areaServed: [

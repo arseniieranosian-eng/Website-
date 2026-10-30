@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/besplatnyj-audit/';
 const H1 = 'Бесплатный SEO-аудит вашего сайта';
-const SECTIONS = [H1, 'Что проверяет бесплатный SEO-аудит?', 'Чего в бесплатном аудите нет', 'Как проходит SEO-аудит', 'Что вы получите после аудита?', 'Чем бесплатный аудит отличается от консультации и Старта?', 'Что говорят клиенты', 'Вопросы о бесплатном SEO-аудите', 'Заказать бесплатный аудит', 'Другие услуги'];
+const SECTIONS = [H1, 'Что проверяет бесплатный SEO-аудит?', 'Чего в бесплатном аудите нет?', 'Как проходит SEO-аудит?', 'Что вы получите после аудита?', 'Чем бесплатный аудит отличается от консультации и Старта?', 'Что говорят клиенты?', 'Вопросы о бесплатном SEO-аудите', 'Заказать бесплатный аудит', 'Другие услуги'];
 const LINKS = ['/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/otzyvy/', '/ru/voprosy-i-otvety/', '/ru/politika-konfidencialnosti/'];
 // Out of scope for the free audit (and the old page text) must not appear in <main> or in the page JSON-LD.
 const FORBIDDEN = ['KB PŘEKLADY', '20-минутн', '5-10', '5–10', 'Core Web Vitals', 'мобильная версия', 'мобильной версии', 'полтора часа', '1,5 часа', 'VEED'];
@@ -82,15 +82,15 @@ const EXPECT = [
   ['Кто исправляет', 'Вы', 'Вы', 'Я'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
-for (const [hd, ans] of [['Что проверяет бесплатный SEO-аудит?', 'Бесплатный аудит проверяет технические ошибки сайта'], ['Чего в бесплатном аудите нет', 'Бесплатный аудит это только технические ошибки сайта'], ['Что вы получите после аудита?', 'Короткую презентацию'], ['Чем бесплатный аудит отличается от консультации и Старта?', 'Аудит показывает, где проблемы']]) {
+for (const [hd, ans] of [['Что проверяет бесплатный SEO-аудит?', 'Бесплатный аудит проверяет технические ошибки сайта'], ['Чего в бесплатном аудите нет?', 'Бесплатный аудит это только технические ошибки сайта'], ['Что вы получите после аудита?', 'Короткую презентацию'], ['Чем бесплатный аудит отличается от консультации и Старта?', 'Аудит показывает, где проблемы']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
-// Quote after "Чего в бесплатном аудите нет", before "Как проходит SEO-аудит"
+// Quote after "Чего в бесплатном аудите нет?", before "Как проходит SEO-аудит?"
 const QT = 'Честнее сразу сказать, чего в бесплатном аудите нет, чем обещать больше, чем он способен дать.';
 const qf = h.match(/<figure class="quote-fig">\s*<blockquote cite="([^"]*)"><p>([^<]*)<\/p><\/blockquote>\s*<figcaption><img src="\/images\/author-2-avatar\.jpg"[^>]*><span>— <a href="\/ru\/obo-mne\/">Арсений Ераносьян<\/a>, SEO- и GEO\/AEO-специалист<\/span><\/figcaption>/);
 if (!qf || qf[2] !== QT || qf[1] !== `${BASE}${URL_PATH}`) e('quote figure: text, cite, caption with a link to /ru/obo-mne/');
 const iq = mainTxt.indexOf(QT);
-if (!(mainTxt.indexOf('Чего в бесплатном аудите нет') < iq && iq < mainTxt.indexOf('Как проходит SEO-аудит'))) e('quote position: after the "not included" block, before the stages');
+if (!(mainTxt.indexOf('Чего в бесплатном аудите нет?') < iq && iq < mainTxt.indexOf('Как проходит SEO-аудит?'))) e('quote position: after the "not included" block, before the stages');
 const qn = ld.find((n) => n['@type'] === 'Quotation');
 if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'ru' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: optional until the anonymised file exists; when present everything must line up

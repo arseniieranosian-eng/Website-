@@ -50,7 +50,7 @@ export const CONSULTING_CS = {
     'Pro mezinárodní firmy: konzultace probíhá česky, anglicky nebo rusky.',
   ],
 
-  includesTitle: 'Co je součástí SEO konzultace',
+  includesTitle: 'Co je součástí SEO konzultace?',
   includes: <Include[]>[
     { text: 'Rozbor webu před konzultací.' },
     { text: 'Konzultace online nebo osobně v Praze.' },
@@ -60,7 +60,7 @@ export const CONSULTING_CS = {
     { text: 'Vícejazyčné SEO a hreflang, pokud web funguje ve více jazycích.', catalog: 'Vícejazyčné SEO a hreflang' },
   ],
 
-  stepsTitle: 'Jak probíhá SEO konzultace',
+  stepsTitle: 'Jak probíhá SEO konzultace?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).
   steps: [
     'Pošlete mi adresu webu a své otázky. Přístup do Google Search Console a GA4 umožní přesnější analýzu.',
@@ -109,13 +109,13 @@ export const CONSULTING_CS = {
     outro: { before: 'Pokud vám stačí plán a odpovědi, vyberte konzultaci. Pokud chcete, aby práci udělal někdo za vás, podívejte se na ', start: 'Start', mid: ' nebo ', full: 'Full SEO', after: '.' },
   },
 
-  caseTitle: 'Co může SEO plán přinést',
+  caseTitle: 'Co může SEO plán přinést?',
   caseText: CASE_LINE.cs,
   caseLink: 'Celý příběh',
   caseText2: TYPO_LINE_CS,
   caseLink2: 'Případová studie SEO pro tiskárnu',
 
-  reviewsTitle: 'Co říkají klienti',
+  reviewsTitle: 'Co říkají klienti?',
   reviewsLink: 'Všechny reference',
 
   // "Související články": posts that help to decide on a consultation (the redesign article points to it for non-technical causes).
@@ -155,6 +155,6 @@ export const CONSULTING_CS = {
     onlineChannel: 'Online',
     cityChannel: 'Osobně v Praze',
     catalogName: 'Co je součástí SEO konzultace',
-    howToName: 'Jak probíhá SEO konzultace',
+    howToName: 'Jak probíhá SEO konzultace?',
   },
 };

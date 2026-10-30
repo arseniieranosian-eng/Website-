@@ -36,7 +36,7 @@ export const START_CS = {
     'Pro weby, které po redesignu ztratily návštěvnost: SEO po redesignu webu.',
   ],
 
-  includesTitle: 'Co je v ceně SEO startu',
+  includesTitle: 'Co je v ceně SEO startu?',
   groups: [
     {
       title: 'Práce na webu',
@@ -76,7 +76,7 @@ export const START_CS = {
     after: ` je dlouhodobá, od ${MAPS_MIN_MONTHS} měsíců, s platbou za výsledek.`,
   },
 
-  stagesTitle: 'Jak probíhá SEO start',
+  stagesTitle: 'Jak probíhá SEO start?',
   // The same strings are shown in the numbered list and emitted as HowToStep name/text (word for word).
   stages: [
     { name: 'Měsíc 1', text: 'Audit, analýza klíčových slov a konkurence, plán na 12 měsíců, technické opravy, struktura webu a spuštění práce s mapami.' },
@@ -107,7 +107,7 @@ export const START_CS = {
   consultingNote: { before: 'Pokud potřebujete jen odpovědi a plán, práci vám neprovedu, ale poradím: ', link: 'konzultace', after: '.' },
   mapsNote: { before: 'Pokud potřebujete jen mapy: ', link: 'samostatná služba Mapy', after: '.' },
 
-  caseTitle: 'Co to přineslo klientům',
+  caseTitle: 'Co to přineslo klientům?',
   caseText: CASE_LINE.cs,
   caseLink: 'Celý příběh',
   caseText2: TYPO_LINE_CS,
@@ -119,7 +119,7 @@ export const START_CS = {
   caseText5: HALF_LINE_CS,
   caseLink5: 'Půl roku práce na webu překladatelské agentury',
 
-  reviewsTitle: 'Co říkají klienti',
+  reviewsTitle: 'Co říkají klienti?',
   reviewsLink: 'Všechny reference',
 
   // "Související články": posts that help to decide on and prepare the Start (the advertising article is the one of this funnel).
@@ -150,7 +150,7 @@ export const START_CS = {
     serviceName: 'SEO start na 3 měsíce',
     serviceType: 'SEO optimalizace webu',
     audience: 'Nové weby a e-shopy, firmy bez systematického SEO, weby po redesignu',
-    catalogName: 'Co je v ceně SEO startu',
+    catalogName: 'Co je v ceně SEO startu?',
     howToName: 'Jak probíhá SEO start na 3 měsíce',
     availableLanguage: ['cs', 'en', 'ru'],
     areaServed: [

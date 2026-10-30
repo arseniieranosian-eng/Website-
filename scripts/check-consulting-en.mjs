@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/en/consulting/';
 const H1 = 'SEO consulting in Prague';
-const SECTIONS = [H1, 'How much does an SEO consultation cost?', 'Who is an SEO consultation for?', 'What is included in an SEO consultation', 'How an SEO consultation works', 'In which languages is the consultation held?', 'Consultation, free audit, or Start and Full SEO?', 'What an SEO plan can bring', 'What clients say', 'Frequently asked questions about the SEO consultation', 'Why do clients trust me?', 'Non-binding enquiry', 'Other services'];
+const SECTIONS = [H1, 'How much does an SEO consultation cost?', 'Who is an SEO consultation for?', 'What is included in an SEO consultation?', 'How an SEO consultation works', 'In which languages is the consultation held?', 'Consultation, free audit, or Start and Full SEO?', 'What an SEO plan can bring', 'What clients say', 'Frequently asked questions about the SEO consultation', 'Why do clients trust me?', 'Non-binding enquiry', 'Other services'];
 const LINKS = ['/en/free-audit/', '/en/3-month-start/', '/en/full-seo/', '/en/maps/', '/en/seo-and-geo/', '/en/case-studies/seo-translation-agency-4-months/', '/en/reviews/', '/en/faq/', '/en/privacy-policy/'];
 const FORBIDDEN = ['60–90', '60-90', 'in-house', 'Marketingové', 'Konzultace'];
 
@@ -64,7 +64,7 @@ for (const o of sv.offers) if (!body.includes(o.name) || !body.includes(o.descri
 if (/€|EUR/.test(JSON.stringify(ld))) e('no euro in JSON-LD');
 if (!body.includes('approx. €80') || !body.includes('approx. €120')) e('approximate euro amounts in the visible text');
 const cat = sv.hasOfferCatalog;
-const lis = (h.match(/<h2[^>]*>What is included in an SEO consultation<\/h2>\s*<ul class="checks">([\s\S]*?)<\/ul>/) || [, ''])[1];
+const lis = (h.match(/<h2[^>]*>What is included in an SEO consultation\?<\/h2>\s*<ul class="checks">([\s\S]*?)<\/ul>/) || [, ''])[1];
 const incl = [...lis.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]).replace(/ ([:,.])/g, '$1'));
 if (!body.includes(cat.name) || cat.itemListElement.length !== 6 || incl.length !== 6) e('OfferCatalog / included list must have 6 items');
 else cat.itemListElement.forEach((i, k) => { if (!incl[k].toLowerCase().includes(i.itemOffered.name.toLowerCase())) e(`catalog item ${k + 1} not in visible list: ${i.itemOffered.name}`); });

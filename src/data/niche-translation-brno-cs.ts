@@ -59,7 +59,7 @@ const raw = {
     'Město: brněnské agentury potřebují stránky, které Brno opravdu jmenují.',
   ],
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury Brno, který přivádí nové klienty a zakázky z vyhledávání.',
-  market: NICHE_BRNO_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Brno', paragraphs: NICHE_BRNO_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_BRNO_MARKET.checked } : null,
+  market: NICHE_BRNO_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Brno?', paragraphs: NICHE_BRNO_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_BRNO_MARKET.checked } : null,
 
   doTitle: 'Co pro překladatelskou agenturu v Brně konkrétně dělám?',
   doAnswer: 'Pro překladatelskou agenturu v Brně stavím stránky jazykových párů, služeb, oborů a lokality, upravuji stránku pro firmy (B2B), hlídám indexaci a duplicity mezi jazykovými verzemi a připravuji obsah i pro AI odpovědi. K tomu patří lokální přítomnost v Google Maps a na Mapy.com.',

@@ -4,9 +4,9 @@ import { readFileSync } from 'node:fs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/lokalni-seo-mapy/';
 const H1 = 'Lokální SEO: propagace na Google Maps a Mapy.com';
-const SECTIONS = [H1, 'Kolik stojí propagace na Google Maps a Mapy.com?', 'Pro koho je propagace v mapách vhodná?', 'Co je součástí propagace v mapách', 'Jaké metriky z map sleduji?', 'Lokální stránky pro pobočky a provozovny', 'Jak probíhá propagace v mapách', 'Kdy přijdou první výsledky v mapách?', 'Mapy jsou součástí balíčků Start a Full SEO', 'Co říkají klienti', 'Související články', 'Časté otázky o propagaci v mapách', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí propagace na Google Maps a Mapy.com?', 'Pro koho je propagace v mapách vhodná?', 'Co je součástí propagace v mapách?', 'Jaké metriky z map sleduji?', 'Lokální stránky pro pobočky a provozovny', 'Jak probíhá propagace v mapách?', 'Kdy přijdou první výsledky v mapách?', 'Mapy jsou součástí balíčků Start a Full SEO', 'Co říkají klienti?', 'Související články', 'Časté otázky o propagaci v mapách', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
-const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', 'Seznam Mapy', 'od 1 měsíce', 'měsíční monitoring', 'vytvářím stránky', 'vytvářím lokální stránky', 'Co to přineslo klientům', 'agentura Praha'];
+const FORBIDDEN = ['KB PŘEKLADY', 'KB Překlady', 'Seznam Mapy', 'od 1 měsíce', 'měsíční monitoring', 'vytvářím stránky', 'vytvářím lokální stránky', 'Co to přineslo klientům?', 'agentura Praha'];
 const IMAGES = ['price-slide-1', 'price-slide-2', 'branch-brno', 'branch-pardubice', 'branch-praha'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
