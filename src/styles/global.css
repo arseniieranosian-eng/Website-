@@ -728,3 +728,7 @@ ul, ol { margin-bottom: var(--flow); }
 .checks.audience li::before { display: none; }
 .audience-art { flex: none; }
 @media (max-width: 640px) { .audience-art { width: 64px; height: 37px; } }
+.steps--art li { gap: 12px 14px; }
+.stage-art { flex: none; }
+@media (min-width: 900px) { .steps--art li > .stage-art { order: -1; } .steps--art li { gap: 12px; } }
+@media (max-width: 899px) { .steps--art li { align-items: center; } .stage-art { width: 72px; height: 42px; } }

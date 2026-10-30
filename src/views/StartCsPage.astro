@@ -6,6 +6,7 @@ import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import AudienceArt from '../components/AudienceArt.astro';
+import StageArt from '../components/StageArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -105,7 +106,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
   <section class="section">
     <div class="container">
       <h2>{C.stagesTitle}</h2>
-      <ol class="steps steps--row">{C.stages.map((st) => <li><span><strong>{st.name}:</strong> {st.text}</span></li>)}</ol>
+      <ol class="steps steps--row steps--art">{C.stages.map((st, i) => <li><StageArt kind={['audit', 'content', 'scale'][i]} /><span><strong>{st.name}:</strong> {st.text}</span></li>)}</ol>
       <p class="muted">{C.weekly}</p>
     </div>
   </section>

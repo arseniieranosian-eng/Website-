@@ -11,6 +11,7 @@ import StartHeroArt from '../components/StartHeroArt.astro';
 import FullHeroArt from '../components/FullHeroArt.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import Icon from '../components/Icon.astro';
+import StageArt from '../components/StageArt.astro';
 import AudienceArt from '../components/AudienceArt.astro';
 import { META } from '../i18n/meta';
 import { path, type Lang, type ServiceKey } from '../i18n/routes';
@@ -67,7 +68,7 @@ const C = {
   <section class="section section--grey">
     <div class="container">
       <h2>{C.process}</h2>
-      <ol class="steps steps--row">{s.process[lang].map((x) => <li>{x}</li>)}</ol>
+      <ol class={s.key === 'start' ? 'steps steps--row steps--art' : 'steps steps--row'}>{s.process[lang].map((x, i) => <li>{s.key === 'start' && <StageArt kind={['audit', 'content', 'scale'][i]} />}<span>{x}</span></li>)}</ol>
     </div>
   </section>
 
