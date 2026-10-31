@@ -752,3 +752,12 @@ ul, ol { margin-bottom: var(--flow); }
 .summary-box { margin: 0 0 20px; }
 .summary-box .lead { margin: 0; font-size: 1.1rem; line-height: 1.6; font-weight: 500; color: #fff; }
 .page-hero .summary-box .lead { color: #fff; }
+/* Niche hero on phones: more air between the H1, the author line, the proof line, the summary and the buttons; smaller summary text */
+@media (max-width: 700px) {
+  .page-hero:has(.summary-box) h1 { margin-bottom: 0.7em; }
+  .page-hero:has(.summary-box) .updated { margin: 0 0 1.4em; }
+  .page-hero:has(.summary-box) .updated + p { margin-bottom: 1.4em; }
+  .page-hero:has(.summary-box) .summary-box { margin: 0 0 2em; }
+  .page-hero:has(.summary-box) .summary-box .lead { font-size: 1rem; line-height: 1.65; }
+  .page-hero:has(.summary-box) .btn-row { margin-top: 0; gap: 14px; }
+}
