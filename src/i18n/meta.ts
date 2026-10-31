@@ -586,7 +586,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for accounting firms in Prague', title: 'SEO for accounting firms in Prague', description: 'SEO for accounting firms in Prague', h1: 'SEO for accounting firms in Prague' },
-    ru: { name: 'SEO для бухгалтерских фирм в Праге', title: 'SEO для бухгалтерских фирм в Праге', description: 'SEO для бухгалтерских фирм в Праге', h1: 'SEO для бухгалтерских фирм в Праге' },
+    ru: {
+      name: 'SEO для бухгалтерских компаний в Праге',
+      title: 'Продвижение бухгалтерской компании в Праге | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для бухгалтерских компаний в Праге: сайт, страницы услуг, FAQ. Гарантий нет. Закажите бесплатный технический аудит.',
+      h1: 'SEO и GEO/AEO для бухгалтерских компаний в Праге: заявки из Google и ИИ',
+    },
   },
   nicheAccountingBrno: {
     cs: {
@@ -596,7 +601,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO a GEO/AEO pro účetní kanceláře v Brně: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for accounting firms in Brno', title: 'SEO for accounting firms in Brno', description: 'SEO for accounting firms in Brno', h1: 'SEO for accounting firms in Brno' },
-    ru: { name: 'SEO для бухгалтерских фирм в Брно', title: 'SEO для бухгалтерских фирм в Брно', description: 'SEO для бухгалтерских фирм в Брно', h1: 'SEO для бухгалтерских фирм в Брно' },
+    ru: { name: 'SEO для бухгалтерских компаний в Брно', title: 'SEO для бухгалтерских компаний в Брно', description: 'SEO для бухгалтерских компаний в Брно', h1: 'SEO для бухгалтерских компаний в Брно' },
   },
   nicheRealtyBrno: {
     cs: {

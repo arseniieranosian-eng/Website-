@@ -1,5 +1,5 @@
 // Post-build check of the niche landing page /seo-pro-ucetni-kancelare-praha/ (cs, brief of 23.10.2026): meta, section order, answer-first, the two tables, the checklist, no prices,
-// no search volumes, no guarantees, no "agentura" about the author, FAQ = JSON-LD, no Offer / Quotation / video / HowTo, no hreflang (Czech only), inbound links.
+// no search volumes, no guarantees, no "agentura" about the author, FAQ = JSON-LD, no Offer / Quotation / video / HowTo, hreflang pair with the Russian page (since 31.10.2026), inbound links.
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
@@ -9,7 +9,7 @@ const NAME = 'SEO pro účetní kanceláře v Praze'; // the breadcrumb label (M
 const H1 = 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO pro účetní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Co jsem zjistil na webech účetních kanceláří?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Požádejte o bezplatný audit technických chyb'];
+const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Co jsem zjistil na webech účetních kanceláří?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Chcete vědět, jaké technické chyby má váš web?'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
 const BRNO_READY = /nicheAccountingBrno: true/.test(readFileSync('src/i18n/routes.ts', 'utf8').split('NICHE_READY =')[1].split('\n')[0]); // the prices appear on both pages once the Brno page is published
 const FORBIDDEN = ['více klientů', 'garantovaně', 'za 24 hodin', 'top 1', 'první místo', 'SEO agentur', 'Max 3', ...(BRNO_READY ? [] : ['Kč']), 'Sklik:', ' my ', 'AggregateRating', 'reels', 'rilsu', 'reel'];
@@ -30,7 +30,8 @@ if (desc !== DESC || desc.length > 150) e(`description: ${desc} (${desc.length})
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (/více klientů|garantovaně|za 24 hodin/i.test(title + ' ' + desc)) e('no "více klientů / garantovaně / za 24 hodin" in the meta');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h) || /<meta name="robots"[^>]*noindex/.test(h)) e('Czech only, indexable, no hreflang');
+const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + ' ' + m[2]);
+if (/<meta name="robots"[^>]*noindex/.test(h) || JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `ru ${BASE}/ru/seo-dlya-buhgalterskih-kompanij-praga/`, `x-default ${BASE}${URL_PATH}`])) e('indexable; hreflang pair cs ↔ ru (+ x-default = cs)');
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
@@ -51,7 +52,7 @@ const tbl = (from) => [...(main.match(new RegExp(`${from.replace(/[?.]/g, '\\$&'
 const t2 = tbl('Jak spolupráce vypadá?');
 if (t2.length !== 6 || t2[0].join('|') !== 'Krok|Co obsahuje|Odkaz') e('formats table: header + 5 rows');
 // Checklist of 6, the honest experience block, the capacity status
-if (!mainTxt.includes('tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026)') || /×8|×24|\+400/.test(mainTxt)) e('experience: own case missing said openly, the approved formula only');
+if (!mainTxt.includes('poptávky z formulářů rostly o 65–70 % měsíc po měsíci tři měsíce po sobě (březen až září 2026)') || /ztrojnás|×8|×24|\+400/.test(mainTxt)) e('experience: the approved formula only (no B2B tripling)');
 if (!mainTxt.includes('Stav pro obor účetnictví k 31. 10. 2026: volno.') || /zbývá|\d ze 3/.test(mainTxt)) e('capacity status (volno, dated), no counter');
 if (!mainTxt.includes('K 25. 10. 2026 jsem si prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog.') || !mainTxt.includes('U všech 16 webů chybí strukturovaná data')) e('observation block: 16 sites, 14 without a blog, dated');
 // JSON-LD

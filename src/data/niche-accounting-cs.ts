@@ -87,7 +87,7 @@ const raw = {
   priceAnswer: BRNO ? `${PRICES_TEXT} První změny se u mých vlastních projektů obvykle objevují za 2–3 měsíce, záruku ale nedávám.` : 'Cena závisí na zvolené službě: konzultace, Start na 3 měsíce nebo Full SEO na rok. Aktuální ceny a rozsah najdete na stránkách jednotlivých služeb. První změny se u mých vlastních projektů obvykle objevují za 2–3 měsíce, záruku ale nedávám.',
 
   expTitle: 'Jaké mám zkušenosti s tímto oborem?',
-  expAnswer: 'Mám případovou studii z jiného oboru, překladatelské agentury: tři měsíce po sobě rostly poptávky z formulářů o 65–70 % měsíc od měsíce a B2B poptávky se ztrojnásobily (březen až září 2026). Jiný obor znamená i jiné výsledky.',
+  expAnswer: 'Mám případovou studii z jiného oboru, překladatelské agentury: poptávky z formulářů rostly o 65–70 % měsíc po měsíci tři měsíce po sobě (březen až září 2026). Jiný obor znamená i jiné výsledky, proto pro účetní kanceláře tato čísla nic neslibují. Případová studie ukazuje postup práce, ne výsledek pro váš obor.',
   expLink: 'Přečíst případovou studii překladatelské agentury',
 
   obsTitle: 'Co jsem zjistil na webech účetních kanceláří?',
@@ -111,7 +111,7 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Má smysl SEO pro účetní kancelář?', a: 'Dává, pokud chcete získávat klienty i z vyhledávání, ne jen doporučením. Hledají vás lidé, kteří potřebují konkrétní službu, například vedení účetnictví pro s.r.o. Pokud vám stačí doporučení a kapacitu nemáte, SEO nepotřebujete. Výsledek nezaručuji.' },
-    { q: 'Jak rychle SEO funguje?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám. Rychlost závisí na stavu webu, konkurenci a rozsahu úprav. Pro konkrétní kancelář žádný termín neslibuji, odhad vychází až z auditu.' },
+    { q: 'Kdy se projeví první změny?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, bez záruky. Termín před auditem neslibuji, protože závisí na stavu webu, konkurenci a rozsahu úprav. Výsledek ani pozici zaručit nelze, proto se nejdřív dívám na váš web a teprve potom říkám, co se na něm dá udělat.' },
     { q: 'Kolik stojí SEO pro účetní kancelář?', a: BRNO ? PRICES_TEXT : 'Cena závisí na zvolené službě: konzultace, Start na 3 měsíce nebo Full SEO na rok. Konkrétní částky a rozsah najdete na stránkách jednotlivých služeb, žádné zvláštní ceny pro účetní kanceláře neuvádím. Bezplatný audit technických chyb je zdarma, bez hovoru a bez závazku.' },
     { q: 'Co znamená GEO/AEO pro účetní kancelář?', a: 'GEO/AEO je optimalizace obsahu pro odpovědi AI a vyhledávačů. U účetní kanceláře jde o stručné odpovědi na konkrétní otázky, jasné ceny a samostatné stránky služeb. Že vás ChatGPT nebo AI přehled v Googlu doporučí, nelze zaručit. Přehledný a aktuální obsah šanci na citaci jen zvyšuje.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit zkontroluje technické chyby: indexaci, duplicity a další technické problémy. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. V auditu nejsou klíčová slova, konkurence, mapy, viditelnost v AI, rychlost ani mobilní verze. Strukturu nabídky na webu řeší placená konzultace nebo Start.' },
@@ -121,8 +121,8 @@ const raw = {
   articlesTitle: 'Další články',
   articlesMore: 'Číst článek',
 
-  endTitle: 'Požádejte o bezplatný audit technických chyb',
-  endText: 'Bezplatný audit ukáže technické chyby webu účetní kanceláře: indexaci, duplicity a další technické problémy. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazků.',
+  endTitle: 'Chcete vědět, jaké technické chyby má váš web?',
+  endText: 'Bezplatný audit se týká jen technických chyb. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Výsledek ani pozici nezaručuji.',
   endCta: 'Požádat o bezplatný audit',
   endConsulting: 'Nebo se podívejte na konzultaci',
 

@@ -154,7 +154,7 @@ const C = {
   </section>
 
   <!-- 3b. Niches and cities (ru): the real-estate landing page -->
-  {lang === 'ru' && (NICHE_READY.nicheRealty || NICHE_READY.nicheFinance || NICHE_READY.nicheBrno || NICHE_READY.nicheGaming || NICHE_READY.nicheFitness || NICHE_READY.nicheElectronics) && (
+  {lang === 'ru' && (NICHE_READY.nicheRealty || NICHE_READY.nicheAccounting || NICHE_READY.nicheFinance || NICHE_READY.nicheBrno || NICHE_READY.nicheGaming || NICHE_READY.nicheFitness || NICHE_READY.nicheElectronics) && (
     <section class="section">
       <div class="container">
         <h2>Ниши и города</h2>
@@ -212,6 +212,21 @@ const C = {
               <a class="card card--link" href={path('nicheGaming', lang)}>
                 <h4>SEO для компьютерных клубов в Праге</h4>
                 <p>Страницы тарифов, бронирования и акций, FAQ и технический базис сайта.</p>
+                <span class="link-arrow">{ui.more}</span>
+              </a>
+            </div>
+          </div>
+        )}
+        {NICHE_READY.nicheAccounting && (
+          <div class="niche-group">
+            <div class="niche-group__head">
+              <NicheArt kind="accounting" />
+              <h3 class="niche-group__title">Бухгалтерские компании</h3>
+            </div>
+            <div class="grid grid-3">
+              <a class="card card--link" href={path('nicheAccounting', lang)}>
+                <h4>SEO для бухгалтерских компаний в Праге</h4>
+                <p>Отдельные страницы услуг, FAQ, структура сайта и технический базис.</p>
                 <span class="link-arrow">{ui.more}</span>
               </a>
             </div>

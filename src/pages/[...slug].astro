@@ -60,6 +60,7 @@ import NicheMachineryCsPage from '../views/NicheMachineryCsPage.astro';
 import NicheTypographyCsPage from '../views/NicheTypographyCsPage.astro';
 import NicheFinanceRuPage from '../views/NicheFinanceRuPage.astro';
 import NicheAccountingCsPage from '../views/NicheAccountingCsPage.astro';
+import NicheAccountingRuPage from '../views/NicheAccountingRuPage.astro';
 import NicheAccountingBrnoCsPage from '../views/NicheAccountingBrnoCsPage.astro';
 import NicheRealtyBrnoCsPage from '../views/NicheRealtyBrnoCsPage.astro';
 import PostNoLeadsCsPage from '../views/PostNoLeadsCsPage.astro';
@@ -172,6 +173,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nicheTypography' && props.lang === 'cs' && <NicheTypographyCsPage />}
 {props.key === 'nicheFinance' && props.lang === 'ru' && <NicheFinanceRuPage />}
 {props.key === 'nicheAccounting' && props.lang === 'cs' && <NicheAccountingCsPage />}
+{props.key === 'nicheAccounting' && props.lang === 'ru' && <NicheAccountingRuPage />}
 {props.key === 'nicheAccountingBrno' && props.lang === 'cs' && <NicheAccountingBrnoCsPage />}
 {props.key === 'nicheRealtyBrno' && props.lang === 'cs' && <NicheRealtyBrnoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'cs' && <CaseTypoCsPage />}
