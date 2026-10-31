@@ -32,6 +32,7 @@ import { POST_REALTY_LOCAL_CS, POST_REALTY_LOCAL_PUBLISHED } from './post-realty
 import { POST_REALTY_DISTRICTS_CS, POST_REALTY_DISTRICTS_PUBLISHED } from './post-realty-districts-cs';
 import { POST_REALTY_BRNO_DISTRICTS_CS, POST_REALTY_BRNO_DISTRICTS_PUBLISHED } from './post-realty-brno-districts-cs';
 import { POST_REALTY_PRAGUE_DISTRICTS_CS, POST_REALTY_PRAGUE_DISTRICTS_PUBLISHED } from './post-realty-prague-districts-cs';
+import { POST_WEAK_SEO_CS, POST_WEAK_SEO_PUBLISHED } from './post-weak-seo-cs';
 import { POST_REALTY_PORTALS_CS, POST_REALTY_PORTALS_PUBLISHED } from './post-realty-portals-cs';
 
 export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: string; description: string; image?: { src: string; width: number; height: number; alt: string } }
@@ -59,6 +60,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postAccountingSmall', lang: 'cs', date: POST_ACCOUNTING_SMALL_PUBLISHED, title: META.postAccountingSmall.cs.h1, description: META.postAccountingSmall.cs.description, image: POST_ACCOUNTING_SMALL_CS.cover },
   { key: 'postAccountingNoLeads', lang: 'cs', date: POST_ACCOUNTING_NOLEADS_PUBLISHED, title: META.postAccountingNoLeads.cs.h1, description: META.postAccountingNoLeads.cs.description, image: POST_ACCOUNTING_NOLEADS_CS.cover },
   { key: 'postRealtyLocal', lang: 'cs', date: POST_REALTY_LOCAL_PUBLISHED, title: META.postRealtyLocal.cs.h1, description: META.postRealtyLocal.cs.description, image: POST_REALTY_LOCAL_CS.cover },
+  { key: 'postWeakSeo', lang: 'cs', date: POST_WEAK_SEO_PUBLISHED, title: META.postWeakSeo.cs.h1, description: META.postWeakSeo.cs.description, image: POST_WEAK_SEO_CS.cover },
   { key: 'postRealtyPragueDistricts', lang: 'cs', date: POST_REALTY_PRAGUE_DISTRICTS_PUBLISHED, title: META.postRealtyPragueDistricts.cs.h1, description: META.postRealtyPragueDistricts.cs.description, image: POST_REALTY_PRAGUE_DISTRICTS_CS.cover },
   { key: 'postRealtyBrnoDistricts', lang: 'cs', date: POST_REALTY_BRNO_DISTRICTS_PUBLISHED, title: META.postRealtyBrnoDistricts.cs.h1, description: META.postRealtyBrnoDistricts.cs.description, image: POST_REALTY_BRNO_DISTRICTS_CS.cover },
   { key: 'postRealtyDistricts', lang: 'cs', date: POST_REALTY_DISTRICTS_PUBLISHED, title: META.postRealtyDistricts.cs.h1, description: META.postRealtyDistricts.cs.description, image: POST_REALTY_DISTRICTS_CS.cover },
@@ -99,7 +101,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'translation',
     title: { cs: 'Překladatelské agentury', en: 'Translation agencies', ru: 'Переводческие агентства' },
     lead: { cs: 'Jak překladatelská agentura získává klienty a poptávky z webu.', en: 'How a translation agency gets clients and enquiries from its website.', ru: 'Как переводческое агентство получает клиентов и заявки с сайта.' },
-    keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs'],
+    keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs', 'postWeakSeo'],
   },
   {
     id: 'realty',

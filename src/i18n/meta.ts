@@ -278,6 +278,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postWeakSeo: {
+    cs: {
+      name: 'Slabé SEO konkurence u překladatelské agentury',
+      title: 'Proč vede konkurence se slabým SEO | Eranosian',
+      description: 'Proč je ve vyhledávání vpředu konkurence se slabým webem: pozorování u výsledků pro překlady, hypotézy a to, co z toho nevyplývá.',
+      h1: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?',
+    },
+    en: { name: 'Why competitors with weak SEO rank ahead', title: 'Why competitors with weak SEO rank ahead', description: 'Why competitors with weak SEO rank ahead', h1: 'Why do translation agencies with weak SEO rank ahead?' },
+    ru: { name: 'Почему впереди конкуренты со слабым SEO', title: 'Почему впереди конкуренты со слабым SEO', description: 'Почему впереди конкуренты со слабым SEO', h1: 'Почему в поиске впереди переводческие агентства со слабым SEO?' },
+  },
   postRealtyPragueDistricts: {
     cs: {
       name: 'Pražské městské části na webu realitní kanceláře',
