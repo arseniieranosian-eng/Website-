@@ -5,12 +5,27 @@ import { path, type Lang, type ServiceKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import Icon from './Icon.astro';
 import ServiceArt from './ServiceArt.astro';
-interface Props { lang: Lang; keys?: ServiceKey[]; heading?: 'h2' | 'h3'; art?: boolean }
-const { lang, keys, heading = 'h3', art = false } = Astro.props;
+interface Props { lang: Lang; keys?: ServiceKey[]; heading?: 'h2' | 'h3'; art?: boolean; withAudit?: boolean }
+const { lang, keys, heading = 'h3', art = false, withAudit = false } = Astro.props;
+// The free audit is the fifth offer (not a paid service, so it is not in SERVICES): shown first when `withAudit` is set (home page).
+const AUDIT = {
+  cs: { text: 'Krátká prezentace s hlavními technickými chybami webu, bez hovoru a bez závazku.', meta: 'Zdarma, do 24 hodin' },
+  en: { text: 'A short presentation of the main technical errors of your website, no call, no obligation.', meta: 'Free, within 24 hours' },
+  ru: { text: 'Короткая презентация с главными техническими ошибками сайта, без звонка и без обязательств.', meta: 'Бесплатно, в течение 24 часов' },
+}[lang];
 const list = keys ? SERVICES.filter((s) => keys.includes(s.key)) : SERVICES;
 const H = heading;
 ---
-<div class:list={['grid', list.length > 2 ? 'grid-4' : 'grid-2']}>
+<div class:list={['grid', withAudit ? 'grid-3' : list.length > 2 ? 'grid-4' : 'grid-2']}>
+  {withAudit && (
+    <a class="card card--link service-card" href={path('audit', lang)}>
+      <span class="icon-box"><Icon name="check" /></span>
+      <H>{META.audit[lang].name}</H>
+      <p>{AUDIT.text}</p>
+      <span class="meta">{AUDIT.meta}</span>
+      <span class="link-arrow">{t(lang).more}</span>
+    </a>
+  )}
   {list.map((s) => (
     <a class="card card--link service-card" href={path(s.key, lang)}>
       {art ? <span class="svc-card-art"><ServiceArt kind={s.key} size={96} /></span> : <span class="icon-box"><Icon name={s.icon} /></span>}
