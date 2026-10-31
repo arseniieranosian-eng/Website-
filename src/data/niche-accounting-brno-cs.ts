@@ -10,7 +10,7 @@ import { PRICES, fmtKc } from './consulting-shared';
 
 export const NICHE_ACCOUNTING_BRNO_PUBLISHED = '2026-10-31';
 // Capacity status of the niche (the same status as on the Prague page; update on both pages together, and the date on the day of publication [?]6).
-export const NICHE_ACCOUNTING_BRNO_STATUS_DATE = '23. 10. 2026';
+export const NICHE_ACCOUNTING_BRNO_STATUS_DATE = '31. 10. 2026';
 
 // B2 (filled in 31.10.2026 from the author's answers: check of 25. 10. 2026, google.cz, first page: map block, firm sites, AI answer; no names). The one-off check of the first page for "účetní kancelář Brno". The author fills it in (10 minutes): date of the check (google.cz), the types of results seen
 // (map block / directories / firm sites / online services / AI answer), no names. Text template (40–60 words):

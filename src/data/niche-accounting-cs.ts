@@ -1,7 +1,7 @@
 // Czech content of the niche landing page /seo-pro-ucetni-kancelare-praha/ (brief of 23.10.2026), the first page of the third niche (accounting firms).
 // Decisions of the author (answers to the brief's questions of 23.10.2026): no price on the page (links to the service pages), no search volumes (no Sklik data),
 // the observation block of 25. 10. 2026 (16 sites, counts given by the author; added 25.10.2026, the earlier anchor-menu observation stays dropped), the translation-agency case may be mentioned with its approved formula (consent given), the capacity status
-// for accounting is "volno" (dated 23. 10. 2026), daňoví poradci may be named in the audience (the advertising rules for them are NOT checked: nothing legal is
+// for accounting is "volno" (dated 31. 10. 2026), daňoví poradci may be named in the audience (the advertising rules for them are NOT checked: nothing legal is
 // written), no reel / video, no English version for now. No guarantees, no own case in this niche (said openly), no blog links, no "více klientů", the word
 // "agentura" is never used about the author, GEO/AEO always together. hreflang: none (Czech only).
 import { walk } from '../lib/cs-typo';
@@ -16,7 +16,7 @@ const PRICES_TEXT = `Balíček Start stojí ${fmtKc(START_PRICE)} za tři měsí
 
 export const NICHE_ACCOUNTING_PUBLISHED = '2026-10-23';
 // Status of the niche for the capacity rule (the same rule as on the other niche pages: at most three firms from one niche, counted per niche).
-export const NICHE_ACCOUNTING_STATUS_DATE = '23. 10. 2026';
+export const NICHE_ACCOUNTING_STATUS_DATE = '31. 10. 2026';
 
 const raw = {
   lang: 'cs' as const,
