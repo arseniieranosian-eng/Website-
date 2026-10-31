@@ -97,11 +97,11 @@ const raw = {
     { title: 'Lokální stránky podle měst, ne jedna obecná.', text: 'Geografické pokrytí se vyplatí poptávkami, ne jen pozicemi.' },
     { title: 'Před přisouzením růstu sobě ověřte makrotrend.', text: 'Růst při klesajícím zájmu u širokého dotazu je přesvědčivější než růst sám o sobě.' },
   ],
-  lessonClosing: 'Není to sezónní výkyv ani šťastná stránka, ale trychtýř, kde každá vrstva (technický základ, jasný komerční záměr, obsah horní části, důvěra, lokální pokrytí) pracovala na jednom cíli: poptávky, ne pozice nebo návštěvnost samy o sobě. Je to můj závěr z jednoho projektu; takový výsledek zaručit nelze.',
+  lessonClosing: 'Není to sezónní výkyv ani šťastná stránka, ale trychtýř, kde každá vrstva (technický základ, jasný komerční záměr, obsah horní části, důvěra, lokální pokrytí) pracovala na jednom cíli: poptávky, ne pozice nebo návštěvnost samy o sobě. Je to můj závěr z jednoho projektu.',
 
   faqTitle: 'Časté otázky k případové studii',
   faq: [
-    { q: 'Dá se růst v SEO mimo sezónu?', a: 'Dá se, ale zaručit to nelze. V tomto projektu poptávky z formuláře vzrostly 24× (jaro → léto 2026) od nízké základny, zatímco zájem o široký dotaz v Google Trends v těchto měsících klesal.' },
+    { q: 'Dá se růst v SEO mimo sezónu?', a: 'V tomto projektu poptávky z formuláře vzrostly 24× (jaro → léto 2026) od nízké základny, zatímco zájem o široký dotaz v Google Trends v těchto měsících klesal.' },
     { q: 'Jak poznat, že je růst skutečný, a ne sezónní?', a: 'Porovnejte svá data s Google Trends za několik let u hlavního širokého dotazu a podívejte se, jestli se moment růstu kryl s vrcholem zájmu. Také ověřte, jestli růst začal 2–3 měsíce po startu práce.' },
     { q: 'Co dají lokální stránky podle měst?', a: 'Odpovídají na lokální poptávku tam, kde je potřeba specialista poblíž. V tomto projektu se stránka pro Brno dostala mezi 3 hlavní zdroje poptávek na webu a stránka s více městy mezi 5 hlavních.' },
   ],

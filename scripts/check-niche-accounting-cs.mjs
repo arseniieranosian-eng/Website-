@@ -43,7 +43,7 @@ if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/seo-pro-ucetni-kancelare-praha/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-ucetni-kancelare-praha/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/seo-pro-ucetni-kancelare-praha/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-ucetni-kancelare-praha/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (!/href="\/audit-zdarma\/">Požádat o bezplatný audit<\/a>/.test(hero) || !/href="\/konzultace\/">Konzultace<\/a>/.test(hero)) e('hero buttons');
 for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);

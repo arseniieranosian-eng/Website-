@@ -60,7 +60,7 @@ const raw = {
     'Jazykové páry: lidé hledají konkrétní kombinaci, například překlad z češtiny do angličtiny.',
     'Město: agentury v Pardubicích potřebují stránky, které Pardubice opravdu jmenují.',
   ],
-  weak: { text: 'Proč jsou v Pardubicích vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi pardubickými překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Výsledek ani pozici nezaručuji. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
+  weak: { text: 'Proč jsou v Pardubicích vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi pardubickými překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury Pardubice, který přivádí nové klienty a zakázky z vyhledávání.',
   market: NICHE_PARDUBICE_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Pardubice?', paragraphs: NICHE_PARDUBICE_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_PARDUBICE_MARKET.checked } : null,
 
@@ -72,8 +72,8 @@ const raw = {
     { art: 'services', h: 'Stránky služeb a oborů', text: 'Firma obvykle nehledá „překlady“ obecně, ale například právní, technický nebo lékařský překlad. Každá služba a obor má mít stránku, která na dotaz odpoví.' },
     { art: 'b2b', h: 'Stránka pro firmy (B2B)', text: 'Firmy rozhodují jinak než jednotlivci: chtějí vědět, jak se pracuje na opakovaných zakázkách a v jakých oborech. Stránka pro firmy to popíše srozumitelně a vede k poptávce.' },
     { art: 'versions', h: 'Jazykové verze: indexace a duplicity', text: 'U vícejazyčného webu hlídám, aby Google viděl každou jazykovou verzi a nepletl si je s kopiemi. Duplicity mezi verzemi jsou častá technická chyba.' },
-    { art: 'local', h: 'Lokální přítomnost v Pardubicích', text: 'Pardubice: konkurence existuje i v menším městě. Majitel agentury se domníval, že tu konkurenci nemá, ale v hledání byli konkrétní konkurenti, včetně velkých hráčů oboru. Na dotaz „překlady Pardubice“ uváděl Google AI Overview pobočku klienta z mé případové studie k 15. 9. 2026 jako první, v organických výsledcích a v lokálním balíčku byla na prvním až druhém místě. Při kontrole 16. 10. 2026 byla v AI Overview opět první. Pozici nelze zaručit.' },
-    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
+    { art: 'local', h: 'Lokální přítomnost v Pardubicích', text: 'Pardubice: konkurence existuje i v menším městě. Majitel agentury se domníval, že tu konkurenci nemá, ale v hledání byli konkrétní konkurenti, včetně velkých hráčů oboru. Na dotaz „překlady Pardubice“ uváděl Google AI Overview pobočku klienta z mé případové studie k 15. 9. 2026 jako první, v organických výsledcích a v lokálním balíčku byla na prvním až druhém místě. Při kontrole 16. 10. 2026 byla v AI Overview opět první.' },
+    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat.' },
   ],
   quote: 'V menším městě se konkurence nepozná podle počtu firem, ale podle toho, kdo je vidět, když zákazník hledá.',
 

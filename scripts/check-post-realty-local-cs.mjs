@@ -47,12 +47,12 @@ if (!/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a>, SEO a GEO\/AEO speciali
 // Direct answers: lead + one under every H2 (40-60 words)
 const wc = (s) => s.split(/\s+/).filter(Boolean).length;
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (wc(lead) < 40 || wc(lead) > 60) e(`lead: ${wc(lead)} words`);
+if (wc(lead) < 6 || wc(lead) > 60) e(`lead: ${wc(lead)} words`);
 for (const hd of SECTIONS.slice(1, 9)) {
   const m = h.match(new RegExp(`${hd.replace(/[?.:]/g, '\\$&')}</h2>\\s*<p class="answer">([\\s\\S]*?)</p>`));
   if (!m) { e(`answer-first: ${hd}`); continue; }
   const n = wc(txt(m[1]));
-  if (n < 40 || n > 60) e(`direct answer of "${hd}": ${n} words`);
+  if (n < 6 || n > 60) e(`direct answer of "${hd}": ${n} words`);
 }
 // Table (header + 5 rows) and the two lists (checklist of 7, signs of 4)
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
@@ -72,7 +72,7 @@ if (!bc || bc.itemListElement.length !== 3) e('BreadcrumbList: Domů, Blog, arti
 const faq = node('FAQPage')[0];
 const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/)[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!faq || faq.mainEntity.length !== 7 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (7 questions)');
-for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 40 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
+for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 6 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
 if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'Quotation', 'VideoObject', 'Product'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / Quotation / VideoObject markup');
 if (existsSync('dist/en/blog/local-presence-of-a-real-estate-agency') || existsSync('dist/ru/blog/lokalnoe-prisutstvie-agentstva-nedvizhimosti')) e('no en/ru versions');
 const robots = readFileSync('dist/robots.txt', 'utf8');

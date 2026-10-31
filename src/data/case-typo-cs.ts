@@ -100,7 +100,7 @@ const raw = {
 
   faqTitle: 'Časté otázky k případové studii',
   faq: [
-    { q: 'Jak dlouho trvá růst organické návštěvnosti?', a: 'V tomto projektu srovnání červenec 2024 → červenec 2025 ukázalo růst z 1 200 na 10 500 návštěv měsíčně. Záleží na oboru, konkurenci a stavu webu, takže termín nelze zaručit.' },
+    { q: 'Jak dlouho trvá růst organické návštěvnosti?', a: 'V tomto projektu srovnání červenec 2024 → červenec 2025 ukázalo růst z 1 200 na 10 500 návštěv měsíčně.' },
     { q: 'Proč vstupní stránky místo blogových článků?', a: 'Vstupní stránka cílí na jeden komerční dotaz a vede k objednávce, zatímco článek odpovídá na informační otázku. V tomto projektu byl základem růstu 20+ vstupních stránek.' },
     { q: 'V jakém pořadí dělat SEO?', a: 'Nejdřív odstranit technické překážky: rozbité odkazy a porušenou hierarchii nadpisů. Potom postavit mapu dotazů podle trychtýře a teprve potom škálovat obsah.' },
     { q: 'Funguje tento postup i na českém trhu?', a: 'Pořadí priorit na trhu nezávisí, ale obor a konkurence v Česku budou jiné, takže výsledek zaručit nelze. Projekt běžel na ruskojazyčném trhu.' },

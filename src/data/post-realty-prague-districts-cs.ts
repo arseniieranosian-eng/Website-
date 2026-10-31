@@ -107,7 +107,7 @@ const raw = {
   ],
 
   endTitle: 'Chcete vědět, co SEO pro realitní kancelář v Praze obnáší?',
-  endText: 'Na stránce o SEO pro realitní kanceláře v Praze najdete, co práce zahrnuje a jak začít. Výsledek ani pozici nezaručuji.',
+  endText: 'Na stránce o SEO pro realitní kanceláře v Praze najdete, co práce zahrnuje a jak začít.',
   endCta: 'SEO pro realitní kanceláře v Praze',
 };
 

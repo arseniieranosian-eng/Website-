@@ -48,7 +48,7 @@ const raw = {
   ],
 
   endTitle: 'Chcete vědět, co SEO pro realitní kancelář v Brně obnáší?',
-  endText: 'Na stránce o SEO pro realitní kanceláře v Brně najdete, co práce zahrnuje a jak začít. Výsledek ani pozici nezaručuji.',
+  endText: 'Na stránce o SEO pro realitní kanceláře v Brně najdete, co práce zahrnuje a jak začít.',
   endCta: 'SEO pro realitní kanceláře v Brně',
 };
 

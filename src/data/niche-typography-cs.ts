@@ -31,7 +31,7 @@ const raw = {
   ],
 
   doTitle: 'Co pro tiskárny a polygrafické firmy dělám?',
-  doAnswer: 'Postupuji ve třech krocích: technický základ webu, mapa dotazů podle nákupního trychtýře a až poté vstupní stránky pro služby a produkty. K tomu přidávám FAQ a přípravu na GEO/AEO. U mých projektů se první změny obvykle objevují za 2–3 měsíce, záruka neexistuje.',
+  doAnswer: 'Postupuji ve třech krocích: technický základ webu, mapa dotazů podle nákupního trychtýře a až poté vstupní stránky pro služby a produkty. K tomu přidávám FAQ a přípravu na GEO/AEO. U mých projektů se první změny obvykle objevují za 2–3 měsíce.',
   do: [
     'Technický základ webu: indexace, duplicity a další technické problémy.',
     'Mapa dotazů podle nákupního trychtýře.',
@@ -46,7 +46,7 @@ const raw = {
   forNo: { title: 'Nehodí se', items: ['firmy, které čekají zaručené pořadí', 'firmy, které čekají rychlé výsledky', 'firmy, které hledají jen nový design webu'] },
 
   caseTitle: 'Jaký výsledek měla případová studie tiskárny?',
-  caseAnswer: 'Organická návštěvnost webu tiskárny vzrostla 8,75× za 12 měsíců (červenec 2024 → červenec 2025). Měřena byla pouze návštěvnost z vyhledávání, poptávky a tržby do studie nepatří. Projekt běžel na ruskojazyčném webu pro ruskojazyčný trh, v Česku výsledek zaručit nelze. Studie popisuje postup práce, ne slib výsledku.',
+  caseAnswer: 'Organická návštěvnost webu tiskárny vzrostla 8,75× za 12 měsíců (červenec 2024 → červenec 2025). Měřena byla pouze návštěvnost z vyhledávání, poptávky a tržby do studie nepatří. Studie popisuje postup práce, ne slib výsledku.',
   caseTransfer: 'Co se přenáší a co ne: přenáší se pořadí práce (technický základ, mapa dotazů, vstupní stránky), nepřenášejí se čísla ani poptávky.',
   caseLead: 'Postup popisuje',
   caseLink: 'celá případová studie',
@@ -82,11 +82,10 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Funguje to i v Česku?', a: 'Postup se přenést dá: nejdřív technický základ, potom mapa dotazů podle trychtýře a až poté vstupní stránky. Konkrétní čísla ani poptávka se nepřenesou, záleží na oboru, konkurenci a stavu webu. Případová studie běžela na ruskojazyčném trhu, proto je pro Česko nezaručuji.' },
-    { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Záruka neexistuje, doba závisí na stavu webu, konkurenci a rozsahu úprav. Tuto dobu nelze brát jako slib. Případová studie sledovala růst za 12 měsíců.' },
+    { q: 'Funguje to i v Česku?', a: 'Postup se přenést dá: nejdřív technický základ, potom mapa dotazů podle trychtýře a až poté vstupní stránky. Konkrétní čísla ani poptávka se nepřenesou, záleží na oboru, konkurenci a stavu webu.' },
+    { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Tuto dobu nelze brát jako slib. Případová studie sledovala růst za 12 měsíců.' },
     { q: 'Je to pro e-shop i pro místní polygrafii?', a: 'Ano, postup je podobný, liší se důraz. E-shop řeší hlavně katalog, varianty produktů, filtry a kalkulačky. Místní polygrafie s menším webem řeší hlavně stránky služeb a jejich srozumitelnost pro vyhledávač i pro AI. Pokud si nejste jistí, začněte bezplatným technickým auditem.' },
-    { q: 'Pracujete s více tiskárnami současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${TYPOGRAPHY_CAPACITY_DATE} je obor tiskáren a polygrafie volný. Jde o omezení kapacity, ne o exkluzivitu: neslibuji, že pro vás budu jediný, jen že počet souběžných firem z jednoho oboru je omezený.` },
-    { q: 'Zaručíte, že mě bude citovat AI?', a: 'Ne. Citování umělou inteligencí zaručit nelze, ovlivňují ho systémy, které nekontroluji. Web připravuji tak, aby byl pro AI srozumitelný: přímé odpovědi, FAQ, přehledné tabulky a technický základ. Citování se pak dá ověřovat ručním testem vybraných otázek v ChatGPT, Perplexity a Google AI Overview.' },
+    { q: 'Pracujete s více tiskárnami současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${TYPOGRAPHY_CAPACITY_DATE} je obor tiskáren a polygrafie volný.` },
     { q: 'Kolik to stojí?', a: 'Cena závisí na zvoleném balíčku: konzultace, Start na 3 měsíce nebo Full SEO na rok. Rozsah a podmínky najdete na stránkách jednotlivých balíčků, na této stránce ceny neuvádím. Bezplatný technický audit je zdarma, k ničemu vás nezavazuje a prezentaci dostanete do 24 hodin.' },
   ],
 

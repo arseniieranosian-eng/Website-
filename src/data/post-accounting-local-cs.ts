@@ -23,7 +23,7 @@ const raw = {
   leadLinkText: 'Jak získat klienty pro účetní kancelář',
 
   whatTitle: 'Co je lokální přítomnost účetní kanceláře?',
-  whatAnswer: 'Lokální přítomnost je souhrn toho, jak kancelář vypadá na mapách, v katalozích a na vlastním webu: profily, název, adresa, telefon a otevírací doba. Nejde o jednu stránku, ale o údaje, které musí být správné a stejné všude, kde je zájemce najde. Pozici na mapách ani poptávky nikdo nezaručí.',
+  whatAnswer: 'Lokální přítomnost je souhrn toho, jak kancelář vypadá na mapách, v katalozích a na vlastním webu: profily, název, adresa, telefon a otevírací doba. Nejde o jednu stránku, ale o údaje, které musí být správné a stejné všude, kde je zájemce najde.',
 
   whereTitle: 'Kde by měla být kancelář vidět?',
   whereAnswer: 'Základem je profil v Google Business Profile, doplněný profily na Mapy.com a Firmy.cz a údaji na vlastním webu. Všude se vyplňují stejné základní údaje: název, adresa nebo oblast působení, telefon, otevírací doba a odkaz na web. Seznam není vyčerpávající a závisí na tom, kde vás zájemci hledají.',
@@ -77,7 +77,7 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Potřebuje účetní kancelář profil na mapách, když má web?', a: 'Web a profil na mapách plní různé úlohy. Web popisuje služby kanceláře, profil ukazuje kancelář na mapě s adresou nebo oblastí působení, telefonem a hodinami. Jedno druhé nenahrazuje. Zda profil dává smysl, záleží na tom, jak kancelář s klienty pracuje, a pozici na mapách nikdo nezaručí.' },
+    { q: 'Potřebuje účetní kancelář profil na mapách, když má web?', a: 'Web a profil na mapách plní různé úlohy. Web popisuje služby kanceláře, profil ukazuje kancelář na mapě s adresou nebo oblastí působení, telefonem a hodinami. Jedno druhé nenahrazuje.' },
     { q: 'Musí být adresa v profilu stejná jako na webu?', a: 'Ano, adresa má být stejná a odpovídat skutečnému místu. Google vyžaduje přesnou a skutečnou adresu a nepřijímá poštovní schránky. Rozdílný zápis ulice, čísla nebo obce na webu a v profilu je zbytečné riziko zmatku, proto jej sjednoťte. Při změně adresy upravte všechna místa najednou.' },
     { q: 'Co dělat, když účetní pracuje z domova nebo u klientů?', a: 'Kancelář, která klienty nepřijímá na provozovně, může podle pravidel Google vést jeden profil s oblastí působení a adresu před zákazníky skrýt. Poštovní schránka ani virtuální kancelář se jako adresa nepřijímá. Rozhodnutí, zda adresu uvést, je na vás; přesná pravidla ověřte v aktuální nápovědě Google.' },
     { q: 'Kolik kategorií v profilu vybrat?', a: 'Co nejméně: Google doporučuje vybrat jen tolik kategorií, kolik je třeba k popisu hlavní činnosti kanceláře. Kategorie nemají sloužit jako klíčová slova ani popisovat vlastnosti kanceláře. Pokud kancelář dělá více věcí, vybere kategorii, která popisuje její hlavní podnikání, a další jen tehdy, když se skutečně hodí.' },

@@ -59,7 +59,7 @@ const flat = body.replace(/\( /g, '(').replace(/ \)/g, ')'); // inline links lea
 if (!body.includes(cat.name) || cat.itemListElement.length !== 8) e('OfferCatalog must have 8 items and a visible name');
 else if (!cat.itemListElement.every((i) => flat.includes(i.itemOffered.name) || i.itemOffered.name === MAPS_ITEM)) e('OfferCatalog does not match the visible list');
 if (!cat.itemListElement.some((i) => i.itemOffered.name === MAPS_ITEM)) e('maps item of the OfferCatalog must use the wording from the brief');
-if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('6 FAQ Q/A not visible verbatim');
+if (fq.mainEntity.length !== 5 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('5 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > SEO start na 3 měsíce' || bc.itemListElement.at(-1).item) e('breadcrumb');
 if (!ht || ht.totalTime !== 'P3M' || ht.step.length !== 3) e('HowTo: expected totalTime P3M and 3 steps');
 else {

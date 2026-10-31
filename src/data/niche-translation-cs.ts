@@ -60,7 +60,7 @@ const raw = {
     'Města: poptávka v Praze a okolí vyžaduje stránky, které město opravdu jmenují.',
     'Sezónnost: poptávky během roku kolísají a stránky v Googlu pomáhají výkyvy vyrovnávat, i když nic nezaručují.',
   ],
-  weak: { text: 'Proč jsou na dotaz „překlady Praha“ vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Výsledek ani pozici nezaručuji. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
+  weak: { text: 'Proč jsou na dotaz „překlady Praha“ vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury, který přivádí nové klienty a zakázky z vyhledávání.',
 
   doTitle: 'Co pro překladatelskou agenturu konkrétně dělám?',
@@ -72,7 +72,7 @@ const raw = {
     { h: 'Stránka pro firmy (B2B poptávky)', art: 'b2b', text: 'Firmy rozhodují jinak než jednotlivci: chtějí vědět, jak se pracuje na opakovaných zakázkách a v jakých oborech. Stránka pro B2B poptávky to popíše srozumitelně a vede k poptávce.' },
     { h: 'Jazykové verze: indexace a duplicity', art: 'versions', text: 'U vícejazyčného webu hlídám, aby Google viděl každou jazykovou verzi a nepletl si je s kopiemi. Duplicity mezi verzemi jsou častá technická chyba.' },
     { h: 'Lokální přítomnost: Google Maps a Mapy.com pro agentury', art: 'local', text: 'Praha: centrála, nebo jedna z poboček? Pokud má agentura v Praze centrálu a pobočky v dalších městech, pražský profil a pražská stránka popisují jen pražské místo: jeho adresu, telefon a otevírací dobu. Pobočky mají vlastní stránky a profily. Společný popis pro všechna města by byl pro zájemce zmatečný a pro vyhledávač zbytečně opakovaný.' },
-    { h: 'GEO/AEO: součást každé služby', art: 'geo', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
+    { h: 'GEO/AEO: součást každé služby', art: 'geo', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat.' },
   ],
   quote: 'U překladatelské agentury se poptávka rozhoduje v detailech: jazykový pár, obor, město. Stránky, které tyto detaily nepopisují, nemá Google co ukázat.',
 

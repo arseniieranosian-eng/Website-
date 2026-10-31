@@ -58,7 +58,7 @@ const raw = {
 
   startTitle: 'Kdy dává smysl SEO start na 3 měsíce?',
   startAnswer: 'SEO start je tři měsíce práce na základu webu: audit, opravy, klíčová slova a optimalizace hlavních stránek. Hodí se, když chcete, aby se základ udělal a měl další růst na čem stát.',
-  startText: 'První výsledky obvykle přicházejí za 2–3 měsíce, ale zaručit je nelze. Záleží na oboru, konkurenci a stavu webu.',
+  startText: 'První výsledky obvykle přicházejí za 2–3 měsíce. Záleží na oboru, konkurenci a stavu webu.',
   startLinkText: 'SEO start na 3 měsíce',
 
   laterTitle: 'Kdy přijde na řadu Full SEO a Mapy?',
@@ -97,7 +97,7 @@ const raw = {
     { q: 'Musím začít bezplatným auditem?', a: 'Ne. Můžete začít konzultací nebo rovnou SEO startem. Bezplatný audit je jen nejlehčí vstup.' },
     { q: 'Stačí jedna konzultace?', a: 'Může stačit, pokud potřebujete odpovědi a plán a práci provedete sami nebo s vývojářem. Pokud chcete, aby se práce provedla, zvažte SEO start.' },
     { q: 'Je SEO start nutný před Full SEO?', a: 'Ne nutně. Pokud je základ webu v pořádku, může mít smysl začít rovnou Full SEO; poradím na konzultaci nebo po auditu.' },
-    { q: 'Za jak dlouho se projeví první výsledky?', a: 'Obvykle za 2–3 měsíce, ale záleží na oboru, konkurenci a stavu webu a zaručit je nelze.' },
+    { q: 'Za jak dlouho se projeví první výsledky?', a: 'Obvykle za 2–3 měsíce, ale záleží na oboru, konkurenci a stavu webu.' },
     { q: 'Můžu změnit formát během spolupráce?', a: 'Ano, formát lze po dohodě změnit, například po konzultaci přejít na SEO start.' },
   ],
 

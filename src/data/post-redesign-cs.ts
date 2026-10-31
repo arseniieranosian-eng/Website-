@@ -107,7 +107,7 @@ const raw = {
 
   faqTitle: 'Časté otázky po redesignu webu',
   faq: [
-    { q: 'Jak dlouho trvá, než se návštěvnost po redesignu vrátí?', a: 'Záleží na příčině a velikosti webu. Po opravě technických chyb může Google web zpracovat za dny až týdny, ale návrat návštěvnosti zaručit nelze.' },
+    { q: 'Jak dlouho trvá, než se návštěvnost po redesignu vrátí?', a: 'Záleží na příčině a velikosti webu.' },
     { q: 'Je normální, že po změně webu klesnou pozice?', a: 'Krátkodobé výkyvy jsou po změně webu časté, protože Google web znovu zpracovává. Pokud pokles trvá týdny, hledejte příčinu.' },
     { q: 'Pomůže vrátit starý web?', a: 'Někdy to může být dočasné řešení, ale lepší je najít příčinu a opravit ji. Samotný návrat ke starému webu výsledek nezaručí a může přinést další změny adres.' },
     { q: 'Musím po redesignu přesměrovat všechny staré adresy?', a: 'Ideálně ano: všechny staré adresy, které měly návštěvnost nebo odkazy, přesměrujte na nejbližší odpovídající novou stránku. Seznam starých adres si uložte před spuštěním.' },

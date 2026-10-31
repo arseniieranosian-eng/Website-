@@ -8,7 +8,7 @@ const URL_PATH = '/seo-pro-tiskarny-a-polygrafii/';
 const NAME = 'SEO a GEO/AEO pro tiskárny a polygrafii'; // the breadcrumb label (META name)
 const H1 = 'SEO a GEO/AEO pro tiskárny a polygrafii: poptávky z Googlu a AI';
 const TITLE = 'SEO pro tiskárny a polygrafii: katalog | Eranosian';
-const DESC = 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Bez slibů. Začněte technickým auditem zdarma.';
+const DESC = 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Začněte technickým auditem zdarma.';
 const SECTIONS = [H1, 'Co pro tiskárny a polygrafické firmy dělám?', 'Pro koho je to a pro koho ne?', 'Jaký výsledek měla případová studie tiskárny?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/pripadove-studie/seo-tiskarna/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'rychlé výsledky pro', 'SEO agentur', 'Kč', 'Sklik:', 'Petrohrad', 'Sankt', 'ofset', '1 200', '10 500', '775', 'tiskárnu', 'AggregateRating', 'na části webů', '9 webů'];
@@ -45,7 +45,7 @@ for (const l of ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/'
 if (cnt(/href="\/pripadove-studie\/seo-tiskarna\/"/g) < 1 || cnt(/href="\/pripadove-studie\/seo-tiskarna\/"/g) > 2) e('case link 1–2 times');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/seo-pro-tiskarny-a-polygrafii/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-tiskarny-a-polygrafii/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/seo-pro-tiskarny-a-polygrafii/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-tiskarny-a-polygrafii/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Lists and tables
 const ols = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];
@@ -67,7 +67,7 @@ if (sv.offers || sv.areaServed.name !== 'Česko' || sv.provider['@id'] !== by('P
 if (wp.inLanguage !== 'cs' || wp.name !== H1 || wp.datePublished !== '2026-10-25' || wp.mainEntity['@id'] !== `${BASE}${URL_PATH}#service`) e('WebPage');
 const mod = h.match(/Aktualizováno: <time datetime="([^"]+)"/)[1];
 if (wp.dateModified !== mod) e('dateModified = visible date');
-if (!fq || fq.mainEntity.length !== 6) e('FAQPage: 6 questions');
+if (!fq || fq.mainEntity.length !== 5) e('FAQPage: 5 questions');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (fq && fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');

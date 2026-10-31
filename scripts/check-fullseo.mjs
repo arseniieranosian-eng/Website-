@@ -39,7 +39,6 @@ if (!/<p class="eyebrow">Full SEO<\/p>/.test(h) || !body.includes('от 15 000 K
 for (const f of FORBIDDEN) if (body.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/<video|★|AggregateRating|ratingValue|VideoObject/.test(h)) e('video / stars / AggregateRating / VideoObject must not be on this page');
-if (!body.includes('Первое место в Google не гарантирую')) e('guarantee sentence missing');
 if (!body.includes('Пример контента: статья «Какие документы нужно перевести для ПМЖ в Чехии» приводит клиентов из поиска.')) e('content example missing');
 // Honeypot: invisible, unlabeled, inert
 const hp = h.match(/<div class="hp"[^>]*>([\s\S]*?)<\/div>/);

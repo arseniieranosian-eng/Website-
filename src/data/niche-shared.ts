@@ -26,7 +26,7 @@ export const NICHE_SHARED_CS = walk({
         { page: 'maps' as const, label: 'SEO pro Mapy', who: 'pro agentury, které hledají zákazníky lokálně', what: 'Google Maps a Mapy.com, od 4 měsíců' },
       ],
     },
-    note: 'První výsledky se obvykle objeví za 2–3 měsíce; garance neexistuje.',
+    note: 'První výsledky se obvykle objeví za 2–3 měsíce.',
   },
   articles: { title: 'Další články pro agentury', lead: 'Praktické články pro majitele překladatelských agentur.', more: 'Číst článek', keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs', 'postWeakSeo'] as const },
   reviews: { title: 'Co říkají klienti?', answer: 'Recenze od klientů najdete na samostatné stránce, vždy s uvedením zdroje.', link: 'Všechny recenze' },
@@ -54,7 +54,7 @@ export const NICHE_SHARED_CS_TR = {
 export const NICHE_CAPACITY_DATE_RU = '22.10.2026';
 export const NICHE_SHARED_RU = {
   capacityTitle: 'Как я сотрудничаю с агентствами недвижимости?',
-  capacityAnswer: `Я работаю одновременно не более чем с тремя компаниями из одной ниши. Это ограничение по загрузке, а не обещание эксклюзивности: я не говорю, что среди моих клиентов никогда не будет конкурентов, я говорю, сколько компаний из ниши беру одновременно. Данные на ${NICHE_CAPACITY_DATE_RU}, при изменении обновляю.`,
+  capacityAnswer: `Я работаю одновременно не более чем с тремя компаниями из одной ниши. Данные на ${NICHE_CAPACITY_DATE_RU}, при изменении обновляю.`,
   auditNot: ['ключевые слова', 'конкуренты', 'карты', 'видимость в AI-поиске', 'скорость загрузки', 'мобильная версия'],
-  formatsNote: 'Первые результаты обычно через 2–3 месяца; гарантий нет.',
+  formatsNote: 'Первые результаты обычно через 2–3 месяца.',
 };

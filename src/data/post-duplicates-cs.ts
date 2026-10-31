@@ -104,7 +104,7 @@ const raw = {
     { q: 'Penalizuje Google duplicitní obsah?', a: 'Obvykle ne. Google většinou vybere jednu verzi a ostatní nezařadí; problém bývá v tom, že vybere jinou, než chcete. Opisování cizího obsahu je jiná věc.' },
     { q: 'Je duplicita to samé jako plagiát?', a: 'Ne. Duplicita je technický jev uvnitř webu nebo mezi adresami, plagiát je opsání cizího textu. Bezplatný audit kontroluje technické duplicity na vašem webu, ne plagiáty na jiných webech.' },
     { q: 'Je canonical totéž co přesměrování?', a: 'Ne. Přesměrování 301 pošle návštěvníky i Google na jinou adresu, zatímco canonical jen doporučí Googlu hlavní verzi a stránka zůstane dostupná.' },
-    { q: 'Za jak dlouho Google duplicity zpracuje?', a: 'Od několika dnů po několik týdnů po opravě; záleží na velikosti webu a na tom, jak často ho Google navštěvuje. Nic nezaručuje.' },
+    { q: 'Za jak dlouho Google duplicity zpracuje?', a: 'Od několika dnů po několik týdnů po opravě; záleží na velikosti webu a na tom, jak často ho Google navštěvuje.' },
   ],
 
   endTitle: 'Nevíte, jestli má váš web duplicity?',

@@ -29,7 +29,7 @@ export const HOME_EN = {
       { page: 'maps' as const, label: 'Maps (Google + Mapy.com)', what: 'local SEO on Google Maps and Mapy.com', best: 'businesses that win customers locally', time: 'from 4 months' },
     ],
   },
-  hubNote: 'GEO/AEO is included in every service. Results depend on niche, competition and the starting point and cannot be guaranteed.',
+  hubNote: 'GEO/AEO is included in every service.',
 
   czTitle: 'Why search in Czechia needs local knowledge',
   czAnswer: 'Czech customers search in Google, Seznam and Mapy.com, in Czech and often in English. I work in English and understand how each of these works, so you do not have to explain your business twice.',
@@ -58,7 +58,7 @@ export const HOME_EN = {
   faqTitle: 'Frequently asked questions',
   faq: [
     { q: 'What does the free audit cover?', a: 'A check of technical errors: indexing, duplicate pages and other technical problems. You receive a short presentation within 24 hours, with no call and no obligation. It does not cover keywords, competitors, maps, AI visibility, speed or mobile.' },
-    { q: 'How soon will I see results?', a: 'Technical fixes can show an effect within weeks, and the first results of ongoing work usually appear in 2–3 months. Timing depends on your niche, competition and starting point, and results cannot be guaranteed.' },
+    { q: 'How soon will I see results?', a: 'Technical fixes can show an effect within weeks, and the first results of ongoing work usually appear in 2–3 months.' },
     { q: 'What is the difference between SEO and GEO/AEO?', a: 'SEO helps pages rank in Google and Seznam. GEO/AEO helps AI tools understand and quote your content. I do both together, and I cannot promise citations.', link: 'geo' as const, linkText: 'How SEO + GEO/AEO works' },
     { q: 'How does working together look?', a: 'It starts with a free audit, then we choose a format (consulting, a 3-month start, Full SEO or Maps), agree a plan, and you get regular reports and one point of contact. Most work is online, and meetings in Prague are possible.' },
     { q: 'Do you work with English-speaking clients and the Czech market?', a: 'Yes. I work in English, Czech and Russian and know how Czech search works: Google, Seznam and Mapy.com.' },

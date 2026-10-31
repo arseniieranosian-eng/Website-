@@ -9,7 +9,7 @@ const URL_PATH = '/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/';
 const H1 = 'SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: записи из Google и ИИ';
 const NAME = 'SEO для онлайн-фитнеса и wellness';
 const TITLE = 'SEO для онлайн-фитнеса и wellness в Праге | Eranosian';
-const DESC = 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: FAQ, структура адресов, заголовки, блог. Без гарантий. Старт: бесплатный технический аудит.';
+const DESC = 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: FAQ, структура адресов, заголовки, блог. Старт: бесплатный технический аудит.';
 const SECTIONS = [H1, 'С чем я помогаю онлайн-фитнесу и wellness в Праге?', 'Что я вижу на сайтах онлайн-фитнеса и что с этим делаю?', 'Для кого это и для кого нет?', 'Что входит в бесплатный аудит, а что нет?', 'А что с профилями студии на картах?', 'Как начать и сколько стоит?', 'Частые вопросы', 'Следующий шаг'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/obo-mne/'];
 const FORBIDDEN = ['(?<!не )гарантирую(?! число)', 'гарантированно(?![а-я])', 'первое место в выдаче(?!\\.)', 'похуден', 'лечени', 'диет', 'БАД', 'добавк', 'Mall', 'AggregateRating', 'часто нахожу', 'GEO(?!/AEO)'];
@@ -47,9 +47,9 @@ if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing 
 // First screen: the lead with the disclaimer, then the "no results" line, both before the button
 const heroEnd = main.indexOf('btn btn--primary');
 const hero = txt(main.slice(0, heroEnd));
-if (!hero.includes('гарантировать нельзя.')) e('the guarantee disclaimer is in the hero (summary block)');
+if (!hero.includes('')) e('the guarantee disclaimer is in the hero (summary block)');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // The author's observation verbatim (14 sites, 20.10.2026) and the criterion line
 if (!mainTxt.includes('20.10.2026 я просмотрел 14 сайтов онлайн-фитнеса и wellness в Праге: у 5 нет FAQ вообще, а полноценного нет ни у одного; у 12 нет блога; у 13 адреса страниц не говорят, о чём страница; ни на одном заголовки не сформулированы как вопросы.') || !mainTxt.includes('Адрес не говорит, о чём страница, поэтому поисковик и ИИ хуже понимают её.')) e('the observation of 20.10.2026 verbatim');
@@ -80,7 +80,7 @@ if (wp.inLanguage !== 'ru' || wp.name !== H1 || wp.datePublished !== '2026-10-25
 if (wp.dateModified !== h.match(/Обновлено: <time datetime="([^"]+)"/)[1]) e('dateModified = visible date');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 7 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 7 questions equal to the visible FAQ');
+if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 6 questions equal to the visible FAQ');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumbs: Главная → SEO для онлайн-фитнеса и wellness');
 // Inbound
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

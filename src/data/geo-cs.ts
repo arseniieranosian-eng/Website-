@@ -9,7 +9,7 @@ export const GEO_PUBLISHED = '2026-10-19';
 const geoDef = 'optimalizace webu pro generativní AI nástroje, které skládají odpověď z více zdrojů, například ChatGPT, Gemini nebo Perplexity.';
 const aeoDef = 'optimalizace webu pro přímé odpovědi na otázky, například v Google AI Overviews.';
 const diff = 'SEO zlepšuje pozice ve výsledcích Google a Seznamu. GEO/AEO zvyšuje šanci, že vás AI nástroje jako ChatGPT, Gemini nebo Google AI Overviews doporučí a ocitují. Dělám obojí, protože se vzájemně posilují.';
-const noGuarantee = 'Žádnou zmínku nelze zaručit.';
+const noGuarantee = '';
 
 export const GEO_CS = {
   lang: 'cs' as const,
@@ -101,7 +101,7 @@ export const GEO_CS = {
       caption: 'Dotazy „překlady Pardubice“, „překlady Brno“ a „překlady Praha“: AI Overview uvádí agenturu a její pobočky. Názvy, adresy, telefon a logo jsou zakryté, červené šipky jsou moje značky.',
     },
   ],
-  examplesNote: 'Odpovědi AI se mění a zmínku v nich zaručit nelze. Ukázky dokládají, že se agentura v takových odpovědích objevila, ne že se tam objeví vždy.',
+  examplesNote: 'Ukázky dokládají, že se agentura v takových odpovědích objevila, ne že se tam objeví vždy.',
 
   faqTitle: 'Časté otázky o GEO a AEO',
   faq: [

@@ -139,11 +139,11 @@ const raw = {
 
   faqTitle: 'Časté otázky k případové studii',
   faq: [
-    { q: 'Co obnáší půl roku SEO pro firmu s více pobočkami?', a: 'V tomto projektu to byla stavba webu jako systému: stránky, které vedou k poptávce, podporují rozhodnutí a budují důvěru, samostatné stránky pro každé město, lokalizace každé jazykové verze a týdenní reporty s ověřitelnými zdroji. Výsledek záleží na oboru a konkurenci a zaručit ho nelze.' },
+    { q: 'Co obnáší půl roku SEO pro firmu s více pobočkami?', a: 'V tomto projektu to byla stavba webu jako systému: stránky, které vedou k poptávce, podporují rozhodnutí a budují důvěru, samostatné stránky pro každé město, lokalizace každé jazykové verze a týdenní reporty s ověřitelnými zdroji. Výsledek záleží na oboru a konkurenci.' },
     { q: 'Proč blog a FAQ ještě před prvními poptávkami?', a: 'Blog a FAQ zachytí lidi, kteří ještě nevědí, že potřebují právě tuto službu, a vedou je na stránky, které konvertují. V tomto projektu web na začátku nemělo ani jedno.' },
     { q: 'Jak poznat, že SEO přineslo poptávky, a ne sezóna?', a: 'Porovnejte svá data s Google Trends u hlavního širokého dotazu a podívejte se, jestli růst začal i ve slabém období. Podrobný postup je v případové studii o nízké sezóně.', link: 'caseSeason' as const, linkText: 'SEO v nízké sezóně' },
-    { q: 'Funguje to i pro web, který je postavený jen napůl?', a: 'Právě takový web je dobrý kandidát: nejdřív je potřeba zmapovat, co chybí, a teprve potom ladit to, co existuje. Výsledek záleží na oboru a stavu webu a zaručit ho nelze.' },
-    { q: 'Pomůže vícejazyčné SEO oslovit nové skupiny klientů?', a: 'V tomto projektu přišla většina poptávek z formuláře přes českou a anglickou verzi a každou ze čtyř verzí jsem stavěl zvlášť, ne jako překlad. Výsledek ale záleží na oboru, trhu a výchozím stavu webu a zaručit ho nelze.' },
+    { q: 'Funguje to i pro web, který je postavený jen napůl?', a: 'Právě takový web je dobrý kandidát: nejdřív je potřeba zmapovat, co chybí, a teprve potom ladit to, co existuje. Výsledek záleží na oboru a stavu webu.' },
+    { q: 'Pomůže vícejazyčné SEO oslovit nové skupiny klientů?', a: 'V tomto projektu přišla většina poptávek z formuláře přes českou a anglickou verzi a každou ze čtyř verzí jsem stavěl zvlášť, ne jako překlad. Výsledek ale záleží na oboru, trhu a výchozím stavu webu.' },
   ],
 
   relatedTitle: 'Související služby',

@@ -18,7 +18,7 @@ const raw = {
   updatedLabel: 'Aktualizováno',
   readLabel: 'Čtení',
   readUnit: 'min',
-  cover: { src: '/images/blog/seo-plan-na-12-mesicu.webp', width: 1200, height: 630, alt: 'Ilustrace: SEO plán s cílem, prioritami, etapami a měřením, bez záruky výsledků' },
+  cover: { src: '/images/blog/seo-plan-na-12-mesicu.webp', width: 1200, height: 630, alt: 'Ilustrace: SEO plán s cílem, prioritami, etapami a měřením výsledků' },
 
   lead: 'Jsem SEO specialista, proto může být moje hodnocení zaujaté. Plán popisuji obecně, ne podle konkrétní nabídky. SEO plán je dokument, který popisuje, co a v jakém pořadí se na webu bude dělat a jak se bude měřit pokrok.',
 

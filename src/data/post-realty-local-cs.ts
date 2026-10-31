@@ -25,7 +25,7 @@ const raw = {
   whatMore: 'Skládá se z profilů na mapách, z katalogů a z údajů na vlastním webu. Tyto tři části je třeba udržovat společně.',
 
   whereTitle: 'Které profily a katalogy by kancelář měla mít?',
-  whereAnswer: 'Základem je profil kanceláře v Google Business Profile, doplněný profily na Mapy.com a Firmy.cz. Na každém místě kancelář vyplňuje stejné základní údaje: název, adresu, telefon a otevírací dobu. Seznam není vyčerpávající a závisí na tom, kde zájemci kancelář hledají; první místo na mapách nikdo nezaručí.',
+  whereAnswer: 'Základem je profil kanceláře v Google Business Profile, doplněný profily na Mapy.com a Firmy.cz. Na každém místě kancelář vyplňuje stejné základní údaje: název, adresu, telefon a otevírací dobu.',
   where: {
     head: ['Kde', 'Co vyplnit'],
     rows: [

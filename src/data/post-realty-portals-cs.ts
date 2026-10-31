@@ -18,7 +18,7 @@ const raw = {
   readUnit: 'min',
   cover: { src: '/images/blog/vlastni-web-nebo-realitni-portaly.webp', width: 1200, height: 630, alt: 'Ilustrace: realitní portál a vlastní web realitní kanceláře spojené znaménkem plus' },
 
-  lead: 'Vlastní web a realitní portály se nevylučují, ale doplňují. Portál přivádí lidi, kteří už hledají nabídku, vlastní web dává kanceláři kontrolu nad značkou a obsahem. Co se hodí, záleží na cíli a kapacitě, ne na jednom pravidle. Níže je srovnání a případy, kdy stačí portál. Výsledky neslibuji.',
+  lead: 'Vlastní web a realitní portály se nevylučují, ale doplňují. Portál přivádí lidi, kteří už hledají nabídku, vlastní web dává kanceláři kontrolu nad značkou a obsahem. Co se hodí, záleží na cíli a kapacitě, ne na jednom pravidle. Níže je srovnání a případy, kdy stačí portál.',
   forWhom: 'Text je pro majitele realitní kanceláře, který zvažuje, jestli potřebuje vlastní web, když má nabídky na portálech. Najdete tu, co umí a čím je omezený portál i vlastní web, srovnání v tabulce, otázky k rozhodnutí a způsob, jak oba kanály propojit.',
 
   tocTitle: 'Co v textu najdete',
@@ -77,7 +77,7 @@ const raw = {
   linkLinkText: 'Nabídky nemovitostí a SEO: indexace, duplicity filtrů, prodané nabídky',
 
   seoTitle: 'Kdy dává smysl SEO a GEO/AEO pro vlastní web?',
-  seoAnswer: 'SEO a GEO/AEO dávají vlastnímu webu smysl, pokud ho chcete zviditelnit ve vyhledávání a v odpovědích AI a umíte počkat. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, záruku nedávám. Podrobnosti jsou na stránce SEO pro realitní kanceláře.',
+  seoAnswer: 'SEO a GEO/AEO dávají vlastnímu webu smysl, pokud ho chcete zviditelnit ve vyhledávání a v odpovědích AI a umíte počkat. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Podrobnosti jsou na stránce SEO pro realitní kanceláře.',
   seoLead: 'Co v oboru dělám, popisuji na stránce',
   seoLinkText: 'SEO pro realitní kanceláře v Praze',
   seoSmallLead: 'Jestli SEO dává smysl právě pro malou kancelář, rozebírám v článku',
@@ -90,10 +90,10 @@ const raw = {
   faq: [
     { q: 'Má smysl vlastní web, když jsou portály?', a: 'Může mít, pokud chcete budovat vlastní značku a získávat klienty i mimo portál. Pokud potřebujete hlavně rychlé kontakty a nemáte kapacitu spravovat web, stačit může portál. Záleží na cíli, kapacitě a rozpočtu, ne na jednom pravidle. Zda se vlastní web vyplatí vám, posoudí konzultace.', links: [{ page: 'consulting' as const, text: 'SEO konzultace' }] },
     { q: 'Jak získat klienty bez portálů?', a: 'Klienty mimo portály získáváte z doporučení, vlastního webu, map nebo reklamy. Žádný kanál nezaručuje výsledek a každý má své omezení. Neznamená to portály opustit, ale nespoléhat jen na ně. Přehled kanálů a práci s mapami rozebírám v samostatných článcích. Vyberte si ten, který zvládnete udržovat.', links: [{ page: 'postRealty' as const, text: 'Jak získat klienty pro realitní kancelář' }, { page: 'maps' as const, text: 'SEO pro Mapy' }] },
-    { q: 'Může vlastní web nahradit portál?', a: 'Ne vždy. Vlastní web dává kontrolu nad značkou a obsahem, ale sám klienty nepřivede, lidé ho musí najít. Portál přivádí lidi, kteří už nemovitost hledají. U některých kanceláří může stačit portál, u jiných se obojí doplňuje. Nahrazení neslibuji, záleží na cíli a kapacitě.' },
+    { q: 'Může vlastní web nahradit portál?', a: 'Ne vždy. Vlastní web dává kontrolu nad značkou a obsahem, ale sám klienty nepřivede, lidé ho musí najít. Portál přivádí lidi, kteří už nemovitost hledají. U některých kanceláří může stačit portál, u jiných se obojí doplňuje.' },
     { q: 'Kolik stojí vlastní web realitní kanceláře?', a: 'Tvorbu webů nenabízím, proto cenu vlastního webu neuvádím. Cena záleží na rozsahu, technologii a dodavateli. Já řeším, aby byl hotový web dobře dohledatelný: SEO a GEO/AEO. Ceny mých služeb najdete na stránkách konzultace, tříměsíčního Startu a Full SEO. Cenu webu vám sdělí vývojář nebo studio, které jej tvoří.', links: [{ page: 'consulting' as const, text: 'SEO konzultace' }, { page: 'start' as const, text: 'SEO start na 3 měsíce' }, { page: 'fullSeo' as const, text: 'Full SEO na rok' }, { page: 'audit' as const, text: 'Bezplatný audit' }] },
     { q: 'Jak propojit nabídky z portálů s webem?', a: 'Nabídky lze zobrazit i na vlastním webu, ale vznikají podobné stránky na různých adresách. Je třeba rozhodnout, která verze je hlavní, a psát unikátní popisy. Technické detaily duplicit rozebírám v samostatném článku o nabídkách. Právní stránky inzerce a práv k obsahu zde neřeším.', links: [{ page: 'postRealtyListings' as const, text: 'Nabídky nemovitostí a SEO' }] },
-    { q: 'Kdy dává smysl SEO pro vlastní web?', a: 'Pokud chcete, aby vás klienti našli i mimo portály, máte co nabídnout a umíte počkat. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám. Termín neslibuji.' },
+    { q: 'Kdy dává smysl SEO pro vlastní web?', a: 'Pokud chcete, aby vás klienti našli i mimo portály, máte co nabídnout a umíte počkat. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce.' },
   ],
 
   endTitle: 'Aktualizujte si přehled o stavu webu',

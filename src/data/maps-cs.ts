@@ -107,7 +107,7 @@ export const MAPS_CS = {
 
   resultsTitle: 'Kdy přijdou první výsledky v mapách?',
   resultsAnswer: `Závisí na oboru, konkurenci a výchozí pozici, proto váš případ probereme zvlášť. Minimální doba spolupráce je ${term}. Vývoj hovorů, tras a prokliků vidíte v týdenním reportu.`,
-  resultsNote: 'První místo v mapách negarantuji.',
+  resultsNote: '',
 
   packsTitle: 'Mapy jsou součástí balíčků Start a Full SEO',
   packs: {

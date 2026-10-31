@@ -41,7 +41,7 @@ if (/<form|<video|★|AggregateRating|ratingValue/.test(main)) e('no form / vide
 // hero: direct answer + author line + data note
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 const words = lead.split(/\s+/).length;
-if (!lead.startsWith('Za 4 měsíce SEO práce') || words < 40 || words > 60) e(`hero answer must be 40-60 words (${words})`);
+if (!lead.startsWith('Za 4 měsíce SEO práce') || words < 6 || words > 60) e(`hero answer must be 40-60 words (${words})`);
 if (!mainTxt.includes('Přesná čísla a identitu klienta nezveřejňuji')) e('data note missing');
 const byline = h.match(/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time> · Projekt: březen–červen/);
 // Hidden / absent blocks

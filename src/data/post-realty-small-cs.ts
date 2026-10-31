@@ -16,7 +16,7 @@ const raw = {
   readUnit: 'min',
   cover: { src: '/images/blog/ma-seo-smysl-pro-malou-realitni-kancelar.webp', width: 1200, height: 630, alt: 'Ilustrace: tři kritéria pro malou realitní kancelář, cíl, kapacita a čas, u každého ano a ne' },
 
-  lead: 'SEO může mít pro malou realitní kancelář smysl, pokud chce získávat klienty i z vyhledávání, má co nabídnout a dokáže pravidelně pracovat s obsahem. Nedává smysl, když klienty potřebuje okamžitě nebo na obsah nemá kapacitu. Níže jsou kritéria, reálné cíle a první kroky. Výsledky neslibuji.',
+  lead: 'SEO může mít pro malou realitní kancelář smysl, pokud chce získávat klienty i z vyhledávání, má co nabídnout a dokáže pravidelně pracovat s obsahem. Nedává smysl, když klienty potřebuje okamžitě nebo na obsah nemá kapacitu. Níže jsou kritéria, reálné cíle a první kroky.',
   forWhom: 'Text je pro majitele malé realitní kanceláře, který zvažuje, jestli se mu SEO vyplatí. Najdete tu tabulku, kdy SEO dává smysl a kdy ne, reálné cíle pro malou kancelář, kontrolní seznam a první krok.',
 
   tocTitle: 'Co v textu najdete',
@@ -39,7 +39,7 @@ const raw = {
       ['Čas', 'můžete počkat na první změny', 'potřebujete klienty okamžitě'],
       ['Kapacita', 'umíte pravidelně pracovat s obsahem', 'na obsah nemáte kapacitu'],
       ['Nabídka', 'máte jasné služby a lokality, které lze popsat na webu', 'nemáte jasnou nabídku, kterou lze na webu popsat'],
-      ['Očekávání', 'počítáte s postupným růstem a bez záruky', 'čekáte záruku pozic nebo rychlý výsledek'],
+      ['Očekávání', 'počítáte s postupným růstem a', 'čekáte záruku pozic nebo rychlý výsledek'],
     ],
   },
   forNote: 'Tabulka je orientační, bez čísel a bez hodnocení účinnosti.',
@@ -48,7 +48,7 @@ const raw = {
   rivalsAnswer: 'V hledání se malá kancelář může potkat s velkými kancelářemi, realitními portály i s dalšími malými firmami. U obecných dotazů mívají větší hráči výhodu v autoritě a v množství obsahu. Je to obecná úvaha, ne měření. Konkrétní konkurenci ukáže až kontrola výsledků hledání pro vaše dotazy.',
 
   goalsTitle: 'Jaké cíle jsou pro malou kancelář reálné?',
-  goalsAnswer: 'Pro malou kancelář bývá reálnější cílit na užší a místní dotazy, vlastní specializaci a konkrétní služby než na obecné dotazy typu prodej bytu v Praze. Takový cíl vyžaduje čas a nezaručuje pozice. Zda je zvolený cíl reálný, ukáže konzultace nad konkrétním webem a trhem.',
+  goalsAnswer: 'Pro malou kancelář bývá reálnější cílit na užší a místní dotazy, vlastní specializaci a konkrétní služby než na obecné dotazy typu prodej bytu v Praze. Zda je zvolený cíl reálný, ukáže konzultace nad konkrétním webem a trhem.',
 
   checkTitle: 'Co malá kancelář zkontroluje jako první?',
   checkAnswer: 'Nejdřív zkontrolujte, zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda je vidět kontakt, zda umíte poznat zdroj poptávky a zda máte kapacitu na obsah. Technické chyby ukáže bezplatný audit, ostatní body je lepší řešit konzultací. Podrobnosti jsou v článku o příčinách.',
@@ -65,7 +65,7 @@ const raw = {
   checkAuditLinkText: 'bezplatný audit',
 
   timeTitle: 'Kolik času a práce SEO vyžaduje?',
-  timeAnswer: 'SEO vyžaduje pravidelnou práci a trpělivost, ne jednorázový zásah. Kancelář musí počítat s tím, že obsah vzniká postupně a změny se projeví až po čase. Konkrétní rozsah a ceny jsou na stránkách jednotlivých služeb. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, záruku nedávám.',
+  timeAnswer: 'SEO vyžaduje pravidelnou práci a trpělivost, ne jednorázový zásah. Kancelář musí počítat s tím, že obsah vzniká postupně a změny se projeví až po čase. Konkrétní rozsah a ceny jsou na stránkách jednotlivých služeb. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce.',
   timeLead: 'Rozsah najdete u služeb',
   timeStart: 'SEO start na 3 měsíce',
   timeFull: 'Full SEO na rok',
@@ -88,9 +88,9 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Má SEO smysl pro malý byznys?', a: 'Může mít, pokud firma chce získávat klienty i z vyhledávání a umí pravidelně pracovat s obsahem. Nemusí mít, pokud klienty získává jen doporučením a vyhledávání nepotřebuje. Záleží na cíli, kapacitě a konkurenci. Zda se SEO vyplatí právě vám, rozhodne až konzultace nad konkrétním webem.' },
-    { q: 'Může malá realitní kancelář uspět v SEO?', a: 'Může, pokud cílí na reálné cíle: užší, místní dotazy a konkrétní služby, ne obecné dotazy typu prodej bytu v Praze. Úspěch ale nezaručuji a pozice nelze slíbit. Je to otázka času, kapacity a konkurence na vašem trhu.' },
+    { q: 'Může malá realitní kancelář uspět v SEO?', a: 'Může, pokud cílí na reálné cíle: užší, místní dotazy a konkrétní služby, ne obecné dotazy typu prodej bytu v Praze. Je to otázka času, kapacity a konkurence na vašem trhu.' },
     { q: 'Kdy SEO nedává smysl?', a: 'SEO nedává smysl, pokud potřebujete klienty okamžitě, nemáte kapacitu na obsah, nebo klienty získáváte jen doporučením. Také nemá smysl bez jasné nabídky, kterou lze popsat na webu. V těchto případech bývá lepší jiný kanál, například reklama nebo mapy, o kterých píšu v přehledu kanálů.' },
-    { q: 'Kolik času zabere SEO?', a: 'SEO vyžaduje pravidelnou práci a čas, žádný jednorázový zásah. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám. Doba závisí na stavu webu, konkurenci a rozsahu úprav. Termín neslibuji.' },
+    { q: 'Kolik času zabere SEO?', a: 'SEO vyžaduje pravidelnou práci a čas, žádný jednorázový zásah. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav.' },
     { q: 'Mám začít SEO, nebo reklamou?', a: 'Záleží na cíli a rozpočtu. Reklama obvykle přivede návštěvníky rychleji, ale jen po dobu placení. SEO pracuje déle a nemá záruku výsledku. Kombinace závisí na velikosti kanceláře a kapacitě. Podrobné srovnání kanálů najdete v samostatném článku. Reklamu nespravuji, takže doporučení nestavím na vlastním zájmu.' },
     { q: 'Co mám zkontrolovat jako první?', a: 'Zkontrolujte, zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda je vidět kontakt, zda poznáte zdroj poptávky a zda máte kapacitu na obsah. Technické chyby ukáže bezplatný audit, prezentaci dostanete do 24 hodin, bez hovoru a bez závazku.', links: [{ page: 'audit' as const, text: 'Bezplatný audit' }] },
   ],

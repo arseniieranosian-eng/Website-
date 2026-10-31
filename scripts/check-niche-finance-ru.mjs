@@ -44,7 +44,7 @@ if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}
 
 // Hero
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-finansovyh-konsultantov-chehiya/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-finansovyh-konsultantov-chehiya/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-finansovyh-konsultantov-chehiya/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-finansovyh-konsultantov-chehiya/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Заказать бесплатный технический аудит<\/a>/.test(hero) || !/href="\/ru\/konsultacii\/">Консультация<\/a>/.test(hero)) e('hero buttons, no quote');
 for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);

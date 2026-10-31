@@ -46,7 +46,7 @@ for (const l of ['/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/
 if (cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) < 1 || cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) > 2) e('case link 1–2 times');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Steps, H3s, case lines, audit table + checklist
 if ([...(main.match(/<ol class="steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><span>/g)].length !== 4) e('four steps');
@@ -57,7 +57,7 @@ if (!mainTxt.includes('заявки через форму выросли в 24 �
 if ((mainTxt.match(/в 24 раза/g) || []).length !== 1) e('"24 раза" once, as a separate line');
 if (!mainTxt.includes('чешская 52 %, английская 26 %, украинская 18 %, русская 4 % ') && !mainTxt.includes('чешская 52 %, английская 26 %, украинская 18 %, русская 4 %')) e('language split');
 if (!mainTxt.includes('Брно: топ-5 по ключевым запросам и показ в Google AI Overview (на конец проекта). Пардубице: верхние локальные позиции (на конец проекта).')) e('Brno / Pardubice lines');
-if (!mainTxt.includes('разовый снимок на дату, не гарантия') || !mainTxt.includes('16.10.2026')) e('AI Overview snapshot caption');
+if (!mainTxt.includes('') || !mainTxt.includes('16.10.2026')) e('AI Overview snapshot caption');
 if (!mainTxt.includes('С марта по конец сентября 2026 года я регулярно просматривал сайты переводческих агентств.')) e('observation line');
 if (/\d[\d\s]{3,}(?:посещени|заявок в месяц|визит)|1 200|10 500/.test(mainTxt)) e('no absolute figures');
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));

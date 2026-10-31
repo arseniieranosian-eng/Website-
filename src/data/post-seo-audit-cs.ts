@@ -72,7 +72,7 @@ const raw = {
 
   resultTitle: 'Jak vypadá výsledek bezplatného auditu?',
   resultAnswer: 'Výsledkem je krátká prezentace s konkrétními technickými chybami webu a doporučením, co s nimi dál.',
-  resultText: 'Prezentace ukazuje chyby tak, abyste je mohli předat tomu, kdo web spravuje. Výsledek nelze předem slíbit: audit ukáže technické chyby, které mohou bránit indexaci, ale neřekne, jak se web bude umisťovat.',
+  resultText: 'Prezentace ukazuje chyby tak, abyste je mohli předat tomu, kdo web spravuje.',
 
   moreTitle: 'Kdy stačí bezplatný audit a kdy je potřeba víc?',
   moreAnswer: 'Bezplatný audit stačí, když chcete vědět, zda web nemá technické chyby. Když potřebujete strategii, klíčová slova nebo mapy, je potřeba širší práce.',
@@ -89,7 +89,7 @@ const raw = {
   moreRedesignLinkText: 'Po redesignu klesla návštěvnost',
 
   goodTitle: 'Jak poznat dobrý SEO audit?',
-  goodAnswer: 'Dobrý audit je konkrétní: ukáže adresy stránek, seřadí priority a srozumitelně vysvětlí, co dělat. Nic neslibuje a řekne, co nezkoumá.',
+  goodAnswer: 'Dobrý audit je konkrétní: ukáže adresy stránek, seřadí priority a srozumitelně vysvětlí, co dělat.',
   goodHead: 'Dobrý audit',
   good: ['konkrétní adresy a příklady', 'priority (co opravit první)', 'srozumitelný jazyk', 'jasný rozsah (co zkoumá a co ne)', 'žádné sliby prvních míst'],
   badHead: 'Varovné signály',

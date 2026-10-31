@@ -69,7 +69,7 @@ const raw = {
   heroVideoLink: 'Podívat se na rozbor webů',
 
   whyTitle: 'Proč realitní kanceláře potřebují SEO?',
-  whyAnswer: 'Realitní kancelář potřebuje SEO, protože zájemci o nemovitost hledají ve vyhledávání podle čtvrti, typu a velikosti bytu nebo domu. Vlastní web s dobře strukturovanými stránkami může přivádět přímé poptávky bez závislosti na jednom portálu. Pozici ani počet poptávek však SEO nezaručuje.',
+  whyAnswer: 'Realitní kancelář potřebuje SEO, protože zájemci o nemovitost hledají ve vyhledávání podle čtvrti, typu a velikosti bytu nebo domu. Vlastní web s dobře strukturovanými stránkami může přivádět přímé poptávky bez závislosti na jednom portálu.',
   why: [
     'Čtvrť: zájemci hledají nemovitost podle lokality, ne podle názvu firmy.',
     'Typ a velikost: byt, dům, dispozice, každý dotaz potřebuje stránku, která na něj odpoví.',
@@ -86,7 +86,7 @@ const raw = {
     { art: 'districts', h: 'Stránky čtvrtí a lokalit', text: 'Stránka čtvrti dává smysl, jen když má vlastní obsah. Šablonové texty se stejnou větou pro každou čtvrť nepomáhají, proto každá stránka popisuje to, co k dané lokalitě opravdu patří.' },
     { art: 'dupes', h: 'Indexace a duplicity', text: 'Filtry, řazení a stránkování umí vytvořit mnoho adres se stejným obsahem. Hlídám, které z nich má Google vidět a které ne.' },
     { art: 'local', h: 'Lokální přítomnost', text: 'Pro kancelář s adresou v Praze je důležitý profil na Google Maps a na Mapy.com. Údaje v nich mají odpovídat webu.' },
-    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
+    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat.' },
   ],
   quote: 'U realitní kanceláře rozhoduje nejen cena nabídky, ale i to, jestli ji zájemce na webu najde dřív než na portálu.',
 

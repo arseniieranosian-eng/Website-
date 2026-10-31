@@ -38,7 +38,7 @@ const raw = {
   trustAnswer: 'Důvěru na webu tvoří konkrétní prvky: jména a podoba lidí v kanceláři, adresa, kontakty a základní údaje o firmě. U služby, při které klient předává doklady a finanční údaje, je důležité vidět, kdo za webem stojí. Nevymýšlejte hodnocení ani reference, které nemáte.',
 
   wordsTitle: 'Hledají lidé službu tak, jak ji kancelář na webu pojmenovala?',
-  wordsAnswer: 'Zájemci hledají podle své situace, například účetní pro OSVČ, vedení účetnictví pro s.r.o. nebo online účetní. Pokud web používá jen obecné pojmy, nemusí jim odpovídat. Je užitečné psát služby slovy, jakými je klient popisuje. Žádná taková stránka ale automaticky nezaručuje pozici.',
+  wordsAnswer: 'Zájemci hledají podle své situace, například účetní pro OSVČ, vedení účetnictví pro s.r.o. nebo online účetní. Pokud web používá jen obecné pojmy, nemusí jim odpovídat. Je užitečné psát služby slovy, jakými je klient popisuje.',
 
   sourceTitle: 'Víte, odkud poptávky přicházejí?',
   sourceAnswer: 'Bez měření nepoznáte, zda web poptávky nepřináší, nebo zda je jen nezaznamenáváte. Poptávka může přijít formulářem, telefonem nebo e-mailem. Stačí si zapisovat, odkud se zájemce ozval, a sledovat, kolik poptávek přichází z webu. To je základ pro rozhodování o změnách. Technické nastavení měření tu nerozebírám.',
@@ -72,7 +72,7 @@ const raw = {
     { q: 'Proč nemám návštěvníky na webu účetní kanceláře?', a: 'Důvodů může být víc: web nemusí být v Googlu, nemusí odpovídat na to, co lidé hledají, nebo ho nikdo nenavštěvuje, protože klienty získáváte jinak. Návštěvnost a poptávky jsou dvě různé věci. Nejdřív zjistěte, zda je web indexovaný a zda je kde návštěvníky získávat.' },
     { q: 'Stačí, když klienty získávám z doporučení?', a: 'Doporučení jsou pro účetní kancelář dobrý základ, ale zájemce si ji může ještě vyhledat. Zda stačí, závisí na tom, kolik klientů potřebujete a jak stabilně doporučení přicházejí. Doporučení a web se nevylučují. Přehled dalších kanálů najdete v článku Jak získat klienty pro účetní kancelář.' },
     { q: 'Má každá služba mít vlastní stránku?', a: 'Ne vždy. Samostatná stránka dává smysl tam, kde klient hledá službu konkrétním slovem a potřebuje konkrétní informace. Pro několik podobných služeb stačí jedna přehledná stránka. Rozhodnutí závisí na tom, jak se služby liší a kolik užitečného obsahu o každé z nich máte.' },
-    { q: 'Jak dlouho trvá, než se změny na webu projeví?', a: 'Záleží na stavu webu, konkurenci a rozsahu změn. Některé opravy se projeví rychleji, jiné trvají déle a Google nemusí změny zpracovat hned. Žádnou lhůtu nezaručuji. Proto je dobré sledovat poptávky i vývoj návštěvnosti v delším období, ne jen po pár dnech od úpravy.' },
+    { q: 'Jak dlouho trvá, než se změny na webu projeví?', a: 'Záleží na stavu webu, konkurenci a rozsahu změn. Některé opravy se projeví rychleji, jiné trvají déle a Google nemusí změny zpracovat hned. Proto je dobré sledovat poptávky i vývoj návštěvnosti v delším období, ne jen po pár dnech od úpravy.' },
     { q: 'Co zkontrolovat jako první?', a: 'Nejdřív ověřte, zda je web ve vyhledávání vidět. Pak zkontrolujte, zda se na první pohled pozná, pro koho kancelář pracuje, zda jsou kontakty snadno dohledatelné a zda víte, odkud poptávky přicházejí. Tabulka a checklist v článku tento postup shrnují do několika kroků.' },
   ],
 

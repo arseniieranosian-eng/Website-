@@ -100,7 +100,7 @@ const raw = {
   faq: [
     { q: 'Je SEO levnější než reklama?', a: 'Záleží na oboru a konkurenci. SEO se platí za práci na webu, ne za každý klik, ale výsledky přicházejí postupně. Reklama dodá návštěvy rychle, ale platíte za každou. Jedno druhé nenahrazuje.' },
     { q: 'Můžu dělat SEO a reklamu najednou?', a: 'Ano, a často to dává smysl: reklama přináší rychlé návštěvy, SEO buduje základ, který zlepšuje stránky, kam reklama vede.' },
-    { q: 'Kdy se SEO začne vyplácet?', a: 'Výsledky přicházejí postupně a záleží na oboru, konkurenci a stavu webu. Konkrétní termín slíbit nelze.' },
+    { q: 'Kdy se SEO začne vyplácet?', a: 'Výsledky přicházejí postupně a záleží na oboru, konkurenci a stavu webu.' },
     { q: 'Spravujete také reklamu?', a: 'Ne, reklamu nespravuji. Pomáhám připravit web, aby měly reklama i organické vyhledávání na čem stát.' },
   ],
 

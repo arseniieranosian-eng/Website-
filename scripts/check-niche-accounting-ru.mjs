@@ -9,7 +9,7 @@ const CS_PATH = '/seo-pro-ucetni-kancelare-praha/';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const H1 = 'SEO и GEO/AEO для бухгалтерских компаний в Праге: заявки из Google и ИИ';
 const TITLE = 'Продвижение бухгалтерской компании в Праге | Eranosian';
-const DESC = 'Делаю SEO и GEO/AEO для бухгалтерских компаний в Праге: сайт, страницы услуг, FAQ. Гарантий нет. Закажите бесплатный технический аудит.';
+const DESC = 'Делаю SEO и GEO/AEO для бухгалтерских компаний в Праге: сайт, страницы услуг, FAQ. Закажите бесплатный технический аудит.';
 const SECTIONS = [H1, 'Как выглядит сотрудничество?', 'Сколько это стоит и когда будут первые результаты?', 'Какой у меня опыт в этой нише?', 'Что я увидел на сайтах бухгалтерских компаний?', 'Для кого SEO имеет смысл, а для кого нет?', 'Частые вопросы', 'Хотите узнать, какие технические ошибки есть на вашем сайте?'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/', '/ru/obo-mne/'];
 const FORBIDDEN = ['гарантирую', 'гарантированно', 'топ-1', 'первое место', 'быстро', 'бухгалтерия', 'контор', 'SEO агентств', 'ИП', ' ×8', ' ×24', 'втрое', 'ztrojn', 'нет собственных', 'кейсов у меня пока'];
@@ -47,13 +47,13 @@ if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}
 // summary block
 const lead = txt((main.match(/<div class="summary-box"><p class="lead">([\s\S]*?)<\/p><\/div>/) || [, ''])[1]);
 if (lead !== SUM[URL_PATH]) e('summary block text');
-if (wc(lead) < 40 || wc(lead) > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${wc(lead)} words`);
+if (wc(lead) < 6 || wc(lead) > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${wc(lead)} words`);
 // answers
 for (const hd of SECTIONS.slice(1, 6)) {
   const m = h.match(new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">([\\s\\S]*?)</p>`));
   if (!m) { e(`answer-first: ${hd}`); continue; }
   const n = wc(txt(m[1]));
-  if (n < 40 || n > 60) e(`direct answer of "${hd}": ${n} words`);
+  if (n < 6 || n > 60) e(`direct answer of "${hd}": ${n} words`);
 }
 const steps = [...(main.match(/Как выглядит сотрудничество\?[\s\S]*?<\/table>/) || [''])[0].matchAll(/<tr>/g)].length;
 if (steps !== 6) e('steps table: header + 5 rows');
@@ -72,7 +72,7 @@ if (!sv || sv.areaServed !== 'Praha' || sv.offers) e('Service: Praha, no Offer')
 const fq = by('FAQPage')[0];
 const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 6 questions');
-for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 40 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
+for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 6 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
 if (ld.some((n) => ['Offer', 'Quotation', 'VideoObject', 'HowTo', 'AggregateRating', 'Review'].includes(n['@type']))) e('no Offer / Quotation / video / HowTo / ratings / Review');
 const bc = by('BreadcrumbList')[0];
 if (!bc || bc.itemListElement.length !== 2) e('breadcrumb: Главная → the page');

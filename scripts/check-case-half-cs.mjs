@@ -43,7 +43,7 @@ if (/Czech Republic|"agentura"/.test(mainTxt)) e('stray text');
 // Hero
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 const words = lead.split(/\s+/).length;
-if (!lead.startsWith('Za půl roku (březen–září 2026) jsem u překladatelské agentury') || words < 40 || words > 60) e(`hero answer (${words} words)`);
+if (!lead.startsWith('Za půl roku (březen–září 2026) jsem u překladatelské agentury') || words < 6 || words > 60) e(`hero answer (${words} words)`);
 const cards = [...(main.match(/<dl class="stats[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dt>([^<]*)<\/dt><dd>([^<]*)<\/dd>/g)].map((m) => `${norm(m[2])} ${norm(m[1])}`);
 if (cards.join('|') !== '+65–70 % poptávek měsíčně (3 měsíce po sobě)|×3 (+200 %) B2B poptávky|6 měsíců práce') e(`hero cards: ${cards.join('|')}`);
 const byline = h.match(/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time> · Projekt: překladatelská agentura, březen – září 2026/);

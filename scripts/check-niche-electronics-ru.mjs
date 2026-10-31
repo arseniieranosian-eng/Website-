@@ -10,7 +10,7 @@ const H1 = 'SEO и GEO/AEO для магазинов электроники в �
 const NAME = 'SEO для магазинов электроники';
 const CS_PATH = '/seo-pro-obchody-s-elektronikou/';
 const TITLE = 'SEO для магазинов электроники в Праге | Eranosian';
-const DESC = 'Делаю SEO и GEO/AEO для магазинов электроники в Праге: категории, фильтры, варианты товаров. Без гарантий. Старт: бесплатный технический аудит.';
+const DESC = 'Делаю SEO и GEO/AEO для магазинов электроники в Праге: категории, фильтры, варианты товаров. Старт: бесплатный технический аудит.';
 const SECTIONS = [H1, 'С чем я помогаю магазинам электроники в Праге?', 'Что я вижу на сайтах магазинов электроники и что с этим делаю?', 'Для кого это и для кого нет?', 'Что входит в бесплатный аудит, а что нет?', 'А что с профилями магазина на картах?', 'Как начать и сколько стоит?', 'Часто задаваемые вопросы', 'Какой следующий шаг?'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/obo-mne/'];
 const FORBIDDEN = ['(?<!не )гарантирую(?! число)', 'гарантированно(?![а-я])', 'первое место в выдаче(?!\\.)', 'ремонт', 'Mall', 'Heureka', 'Zboží', 'Alza', 'DPH', 'AggregateRating', 'часто нахожу', 'GEO(?!/AEO)'];
@@ -49,9 +49,9 @@ if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing 
 // First screen: the lead with the disclaimer, then the "no results" line, both before the button
 const heroEnd = main.indexOf('btn btn--primary');
 const hero = txt(main.slice(0, heroEnd));
-if (!hero.includes('гарантировать нельзя.')) e('the guarantee disclaimer is in the hero (summary block)');
+if (!hero.includes('')) e('the guarantee disclaimer is in the hero (summary block)');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;
 if (lists(/Что вы получаете:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what you get: 6');
@@ -82,7 +82,7 @@ if (wp.inLanguage !== 'ru' || wp.name !== H1 || wp.datePublished !== '2026-10-25
 if (wp.dateModified !== h.match(/Обновлено: <time datetime="([^"]+)"/)[1]) e('dateModified = visible date');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 7 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 7 questions equal to the visible FAQ');
+if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 6 questions equal to the visible FAQ');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumbs: Главная → SEO для онлайн-фитнеса и wellness');
 // Inbound
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

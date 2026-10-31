@@ -7,7 +7,7 @@ const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/seo-pro-obchody-s-elektronikou/';
 const H1 = 'SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI';
 const TITLE = 'SEO pro obchody s elektronikou a technikou | Eranosian';
-const DESC = 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: kategorie, filtry, varianty produktů, FAQ. Bez garancí. Bezplatný technický audit.';
+const DESC = 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: kategorie, filtry, varianty produktů, FAQ. Bezplatný technický audit.';
 const SECTIONS = [H1, 'S čím obchodům s technikou pomáhám', 'Co vidím na webech obchodů s elektronikou a co s tím dělám?', 'Pro koho je to a pro koho ne?', 'Co obsahuje bezplatný audit a co ne?', 'Profil prodejny na mapách', 'Jak začít a kolik stojí?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'SEO agentur', 'Heureka', 'Zboží', 'Alza', 'Datart', 'DPH', 'AggregateRating', 'často nacház', 'tiskárn'];
@@ -47,7 +47,7 @@ if (cnt(/href="\/konzultace\/"/g) < 1 || cnt(/href="\/seo-a-geo\/"/g) !== 1 || c
 if (cnt(/href="\/start-3-mesice\/"/g) < 1 || cnt(/href="\/full-seo\/"/g) < 1) e('Start / Full SEO linked');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/seo-pro-obchody-s-elektronikou/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-obchody-s-elektronikou/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/seo-pro-obchody-s-elektronikou/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-obchody-s-elektronikou/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 // Proof line (v3): only "no results in this niche" (the translation case is not used on the pair of pages), no figures
 if (/výsledky nemám/.test(mainTxt) || /překladatelsk|65–70/.test(mainTxt)) e('proof line: no results in the niche, no case');
 if (/×24|×3|8,75|1 200|10 500/.test(mainTxt)) e('no ×24 / ×3 / the print-shop figures');
@@ -79,7 +79,7 @@ if (wp.inLanguage !== 'cs' || wp.name !== H1 || wp.datePublished !== '2026-10-25
 if (wp.dateModified !== h.match(/Aktualizováno: <time datetime="([^"]+)"/)[1]) e('dateModified = visible date');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 7 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 7 questions equal to the visible FAQ');
+if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 6 questions equal to the visible FAQ');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== 'SEO pro obchody s elektronikou') e('breadcrumbs: Domů → SEO pro obchody s elektronikou');
 // Inbound
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

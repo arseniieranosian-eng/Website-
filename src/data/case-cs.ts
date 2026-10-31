@@ -29,7 +29,7 @@ export const CASE_CS = {
     'Kdo hledá „soudní překlady Pardubice“, nic neprochází: potřebuje překladatele ve svém městě hned. Proto se název města neobjevuje jen v poznámce, ale v titulku, H1, textu, FAQ i meta description, a to přirozeně: adresa pobočky, otevírací doba, okolní města, nejčastější dokumenty pro místní klienty, regionální specifika.',
     'Stránka pro Pardubice obsahuje služby, ceny, lokální FAQ, recenze, dosah do okolních měst, samostatnou B2B sekci pro místní firmy a kontaktní formulář.',
   ],
-  localResult: 'Výsledek: 1. místo na „soudní překlady Pardubice“ a 2. místo na „překlady Pardubice“. Při kontrole 15. 9. 2026 byla pobočka na dotaz „překlady Pardubice“ v Google AI Overview uvedena jako první, v organických výsledcích a v lokálním balíčku na prvním až druhém místě. Pozici nelze zaručit.',
+  localResult: 'Výsledek: 1. místo na „soudní překlady Pardubice“ a 2. místo na „překlady Pardubice“. Při kontrole 15. 9. 2026 byla pobočka na dotaz „překlady Pardubice“ v Google AI Overview uvedena jako první, v organických výsledcích a v lokálním balíčku na prvním až druhém místě.',
   localDecision: 'V Pardubicích lidé hledají česky, proto má stránka jen českou verzi, bez anglické. Lokalizace není jen překlad, ale i rozhodnutí, které verze nestavět.',
 
   funnelTitle: 'Jak funguje obsah jako trychtýř?',
@@ -125,10 +125,10 @@ export const CASE_CS = {
 
   faqTitle: 'Časté otázky k případové studii',
   faq: [
-    { q: 'Jak získat B2B klienty přes SEO?', a: 'Spojte lokální stránky pro každé město, články, které čtenáře vedou ke službě, a technický základ. U této agentury přišel první B2B klient po 4 měsících práce. Výsledek nelze zaručit, záleží na oboru a konkurenci.' },
+    { q: 'Jak získat B2B klienty přes SEO?', a: 'Spojte lokální stránky pro každé město, články, které čtenáře vedou ke službě, a technický základ. U této agentury přišel první B2B klient po 4 měsících práce.' },
     { q: 'Proč jedna stránka pro každé město?', a: 'Kdo hledá překladatele ve svém městě, potřebuje ho hned. Samostatná stránka s lokálním obsahem odpoví na místní dotazy na jednom místě.' },
     { q: 'Proč lokalizovat místo překládat?', a: 'Každé publikum má jiné otázky a hledá jinak. Lokalizovaná verze se umísťuje na vlastní dotazy, místo aby se verze navzájem konkurovaly.' },
-    { q: 'Může se web objevit v Google AI Overview?', a: 'Zaručit to nelze. U této agentury se to stalo po práci na SEO a na jasných odpovědích v obsahu. Podrobnosti: SEO + GEO/AEO.' },
+    { q: 'Může se web objevit v Google AI Overview?', a: 'U této agentury se to stalo po práci na SEO a na jasných odpovědích v obsahu. Podrobnosti: SEO + GEO/AEO.' },
   ],
 
   relatedTitle: 'Související služby',

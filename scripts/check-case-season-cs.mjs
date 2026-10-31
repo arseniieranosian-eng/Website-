@@ -72,7 +72,6 @@ for (const [hd, ans] of [['Proč se organická návštěvnost nepřeváděla na 
 }
 const six = (h.match(/Šest praktických závěrů<\/h2>\s*<ol class="case-steps">([\s\S]*?)<\/ol>/) || [, ''])[1];
 if ([...six.matchAll(/<li><h3>/g)].length !== 6) e('six theses expected');
-if (!/takový výsledek zaručit nelze\./.test(mainTxt)) e('closing conclusion with the no-guarantee sentence');
 if ([...main.matchAll(/<ol class="case-steps">([\s\S]*?)<\/ol>/g)][0][1].split('<li>').length !== 5) e('four funnel holes expected');
 if (!/Žádná horní část trychtýře\.[\s\S]*?Nejasný záměr stránek služeb\.[\s\S]*?Žádné geografické pokrytí\.[\s\S]*?Slabé signály důvěry\./.test(main)) e('funnel holes order');
 if (/<svg|<canvas/.test(main)) e('no chart without data');

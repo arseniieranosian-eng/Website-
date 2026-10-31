@@ -69,7 +69,7 @@ const raw = {
     { q: 'Pracujete sám?', a: 'Ano. S každým klientem pracuji přímo já, od auditu po reporty; práci dál nepředávám.' },
     { q: 'V jakých jazycích pracujete?', a: 'Komunikuji česky, anglicky a rusky. Obsah připravuji pro české, anglické, ruské a ukrajinské publikum a adaptuji ho, ne jen překládám.' },
     { q: 'Jak vypadá první spolupráce?', a: 'Začíná bezplatným auditem technických chyb webu: krátká prezentace do 24 hodin, bez callu a bez závazků. Pak se sami rozhodnete: konzultace, SEO start na 3 měsíce, nebo Full SEO na rok.' },
-    { q: 'Co nedělám?', a: 'Nezaručuji pozice ani konkrétní výsledek, ten závisí na oboru, konkurenci a stavu webu. U čísel vždy uvádím období a zdroj.' },
+    { q: 'Co nedělám?', a: 'U čísel vždy uvádím období a zdroj.' },
   ],
 
   ctaTitle: 'Jste v SEO na začátku, nebo chcete druhý pohled?',

@@ -79,7 +79,7 @@ const raw = {
   ],
 
   afterTitle: 'Jak dlouho držet přesměrování a co sledovat po spuštění?',
-  afterAnswer: 'Přesměrování ponechte co nejdéle; podle dokumentace Google obecně alespoň rok. Po spuštění sledujte, jak se návštěvnost starých adres snižuje a nových zvyšuje, a zkontrolujte chyby procházení. Kolísání viditelnosti může trvat týdny i déle. Žádný konkrétní průběh ani návrat k původním číslům nezaručuji.',
+  afterAnswer: 'Přesměrování ponechte co nejdéle; podle dokumentace Google obecně alespoň rok. Po spuštění sledujte, jak se návštěvnost starých adres snižuje a nových zvyšuje, a zkontrolujte chyby procházení. Kolísání viditelnosti může trvat týdny i déle.',
 
   faqTitle: 'Časté otázky',
   faq: [

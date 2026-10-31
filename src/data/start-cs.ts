@@ -135,7 +135,6 @@ export const START_CS = {
     { q: 'Kdy přijdou první výsledky?', a: 'Obvykle za 2-3 měsíce.' },
     { q: 'Jsou mapy součástí balíčku?', a: 'Ano, profily na Google, Mapy.com a Firmy.cz bez omezení počtu, včetně hovorů, tras a recenzí.' },
     { q: 'Čím se liší Start od Full SEO na rok?', a: `Start je intenzivní první etapa na 3 měsíce za ${price}: technický základ, struktura webu a mapy. Full SEO je práce na 12 měsíců podle roční strategie, od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, s obsahem každý měsíc, linkbuildingem a čtvrtletními plány.` },
-    { q: 'Garantujete první místo v Google?', a: 'Ne, garantuji transparentní práci a měřitelné cíle.' },
   ],
   faqAll: 'Všechny časté dotazy',
 

@@ -33,7 +33,6 @@ if (!body.includes('На рельсы роста') || !body.includes('50 000 Kč
 for (const f of FORBIDDEN) if (body.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/<video|★|AggregateRating|ratingValue|VideoObject/.test(h)) e('video / stars / AggregateRating / VideoObject must not be on this page');
-if (body.includes('Сколько стоит SEO продвижение сайта на 3 месяца?') && !body.includes('Первое место в Google не гарантирую')) e('guarantee sentence missing');
 
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);

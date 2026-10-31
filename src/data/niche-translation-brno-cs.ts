@@ -59,7 +59,7 @@ const raw = {
     'Jazykové páry: lidé hledají konkrétní kombinaci, například překlad z češtiny do angličtiny.',
     'Město: brněnské agentury potřebují stránky, které Brno opravdu jmenují.',
   ],
-  weak: { text: 'Proč jsou v Brně vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi brněnskými překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Výsledek ani pozici nezaručuji. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
+  weak: { text: 'Proč jsou v Brně vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi brněnskými překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury Brno, který přivádí nové klienty a zakázky z vyhledávání.',
   market: NICHE_BRNO_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Brno?', paragraphs: NICHE_BRNO_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_BRNO_MARKET.checked } : null,
 
@@ -72,7 +72,7 @@ const raw = {
     { art: 'b2b', h: 'Stránka pro firmy (B2B)', text: 'Firmy rozhodují jinak než jednotlivci: chtějí vědět, jak se pracuje na opakovaných zakázkách a v jakých oborech. Stránka pro firmy to popíše srozumitelně a vede k poptávce.' },
     { art: 'versions', h: 'Jazykové verze: indexace a duplicity', text: 'U vícejazyčného webu hlídám, aby Google viděl každou jazykovou verzi a nepletl si je s kopiemi. Duplicity mezi verzemi jsou častá technická chyba.' },
     { art: 'local', h: 'Lokální přítomnost v Brně: Google Maps a Mapy.com pro agentury', text: 'Brno: místní přítomnost se pozná. Při práci na projektu jsem u jedné brněnské agentury viděl, že město uvádí důsledně: v nadpisech, v popisech služeb, například u soudních překladů, i v profilu. Brněnská stránka agentury s pobočkou má dělat totéž, ale jen s tím, co pobočka skutečně nabízí: adresou, telefonem a službami. Pobočka z mé případové studie měla vlastní průběh, proto ji neměřím společně s ostatními městy.' },
-    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
+    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat.' },
   ],
   quote: 'U překladatelské agentury v Brně se poptávka rozhoduje v detailech: jazykový pár, obor, město. Stránky, které je nepopisují, nemá Google co ukázat.',
 

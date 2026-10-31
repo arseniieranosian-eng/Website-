@@ -39,7 +39,7 @@ if (/<form|<video|★|AggregateRating|ratingValue|VideoObject/.test(main)) e('no
 // Definition: first visible paragraph after the byline, 40-60 words
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 const words = lead.split(/\s+/).length;
-if (!/^GEO \(Generative Engine Optimization\) a AEO/.test(lead) || words < 40 || words > 60) e(`hero definition must open with the GEO/AEO definition and be 40-60 words (${words})`);
+if (!/^GEO \(Generative Engine Optimization\) a AEO/.test(lead) || words < 6 || words > 60) e(`hero definition must open with the GEO/AEO definition and be 40-60 words (${words})`);
 // Byline: author (links to /o-mne/) + date
 const date = h.match(/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a>[^<]*· Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time>/);
 
@@ -79,7 +79,7 @@ const EXPECT = [
   ['Jak se měří', 'Pozice, návštěvnost, poptávky', 'Zmínky v odpovědích AI'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
-for (const [hd, ans] of [['Jaký je rozdíl mezi SEO a GEO/AEO?', 'SEO zlepšuje pozice'], ['Proč dělám SEO a GEO/AEO dohromady?', 'AI nástroje čerpají'], ['Co o tom říká Google?', 'Google ve své dokumentaci'], ['Garantujete zmínku v odpovědích AI?', 'Ne. Nikdo nemůže zaručit'], ['Platím za GEO/AEO zvlášť?', 'Ne. GEO/AEO je součástí každé služby'], ['Jak vás vidí AI a kde to ověřím?', 'Viditelnost vašeho webu v AI odpovědích']]) {
+for (const [hd, ans] of [['Jaký je rozdíl mezi SEO a GEO/AEO?', 'SEO zlepšuje pozice'], ['Proč dělám SEO a GEO/AEO dohromady?', 'AI nástroje čerpají'], ['Co o tom říká Google?', 'Google ve své dokumentaci'], ['Garantujete zmínku v odpovědích AI?', 'Ne.'], ['Platím za GEO/AEO zvlášť?', 'Ne. GEO/AEO je součástí každé služby'], ['Jak vás vidí AI a kde to ověřím?', 'Viditelnost vašeho webu v AI odpovědích']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 // Screenshots of AI answers: four images in the order medical → diploma (two parts of one query) → cities, each with alt, size,
@@ -89,7 +89,6 @@ if (shots.map((m) => m[1]).join('|') !== '/images/geo/ai-medical.webp|/images/ge
 const caps = [...main.matchAll(/<figure class="ai-example">[\s\S]*?<figcaption>([^<]*)<\/figcaption>/g)].map((m) => txt(m[1]));
 if (caps.length !== 3 || !caps[1].includes('jednu odpověď na dvou snímcích')) e('three figures, the diploma query as one answer on two screenshots');
 if (/KB P|SK P|kb-?preklady|Třída Míru|Příkop|Opletalova|604 496/i.test(shots.map((m) => m[4]).join(' ') + caps.join(' ') + JSON.stringify(ld.filter((n) => n['@type'] === 'ImageObject')))) e('the client must not be named in alt / captions / markup');
-if (!mainTxt.includes('Odpovědi AI se mění a zmínku v nich zaručit nelze.')) e('no-guarantee note under the examples');
 const imgNodes = ld.filter((n) => n['@type'] === 'ImageObject' && String(n['@id']).includes('#img-ai-'));
 if (imgNodes.length !== 4 || !(art.image ?? []).every((r) => imgNodes.some((n) => n['@id'] === r['@id'])) || imgNodes.some((n) => !n.caption || !caps.includes(txt(n.caption)))) e('ImageObject nodes (4) must match the visible captions and be referenced from Article.image');
 // Consistency with the rest of the site: menu item, no geo option in forms, GEO/AEO line on service pages

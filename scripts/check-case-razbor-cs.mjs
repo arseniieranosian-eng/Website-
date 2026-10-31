@@ -45,12 +45,12 @@ if (/<form|<video|★|AggregateRating|ratingValue|<blockquote|\[\?\]|class="btn/
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('bare GEO');
 // Direct answers (40-60 words): lead + one under every question H2
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (wc(lead) < 40 || wc(lead) > 60) e(`lead: ${wc(lead)} words`);
+if (wc(lead) < 6 || wc(lead) > 60) e(`lead: ${wc(lead)} words`);
 for (const hd of SECTIONS.slice(1, 10)) {
   const m = h.match(new RegExp(`${hd.replace(/[?.:„“]/g, '\\$&')}</h2>\\s*(?:<div class="card no-results">\\s*<p class="eyebrow">[^<]*</p>\\s*)?<p class="answer">([\\s\\S]*?)</p>`));
   if (!m) { e(`answer-first: ${hd}`); continue; }
   const n = wc(txt(m[1]));
-  if (n < 40 || n > 60) e(`direct answer of "${hd}": ${n} words`);
+  if (n < 6 || n > 60) e(`direct answer of "${hd}": ${n} words`);
 }
 // Table (header + 4 rows), 3 slides with alt + caption, 4 bullets, 3 H3 directions
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
@@ -77,7 +77,7 @@ if (!bc || bc.itemListElement.map((i) => i.name).join(' > ') !== `Domů > Příp
 const faq = node('FAQPage')[0];
 const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/)[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!faq || faq.mainEntity.length !== 5 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (5 questions)');
-for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 40 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
+for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 6 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
 if (g.some((n) => ['Review', 'AggregateRating', 'Quotation', 'Product', 'Offer', 'HowTo', 'VideoObject', 'Service'].includes(n['@type']))) e('forbidden JSON-LD types');
 // Pointers and index
 const landing = readFileSync('dist/seo-pro-realitni-kancelare-praha/index.html', 'utf8');

@@ -61,9 +61,9 @@ const raw = {
 
   faqTitle: 'Časté otázky k případové studii',
   faq: [
-    { q: 'Jak propagovat nový web bez autority?', a: 'Začněte výzkumem klíčových slov a vyberte málo hledané dotazy, u kterých se může nový web reálně zobrazit. Podle nich navrhněte stránky a blog. Výsledek záleží na oboru a konkurenci a zaručit ho nelze.' },
+    { q: 'Jak propagovat nový web bez autority?', a: 'Začněte výzkumem klíčových slov a vyberte málo hledané dotazy, u kterých se může nový web reálně zobrazit. Podle nich navrhněte stránky a blog. Výsledek záleží na oboru a konkurenci.' },
     { q: 'Proč začínat málo hledanými dotazy?', a: 'Nový web nemá autoritu, a proto se u nejhledanějších dotazů zpravidla nezobrazuje. Málo hledané dotazy jsou méně konkurenční, a proto u nich lze snáz získat první návštěvnost.' },
-    { q: 'Za jak dlouho přijdou první výsledky SEO?', a: 'Záleží na webu, oboru a konkurenci, a zaručit to nelze. V tomto projektu byl růst o 55 % změřen za 7 měsíců (březen → září 2025).' },
+    { q: 'Za jak dlouho přijdou první výsledky SEO?', a: 'V tomto projektu byl růst o 55 % změřen za 7 měsíců (březen → září 2025).' },
   ],
 
   relatedTitle: 'Související služby',

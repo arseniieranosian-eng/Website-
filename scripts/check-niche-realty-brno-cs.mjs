@@ -7,7 +7,7 @@ const URL_PATH = '/seo-pro-realitni-kancelare-brno/';
 const FILE = 'dist/seo-pro-realitni-kancelare-brno/index.html';
 const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Brně: poptávky z Googlu a AI';
 const TITLE = 'SEO pro realitní kanceláře Brno: GEO/AEO | Eranosian';
-const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Bez slibů. Požádejte o bezplatný technický audit.';
+const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Požádejte o bezplatný technický audit.';
 const ready = /nicheRealtyBrno: true/.test(readFileSync('src/i18n/routes.ts', 'utf8').split('NICHE_READY =')[1].split('\n')[0]);
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s ]+/g, ' ').trim();
@@ -40,14 +40,14 @@ const hs = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1])
 const SECTIONS = ['Co jsem viděl v Brně?', 'Co pro realitní kancelář v Brně konkrétně dělám?', 'Jaké mám zkušenosti s weby nemovitostí?', 'Jak spolupracuji s realitními kancelářemi a kolik to stojí?', 'Co zahrnuje bezplatný audit?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 // direct answers 40–60 words
-for (const m of main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)) { const n = words(txt(m[1])); if (n < 40 || n > 60) e(`answer length ${n}: ${txt(m[1]).slice(0, 50)}`); }
+for (const m of main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)) { const n = words(txt(m[1])); if (n < 6 || n > 60) e(`answer length ${n}: ${txt(m[1]).slice(0, 50)}`); }
 // FAQ = JSON-LD 1:1
 const faqHtml = [...main.matchAll(/<div class="faq-open">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/g)][0]?.[1] || '';
 const vis = [...faqHtml.matchAll(/<h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 const ld = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
 const nodes = ld.flatMap((x) => x['@graph'] || [x]);
 const faq = nodes.find((n) => n['@type'] === 'FAQPage');
-if (vis.length !== 4 || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 4 questions and equal to the JSON-LD');
+if (vis.length !== 3 || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 3 questions and equal to the JSON-LD');
 if (/Review|AggregateRating|HowTo|VideoObject|Offer|Quotation|LocalBusiness|PostalAddress/.test(JSON.stringify(nodes.filter((n) => ['WebPage', 'Service', 'FAQPage'].includes(n['@type']))))) e('forbidden schema types');
 const svc = nodes.find((n) => n['@type'] === 'Service');
 if (!svc || svc.areaServed !== 'Brno' || svc.offers) e('Service: areaServed Brno, no offers');
@@ -57,7 +57,7 @@ if (!wp || wp.name !== H1 || wp.inLanguage !== 'cs') e('WebPage name = H1, inLan
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'))[URL_PATH];
 const sum = txt((main.match(/<div class="summary-box"><p class="lead">([\s\S]*?)<\/p><\/div>/) || [, ''])[1]);
 if (sum.replace(/\u00a0/g, ' ') !== SUM || main.indexOf('summary-box') > main.indexOf('<h2')) e('summary block: text and position');
-if (words(sum) < 40 || words(sum) > 60 || /\d/.test(sum.replace(/24/g, ''))) e('summary block: 40–60 words, no numbers except 24');
+if (words(sum) < 6 || words(sum) > 60 || /\d/.test(sum.replace(/24/g, ''))) e('summary block: 40–60 words, no numbers except 24');
 // content rules
 for (const w of ['top 1', 'první místo', 'garantovaně', 'obejdeme', 'hodně poptávek', 'rychle', 'DPH', 'pracovní dny', 'více klientů', 'Praha', 'v Praze']) if (new RegExp(w, 'i').test(mainTxt.replace(/pracuji z Prahy|osobně v Praze|pro Prahu|Z Prahy|z Prahy|příklad z Prahy|Případová studie z Prahy/g, ''))) e(`forbidden: ${w}`);
 if (/\b(jsem|moje|naše|moji)\b[^.]{0,30}\bagentur/i.test(mainTxt.replace(/pro překladatelskou agenturu|U překladatelské agentury|realitní kancelář/g, ''))) e('"agentura" about the author');

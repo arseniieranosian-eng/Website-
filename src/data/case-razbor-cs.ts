@@ -50,7 +50,7 @@ const raw = {
   rivalsSource: 'Zdroj pozorování: výsledky vyhledávání Google.cz z 23. 10. 2026.',
 
   chanceTitle: 'Má malá realitní kancelář šanci na dotaz „ocenění nemovitosti“?',
-  chanceAnswer: 'Na široký dotaz „ocenění nemovitosti“ je top pozice pro malou kancelář nereálná. Ve viditelných výsledcích z 23. 10. 2026 převažovaly specializované služby a velké projekty a stránka klienta byla hluboko. Šanci mají užší, místní dotazy. Žádnou pozici ale nelze zaručit.',
+  chanceAnswer: 'Na široký dotaz „ocenění nemovitosti“ je top pozice pro malou kancelář nereálná. Ve viditelných výsledcích z 23. 10. 2026 převažovaly specializované služby a velké projekty a stránka klienta byla hluboko. Šanci mají užší, místní dotazy.',
 
   dirTitle: 'Které tři směry jsem navrhl?',
   dirAnswer: 'Navrhl jsem tři směry: úzké dotazy s nižší konkurencí, obsah odpovídající na skutečné otázky majitelů nemovitostí a anglickou verzi pro zahraniční kupující a prodávající v Praze. U každého směru je nejdřív potřeba ověřit poptávku. Technické chyby se opravují před spuštěním směrů, ne po něm.',
@@ -68,7 +68,7 @@ const raw = {
   unknownAnswer: 'Majitel zatím nerozhodl o další spolupráci, proto nemám žádné pozice ani poptávky a čísla neuvádím. Nevíme tedy, zda by navržené směry fungovaly. Materiál proto není výsledkový případ, ale popis rozboru. Stránku doplním, pokud klient bude pokračovat a objeví se měřitelná data.',
 
   anyTitle: 'Co z toho platí pro jinou malou kancelář?',
-  anyAnswer: 'Z rozboru platí pro jinou malou kancelář čtyři věci: nejdřív ověřit poptávku, mířit na užší dotazy, odpovídat na skutečné otázky majitelů a opravit technické chyby před spuštěním nového obsahu. Žádný krok nezaručuje pozice. Platí to pro kanceláře podobné velikosti, ale vždy závisí na konkrétním webu.',
+  anyAnswer: 'Z rozboru platí pro jinou malou kancelář čtyři věci: nejdřív ověřit poptávku, mířit na užší dotazy, odpovídat na skutečné otázky majitelů a opravit technické chyby před spuštěním nového obsahu. Platí to pro kanceláře podobné velikosti, ale vždy závisí na konkrétním webu.',
   any: [
     'Nejdřív ověřit poptávku.',
     'Mířit na užší dotazy.',
@@ -79,10 +79,10 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Jak se konzultace s auditem liší od auditu zdarma?', a: 'Konzultace je placená a zahrnuje kontrolu webu, prezentaci, plán na 12 měsíců a navazující hovor. Audit zdarma je jiná služba: kontroluje jen technické chyby, například indexaci a duplicity, bez hovoru a bez závazku, s prezentací do 24 hodin. Struktura, obsah a konverze patří do konzultace.', link: 'audit' as const, linkText: 'Technický audit zdarma' },
-    { q: 'Může se malá kancelář dostat na top u dotazu „ocenění nemovitosti“?', a: 'Na široký dotaz „ocenění nemovitosti“ je top pozice pro malou kancelář nereálná, protože v hledání převažují velké projekty a specializované služby. Lepší šanci mají užší místní dotazy a obsah, který odpovídá na otázky majitelů. Žádnou pozici ani počet poptávek nelze zaručit.' },
+    { q: 'Může se malá kancelář dostat na top u dotazu „ocenění nemovitosti“?', a: 'Na široký dotaz „ocenění nemovitosti“ je top pozice pro malou kancelář nereálná, protože v hledání převažují velké projekty a specializované služby. Lepší šanci mají užší místní dotazy a obsah, který odpovídá na otázky majitelů.' },
     { q: 'Dává SEO smysl pro každou malou kancelář?', a: 'SEO často pomůže, ale ne vždy. Pokud poptávky přicházejí hlavně z doporučení a z reklamy, může být vyhledávání jen doplňkovým kanálem. Rozhodnutí závisí na webu, oboru a rozpočtu. Proto konzultace u každého navrženého směru začíná ověřením poptávky, ne slibem výsledku.' },
-    { q: 'Co obsahuje plán na 12 měsíců?', a: 'Plán na 12 měsíců má etapy s ověřitelnými kroky: opravy webu, spuštění vybraných směrů a vyhodnocení dat. Rozsah a načasování závisí na webu, oboru a rozpočtu. U tohoto klienta zatím práce nezačala, proto čas ani výsledek neuvádím a nic neslibuji.' },
-    { q: 'Kdy se objeví první výsledky?', a: 'U tohoto klienta lhůtu uvést nelze, protože práce zatím nezačala. U svých projektů vidím změny obvykle po dvou až třech měsících, ale nezaručuji je. Rychlost závisí na stavu webu, konkurenci a rozsahu změn, proto žádný slib výsledku nedávám ani u tohoto klienta.' },
+    { q: 'Co obsahuje plán na 12 měsíců?', a: 'Plán na 12 měsíců má etapy s ověřitelnými kroky: opravy webu, spuštění vybraných směrů a vyhodnocení dat. Rozsah a načasování závisí na webu, oboru a rozpočtu.' },
+    { q: 'Kdy se objeví první výsledky?', a: 'U tohoto klienta lhůtu uvést nelze, protože práce zatím nezačala. U svých projektů vidím změny obvykle po dvou až třech měsících. Rychlost závisí na stavu webu, konkurenci a rozsahu změn.' },
   ],
 
   relatedTitle: 'Související stránky',

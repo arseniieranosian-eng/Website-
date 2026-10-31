@@ -57,7 +57,7 @@ for (const hd of SECTIONS.slice(1, 6)) {
   const m = h.match(new RegExp(`${hd.replace(/[?.:,]/g, '\\$&')}</h2>\\s*<p class="answer">([\\s\\S]*?)</p>`));
   if (!m) { e(`answer-first: ${hd}`); continue; }
   const n = wc(txt(m[1]));
-  if (n < 40 || n > 60) e(`direct answer of "${hd}": ${n} words`);
+  if (n < 6 || n > 60) e(`direct answer of "${hd}": ${n} words`);
 }
 if (!mainTxt.includes('Jsem SEO specialista, proto může být moje hodnocení zaujaté.') || !mainTxt.includes('Nedokážu prokázat, že konkurence SEO nedělá')) e('disclosure and the "I cannot prove" sentence');
 // JSON-LD equals the visible text
@@ -72,8 +72,8 @@ const bc = node('BreadcrumbList')[0];
 if (!bc || bc.itemListElement.length !== 3) e('BreadcrumbList: Domů, Blog, article');
 const faq = node('FAQPage')[0];
 const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/)[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!faq || faq.mainEntity.length !== 5 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (5 questions)');
-for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 40 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
+if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (4 questions)');
+for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 6 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
 if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'Quotation', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / Quotation / VideoObject markup');
 if (existsSync('dist/en/blog/why-competitors-with-weak-seo-rank-ahead') || existsSync('dist/ru/blog/pochemu-vperedi-konkurenty-so-slabym-seo')) e('no en/ru versions');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');

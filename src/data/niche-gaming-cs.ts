@@ -46,10 +46,10 @@ const raw = {
   doGeoLink: 'SEO a GEO/AEO',
 
   forTitle: 'Pro koho je to a pro koho ne?',
-  forAnswer: 'Služba je pro jednu počítačovou hernu, menší síť klubů nebo esport arénu v Praze, která chce, aby ji zájemci našli na webu i v odpovědích AI. Není pro toho, kdo čeká zaručený počet zákazníků nebo první místo na mapách; to poctivě slíbit nelze.',
+  forAnswer: 'Služba je pro jednu počítačovou hernu, menší síť klubů nebo esport arénu v Praze, která chce, aby ji zájemci našli na webu i v odpovědích AI.',
 
   auditTitle: 'Co obsahuje bezplatný audit a co ne?',
-  auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby webu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nálezy předem neslibuji, liší se web od webu. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi.',
+  auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby webu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi.',
   audit: {
     head: ['Co obsahuje', 'Co neobsahuje'],
     rows: [
@@ -82,12 +82,10 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Zaručíte zákazníky?', a: 'Ne. Zákazníky, pozice ani citování v AI nezaručuji, protože výsledek závisí i na konkurenci, poptávce a rozhodnutích vyhledávačů. Zaručit mohu jen to, co dělám: technický audit, doporučení a práci v dohodnutém rozsahu. První změny u svých projektů vidím obvykle za 2–3 měsíce.' },
     { q: 'Potřebuje počítačová herna web, když má sociální sítě?', a: 'Sociální sítě slouží stávající komunitě, ale ceník, rezervace, adresu a otevírací hodiny najdou noví zájemci snáz na webu. Web zachytí i lidi, kteří hledají v Google nebo na mapách. Co potřebuje konkrétní počítačová herna, záleží na tom, odkud jí dnes zájemci přicházejí.' },
-    { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objeví za 2–3 měsíce, bez záruky. Délka závisí na stavu webu, konkurenci a rozsahu prací. Nic neslibuji. Nejdřív proto doporučuji bezplatný technický audit.' },
+    { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objeví za 2–3 měsíce. Délka závisí na stavu webu, konkurenci a rozsahu prací. Nejdřív proto doporučuji bezplatný technický audit.' },
     { q: 'Čím se SEO liší od reklamy?', a: 'Reklama přináší návštěvy rychleji, ale jen dokud za ni platíte. SEO se rozbíhá pomaleji, zato web a profily pracují i bez průběžného rozpočtu na kliknutí. Obě cesty lze kombinovat; SEO nenahrazuje reklamu a reklama nenahrazuje pořádek na webu. Co se vyplatí, závisí na rozpočtu a cílech klubu.' },
-    { q: 'Zaručíte citování AI?', a: 'Ne. Odpovědi AI nelze zaručit ani objednat. Připravuji web tak, aby byl srozumitelný a dobře čitelný: přímé odpovědi, tabulky, aktuální údaje. Jednou měsíčně ručně testuji otázky vašeho oboru v ChatGPT, Perplexity a Google AI Overview a výsledky zapisuji do logu.' },
-    { q: 'Co dělá bezplatný audit u webu s rezervacemi?', a: 'Zkontroluji, zda vyhledávač vidí stránky s rezervacemi, zda widgety a iframe nebrání indexaci a zda kalendář nebo parametry v adrese nevytvářejí duplicity. Nálezy předem neslibuji, liší se web od webu. Do auditu nepatří klíčová slova, konkurence, mapy, viditelnost v AI, rychlost a mobilní verze.' },
+    { q: 'Co dělá bezplatný audit u webu s rezervacemi?', a: 'Zkontroluji, zda vyhledávač vidí stránky s rezervacemi, zda widgety a iframe nebrání indexaci a zda kalendář nebo parametry v adrese nevytvářejí duplicity. Do auditu nepatří klíčová slova, konkurence, mapy, viditelnost v AI, rychlost a mobilní verze.' },
     { q: 'Kolik firem z oboru obsluhujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Jde o limit mé kapacity, ne o exkluzivitu. K ${GAMING_CAPACITY_DATE} je obor počítačových heren volný. Změní-li se to, údaj na stránce aktualizuji, aby byl vždy platný a stejný ve všech jazykových verzích.` },
   ],
 

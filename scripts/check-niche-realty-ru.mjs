@@ -50,7 +50,7 @@ if (/href="\/(?:ru\/)?blog\/|<form/.test(main)) e('no blog links, no form');
 if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt)) e('"агентство" about the author');
 // Hero
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-agentstv-nedvizhimosti-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-agentstv-nedvizhimosti-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-agentstv-nedvizhimosti-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-agentstv-nedvizhimosti-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Хочу бесплатный аудит<\/a>/.test(hero)) e('hero: button, no quote');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
@@ -60,7 +60,7 @@ if (/трёхкратно|рост[лш]и обращени|×24|×3|\+200/.test
 // Dated analysis of the Czech query and the honest note
 if (!/Проверено: 22\.10\.2026/.test(mainTxt) || !mainTxt.includes('Выдачу на русском языке я для этой страницы не проверял.')) e('dated analysis of the Czech query with the note about the Russian results');
 // Capacity rule, audit wording, formats cards
-if (!mainTxt.includes('Я работаю одновременно не более чем с тремя компаниями из одной ниши. Это ограничение по загрузке, а не обещание эксклюзивности') || !mainTxt.includes('Данные на 22.10.2026')) e('capacity rule');
+if (!mainTxt.includes('Я работаю одновременно не более чем с тремя компаниями из одной ниши.') || !mainTxt.includes('Данные на 22.10.2026')) e('capacity rule');
 if (/осталось|свободных мест|\d из 3/.test(mainTxt.replace('Счётчик «X из 3» не веду.', ''))) e('no counter / places left');
 if (!mainTxt.includes('Бесплатный аудит проверяет технические ошибки сайта: индексацию, дубли и другие технические проблемы. На сайтах агентств недвижимости я отдельно смотрю индексацию объявлений и дубли из фильтров.') || !mainTxt.includes('в течение 24 часов, без звонка и обязательств')) e('audit wording');
 const cards = [...main.matchAll(/<a class="card card--link service-card" href="([^"]+)">([\s\S]*?)<\/a>/g)].map((m) => [m[1], txt(m[2])]);

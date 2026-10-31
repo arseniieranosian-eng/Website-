@@ -18,7 +18,7 @@ const raw = {
   readUnit: 'min',
   cover: { src: '/images/blog/novy-web-a-google-ho-nevidi.webp', width: 1200, height: 630, alt: 'Ilustrace: nově spuštěný web, který Google zatím nenašel' },
 
-  lead: 'Nový web Google obvykle objeví za dny až týdny, přesně to slíbit nelze. Hned po spuštění ověřte web v Google Search Console, odešlete mapu webu a zkontrolujte, že web není zavřený před vyhledávači. Pokud se web neobjeví ani po týdnech, hledejte příčinu.',
+  lead: 'Hned po spuštění ověřte web v Google Search Console, odešlete mapu webu a zkontrolujte, že web není zavřený před vyhledávači. Pokud se web neobjeví ani po týdnech, hledejte příčinu.',
   forWhom: 'Text je pro majitele, který právě spustil nový web a Google o něm zatím mlčí. Najdete v něm, jestli je čekání normální, co udělat hned po spuštění a kdy začít hledat příčinu. Většinu kroků zvládnete sami.',
 
   normalTitle: 'Je normální, že nový web Google zatím nevidí?',
@@ -26,7 +26,7 @@ const raw = {
   normalText: 'Čekání samo o sobě není chyba, chybou je zapomenutý zákaz indexace nebo web, na který nic neodkazuje.',
 
   howLongTitle: 'Jak dlouho trvá, než se nový web objeví v Googlu?',
-  howLongAnswer: 'Obvykle dny až týdny. Přesný termín slíbit nelze, protože záleží na webu, jeho odkazech a na tom, jak snadno ho Google najde.',
+  howLongAnswer: 'Obvykle dny až týdny.',
   howLongLead: 'Co zkusit, než se web objeví, najdete v části',
   howLongLinkText: 'Co udělat hned po spuštění webu?',
 
@@ -50,7 +50,7 @@ const raw = {
   startText: 'Většinu kroků zvládnete sami. Mapa webu pomáhá Googlu stránky najít, ale indexaci nezaručuje.',
 
   fasterTitle: 'Co udělat, aby Google web našel rychleji?',
-  fasterAnswer: 'Pomůže odkaz z jiného webu, profil firmy a sociální sítě, protože podle odkazů Google nové weby objevuje. Nic z toho nezaručuje rychlý výsledek.',
+  fasterAnswer: 'Pomůže odkaz z jiného webu, profil firmy a sociální sítě, protože podle odkazů Google nové weby objevuje.',
   faster: [
     'Odkaz z jiného webu.',
     'Profil firmy a sociální sítě s odkazem na web.',
@@ -95,8 +95,8 @@ const raw = {
   faqTitle: 'Časté otázky o novém webu v Googlu',
   faq: [
     { q: 'Musím web do Googlu přihlásit?', a: 'Nemusíte, Google web najde sám. Ověření v Google Search Console a odeslání mapy webu ale hledání usnadní.' },
-    { q: 'Za jak dlouho se nový web objeví?', a: 'Obvykle za dny až týdny, přesný termín slíbit nelze. Záleží na webu a na tom, jak snadno ho Google najde.' },
-    { q: 'Pomůže žádost o indexaci?', a: 'U důležitých stránek může pomoci, ale nic nezaručuje a nemá smysl ji posílat opakovaně.' },
+    { q: 'Za jak dlouho se nový web objeví?', a: 'Záleží na webu a na tom, jak snadno ho Google najde.' },
+    { q: 'Pomůže žádost o indexaci?', a: '' },
     { q: 'Proč Google našel jen část stránek?', a: 'Google nemusí zařadit všechny stránky: některé může blokovat noindex, být duplicitní nebo slabé. Stav ukazuje report Stránky v Search Console.' },
     { q: 'Pomůže mapa webu?', a: 'Mapa webu pomáhá Googlu stránky najít, ale indexaci nezaručuje.' },
   ],

@@ -20,7 +20,7 @@ const raw = {
   readUnit: 'min',
   cover: { src: '/images/blog/nabidky-nemovitosti-seo-indexace-duplicity.webp', width: 1200, height: 630, alt: 'Ilustrace: tři karty nabídek nemovitostí, jedna označená jako prodaná, a lupa s odškrtnutím' },
 
-  lead: 'Nabídky nemovitostí na webu realitní kanceláře dělají SEO tři hlavní potíže: některé se neindexují, filtry a řazení vytvářejí duplicitní adresy a prodané nabídky zůstávají na webu. Níže vysvětluji principy podle dokumentace Googlu a ukazuji, co zkontrolovat. Technické chyby ukáže bezplatný audit. Pozice neslibuji.',
+  lead: 'Nabídky nemovitostí na webu realitní kanceláře dělají SEO tři hlavní potíže: některé se neindexují, filtry a řazení vytvářejí duplicitní adresy a prodané nabídky zůstávají na webu. Níže vysvětluji principy podle dokumentace Googlu a ukazuji, co zkontrolovat. Technické chyby ukáže bezplatný audit.',
   forWhom: 'Text je pro majitele nebo manažera realitní kanceláře, který má na webu vlastní nabídky. Najdete tu principy indexace, vznik duplicit z filtrů, tabulku možností u prodaných nabídek a přehled toho, co zachytí bezplatný audit.',
 
   tocTitle: 'Co v textu najdete',

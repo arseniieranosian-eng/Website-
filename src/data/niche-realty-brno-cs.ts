@@ -67,7 +67,7 @@ const raw = {
   seenAnswer: 'K 29. 10. 2026 jsem si na dotaz „realitní kancelář Brno“ prohlédl výsledky vyhledávání a 11 webů realitních kanceláří v Brně. Google ukazoval blok s mapou. U všech jedenácti webů byly často kladené otázky nedostatečné. Je to můj pozorovací vzorek, ne průzkum trhu. Názvy webů neuvádím.',
 
   doTitle: 'Co pro realitní kancelář v Brně konkrétně dělám?',
-  doAnswer: 'Řeším, aby byl web realitní kanceláře srozumitelný pro vyhledávače i AI: samostatné stránky nabídek a lokalit, správnou indexaci a odstranění duplicit, například u filtrů a prodaných nabídek, jasně popsané služby a odpovědi na časté otázky. Mapy a místní profily řeším samostatnou službou. Každý krok vysvětlím, výsledek nezaručuji.',
+  doAnswer: 'Řeším, aby byl web realitní kanceláře srozumitelný pro vyhledávače i AI: samostatné stránky nabídek a lokalit, správnou indexaci a odstranění duplicit, například u filtrů a prodaných nabídek, jasně popsané služby a odpovědi na časté otázky. Mapy a místní profily řeším samostatnou službou.',
   doMaps: 'Mapy a místní profily:',
   doMapsLink: 'SEO pro Mapy',
 
@@ -82,13 +82,12 @@ const raw = {
   auditAnswer: 'Audit se týká pouze technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci vám pošlu do 24 hodin, bez hovoru a bez závazku. V auditu nejsou klíčová slova, konkurence, mapy, viditelnost v AI, rychlost ani mobilní verze. Ty patří do placené spolupráce, o které rozhodujete až po auditu.',
 
   fitTitle: 'Pro koho SEO dává smysl a pro koho ne?',
-  fitAnswer: 'SEO dává smysl realitní kanceláři, která má jasně popsané služby, chce poptávky z vlastního webu a je ochotná web průběžně doplňovat. Nehodí se kanceláři, která potřebuje záruku pozice nebo výsledek v pevném termínu, protože ty zaručit nelze, ani té, která nechce o svém webu nic měnit.',
+  fitAnswer: 'SEO dává smysl realitní kanceláři, která má jasně popsané služby, chce poptávky z vlastního webu a je ochotná web průběžně doplňovat.',
   reviewsLead: 'Recenze klientů:',
   reviewsLink: 'Recenze',
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Zaručíte pozici nebo poptávky?', a: 'Ne. Výsledek, pozici ani počet poptávek nezaručuji, nikdo to u Googlu poctivě zaručit nemůže. Ukázat mohu, co jsem na webu změnil a proč, a vy si to můžete zkontrolovat. Cílem jsou poptávky z Googlu a AI, ale ani ty nejsou slíbené.' },
     { q: 'Musíte mít kancelář v Brně?', a: 'Ne. V Brně adresu nemám, pracuji z Prahy. Spolupráce probíhá na dálku a konzultaci lze vést videohovorem, nebo osobně v Praze. Nic o místní přítomnosti v Brně na svém webu netvrdím. Pro SEO webu realitní kanceláře v Brně to není překážka, protože web se upravuje na dálku.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit se týká jen technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi audit neobsahuje. Ty jsou součástí placené spolupráce, na kterou po auditu nemusíte přistoupit.' },
     { q: 'S kolika firmami pracujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru, aby na každou zbýval čas. Stav pro obor realitní služby uvádím vždy s datem, k ${NICHE_REALTY_BRNO_STATUS_DATE}: volno. Až se stav změní, upravím ho na stránce pro Prahu i pro Brno zároveň, aby oba údaje odpovídaly.` },
@@ -98,7 +97,7 @@ const raw = {
   articlesMore: 'Číst článek',
 
   endTitle: 'Chcete vědět, jaké technické chyby má váš web?',
-  endText: 'Bezplatný audit se týká jen technických chyb. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Výsledek ani pozici nezaručuji.',
+  endText: 'Bezplatný audit se týká jen technických chyb. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku.',
   endCta: 'Požádat o bezplatný audit',
   endConsulting: 'Konzultace',
 

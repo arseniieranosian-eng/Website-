@@ -214,7 +214,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     ru: {
       name: 'Разбор сайта агентства недвижимости в Праге',
       title: 'SEO-аудит агентства недвижимости: разбор | Eranosian',
-      description: 'Честная оценка конкуренции, три направления продвижения и план на 12 месяцев для агентства недвижимости в Праге. Без обещаний. Закажите консультацию.',
+      description: 'Честная оценка конкуренции, три направления продвижения и план на 12 месяцев для агентства недвижимости в Праге. Закажите консультацию.',
       h1: 'Разбор сайта агентства недвижимости в Праге: что я увидел и что предложил',
     },
   },
@@ -252,7 +252,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'Jak získat klienty pro účetní kancelář',
       title: 'Jak získat klienty pro účetní kancelář | Eranosian',
-      description: 'Jak získat klienty pro účetní kancelář: doporučení, web a SEO, mapy, reklama i sítě. Přehled kanálů bez slibů. Zdarma technický audit webu.',
+      description: 'Jak získat klienty pro účetní kancelář: doporučení, web a SEO, mapy, reklama i sítě. Zdarma technický audit webu.',
       h1: 'Jak získat klienty pro účetní kancelář: přehled kanálů',
     },
     en: { name: 'How to get clients for an accounting firm', title: 'How to get clients for an accounting firm', description: 'How to get clients for an accounting firm', h1: 'How to get clients for an accounting firm: an overview of channels' },
@@ -264,7 +264,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     ru: {
       name: 'Как получить клиентов финансовому консультанту',
       title: 'Как получить клиентов финансовому консультанту',
-      description: 'Как получить клиентов финансовому консультанту в Чехии: рекомендации, соцсети, реклама, сайт и SEO. Обзор без гарантий. Бесплатный технический аудит.',
+      description: 'Как получить клиентов финансовому консультанту в Чехии: рекомендации, соцсети, реклама, сайт и SEO. Бесплатный технический аудит.',
       h1: 'Как получить клиентов финансовому консультанту в Чехии: обзор каналов',
     },
   },
@@ -362,7 +362,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'Jak dlouho trvá SEO pro účetní kancelář',
       title: 'Jak dlouho trvá SEO u účetní kanceláře | Eranosian',
-      description: 'Za jak dlouho se SEO projeví u účetní kanceláře: faktory, etapy práce a co měřit v prvních měsících. Bez slibů lhůt. Přehled s tabulkami a checklisty.',
+      description: 'Za jak dlouho se SEO projeví u účetní kanceláře: faktory, etapy práce a co měřit v prvních měsících. Přehled s tabulkami a checklisty.',
       h1: 'Jak dlouho trvá SEO pro účetní kancelář?',
     },
     en: { name: 'How long does SEO take for an accounting firm', title: 'How long does SEO take for an accounting firm', description: 'How long does SEO take for an accounting firm', h1: 'How long does SEO take for an accounting firm?' },
@@ -402,7 +402,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'Vlastní web, nebo realitní portály',
       title: 'Realitní portály vs vlastní web: co se hodí | Eranosian',
-      description: 'Má smysl vlastní web realitní kanceláře, když jsou portály? Jak se doplňují, kdy stačí portál a co ověří bezplatný audit technických chyb. Bez slibů.',
+      description: 'Má smysl vlastní web realitní kanceláře, když jsou portály? Jak se doplňují, kdy stačí portál a co ověří bezplatný audit technických chyb.',
       h1: 'Vlastní web, nebo realitní portály? Jak spolu fungují',
     },
     en: { name: 'Own website or real estate portals', title: 'Own website or real estate portals', description: 'Own website or real estate portals', h1: 'Own website or real estate portals? How they work together' },
@@ -599,7 +599,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     ru: {
       name: 'SEO для бухгалтерских компаний в Праге',
       title: 'Продвижение бухгалтерской компании в Праге | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для бухгалтерских компаний в Праге: сайт, страницы услуг, FAQ. Гарантий нет. Закажите бесплатный технический аудит.',
+      description: 'Делаю SEO и GEO/AEO для бухгалтерских компаний в Праге: сайт, страницы услуг, FAQ. Закажите бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для бухгалтерских компаний в Праге: заявки из Google и ИИ',
     },
   },
@@ -607,7 +607,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO pro účetní kanceláře v Brně',
       title: 'SEO pro účetní kanceláře Brno: GEO/AEO | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Brně: stránky služeb, FAQ, struktura pro vyhledávání i AI. Bez slibů. Požádejte o bezplatný audit.',
+      description: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Brně: stránky služeb, FAQ, struktura pro vyhledávání i AI. Požádejte o bezplatný audit.',
       h1: 'SEO a GEO/AEO pro účetní kanceláře v Brně: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for accounting firms in Brno', title: 'SEO for accounting firms in Brno', description: 'SEO for accounting firms in Brno', h1: 'SEO for accounting firms in Brno' },
@@ -617,7 +617,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO pro realitní kanceláře v Brně',
       title: 'SEO pro realitní kanceláře Brno: GEO/AEO | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Bez slibů. Požádejte o bezplatný technický audit.',
+      description: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Požádejte o bezplatný technický audit.',
       h1: 'SEO a GEO/AEO pro realitní kanceláře v Brně: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for real estate agencies in Brno', title: 'SEO for real estate agencies in Brno', description: 'SEO for real estate agencies in Brno', h1: 'SEO for real estate agencies in Brno' },
@@ -629,7 +629,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     ru: {
       name: 'SEO для онлайн-фитнеса и wellness',
       title: 'SEO для онлайн-фитнеса и wellness в Праге | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: FAQ, структура адресов, заголовки, блог. Без гарантий. Старт: бесплатный технический аудит.',
+      description: 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: FAQ, структура адресов, заголовки, блог. Старт: бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: записи из Google и ИИ',
     },
   },
@@ -637,14 +637,14 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO pro obchody s elektronikou',
       title: 'SEO pro obchody s elektronikou a technikou | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: kategorie, filtry, varianty produktů, FAQ. Bez garancí. Bezplatný technický audit.',
+      description: 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: kategorie, filtry, varianty produktů, FAQ. Bezplatný technický audit.',
       h1: 'SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI',
     },
     en: { name: 'SEO for electronics stores', title: 'SEO for electronics stores', description: 'SEO for electronics stores', h1: 'SEO and GEO/AEO for electronics stores' },
     ru: {
       name: 'SEO для магазинов электроники',
       title: 'SEO для магазинов электроники в Праге | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для магазинов электроники в Праге: категории, фильтры, варианты товаров. Без гарантий. Старт: бесплатный технический аудит.',
+      description: 'Делаю SEO и GEO/AEO для магазинов электроники в Праге: категории, фильтры, варианты товаров. Старт: бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для магазинов электроники в Праге: заказы из Google и ИИ',
     },
   },
@@ -652,14 +652,14 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO a GEO/AEO pro počítačové herny v Praze',
       title: 'SEO pro počítačové herny a herní kluby | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro počítačové herny a herní kluby v Praze: služby, tarify, rezervace, akce, FAQ. Bez slibů. Technický audit zdarma.',
+      description: 'Dělám SEO a GEO/AEO pro počítačové herny a herní kluby v Praze: služby, tarify, rezervace, akce, FAQ. Technický audit zdarma.',
       h1: 'SEO a GEO/AEO pro počítačové herny v Praze: rezervace z Googlu a AI',
     },
     en: { name: 'SEO for gaming clubs in Prague', title: 'SEO for gaming clubs in Prague', description: 'SEO for gaming clubs in Prague', h1: 'SEO and GEO/AEO for gaming clubs in Prague' },
     ru: {
       name: 'SEO для компьютерных клубов',
       title: 'SEO для компьютерных клубов: Прага, GEO/AEO | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для компьютерных клубов в Праге: сайт, бронирование, тарифы, акции, FAQ. Без гарантий. Бесплатный технический аудит.',
+      description: 'Делаю SEO и GEO/AEO для компьютерных клубов в Праге: сайт, бронирование, тарифы, акции, FAQ. Бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для компьютерных клубов в Праге: бронирования из Google и ИИ',
     },
   },
@@ -667,7 +667,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO a GEO/AEO pro strojírenské firmy',
       title: 'SEO pro strojírenské firmy a výrobu | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: stránky technologií, PDF katalogy, poptávkový formulář. Bez slibů. Technický audit zdarma.',
+      description: 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: stránky technologií, PDF katalogy, poptávkový formulář. Technický audit zdarma.',
       h1: 'SEO a GEO/AEO pro strojírenské firmy: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for machinery companies', title: 'SEO for machinery companies', description: 'SEO for machinery companies', h1: 'SEO and GEO/AEO for machinery companies' },
@@ -677,7 +677,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO a GEO/AEO pro tiskárny a polygrafii',
       title: 'SEO pro tiskárny a polygrafii: katalog | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Bez slibů. Začněte technickým auditem zdarma.',
+      description: 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Začněte technickým auditem zdarma.',
       h1: 'SEO a GEO/AEO pro tiskárny a polygrafii: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for printing companies', title: 'SEO for printing companies', description: 'SEO for printing companies', h1: 'SEO and GEO/AEO for printing companies' },

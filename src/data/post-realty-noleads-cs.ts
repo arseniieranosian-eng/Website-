@@ -18,7 +18,7 @@ const raw = {
   readUnit: 'min',
   cover: { src: '/images/blog/proc-web-realitni-kancelare-neprinasi-poptavky.webp', width: 1200, height: 630, alt: 'Ilustrace: web realitní kanceláře s nulou poptávek a kontrolním seznamem: indexace, služby, kontakt' },
 
-  lead: 'Web realitní kanceláře může poptávky nepřinášet z několika důvodů, které se často kombinují: stránky nejsou ve vyhledávání, nabídky leží jen na portálech, služby jsou na jedné stránce, chybí lokality a jasný kontakt, nebo se poptávky neměří. Níže je tabulka příčin, jak je poznat a co zkontrolovat jako první. Výsledek neslibuji.',
+  lead: 'Web realitní kanceláře může poptávky nepřinášet z několika důvodů, které se často kombinují: stránky nejsou ve vyhledávání, nabídky leží jen na portálech, služby jsou na jedné stránce, chybí lokality a jasný kontakt, nebo se poptávky neměří. Níže je tabulka příčin, jak je poznat a co zkontrolovat jako první.',
   forWhom: 'Text je pro majitele realitní kanceláře, který má web, ale poptávky z něj nepřicházejí. Najdete tu osm častých příčin, způsob, jak je poznat, a pořadí, ve kterém je kontrolovat.',
 
   tocTitle: 'Co v textu najdete',
@@ -79,7 +79,7 @@ const raw = {
   measureAnswer: 'Když nevíte, odkud poptávky přicházejí, nepoznáte, co funguje. Sledujte alespoň počet formulářů, telefonátů a e-mailů a jejich zdroj, pokud jej zjistíte. Nastavení měření a souhlasy s cookies zde nerozepisuji. Konkrétní postup záleží na vašem webu a je lepší ho řešit s odborníkem.',
 
   firstTitle: 'Co zkontrolovat jako první?',
-  firstAnswer: 'Začněte tím, co lze ověřit nejrychleji: zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda jsou na webu nabídky, zda je vidět kontakt a zda víte, odkud poptávky přicházejí. Teprve pak řešte obsah a lokality. Zaručit výsledek to ale nemůže.',
+  firstAnswer: 'Začněte tím, co lze ověřit nejrychleji: zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda jsou na webu nabídky, zda je vidět kontakt a zda víte, odkud poptávky přicházejí. Teprve pak řešte obsah a lokality.',
   first: [
     'Jsou důležité stránky ve vyhledávání?',
     'Má každá služba vlastní stránku?',
@@ -98,7 +98,7 @@ const raw = {
   faq: [
     { q: 'Jak poznám, že web realitní kanceláře nefunguje?', a: 'Web nefunguje, pokud nepřináší návštěvníky ani poptávky navzdory času, který od jeho spuštění uplynul. Projděte kontrolní seznam: indexace, stránky služeb, nabídky, kontakt a měření. Nejde o diagnózu, ale o pořadí kontrol. Technické chyby, jako indexaci a duplicity, ukáže bezplatný audit.', links: [{ page: 'audit' as const, text: 'Bezplatný audit' }] },
     { q: 'Proč nemám návštěvníky na webu realitní kanceláře?', a: 'Důvodů může být několik: stránky nejsou ve vyhledávání, web nemá samostatné stránky služeb nebo lokalit, nabídky jsou jen na portálech, nebo lidé web jednoduše nenacházejí. Příčinu nelze určit bez kontroly konkrétního webu. První krok je zjistit, zda jsou důležité stránky vůbec ve vyhledávání.' },
-    { q: 'Jak dlouho trvá, než web začne přinášet poptávky?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce, ale záruku nedávám. Doba závisí na stavu webu, konkurenci a rozsahu úprav. Žádný termín neslibuji, odhad vychází až z auditu.' },
+    { q: 'Jak dlouho trvá, než web začne přinášet poptávky?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav.' },
     { q: 'Kolik stojí audit webu?', a: 'Bezplatný audit technických chyb je zdarma, bez hovoru a bez závazku. Placená konzultace s auditem a plánem na 12 měsíců má cenu uvedenou na stránce konzultace, kterou zde neduplikuji. Cena SEO se pak liší podle zvolené služby. Aktuální částky najdete na stránkách jednotlivých služeb.', links: [{ page: 'audit' as const, text: 'Bezplatný audit' }, { page: 'consulting' as const, text: 'SEO konzultace' }] },
     { q: 'Stačí, když mám nabídky jen na portálech?', a: 'Záleží na cíli. Pokud vám stačí kontakt přes portál, vlastní web nutně nepotřebuje nabídky. Pokud chcete, aby vás klienti našli i mimo portál, vlastní stránky pomáhají, ale přinášejí technická rizika, například duplicity. Podrobnosti rozebírám v samostatných článcích o portálech a nabídkách.' },
     { q: 'Co přesně bezplatný audit zkontroluje?', a: 'Bezplatný audit zkontroluje technické chyby: indexaci, duplicity a další technické problémy. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Příčiny ze struktury webu, obsahu, konverze a měření neukáže, ty řeší placená konzultace nebo Start. Klíčová slova, konkurenci, mapy ani rychlost neobsahuje.', links: [{ page: 'audit' as const, text: 'Bezplatný audit' }, { page: 'start' as const, text: 'SEO start na 3 měsíce' }] },
