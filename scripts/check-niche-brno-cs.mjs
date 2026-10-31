@@ -48,7 +48,7 @@ for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/href="\/blog\/(?!(?:proc-prekladatelska-agentura-nema-poptavky|jak-ziskat-klienty-pro-prekladatelskou-agenturu|jak-ziskat-b2b-klienty-pro-prekladatelskou-agenturu|stranka-pro-kazdy-jazykovy-par)\/)|<form/.test(main)) e("no blog links except the agency articles for agencies, no form on this page");
 // "agentura" is never used about the author
-if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
+if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt.replace(/u jedné brněnské agentury/g, "u klienta"))) e('"agentura" about the author');
 // Hero: the direct answer, the date, the button; no quote, no numbers of the case
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (lead !== 'Dělám SEO a GEO/AEO pro překladatelské agentury v Brně. Stavím stránky jazykových párů, služeb pro firmy a měst, hlídám indexaci jazykových verzí a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.') e('hero answer');

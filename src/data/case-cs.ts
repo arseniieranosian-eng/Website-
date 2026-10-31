@@ -29,7 +29,7 @@ export const CASE_CS = {
     'Kdo hledá „soudní překlady Pardubice“, nic neprochází: potřebuje překladatele ve svém městě hned. Proto se název města neobjevuje jen v poznámce, ale v titulku, H1, textu, FAQ i meta description, a to přirozeně: adresa pobočky, otevírací doba, okolní města, nejčastější dokumenty pro místní klienty, regionální specifika.',
     'Stránka pro Pardubice obsahuje služby, ceny, lokální FAQ, recenze, dosah do okolních měst, samostatnou B2B sekci pro místní firmy a kontaktní formulář.',
   ],
-  localResult: 'Výsledek: 1. místo na „soudní překlady Pardubice“ a 2. místo na „překlady Pardubice“.',
+  localResult: 'Výsledek: 1. místo na „soudní překlady Pardubice“ a 2. místo na „překlady Pardubice“. Při kontrole 15. 9. 2026 byla pobočka na dotaz „překlady Pardubice“ v Google AI Overview uvedena jako první, v organických výsledcích a v lokálním balíčku na prvním až druhém místě. Pozici nelze zaručit.',
   localDecision: 'V Pardubicích lidé hledají česky, proto má stránka jen českou verzi, bez anglické. Lokalizace není jen překlad, ale i rozhodnutí, které verze nestavět.',
 
   funnelTitle: 'Jak funguje obsah jako trychtýř?',
