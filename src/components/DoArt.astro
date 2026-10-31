@@ -6,6 +6,23 @@ const { kind } = Astro.props;
 ---
 <svg class="do-art" viewBox="0 0 96 56" width="96" height="56" fill="none" aria-hidden="true" focusable="false">
   <rect x="0.5" y="0.5" width="95" height="55" rx="10" fill="#f4f6fa" stroke="#e3e7ef" />
+  {kind === 'listing' && (<>
+    <rect x="12" y="8" width="44" height="40" rx="5" fill="#fff" stroke="#1f4fd8" stroke-width="1.8" /><path d="M12 16h44" stroke="#1f4fd8" stroke-width="1.8" /><circle cx="18" cy="12" r="1.500" fill="#1f4fd8" />
+    <path d="M20 32l14-10 14 10v10H20z" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.8" stroke-linejoin="round" /><rect x="30" y="34" width="8" height="8" rx="1.500" fill="#fff" stroke="#1f4fd8" stroke-width="1.400" />
+    <rect x="62" y="14" width="24" height="16" rx="5" fill="#ff6a1a" /><path d="M68 22l4 4 8-8" stroke="#fff" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round" /><path d="M64 38h20M64 44h14" stroke="#a4baf0" stroke-width="2.400" stroke-linecap="round" />
+  </>)}
+  {kind === 'districts' && (<>
+    <path d="M10 12h34l-2 18H10z" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.600" stroke-linejoin="round" /><path d="M50 12h36v14H48z" fill="#fff" stroke="#1f4fd8" stroke-width="1.600" stroke-linejoin="round" />
+    <path d="M10 36h30v10H10z" fill="#fff" stroke="#1f4fd8" stroke-width="1.600" stroke-linejoin="round" /><path d="M46 32h40v14H46z" fill="#ff6a1a" stroke="#ff6a1a" stroke-width="1.600" stroke-linejoin="round" />
+    <path d="M59 42v-6l7-5 7 5v6z" fill="#fff" /><rect x="64" y="38" width="4" height="4" fill="#ff6a1a" />
+    <path d="M18 20h14M58 19h20M18 41h14" stroke="#a4baf0" stroke-width="2" stroke-linecap="round" />
+  </>)}
+  {kind === 'dupes' && (<>
+    <rect x="10" y="10" width="26" height="14" rx="4" fill="#fff" stroke="#1f4fd8" stroke-width="1.600" /><rect x="10" y="32" width="26" height="14" rx="4" fill="#fff" stroke="#1f4fd8" stroke-width="1.600" /><rect x="22" y="21" width="26" height="14" rx="4" fill="#fff" stroke="#1f4fd8" stroke-width="1.600" />
+    <path d="M16 17h14M16 39h14M28 28h14" stroke="#a4baf0" stroke-width="2.200" stroke-linecap="round" />
+    <path d="M54 28h10m-3-3 3 3-3 3" stroke="#1f4fd8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="68" y="16" width="20" height="24" rx="5" fill="#c9d6f7" stroke="#1f4fd8" stroke-width="1.800" /><circle cx="78" cy="28" r="7" fill="#ff6a1a" /><path d="M74.500 28l2.500 2.500 4.500-5" stroke="#fff" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" />
+  </>)}
   {kind === 'pairs' && (<>
     <rect x="9" y="17" width="30" height="22" rx="6" fill="#1f4fd8" />
     <rect x="57" y="17" width="30" height="22" rx="6" fill="#ff6a1a" />

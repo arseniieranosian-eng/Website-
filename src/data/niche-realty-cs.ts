@@ -82,11 +82,11 @@ const raw = {
   doAnswer: 'Pro realitní kancelář v Praze upravuji stránky nabídek a čtvrtí, hlídám indexaci, duplicity z filtrů a zastaralé nabídky, připravuji obsah i pro AI odpovědi a pracuji s profily na Google Maps a Mapy.com. Začínám kontrolou technických chyb a postupuji podle toho, co ukáže.',
   doIntro: 'Optimalizace webu realitní kanceláře není jedna úprava, ale několik oblastí, které na sebe navazují:',
   do: [
-    { h: 'Stránky nabídek', text: 'Nabídka má mít vlastní stránku, kterou Google dokáže najít a pochopit. Hlídám, aby se z ní po prodeji nestala chyba a aby si nabídky nekonkurovaly mezi sebou.' },
-    { h: 'Stránky čtvrtí a lokalit', text: 'Stránka čtvrti dává smysl, jen když má vlastní obsah. Šablonové texty se stejnou větou pro každou čtvrť nepomáhají, proto každá stránka popisuje to, co k dané lokalitě opravdu patří.' },
-    { h: 'Indexace a duplicity', text: 'Filtry, řazení a stránkování umí vytvořit mnoho adres se stejným obsahem. Hlídám, které z nich má Google vidět a které ne.' },
-    { h: 'Lokální přítomnost', text: 'Pro kancelář s adresou v Praze je důležitý profil na Google Maps a na Mapy.com. Údaje v nich mají odpovídat webu.' },
-    { h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
+    { art: 'listing', h: 'Stránky nabídek', text: 'Nabídka má mít vlastní stránku, kterou Google dokáže najít a pochopit. Hlídám, aby se z ní po prodeji nestala chyba a aby si nabídky nekonkurovaly mezi sebou.' },
+    { art: 'districts', h: 'Stránky čtvrtí a lokalit', text: 'Stránka čtvrti dává smysl, jen když má vlastní obsah. Šablonové texty se stejnou větou pro každou čtvrť nepomáhají, proto každá stránka popisuje to, co k dané lokalitě opravdu patří.' },
+    { art: 'dupes', h: 'Indexace a duplicity', text: 'Filtry, řazení a stránkování umí vytvořit mnoho adres se stejným obsahem. Hlídám, které z nich má Google vidět a které ne.' },
+    { art: 'local', h: 'Lokální přítomnost', text: 'Pro kancelář s adresou v Praze je důležitý profil na Google Maps a na Mapy.com. Údaje v nich mají odpovídat webu.' },
+    { art: 'geo', h: 'GEO/AEO: součást každé služby', text: 'GEO/AEO připravuje obsah tak, aby mu AI nástroje rozuměly a mohly ho citovat. Je součástí každé služby; citace slíbit nelze.' },
   ],
   quote: 'U realitní kanceláře rozhoduje nejen cena nabídky, ale i to, jestli ji zájemce na webu najde dřív než na portálu.',
 
