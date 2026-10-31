@@ -131,6 +131,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
         {V.chapters && V.chapters.length > 0 && <><h3>{C.videoChaptersTitle}</h3><ol class="steps">{V.chapters.map((c: any) => <li><span>{tc(c.start)} · {c.title}</span></li>)}</ol></>}
         {V.observations && V.observations.length > 0 && <><h3>{C.videoObsTitle}</h3><ul class="checks">{V.observations.map((x: string) => <li>{x}</li>)}</ul></>}
         {V.transcript && <details><summary>{C.videoTranscriptTitle}</summary><p>{V.transcript}</p></details>}
+        {C.weak && <p>{C.weak.text}{' '}<a href={t('postWeakSeo')}>{C.weak.linkText}</a></p>}
         <p class="muted small">{V.contact}{' '}<a href={t('contact')}>{V.contactLink}</a>.</p>
       </div>
     </section>

@@ -59,6 +59,7 @@ const raw = {
     'Jazykové páry: lidé hledají konkrétní kombinaci, například překlad z češtiny do angličtiny.',
     'Město: brněnské agentury potřebují stránky, které Brno opravdu jmenují.',
   ],
+  weak: { text: 'Proč jsou v Brně vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi brněnskými překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Výsledek ani pozici nezaručuji. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury Brno, který přivádí nové klienty a zakázky z vyhledávání.',
   market: NICHE_BRNO_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Brno?', paragraphs: NICHE_BRNO_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_BRNO_MARKET.checked } : null,
 

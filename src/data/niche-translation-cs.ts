@@ -60,6 +60,7 @@ const raw = {
     'Města: poptávka v Praze a okolí vyžaduje stránky, které město opravdu jmenují.',
     'Sezónnost: poptávky během roku kolísají a stránky v Googlu pomáhají výkyvy vyrovnávat, i když nic nezaručují.',
   ],
+  weak: { text: 'Proč jsou na dotaz „překlady Praha“ vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Výsledek ani pozici nezaručuji. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury, který přivádí nové klienty a zakázky z vyhledávání.',
 
   doTitle: 'Co pro překladatelskou agenturu konkrétně dělám?',
