@@ -1,5 +1,5 @@
 // Czech content of the niche landing page /seo-pro-ucetni-kancelare-brno/ (brief of 31.10.2026). Built ONLY when NICHE_READY.nicheAccountingBrno is true (routes.ts).
-// Publication condition (doorway rule): the page needs B1 (observation of Brno sites, ready), B3 (the author's advice, ready) and B2 (the search check for
+// Publication condition (doorway rule): B1, B2 and B3 are all filled in (B2 added 31.10.2026), so the page is published (NICHE_READY.nicheAccountingBrno = true).
 // "účetní kancelář Brno", WAITING for the author's data). Until B2 is filled in `NICHE_ACCOUNTING_BRNO_B2` the flag stays false and the page is not built, not in the menu and not in the sitemap.
 // Own structure from the brief; text of the Prague page is not reused. Decisions applied from the author's standing rules: no "no results in the niche" statements (29.10.2026),
 // no guarantees, no client / competitor names, no address in Brno, "agentura" never about the author, GEO/AEO always together. hreflang: self only (cs).
@@ -12,10 +12,13 @@ export const NICHE_ACCOUNTING_BRNO_PUBLISHED = '2026-10-31';
 // Capacity status of the niche (the same status as on the Prague page; update on both pages together, and the date on the day of publication [?]6).
 export const NICHE_ACCOUNTING_BRNO_STATUS_DATE = '23. 10. 2026';
 
-// B2: the one-off check of the first page for "účetní kancelář Brno". The author fills it in (10 minutes): date of the check (google.cz), the types of results seen
+// B2 (filled in 31.10.2026 from the author's answers: check of 25. 10. 2026, google.cz, first page: map block, firm sites, AI answer; no names). The one-off check of the first page for "účetní kancelář Brno". The author fills it in (10 minutes): date of the check (google.cz), the types of results seen
 // (map block / directories / firm sites / online services / AI answer), no names. Text template (40–60 words):
 //   „K [datum] jsem na dotaz „účetní kancelář Brno“ viděl: [typy výsledků]. Je to jednorázová kontrola, ne měření trhu.“ No conclusions about the market.
-export const NICHE_ACCOUNTING_BRNO_B2: null | { title: string; answer: string } = null;
+export const NICHE_ACCOUNTING_BRNO_B2: null | { title: string; answer: string } = {
+  title: 'Co ukazuje vyhledávání pro účetní kanceláře v Brně?',
+  answer: 'K 25. 10. 2026 jsem na google.cz zadal dotaz „účetní kancelář Brno“ a na první stránce viděl blok map, weby samotných účetních kanceláří a odpověď AI. Je to jednorázová kontrola z jednoho dne, ne měření trhu. Žádné závěry o tom, kdo v Brně vyhledávání ovládá, z ní nevyvozuji a názvy firem neuvádím.',
+};
 
 const raw = {
   lang: 'cs' as const,
