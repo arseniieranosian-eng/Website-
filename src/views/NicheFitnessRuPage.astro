@@ -42,6 +42,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.seeTitle}</h2>
       <p class="answer">{C.seeAnswer}</p>
+      <p class="muted small">{C.seeNote}</p>
       <p>{C.seeCriterion}</p>
       <p>{C.seeLead}</p>
       <ul class="checks">{C.see.map((x) => <li>{x}</li>)}</ul>

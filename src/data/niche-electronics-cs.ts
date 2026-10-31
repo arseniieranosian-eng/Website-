@@ -8,6 +8,7 @@
 // Instagram are the ones of the case page; she is the owner of the partner agency of the translation case, so the relationship is disclosed). Defaults taken: publication as in the brief, the maps block included, NO observation block (no data), NO "Související články", NO VAT statement (the service pages
 // do not say whether the prices include it), the translation-agency client's consent is assumed to cover this line as the case page (open question 9), the audit video is only linked (text link to the example on /audit-zdarma/, described as an example of an e-shop audit, not as a case). No Heureka / Zboží.cz (only "srovnávače"),
 // no brands / shops / competitors, no guarantees, "agentura" never about the author, only "SEO a GEO/AEO", no Product/Offer, "2–3 měsíce" only about the author's own projects. Review every 90 days and at any price change (23. 1. 2027).
+import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { fmtKc, PRICES } from './consulting-shared';
@@ -59,6 +60,7 @@ const raw = {
 
   seeTitle: 'Co vidím na webech obchodů s elektronikou a co s tím dělám?',
   seeAnswer: 'K 15. 10. 2026 jsem si prohlédl 12 webů obchodů s elektronikou. Nejčastěji chybí FAQ nebo je nedostatečné, téměř vždy chybí blog, nadpisy nejsou formulované jako otázky a často chybí strukturovaná data. Tyto body nejsou součástí bezplatného auditu, řeší se v konzultaci a v balíčku Start.',
+  seeNote: OBS_NOTE.cs,
   seeLead: 'Problém a co nabízím:',
   see: [
     'chybí FAQ nebo je nedostatečné → sada otázek a formát odpovědí',

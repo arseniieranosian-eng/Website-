@@ -3,6 +3,7 @@
 // "účetní kancelář Brno", WAITING for the author's data). Until B2 is filled in `NICHE_ACCOUNTING_BRNO_B2` the flag stays false and the page is not built, not in the menu and not in the sitemap.
 // Own structure from the brief; text of the Prague page is not reused. Decisions applied from the author's standing rules: no "no results in the niche" statements (29.10.2026),
 // no guarantees, no client / competitor names, no address in Brno, "agentura" never about the author, GEO/AEO always together. hreflang: self only (cs).
+import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { START_PRICE } from './start-shared';
@@ -47,6 +48,7 @@ const raw = {
 
   obsTitle: 'Co jsem zjistil na webech brněnských účetních kanceláří?',
   obsAnswer: 'K 25. 10. 2026 jsem si prohlédl 10 webů účetních kanceláří v Brně. U všech deseti byly často kladené otázky nedostatečné, devět z deseti nemělo blog a u všech deseti nebyla struktura nadpisů vhodná pro AI vyhledávání. Je to můj pozorovací vzorek, ne průzkum trhu. Názvy webů neuvádím.',
+  obsNote: OBS_NOTE.cs,
   obsText: 'Taková slabá místa jsou prostor ke zlepšení. Práci směřuji na poptávky, ne jen na pozice. Pozici ani počet poptávek zaručit nelze.',
 
   localTitle: 'Na co si dát pozor, když má účetní kancelář sídlo nebo pobočku v Brně?',

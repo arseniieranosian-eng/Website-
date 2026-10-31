@@ -3,6 +3,7 @@
 // the translation case too, default of the brief). Defaults taken (no answers to the brief's open questions): slug as in the brief, the observation block of 15.10.2026 (12 sites, the author's qualitative findings, NO counts, no city: it is not stated that all 12 are from Prague), no funnel articles, nothing about VAT,
 // no brands / shops / competitors / Heureka / Zboží.cz, no quote, no Product/Offer, nothing about the metrics "звонки, маршруты, переходы" (the RU service pages do not state them). The Title is shortened to <= 55 characters and the
 // Description to <= 150 (the site rule of 25.10.2026). Prices come from the single sources of the service pages. Review every 90 days and at any price change (23.01.2027).
+import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
@@ -47,6 +48,7 @@ export const NICHE_ELECTRONICS_RU = {
 
   seeTitle: 'Что я вижу на сайтах магазинов электроники и что с этим делаю?',
   seeAnswer: '15.10.2026 я просмотрел 12 сайтов магазинов электроники. Чаще всего у них нет FAQ или его недостаточно, почти всегда нет блога, заголовки не сформулированы как вопросы, а микроразметки часто нет. Эти пункты не входят в бесплатный аудит, их разбор идёт в консультации и пакете Start.',
+  seeNote: OBS_NOTE.ru,
   seeLead: 'Проблема и что я предлагаю:',
   see: [
     'нет FAQ или его недостаточно → набор вопросов и формат ответов',

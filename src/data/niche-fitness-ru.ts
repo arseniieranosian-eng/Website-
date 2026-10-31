@@ -4,6 +4,7 @@
 // articles yet. The observation of 20.10.2026 (14 sites of online fitness and wellness in Prague) is the author's data and is quoted verbatim; its numbers must not be changed without him. No case in the niche (the author's
 // decision), no quote, no health / medical / diet claims ("wellness" always as studios and online services), no competitors / platforms / apps / brands, no guarantees, "агентство" never about the author, only "GEO/AEO".
 // Prices come from the single sources of the service pages. Review every 90 days and at any price change (23.01.2027).
+import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
@@ -49,6 +50,7 @@ export const NICHE_FITNESS_RU = {
   seeTitle: 'Что я вижу на сайтах онлайн-фитнеса и что с этим делаю?',
   seeAnswer: '20.10.2026 я просмотрел 14 сайтов онлайн-фитнеса и wellness в Праге: у 5 нет FAQ вообще, а полноценного нет ни у одного; у 12 нет блога; у 13 адреса страниц не говорят, о чём страница; ни на одном заголовки не сформулированы как вопросы. Эти пункты не входят в бесплатный аудит, их разбор идёт в консультации и пакете Start.',
   seeCriterion: 'Адрес не говорит, о чём страница, поэтому поисковик и ИИ хуже понимают её.',
+  seeNote: OBS_NOTE.ru,
   seeLead: 'Проблема и что я предлагаю:',
   see: [
     'нет FAQ или он неполный → набор вопросов и формат ответов',

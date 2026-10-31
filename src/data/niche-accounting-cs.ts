@@ -4,6 +4,7 @@
 // for accounting is "volno" (dated 31. 10. 2026), daňoví poradci may be named in the audience (the advertising rules for them are NOT checked: nothing legal is
 // written), no reel / video, no English version for now. No guarantees, no own case in this niche (said openly), no blog links, no "více klientů", the word
 // "agentura" is never used about the author, GEO/AEO always together. hreflang: none (Czech only).
+import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { NICHE_READY } from '../i18n/routes';
@@ -99,7 +100,7 @@ const raw = {
     'U 5 webů je stránka služeb jen výpis služeb, bez samostatné stránky pro každou službu.',
   ],
   obsText: 'Web, který má přinášet poptávky, nemůže být jen vizitka. Služby, „o nás“ a časté dotazy by neměly ležet na jedné stránce: je potřeba je rozdělit na samostatné stránky, každou zvlášť optimalizovat a všechny vést k jednomu cíli, k poptávce. Samotný výpis služeb na jedné stránce nezaujme, každá služba potřebuje vlastní optimalizovanou stránku.',
-  obsNote: 'Jde o moje pozorování, ne o výzkum. Tyto body nejsou součástí bezplatného auditu, řeší se v konzultaci a v balíčku Start.',
+  obsNote: `Jde o moje pozorování, ne o výzkum. ${OBS_NOTE.cs} Tyto body nejsou součástí bezplatného auditu, řeší se v konzultaci a v balíčku Start.`,
   obsLink: 'Konzultace: rozbor vašeho webu',
 
   fitTitle: 'Pro koho SEO dává smysl a pro koho ne?',
