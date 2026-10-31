@@ -568,6 +568,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for accounting firms in Prague', title: 'SEO for accounting firms in Prague', description: 'SEO for accounting firms in Prague', h1: 'SEO for accounting firms in Prague' },
     ru: { name: 'SEO для бухгалтерских фирм в Праге', title: 'SEO для бухгалтерских фирм в Праге', description: 'SEO для бухгалтерских фирм в Праге', h1: 'SEO для бухгалтерских фирм в Праге' },
   },
+  nicheAccountingBrno: {
+    cs: {
+      name: 'SEO pro účetní kanceláře v Brně',
+      title: 'SEO pro účetní kanceláře Brno: GEO/AEO | Eranosian',
+      description: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Brně: stránky služeb, FAQ, struktura pro vyhledávání i AI. Bez slibů. Požádejte o bezplatný audit.',
+      h1: 'SEO a GEO/AEO pro účetní kanceláře v Brně: poptávky z Googlu a AI',
+    },
+    en: { name: 'SEO for accounting firms in Brno', title: 'SEO for accounting firms in Brno', description: 'SEO for accounting firms in Brno', h1: 'SEO for accounting firms in Brno' },
+    ru: { name: 'SEO для бухгалтерских фирм в Брно', title: 'SEO для бухгалтерских фирм в Брно', description: 'SEO для бухгалтерских фирм в Брно', h1: 'SEO для бухгалтерских фирм в Брно' },
+  },
   nicheFitness: {
     cs: { name: 'SEO pro online fitness a wellness v Praze', title: 'SEO pro online fitness a wellness', description: 'SEO pro online fitness a wellness', h1: 'SEO a GEO/AEO pro online fitness a wellness v Praze' },
     en: { name: 'SEO for online fitness and wellness in Prague', title: 'SEO for online fitness and wellness', description: 'SEO for online fitness and wellness', h1: 'SEO and GEO/AEO for online fitness and wellness in Prague' },

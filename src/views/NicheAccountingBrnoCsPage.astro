@@ -1,0 +1,114 @@
+---
+// Niche landing page "SEO pro účetní kanceláře v Brně" (cs), brief of 31.10.2026. Built only when NICHE_READY.nicheAccountingBrno is true (routes.ts); needs B2 (data/niche-accounting-brno-cs.ts).
+// Own structure from the brief. No quote, no video, no Review / Offer markup.
+import Base from '../layouts/Base.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheAccountingBrnoSchemas } from '../lib/schema-niche-accounting-brno';
+import { NICHE_ACCOUNTING_BRNO_CS as C, NICHE_ACCOUNTING_BRNO_B2 as B2 } from '../data/niche-accounting-brno-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/views/NicheAccountingBrnoCsPage.astro', 'src/data/niche-accounting-brno-cs.ts'], '2026-10-31');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+---
+<Base {...pageProps('nicheAccountingBrno', lang)} schema={nicheAccountingBrnoSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.nicheAccountingBrno.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.proof} <a href={t('caseHalf')}>{C.proofLink}</a>.</p>
+      <p>{C.lead}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        <a class="btn btn--secondary btn--lg" href={t('consulting')}>{C.heroConsulting}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.expTitle}</h2>
+      <p class="answer">{C.expAnswer}</p>
+      <p><a class="link-arrow" href={t('caseHalf')}>{C.expLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.obsTitle}</h2>
+      <p class="answer">{C.obsAnswer}</p>
+      <p>{C.obsText}</p>
+    </div>
+  </section>
+
+  {B2 && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{B2.title}</h2>
+        <p class="answer">{B2.answer}</p>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.localTitle}</h2>
+      <p class="answer">{C.localAnswer}</p>
+      <p>{C.localMaps}{' '}<a href={t('maps')}>{C.localMapsLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.fitTitle}</h2>
+      <p class="answer">{C.fitAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.articlesTitle}</h2>
+      <RelatedPosts lang={lang} keys={['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingPages', 'postAccountingLocal', 'postAccountingTime']} more={C.articlesMore} />
+    </div>
+  </section>
+
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p><a href={t('consulting')}>{C.endConsulting}</a></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>

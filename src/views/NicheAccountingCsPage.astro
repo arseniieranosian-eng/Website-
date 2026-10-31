@@ -75,6 +75,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.fitTitle}</h2>
       <p class="answer">{C.fitAnswer}</p>
       <p>{C.fitText}</p>
+      {C.otherCities && <p>{C.otherCities.label}{' '}<a href={t('nicheAccountingBrno')}>{C.otherCities.link}</a></p>}
     </div>
   </section>
 

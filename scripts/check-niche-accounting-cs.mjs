@@ -10,7 +10,8 @@ const TITLE = 'SEO pro účetní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Začněte bezplatným auditem technických chyb.';
 const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Co jsem zjistil na webech účetních kanceláří?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Požádejte o bezplatný audit technických chyb'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
-const FORBIDDEN = ['více klientů', 'garantovaně', 'za 24 hodin', 'top 1', 'první místo', 'SEO agentur', 'Max 3', 'Kč', 'Sklik:', ' my ', 'AggregateRating', 'reels', 'rilsu', 'reel'];
+const BRNO_READY = /nicheAccountingBrno: true/.test(readFileSync('src/i18n/routes.ts', 'utf8').split('NICHE_READY =')[1].split('\n')[0]); // the prices appear on both pages once the Brno page is published
+const FORBIDDEN = ['více klientů', 'garantovaně', 'za 24 hodin', 'top 1', 'první místo', 'SEO agentur', 'Max 3', ...(BRNO_READY ? [] : ['Kč']), 'Sklik:', ' my ', 'AggregateRating', 'reels', 'rilsu', 'reel'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
