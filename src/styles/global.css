@@ -767,9 +767,9 @@ ul, ol { margin-bottom: var(--flow); }
 /* Cases page (cs): a large illustration in its own column */
 .case-teaser--large .case-teaser__media { display: flex; align-items: center; justify-content: center; border-radius: var(--radius); background: var(--grey-bg, #f4f6fa); overflow: hidden; }
 .case-teaser--large .case-teaser__media img { display: block; width: 100%; height: auto; }
-.case-teaser--large .case-teaser__media .case-art { width: 100%; max-width: 260px; height: auto; margin: 20px; }
+.case-teaser--large .case-teaser__media .case-art { width: 100%; max-width: 200px; height: auto; margin: 20px; }
 @media (min-width: 900px) {
-  .case-teaser--large { grid-template-columns: 280px 1.3fr 1fr; gap: 32px; }
-  .case-teaser--large:not(:has(.stats)) { grid-template-columns: 280px 1fr; }
+  .case-teaser--large { grid-template-columns: 220px 1.4fr 1fr; gap: 32px; }
+  .case-teaser--large:not(:has(.stats)) { grid-template-columns: 220px 1fr; }
 }
-@media (max-width: 899px) { .case-teaser--large .case-teaser__media { max-width: 420px; } }
+@media (max-width: 899px) { .case-teaser--large .case-teaser__media { max-width: 300px; } }
