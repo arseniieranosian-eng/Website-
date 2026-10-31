@@ -31,6 +31,7 @@ import { POST_ACCOUNTING_NOLEADS_CS, POST_ACCOUNTING_NOLEADS_PUBLISHED } from '.
 import { POST_REALTY_LOCAL_CS, POST_REALTY_LOCAL_PUBLISHED } from './post-realty-local-cs';
 import { POST_REALTY_DISTRICTS_CS, POST_REALTY_DISTRICTS_PUBLISHED } from './post-realty-districts-cs';
 import { POST_REALTY_BRNO_DISTRICTS_CS, POST_REALTY_BRNO_DISTRICTS_PUBLISHED } from './post-realty-brno-districts-cs';
+import { POST_REALTY_PRAGUE_DISTRICTS_CS, POST_REALTY_PRAGUE_DISTRICTS_PUBLISHED } from './post-realty-prague-districts-cs';
 import { POST_REALTY_PORTALS_CS, POST_REALTY_PORTALS_PUBLISHED } from './post-realty-portals-cs';
 
 export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: string; description: string; image?: { src: string; width: number; height: number; alt: string } }
@@ -58,6 +59,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postAccountingSmall', lang: 'cs', date: POST_ACCOUNTING_SMALL_PUBLISHED, title: META.postAccountingSmall.cs.h1, description: META.postAccountingSmall.cs.description, image: POST_ACCOUNTING_SMALL_CS.cover },
   { key: 'postAccountingNoLeads', lang: 'cs', date: POST_ACCOUNTING_NOLEADS_PUBLISHED, title: META.postAccountingNoLeads.cs.h1, description: META.postAccountingNoLeads.cs.description, image: POST_ACCOUNTING_NOLEADS_CS.cover },
   { key: 'postRealtyLocal', lang: 'cs', date: POST_REALTY_LOCAL_PUBLISHED, title: META.postRealtyLocal.cs.h1, description: META.postRealtyLocal.cs.description, image: POST_REALTY_LOCAL_CS.cover },
+  { key: 'postRealtyPragueDistricts', lang: 'cs', date: POST_REALTY_PRAGUE_DISTRICTS_PUBLISHED, title: META.postRealtyPragueDistricts.cs.h1, description: META.postRealtyPragueDistricts.cs.description, image: POST_REALTY_PRAGUE_DISTRICTS_CS.cover },
   { key: 'postRealtyBrnoDistricts', lang: 'cs', date: POST_REALTY_BRNO_DISTRICTS_PUBLISHED, title: META.postRealtyBrnoDistricts.cs.h1, description: META.postRealtyBrnoDistricts.cs.description, image: POST_REALTY_BRNO_DISTRICTS_CS.cover },
   { key: 'postRealtyDistricts', lang: 'cs', date: POST_REALTY_DISTRICTS_PUBLISHED, title: META.postRealtyDistricts.cs.h1, description: META.postRealtyDistricts.cs.description, image: POST_REALTY_DISTRICTS_CS.cover },
   { key: 'postRealtyPortals', lang: 'cs', date: POST_REALTY_PORTALS_PUBLISHED, title: META.postRealtyPortals.cs.h1, description: META.postRealtyPortals.cs.description, image: POST_REALTY_PORTALS_CS.cover },
@@ -103,7 +105,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'realty',
     title: { cs: 'Realitní kanceláře', en: 'Real estate agencies', ru: 'Агентства недвижимости' },
     lead: { cs: 'Web, nabídky, čtvrti, mapy a portály z pohledu realitní kanceláře.', en: 'Website, listings, neighbourhoods, maps and portals from a real estate agency’s point of view.', ru: 'Сайт, объявления, районы, карты и порталы с точки зрения агентства недвижимости.' },
-    keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyBrnoDistricts', 'postRealtyLocal'],
+    keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyPragueDistricts', 'postRealtyBrnoDistricts', 'postRealtyLocal'],
   },
   {
     id: 'accounting',
