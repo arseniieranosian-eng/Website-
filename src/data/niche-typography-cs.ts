@@ -46,7 +46,7 @@ const raw = {
   forNo: { title: 'Nehodí se', items: ['firmy, které čekají zaručené pořadí', 'firmy, které čekají rychlé výsledky', 'firmy, které hledají jen nový design webu'] },
 
   caseTitle: 'Jaký výsledek měla případová studie tiskárny?',
-  caseAnswer: 'Organická návštěvnost webu tiskárny vzrostla 8,75× za 12 měsíců (červenec 2024 → červenec 2025). Měřena byla pouze návštěvnost z vyhledávání, poptávky a tržby do studie nepatří. Studie popisuje postup práce, ne slib výsledku.',
+  caseAnswer: 'Organická návštěvnost webu tiskárny vzrostla 8,75× za 12 měsíců (červenec 2024 → červenec 2025). Měřena byla pouze návštěvnost z vyhledávání, poptávky a tržby do studie nepatří. Studie popisuje postup práce, ne slib výsledku. Jde o jeden projekt a jeden způsob měření.',
   caseTransfer: 'Co se přenáší a co ne: přenáší se pořadí práce (technický základ, mapa dotazů, vstupní stránky), nepřenášejí se čísla ani poptávky.',
   caseLead: 'Postup popisuje',
   caseLink: 'celá případová studie',
@@ -82,8 +82,8 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Funguje to i v Česku?', a: 'Postup se přenést dá: nejdřív technický základ, potom mapa dotazů podle trychtýře a až poté vstupní stránky. Konkrétní čísla ani poptávka se nepřenesou, záleží na oboru, konkurenci a stavu webu.' },
-    { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Tuto dobu nelze brát jako slib. Případová studie sledovala růst za 12 měsíců.' },
+    { q: 'Funguje to i v Česku?', a: 'Postup se přenést dá: nejdřív technický základ, potom mapa dotazů podle trychtýře a až poté vstupní stránky. Konkrétní čísla ani poptávka se nepřenesou, záleží na oboru, konkurenci a stavu webu. Proto vždy začínám technickou kontrolou konkrétního webu a teprve potom plánuji další kroky.' },
+    { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav. Případová studie sledovala růst za 12 měsíců, ne za první měsíce. Termín pro váš web vychází až z kontroly konkrétního webu.' },
     { q: 'Je to pro e-shop i pro místní polygrafii?', a: 'Ano, postup je podobný, liší se důraz. E-shop řeší hlavně katalog, varianty produktů, filtry a kalkulačky. Místní polygrafie s menším webem řeší hlavně stránky služeb a jejich srozumitelnost pro vyhledávač i pro AI. Pokud si nejste jistí, začněte bezplatným technickým auditem.' },
     { q: 'Pracujete s více tiskárnami současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${TYPOGRAPHY_CAPACITY_DATE} je obor tiskáren a polygrafie volný.` },
     { q: 'Kolik to stojí?', a: 'Cena závisí na zvoleném balíčku: konzultace, Start na 3 měsíce nebo Full SEO na rok. Rozsah a podmínky najdete na stránkách jednotlivých balíčků, na této stránce ceny neuvádím. Bezplatný technický audit je zdarma, k ničemu vás nezavazuje a prezentaci dostanete do 24 hodin.' },

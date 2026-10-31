@@ -38,7 +38,7 @@ const raw = {
   trustAnswer: 'Důvěru na webu tvoří konkrétní prvky: jména a podoba lidí v kanceláři, adresa, kontakty a základní údaje o firmě. U služby, při které klient předává doklady a finanční údaje, je důležité vidět, kdo za webem stojí. Nevymýšlejte hodnocení ani reference, které nemáte.',
 
   wordsTitle: 'Hledají lidé službu tak, jak ji kancelář na webu pojmenovala?',
-  wordsAnswer: 'Zájemci hledají podle své situace, například účetní pro OSVČ, vedení účetnictví pro s.r.o. nebo online účetní. Pokud web používá jen obecné pojmy, nemusí jim odpovídat. Je užitečné psát služby slovy, jakými je klient popisuje.',
+  wordsAnswer: 'Zájemci hledají podle své situace, například účetní pro OSVČ, vedení účetnictví pro s.r.o. nebo online účetní. Pokud web používá jen obecné pojmy, nemusí jim odpovídat. Je užitečné psát služby slovy, jakými je klient popisuje. Stránky s takovým popisem služeb mohou lépe odpovídat na jejich dotazy.',
 
   sourceTitle: 'Víte, odkud poptávky přicházejí?',
   sourceAnswer: 'Bez měření nepoznáte, zda web poptávky nepřináší, nebo zda je jen nezaznamenáváte. Poptávka může přijít formulářem, telefonem nebo e-mailem. Stačí si zapisovat, odkud se zájemce ozval, a sledovat, kolik poptávek přichází z webu. To je základ pro rozhodování o změnách. Technické nastavení měření tu nerozebírám.',

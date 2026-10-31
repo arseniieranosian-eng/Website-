@@ -48,7 +48,7 @@ const raw = {
   rivalsAnswer: 'V hledání se malá kancelář může potkat s velkými kancelářemi, realitními portály i s dalšími malými firmami. U obecných dotazů mívají větší hráči výhodu v autoritě a v množství obsahu. Je to obecná úvaha, ne měření. Konkrétní konkurenci ukáže až kontrola výsledků hledání pro vaše dotazy.',
 
   goalsTitle: 'Jaké cíle jsou pro malou kancelář reálné?',
-  goalsAnswer: 'Pro malou kancelář bývá reálnější cílit na užší a místní dotazy, vlastní specializaci a konkrétní služby než na obecné dotazy typu prodej bytu v Praze. Zda je zvolený cíl reálný, ukáže konzultace nad konkrétním webem a trhem.',
+  goalsAnswer: 'Pro malou kancelář bývá reálnější cílit na užší a místní dotazy, vlastní specializaci a konkrétní služby než na obecné dotazy typu prodej bytu v Praze. Zda je zvolený cíl reálný, ukáže konzultace nad konkrétním webem a trhem. Zdá se tedy rozumné začít u těchto dotazů.',
 
   checkTitle: 'Co malá kancelář zkontroluje jako první?',
   checkAnswer: 'Nejdřív zkontrolujte, zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda je vidět kontakt, zda umíte poznat zdroj poptávky a zda máte kapacitu na obsah. Technické chyby ukáže bezplatný audit, ostatní body je lepší řešit konzultací. Podrobnosti jsou v článku o příčinách.',
@@ -88,9 +88,9 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Má SEO smysl pro malý byznys?', a: 'Může mít, pokud firma chce získávat klienty i z vyhledávání a umí pravidelně pracovat s obsahem. Nemusí mít, pokud klienty získává jen doporučením a vyhledávání nepotřebuje. Záleží na cíli, kapacitě a konkurenci. Zda se SEO vyplatí právě vám, rozhodne až konzultace nad konkrétním webem.' },
-    { q: 'Může malá realitní kancelář uspět v SEO?', a: 'Může, pokud cílí na reálné cíle: užší, místní dotazy a konkrétní služby, ne obecné dotazy typu prodej bytu v Praze. Je to otázka času, kapacity a konkurence na vašem trhu.' },
+    { q: 'Může malá realitní kancelář uspět v SEO?', a: 'Může, pokud cílí na reálné cíle: užší, místní dotazy a konkrétní služby, ne obecné dotazy typu prodej bytu v Praze. Je to otázka času, kapacity a konkurence na vašem trhu. Začněte lokalitami a službami, které kancelář opravdu zná a nabízí.' },
     { q: 'Kdy SEO nedává smysl?', a: 'SEO nedává smysl, pokud potřebujete klienty okamžitě, nemáte kapacitu na obsah, nebo klienty získáváte jen doporučením. Také nemá smysl bez jasné nabídky, kterou lze popsat na webu. V těchto případech bývá lepší jiný kanál, například reklama nebo mapy, o kterých píšu v přehledu kanálů.' },
-    { q: 'Kolik času zabere SEO?', a: 'SEO vyžaduje pravidelnou práci a čas, žádný jednorázový zásah. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav.' },
+    { q: 'Kolik času zabere SEO?', a: 'SEO vyžaduje pravidelnou práci a čas, žádný jednorázový zásah. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav. Pomalejší průběh neznamená, že je něco špatně. Sledujte stránky, poptávky a návštěvnost v delším období.' },
     { q: 'Mám začít SEO, nebo reklamou?', a: 'Záleží na cíli a rozpočtu. Reklama obvykle přivede návštěvníky rychleji, ale jen po dobu placení. SEO pracuje déle a nemá záruku výsledku. Kombinace závisí na velikosti kanceláře a kapacitě. Podrobné srovnání kanálů najdete v samostatném článku. Reklamu nespravuji, takže doporučení nestavím na vlastním zájmu.' },
     { q: 'Co mám zkontrolovat jako první?', a: 'Zkontrolujte, zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda je vidět kontakt, zda poznáte zdroj poptávky a zda máte kapacitu na obsah. Technické chyby ukáže bezplatný audit, prezentaci dostanete do 24 hodin, bez hovoru a bez závazku.', links: [{ page: 'audit' as const, text: 'Bezplatný audit' }] },
   ],

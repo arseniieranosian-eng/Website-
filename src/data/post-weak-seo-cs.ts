@@ -33,7 +33,7 @@ const raw = {
   whySource: 'Dokumentace Google o systémech řazení',
 
   easyTitle: 'Znamená to, že je konkurence snadná?',
-  easyAnswer: 'Ne. Že je před vámi web s nedostatky, neznamená, že ho snadno předběhnete, protože nevidím všechny signály, které Google používá. V Pardubicích si majitel agentury myslel, že konkurenci nemá, ale ve vyhledávání byli konkrétní konkurenti včetně velkých hráčů.',
+  easyAnswer: 'Ne. Že je před vámi web s nedostatky, neznamená, že ho snadno předběhnete, protože nevidím všechny signály, které Google používá. V Pardubicích si majitel agentury myslel, že konkurenci nemá, ale ve vyhledávání byli konkrétní konkurenti včetně velkých hráčů. Silnější signály jinde z výsledků nepoznám.',
 
   takeTitle: 'Co si z toho má vzít agentura?',
   takeAnswer: 'Porovnejte svůj web s tím, co vidíte u prvních výsledků: adresy URL, stránky služeb, FAQ, blog, strukturovaná data. Rozdíl je podnět ke kontrole, ne důkaz příčiny. Nejde o návod, jak někoho předběhnout, ani o slib výsledku. Řešte především to, co na vašem webu skutečně chybí.',
@@ -44,7 +44,7 @@ const raw = {
     { q: 'Proč je nade mnou konkurence se slabším webem?', a: 'Přesnou příčinu neznám a u cizího webu ji ani nezjistím. Google podle dokumentace pracuje s mnoha faktory a signály, takže pozici neurčuje jen vzhled nebo SEO webu. Mohu popsat, co je na webu vidět, ale nevím, jaké signály má konkurence jinde. Proto z toho neodvozuji žádnou záruku pro váš web.' },
     { q: 'Je v mém městě menší konkurence než v Praze?', a: 'Záleží. Z mého pozorování nevyplývá, že by v menším městě byla konkurence automaticky menší. V Pardubicích si majitel agentury myslel, že konkurenci nemá, ale ve výsledcích byli konkrétní konkurenti včetně velkých hráčů. Chcete-li znát situaci ve svém městě, podívejte se na výsledky svých dotazů.' },
     { q: 'Jak poznám, jak silná je konkurence?', a: 'Zadejte dotazy, podle kterých vás mají zákazníci hledat, a podívejte se na prvních několik výsledků: jaké mají adresy, stránky služeb, FAQ a blog. Sílu konkurence podle toho jen odhadnete, nezměříte ji. Přesnější obraz dá teprve kontrola vašeho webu a výsledků v delším čase.' },
-    { q: 'Kdy má smysl začít s SEO?', a: 'Má smysl, pokud chcete poptávky z vyhledávání, máte jasně popsané služby a jste ochotni web průběžně doplňovat. Pokud se spoléháte jen na doporučení nebo nemáte kapacitu přijímat nové klienty, SEO zatím nemusí být prioritou.' },
+    { q: 'Kdy má smysl začít s SEO?', a: 'Má smysl, pokud chcete poptávky z vyhledávání, máte jasně popsané služby a jste ochotni web průběžně doplňovat. Pokud se spoléháte jen na doporučení nebo nemáte kapacitu přijímat nové klienty, SEO zatím nemusí být prioritou. Rozhodnout vám pomůže krátká kontrola vašeho webu.' },
   ],
 
   disclosure: 'Jsem SEO specialista, proto může být moje hodnocení zaujaté.',

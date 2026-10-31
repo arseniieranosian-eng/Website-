@@ -82,7 +82,7 @@ const raw = {
   auditAnswer: 'Audit se týká pouze technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci vám pošlu do 24 hodin, bez hovoru a bez závazku. V auditu nejsou klíčová slova, konkurence, mapy, viditelnost v AI, rychlost ani mobilní verze. Ty patří do placené spolupráce, o které rozhodujete až po auditu.',
 
   fitTitle: 'Pro koho SEO dává smysl a pro koho ne?',
-  fitAnswer: 'SEO dává smysl realitní kanceláři, která má jasně popsané služby, chce poptávky z vlastního webu a je ochotná web průběžně doplňovat.',
+  fitAnswer: 'SEO dává smysl realitní kanceláři, která má jasně popsané služby, chce poptávky z vlastního webu a je ochotná web průběžně doplňovat. Hodí se i kanceláři, která už má nabídky na portálech a chce k nim přidat poptávky z vlastního webu a z odpovědí AI.',
   reviewsLead: 'Recenze klientů:',
   reviewsLink: 'Recenze',
 

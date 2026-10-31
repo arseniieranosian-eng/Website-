@@ -1,7 +1,7 @@
 // "Why do clients trust me?" (en): the same four reasons as why-trust-cs.ts, translated (used on the English consulting page; the facts are exactly those of the Czech block).
 export const WHY_TRUST_EN = {
   title: 'Why do clients trust me?',
-  answer: 'I do all the services personally, Arsenii Eranosian, from the audit to the reports, and with every number I give the period and the source. Clients entrust their work to me because they can verify everything.',
+  answer: 'I do all the services personally, Arsenii Eranosian, from the audit to the reports, and with every number I give the period and the source. Clients entrust their work to me because they can verify everything. Each step is explained and each result comes with the data and the period it is based on.',
   reasons: [
     { title: 'I work personally', text: 'I work directly with every client and do not hand the work on. The person who got to know your website is the one who works on it.' },
     { title: 'Numbers with a period and a source', text: 'With every result I state from when to when it was measured and where the number comes from. I do not publish client names or absolute numbers, the data are relative.' },

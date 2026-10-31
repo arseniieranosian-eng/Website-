@@ -3,7 +3,7 @@
 // No client names, no figures, no "3 roky", nothing the site does not already say elsewhere.
 export const WHY_TRUST_CS = {
   title: 'Proč mi klienti věří?',
-  answer: 'Všechny služby dělám osobně já, Arsenii Eranosian, od auditu po reporty, a u každého čísla uvádím období a zdroj. Klienti mi svěřují práci, protože si mohou všechno ověřit.',
+  answer: 'Všechny služby dělám osobně já, Arsenii Eranosian, od auditu po reporty, a u každého čísla uvádím období a zdroj. Klienti mi svěřují práci, protože si mohou všechno ověřit. Každý krok vysvětlím a u každého výsledku uvedu, z jakých dat vychází a za jaké období.',
   reasons: [
     { title: 'Pracuji osobně', text: 'S každým klientem pracuji přímo já a práci dál nepředávám. Kdo váš web poznal, ten ho také dělá.' },
     { title: 'Čísla s obdobím a zdrojem', text: 'U každého výsledku uvádím, odkdy dokdy a z čeho číslo pochází. Názvy klientů a absolutní čísla nezveřejňuji, data jsou relativní.' },

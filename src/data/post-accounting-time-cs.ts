@@ -24,7 +24,7 @@ const raw = {
   leadLinkText: 'Má SEO smysl pro malou účetní kancelář?',
 
   whyTitle: '',
-  whyAnswer: 'Výsledek SEO nezávisí jen na práci na webu, ale i na tom, kdy Google změny zpracuje a jak silná je konkurence. Google sám uvádí, že některé změny se mohou projevit za několik hodin a jiné trvat několik měsíců.',
+  whyAnswer: 'Výsledek SEO nezávisí jen na práci na webu, ale i na tom, kdy Google změny zpracuje a jak silná je konkurence. Google sám uvádí, že některé změny se mohou projevit za několik hodin a jiné trvat několik měsíců. Termín proto nelze určit bez znalosti konkrétního webu.',
 
   factorsTitle: 'Co určuje, jak dlouho to trvá?',
   factorsAnswer: 'Dobu ovlivňuje několik faktorů: stav webu na začátku, síla konkurence, rozsah změn, kvalita obsahu a kapacita kanceláře pracovat s novými poptávkami. Žádný z nich nelze předem přesně změřit, proto tabulka níže ukazuje jen směr vlivu každého faktoru, ne počet týdnů nebo měsíců.',
@@ -74,7 +74,7 @@ const raw = {
   ],
 
   lateTitle: 'Proč se výsledek nemusí dostavit hned?',
-  lateAnswer: 'Výsledek se nemusí dostavit hned, protože Google musí stránky znovu projít a vyhodnotit a konkurence se mezitím mění. Pokud se změny projeví pomalu, neznamená to automaticky chybu. Jednu změnu nehodnoťte po několika dnech, ale v delším období.',
+  lateAnswer: 'Výsledek se nemusí dostavit hned, protože Google musí stránky znovu projít a vyhodnotit a konkurence se mezitím mění. Pokud se změny projeví pomalu, neznamená to automaticky chybu. Jednu změnu nehodnoťte po několika dnech, ale v delším období. Důležité je sledovat, jak se mění zobrazení stránek a poptávky.',
 
   changeTitle: 'Kdy je rozumné změnit plán?',
   changeAnswer: 'Plán je rozumné přehodnotit, když se po delší době nezměnila viditelnost webu, přestože byly změny provedeny, nebo když se změnil cíl či kapacita kanceláře. Rozhodujte podle údajů o poptávkách a viditelnosti, ne podle počtu týdnů. Délku čekání nelze určit obecně.',
@@ -93,7 +93,7 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Jak dlouho trvá, než Google uvidí změny na webu?', a: 'Google uvádí, že některé změny se mohou projevit za několik hodin a jiné trvají několik měsíců, a že procházení stránky může trvat od několika dnů do několika týdnů. Přesná doba se liší podle webu. Pokud je web nový, popisuje to samostatný článek o indexaci.', linkAfter: 'samostatný článek o indexaci', linkKey: 'postNewSite' },
-    { q: 'Za jak dlouho přijdou první poptávky?', a: 'Nejde určit předem. Poptávky závisejí na tom, zda se stránky zobrazují, zda jim zájemce porozumí a zda se ozve. U svých projektů vidím změny obvykle po dvou až třech měsících. U vašeho webu to může být déle i kratší.' },
+    { q: 'Za jak dlouho přijdou první poptávky?', a: 'Nejde určit předem. Poptávky závisejí na tom, zda se stránky zobrazují, zda jim zájemce porozumí a zda se ozve. U svých projektů vidím změny obvykle po dvou až třech měsících. U vašeho webu to může být déle i kratší. Konkrétní odhad dá teprve kontrola webu.' },
     { q: 'Je SEO rychlejší než reklama?', a: 'Reklama může přinést návštěvy rychleji, ale je placená a po jejím vypnutí návštěvy z reklamy přestanou. SEO působí pomaleji a dlouhodoběji. Volba závisí na cíli a rozpočtu. Souvislosti obou kanálů popisuje samostatný článek o tom, jak spolu SEO a reklama fungují.' },
     { q: 'Proč se po úpravách nic nezměnilo?', a: 'Může to mít několik důvodů: Google změny ještě nezpracoval, konkurence je silná, změny byly příliš malé, nebo má web jiný problém. Nejdřív ověřte, zda jsou stránky v Googlu vidět, a počkejte několik týdnů. Pokud se nic nemění delší dobu, zkontrolujte příčiny podle článku o poptávkách.' },
     { q: 'Jak poznám, že SEO pracuje, když nejsou poptávky?', a: 'Sledujte, zda se zvyšuje viditelnost webu v Googlu, zda přibývá návštěv a zda se zájemci ozývají. První signály mohou být viditelnost a návštěvnost, poptávky přicházejí později. Pokud je nevidíte, nemusí to znamenat chybu; zapisujte si zdroje a hodnoťte delší období.' },

@@ -77,7 +77,7 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Potřebuje účetní kancelář profil na mapách, když má web?', a: 'Web a profil na mapách plní různé úlohy. Web popisuje služby kanceláře, profil ukazuje kancelář na mapě s adresou nebo oblastí působení, telefonem a hodinami. Jedno druhé nenahrazuje.' },
+    { q: 'Potřebuje účetní kancelář profil na mapách, když má web?', a: 'Web a profil na mapách plní různé úlohy. Web popisuje služby kanceláře, profil ukazuje kancelář na mapě s adresou nebo oblastí působení, telefonem a hodinami. Jedno druhé nenahrazuje. Proto je dobré udržovat oba a hlídat, aby se údaje na webu a v profilu shodovaly.' },
     { q: 'Musí být adresa v profilu stejná jako na webu?', a: 'Ano, adresa má být stejná a odpovídat skutečnému místu. Google vyžaduje přesnou a skutečnou adresu a nepřijímá poštovní schránky. Rozdílný zápis ulice, čísla nebo obce na webu a v profilu je zbytečné riziko zmatku, proto jej sjednoťte. Při změně adresy upravte všechna místa najednou.' },
     { q: 'Co dělat, když účetní pracuje z domova nebo u klientů?', a: 'Kancelář, která klienty nepřijímá na provozovně, může podle pravidel Google vést jeden profil s oblastí působení a adresu před zákazníky skrýt. Poštovní schránka ani virtuální kancelář se jako adresa nepřijímá. Rozhodnutí, zda adresu uvést, je na vás; přesná pravidla ověřte v aktuální nápovědě Google.' },
     { q: 'Kolik kategorií v profilu vybrat?', a: 'Co nejméně: Google doporučuje vybrat jen tolik kategorií, kolik je třeba k popisu hlavní činnosti kanceláře. Kategorie nemají sloužit jako klíčová slova ani popisovat vlastnosti kanceláře. Pokud kancelář dělá více věcí, vybere kategorii, která popisuje její hlavní podnikání, a další jen tehdy, když se skutečně hodí.' },

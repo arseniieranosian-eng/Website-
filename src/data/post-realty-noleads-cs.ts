@@ -79,7 +79,7 @@ const raw = {
   measureAnswer: 'Když nevíte, odkud poptávky přicházejí, nepoznáte, co funguje. Sledujte alespoň počet formulářů, telefonátů a e-mailů a jejich zdroj, pokud jej zjistíte. Nastavení měření a souhlasy s cookies zde nerozepisuji. Konkrétní postup záleží na vašem webu a je lepší ho řešit s odborníkem.',
 
   firstTitle: 'Co zkontrolovat jako první?',
-  firstAnswer: 'Začněte tím, co lze ověřit nejrychleji: zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda jsou na webu nabídky, zda je vidět kontakt a zda víte, odkud poptávky přicházejí. Teprve pak řešte obsah a lokality.',
+  firstAnswer: 'Začněte tím, co lze ověřit nejrychleji: zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda jsou na webu nabídky, zda je vidět kontakt a zda víte, odkud poptávky přicházejí. Teprve pak řešte obsah a lokality. Výsledek kontroly určí pořadí dalších kroků.',
   first: [
     'Jsou důležité stránky ve vyhledávání?',
     'Má každá služba vlastní stránku?',

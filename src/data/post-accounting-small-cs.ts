@@ -37,7 +37,7 @@ const raw = {
   tableNote: 'Tabulka je orientační, bez čísel.',
 
   countTitle: 'Kolik klientů potřebujete a kolik jich zvládnete?',
-  countAnswer: 'Než začnete uvažovat o SEO, určete, kolik nových klientů chcete a kolik jich skutečně zvládnete převzít. Nové poptávky nemají smysl, pokud na ně není kapacita. Čísla si stanovte sami podle své situace.',
+  countAnswer: 'Než začnete uvažovat o SEO, určete, kolik nových klientů chcete a kolik jich skutečně zvládnete převzít. Nové poptávky nemají smysl, pokud na ně není kapacita. Čísla si stanovte sami podle své situace. Teprve podle těchto čísel se dá rozhodnout, jaký rozsah SEO dává smysl.',
 
   longTitle: 'Co pro SEO znamená dlouhodobý klient?',
   longAnswer: 'Pokud kancelář s klientem spolupracuje dlouhodobě, jeden získaný klient pro ni může znamenat delší práci. Pro rozhodnutí o SEO je to důležité, ale žádný výpočet návratnosti tu neuvádím, protože závisí na vašich cenách a nákladech. Spočítejte si ho podle vlastních čísel.',
@@ -69,12 +69,12 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Má SEO smysl pro malého podnikatele?', a: 'Záleží na cíli a kapacitě. Malý podnikatel může SEO využít, pokud chce další zákazníky a umí je převzít. Pokud mu stačí doporučení a nemá volnou kapacitu, SEO zatím nemusí být potřeba.' },
-    { q: 'Může malá účetní kancelář uspět v SEO?', a: 'Může, ale záleží na webu, konkurenci a zaměření kanceláře. Malá kancelář má větší šanci u užších dotazů, například pro určitý typ klientů nebo místo, než u široké konkurence.' },
+    { q: 'Má SEO smysl pro malého podnikatele?', a: 'Záleží na cíli a kapacitě. Malý podnikatel může SEO využít, pokud chce další zákazníky a umí je převzít. Pokud mu stačí doporučení a nemá volnou kapacitu, SEO zatím nemusí být potřeba. Pokud si nejste jistí, začněte krátkou kontrolou webu a rozhodněte se podle jejího výsledku.' },
+    { q: 'Může malá účetní kancelář uspět v SEO?', a: 'Může, ale záleží na webu, konkurenci a zaměření kanceláře. Malá kancelář má větší šanci u užších dotazů, například pro určitý typ klientů nebo místo, než u široké konkurence. Je proto užitečné nejdřív určit, pro jaký typ klientů nebo místo chcete být dohledatelní.' },
     { q: 'Kdy SEO nedává smysl?', a: 'SEO zatím nedává smysl, pokud kancelář nemá kapacitu přijímat nové klienty, potřebuje výsledek rychle, nebo má web bez základních informací. Odpověď „zatím ne“ je legitimní. Nejdřív je dobré doplnit web a zjistit, odkud poptávky přicházejí, a teprve poté se k SEO vrátit.' },
     { q: 'Mám začít SEO, nebo reklamou?', a: 'Reklama může přinést poptávky rychleji, ale je placená a po jejím vypnutí návštěvy z reklamy přestanou. SEO působí pomaleji a dlouhodoběji. Volba závisí na cíli a rozpočtu. Souvislosti obou kanálů popisuje článek o tom, jak spolu SEO a reklama fungují.', linkAfter: 'článek o tom, jak spolu SEO a reklama fungují' },
     { q: 'Jak poznám, že je kancelář na SEO připravená?', a: 'Kancelář je na SEO připravená, pokud má volnou kapacitu, web je v Googlu vidět, služby jsou srozumitelně popsané, kontakt je snadno dohledatelný a zdroje poptávek se zapisují. Pokud některý bod chybí, doplňte ho nejdřív. Checklist v článku tyto body shrnuje.' },
-    { q: 'Za jak dlouho se SEO projeví?', a: 'Záleží na stavu webu, konkurenci a rozsahu změn. Některé změny se mohou projevit dříve, jiné později, a Google nemusí změny zpracovat okamžitě. Proto je dobré sledovat poptávky i návštěvnost v delším období a nehodnotit výsledek po několika dnech.' },
+    { q: 'Za jak dlouho se SEO projeví?', a: 'Záleží na stavu webu, konkurenci a rozsahu změn. Některé změny se mohou projevit dříve, jiné později, a Google nemusí změny zpracovat okamžitě. Proto je dobré sledovat poptávky i návštěvnost v delším období a nehodnotit výsledek po několika dnech. Sledujte také, odkud poptávky přicházejí.' },
   ],
 
   endText: 'Systematickou práci na SEO webu účetní kanceláře popisuje stránka',

@@ -43,7 +43,7 @@ const raw = {
   priceAnswer: `Balíček Start stojí ${fmtKc(START_PRICE)} za tři měsíce, Full SEO začíná na ${fmtKc(FULLSEO_MONTHLY)} měsíčně. Konzultace stojí ${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu a plánem na 12 měsíců. Začít můžete bezplatným auditem technických chyb, který nic nestojí a k ničemu nezavazuje.`,
 
   expTitle: 'Jaké mám zkušenosti s tímto oborem?',
-  expAnswer: 'Pracoval jsem v jiných oborech, například pro překladatelskou agenturu, jejíž výsledky uvádím výše. Z účetních kanceláří mám vlastní pozorování jejich webů, jedno z nich uvádím níže.',
+  expAnswer: 'Pracoval jsem v jiných oborech, například pro překladatelskou agenturu, jejíž výsledky uvádím výše. Z účetních kanceláří mám vlastní pozorování jejich webů, jedno z nich uvádím níže. Výsledky z jiného oboru nepřenáším na váš web, ukazují jen postup práce, který lze použít i u účetních kanceláří.',
   expLink: 'Přečíst případovou studii překladatelské agentury',
 
   obsTitle: 'Co jsem zjistil na webech brněnských účetních kanceláří?',
@@ -57,14 +57,14 @@ const raw = {
   localMapsLink: 'SEO pro Mapy',
 
   fitTitle: 'Pro koho SEO dává smysl a pro koho ne?',
-  fitAnswer: 'SEO dává smysl účetní kanceláři, která chce poptávky z webu, má jasně popsané služby a je ochotná web a obsah průběžně doplňovat.',
+  fitAnswer: 'SEO dává smysl účetní kanceláři, která chce poptávky z webu, má jasně popsané služby a je ochotná web a obsah průběžně doplňovat. Hodí se i kanceláři, která už má klienty z doporučení a chce k nim přidat klienty z vyhledávání a z odpovědí AI.',
 
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Musíte mít kancelář v Brně?', a: 'Ne. V Brně adresu nemám, pracuji z Prahy. Spolupráce probíhá na dálku a konzultaci lze vést videohovorem z kterékoli země, nebo osobně v Praze. Adresu v Brně na webu neuvádím a nic o místní přítomnosti v Brně netvrdím. Pro SEO účetní kanceláře v Brně to není překážka.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit se týká pouze technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Audit neobsahuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi. Ty patří do placené spolupráce.' },
     { q: 'S kolika kancelářemi pracujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru, aby na každou zbýval čas. Stav pro obor účetnictví uvádím vždy s datem. K ${NICHE_ACCOUNTING_BRNO_STATUS_DATE}: volno. Až se stav změní, upravím ho na stránce pro Prahu i pro Brno zároveň.` },
-    { q: 'Co znamená GEO/AEO pro účetní kancelář?', a: 'GEO a AEO znamenají, aby web dobře odpovídal nejen vyhledávači, ale i AI odpovědím: jasné nadpisy jako otázky, krátká přímá odpověď pod každým z nich a samostatné stránky služeb.' },
+    { q: 'Co znamená GEO/AEO pro účetní kancelář?', a: 'GEO a AEO znamenají, aby web dobře odpovídal nejen vyhledávači, ale i AI odpovědím: jasné nadpisy jako otázky, krátká přímá odpověď pod každým z nich a samostatné stránky služeb. Tyto úpravy pomáhají i čtenáři, protože odpověď najde hned a nemusí hledat v dlouhém textu.' },
   ],
 
   articlesTitle: 'Další články',

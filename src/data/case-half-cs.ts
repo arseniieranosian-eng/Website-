@@ -143,7 +143,7 @@ const raw = {
     { q: 'Proč blog a FAQ ještě před prvními poptávkami?', a: 'Blog a FAQ zachytí lidi, kteří ještě nevědí, že potřebují právě tuto službu, a vedou je na stránky, které konvertují. V tomto projektu web na začátku nemělo ani jedno.' },
     { q: 'Jak poznat, že SEO přineslo poptávky, a ne sezóna?', a: 'Porovnejte svá data s Google Trends u hlavního širokého dotazu a podívejte se, jestli růst začal i ve slabém období. Podrobný postup je v případové studii o nízké sezóně.', link: 'caseSeason' as const, linkText: 'SEO v nízké sezóně' },
     { q: 'Funguje to i pro web, který je postavený jen napůl?', a: 'Právě takový web je dobrý kandidát: nejdřív je potřeba zmapovat, co chybí, a teprve potom ladit to, co existuje. Výsledek záleží na oboru a stavu webu.' },
-    { q: 'Pomůže vícejazyčné SEO oslovit nové skupiny klientů?', a: 'V tomto projektu přišla většina poptávek z formuláře přes českou a anglickou verzi a každou ze čtyř verzí jsem stavěl zvlášť, ne jako překlad. Výsledek ale záleží na oboru, trhu a výchozím stavu webu.' },
+    { q: 'Pomůže vícejazyčné SEO oslovit nové skupiny klientů?', a: 'V tomto projektu přišla většina poptávek z formuláře přes českou a anglickou verzi a každou ze čtyř verzí jsem stavěl zvlášť, ne jako překlad. Výsledek ale záleží na oboru, trhu a výchozím stavu webu. Proto na konkrétním webu vždy nejdřív zjišťuji, odkud poptávky přicházejí a které verze je přivádějí.' },
   ],
 
   relatedTitle: 'Související služby',

@@ -18,7 +18,7 @@ const raw = {
   readUnit: 'min',
   cover: { src: '/images/blog/novy-web-a-google-ho-nevidi.webp', width: 1200, height: 630, alt: 'Ilustrace: nově spuštěný web, který Google zatím nenašel' },
 
-  lead: 'Hned po spuštění ověřte web v Google Search Console, odešlete mapu webu a zkontrolujte, že web není zavřený před vyhledávači. Pokud se web neobjeví ani po týdnech, hledejte příčinu.',
+  lead: 'Hned po spuštění ověřte web v Google Search Console, odešlete mapu webu a zkontrolujte, že web není zavřený před vyhledávači. Pokud se web neobjeví ani po týdnech, hledejte příčinu. Zkontrolujte také, že důležité stránky nemají značku noindex a že je robots.txt neblokuje.',
   forWhom: 'Text je pro majitele, který právě spustil nový web a Google o něm zatím mlčí. Najdete v něm, jestli je čekání normální, co udělat hned po spuštění a kdy začít hledat příčinu. Většinu kroků zvládnete sami.',
 
   normalTitle: 'Je normální, že nový web Google zatím nevidí?',

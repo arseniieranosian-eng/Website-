@@ -67,7 +67,7 @@ const raw = {
   adsAnswer: 'Placená reklama obvykle přivede návštěvníky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Hodí se pro konkrétní nabídky nebo období a nevytváří trvalé aktivum. Ceny a nastavení zde neřeším, reklamu nespravuji. Srovnání slouží k tomu, abyste mohli kanály rozumně poměřit.',
 
   seoTitle: 'Kdy dává smysl SEO a GEO/AEO?',
-  seoAnswer: 'SEO a GEO/AEO dávají smysl, pokud chcete získávat klienty i z vyhledávání, máte co nabídnout a můžete počkat. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Podrobnosti jsou na stránce SEO pro realitní kanceláře.',
+  seoAnswer: 'SEO a GEO/AEO dávají smysl, pokud chcete získávat klienty i z vyhledávání, máte co nabídnout a můžete počkat. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Podrobnosti jsou na stránce SEO pro realitní kanceláře. Doba závisí na stavu webu a konkurenci.',
   seoLead: 'Co v oboru dělám a jak postupuji, popisuji na stránce',
   seoLinkText: 'SEO pro realitní kanceláře v Praze',
   seoSmallLead: 'Jestli SEO dává smysl právě pro malou kancelář, rozebírám v článku',

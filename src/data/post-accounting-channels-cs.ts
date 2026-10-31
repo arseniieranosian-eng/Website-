@@ -59,12 +59,12 @@ const raw = {
   quote: 'Doporučení jsou pro účetní kancelář dobrý základ, ale klient si kancelář může ještě vyhledat. Proto stojí za to, aby byla vidět ve vyhledávání i v odpovědích AI.',
 
   mapsTitle: 'Co přinášejí mapy a profil firmy?',
-  mapsAnswer: 'Mapy a profil firmy ukazují kancelář lidem, kteří hledají v okolí. Přínos závisí na úplném a udržovaném profilu a na tom, zda klienta při výběru rozhoduje poloha kanceláře. Podrobnosti k lokálnímu SEO a mapám jsou na samostatné stránce.',
+  mapsAnswer: 'Mapy a profil firmy ukazují kancelář lidem, kteří hledají v okolí. Přínos závisí na úplném a udržovaném profilu a na tom, zda klienta při výběru rozhoduje poloha kanceláře. Podrobnosti k lokálnímu SEO a mapám jsou na samostatné stránce. Profil doplňuje web, nenahrazuje ho.',
   mapsLead: 'Lokální SEO a mapy popisuje stránka',
   mapsLinkText: 'SEO pro Mapy',
 
   adsTitle: 'Kdy se vyplatí placená reklama?',
-  adsAnswer: 'Placená reklama může přivést poptávky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Vyplatí se, když kancelář potřebuje rychlý start a má rozpočet na testování. Pravidla reklamní platformy i své profese si před spuštěním prověřte.',
+  adsAnswer: 'Placená reklama může přivést poptávky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Vyplatí se, když kancelář potřebuje rychlý start a má rozpočet na testování. Pravidla reklamní platformy i své profese si před spuštěním prověřte. Obě cesty lze kombinovat.',
   adsText: 'U e-mailových a dalších rozesílek existují pravidla, před spuštěním se obraťte na právníka.',
 
   chooseTitle: 'Jak vybrat kanál, když není čas na všechno?',
@@ -92,9 +92,9 @@ const raw = {
   faq: [
     { q: 'Jak získat první klienty jako účetní?', a: 'Začít lze u lidí, které už znáte: bývalých kolegů, známých podnikatelů a lidí z jiných oborů, kteří mohou kancelář doporučit. Zároveň si připravte web nebo profil, kde se klient dozví, co nabízíte. Který kanál bude fungovat, nelze předem zaručit, proto první měsíce sledujte, odkud poptávky přišly.' },
     { q: 'Jak získat klienty jako účetní OSVČ?', a: 'Pokud má účetní OSVČ omezený čas nebo rozpočet, dává smysl vybrat jeden až dva kanály: doporučení od stávajících klientů, profil na mapách nebo jednoduchý web. Reklama a sociální sítě vyžadují průběžně čas nebo peníze. Žádný kanál nezaručuje poptávku, proto sledujte, co funguje.' },
-    { q: 'Má smysl vlastní web účetní kanceláře?', a: 'Záleží na tom, odkud chcete klienty získávat. Pokud vás klienti hledají sami ve vyhledávání nebo se ptají AI, web jim umožní kancelář najít a posoudit. Pokud klienty získáváte jen z doporučení, může web sloužit hlavně k ověření důvěry.' },
+    { q: 'Má smysl vlastní web účetní kanceláře?', a: 'Záleží na tom, odkud chcete klienty získávat. Pokud vás klienti hledají sami ve vyhledávání nebo se ptají AI, web jim umožní kancelář najít a posoudit. Pokud klienty získáváte jen z doporučení, může web sloužit hlavně k ověření důvěry. Web tedy slouží vždy, jen s jinou rolí.' },
     { q: 'Který kanál je nejlepší pro účetní kancelář?', a: 'Univerzálně nejlepší kanál neexistuje. Doporučení jsou dobrý základ, web a mapy pomáhají těm, kdo hledají sami, reklama přináší rychlejší start za průběžnou platbu. Výběr závisí na vašem čase, rozpočtu a typu klientů. Začněte jedním až dvěma kanály a po několika měsících vyhodnoťte výsledky.' },
-    { q: 'Vyplatí se placená reklama pro účetní kancelář?', a: 'Reklama může přivést poptávky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Vyplatí se, pokud máte rozpočet na testování a umíte vyhodnotit, odkud poptávky přišly. Před spuštěním si prověřte pravidla reklamní platformy a své profese.' },
+    { q: 'Vyplatí se placená reklama pro účetní kancelář?', a: 'Reklama může přivést poptávky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Vyplatí se, pokud máte rozpočet na testování a umíte vyhodnotit, odkud poptávky přišly. Před spuštěním si prověřte pravidla reklamní platformy a své profese. Obě cesty lze kombinovat.' },
     { q: 'Za jak dlouho se projeví SEO?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Tuto dobu nelze brát jako příslib pro vaši kancelář.' },
   ],
 

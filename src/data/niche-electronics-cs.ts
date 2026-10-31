@@ -72,10 +72,10 @@ const raw = {
 
   forTitle: 'Pro koho je to a pro koho ne?',
   forNext: 'Co bezplatný audit obsahuje:',
-  forAnswer: 'Služba je pro internetové obchody s elektronikou a technikou v Praze i pro prodejny s e-shopem, které chtějí, aby je zájemci našli v Google a v odpovědích AI.',
+  forAnswer: 'Služba je pro internetové obchody s elektronikou a technikou v Praze i pro prodejny s e-shopem, které chtějí, aby je zájemci našli v Google a v odpovědích AI. Začínáme technickým základem e-shopu a postupně přidáváme strukturu kategorií, odpovědi na časté dotazy a přípravu na odpovědi AI.',
 
   auditTitle: 'Co obsahuje bezplatný audit a co ne?',
-  auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby e-shopu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi.',
+  auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby e-shopu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi. Další oblasti řeší placené služby, o kterých rozhodujete až po auditu.',
   audit: {
     head: ['Co obsahuje', 'Co neobsahuje'],
     rows: [
@@ -104,7 +104,7 @@ const raw = {
   auditExampleNote: 'Je to ukázka výstupu auditu, ne případová studie obchodu s technikou.',
 
   mapsTitle: 'Profil prodejny na mapách',
-  mapsAnswer: 'Profily prodejny na Google, Mapy.com (Seznam) a Firmy.cz vedu v balíčcích Start a Full SEO: hovory, trasy, přechody na web a recenze. Existuje i samostatná služba Mapy. Do bezplatného auditu mapy nepatří. Podrobnosti a podmínky najdete na stránce služby.',
+  mapsAnswer: 'Profily prodejny na Google, Mapy.com (Seznam) a Firmy.cz vedu v balíčcích Start a Full SEO: hovory, trasy, přechody na web a recenze. Existuje i samostatná služba Mapy. Do bezplatného auditu mapy nepatří. Podrobnosti a podmínky najdete na stránce služby. Rozhodnout se můžete až po auditu.',
   mapsLead: 'Služba je popsaná na stránce',
   mapsLink: 'SEO pro Mapy',
 

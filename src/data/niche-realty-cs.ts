@@ -69,7 +69,7 @@ const raw = {
   heroVideoLink: 'Podívat se na rozbor webů',
 
   whyTitle: 'Proč realitní kanceláře potřebují SEO?',
-  whyAnswer: 'Realitní kancelář potřebuje SEO, protože zájemci o nemovitost hledají ve vyhledávání podle čtvrti, typu a velikosti bytu nebo domu. Vlastní web s dobře strukturovanými stránkami může přivádět přímé poptávky bez závislosti na jednom portálu.',
+  whyAnswer: 'Realitní kancelář potřebuje SEO, protože zájemci o nemovitost hledají ve vyhledávání podle čtvrti, typu a velikosti bytu nebo domu. Vlastní web s dobře strukturovanými stránkami může přivádět přímé poptávky bez závislosti na jednom portálu. Stránky nabídek a lokalit tak odpovídají na otázky, které zájemci skutečně zadávají.',
   why: [
     'Čtvrť: zájemci hledají nemovitost podle lokality, ne podle názvu firmy.',
     'Typ a velikost: byt, dům, dispozice, každý dotaz potřebuje stránku, která na něj odpoví.',

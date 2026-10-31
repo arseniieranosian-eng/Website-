@@ -46,10 +46,10 @@ const raw = {
   doGeoLink: 'SEO a GEO/AEO',
 
   forTitle: 'Pro koho je to a pro koho ne?',
-  forAnswer: 'Služba je pro jednu počítačovou hernu, menší síť klubů nebo esport arénu v Praze, která chce, aby ji zájemci našli na webu i v odpovědích AI.',
+  forAnswer: 'Služba je pro jednu počítačovou hernu, menší síť klubů nebo esport arénu v Praze, která chce, aby ji zájemci našli na webu i v odpovědích AI. Začínáme technickým základem webu a pokračujeme stránkami tarifů, rezervací a akcí a odpověďmi na časté dotazy.',
 
   auditTitle: 'Co obsahuje bezplatný audit a co ne?',
-  auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby webu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi.',
+  auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby webu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi. Další oblasti řeší placené služby, o kterých rozhodujete až po auditu.',
   audit: {
     head: ['Co obsahuje', 'Co neobsahuje'],
     rows: [
