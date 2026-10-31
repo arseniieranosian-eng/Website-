@@ -761,3 +761,5 @@ ul, ol { margin-bottom: var(--flow); }
   .page-hero:has(.summary-box) .summary-box .lead { font-size: 1rem; line-height: 1.65; }
   .page-hero:has(.summary-box) .btn-row { margin-top: 0; gap: 14px; }
 }
+.districts-list { display: block; columns: 3 220px; column-gap: 28px; }
+.districts-list li { break-inside: avoid; margin-bottom: 8px; }

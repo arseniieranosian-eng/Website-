@@ -41,7 +41,7 @@ const SECTIONS = ['Co jsem viděl v Brně?', 'Co pro realitní kancelář v Brn�
 // R3: the official list of the Brno city districts (names, count and a link to the official source) must stand under the H2-3 answer
 const r3 = (main.match(/Jak má realitní kancelář v Brně pracovat s městskými částmi\?[\s\S]*?<\/section>/) || [''])[0];
 const r3n = [...r3.matchAll(/<li>/g)].length;
-if (r3n < 10 || !/href="https:\/\/(www\.)?brno\.cz\//.test(r3)) e('R3 (official list of the Brno districts with a link to brno.cz) is missing: the page must not be published without it');
+if (r3n !== 29 || !/href="https:\/\/[^"]+"/.test(r3)) e('R3 (official list of the Brno districts with a link to the source) is missing: the page must not be published without it');
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 // direct answers 40–60 words
 for (const m of main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)) { const n = words(txt(m[1])); if (n < 40 || n > 60) e(`answer length ${n}: ${txt(m[1]).slice(0, 50)}`); }

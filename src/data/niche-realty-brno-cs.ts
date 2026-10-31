@@ -13,8 +13,13 @@ export const NICHE_REALTY_BRNO_PUBLISHED = '2026-10-31';
 // Capacity status of the niche (the same status as on the Prague page; update on both pages together, the date on the day of publication [?]6).
 export const NICHE_REALTY_BRNO_STATUS_DATE = '22. 10. 2026';
 
-// R3: the official list of the Brno city districts. Fill in from brno.cz / Statut města Brna (not from memory): { count, source: { label, url }, names: [...] }.
-export const NICHE_REALTY_BRNO_R3: null | { count: number; lead: string; source: { label: string; url: string }; names: string[] } = null;
+// R3: the list of the Brno city districts (29). Source given by the author on 31.10.2026: the Czech Wikipedia list (names 1–15) completed with the other 14 names read from the map of the city districts the author sent (names match the map); replace the source by brno.cz / Statut města Brna when it is reachable. Shape: { count, source: { label, url }, names: [...] }.
+export const NICHE_REALTY_BRNO_R3: null | { count: number; lead: string; source: { label: string; url: string }; names: string[] } = {
+  count: 29,
+  lead: 'Městské části Brna, celkem 29, podle seznamu:',
+  source: { label: 'Seznam městských částí Brna (Wikipedie)', url: 'https://cs.wikipedia.org/wiki/Seznam_m%C4%9Bstsk%C3%BDch_%C4%8D%C3%A1st%C3%AD_Brna' },
+  names: ["Brno-Bohunice", "Brno-Bosonohy", "Brno-Bystrc", "Brno-Černovice", "Brno-Chrlice", "Brno-Ivanovice", "Brno-Jehnice", "Brno-jih", "Brno-Jundrov", "Brno-Kníničky", "Brno-Kohoutovice", "Brno-Komín", "Brno-Královo Pole", "Brno-Líšeň", "Brno-Maloměřice a Obřany", "Brno-Medlánky", "Brno-Nový Lískovec", "Brno-Ořešín", "Brno-Řečkovice a Mokrá Hora", "Brno-sever", "Brno-Slatina", "Brno-Starý Lískovec", "Brno-střed", "Brno-Tuřany", "Brno-Útěchov", "Brno-Vinohrady", "Brno-Žabovřesky", "Brno-Žebětín", "Brno-Židenice"],
+};
 
 const raw = {
   lang: 'cs' as const,
