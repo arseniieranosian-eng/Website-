@@ -160,6 +160,8 @@ const raw = {
   endText: 'Bezplatný audit ukáže technické chyby webu realitní kanceláře: indexaci, duplicity z filtrů a další technické problémy. Krátkou prezentaci pošlu do 24 hodin, bez hovoru a bez závazků.',
   endCta: NICHE_SHARED_CS.end.cta,
   endContact: NICHE_SHARED_CS.end.contact,
+  otherCitiesLead: 'Další města:',
+  otherCities: [...(NICHE_READY.nicheRealtyBrno ? [{ page: 'nicheRealtyBrno' as const, label: 'Brno' }] : [])],
   otherNiches: { lead: 'Další obory:', items: [{ page: 'nicheTranslation' as const, label: 'Překladatelské agentury v Praze' }] },
 
   schema: {

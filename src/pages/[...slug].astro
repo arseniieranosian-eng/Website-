@@ -61,6 +61,7 @@ import NicheTypographyCsPage from '../views/NicheTypographyCsPage.astro';
 import NicheFinanceRuPage from '../views/NicheFinanceRuPage.astro';
 import NicheAccountingCsPage from '../views/NicheAccountingCsPage.astro';
 import NicheAccountingBrnoCsPage from '../views/NicheAccountingBrnoCsPage.astro';
+import NicheRealtyBrnoCsPage from '../views/NicheRealtyBrnoCsPage.astro';
 import PostNoLeadsCsPage from '../views/PostNoLeadsCsPage.astro';
 import PostClientsCsPage from '../views/PostClientsCsPage.astro';
 import PostB2bCsPage from '../views/PostB2bCsPage.astro';
@@ -103,7 +104,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheAccountingBrno: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postRealtyLocal: null, postAccountingNoLeads: null, postAccountingSmall: null, postAccountingLocal: null, postAccountingPages: null, postAccountingTime: null, postRedesignPlan: null, postSelectSpecialist: null, postSeoPlan: null, postFinanceChannels: null, postAccountingChannels: null,
+  caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheAccountingBrno: null, nicheRealtyBrno: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postRealtyLocal: null, postAccountingNoLeads: null, postAccountingSmall: null, postAccountingLocal: null, postAccountingPages: null, postAccountingTime: null, postRedesignPlan: null, postSelectSpecialist: null, postSeoPlan: null, postFinanceChannels: null, postAccountingChannels: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -168,6 +169,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nicheFinance' && props.lang === 'ru' && <NicheFinanceRuPage />}
 {props.key === 'nicheAccounting' && props.lang === 'cs' && <NicheAccountingCsPage />}
 {props.key === 'nicheAccountingBrno' && props.lang === 'cs' && <NicheAccountingBrnoCsPage />}
+{props.key === 'nicheRealtyBrno' && props.lang === 'cs' && <NicheRealtyBrnoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'cs' && <CaseTypoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'ru' && <CaseTypoRuPage />}
 {props.key === 'caseEdu' && props.lang === 'cs' && <CaseEduCsPage />}
