@@ -1,0 +1,86 @@
+---
+// Blog article N8 "Jak uvést městské části Brna na webu realitní kanceláře?" (cs), brief of 31.10.2026. Content: data/post-realty-brno-districts-cs.ts.
+// Informational, no sales in the body; the closing block is one button to the Brno landing page. One link to N6, one link to the source of the list.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postRealtyBrnoDistrictsSchemas } from '../lib/schema-post-realty-brno-districts';
+import { POST_REALTY_BRNO_DISTRICTS_CS as C, POST_REALTY_BRNO_DISTRICTS_PUBLISHED } from '../data/post-realty-brno-districts-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostRealtyBrnoDistrictsCsPage.astro', 'src/data/post-realty-brno-districts-cs.ts'], '2026-10-31'), POST_REALTY_BRNO_DISTRICTS_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-mestske-casti-brna-web-realitni-kancelare.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postRealtyBrnoDistricts', lang)} ogType="article" ogImage={OG} schema={postRealtyBrnoDistrictsSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postRealtyBrnoDistricts.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.namesTitle}</h2>
+      <p class="answer">{C.namesAnswer}</p>
+      <p class="small">Zdroj seznamu: <a href={C.namesSource.url} rel="noopener">{C.namesSource.label}</a></p>
+      <ul class="checks districts-list">{C.names.map((x: string) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.pageTitle}</h2>
+      <p class="answer">{C.pageAnswer}</p>
+      <p>{C.pageLead}{' '}<a href={t('postRealtyDistricts')}>{C.pageLinkText}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.writeTitle}</h2>
+      <p class="answer">{C.writeAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.errTitle}</h2>
+      <p class="answer">{C.errAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.structTitle}</h2>
+      <p class="answer">{C.structAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('nicheRealtyBrno')}>{C.endCta}</a></div>
+      </div>
+    </div>
+  </section>
+</Base>

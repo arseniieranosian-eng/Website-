@@ -71,7 +71,7 @@ if (cnt(/href="\/audit-zdarma\/"/g) < 2 || cnt(/href="\/konzultace\/"/g) < 1 || 
 if (/seo-pro-prekladatelske-agentury-brno/.test(main)) e('no link to the Brno translation niche page');
 if (/<form/.test(main)) e('no form');
 const related = (main.match(/related-posts[\s\S]*?<\/section>/) || [''])[0];
-if ([...related.matchAll(/href="(\/blog\/[^"]+)"/g)].length !== 7) e('Další články: seven cards');
+if ([...related.matchAll(/href="(\/blog\/[^"]+)"/g)].length !== 8) e('Další články: eight cards (with the article about the Brno districts)');
 for (const f of ['dist/seo-pro-realitni-kancelare-praha/index.html']) if (!readFileSync(f, 'utf8').includes(URL_PATH)) e('link from the Prague page to Brno ("Další města")');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 if (errors.length) { console.error('✗ check-niche-realty-brno-cs:\n  - ' + errors.join('\n  - ')); process.exit(1); }

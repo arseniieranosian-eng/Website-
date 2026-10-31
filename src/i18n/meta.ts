@@ -278,6 +278,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postRealtyBrnoDistricts: {
+    cs: {
+      name: 'Městské části Brna na webu realitní kanceláře',
+      title: 'Městské části Brna na webu realitky | Eranosian',
+      description: 'Kolik městských částí má Brno, jak je oficiálně pojmenovat a jak postavit stránky lokalit na webu realitní kanceláře bez šablonových textů.',
+      h1: 'Jak uvést městské části Brna na webu realitní kanceláře?',
+    },
+    en: { name: 'Brno city districts on a real estate agency website', title: 'Brno city districts on a real estate agency website', description: 'Brno city districts on a real estate agency website', h1: 'How to present the Brno city districts on a real estate agency website?' },
+    ru: { name: 'Городские части Брно на сайте агентства недвижимости', title: 'Городские части Брно на сайте агентства недвижимости', description: 'Городские части Брно на сайте агентства недвижимости', h1: 'Как указать городские части Брно на сайте агентства недвижимости?' },
+  },
   postRealtyDistricts: {
     cs: {
       name: 'Stránky čtvrtí a lokalit realitní kanceláře',
