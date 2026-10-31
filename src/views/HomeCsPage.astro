@@ -1,6 +1,7 @@
 ---
 // The Czech home page (hub), built from the brief of 20.10.2026. Content: data/home-cs.ts. No blog links (the blog is empty),
 // reviews from the shared source without the figures that are not confirmed.
+import ServiceArt from '../components/ServiceArt.astro';
 import Base from '../layouts/Base.astro';
 import CaseArt from '../components/CaseArt.astro';
 import LogoStrip from '../components/LogoStrip.astro';
@@ -72,6 +73,7 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
       <div class="grid grid-3">
         {C.nav.map((n) => (
           <a class="card card--link" href={t(n.page)}>
+            <ServiceArt kind={n.page} size={84} />
             <p class="eyebrow">{n.need}</p>
             <h3>{n.title ?? name(n.page)}</h3>
             <p>{n.text}</p>

@@ -1,6 +1,7 @@
 ---
 // The English home page /en/ (hub), built from the brief of 21.10.2026: a separate adaptation for English-speaking entrepreneurs and
 // expats in Czechia. Content: data/home-en.ts, trust bar: data/trust-en.ts (same five tiles as the Czech and Russian versions). No blog links, reviews from the shared source.
+import ServiceArt from '../components/ServiceArt.astro';
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import CaseArt from '../components/CaseArt.astro';
@@ -74,7 +75,7 @@ const m = META.home[lang];
           <tbody>
             {C.hub.rows.map((r) => (
               <tr>
-                <th scope="row"><a href={t(r.page)}>{r.label}</a></th>
+                <th scope="row"><span class="svc-name"><ServiceArt kind={r.page} />{<a href={t(r.page)}>{r.label}</a>}</span></th>
                 <td>{r.what}</td>
                 <td>{r.best}</td>
                 <td>{r.time}</td>

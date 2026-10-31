@@ -763,3 +763,4 @@ ul, ol { margin-bottom: var(--flow); }
 }
 .districts-list { display: block; columns: 3 220px; column-gap: 28px; }
 .districts-list li { break-inside: avoid; margin-bottom: 8px; }
+.card--link > .svc-art { width: 84px; height: auto; margin-bottom: 12px; }
