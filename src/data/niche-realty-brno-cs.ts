@@ -14,11 +14,41 @@ export const NICHE_REALTY_BRNO_PUBLISHED = '2026-10-31';
 export const NICHE_REALTY_BRNO_STATUS_DATE = '22. 10. 2026';
 
 // R3: the list of the Brno city districts (29). Source given by the author on 31.10.2026: the Czech Wikipedia list (names 1–15) completed with the other 14 names read from the map of the city districts the author sent (names match the map); replace the source by brno.cz / Statut města Brna when it is reachable. Shape: { count, source: { label, url }, names: [...] }.
-export const NICHE_REALTY_BRNO_R3: null | { count: number; lead: string; source: { label: string; url: string }; names: string[] } = {
+export const NICHE_REALTY_BRNO_R3: null | { count: number; lead: string; source: { label: string; url: string }; names: { name: string; url: string }[] } = {
   count: 29,
   lead: 'Městské části Brna, celkem 29, podle seznamu:',
   source: { label: 'Seznam městských částí Brna (Wikipedie)', url: 'https://cs.wikipedia.org/wiki/Seznam_m%C4%9Bstsk%C3%BDch_%C4%8D%C3%A1st%C3%AD_Brna' },
-  names: ["Brno-Bohunice", "Brno-Bosonohy", "Brno-Bystrc", "Brno-Černovice", "Brno-Chrlice", "Brno-Ivanovice", "Brno-Jehnice", "Brno-jih", "Brno-Jundrov", "Brno-Kníničky", "Brno-Kohoutovice", "Brno-Komín", "Brno-Královo Pole", "Brno-Líšeň", "Brno-Maloměřice a Obřany", "Brno-Medlánky", "Brno-Nový Lískovec", "Brno-Ořešín", "Brno-Řečkovice a Mokrá Hora", "Brno-sever", "Brno-Slatina", "Brno-Starý Lískovec", "Brno-střed", "Brno-Tuřany", "Brno-Útěchov", "Brno-Vinohrady", "Brno-Žabovřesky", "Brno-Žebětín", "Brno-Židenice"],
+  names: [
+    { name: 'Brno-Bohunice', url: 'https://cs.wikipedia.org/wiki/Brno-Bohunice' },
+    { name: 'Brno-Bosonohy', url: 'https://cs.wikipedia.org/wiki/Brno-Bosonohy' },
+    { name: 'Brno-Bystrc', url: 'https://cs.wikipedia.org/wiki/Brno-Bystrc' },
+    { name: 'Brno-Černovice', url: 'https://cs.wikipedia.org/wiki/Brno-%C4%8Cernovice' },
+    { name: 'Brno-Chrlice', url: 'https://cs.wikipedia.org/wiki/Brno-Chrlice' },
+    { name: 'Brno-Ivanovice', url: 'https://cs.wikipedia.org/wiki/Brno-Ivanovice' },
+    { name: 'Brno-Jehnice', url: 'https://cs.wikipedia.org/wiki/Brno-Jehnice' },
+    { name: 'Brno-jih', url: 'https://cs.wikipedia.org/wiki/Brno-jih' },
+    { name: 'Brno-Jundrov', url: 'https://cs.wikipedia.org/wiki/Brno-Jundrov' },
+    { name: 'Brno-Kníničky', url: 'https://cs.wikipedia.org/wiki/Brno-Kn%C3%ADni%C4%8Dky' },
+    { name: 'Brno-Kohoutovice', url: 'https://cs.wikipedia.org/wiki/Brno-Kohoutovice' },
+    { name: 'Brno-Komín', url: 'https://cs.wikipedia.org/wiki/Brno-Kom%C3%ADn' },
+    { name: 'Brno-Královo Pole', url: 'https://cs.wikipedia.org/wiki/Brno-Kr%C3%A1lovo_Pole' },
+    { name: 'Brno-Líšeň', url: 'https://cs.wikipedia.org/wiki/Brno-L%C3%AD%C5%A1e%C5%88' },
+    { name: 'Brno-Maloměřice a Obřany', url: 'https://cs.wikipedia.org/wiki/Brno-Malom%C4%9B%C5%99ice_a_Ob%C5%99any' },
+    { name: 'Brno-Medlánky', url: 'https://cs.wikipedia.org/wiki/Brno-Medl%C3%A1nky' },
+    { name: 'Brno-Nový Lískovec', url: 'https://cs.wikipedia.org/wiki/Brno-Nov%C3%BD_L%C3%ADskovec' },
+    { name: 'Brno-Ořešín', url: 'https://cs.wikipedia.org/wiki/Brno-O%C5%99e%C5%A1%C3%ADn' },
+    { name: 'Brno-Řečkovice a Mokrá Hora', url: 'https://cs.wikipedia.org/wiki/Brno-%C5%98e%C4%8Dkovice_a_Mokr%C3%A1_Hora' },
+    { name: 'Brno-sever', url: 'https://cs.wikipedia.org/wiki/Brno-sever' },
+    { name: 'Brno-Slatina', url: 'https://cs.wikipedia.org/wiki/Brno-Slatina' },
+    { name: 'Brno-Starý Lískovec', url: 'https://cs.wikipedia.org/wiki/Brno-Star%C3%BD_L%C3%ADskovec' },
+    { name: 'Brno-střed', url: 'https://cs.wikipedia.org/wiki/Brno-st%C5%99ed' },
+    { name: 'Brno-Tuřany', url: 'https://cs.wikipedia.org/wiki/Brno-Tu%C5%99any' },
+    { name: 'Brno-Útěchov', url: 'https://cs.wikipedia.org/wiki/Brno-%C3%9At%C4%9Bchov' },
+    { name: 'Brno-Vinohrady', url: 'https://cs.wikipedia.org/wiki/Brno-Vinohrady' },
+    { name: 'Brno-Žabovřesky', url: 'https://cs.wikipedia.org/wiki/Brno-%C5%BDabov%C5%99esky' },
+    { name: 'Brno-Žebětín', url: 'https://cs.wikipedia.org/wiki/Brno-%C5%BDeb%C4%9Bt%C3%ADn' },
+    { name: 'Brno-Židenice', url: 'https://cs.wikipedia.org/wiki/Brno-%C5%BDidenice' },
+  ],
 };
 
 const raw = {

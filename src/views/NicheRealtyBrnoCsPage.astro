@@ -53,7 +53,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       {R3 && (
         <>
           <p>{R3.lead} <a href={R3.source.url} rel="noopener">{R3.source.label}</a>.</p>
-          <ul class="checks districts-list">{R3.names.map((x) => <li>{x}</li>)}</ul>
+          <ul class="checks districts-list">{R3.names.map((x) => <li><a href={x.url} rel="noopener">{x.name}</a></li>)}</ul>
         </>
       )}
     </div>
