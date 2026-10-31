@@ -30,6 +30,7 @@ export const HOME_CS = {
 
   servicesTitle: 'Jaké služby nabízím?',
   services: [
+    { page: 'audit' as const, text: 'Krátká prezentace s hlavními technickými chybami webu, bez hovoru a bez závazku.', meta: 'Zdarma, do 24 hodin' },
     { page: 'consulting' as const, text: 'Kontrola webu, odpovědi na otázky a jasný akční plán. Online nebo osobně v Praze.', meta: `Od ${fmtKc(PRICES.questions)} (1 hodina nebo bez časového limitu)` },
     { page: 'start' as const, text: 'Intenzivní práce od auditu a oprav po klíčová slova a optimalizaci klíčových stránek.', meta: `${fmtKc(START_PRICE)}, 3 měsíce` },
     { page: 'fullSeo' as const, text: 'Roční péče: strategie, obsah, technický monitoring a GEO/AEO.', meta: `Od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, 12 měsíců` },

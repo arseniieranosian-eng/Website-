@@ -52,7 +52,7 @@ if ([...nav.matchAll(/<a class="card card--link"/g)].length !== 6 || /<script|ca
 // Services: four cards with the prices of the shared sources, no price for maps
 const sv = (main.match(/Jaké služby nabízím\?[\s\S]*?<\/section>/) || [''])[0];
 const meta = [...sv.matchAll(/<span class="meta">([^<]*)<\/span>/g)].map((m) => norm(m[1]));
-if (JSON.stringify(meta) !== JSON.stringify(['Od 2 000 Kč (1 hodina nebo bez časového limitu)', '50 000 Kč, 3 měsíce', 'Od 15 000 Kč měsíčně, 12 měsíců', 'Od 4 měsíců'])) e(`service meta: ${JSON.stringify(meta)}`);
+if (JSON.stringify(meta) !== JSON.stringify(['Zdarma, do 24 hodin', 'Od 2 000 Kč (1 hodina nebo bez časového limitu)', '50 000 Kč, 3 měsíce', 'Od 15 000 Kč měsíčně, 12 měsíců', 'Od 4 měsíců'])) e(`service meta: ${JSON.stringify(meta)}`);
 if (/Kč/.test(txt((sv.match(/\/mapy\/[\s\S]*?<\/a>/) || [''])[0]))) e('maps: no price on the card');
 // Results: four cases with their single formulas
 const FORMULAS = ['Poptávky z formuláře ×8 (červen proti květnu)', 'Poptávky z formuláře ×24 (+2300 %): jaro (březen–květen) → léto (červen–srpen) 2026, jedno okno, ne meziročně. Od nízké základny', '1 200 → 10 500 návštěv za měsíc, +775 %, červenec 2024 → červenec 2025', '+55 % organické návštěvnosti, březen → září 2025 (7 měsíců), relativní data od nízké základny nového webu', 'Poptávky tři měsíce po sobě +65–70 % měsíčně, B2B poptávky ×3 (+200 %), březen–září 2026'];
