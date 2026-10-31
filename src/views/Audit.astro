@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import PageHero from '../components/PageHero.astro';
 import LeadForm from '../components/LeadForm.astro';
 import FaqList from '../components/FaqList.astro';
@@ -104,4 +105,5 @@ const C = {
       <p><a class="link-arrow" href={path('faq', lang)}>{ui.allFaq}</a></p>
     </div>
   </section>
+  <CzechNote lang={lang} pageKey={'audit'} />
 </Base>

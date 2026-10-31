@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import LogoStrip from '../components/LogoStrip.astro';
 import PageHero from '../components/PageHero.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
@@ -132,4 +133,5 @@ const profile = {
 
   <section class="section section--grey"><div class="container"><CaseTeaser lang={lang} heading="h2" /></div></section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+  <CzechNote lang={lang} pageKey={'about'} />
 </Base>

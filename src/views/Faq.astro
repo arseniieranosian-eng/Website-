@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -27,4 +28,5 @@ const C = {
     </div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+  <CzechNote lang={lang} pageKey={'faq'} />
 </Base>

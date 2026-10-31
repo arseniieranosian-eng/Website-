@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import LogoStrip from '../components/LogoStrip.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ServiceCards from '../components/ServiceCards.astro';
@@ -352,4 +353,5 @@ const C = {
 
   <!-- 10. Final CTA -->
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+  <CzechNote lang={lang} pageKey={'home'} />
 </Base>

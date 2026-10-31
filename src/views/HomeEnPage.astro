@@ -2,6 +2,7 @@
 // The English home page /en/ (hub), built from the brief of 21.10.2026: a separate adaptation for English-speaking entrepreneurs and
 // expats in Czechia. Content: data/home-en.ts, trust bar: data/trust-en.ts (same five tiles as the Czech and Russian versions). No blog links, reviews from the shared source.
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import CaseArt from '../components/CaseArt.astro';
 import LogoStrip from '../components/LogoStrip.astro';
 import LeadForm from '../components/LeadForm.astro';
@@ -180,4 +181,5 @@ const m = META.home[lang];
       </div>
     </div>
   </section>
+  <CzechNote lang={lang} pageKey={'home'} />
 </Base>

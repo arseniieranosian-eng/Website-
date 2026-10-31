@@ -2,6 +2,7 @@
 // /ru/karty/ built from the brief of 19.10.2026. Content: data/maps-ru.ts, terms: data/maps-shared.ts.
 // The case-study block is hidden until a maps case exists .
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
@@ -171,4 +172,5 @@ const others = [
       <GeoNote lang={lang} />
     </div>
   </section>
+  <CzechNote lang={lang} pageKey={'maps'} />
 </Base>

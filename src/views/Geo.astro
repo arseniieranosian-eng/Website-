@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -99,4 +100,5 @@ const cols = [C.colSeo, C.colGeo] as [string, string, string[]][];
     </section>
   )}
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+  <CzechNote lang={lang} pageKey={'geo'} />
 </Base>

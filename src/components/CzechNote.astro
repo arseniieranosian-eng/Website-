@@ -1,0 +1,16 @@
+---
+// Small closing note on the main English and Russian pages: the Czech version is the main one and has more content.
+// Links to the same page in Czech when it exists, otherwise to the Czech home page.
+import { path, langsFor, type Lang, type PageKey } from '../i18n/routes';
+interface Props { lang: Lang; pageKey: PageKey }
+const { lang, pageKey } = Astro.props;
+const href = langsFor(pageKey).includes('cs') ? path(pageKey, 'cs') : path('home', 'cs');
+const T = {
+  en: { text: 'Czech is the main language of this site: more articles, case studies and pages are available in the Czech version.', link: 'Open the Czech version' },
+  ru: { text: 'Чешский — основной язык этого сайта: больше статей, кейсов и страниц можно увидеть в чешской версии.', link: 'Открыть чешскую версию' },
+} as const;
+const c = lang === 'ru' ? T.ru : T.en;
+---
+{lang !== 'cs' && (
+  <div class="container czech-note"><p class="muted small">{c.text}{' '}<a href={href} hreflang="cs">{c.link}</a></p></div>
+)}

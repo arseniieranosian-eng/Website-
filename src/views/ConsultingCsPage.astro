@@ -1,6 +1,7 @@
 ---
 // /konzultace/ (cs, brief of 19.10.2026) and /en/consulting/ (en, brief of 29.10.2026: the same content translated). Content: data/consulting-cs.ts and data/consulting-en.ts, prices: data/consulting-shared.ts.
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
@@ -217,6 +218,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
       <GeoNote lang={lang} />
     </div>
   </section>
+  <CzechNote lang={lang} pageKey={'consulting'} />
 </Base>
 
 <script>

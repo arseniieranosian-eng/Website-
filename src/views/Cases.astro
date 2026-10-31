@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import PageHero from '../components/PageHero.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -42,4 +43,5 @@ const collection = {
     <div class="container stack">{items.map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" />)}</div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
+  <CzechNote lang={lang} pageKey={'cases'} />
 </Base>

@@ -2,6 +2,7 @@
 // /ru/konsultacii/ (ru, brief of 19.10.2026) and /en/consulting/ (en, brief of 23.10.2026); the Czech page is ConsultingCsPage.
 // Content lives in data/consulting-ru.ts and data/consulting-en.ts. Neither language has a video any more (removed on the author's instruction); the hero's right column is a decorative illustration.
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import LogoStrip from '../components/LogoStrip.astro';
 import ConsultHeroArt from '../components/ConsultHeroArt.astro';
 import ServiceArt from '../components/ServiceArt.astro';
@@ -238,6 +239,7 @@ const others = [
       <GeoNote lang={lang} />
     </div>
   </section>
+  <CzechNote lang={lang} pageKey={'consulting'} />
 </Base>
 
 <script>

@@ -746,3 +746,5 @@ ul, ol { margin-bottom: var(--flow); }
 @media (min-width: 560px) { .stats--five:has(> div:nth-child(6)) > div:first-child { grid-column: 1 / -1; } .stats--five:has(> div:nth-child(6)) > div:last-child { grid-column: span 2; } }
 @media (min-width: 1100px) { .stats--five:has(> div:nth-child(6)) > div:last-child { grid-column: span 1; } }
 @media (min-width: 1100px) { .stats--five:has(> div:nth-child(6)) { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.czech-note { padding-top: 8px; padding-bottom: 32px; }
+.czech-note p { margin: 0; }

@@ -2,6 +2,7 @@
 // /ru/besplatnyj-audit/ built from the brief of 19.10.2026. Content: data/audit-ru.ts.
 // The sample-presentation video block appears only when AUDIT_VIDEO is set (see data/audit-ru.ts).
 import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
 import ReviewCards from '../components/ReviewCards.astro';
@@ -195,4 +196,5 @@ import QuoteCaption from '../components/QuoteCaption.astro';
       <GeoNote lang={lang} />
     </div>
   </section>
+  <CzechNote lang={lang} pageKey={'audit'} />
 </Base>
