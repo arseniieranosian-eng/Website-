@@ -582,7 +582,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     cs: {
       name: 'SEO pro realitní kanceláře v Brně',
       title: 'SEO pro realitní kanceláře Brno: GEO/AEO | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, čtvrti a městské části, indexace, FAQ. Bez slibů. Požádejte o bezplatný technický audit.',
+      description: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Bez slibů. Požádejte o bezplatný technický audit.',
       h1: 'SEO a GEO/AEO pro realitní kanceláře v Brně: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for real estate agencies in Brno', title: 'SEO for real estate agencies in Brno', description: 'SEO for real estate agencies in Brno', h1: 'SEO for real estate agencies in Brno' },

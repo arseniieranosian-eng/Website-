@@ -8,7 +8,7 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { nicheRealtyBrnoSchemas } from '../lib/schema-niche-realty-brno';
-import { NICHE_REALTY_BRNO_CS as C, NICHE_REALTY_BRNO_R3 as R3 } from '../data/niche-realty-brno-cs';
+import { NICHE_REALTY_BRNO_CS as C } from '../data/niche-realty-brno-cs';
 
 const lang = C.lang;
 const site = Astro.site!;
@@ -48,40 +48,27 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 
   <section class="section">
     <div class="container narrow">
-      <h2>{C.districtsTitle}</h2>
-      <p class="answer">{C.districtsAnswer}</p>
-      {R3 && (
-        <>
-          <p>{R3.lead} <a href={R3.source.url} rel="noopener">{R3.source.label}</a>.</p>
-          <ul class="checks districts-list">{R3.names.map((x) => <li><a href={x.url} rel="noopener">{x.name}</a></li>)}</ul>
-        </>
-      )}
-    </div>
-  </section>
-
-  <section class="section section--grey">
-    <div class="container narrow">
       <h2>{C.expTitle}</h2>
       <p class="answer">{C.expAnswer}</p>
       <p><a class="link-arrow" href={t('caseRazbor')}>{C.expLink}</a></p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.coopTitle}</h2>
       <p class="answer">{C.coopAnswer}</p>
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section">
     <div class="container narrow">
       <h2>{C.auditTitle}</h2>
       <p class="answer">{C.auditAnswer}</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.fitTitle}</h2>
       <p class="answer">{C.fitAnswer}</p>
@@ -89,14 +76,14 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section">
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.articlesTitle}</h2>
       <RelatedPosts lang={lang} keys={['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyLocal']} more={C.articlesMore} />

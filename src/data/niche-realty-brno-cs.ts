@@ -1,7 +1,6 @@
 // Czech content of the niche landing page /seo-pro-realitni-kancelare-brno/ (brief of 31.10.2026). Built ONLY when NICHE_READY.nicheRealtyBrno is true (routes.ts).
-// Publication condition (doorway rule): the block "Co jsem viděl v Brně" (R1+R2) and R3 must hold verified data. R3 needs the list of the official names of the Brno city districts
-// (městské části) from an official source (brno.cz, Statut města Brna) with the number and a link: `NICHE_REALTY_BRNO_R3` is null until it is filled in, and the build check fails
-// if the flag is true without it. Own structure from the brief; the text of the Prague page is not reused. Decisions applied from the author's standing rules: no "no results in the niche"
+// Change of 31.10.2026: the block about the city districts (H2-3) is NOT on the landing page; it moves to a separate article about the Brno city districts, which goes into "Další články" once published
+// (add its key to the list in views/NicheRealtyBrnoCsPage.astro and to check-niche-realty-brno-cs.mjs). The data of the 29 districts below is kept for that article; the landing page does not render it. Own structure from the brief; the text of the Prague page is not reused. Decisions applied from the author's standing rules: no "no results in the niche"
 // statements (29.10.2026), no guarantees, no portal / competitor / client names, no address in Brno, "agentura" never about the author, GEO/AEO always together. hreflang: self only (cs).
 import { walk } from '../lib/cs-typo';
 import SUMMARIES from './niche-summaries.json';
@@ -13,8 +12,8 @@ export const NICHE_REALTY_BRNO_PUBLISHED = '2026-10-31';
 // Capacity status of the niche (the same status as on the Prague page; update on both pages together, the date on the day of publication [?]6).
 export const NICHE_REALTY_BRNO_STATUS_DATE = '22. 10. 2026';
 
-// R3: the list of the Brno city districts (29). Source given by the author on 31.10.2026: the Czech Wikipedia list (names 1–15) completed with the other 14 names read from the map of the city districts the author sent (names match the map); replace the source by brno.cz / Statut města Brna when it is reachable. Shape: { count, source: { label, url }, names: [...] }.
-export const NICHE_REALTY_BRNO_R3: null | { count: number; lead: string; source: { label: string; url: string }; names: { name: string; url: string }[] } = {
+// The list of the Brno city districts (29), for the future article. Source given by the author on 31.10.2026: the Czech Wikipedia list (names 1–15) completed with the other 14 names read from the map of the city districts the author sent (names match the map); replace the source by brno.cz / Statut města Brna when it is reachable. Shape: { count, source: { label, url }, names: [...] }.
+export const NICHE_REALTY_BRNO_DISTRICTS: null | { count: number; lead: string; source: { label: string; url: string }; names: { name: string; url: string }[] } = {
   count: 29,
   lead: 'Městské části Brna, celkem 29, podle seznamu:',
   source: { label: 'Seznam městských částí Brna (Wikipedie)', url: 'https://cs.wikipedia.org/wiki/Seznam_m%C4%9Bstsk%C3%BDch_%C4%8D%C3%A1st%C3%AD_Brna' },
@@ -71,9 +70,6 @@ const raw = {
   doAnswer: 'Řeším, aby byl web realitní kanceláře srozumitelný pro vyhledávače i AI: samostatné stránky nabídek a lokalit, správnou indexaci a odstranění duplicit, například u filtrů a prodaných nabídek, jasně popsané služby a odpovědi na časté otázky. Mapy a místní profily řeším samostatnou službou. Každý krok vysvětlím, výsledek nezaručuji.',
   doMaps: 'Mapy a místní profily:',
   doMapsLink: 'SEO pro Mapy',
-
-  districtsTitle: 'Jak má realitní kancelář v Brně pracovat s městskými částmi?',
-  districtsAnswer: 'Brno se dělí na městské části. Stránka lokality by měla používat oficiální název městské části a uvádět jen to, co kancelář o lokalitě skutečně ví a může doložit: nabídky, které tam má, a vlastní zkušenost. Stránky lokalit nemají být psané šablonou se zaměněným názvem, taková stránka je pro čtenáře zbytečná.',
 
   expTitle: 'Jaké mám zkušenosti s weby nemovitostí?',
   expAnswer: 'V říjnu 2026 jsem zpracoval SEO audit a strategii na 12 měsíců pro web z oboru nemovitostí. Z Prahy mohu ukázat rozbor webu malé realitní kanceláře jako příklad postupu, ne jako výsledek pro Brno. Případová studie z Prahy je uvedena s touto poznámkou.',

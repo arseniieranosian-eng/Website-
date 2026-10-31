@@ -7,7 +7,7 @@ const URL_PATH = '/seo-pro-realitni-kancelare-brno/';
 const FILE = 'dist/seo-pro-realitni-kancelare-brno/index.html';
 const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Brně: poptávky z Googlu a AI';
 const TITLE = 'SEO pro realitní kanceláře Brno: GEO/AEO | Eranosian';
-const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, čtvrti a městské části, indexace, FAQ. Bez slibů. Požádejte o bezplatný technický audit.';
+const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Bez slibů. Požádejte o bezplatný technický audit.';
 const ready = /nicheRealtyBrno: true/.test(readFileSync('src/i18n/routes.ts', 'utf8').split('NICHE_READY =')[1].split('\n')[0]);
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s ]+/g, ' ').trim();
@@ -21,7 +21,7 @@ if (!ready) {
   if (readFileSync('dist/sitemap.xml', 'utf8').includes('seo-pro-realitni-kancelare-brno')) e('page in the sitemap');
   for (const f of ['dist/index.html', 'dist/seo-pro-realitni-kancelare-praha/index.html']) if (readFileSync(f, 'utf8').includes('seo-pro-realitni-kancelare-brno')) e(`link to the unpublished page in ${f}`);
   if (errors.length) { console.error('✗ check-niche-realty-brno-cs:\n  - ' + errors.join('\n  - ')); process.exit(1); }
-  console.log('✓ check-niche-realty-brno-cs: page not published (R3 pending), nothing leaks');
+  console.log('✓ check-niche-realty-brno-cs: page not published (pending), nothing leaks');
   process.exit(0);
 }
 
@@ -37,11 +37,7 @@ const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)"/g)].map((m
 if (alts.some((a) => !['cs', 'cs-CZ', 'x-default'].includes(a))) e(`hreflang: ${alts}`);
 if ((main.match(/<h1[ >]/g) || []).length !== 1 || txt((main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]) !== H1) e('H1');
 const hs = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
-const SECTIONS = ['Co jsem viděl v Brně?', 'Co pro realitní kancelář v Brně konkrétně dělám?', 'Jak má realitní kancelář v Brně pracovat s městskými částmi?', 'Jaké mám zkušenosti s weby nemovitostí?', 'Jak spolupracuji s realitními kancelářemi a kolik to stojí?', 'Co zahrnuje bezplatný audit?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
-// R3: the official list of the Brno city districts (names, count and a link to the official source) must stand under the H2-3 answer
-const r3 = (main.match(/Jak má realitní kancelář v Brně pracovat s městskými částmi\?[\s\S]*?<\/section>/) || [''])[0];
-const r3n = [...r3.matchAll(/<li>/g)].length;
-if (r3n !== 29 || [...r3.matchAll(/<li><a href="https:\/\/cs\.wikipedia\.org\/wiki\/Brno-/g)].length !== 29 || !/href="https:\/\/[^"]+"/.test(r3)) e('R3 (official list of the Brno districts with a link to the source) is missing: the page must not be published without it');
+const SECTIONS = ['Co jsem viděl v Brně?', 'Co pro realitní kancelář v Brně konkrétně dělám?', 'Jaké mám zkušenosti s weby nemovitostí?', 'Jak spolupracuji s realitními kancelářemi a kolik to stojí?', 'Co zahrnuje bezplatný audit?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 // direct answers 40–60 words
 for (const m of main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)) { const n = words(txt(m[1])); if (n < 40 || n > 60) e(`answer length ${n}: ${txt(m[1]).slice(0, 50)}`); }
