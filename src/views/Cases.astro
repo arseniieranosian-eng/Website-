@@ -40,7 +40,7 @@ const collection = {
 <Base {...pageProps('cases', lang)} schema={[collection]}>
   <PageHero h1={m.h1} lead={C.lead} />
   <section class="section section--tight">
-    <div class="container stack">{items.map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" />)}</div>
+    <div class="container stack">{items.map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" large={lang === 'cs'} />)}</div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
   <CzechNote lang={lang} pageKey={'cases'} />

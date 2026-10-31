@@ -4,15 +4,25 @@ import { META } from '../i18n/meta';
 import { path, type Lang } from '../i18n/routes';
 import CaseArt from './CaseArt.astro';
 import { t } from '../i18n/ui';
-interface Props { lang: Lang; caseKey?: CaseStudy['key']; heading?: 'h2' | 'h3' }
-const { lang, caseKey = 'caseKb', heading = 'h3' } = Astro.props;
+interface Props { lang: Lang; caseKey?: CaseStudy['key']; heading?: 'h2' | 'h3'; large?: boolean }
+const { lang, caseKey = 'caseKb', heading = 'h3', large = false } = Astro.props;
 const c = caseByKey(caseKey);
 const H = heading;
 const ART: Record<string, string> = { caseKb: 'kb', caseHalf: 'half', caseTypo: 'typo', caseEdu: 'edu', caseSeason: 'season', caseRazbor: 'razbor' };
+// Large mode (the cases page, Czech): a bigger illustration in its own column; the first case has a picture with the three branches (an illustration, not a photo of the client).
+const PHOTO: Record<string, { src: string; alt: string }> = {
+  caseKb: { src: '/images/cases/kb-3-pobocky.webp', alt: 'Ilustrace: mapa České republiky se třemi pobočkami agentury, Praha, Pardubice a Brno' },
+};
+const photo = large && lang === 'cs' ? PHOTO[c.key] : undefined;
 ---
-<a class="card card--link case-teaser" href={path(c.key, lang)}>
+<a class:list={['card card--link case-teaser', large && 'case-teaser--large']} href={path(c.key, lang)}>
+  {large && (
+    <div class="case-teaser__media">
+      {photo ? <img src={photo.src} width="768" height="840" alt={photo.alt} loading="lazy" decoding="async" /> : <CaseArt kind={ART[c.key]} />}
+    </div>
+  )}
   <div>
-    <CaseArt kind={ART[c.key]} />
+    {!large && <CaseArt kind={ART[c.key]} />}
     <p class="eyebrow">{t(lang).relatedCase} · {c.industry[lang]}</p>
     <H>{META[c.key][lang].h1}</H>
     <p>{c.teaser[lang]}</p>
