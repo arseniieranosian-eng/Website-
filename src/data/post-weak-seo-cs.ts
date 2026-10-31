@@ -2,7 +2,7 @@
 // Informational: the author's observations (mid-March to mid-September 2026, queries "překlady Praha / Brno / Pardubice", top 10–15) and hypotheses, no proof of a cause, no promise that the competitor is easy to beat.
 // Title 51 → shortened to 47 characters for the site-wide limit (≤55) and to carry the main keyword "proč je konkurence před mnou". Defaults taken: the total number of checks is not given, no company size, no names in the text
 // or in the caption of the video (the names are visible only inside the video and on its poster: the author's decision [?]7), no VideoObject, one link to the Google documentation (paraphrase, no quotation, the link is not
-// marked as verified: the page could not be opened from the build environment). The Pardubice data are given as an observation without a client name and without dates.
+// marked as verified: the page could not be opened from the build environment). The poster of the video is a neutral card without company names (the original poster of the niche pages shows a company logo and URL). The Pardubice data are given as an observation without a client name and without dates.
 import { walk } from '../lib/cs-typo';
 
 // First publication of this address; do NOT bump it when the page is edited (dateModified comes from git).
@@ -26,7 +26,7 @@ const raw = {
 
   videoTitle: 'Jak vypadají weby dvou z těchto agentur?',
   videoAnswer: 'Video na YouTube ukazuje weby dvou překladatelských agentur, které se objevují ve vyhledávání, a co na nich z hlediska SEO vidím. Je to můj osobní rozbor, ne měření ani žebříček. Co z něj plyne, jsou domněnky, ne příčiny. Výsledek pro váš web z něj odvodit nelze.',
-  video: { youtube: 'l2-SXybLlss', poster: '/media/rozbor-webu-prekladatelskych-agentur-poster.webp', width: 1280, height: 652, alt: 'Náhled videa: rozbor webů dvou překladatelských agentur', playLabel: 'Přehrát video: rozbor webů dvou překladatelských agentur', frameTitle: 'Rozbor webů dvou překladatelských agentur', openLabel: 'Otevřít video na YouTube', note: 'Video, 9 minut, natočeno v červnu 2026' },
+  video: { youtube: 'l2-SXybLlss', poster: '/media/slabe-seo-video-poster.webp', width: 1280, height: 652, alt: 'Náhled videa: rozbor webů dvou překladatelských agentur', playLabel: 'Přehrát video: rozbor webů dvou překladatelských agentur', frameTitle: 'Rozbor webů dvou překladatelských agentur', openLabel: 'Otevřít video na YouTube', note: 'Video, 9 minut, natočeno v červnu 2026' },
 
   whyTitle: 'Proč mohou být vpředu i weby s nedostatky?',
   whyAnswer: 'Google podle své dokumentace používá mnoho faktorů a signálů, takže pozici neurčuje jen to, co je na webu vidět. Proč byl konkrétní web vpředu, nevím. Domněnka: blog na prvních dvou místech může být jedním ze signálů, ale nemohu to prokázat. Silnější signály jinde z výsledků nepoznám.',
