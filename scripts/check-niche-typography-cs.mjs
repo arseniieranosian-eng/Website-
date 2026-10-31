@@ -3,6 +3,7 @@
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/seo-pro-tiskarny-a-polygrafii/';
 const NAME = 'SEO a GEO/AEO pro tiskárny a polygrafii'; // the breadcrumb label (META name)
 const H1 = 'SEO a GEO/AEO pro tiskárny a polygrafii: poptávky z Googlu a AI';
@@ -44,7 +45,7 @@ for (const l of ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/'
 if (cnt(/href="\/pripadove-studie\/seo-tiskarna\/"/g) < 1 || cnt(/href="\/pripadove-studie\/seo-tiskarna\/"/g) > 2) e('case link 1–2 times');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy') || !lead.endsWith('nelze zaručit.')) e('hero lead');
+if (lead !== SUM['/seo-pro-tiskarny-a-polygrafii/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-tiskarny-a-polygrafii/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Lists and tables
 const ols = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];

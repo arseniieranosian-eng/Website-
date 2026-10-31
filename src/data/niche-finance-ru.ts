@@ -1,3 +1,4 @@
+import SUMMARIES from './niche-summaries.json';
 // Russian niche landing page /ru/seo-dlya-finansovyh-konsultantov-chehiya/ "SEO для финансовых консультантов в Чехии" (brief of 24.10.2026; ru only, hreflang self-reference only).
 // Own structure like the accounting page: query table, causes, checklist, YMYL note (one Google source, checked 24.10.2026), GEO/AEO, roles, formats table, price/timing, fit, FAQ.
 // The author is not a finance specialist and gives no financial advice: the texts on financial topics are written and approved by the consultant. No prices, no search
@@ -15,7 +16,7 @@ export const NICHE_FINANCE_RU = {
   authorName: 'Арсений Ераносьян',
   updatedLabel: 'Обновлено',
 
-  lead: 'Я делаю SEO и GEO/AEO для финансовых консультантов в Чехии: разделяю услуги по отдельным страницам, готовлю структуру, FAQ и техническую часть сайта, чтобы консультанта лучше находили в поиске и в ответах ИИ. Тексты по финансовым темам пишет и согласует сам консультант. Гарантий нет.',
+  lead: SUMMARIES['/ru/seo-dlya-finansovyh-konsultantov-chehiya/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Заказать бесплатный технический аудит',
   heroConsulting: 'Консультация',
 

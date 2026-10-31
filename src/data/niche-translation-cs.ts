@@ -5,6 +5,7 @@
 // Reviews: none from translation agencies exist in the shared source, so the block is a link to all reviews. The video block (9 min, real
 // companies) is rendered only when NICHE_VIDEO is set: until then no chapters, observations, transcript or VideoObject exist. The "Další města"
 // block (Brno, Pardubice) appears when those pages are published. The quote is a draft for the author's approval.
+import SUMMARIES from './niche-summaries.json';
 import { HALF_FORMULA_CS } from './case-summary';
 import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS } from './niche-shared';
 import { walk } from '../lib/cs-typo';
@@ -40,7 +41,7 @@ const raw = {
   updatedLabel: 'Aktualizováno',
 
   showWhy: false,
-  lead: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Praze. Stavím stránky jazykových párů, služeb pro firmy a měst, hlídám indexaci jazykových verzí a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.',
+  lead: SUMMARIES['/seo-pro-prekladatelske-agentury-praha/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Chci bezplatný audit',
   heroVideoLink: 'Podívat se na rozbor webů',
   videoTitle: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?',

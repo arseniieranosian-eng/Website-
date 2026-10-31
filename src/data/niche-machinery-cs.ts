@@ -3,6 +3,7 @@
 // Short link from the author (without tracking parameters), languages (answer of 25.10.2026): cs, en, ru, uk, de; the author does not speak uk / de, only understands them, so the page says he works on indexation and structure of the versions and writes no texts in uk / de (nothing about the German market or exports), no funnel articles yet,
 // no observations of manufacturers' sites. The Title is shortened to <= 55 characters (the site rule of 25.10.2026). No guarantees (enquiries, positions, orders, AI citation), no prices, no competitors / portals / catalogues,
 // nothing about certificates, "agentura" never about the author, only "SEO a GEO/AEO". The findings of the audit example are quoted as on the audit page. Review every 90 days (23. 1. 2027).
+import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited.
@@ -17,7 +18,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
-  lead: 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: technický základ webu, stránky technologií a možností, PDF katalogy a poptávkový formulář. Začíná se bezplatným technickým auditem. Poptávky, pořadí ani citování umělou inteligencí zaručit nelze.',
+  lead: SUMMARIES['/seo-pro-strojirenske-firmy/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Objednat bezplatný technický audit',
 
   diffTitle: 'Čím se SEO strojírenské firmy liší od jiných oborů?',

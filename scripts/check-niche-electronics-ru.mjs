@@ -4,6 +4,7 @@
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/ru/seo-dlya-magazinov-elektroniki-praga/';
 const H1 = 'SEO и GEO/AEO для магазинов электроники в Праге: заказы из Google и ИИ';
 const NAME = 'SEO для магазинов электроники';
@@ -48,9 +49,9 @@ if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing 
 // First screen: the lead with the disclaimer, then the "no results" line, both before the button
 const heroEnd = main.indexOf('btn btn--primary');
 const hero = txt(main.slice(0, heroEnd));
-if (!hero.includes('Число заказов и позиции не гарантирую.')) e('the disclaimer and the "no results" line are in the hero');
+if (!hero.includes('гарантировать нельзя.')) e('the guarantee disclaimer is in the hero (summary block)');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Делаю SEO и GEO/AEO для магазинов электроники и техники в Праге') || !lead.endsWith('Число заказов и позиции не гарантирую.')) e('hero lead');
+if (lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;
 if (lists(/Что вы получаете:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what you get: 6');

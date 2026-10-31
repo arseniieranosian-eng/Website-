@@ -6,6 +6,7 @@
 // Shared wording (capacity rule, audit, formats, reviews, closing text) comes from niche-shared.ts. No guarantees, no prices in the markup, "já",
 // the word "agentura" is never used about the author. The case uses only the approved formula; the city lines stay empty until the periods and
 // relative figures for Pardubice are confirmed (and no AI Overview / ChatGPT claim). The quote is a draft for the author's approval.
+import SUMMARIES from './niche-summaries.json';
 import { HALF_FORMULA_CS } from './case-summary';
 import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS, NICHE_CAPACITY_DATE_TRANSLATION as NICHE_CAPACITY_DATE } from './niche-shared';
 import { NICHE_READY } from '../i18n/routes';
@@ -48,7 +49,7 @@ const raw = {
   updatedLabel: 'Aktualizováno',
 
   showWhy: false,
-  lead: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích. Stavím stránky jazykových párů, služeb pro firmy a měst, hlídám indexaci jazykových verzí a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.',
+  lead: SUMMARIES['/seo-pro-prekladatelske-agentury-pardubice/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Chci bezplatný audit',
   heroVideoLink: 'Podívat se na rozbor webů',
 

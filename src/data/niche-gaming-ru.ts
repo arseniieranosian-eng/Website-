@@ -3,6 +3,7 @@
 // to the brief's questions): hreflang pair with cs (the site convention adds x-default = cs), slug as in the brief, publication 25.10.2026, NO observation block (no date, no findings), nothing about the languages
 // of clubs' websites, no funnel articles. Safety rules: "компьютерный клуб / киберклуб / киберспортивная арена" only (never the bare "игровой клуб" or "игровые автоматы"), nothing about minors or age rules,
 // no competitors / aggregators / booking platforms, no prices, no case in the niche, "2–3 месяца" only about the author's own projects, "агентство" never about the author, only "GEO/AEO". Review every 90 days (23.01.2027).
+import SUMMARIES from './niche-summaries.json';
 import { GAMING_CAPACITY_DATE_RU as DATE } from './niche-gaming-cs';
 
 export const NICHE_GAMING_RU_PUBLISHED = '2026-10-25';
@@ -14,7 +15,7 @@ export const NICHE_GAMING_RU = {
   authorName: 'Арсений Ераносьян',
   updatedLabel: 'Обновлено',
 
-  lead: 'Делаю SEO и GEO/AEO для компьютерных клубов, киберклубов и киберспортивных арен в Праге: технический базис сайта, страницы тарифов, бронирования и акций, ответы на частые вопросы и подготовку к упоминанию в ответах ИИ. Начинаем с бесплатного технического аудита. Клиентов и позиции не гарантирую.',
+  lead: SUMMARIES['/ru/seo-dlya-kompyuternyh-klubov-praga/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Хочу бесплатный технический аудит',
 
   diffTitle: 'Чем SEO компьютерного клуба отличается от других ниш?',

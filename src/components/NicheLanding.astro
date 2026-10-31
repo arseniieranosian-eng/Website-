@@ -31,7 +31,7 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     <div class="container narrow">
       <h1>{META[pageKey][lang].h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
-      <p class="lead">{C.lead}</p>
+      <div class="summary-box"><p class="lead">{C.lead}</p></div>
       <div class="btn-row">
         <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         {V && <a class="link-arrow" href="#rozbor-webu">{C.heroVideoLink}</a>}

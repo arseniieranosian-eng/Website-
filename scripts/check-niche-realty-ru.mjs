@@ -3,6 +3,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/ru/seo-dlya-agentstv-nedvizhimosti-praga/';
 const CS_PATH = '/seo-pro-realitni-kancelare-praha/';
 const NAME = 'SEO для агентств недвижимости в Праге'; // the breadcrumb label (META name)
@@ -49,7 +50,7 @@ if (/href="\/(?:ru\/)?blog\/|<form/.test(main)) e('no blog links, no form');
 if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt)) e('"агентство" about the author');
 // Hero
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== 'Я занимаюсь SEO и GEO/AEO для агентств недвижимости в Праге: улучшаю страницы объектов и районов, слежу за индексацией и дублями, работаю с Google Maps и Mapy.com. Начинаем с бесплатного аудита технических ошибок, без звонка и обязательств. Презентацию присылаю в течение 24 часов.') e('hero lead');
+if (lead !== SUM['/ru/seo-dlya-agentstv-nedvizhimosti-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-agentstv-nedvizhimosti-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Хочу бесплатный аудит<\/a>/.test(hero)) e('hero: button, no quote');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');

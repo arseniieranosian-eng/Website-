@@ -55,6 +55,11 @@ const svc = nodes.find((n) => n['@type'] === 'Service');
 if (!svc || svc.areaServed !== 'Brno' || svc.offers) e('Service: areaServed Brno, no offers');
 const wp = nodes.find((n) => n['@type'] === 'WebPage');
 if (!wp || wp.name !== H1 || wp.inLanguage !== 'cs') e('WebPage name = H1, inLanguage cs');
+// summary block ("Stručně"): the approved text, framed, right under the H1 and before the first H2
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'))[URL_PATH];
+const sum = txt((main.match(/<div class="summary-box"><p class="lead">([\s\S]*?)<\/p><\/div>/) || [, ''])[1]);
+if (sum.replace(/\u00a0/g, ' ') !== SUM || main.indexOf('summary-box') > main.indexOf('<h2')) e('summary block: text and position');
+if (words(sum) < 40 || words(sum) > 60 || /\d/.test(sum.replace(/24/g, ''))) e('summary block: 40–60 words, no numbers except 24');
 // content rules
 for (const w of ['top 1', 'první místo', 'garantovaně', 'obejdeme', 'hodně poptávek', 'rychle', 'DPH', 'pracovní dny', 'více klientů', 'Praha', 'v Praze']) if (new RegExp(w, 'i').test(mainTxt.replace(/pracuji z Prahy|osobně v Praze|pro Prahu/g, ''))) e(`forbidden: ${w}`);
 if (/\b(jsem|moje|naše|moji)\b[^.]{0,30}\bagentur/i.test(mainTxt.replace(/pro překladatelskou agenturu|U překladatelské agentury/g, ''))) e('"agentura" about the author');

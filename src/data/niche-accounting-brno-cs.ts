@@ -3,6 +3,7 @@
 // "účetní kancelář Brno", WAITING for the author's data). Until B2 is filled in `NICHE_ACCOUNTING_BRNO_B2` the flag stays false and the page is not built, not in the menu and not in the sitemap.
 // Own structure from the brief; text of the Prague page is not reused. Decisions applied from the author's standing rules: no "no results in the niche" statements (29.10.2026),
 // no guarantees, no client / competitor names, no address in Brno, "agentura" never about the author, GEO/AEO always together. hreflang: self only (cs).
+import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
@@ -30,7 +31,7 @@ const raw = {
   // line under the H1 (rule B): the translation-agency case only; Brno is not mentioned here
   proof: 'U překladatelské agentury: poptávky z formulářů +65–70 % měsíc po měsíci tři měsíce po sobě (březen–září 2026).',
   proofLink: 'případová studie',
-  lead: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Brně. Cílem jsou poptávky z Googlu a AI, výsledek ani pozici ale nezaručuji.',
+  lead: SUMMARIES['/seo-pro-ucetni-kancelare-brno/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Požádat o bezplatný audit',
   heroConsulting: 'Konzultace',
 

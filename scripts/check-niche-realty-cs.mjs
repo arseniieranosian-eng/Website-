@@ -3,6 +3,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/seo-pro-realitni-kancelare-praha/';
 const NAME = 'SEO pro realitní kanceláře v Praze'; // the breadcrumb label (META name)
 const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Praze: poptávky z Googlu a AI';
@@ -51,7 +52,7 @@ if (/href="\/blog\/(?!(?:proc-prekladatelska-agentura-nema-poptavky|jak-ziskat-k
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 // Hero: the direct answer, the date, the button; no quote, no numbers of the case
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze. Stavím stránky nabídek, čtvrtí a služeb, hlídám indexaci a duplicity a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.') e('hero answer');
+if (lead !== SUM['/seo-pro-realitni-kancelare-praha/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-realitni-kancelare-praha/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 const heroEnd = main.indexOf(SECTIONS[1]);
 const hero = main.slice(0, heroEnd);
 if (/<blockquote|65–70|×3/.test(hero) || !/href="\/audit-zdarma\/">Chci bezplatný audit<\/a>/.test(hero)) e('hero: button, no quote, no case numbers');

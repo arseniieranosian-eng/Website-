@@ -3,6 +3,7 @@
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/seo-pro-pocitacove-herny-praha/';
 const NAME = 'SEO a GEO/AEO pro počítačové herny v Praze'; // the breadcrumb label (META name)
 const H1 = 'SEO a GEO/AEO pro počítačové herny v Praze: rezervace z Googlu a AI';
@@ -51,7 +52,7 @@ if (cnt(/href="\/konzultace\/"/g) !== 1 || cnt(/href="\/seo-a-geo\/"/g) !== 1 ||
 if (cnt(/href="\/start-3-mesice\/"/g) < 1 || cnt(/href="\/full-seo\/"/g) < 1) e('Start / Full SEO linked');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Dělám SEO a GEO/AEO pro počítačové herny, herní kluby a esport arény v Praze') || !lead.endsWith('Zákazníky ani pozice negarantuji.')) e('hero lead');
+if (lead !== SUM['/seo-pro-pocitacove-herny-praha/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-pocitacove-herny-praha/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Lists and tables
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;

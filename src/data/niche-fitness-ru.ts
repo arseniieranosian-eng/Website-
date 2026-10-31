@@ -4,6 +4,7 @@
 // articles yet. The observation of 20.10.2026 (14 sites of online fitness and wellness in Prague) is the author's data and is quoted verbatim; its numbers must not be changed without him. No case in the niche (the author's
 // decision), no quote, no health / medical / diet claims ("wellness" always as studios and online services), no competitors / platforms / apps / brands, no guarantees, "агентство" never about the author, only "GEO/AEO".
 // Prices come from the single sources of the service pages. Review every 90 days and at any price change (23.01.2027).
+import SUMMARIES from './niche-summaries.json';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
@@ -24,7 +25,7 @@ export const NICHE_FITNESS_RU = {
   authorName: 'Арсений Ераносьян',
   updatedLabel: 'Обновлено',
 
-  lead: 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: технический базис сайта, FAQ, адреса страниц, заголовки в формате вопросов, блог и подготовку к цитированию в ответах ИИ. Начинаем с бесплатного технического аудита, без созвона и обязательств. Число записей и позиции не гарантирую.',
+  lead: SUMMARIES['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Хочу бесплатный технический аудит',
 
   helpTitle: 'С чем я помогаю онлайн-фитнесу и wellness в Праге?',

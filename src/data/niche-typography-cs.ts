@@ -3,6 +3,7 @@
 // is taken to cover this block as on the case page, "/seo-a-geo/" for the GEO/AEO link, no observations of the 9 viewed websites (no date and no findings: the block is absent), no quote, no prices, no funnel articles
 // yet. The capacity line is dated 24. 10. 2026 as in the brief. No guarantees (positions, traffic, enquiries, AI citation), "agentura" never about the author, only "SEO a GEO/AEO", "2–3 měsíce" only about the author's
 // own projects, no city, no "ofset", no client name, no absolute figures of the case. Review every 90 days (23. 1. 2027).
+import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited.
@@ -16,7 +17,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
-  lead: 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: technický základ webu, mapu dotazů podle nákupního trychtýře a vstupní stránky pro katalog, varianty produktů a kalkulačky, doplněné o FAQ a přímé odpovědi pro AI. Začíná se bezplatným technickým auditem. Výsledek ani citování umělou inteligencí nelze zaručit.',
+  lead: SUMMARIES['/seo-pro-tiskarny-a-polygrafii/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Objednat bezplatný technický audit',
 
   diffTitle: 'Čím se SEO tiskárny liší od jiných oborů?',

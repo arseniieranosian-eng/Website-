@@ -8,6 +8,7 @@
 // Instagram are the ones of the case page; she is the owner of the partner agency of the translation case, so the relationship is disclosed). Defaults taken: publication as in the brief, the maps block included, NO observation block (no data), NO "Související články", NO VAT statement (the service pages
 // do not say whether the prices include it), the translation-agency client's consent is assumed to cover this line as the case page (open question 9), the audit video is only linked (text link to the example on /audit-zdarma/, described as an example of an e-shop audit, not as a case). No Heureka / Zboží.cz (only "srovnávače"),
 // no brands / shops / competitors, no guarantees, "agentura" never about the author, only "SEO a GEO/AEO", no Product/Offer, "2–3 měsíce" only about the author's own projects. Review every 90 days and at any price change (23. 1. 2027).
+import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
@@ -29,7 +30,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
-  lead: 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: technický základ e-shopu, kategorie, filtry, varianty produktů, odpovědi na časté dotazy a přípravu na doporučení v odpovědích AI. Začíná se bezplatným technickým auditem, bez hovoru a bez závazku. Počet objednávek ani pozice negarantuji.',
+  lead: SUMMARIES['/seo-pro-obchody-s-elektronikou/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Chci bezplatný technický audit',
 
   diffTitle: 'Čím se SEO obchodu s technikou liší od jiných oborů?',

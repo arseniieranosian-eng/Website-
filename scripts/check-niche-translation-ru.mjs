@@ -3,6 +3,7 @@
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/ru/seo-dlya-perevodcheskih-agentstv-praga/';
 const CS_PATH = '/seo-pro-prekladatelske-agentury-praha/';
 const NAME = 'SEO для переводческих агентств в Праге'; // the breadcrumb label (META name)
@@ -45,7 +46,7 @@ for (const l of ['/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/
 if (cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) < 1 || cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) > 2) e('case link 1–2 times');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Делаю SEO и GEO/AEO для бюро переводов и переводческих агентств в Праге') || !lead.endsWith('с цифрами и условиями.')) e('hero lead');
+if (lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Steps, H3s, case lines, audit table + checklist
 if ([...(main.match(/<ol class="steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><span>/g)].length !== 4) e('four steps');

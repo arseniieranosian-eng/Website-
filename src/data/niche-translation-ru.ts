@@ -4,6 +4,7 @@
 // facts already published on the Czech page and in the RU cases (Brno / Pardubice end-of-project lines, the language split, the AI Overview snapshot of 16.10.2026) are used; the number of branches in FAQ 4
 // as in the published case. The "×24" line stands alone with its window (spring → summer 2026) and is never merged with +65–70 %. No client or agency names, no absolute figures, no competitors, no
 // legal conclusions, no guarantees, "агентство" never about the author, only "GEO/AEO". The capacity status (24.10.2026) is the same on cs / ru. Review every 90 days (23.01.2027).
+import SUMMARIES from './niche-summaries.json';
 import { NICHE_CAPACITY_DATE_TRANSLATION_RU as DATE } from './niche-shared';
 
 // Publication date of this address (the brief: 25.10.2026); do NOT bump it when the page is edited.
@@ -16,7 +17,7 @@ export const NICHE_TRANSLATION_RU = {
   authorName: 'Арсений Ераносьян',
   updatedLabel: 'Обновлено',
 
-  lead: 'Делаю SEO и GEO/AEO для бюро переводов и переводческих агентств в Праге: страницы языковых пар, языковые версии сайта, страницы услуг и B2B-заявок. Начинаем с бесплатного технического аудита. Результат и цитирование искусственным интеллектом гарантировать нельзя, ниже есть кейс по этой нише с цифрами и условиями.',
+  lead: SUMMARIES['/ru/seo-dlya-perevodcheskih-agentstv-praga/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Заказать бесплатный технический аудит',
 
   whyTitle: 'Зачем переводческим агентствам SEO?',

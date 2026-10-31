@@ -3,6 +3,7 @@
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/seo-pro-obchody-s-elektronikou/';
 const H1 = 'SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI';
 const TITLE = 'SEO pro obchody s elektronikou a technikou | Eranosian';
@@ -46,7 +47,7 @@ if (cnt(/href="\/konzultace\/"/g) < 1 || cnt(/href="\/seo-a-geo\/"/g) !== 1 || c
 if (cnt(/href="\/start-3-mesice\/"/g) < 1 || cnt(/href="\/full-seo\/"/g) < 1) e('Start / Full SEO linked');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou') || !lead.endsWith('Počet objednávek ani pozice negarantuji.')) e('hero lead (the disclaimer is on the first screen)');
+if (lead !== SUM['/seo-pro-obchody-s-elektronikou/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-obchody-s-elektronikou/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 // Proof line (v3): only "no results in this niche" (the translation case is not used on the pair of pages), no figures
 if (/výsledky nemám/.test(mainTxt) || /překladatelsk|65–70/.test(mainTxt)) e('proof line: no results in the niche, no case');
 if (/×24|×3|8,75|1 200|10 500/.test(mainTxt)) e('no ×24 / ×3 / the print-shop figures');

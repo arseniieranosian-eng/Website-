@@ -4,6 +4,7 @@
 import { readFileSync } from 'node:fs';
 
 const BASE = 'https://seo-eranosian.com';
+const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/ru/seo-dlya-kompyuternyh-klubov-praga/';
 const CS_PATH = '/seo-pro-pocitacove-herny-praha/';
 const H1 = 'SEO и GEO/AEO для компьютерных клубов в Праге: бронирования из Google и ИИ';
@@ -47,7 +48,7 @@ for (const l of ['/ru/konsultacii/', '/ru/seo-i-geo/', '/ru/karty/']) if (cnt(ne
 if (cnt(/href="\/ru\/start-3-mesyaca\/"/g) < 1 || cnt(/href="\/ru\/full-seo\/"/g) < 1) e('Start / Full SEO linked');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (!lead.startsWith('Делаю SEO и GEO/AEO для компьютерных клубов, киберклубов и киберспортивных арен в Праге') || !lead.endsWith('Клиентов и позиции не гарантирую.')) e('hero lead');
+if (lead !== SUM['/ru/seo-dlya-kompyuternyh-klubov-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-kompyuternyh-klubov-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 40 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;
 if (lists(/Что я делаю для компьютерного клуба\?[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what I do: 6 bullets');

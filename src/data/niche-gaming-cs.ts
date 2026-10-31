@@ -3,6 +3,7 @@
 // brief, NO observation block (the 12 viewed sites have no date and no findings), NO link to the audit video of the related niche (the author's decision is open), no "Související články" block, no consultation sentence
 // next to the maps. Safety rules: always "počítačová herna / herní klub / gaming klub / esport aréna" (the bare "herna" is never used: gambling ambiguity), nothing about minors, age limits, children's birthdays or safety,
 // no competitors / aggregators / booking platforms, no prices, no case in the niche, "2–3 měsíce" only about the author's own projects, "agentura" never about the author, only "SEO a GEO/AEO". Review every 90 days (23. 1. 2027).
+import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited.
@@ -17,7 +18,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
-  lead: 'Dělám SEO a GEO/AEO pro počítačové herny, herní kluby a esport arény v Praze: technický základ webu, stránky tarifů, rezervací a akcí, odpovědi na časté dotazy a přípravu na doporučení v odpovědích AI. Začíná se bezplatným technickým auditem. Zákazníky ani pozice negarantuji.',
+  lead: SUMMARIES['/seo-pro-pocitacove-herny-praha/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Chci bezplatný technický audit',
 
   diffTitle: 'Čím se SEO počítačové herny liší od jiných oborů?',

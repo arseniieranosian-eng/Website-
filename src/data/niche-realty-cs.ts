@@ -7,6 +7,7 @@
 // The build stops if the flag is on and the market observations are missing. Shared wording (capacity rule, audit "not" list, formats, reviews,
 // closing text) comes from niche-shared.ts. No guarantees, no prices, no blog links, "já", the word "agentura" is never used about the author.
 // The quote is a draft for the author's approval.
+import SUMMARIES from './niche-summaries.json';
 import { NICHE_SHARED_CS, NICHE_CAPACITY_DATE } from './niche-shared';
 import { NICHE_READY } from '../i18n/routes';
 import { walk } from '../lib/cs-typo';
@@ -63,7 +64,7 @@ const raw = {
 
   showWhy: false,
   showAreas: false,
-  lead: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze. Stavím stránky nabídek, čtvrtí a služeb, hlídám indexaci a duplicity a pracuji s Google Maps i Mapy.com. Začínáme bezplatným auditem technických chyb, bez hovoru a bez závazků. Prezentaci posílám do 24 hodin.',
+  lead: SUMMARIES['/seo-pro-realitni-kancelare-praha/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Chci bezplatný audit',
   heroVideoLink: 'Podívat se na rozbor webů',
 

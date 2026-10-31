@@ -4,6 +4,7 @@
 // for accounting is "volno" (dated 31. 10. 2026), daňoví poradci may be named in the audience (the advertising rules for them are NOT checked: nothing legal is
 // written), no reel / video, no English version for now. No guarantees, no own case in this niche (said openly), no blog links, no "více klientů", the word
 // "agentura" is never used about the author, GEO/AEO always together. hreflang: none (Czech only).
+import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { NICHE_READY } from '../i18n/routes';
 import { START_PRICE } from './start-shared';
@@ -25,7 +26,7 @@ const raw = {
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',
 
-  lead: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze. Pomáhám webu, aby ho vyhledávače i odpovědi AI chápaly jako konkrétní služby, ne jednu obecnou stránku. Začínáme bezplatným auditem technických chyb. Pozice ani poptávky neslibuji.',
+  lead: SUMMARIES['/seo-pro-ucetni-kancelare-praha/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Požádat o bezplatný audit',
   heroConsulting: 'Konzultace',
 

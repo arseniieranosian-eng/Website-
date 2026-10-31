@@ -3,6 +3,7 @@
 // the translation case too, default of the brief). Defaults taken (no answers to the brief's open questions): slug as in the brief, the observation block of 15.10.2026 (12 sites, the author's qualitative findings, NO counts, no city: it is not stated that all 12 are from Prague), no funnel articles, nothing about VAT,
 // no brands / shops / competitors / Heureka / Zboží.cz, no quote, no Product/Offer, nothing about the metrics "звонки, маршруты, переходы" (the RU service pages do not state them). The Title is shortened to <= 55 characters and the
 // Description to <= 150 (the site rule of 25.10.2026). Prices come from the single sources of the service pages. Review every 90 days and at any price change (23.01.2027).
+import SUMMARIES from './niche-summaries.json';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
 import { FULLSEO_MONTHLY } from './fullseo-shared';
@@ -23,7 +24,7 @@ export const NICHE_ELECTRONICS_RU = {
   authorName: 'Арсений Ераносьян',
   updatedLabel: 'Обновлено',
 
-  lead: 'Делаю SEO и GEO/AEO для магазинов электроники и техники в Праге: технический базис интернет-магазина, категории, фильтры, варианты товаров, ответы на частые вопросы и подготовку к цитированию в ответах ИИ. Начинаем с бесплатного технического аудита, без созвона и обязательств. Число заказов и позиции не гарантирую.',
+  lead: SUMMARIES['/ru/seo-dlya-magazinov-elektroniki-praga/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Хочу бесплатный технический аудит',
 
   helpTitle: 'С чем я помогаю магазинам электроники в Праге?',

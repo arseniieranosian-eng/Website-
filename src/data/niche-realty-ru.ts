@@ -6,6 +6,7 @@
 // client's pages; the slide about bought links is not used. The brief's "(д)" analysis of the Russian-language results does not exist: the page shows
 // the dated analysis of the Czech query "realitní kancelář Praha" and says so. No guarantees, no prices in the text, "я", the word "агентство" is never
 // used about the author. The quote is a draft for the author's approval.
+import SUMMARIES from './niche-summaries.json';
 import { NICHE_SHARED_RU as SH, NICHE_CAPACITY_DATE_RU as DATE } from './niche-shared';
 
 export const NICHE_REALTY_RU_PUBLISHED = '2026-10-22';
@@ -19,7 +20,7 @@ export const NICHE_REALTY_RU = {
 
   showWhy: false,
   showAreas: false,
-  lead: 'Я занимаюсь SEO и GEO/AEO для агентств недвижимости в Праге: улучшаю страницы объектов и районов, слежу за индексацией и дублями, работаю с Google Maps и Mapy.com. Начинаем с бесплатного аудита технических ошибок, без звонка и обязательств. Презентацию присылаю в течение 24 часов.',
+  lead: SUMMARIES['/ru/seo-dlya-agentstv-nedvizhimosti-praga/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Хочу бесплатный аудит',
   heroVideoLink: '',
 

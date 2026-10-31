@@ -21,7 +21,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h1>{META.nicheGaming.ru.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
-      <p class="lead">{C.lead}</p>
+      <div class="summary-box"><p class="lead">{C.lead}</p></div>
       <div class="btn-row">
         <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
       </div>
