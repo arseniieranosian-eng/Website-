@@ -34,7 +34,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <h2>{C.namesTitle}</h2>
       <p class="answer">{C.namesAnswer}</p>
       <p class="small">Zdroj seznamu: <a href={C.namesSource.url} rel="noopener">{C.namesSource.label}</a></p>
-      <ul class="checks districts-list">{C.names.map((x: string) => <li>{x}</li>)}</ul>
+      <ul class="checks districts-list">{C.names.map((x: { name: string; url: string }) => <li><a href={x.url} rel="noopener">{x.name}</a></li>)}</ul>
     </div>
   </section>
 

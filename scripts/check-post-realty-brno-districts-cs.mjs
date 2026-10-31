@@ -36,7 +36,7 @@ if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.st
 // links: one source link (the list), one link to N6, one button to the Brno landing page; no other service links
 if ((main.match(/href="\/blog\/stranky-ctvrti-a-lokalit-realitni-kancelare\/"/g) || []).length !== 1) e('exactly one link to N6');
 if ((main.match(/href="\/seo-pro-realitni-kancelare-brno\/"/g) || []).length !== 1 || (main.match(/class="btn /g) || []).length !== 1) e('exactly one CTA button to the Brno landing page');
-if ((main.match(/href="https:\/\/cs\.wikipedia\.org\/[^"]+"/g) || []).length !== 1) e('exactly one source link');
+if ((main.match(/href="https:\/\/cs\.wikipedia\.org\/[^"]+"/g) || []).length !== 30) e('30 Wikipedia links: the source of the list and one article for each of the 29 districts');
 if (/href="\/(?:audit-zdarma|konzultace|start-3-mesice|full-seo|lokalni-seo-mapy|seo-pro-realitni-kancelare-praha)\//.test(main)) e('no links to the other services / audit');
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 if (/<form|<video|★|AggregateRating|ratingValue|<blockquote|\[\?\]|\[počet\]/.test(main)) e('no form / video / stars / quote / placeholder');
@@ -55,6 +55,7 @@ for (const hd of SECTIONS.slice(1, 6)) {
 }
 // the list of the 29 districts: exact number, "Brno-Vinohrady" present, the answer names the same number
 const names = [...main.matchAll(/<ul class="checks districts-list">([\s\S]*?)<\/ul>/g)].flatMap((m) => [...m[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((x) => txt(x[1])));
+if ((main.match(/<li><a href="https:\/\/cs\.wikipedia\.org\/wiki\/Brno-/g) || []).length !== 29) e('every district name links to its Wikipedia article');
 if (names.length !== 29 || !names.includes('Brno-Vinohrady') || new Set(names).size !== 29 || names.some((x) => !/^Brno-/.test(x))) e(`district list: ${names.length}`);
 if (!/Seznam 29 městských částí/.test(mainTxt) || !/má Brno celkem 29 městských částí/.test(mainTxt)) e('the number 29 in the answer and in F1');
 // JSON-LD equals the visible text

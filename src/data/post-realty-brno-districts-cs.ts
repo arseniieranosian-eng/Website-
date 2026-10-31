@@ -23,7 +23,7 @@ const raw = {
   namesTitle: 'Z čeho se Brno skládá a které názvy jsou oficiální?',
   namesAnswer: 'Brno se dělí na městské části. Jejich počet a názvy uvádí seznam městských částí Brna, ze kterého vycházím, a na webu je vhodné používat právě tyto názvy a odkázat na zdroj. Seznam 29 městských částí je uvedený níže. Názvy nevymýšlím ani nezkracuji, před použitím si je ověřte na stránkách města Brna.',
   namesSource: DISTRICTS!.source,
-  names: DISTRICTS!.names.map((x) => x.name),
+  names: DISTRICTS!.names,
 
   pageTitle: 'Jak má stránka lokality v Brně vypadat?',
   pageAnswer: 'Stránka lokality má uvádět oficiální název městské části a jen to, co kancelář o lokalitě skutečně ví: nabídky, které tam opravdu má, a vlastní zkušenost. Nemá být šablonou, ve které se mění jen název. Podle zásad Google je problémem tvorba stránek pro podobné dotazy, které čtenáři nepřinášejí hodnotu.',
