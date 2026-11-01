@@ -46,8 +46,8 @@ export const NICHE_CAPACITY_DATE_TRANSLATION = '24. 10. 2026';
 export const NICHE_CAPACITY_DATE_TRANSLATION_RU = '24.10.2026';
 export const NICHE_SHARED_CS_TR = {
   ...NICHE_SHARED_CS,
-  capacityAnswer: NICHE_SHARED_CS.capacityAnswer.replace(NICHE_CAPACITY_DATE, NICHE_CAPACITY_DATE_TRANSLATION),
-  capacityShort: NICHE_SHARED_CS.capacityShort.replace(NICHE_CAPACITY_DATE, NICHE_CAPACITY_DATE_TRANSLATION),
+  capacityAnswer: NICHE_SHARED_CS.capacityAnswer.replace(NICHE_CAPACITY_DATE, NICHE_CAPACITY_DATE_TRANSLATION).replace(`Údaj platí k ${NICHE_CAPACITY_DATE_TRANSLATION} a při změně ho aktualizuji.`, `Stav pro obor překladatelských agentur k ${NICHE_CAPACITY_DATE_TRANSLATION}: volno. Údaj aktualizuji při změně.`),
+  capacityShort: NICHE_SHARED_CS.capacityShort.replace(NICHE_CAPACITY_DATE, NICHE_CAPACITY_DATE_TRANSLATION).replace(`Údaj platí k ${NICHE_CAPACITY_DATE_TRANSLATION}.`, `Stav k ${NICHE_CAPACITY_DATE_TRANSLATION}: volno.`),
 };
 
 // Russian wording of the shared blocks (same rules as the Czech source above: three firms per niche, audit scope, 2–3 months, no guarantees).

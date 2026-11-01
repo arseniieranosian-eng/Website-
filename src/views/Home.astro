@@ -170,6 +170,13 @@ const C = {
               <p>Страницы языковых пар, языковые версии без дублей, страницы услуг и B2B-заявок.</p>
               <span class="link-arrow">{ui.more}</span>
             </a>
+            {NICHE_READY.nicheBrno && (
+              <a class="card card--link" href={path('nicheBrno', lang)}>
+                <h4>SEO для переводческих агентств в Брно</h4>
+                <p>Страницы языковых пар и услуг, языковые версии без дублей и профили на картах.</p>
+                <span class="link-arrow">{ui.more}</span>
+              </a>
+            )}
           </div>
         </div>
         {NICHE_READY.nicheElectronics && (

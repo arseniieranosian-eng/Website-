@@ -1,0 +1,144 @@
+---
+// Russian niche landing page "SEO для переводческих агентств в Брно" (ru), brief of 1.11.2026: the pair of the Czech Brno page (hreflang cs ↔ ru from ONLY_LANGS). Content: data/niche-translation-brno-ru.ts.
+// Own order of the brief: search check, what I do (+ quote), the review video, practice, cooperation, audit, formats with prices, reviews, FAQ, CTA. No form, no VideoObject, no Quotation / HowTo markup.
+import Base from '../layouts/Base.astro';
+import DoArt from '../components/DoArt.astro';
+import ServiceArt from '../components/ServiceArt.astro';
+import YoutubeFacade from '../components/YoutubeFacade.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheTranslationBrnoRuSchemas } from '../lib/schema-niche-translation-brno-ru';
+import { NICHE_TRANSLATION_BRNO_RU as C, NICHE_TRANSLATION_BRNO_RU_PUBLISHED } from '../data/niche-translation-brno-ru';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/NicheTranslationBrnoRuPage.astro', 'src/data/niche-translation-brno-ru.ts', 'src/data/niche-shared.ts'], '2026-11-01'), NICHE_TRANSLATION_BRNO_RU_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const cite = new URL(t('nicheBrno'), site).href;
+---
+<Base {...pageProps('nicheBrno', lang)} schema={nicheTranslationBrnoRuSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.nicheBrno.ru.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <div class="summary-box"><p class="lead">{C.lead}</p></div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.serpTitle}</h2>
+      <p class="answer">{C.serpAnswer}</p>
+      <figure class="post-figure">
+        <img src={C.serpImage.src} width={C.serpImage.width} height={C.serpImage.height} alt={C.serpImage.alt} loading="lazy" decoding="async" />
+        <figcaption>{C.serpImage.caption}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <p class="answer">{C.doAnswer}</p>
+      {C.doParts.map((p) => (
+        <div class="do-item">
+          <DoArt kind={p.art} />
+          <div>
+            <h3>{p.h}</h3>
+            <p>{p.text}{p.link && <>{' '}<a href={t(p.link.page)}>{p.link.text}</a>.</>}</p>
+          </div>
+        </div>
+      ))}
+      <figure class="quote-fig" style="margin-top: 28px">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.videoTitle}</h2>
+      <p class="answer">{C.videoAnswer}</p>
+      <YoutubeFacade {...C.video} />
+      <p>{C.weak.text}{' '}<a href={path('postWeakSeo', 'cs')} hreflang="cs">{C.weak.linkText}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.practiceTitle}</h2>
+      <p class="answer">{C.practiceAnswer}</p>
+      <p>{C.practiceLine}</p>
+      <p><a class="link-arrow" href={t('caseHalf')}>{C.practiceLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopAnswer}</p>
+      <ol class="steps">{C.coopSteps.map((x) => <li><span>{x}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.auditTitle}</h2>
+      <p class="answer">{C.auditAnswer}</p>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.formatsTitle}</h2>
+      <p class="answer">{C.formatsAnswer}</p>
+      <div class="grid grid-2">
+        {C.formats.map((f) => (
+          <a class="card card--link service-card" href={t(f.page)}>
+            <span class="svc-card-art"><ServiceArt kind={f.page} size={96} /></span>
+            <h3>{f.name}</h3>
+            <p>{f.text}</p>
+            <span class="meta">{f.meta}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.reviewsTitle}</h2>
+      <p>{C.reviewsText}{' '}<a href={t('reviews')}>{C.reviewsLink}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p><a href={t('consulting')}>{C.endConsulting}</a></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>

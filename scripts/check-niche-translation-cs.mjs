@@ -34,8 +34,8 @@ const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"
 if (JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `ru ${BASE}/ru/seo-dlya-perevodcheskih-agentstv-praga/`, `x-default ${BASE}${URL_PATH}`])) e('hreflang pair cs ↔ ru: ' + JSON.stringify(alts));
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
-const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x) || /přesto\.cz/.test(x));
-const hsNoVideo = hs.filter((x) => !/přesto\.cz/.test(x));
+const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x) || /dvou překladatelských agentur/.test(x));
+const hsNoVideo = hs.filter((x) => !/dvou překladatelských agentur/.test(x));
 if (JSON.stringify(hsNoVideo) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
@@ -54,13 +54,13 @@ for (const hd of SECTIONS.slice(1, 7)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // Case: approved formula only
-if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026)')) e('case formula');
+if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci (březen–září 2026)')) e('case formula');
 // Case screenshot: the client is covered (no name, address or logo in the text), alt and caption in Czech
 if (!/<img src="\/images\/niche-ai-overview-prekladatelska-agentura\.webp" width="760" height="438" alt="Google AI Overview[^"]*zakryté" loading="lazy"/.test(main) || /KB P|kb-?preklady|Opletalova/i.test(h)) e('case screenshot with the client covered');
 if (!mainTxt.includes('Snímek obrazovky z 16. 10. 2026.')) e('case screenshot: dated 16. 10. 2026');
 if (!/Další články pro agentury<\/h2>[\s\S]*?href="\/blog\/proc-prekladatelska-agentura-nema-poptavky\/"/.test(main)) e('card of the article for agencies');
 // Capacity rule: one source, the date, the three steps
-if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Údaj platí k 24. 10. 2026')) e('capacity rule');
+if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Stav pro obor překladatelských agentur k 24. 10. 2026: volno.')) e('capacity rule');
 if (/zbývá|volných míst|\d ze 3/.test(mainTxt)) e('no counter / places left');
 // Audit
 if (!mainTxt.includes('Bezplatný audit zkontroluje technické chyby webu: indexaci, duplicitní obsah a další technické problémy.') || !mainTxt.includes('Výsledek dostanete jako krátkou prezentaci do 24 hodin')) e('audit wording');
@@ -89,7 +89,7 @@ const visFaq = [...((main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || 
 if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 6 questions');
 if (ld.some((n) => ['AggregateRating', 'Review', 'Offer'].includes(n['@type']))) e('no ratings / reviews / offers');
 const hasVideoBlock = /id="rozbor-webu"/.test(main);
-if (hasVideoBlock && (!/data-youtube="l2-SXybLlss"/.test(main) || !/<img src="\/media\/rozbor-webu-prekladatelskych-agentur-poster\.webp"[^>]*alt="Náhled videa/.test(main) || !/Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes <a href="\/kontakt\/">kontaktní stránku<\/a>\./.test(main))) e('video block: YouTube id, poster with alt, right of reply');
+if (hasVideoBlock && (!/data-youtube="l2-SXybLlss"/.test(main) || !/<img src="\/media\/slabe-seo-video-poster\.webp"[^>]*alt="Náhled videa/.test(main) || !/Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes <a href="\/kontakt\/">kontaktní stránku<\/a>\./.test(main))) e('video block: YouTube id, poster with alt, right of reply');
 if (ld.find((n) => n['@type'] === 'VideoObject') && !/Přepis videa/.test(main)) e('VideoObject only with a visible transcript');
 const bc = ld.find((n) => n['@type'] === 'BreadcrumbList');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumb: Domů → the page');

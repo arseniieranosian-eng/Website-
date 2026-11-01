@@ -29,7 +29,7 @@ import { NICHE_VIDEO } from './niche-translation-cs';
 export const NICHE_BRNO_VIDEO: null | {
   youtube: string; poster: string; width: number; height: number; duration: string; title: string; recorded?: string;
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
-} = NICHE_VIDEO ? { ...NICHE_VIDEO, title: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?' } : null;
+} = NICHE_VIDEO ? { ...NICHE_VIDEO, title: 'Co jsem viděl na webech dvou překladatelských agentur?' } : null;
 
 // Google AI Overview for "překlady Brno": a screenshot with the client covered (public/images/niche-ai-overview-brno.webp, the third-party
 // thumbnail is covered too). It is wired into the page as `caseImage` ONLY with the date of the screenshot (like the Prague one:
@@ -86,8 +86,8 @@ const raw = {
   videoOpen: 'Otevřít video v novém okně',
 
   caseTitle: 'Jak to funguje v praxi? Případová studie',
-  caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní. Brněnská pobočka měla vlastní průběh.',
-  caseFormula: HALF_FORMULA_CS,
+  caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní. Brněnská pobočka měla vlastní průběh.',
+  caseFormula: HALF_FORMULA_CS.replace(', B2B poptávky ×3 (+200\u00a0%)', ''),
   caseCity: [
     'Brno: výrazný letní růst s několika vrcholy; na podzim aktivita mírně polevila, ale zůstala výrazně nad dubnovým startem; u klíčových dotazů top 5 a výš.',
   ],
@@ -124,9 +124,9 @@ const raw = {
 
   faqTitle: 'Často kladené otázky',
   faq: [
-    { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu v Brně?', a: 'První výsledky se obvykle objeví za 2–3 měsíce. Garantovat je nelze, záleží na stavu webu a konkurenci v oboru.' },
+    { q: 'Kdy se projeví první změny?', a: 'V mých projektech se první změny obvykle objevují za 2–3 měsíce. Termín závisí na stavu webu, konkurenci a rozsahu úprav a vychází až z auditu. Případová studie s překladatelskou agenturou začala v březnu 2026.' },
     { q: 'Jak se liší SEO od reklamy pro agenturu v Brně?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
-    { q: 'Pomůže agentuře v Brně profil na Mapy.com a Google Maps?', a: 'Může pomoci, aby ji firmy našly při hledání s názvem města. Profil nezaručuje pozici ani počet poptávek. Důležité je, aby byly údaje v profilu shodné s webem a aby odkazy z profilu vedly na správné stránky. Mapy.com provozuje Seznam, takže profil pomáhá i těm, kdo hledají přes Seznam.' },
+    { q: 'Pomůže agentuře v Brně profil na Mapy.com a Google Maps?', a: 'Může pomoci, aby ji firmy našly při hledání s názvem města. Důležité je, aby byly údaje v profilu shodné s webem a aby odkazy z profilu vedly na správné stránky. Mapy.com provozuje Seznam, takže profil pomáhá i těm, kdo hledají přes Seznam.' },
     { q: 'Potřebuje agentura samostatné stránky pro jazykové páry?', a: 'Ne vždy, jen tam, kde je poptávka.' },
     { q: 'Jak se SEO řeší u agentury s pobočkou v Brně a v dalších městech?', a: 'Každé město potřebuje vlastní lokální stránku a profil na Google Maps a na Mapy.com s jednotnými údaji. Města mají různé podmínky i konkurenci, proto stránka pro Brno popisuje brněnskou nabídku a nekopíruje text stránky pro jiné město.' },
     { q: 'S kolika firmami z oboru pracujete současně?', a: NICHE_SHARED_CS.capacityShort.replace('Nejvýše tři firmy z jednoho oboru.', 'Nejvýše se třemi.') },

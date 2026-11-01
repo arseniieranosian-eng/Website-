@@ -23,7 +23,7 @@ export const NICHE_VIDEO: null | {
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
 } = {
   youtube: 'l2-SXybLlss',
-  poster: '/media/rozbor-webu-prekladatelskych-agentur-poster.webp',
+  poster: '/media/slabe-seo-video-poster.webp', // neutral poster without company names (31.10.2026)
   width: 1280,
   height: 652,
   duration: 'PT9M',
@@ -44,7 +44,7 @@ const raw = {
   lead: SUMMARIES['/seo-pro-prekladatelske-agentury-praha/'], // summary block (brief of 31.10.2026): data/niche-summaries.json
   heroAudit: 'Chci bezplatný audit',
   heroVideoLink: 'Podívat se na rozbor webů',
-  videoTitle: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?',
+  videoTitle: 'Co jsem viděl na webech dvou překladatelských agentur?',
   videoRecordedLabel: 'Natočeno',
   videoChaptersTitle: 'Kapitoly',
   videoPlay: 'Přehrát video',
@@ -77,8 +77,8 @@ const raw = {
   quote: 'U překladatelské agentury se poptávka rozhoduje v detailech: jazykový pár, obor, město. Stránky, které tyto detaily nepopisují, nemá Google co ukázat.',
 
   caseTitle: 'Jak to funguje v praxi? Případová studie',
-  caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní. Postup, výsledky i omezení najdete v celé případové studii.',
-  caseFormula: HALF_FORMULA_CS,
+  caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní. Postup, výsledky i omezení najdete v celé případové studii.',
+  caseFormula: HALF_FORMULA_CS.replace(', B2B poptávky ×3 (+200\u00a0%)', ''),
   caseImage: { src: '/images/niche-ai-overview-prekladatelska-agentura.webp', width: 760, height: 438, alt: 'Google AI Overview pro dotaz „překlady Praha“: mezi uvedenými překladatelskými agenturami je i web klienta, jehož název, adresa a logo jsou zakryté', caption: 'Google AI Overview pro dotaz „překlady Praha“: mezi uvedenými překladatelskými agenturami je i web klienta (název, adresa a logo jsou zakryté). Snímek obrazovky z 16. 10. 2026.' },
   caseNote: 'Název klienta a absolutní čísla nezveřejňuji.',
   caseLink: 'Přečíst celou případovou studii',

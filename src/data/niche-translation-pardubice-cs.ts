@@ -30,7 +30,7 @@ import { NICHE_VIDEO } from './niche-translation-cs';
 export const NICHE_PARDUBICE_VIDEO: null | {
   youtube: string; poster: string; width: number; height: number; duration: string; title: string; recorded?: string;
   intro: string; chapters?: { title: string; start: number; end: number }[]; observations?: string[]; transcript?: string; contact: string; contactLink: string;
-} = NICHE_VIDEO ? { ...NICHE_VIDEO, title: 'Co jsem viděl na webech přesto.cz a skrivanek.cz?' } : null;
+} = NICHE_VIDEO ? { ...NICHE_VIDEO, title: 'Co jsem viděl na webech dvou překladatelských agentur?' } : null;
 
 // Google AI Overview for "překlady Pardubice": the screenshot with the client, the contact data and the third-party agencies covered
 // (public/images/niche-ai-overview-pardubice.webp, 678×498). Wired into the page as `caseImage` ONLY when the date of the screenshot is known
@@ -87,8 +87,8 @@ const raw = {
   videoOpen: 'Otevřít video na YouTube',
 
   caseTitle: 'Jak to funguje v praxi? Případová studie',
-  caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní.',
-  caseFormula: HALF_FORMULA_CS,
+  caseAnswer: 'U překladatelské agentury s pobočkami rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci (březen–září 2026). Údaje jsou relativní a klient zůstává anonymní.',
+  caseFormula: HALF_FORMULA_CS.replace(', B2B poptávky ×3 (+200\u00a0%)', ''),
   caseCity: null as string[] | null,
   caseImage: NICHE_PARDUBICE_AI_SHOT ? { src: '/images/niche-ai-overview-pardubice.webp', width: 678, height: 498, alt: 'Google AI Overview pro dotaz „překlady Pardubice“: mezi uvedenými službami je i pobočka klienta v Pardubicích, jejíž název, adresa a kontaktní údaje jsou zakryté', caption: `Google AI Overview pro dotaz „překlady Pardubice“: mezi uvedenými službami je i pobočka klienta (název, adresa, kontakt a další firmy jsou zakryté). Snímek obrazovky z ${NICHE_PARDUBICE_AI_SHOT.date}.` } : null,
   caseNote: 'Název klienta a absolutní čísla nezveřejňuji. Městská data nejsou součástí celkové formule.',

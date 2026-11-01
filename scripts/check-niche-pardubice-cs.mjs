@@ -62,7 +62,7 @@ for (const hd of SECTIONS.slice(1, 7)) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 }
 // Case: approved formula only
-if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci a B2B poptávky se zvýšily trojnásobně (březen–září 2026)')) e('case formula (no city line without confirmed data)');
+if (!mainTxt.includes('rostly poptávky tři měsíce po sobě o 65–70 % měsíc po měsíci (březen–září 2026)')) e('case formula (no city line without confirmed data)');
 if (/ChatGPT/.test(mainTxt) || (/AI Overview/.test(mainTxt) && !mainTxt.includes('Snímek obrazovky z 16. 10. 2026.'))) e('AI Overview only with the dated screenshot, no ChatGPT claim');
 if (!/<img src="\/images\/niche-ai-overview-pardubice\.webp" width="678" height="498" alt="Google AI Overview[^"]*zakryté" loading="lazy"/.test(main)) e('Pardubice screenshot with the client covered');
 if (/KB P|kb-?preklady|Přikop|Correct/i.test(h)) e('no client or third-party name in the text');
@@ -70,7 +70,7 @@ if (!/Zkontrolováno: \d/.test(mainTxt)) e('market observations with the date of
 if (!/Další články pro agentury<\/h2>[\s\S]*?href="\/blog\/proc-prekladatelska-agentura-nema-poptavky\/"/.test(main)) e('card of the article for agencies');
 // Capacity rule: one source, the date, the three steps
 if (!/Další města:[\s\S]*seo-pro-prekladatelske-agentury-praha[\s\S]*seo-pro-prekladatelske-agentury-brno/.test(main)) e('Další města: Praha, Brno');
-if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Údaj platí k 24. 10. 2026')) e('capacity rule');
+if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Stav pro obor překladatelských agentur k 24. 10. 2026: volno.')) e('capacity rule');
 if (/zbývá|volných míst|\d ze 3/.test(mainTxt)) e('no counter / places left');
 // Audit
 if (!mainTxt.includes('Bezplatný audit zkontroluje technické chyby webu: indexaci, duplicitní obsah a další technické problémy.') || !mainTxt.includes('Výsledek dostanete jako krátkou prezentaci do 24 hodin')) e('audit wording');

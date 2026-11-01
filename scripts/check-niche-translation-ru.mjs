@@ -81,6 +81,6 @@ if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}<
 if (!readFileSync('dist/ru/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('ru home link');
 if (!readFileSync('dist/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('ru case link to the landing');
 const cs = txt(readFileSync('dist/seo-pro-prekladatelske-agentury-praha/index.html', 'utf8'));
-if (!cs.includes('Údaj platí k 24. 10. 2026')) e('the Czech Praha page must carry the same status date 24. 10. 2026');
+if (!cs.includes('Stav pro obor překladatelských agentur k 24. 10. 2026: volno.')) e('the Czech Praha page must carry the same status date 24. 10. 2026');
 if (errors.length) { console.error('✗ check-niche-translation-ru:\n  - ' + errors.join('\n  - ')); process.exit(1); }
 console.log(`✓ check-niche-translation-ru: ok (${mainTxt.split(/\s+/).length} words)`);

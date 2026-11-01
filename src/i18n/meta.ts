@@ -586,7 +586,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO a GEO/AEO pro překladatelské agentury v Brně: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for translation agencies in Brno', title: 'SEO for translation agencies in Brno', description: 'SEO for translation agencies in Brno', h1: 'SEO for translation agencies in Brno' },
-    ru: { name: 'SEO для переводческих агентств в Брно', title: 'SEO для переводческих агентств в Брно', description: 'SEO для переводческих агентств в Брно', h1: 'SEO для переводческих агентств в Брно' },
+    ru: {
+      name: 'SEO для переводческих агентств в Брно',
+      title: 'Продвижение переводческого агентства в Брно | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для переводческих агентств в Брно: сайт, языковые версии, карты, FAQ. Закажите бесплатный технический аудит.',
+      h1: 'SEO и GEO/AEO для переводческих агентств в Брно: заявки из Google и ИИ',
+    },
   },
   nicheAccounting: {
     cs: {

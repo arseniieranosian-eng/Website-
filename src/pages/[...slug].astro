@@ -45,6 +45,7 @@ import PostNewSiteCsPage from '../views/PostNewSiteCsPage.astro';
 import PostChooseCsPage from '../views/PostChooseCsPage.astro';
 import NicheTranslationCsPage from '../views/NicheTranslationCsPage.astro';
 import NicheTranslationBrnoCsPage from '../views/NicheTranslationBrnoCsPage.astro';
+import NicheTranslationBrnoRuPage from '../views/NicheTranslationBrnoRuPage.astro';
 import NicheTranslationPardubiceCsPage from '../views/NicheTranslationPardubiceCsPage.astro';
 import NicheRealtyCsPage from '../views/NicheRealtyCsPage.astro';
 import NicheRealtyRuPage from '../views/NicheRealtyRuPage.astro';
@@ -161,6 +162,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nicheTranslation' && props.lang === 'cs' && <NicheTranslationCsPage />}
 {props.key === 'nicheTranslation' && props.lang === 'ru' && <NicheTranslationRuPage />}
 {props.key === 'nicheBrno' && props.lang === 'cs' && <NicheTranslationBrnoCsPage />}
+{props.key === 'nicheBrno' && props.lang === 'ru' && <NicheTranslationBrnoRuPage />}
 {props.key === 'nichePardubice' && props.lang === 'cs' && <NicheTranslationPardubiceCsPage />}
 {props.key === 'nicheRealty' && props.lang === 'cs' && <NicheRealtyCsPage />}
 {props.key === 'nicheRealty' && props.lang === 'ru' && <NicheRealtyRuPage />}
