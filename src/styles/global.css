@@ -773,3 +773,9 @@ ul, ol { margin-bottom: var(--flow); }
   .case-teaser--large:not(:has(.stats)) { grid-template-columns: 220px 1fr; }
 }
 @media (max-width: 899px) { .case-teaser--large .case-teaser__media { max-width: 300px; } }
+
+/* Decorative illustrations added by the base layout (lib/page-art.ts): "at least two illustrations on every page" */
+.page-art-row { padding-top: 24px; padding-bottom: 40px; }
+.page-art-row__inner { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.page-art { flex: 0 1 260px; }
+.page-art svg { display: block; width: 100%; height: auto; }

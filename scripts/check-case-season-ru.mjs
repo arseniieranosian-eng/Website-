@@ -71,7 +71,7 @@ const sixList = (h.match(/Шесть практических выводов<\/h
 if ([...sixList.matchAll(/<li><h3>/g)].length !== 6) e('six theses expected');
 if (!/<ol class="case-steps">[\s\S]*?<\/ol>/.test(main) || [...main.matchAll(/<ol class="case-steps">([\s\S]*?)<\/ol>/g)][0][1].split('<li>').length !== 5) e('four funnel holes expected');
 if (!/Почему органический трафик[\s\S]*?Нет верха воронки\.[\s\S]*?Нечёткий интент на страницах услуг\.[\s\S]*?Нет гео-покрытия\.[\s\S]*?Слабые сигналы доверия\./.test(main)) e('funnel holes order');
-if (/google trends/i.test(main) && /<svg|<canvas/.test(main)) e('no chart without data');
+if (/google trends/i.test(main) && /<svg|<canvas/.test(main.replace(/<section class="section page-art-row">[\s\S]*?<\/section>/, ''))) e('no chart without data');
 const wc = mainTxt.split(/\s+/).length;
 if (wc < 900 || wc > 1800) e(`word count ${wc} out of range`);
 
