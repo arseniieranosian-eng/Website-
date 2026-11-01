@@ -3,6 +3,7 @@
 // to the brief's questions): hreflang pair with cs (the site convention adds x-default = cs), slug as in the brief, publication 25.10.2026, NO observation block (no date, no findings), nothing about the languages
 // of clubs' websites, no funnel articles. Safety rules: "компьютерный клуб / киберклуб / киберспортивная арена" only (never the bare "игровой клуб" or "игровые автоматы"), nothing about minors or age rules,
 // no competitors / aggregators / booking platforms, no prices, no case in the niche, "2–3 месяца" only about the author's own projects, "агентство" never about the author, only "GEO/AEO". Review every 90 days (23.01.2027).
+import { priceAnswerRu, priceFaqRu } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { GAMING_CAPACITY_DATE_RU as DATE } from './niche-gaming-cs';
 
@@ -70,6 +71,8 @@ export const NICHE_GAMING_RU = {
   auditLead: 'Подробнее об аудите:',
   auditLink: 'Бесплатный аудит',
 
+  priceTitle: 'Сколько это стоит?',
+  priceAnswer: priceAnswerRu('gaming'),
   coopTitle: 'Как проходит работа?',
   coopAnswer: `Начинаете с бесплатного технического аудита. Если нужно разобрать структуру и контент сайта, дальше идёт платная консультация, пакет Start или постоянный Full SEO. Объём и стоимость указаны на страницах услуг. Я работаю одновременно не более чем с тремя компаниями из одной ниши; на ${DATE} ниша свободна.`,
   coopLinks: [
@@ -80,6 +83,7 @@ export const NICHE_GAMING_RU = {
 
   faqTitle: 'Частые вопросы',
   faq: [
+    priceFaqRu('gaming', 'компьютерного клуба'),
     { q: 'Нужен ли клубу сайт, если есть соцсети?', a: 'Соцсети работают на уже существующую аудиторию, но прайс, бронирование, адрес и часы работы новым посетителям проще найти на сайте. Сайт также привлекает тех, кто ищет в Google или на картах. Что нужно конкретному клубу, зависит от того, откуда к нему приходят сегодня.' },
     { q: 'Сколько занимает SEO?', a: 'У моих проектов первые изменения обычно появляются через 2–3 месяца. Срок зависит от состояния сайта, конкуренции и объёма работ. Лучше начать с бесплатного технического аудита.' },
     { q: 'Чем SEO отличается от рекламы?', a: 'Реклама приводит посетителей быстрее, но только пока вы за неё платите. SEO набирает ход медленнее, зато сайт и профили работают и без постоянного бюджета на клики. Оба пути можно сочетать: SEO не заменяет рекламу, а реклама не заменяет порядок на сайте. Что выгоднее, зависит от бюджета и целей клуба.' },

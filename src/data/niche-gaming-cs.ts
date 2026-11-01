@@ -3,6 +3,7 @@
 // brief, NO observation block (the 12 viewed sites have no date and no findings), NO link to the audit video of the related niche (the author's decision is open), no "Související články" block, no consultation sentence
 // next to the maps. Safety rules: always "počítačová herna / herní klub / gaming klub / esport aréna" (the bare "herna" is never used: gambling ambiguity), nothing about minors, age limits, children's birthdays or safety,
 // no competitors / aggregators / booking platforms, no prices, no case in the niche, "2–3 měsíce" only about the author's own projects, "agentura" never about the author, only "SEO a GEO/AEO". Review every 90 days (23. 1. 2027).
+import { priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 
@@ -72,6 +73,8 @@ const raw = {
   auditLead: 'Podrobnosti k auditu najdete na stránce',
   auditLink: 'Bezplatný audit',
 
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: priceAnswerCs('gaming'),
   coopTitle: 'Jak spolupráce probíhá?',
   coopAnswer: `Začnete bezplatným technickým auditem. Chcete-li řešit i strukturu a obsah webu, následuje placená konzultace, balíček Start nebo průběžné Full SEO. Rozsah a cenu najdete na stránkách jednotlivých služeb. Pracuji současně nejvýše se třemi firmami z jednoho oboru; k ${GAMING_CAPACITY_DATE} je obor volný.`,
   coopLinks: [
@@ -82,6 +85,7 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
+    priceFaqCs('gaming', 'počítačovou hernu'),
     { q: 'Potřebuje počítačová herna web, když má sociální sítě?', a: 'Sociální sítě slouží stávající komunitě, ale ceník, rezervace, adresu a otevírací hodiny najdou noví zájemci snáz na webu. Web zachytí i lidi, kteří hledají v Google nebo na mapách. Co potřebuje konkrétní počítačová herna, záleží na tom, odkud jí dnes zájemci přicházejí.' },
     { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objeví za 2–3 měsíce. Délka závisí na stavu webu, konkurenci a rozsahu prací. Nejdřív proto doporučuji bezplatný technický audit.' },
     { q: 'Čím se SEO liší od reklamy?', a: 'Reklama přináší návštěvy rychleji, ale jen dokud za ni platíte. SEO se rozbíhá pomaleji, zato web a profily pracují i bez průběžného rozpočtu na kliknutí. Obě cesty lze kombinovat; SEO nenahrazuje reklamu a reklama nenahrazuje pořádek na webu. Co se vyplatí, závisí na rozpočtu a cílech klubu.' },

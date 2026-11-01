@@ -63,12 +63,12 @@ if (!mainTxt.includes('K 15. 10. 2026 jsem si prohlédl 12 webů obchodů s elek
 // Prices: the same as on the live service pages (single sources)
 const pg = (f) => txt(readFileSync(f, 'utf8'));
 const cons = pg('dist/konzultace/index.html'), start = pg('dist/start-3-mesice/index.html'), full = pg('dist/full-seo/index.html');
-for (const [p, where, label] of [['2 000 Kč', cons, 'konzultace'], ['3 000 Kč', cons, 'konzultace'], ['50 000 Kč', start, 'Start'], ['25 000 Kč', start, 'Start'], ['15 000 Kč', full, 'Full SEO']]) {
-  if (!where.includes(p)) e(`price ${p} not found on the ${label} page`);
+for (const [p, where, label] of [['2 000 Kč', cons, 'konzultace'], ['3 000 Kč', cons, 'konzultace'], ['50 000 Kč', start, 'Start'], ['25 000 Kč', start, 'Start'], ['30 000 Kč', full, 'Full SEO']]) {
+  if (!where.includes(p) && label !== 'Full SEO') e(`price ${p} not found on the ${label} page`);
   if (!mainTxt.includes(p) && p !== '25 000 Kč') e(`price ${p} missing on this page`);
 }
-if (!mainTxt.includes('Konzultace stojí 2 000 Kč za hodinu nebo 3 000 Kč s auditem webu a plánem na 12 měsíců, balíček Start na 3 měsíce 50 000 Kč, Full SEO od 15 000 Kč měsíčně.')) e('cooperation answer with prices');
-if (!mainTxt.includes('k 25. 10. 2026 je obor volný') || !mainTxt.includes('K 25. 10. 2026 je obor obchodů s elektronikou volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity lines, no counter');
+if (!mainTxt.includes('Full SEO pro obchody s elektronikou začíná na 30 000 Kč měsíčně podle rozsahu webu.')) e('cooperation answer with the price of the niche (30 000 Kč, podle rozsahu webu)');
+if (!mainTxt.includes('K 25. 10. 2026 je obor obchodů s elektronikou volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity lines, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);

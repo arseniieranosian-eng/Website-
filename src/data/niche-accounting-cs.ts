@@ -8,13 +8,11 @@ import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { NICHE_READY } from '../i18n/routes';
-import { START_PRICE } from './start-shared';
-import { FULLSEO_MONTHLY } from './fullseo-shared';
-import { PRICES, fmtKc } from './consulting-shared';
+import { priceAnswerCs } from './niche-prices';
 
 // Once the Brno page is published (NICHE_READY.nicheAccountingBrno) the price answers are the same as on that page (brief of 31.10.2026, [?]4), and a link "Další města" is shown.
 const BRNO = NICHE_READY.nicheAccountingBrno;
-const PRICES_TEXT = `Balíček Start stojí ${fmtKc(START_PRICE)} za tři měsíce, Full SEO začíná na ${fmtKc(FULLSEO_MONTHLY)} měsíčně. Konzultace stojí ${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu a plánem na 12 měsíců. Začít můžete bezplatným auditem technických chyb, který nic nestojí a k ničemu nezavazuje.`;
+const PRICES_TEXT = priceAnswerCs('accounting'); // one version of the price text (brief of 01.11.2026, niche-prices.ts)
 
 export const NICHE_ACCOUNTING_PUBLISHED = '2026-10-23';
 // Status of the niche for the capacity rule (the same rule as on the other niche pages: at most three firms from one niche, counted per niche).
@@ -83,8 +81,8 @@ const raw = {
     ],
   },
 
-  priceTitle: 'Kolik to stojí a kdy přijdou první výsledky?',
-  priceAnswer: BRNO ? `${PRICES_TEXT} První změny se u mých vlastních projektů obvykle objevují za 2–3 měsíce, záruku ale nedávám.` : 'Cena závisí na zvolené službě: konzultace, Start na 3 měsíce nebo Full SEO na rok. Aktuální ceny a rozsah najdete na stránkách jednotlivých služeb. První změny se u mých vlastních projektů obvykle objevují za 2–3 měsíce, záruku ale nedávám.',
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: PRICES_TEXT,
 
   expTitle: 'Jaké mám zkušenosti s tímto oborem?',
   expAnswer: 'Mám případovou studii z jiného oboru, překladatelské agentury: poptávky z formulářů rostly o 65–70 % měsíc po měsíci tři měsíce po sobě (březen až září 2026). Jiný obor znamená i jiné výsledky, proto pro účetní kanceláře tato čísla nic neslibují. Případová studie ukazuje postup práce, ne výsledek pro váš obor.',
@@ -112,7 +110,7 @@ const raw = {
   faq: [
     { q: 'Má smysl SEO pro účetní kancelář?', a: 'Dává, pokud chcete získávat klienty i z vyhledávání, ne jen doporučením. Hledají vás lidé, kteří potřebují konkrétní službu, například vedení účetnictví pro s.r.o. Pokud vám stačí doporučení a kapacitu nemáte, SEO nepotřebujete.' },
     { q: 'Kdy se projeví první změny?', a: 'U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Konkrétní termín vychází až z auditu, protože závisí na stavu webu, konkurenci a rozsahu úprav. Nejdřív se proto dívám na váš web a teprve potom říkám, co se na něm dá udělat.' },
-    { q: 'Kolik stojí SEO pro účetní kancelář?', a: BRNO ? PRICES_TEXT : 'Cena závisí na zvolené službě: konzultace, Start na 3 měsíce nebo Full SEO na rok. Konkrétní částky a rozsah najdete na stránkách jednotlivých služeb, žádné zvláštní ceny pro účetní kanceláře neuvádím. Bezplatný audit technických chyb je zdarma, bez hovoru a bez závazku.' },
+    { q: 'Kolik stojí SEO pro účetní kancelář?', a: PRICES_TEXT },
     { q: 'Co znamená GEO/AEO pro účetní kancelář?', a: 'GEO/AEO je optimalizace obsahu pro odpovědi AI a vyhledávačů. U účetní kanceláře jde o stručné odpovědi na konkrétní otázky, jasné ceny a samostatné stránky služeb. Přehledný a aktuální obsah šanci na citaci jen zvyšuje. Takový obsah je přehledný i pro čtenáře.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit zkontroluje technické chyby: indexaci, duplicity a další technické problémy. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. V auditu nejsou klíčová slova, konkurence, mapy, viditelnost v AI, rychlost ani mobilní verze. Strukturu nabídky na webu řeší placená konzultace nebo Start.' },
     { q: 'S kolika kancelářemi pracujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to limit mé kapacity, ne výhradní spolupráce. Stav pro obor účetnictví k ${NICHE_ACCOUNTING_STATUS_DATE}: volno. Údaj aktualizuji při každé změně a stejný platí pro českou, ruskou i anglickou verzi webu.` },

@@ -3,6 +3,7 @@
 // is taken to cover this block as on the case page, "/seo-a-geo/" for the GEO/AEO link, no observations of the 9 viewed websites (no date and no findings: the block is absent), no quote, no prices, no funnel articles
 // yet. The capacity line is dated 24. 10. 2026 as in the brief. No guarantees (positions, traffic, enquiries, AI citation), "agentura" never about the author, only "SEO a GEO/AEO", "2–3 měsíce" only about the author's
 // own projects, no city, no "ofset", no client name, no absolute figures of the case. Review every 90 days (23. 1. 2027).
+import { priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 
@@ -72,6 +73,8 @@ const raw = {
   auditLead: 'Podrobnosti k auditu najdete na stránce',
   auditLink: 'Bezplatný audit',
 
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: priceAnswerCs('printing'),
   coopTitle: 'Jak spolupráce probíhá?',
   coopAnswer: `Začíná se bezplatným technickým auditem, po něm následuje konzultace, balíček Start na 3 měsíce nebo Full SEO na rok. Pracuji současně nejvýše se třemi firmami z jednoho oboru; k ${TYPOGRAPHY_CAPACITY_DATE} je obor tiskáren volný. Rozsah a podmínky jsou na stránkách jednotlivých balíčků.`,
   coopLinks: [
@@ -86,7 +89,7 @@ const raw = {
     { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav. Případová studie sledovala růst za 12 měsíců, ne za první měsíce. Termín pro váš web vychází až z kontroly konkrétního webu.' },
     { q: 'Je to pro e-shop i pro místní polygrafii?', a: 'Ano, postup je podobný, liší se důraz. E-shop řeší hlavně katalog, varianty produktů, filtry a kalkulačky. Místní polygrafie s menším webem řeší hlavně stránky služeb a jejich srozumitelnost pro vyhledávač i pro AI. Pokud si nejste jistí, začněte bezplatným technickým auditem.' },
     { q: 'Pracujete s více tiskárnami současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${TYPOGRAPHY_CAPACITY_DATE} je obor tiskáren a polygrafie volný.` },
-    { q: 'Kolik to stojí?', a: 'Cena závisí na zvoleném balíčku: konzultace, Start na 3 měsíce nebo Full SEO na rok. Rozsah a podmínky najdete na stránkách jednotlivých balíčků, na této stránce ceny neuvádím. Bezplatný technický audit je zdarma, k ničemu vás nezavazuje a prezentaci dostanete do 24 hodin.' },
+    priceFaqCs('printing', 'tiskárny a polygrafii'),
   ],
 
   endTitle: 'Další krok',

@@ -5,8 +5,10 @@ import { path, type Lang, type ServiceKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import Icon from './Icon.astro';
 import ServiceArt from './ServiceArt.astro';
-interface Props { lang: Lang; keys?: ServiceKey[]; heading?: 'h2' | 'h3'; art?: boolean; withAudit?: boolean }
-const { lang, keys, heading = 'h3', art = false, withAudit = false } = Astro.props;
+import { FULLSEO_MONTHLY } from '../data/fullseo-shared';
+import { fmtKc } from '../data/consulting-shared';
+interface Props { lang: Lang; keys?: ServiceKey[]; heading?: 'h2' | 'h3'; art?: boolean; withAudit?: boolean; fullSeoMonthly?: number }
+const { lang, keys, heading = 'h3', art = false, withAudit = false, fullSeoMonthly } = Astro.props;
 // The free audit is the fifth offer (not a paid service, so it is not in SERVICES): shown first when `withAudit` is set (home page).
 const AUDIT = {
   cs: { text: 'Krátká prezentace s hlavními technickými chybami webu, bez hovoru a bez závazku.', meta: 'Zdarma, do 24 hodin' },
@@ -31,7 +33,7 @@ const H = heading;
       {art ? <span class="svc-card-art"><ServiceArt kind={s.key} size={96} /></span> : <span class="icon-box"><Icon name={s.icon} /></span>}
       <H>{META[s.key][lang].name}</H>
       <p>{s.short[lang]}</p>
-      <span class="meta">{s.duration[lang]}</span>
+      <span class="meta">{s.key === 'fullSeo' && fullSeoMonthly ? s.duration[lang].replace(fmtKc(FULLSEO_MONTHLY), fmtKc(fullSeoMonthly)) : s.duration[lang]}</span>
       <span class="link-arrow">{t(lang).more}</span>
     </a>
   ))}

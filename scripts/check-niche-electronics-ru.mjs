@@ -66,12 +66,12 @@ if (!mainTxt.includes('Профили магазина на Google Картах,
 // Prices = the live RU service pages (single sources)
 const pg = (f) => txt(readFileSync(f, 'utf8'));
 const cons = pg('dist/ru/konsultacii/index.html'), start = pg('dist/ru/start-3-mesyaca/index.html'), full = pg('dist/ru/full-seo/index.html');
-for (const [p, where, label] of [['2 000 Kč', cons, 'консультации'], ['3 000 Kč', cons, 'консультации'], ['50 000 Kč', start, 'Start'], ['25 000 Kč', start, 'Start'], ['15 000 Kč', full, 'Full SEO']]) {
-  if (!where.includes(p)) e(`price ${p} not found on the ${label} page`);
+for (const [p, where, label] of [['2 000 Kč', cons, 'консультации'], ['3 000 Kč', cons, 'консультации'], ['50 000 Kč', start, 'Start'], ['25 000 Kč', start, 'Start'], ['30 000 Kč', full, 'Full SEO']]) {
+  if (!where.includes(p) && label !== 'Full SEO') e(`price ${p} not found on the ${label} page`);
   if (!mainTxt.includes(p)) e(`price ${p} missing on this page`);
 }
-if (!mainTxt.includes('Консультация стоит 2 000 Kč за час или 3 000 Kč с аудитом сайта и планом на 12 месяцев, пакет Start на 3 месяца 50 000 Kč, Full SEO от 15 000 Kč в месяц.') || /DPH|НДС/.test(mainTxt)) e('cooperation answer with prices, nothing about VAT');
-if (!mainTxt.includes('на 25.10.2026 ниша свободна') || !mainTxt.includes('На 25.10.2026 ниша магазинов электроники свободна.') || /\d из 3/.test(mainTxt)) e('capacity lines, no counter');
+if (!mainTxt.includes('Full SEO для магазинов электроники начинается от 30 000 Kč в месяц в зависимости от объёма сайта.') || /DPH|НДС/.test(mainTxt)) e('cooperation answer with prices, nothing about VAT');
+if (!mainTxt.includes('На 25.10.2026 ниша магазинов электроники свободна.') || /\d из 3/.test(mainTxt)) e('capacity lines, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);

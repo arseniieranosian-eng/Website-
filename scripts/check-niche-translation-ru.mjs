@@ -10,9 +10,9 @@ const NAME = 'SEO для переводческих агентств в Праг
 const H1 = 'SEO и GEO/AEO для переводческих агентств в Праге: заявки из Google и ИИ';
 const TITLE = 'SEO для бюро переводов в Праге: GEO/AEO | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для бюро переводов и переводческих агентств в Праге: страницы языковых пар, языковые версии, кейс. Бесплатный технический аудит.';
-const SECTIONS = [H1, 'Что я делаю для переводческого агентства?', 'Как это работает на практике?', 'Как я работаю с агентствами?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Закажите бесплатный технический аудит'];
+const SECTIONS = [H1, 'Что я делаю для переводческого агентства?', 'Как это работает на практике?', 'Как я работаю с агентствами?', 'Что входит в бесплатный аудит?', 'Сколько это стоит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Закажите бесплатный технический аудит'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/', '/ru/otzyvy/', '/ru/obo-mne/'];
-const FORBIDDEN = ['гарантирую', 'гарантированно', 'первое место', 'топ-1', 'SEO агентств', 'Kč', 'нотариальн', 'заверенн', 'KB P', 'Quantum', 'Correct', 'AggregateRating', 'аудит за 24 часа', ' ×8', '×8 ', 'июнь к маю', 'GEO(?!/AEO)'];
+const FORBIDDEN = ['гарантирую', 'гарантированно', 'первое место', 'топ-1', 'SEO агентств', 'нотариальн', 'заверенн', 'KB P', 'Quantum', 'Correct', 'AggregateRating', 'аудит за 24 часа', ' ×8', '×8 ', 'июнь к маю', 'GEO(?!/AEO)'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
 const txt = (s) => norm(dec(s.replace(/<(script|style|svg)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/ ([.,:;!?)»])/g, '$1').replace(/([«(]) /g, '$1'));
@@ -47,7 +47,7 @@ if (cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) < 1 || cn
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
-for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Steps, H3s, case lines, audit table + checklist
 if ([...(main.match(/<ol class="steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><span>/g)].length !== 4) e('four steps');
 const h3 = [...main.matchAll(/<h3>([\s\S]*?)<\/h3>/g)].map((m) => txt(m[1]));
@@ -74,7 +74,7 @@ if (sv.offers || sv.areaServed.name !== 'Praha' || sv.provider['@id'] !== by('Pe
 if (wp.inLanguage !== 'ru' || wp.name !== H1 || wp.datePublished !== '2026-10-25' || wp.dateModified !== h.match(/Обновлено: <time datetime="([^"]+)"/)[1]) e('WebPage');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
+if (!fq || fq.mainEntity.length !== 7 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== NAME) e('breadcrumbs: Главная → page');
 // Inbound and the shared status date
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

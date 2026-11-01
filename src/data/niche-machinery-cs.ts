@@ -3,6 +3,7 @@
 // Short link from the author (without tracking parameters), languages (answer of 25.10.2026): cs, en, ru, uk, de; the author does not speak uk / de, only understands them, so the page says he works on indexation and structure of the versions and writes no texts in uk / de (nothing about the German market or exports), no funnel articles yet,
 // no observations of manufacturers' sites. The Title is shortened to <= 55 characters (the site rule of 25.10.2026). No guarantees (enquiries, positions, orders, AI citation), no prices, no competitors / portals / catalogues,
 // nothing about certificates, "agentura" never about the author, only "SEO a GEO/AEO". The findings of the audit example are quoted as on the audit page. Review every 90 days (23. 1. 2027).
+import { priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 
@@ -72,6 +73,8 @@ const raw = {
   auditLead: 'Podrobnosti k auditu najdete na stránce',
   auditLink: 'Bezplatný audit',
 
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: priceAnswerCs('machinery'),
   coopTitle: 'Jak spolupráce probíhá?',
   coopAnswer: `Začíná se bezplatným technickým auditem, po něm následuje konzultace, balíček Start na 3 měsíce nebo Full SEO na rok. Pracuji současně nejvýše se třemi firmami z jednoho oboru; k ${MACHINERY_CAPACITY_DATE} je obor strojírenských a výrobních firem volný. Rozsah a podmínky jsou na stránkách jednotlivých balíčků.`,
   coopLinks: [
@@ -82,6 +85,7 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
+    priceFaqCs('machinery', 'strojírenskou firmu'),
     { q: 'Potřebuje výrobní firma web, když má stálé zákazníky?', a: 'Záleží na tom, odkud chcete zakázky získávat. Stálí zákazníci jsou dobrý základ, ale nový odběratel si dodavatele může před oslovením vyhledat. Web pak slouží k ověření důvěry a k zachycení poptávek od těch, kdo vás hledají sami.' },
     { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Tuto dobu nelze brát jako slib pro váš web.' },
     { q: 'Jak se SEO liší od reklamy?', a: 'Reklama přivádí zájemce rychleji, ale jen po dobu, kdy za ni platíte. SEO potřebuje čas, zlepšení webu ale zůstávají, i když výsledek není zaručen. Pravidla reklamních platforem je před spuštěním vhodné ověřit. Kanály lze kombinovat, který přinese víc, předem říct nelze.' },

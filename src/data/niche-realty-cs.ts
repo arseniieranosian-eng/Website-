@@ -7,6 +7,7 @@
 // The build stops if the flag is on and the market observations are missing. Shared wording (capacity rule, audit "not" list, formats, reviews,
 // closing text) comes from niche-shared.ts. No guarantees, no prices, no blog links, "já", the word "agentura" is never used about the author.
 // The quote is a draft for the author's approval.
+import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { NICHE_SHARED_CS, NICHE_CAPACITY_DATE } from './niche-shared';
 import { NICHE_READY } from '../i18n/routes';
@@ -136,6 +137,9 @@ const raw = {
   auditNot: NICHE_SHARED_CS.audit.not,
   auditCta: NICHE_SHARED_CS.audit.cta,
 
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: priceAnswerCs('realty'),
+  fullSeoMonthly: NICHE_PRICE.realty.monthly,
   formatsTitle: NICHE_SHARED_CS.formats.title,
   formatsAnswer: NICHE_SHARED_CS.formats.answer,
   formats: NICHE_SHARED_CS.formats.table,
@@ -149,6 +153,7 @@ const raw = {
 
   faqTitle: 'Často kladené otázky',
   faq: [
+    priceFaqCs('realty', 'realitní kancelář'),
     { q: 'Proč realitní kancelář potřebuje SEO, když má inzerci na portálech?', a: 'I když máte nabídky na portálech, vlastní web může přivádět poptávky, které nejdou přes portál. Portály jsou jedním z kanálů, SEO budujete na vlastním webu a výsledky zůstávají. Podíl poptávek z portálů a z webu si ověřte u sebe, obecné číslo neuvádím.' },
     { q: 'Jak dlouho trvá SEO pro realitní kancelář?', a: 'První výsledky se u mých služeb obvykle objeví za 2–3 měsíce. Je to zkušenost s mými projekty, ne obecné pravidlo trhu, a nic neručí. Doba závisí na stavu webu, konkurenci v oboru a na tom, zda jde o sezónní výkyv, nebo o chybu.' },
     { q: 'Mám dávat nabídky na vlastní web, když je mám na portálech?', a: 'Záleží na stavu webu a na tom, jak nabídky zobrazujete. Nabídky na vlastním webu mohou přivádět poptávky, ale je nutné hlídat technickou stránku: indexaci, zastaralé nabídky a duplicity. Zda obsah z portálů opakovat, rozhodněte podle vlastní situace. Konkrétní doporučení vyžaduje prohlídku webu.' },

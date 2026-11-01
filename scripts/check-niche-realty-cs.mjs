@@ -9,7 +9,7 @@ const NAME = 'SEO pro realitní kanceláře v Praze'; // the breadcrumb label (M
 const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO a GEO/AEO pro realitní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze: stránky nabídek a čtvrtí, indexace, Mapy.com. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Co pro realitní kancelář v Praze konkrétně dělám?', 'Jak spolupracuji s realitními kancelářemi?', 'Co zahrnuje bezplatný audit?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
+const SECTIONS = [H1, 'Co pro realitní kancelář v Praze konkrétně dělám?', 'Jak spolupracuji s realitními kancelářemi?', 'Co zahrnuje bezplatný audit?', 'Kolik to stojí?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/', '/seo-pro-prekladatelske-agentury-praha/'];
 const FORBIDDEN = ['prodej bytu Praha', 'marketing realitní kanceláře', 'SEO realitní kancelář Praha', 'realitní makléř', 'smlouv', 'provize', 'garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentura Pardubice', 'SEO agentura v Pardubicích', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', '5k'];
 
@@ -73,7 +73,7 @@ if (/zbývá|volných míst|\d ze 3/.test(mainTxt)) e('no counter / places left'
 if (!mainTxt.includes('Bezplatný audit zkontroluje technické chyby webu: indexaci, duplicitní obsah a další technické problémy. U realitních kanceláří se dívám zvlášť na indexaci nabídek a duplicity z filtrů.') || !mainTxt.includes('Výsledek dostanete jako krátkou prezentaci do 24 hodin')) e('audit wording');
 // Formats: the same four service cards (with price and duration) as on the home page
 const cards = [...main.matchAll(/<a class="card card--link service-card" href="([^"]+)">([\s\S]*?)<\/a>/g)].map((m) => [m[1], txt(m[2])]);
-const CARDS = [['/konzultace/', 'Od 2 000 Kč'], ['/start-3-mesice/', '50 000 Kč · 3 měsíce'], ['/full-seo/', 'Od 15 000 Kč měsíčně · 12 měsíců'], ['/lokalni-seo-mapy/', 'Od 4 měsíců']];
+const CARDS = [['/konzultace/', 'Od 2 000 Kč'], ['/start-3-mesice/', '50 000 Kč · 3 měsíce'], ['/full-seo/', 'Od 24 000 Kč měsíčně · 12 měsíců'], ['/lokalni-seo-mapy/', 'Od 4 měsíců']];
 if (cards.length !== 4 || CARDS.some(([u, x], i) => cards[i]?.[0] !== u || !cards[i][1].includes(x))) e('four service cards with price and duration: ' + JSON.stringify(cards));
 // Table of the control areas: 6 rows, 3 columns, worded as areas of the check
 const rowsA = [...(main.match(/Jaké oblasti u webů realitních kanceláří kontroluji jako první\?[\s\S]*?<\/table>/) || [''])[0].matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
@@ -96,7 +96,7 @@ const qn = ld.filter((n) => n['@type'] === 'Quotation');
 if (qn.length !== 1 || qn[0].text !== Q || qn[0].creator['@id'] !== `${BASE}/#arsenii`) e('Quotation');
 const fq = by('FAQPage');
 const visFaq = [...main.slice(main.indexOf('class="faq-open"')).matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 5 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');
+if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');
 if (ld.some((n) => ['AggregateRating', 'Review', 'Offer'].includes(n['@type']))) e('no ratings / reviews / offers');
 const hasVideoBlock = /id="rozbor-webu"/.test(main);
 if (hasVideoBlock && (!/data-youtube="[^"]+"/.test(main) || !/<img src="\/media\/[^"]+"[^>]*alt="Náhled videa/.test(main) || !/Pokud se vás web týká a chcete něco upřesnit nebo opravit, napište mi přes <a href="\/kontakt\/">kontaktní stránku<\/a>\./.test(main))) e('video block: YouTube id, poster with alt, right of reply');

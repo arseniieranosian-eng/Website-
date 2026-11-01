@@ -6,6 +6,7 @@
 // client's pages; the slide about bought links is not used. The brief's "(д)" analysis of the Russian-language results does not exist: the page shows
 // the dated analysis of the Czech query "realitní kancelář Praha" and says so. No guarantees, no prices in the text, "я", the word "агентство" is never
 // used about the author. The quote is a draft for the author's approval.
+import { NICHE_PRICE, priceAnswerRu, priceFaqRu } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { NICHE_SHARED_RU as SH, NICHE_CAPACITY_DATE_RU as DATE } from './niche-shared';
 
@@ -107,6 +108,9 @@ export const NICHE_REALTY_RU = {
   auditNot: SH.auditNot,
   auditCta: 'Хочу бесплатный аудит',
 
+  priceTitle: 'Сколько это стоит?',
+  priceAnswer: priceAnswerRu('realty'),
+  fullSeoMonthly: NICHE_PRICE.realty.monthly,
   formatsTitle: 'Какие форматы сотрудничества есть?',
   formatsAnswer: 'Можно начать с бесплатного аудита, консультации, SEO Start на 3 месяца или Full SEO на год. Для локального присутствия есть отдельная услуга «Карты». Каждая страница услуги объясняет, что входит в формат.',
   formatsNote: SH.formatsNote,
@@ -117,6 +121,7 @@ export const NICHE_REALTY_RU = {
 
   faqTitle: 'Частые вопросы',
   faq: [
+    priceFaqRu('realty', 'агентства недвижимости'),
     { q: 'Зачем агентству недвижимости SEO, если есть порталы?', a: 'Даже если объекты размещены на порталах, собственный сайт может приводить обращения, которые не идут через портал. Порталы — один из каналов, а SEO вы строите на своём сайте, и результат остаётся. Долю обращений с порталов и с сайта проверьте у себя, общих цифр я не называю.' },
     { q: 'Как скоро будут первые результаты?', a: 'У моих проектов первые результаты обычно появляются через 2–3 месяца. Это опыт моих проектов, а не общее правило рынка. Срок зависит от состояния сайта, конкуренции в нише и от того, сезонное это колебание или ошибка. Сроки уточняю после проверки сайта.' },
     { q: 'Чем SEO отличается от рекламы для агентства недвижимости?', a: 'SEO строит страницы, которые приводят обращения на длинной дистанции, но первые результаты приходят позже. Реклама даёт обращения быстро, но только пока вы за неё платите. Рекламу я не веду. Оба пути можно сочетать в зависимости от ситуации и бюджета. Выбор зависит от задач.' },

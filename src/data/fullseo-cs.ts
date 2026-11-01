@@ -26,6 +26,7 @@ export const FULLSEO_CS = {
   heroAudit: 'Audit zdarma',
 
   priceTitle: 'Kolik stojí Full SEO na rok?',
+  priceNiche: `Full SEO začíná na ${fmtKc(FULLSEO_MONTHLY)} měsíčně. Konkrétní cena pro váš obor je uvedená na stránce oboru.`,
   priceAnswer: `Full SEO na rok stojí ${from}. Přesná cena závisí na rozsahu práce a oboru. Cenu upřesním v odpovědi na vaši poptávku a navrhnu rozsah práce podle vašeho rozpočtu.`,
   // JSON-LD Offer.description: the first FAQ answer without its final period.
   offerTerms: `Od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, přesná cena závisí na rozsahu práce a oboru`,

@@ -8,7 +8,7 @@ import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
-import { FULLSEO_MONTHLY } from './fullseo-shared';
+import { NICHE_PRICE, priceAnswerRu, priceFaqRu } from './niche-prices';
 
 // Publication date of this address (the brief: 25.10.2026); do NOT bump it when the page is edited (dateModified comes from git and moves with price edits).
 export const NICHE_FITNESS_RU_PUBLISHED = '2026-10-25';
@@ -17,7 +17,7 @@ const [PAY1, PAY2] = START_PAYMENTS;
 const Q = fmtKc(PRICES.questions);
 const A = fmtKc(PRICES.audit);
 const S = fmtKc(START_PRICE);
-const F = fmtKc(FULLSEO_MONTHLY);
+const F = fmtKc(NICHE_PRICE.fitness.monthly); // Full SEO of this niche (niche-prices.ts)
 
 export const NICHE_FITNESS_RU = {
   lang: 'ru' as const,
@@ -94,7 +94,7 @@ export const NICHE_FITNESS_RU = {
   mapsLink: 'SEO для Mapy',
 
   coopTitle: 'Как начать и сколько стоит?',
-  coopAnswer: `Начинаете с бесплатного технического аудита. Консультация стоит ${Q} за час или ${A} с аудитом сайта и планом на 12 месяцев, пакет Start на 3 месяца ${S}, Full SEO от ${F} в месяц. Я работаю одновременно не более чем с тремя компаниями из одной ниши; на ${FITNESS_CAPACITY_DATE_RU} ниша свободна.`,
+  coopAnswer: priceAnswerRu('fitness'), // the capacity sentence lives in the FAQ
   coopLinks: [
     { page: 'consulting' as const, text: 'Консультации' },
     { page: 'start' as const, text: 'Старт на 3 месяца' },
@@ -103,7 +103,7 @@ export const NICHE_FITNESS_RU = {
 
   faqTitle: 'Частые вопросы',
   faq: [
-    { q: 'Сколько стоит SEO для онлайн-фитнес-проекта?', a: `Консультация стоит ${Q} за час, консультация с аудитом сайта и планом на 12 месяцев ${A}. Пакет Start на 3 месяца стоит ${S}, Full SEO начинается от ${F} в месяц в зависимости от объёма и ниши. Технический аудит бесплатный. Актуальные цены указаны на страницах услуг.` },
+    priceFaqRu('fitness', 'онлайн-фитнес-проекта'),
     { q: 'Что я получу после бесплатного аудита?', a: 'После аудита вы получаете презентацию технических ошибок сайта в течение 24 часов, без созвона и обязательств. Что делать дальше, решаете вы: консультация, пакет Start или Full SEO. FAQ, адреса страниц, заголовки и блог аудит не разбирает, это платные форматы. Также в аудит не входят ключевые слова, конкуренты, карты и видимость в ИИ.' },
     { q: 'Чем Start отличается от Full SEO?', a: `Start длится три месяца и стоит ${S}: ${fmtKc(PAY1)} в начале и ${fmtKc(PAY2)} по договорённости. Full SEO это работа на 12 месяцев от ${F} в месяц, точная цена зависит от объёма и ниши. В оба формата входят профили на картах. Выбрать формат поможет бесплатный аудит.` },
     { q: 'Что вы делаете с FAQ, заголовками и URL на сайте?', a: 'Рекомендую набор вопросов и формат ответов для FAQ, формулировки заголовков в виде вопросов и понятную структуру адресов страниц с переадресациями при смене. Это помогает посетителям и ИИ быстрее находить ответ. Это работа консультации и пакета Start, бесплатный технический аудит её не включает. Объём внедрения обсуждаем на консультации.' },

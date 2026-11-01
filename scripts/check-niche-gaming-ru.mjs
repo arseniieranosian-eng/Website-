@@ -10,9 +10,9 @@ const CS_PATH = '/seo-pro-pocitacove-herny-praha/';
 const H1 = 'SEO и GEO/AEO для компьютерных клубов в Праге: бронирования из Google и ИИ';
 const TITLE = 'SEO для компьютерных клубов: Прага, GEO/AEO | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для компьютерных клубов в Праге: сайт, бронирование, тарифы, акции, FAQ. Бесплатный технический аудит.';
-const SECTIONS = [H1, 'Что я делаю для компьютерного клуба?', 'Для кого это и для кого нет?', 'Что входит в бесплатный аудит, а что нет?', 'Как проходит работа?', 'Частые вопросы', 'Следующий шаг'];
+const SECTIONS = [H1, 'Что я делаю для компьютерного клуба?', 'Для кого это и для кого нет?', 'Что входит в бесплатный аудит, а что нет?', 'Как проходит работа?', 'Сколько это стоит?', 'Частые вопросы', 'Следующий шаг'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/obo-mne/'];
-const FORBIDDEN = ['(?<!не )гарантирую', 'гарантированно(?![а-я])', 'первое место', 'SEO агентств', 'Kč', 'несовершеннолет', 'школьник', 'возраст', 'дет', 'казино', 'азарт', 'игровые автоматы', 'AggregateRating', '12 сайтов', 'часто нахожу', 'GEO(?!/AEO)'];
+const FORBIDDEN = ['(?<!не )гарантирую', 'гарантированно(?![а-я])', 'первое место', 'SEO агентств', 'несовершеннолет', 'школьник', 'возраст', 'дет', 'казино', 'азарт', 'игровые автоматы', 'AggregateRating', '12 сайтов', 'часто нахожу', 'GEO(?!/AEO)'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
 const txt = (s) => norm(dec(s.replace(/<(script|style|svg)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/ ([.,:;!?)»])/g, '$1').replace(/([«(]) /g, '$1'));
@@ -69,7 +69,7 @@ if (wp.inLanguage !== 'ru' || wp.name !== H1 || wp.datePublished !== '2026-10-25
 if (wp.dateModified !== h.match(/Обновлено: <time datetime="([^"]+)"/)[1]) e('dateModified = visible date');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 5 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 5 questions equal to the visible FAQ');
+if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage: 5 questions equal to the visible FAQ');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== 'SEO для компьютерных клубов') e('breadcrumbs: Главная → SEO для компьютерных клубов');
 // Inbound
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');

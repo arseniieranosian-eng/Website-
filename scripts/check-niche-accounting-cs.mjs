@@ -9,7 +9,7 @@ const NAME = 'SEO pro účetní kanceláře v Praze'; // the breadcrumb label (M
 const H1 = 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI';
 const TITLE = 'SEO pro účetní kanceláře Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Začněte bezplatným auditem technických chyb.';
-const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí a kdy přijdou první výsledky?', 'Jaké mám zkušenosti s tímto oborem?', 'Co jsem zjistil na webech účetních kanceláří?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Chcete vědět, jaké technické chyby má váš web?'];
+const SECTIONS = [H1, 'Jak spolupráce vypadá?', 'Kolik to stojí?', 'Jaké mám zkušenosti s tímto oborem?', 'Co jsem zjistil na webech účetních kanceláří?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Chcete vědět, jaké technické chyby má váš web?'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura/', '/o-mne/'];
 const BRNO_READY = /nicheAccountingBrno: true/.test(readFileSync('src/i18n/routes.ts', 'utf8').split('NICHE_READY =')[1].split('\n')[0]); // the prices appear on both pages once the Brno page is published
 const FORBIDDEN = ['více klientů', 'garantovaně', 'za 24 hodin', 'top 1', 'první místo', 'SEO agentur', 'Max 3', ...(BRNO_READY ? [] : ['Kč']), 'Sklik:', ' my ', 'AggregateRating', 'reels', 'rilsu', 'reel'];

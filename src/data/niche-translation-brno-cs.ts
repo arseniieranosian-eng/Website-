@@ -5,6 +5,7 @@
 // Shared wording (capacity rule, audit, formats, reviews, closing text) comes from niche-shared.ts. No guarantees, no blog links,
 // "já", the word "agentura" is never used about the author. The case uses only the approved formula; the Brno lines repeat the case page
 // WITHOUT the AI Overview claim (its date, conditions and a screenshot are still missing). The quote is a draft for the author's approval.
+import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { HALF_FORMULA_CS } from './case-summary';
 import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS } from './niche-shared';
@@ -111,6 +112,9 @@ const raw = {
   auditNot: NICHE_SHARED_CS.audit.not,
   auditCta: NICHE_SHARED_CS.audit.cta,
 
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: priceAnswerCs('translation'),
+  fullSeoMonthly: NICHE_PRICE.translation.monthly,
   formatsTitle: NICHE_SHARED_CS.formats.title,
   formatsAnswer: NICHE_SHARED_CS.formats.answer,
   formats: NICHE_SHARED_CS.formats.table,
@@ -124,6 +128,7 @@ const raw = {
 
   faqTitle: 'Často kladené otázky',
   faq: [
+    priceFaqCs('translation', 'překladatelskou agenturu'),
     { q: 'Kdy se projeví první změny?', a: 'V mých projektech se první změny obvykle objevují za 2–3 měsíce. Termín závisí na stavu webu, konkurenci a rozsahu úprav a vychází až z auditu. Případová studie s překladatelskou agenturou začala v březnu 2026.' },
     { q: 'Jak se liší SEO od reklamy pro agenturu v Brně?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
     { q: 'Pomůže agentuře v Brně profil na Mapy.com a Google Maps?', a: 'Může pomoci, aby ji firmy našly při hledání s názvem města. Důležité je, aby byly údaje v profilu shodné s webem a aby odkazy z profilu vedly na správné stránky. Mapy.com provozuje Seznam, takže profil pomáhá i těm, kdo hledají přes Seznam.' },

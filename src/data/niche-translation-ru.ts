@@ -4,6 +4,7 @@
 // facts already published on the Czech page and in the RU cases (Brno / Pardubice end-of-project lines, the language split, the AI Overview snapshot of 16.10.2026) are used; the number of branches in FAQ 4
 // as in the published case. The "×24" line stands alone with its window (spring → summer 2026) and is never merged with +65–70 %. No client or agency names, no absolute figures, no competitors, no
 // legal conclusions, no guarantees, "агентство" never about the author, only "GEO/AEO". The capacity status (24.10.2026) is the same on cs / ru. Review every 90 days (23.01.2027).
+import { priceAnswerRu, priceFaqRu } from './niche-prices';
 import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { NICHE_CAPACITY_DATE_TRANSLATION_RU as DATE } from './niche-shared';
@@ -90,6 +91,8 @@ export const NICHE_TRANSLATION_RU = {
   auditLead: 'Подробнее об аудите:',
   auditLink: 'Бесплатный аудит',
 
+  priceTitle: 'Сколько это стоит?',
+  priceAnswer: priceAnswerRu('translation'),
   formatsTitle: 'Какие форматы сотрудничества есть?',
   formatsAnswer: 'Есть консультации, пакет «Старт» на 3 месяца и Full SEO на год. Консультация помогает разобраться, что менять на сайте, а «Старт» и Full SEO — это форматы работы на 3 месяца и на год. Подробности о каждом формате указаны на странице услуги.',
 
@@ -99,6 +102,7 @@ export const NICHE_TRANSLATION_RU = {
 
   faqTitle: 'Частые вопросы',
   faq: [
+    priceFaqRu('translation', 'переводческого агентства'),
     { q: 'Сколько времени занимает SEO?', a: 'У моих проектов первые изменения обычно появляются через 2–3 месяца. Кейс по нише переводчиков идёт с марта 2026 года. Срок для вашего сайта зависит от его состояния, конкуренции и объёма работ и выясняется после технического аудита. Нужны ли вам платные услуги, вы решаете после него.' },
     { q: 'Чем SEO отличается от рекламы?', a: 'Реклама приводит заявки быстрее, но только пока вы за неё платите. Выбор зависит от срока, бюджета и задач, оба канала можно сочетать. Какой из них даст больше заявок, заранее сказать нельзя. Реклама и SEO решают разные задачи и работают на разных сроках.' },
     { q: 'Нужна ли отдельная страница на каждую языковую пару?', a: 'Бывает полезно, когда по языковой паре есть самостоятельный спрос и о ней можно написать содержательно: про сроки, форматы, отрасли. Страницы-копии, где меняется только пара языков, поисковик может счесть дублями. Лучше начать с самых востребованных пар и добавлять новые по мере наполнения.' },

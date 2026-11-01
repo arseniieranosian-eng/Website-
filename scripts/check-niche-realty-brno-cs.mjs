@@ -47,7 +47,7 @@ const vis = [...faqHtml.matchAll(/<h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map
 const ld = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
 const nodes = ld.flatMap((x) => x['@graph'] || [x]);
 const faq = nodes.find((n) => n['@type'] === 'FAQPage');
-if (vis.length !== 3 || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 3 questions and equal to the JSON-LD');
+if (vis.length !== 4 || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 4 questions and equal to the JSON-LD');
 if (/Review|AggregateRating|HowTo|VideoObject|Offer|Quotation|LocalBusiness|PostalAddress/.test(JSON.stringify(nodes.filter((n) => ['WebPage', 'Service', 'FAQPage'].includes(n['@type']))))) e('forbidden schema types');
 const svc = nodes.find((n) => n['@type'] === 'Service');
 if (!svc || svc.areaServed !== 'Brno' || svc.offers) e('Service: areaServed Brno, no offers');

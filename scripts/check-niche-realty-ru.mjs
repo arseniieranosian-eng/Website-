@@ -10,7 +10,7 @@ const NAME = 'SEO для агентств недвижимости в Праге
 const H1 = 'SEO и GEO/AEO для агентств недвижимости в Праге: заявки из Google и ИИ';
 const TITLE = 'Продвижение агентства недвижимости в Праге | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Начните с бесплатного аудита.';
-const SECTIONS = [H1, 'Что я делаю для агентства недвижимости в Праге?', 'Как выглядит аудит с планом на 12 месяцев?', 'Как я сотрудничаю с агентствами недвижимости?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
+const SECTIONS = [H1, 'Что я делаю для агентства недвижимости в Праге?', 'Как выглядит аудит с планом на 12 месяцев?', 'Как я сотрудничаю с агентствами недвижимости?', 'Что входит в бесплатный аудит?', 'Сколько это стоит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/otzyvy/', '/ru/obo-mne/', '/ru/kontakty/'];
 const FORBIDDEN = ['гарантирую', 'гарантированно', 'первое место', 'SEO агентство', 'Quantum', 'PriceHubble', 'Expats', 'KB P', 'kbpreklady', 'Correct', 'Přikop', '65–70', 'ChatGPT', 'AggregateRating', 'бесплатный аудит за 24 часа', 'купленн', 'Search Console'];
 
@@ -54,7 +54,7 @@ if (lead !== SUM['/ru/seo-dlya-agentstv-nedvizhimosti-praga/'].replace(/\u00a0/g
 const hero = main.slice(0, main.indexOf(SECTIONS[1]));
 if (/<blockquote/.test(hero) || !/href="\/ru\/besplatnyj-audit\/">Хочу бесплатный аудит<\/a>/.test(hero)) e('hero: button, no quote');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
-for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
+for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // No case study: no translation-case results
 if (/трёхкратно|рост[лш]и обращени|×24|×3|\+200/.test(mainTxt)) e('no case results carried over from the translation case');
 // Dated analysis of the Czech query and the honest note
@@ -87,7 +87,7 @@ const qn = ld.filter((n) => n['@type'] === 'Quotation');
 if (qn.length !== 1 || qn[0].text !== Q) e('Quotation');
 const fq = by('FAQPage');
 const visFaq = [...main.slice(main.indexOf('class="faq-open"')).matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 5 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');
+if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');
 if (ld.some((n) => ['AggregateRating', 'Review', 'Offer', 'VideoObject'].includes(n['@type']))) e('no ratings / reviews / offers / video');
 const bc = by('BreadcrumbList');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[0].name !== 'Главная' || bc.itemListElement[1].name !== NAME) e('breadcrumb: Главная → the page');

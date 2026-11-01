@@ -72,7 +72,7 @@ if (sv.offers || sv.areaServed.name !== 'Brno' || sv.provider['@id'] !== by('Per
 if (wp.inLanguage !== 'ru' || wp.name !== H1 || wp.datePublished !== '2026-11-01' || wp.dateModified !== h.match(/Обновлено: <time datetime="([^"]+)"/)[1]) e('WebPage');
 const faqHtml = (main.match(/<div class="faq-open">[\s\S]*?<\/section>/) || [''])[0];
 const visFaq = [...faqHtml.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (6)');
+if (!fq || fq.mainEntity.length !== 7 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (7)');
 for (const [i, q] of visFaq.entries()) if (wc(q[1]) > 60) e(`FAQ ${i + 1} answer: ${wc(q[1])} words`);
 if (!bc || bc.itemListElement.length !== 2) e('breadcrumbs: Главная → page');
 // inbound links, sitemap, the switcher

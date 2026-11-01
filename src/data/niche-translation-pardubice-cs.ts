@@ -6,6 +6,7 @@
 // Shared wording (capacity rule, audit, formats, reviews, closing text) comes from niche-shared.ts. No guarantees, no prices in the markup, "já",
 // the word "agentura" is never used about the author. The case uses only the approved formula; the city lines stay empty until the periods and
 // relative figures for Pardubice are confirmed (and no AI Overview / ChatGPT claim). The quote is a draft for the author's approval.
+import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { HALF_FORMULA_CS } from './case-summary';
 import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS, NICHE_CAPACITY_DATE_TRANSLATION as NICHE_CAPACITY_DATE } from './niche-shared';
@@ -110,6 +111,9 @@ const raw = {
   auditNot: NICHE_SHARED_CS.audit.not,
   auditCta: NICHE_SHARED_CS.audit.cta,
 
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: priceAnswerCs('translation'),
+  fullSeoMonthly: NICHE_PRICE.translation.monthly,
   formatsTitle: NICHE_SHARED_CS.formats.title,
   formatsAnswer: NICHE_SHARED_CS.formats.answer,
   formats: NICHE_SHARED_CS.formats.table,
@@ -123,6 +127,7 @@ const raw = {
 
   faqTitle: 'Často kladené otázky',
   faq: [
+    priceFaqCs('translation', 'překladatelskou agenturu'),
     { q: 'Kdy se projeví první změny?', a: 'V mých projektech se první změny obvykle objevují za 2–3 měsíce. Je to zkušenost s mými projekty, ne obecné pravidlo trhu. Termín závisí na stavu webu, konkurenci v oboru a na tom, zda jde o sezónní pokles, nebo o chybu, což je vidět až po kontrole webu.' },
     { q: 'Má smysl pro agenturu v menším městě lokální vyhledávání?', a: 'V menším městě firmy často hledají dodavatele s názvem města, proto je důležité mít správný profil na Google Maps a Mapy.com i stránky, které místo zmiňují. Je to můj předpoklad, ne tvrdé pravidlo: ověřte ho na výsledcích hledání ve svém oboru a na vlastních poptávkách.' },
     { q: 'Jak se řeší SEO agentury s pobočkami v několika městech?', a: 'U agentury s pobočkami v několika městech se obvykle dělají samostatné stránky a profily pro každé město s vlastním obsahem, ne kopie jedné stránky. Důležité je, aby se údaje na webu, Google Maps a Mapy.com shodovaly. Konkrétní řešení závisí na tom, kde mají zákazníci sídlo.' },

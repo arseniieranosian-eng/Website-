@@ -3,6 +3,7 @@
 // YouTube recording as on the Czech pages, neutral poster, no company names), the case (+65–70 % month on month for three months, March–September 2026; Brno: summer growth, autumn dip, above the April start, key queries top 5 and higher
 // at the end of the project), the capacity rule and its status (24.10.2026: free), the audit scope, the formats and their prices (from the shared constants), "2–3 months" only about the author's own projects. No B2B tripling,
 // no company / client names, no guarantee statements (author's decision of 1.11.2026: such formulations are not written on the site), "агентство" only about clients, only "GEO/AEO". No office or presence of the author in Brno.
+import { priceAnswerRu, priceFaqRu } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { NICHE_CAPACITY_DATE_TRANSLATION_RU as DATE } from './niche-shared';
 import { START_PRICE } from './start-shared';
@@ -57,7 +58,7 @@ export const NICHE_TRANSLATION_BRNO_RU = {
   auditAnswer: 'Бесплатный аудит проверяет индексацию, дубли и другие технические проблемы, а на многоязычных сайтах отдельно индексацию языковых версий. Презентацию я отправляю в течение 24 часов, без звонка и без обязательств. Ключевые слова, конкуренты, карты, видимость в ИИ, скорость и мобильная версия в аудит не входят.',
 
   formatsTitle: 'Какие форматы сотрудничества есть и сколько они стоят?',
-  formatsAnswer: `Форматов четыре: консультация, «Старт» на три месяца, Full SEO на год и работа с картами. Консультация стоит от ${kc(PRICES.questions)}, «Старт» — ${kc(START_PRICE)}, Full SEO — от ${kc(FULLSEO_MONTHLY)} в месяц. Цена работы с картами на странице не указана. Подробности есть на странице каждого формата.`,
+  formatsAnswer: priceAnswerRu('translation'),
   formats: [
     { page: 'consulting' as const, name: 'Консультация', text: 'Разбор сайта, ответы на вопросы и понятный план действий. Онлайн или лично в Праге.', meta: `От ${kc(PRICES.questions)} · 1 час или без ограничения по времени` },
     { page: 'start' as const, name: 'Старт на 3 месяца', text: 'Три месяца интенсивной работы: аудит, исправления, ключевые слова и оптимизация главных страниц.', meta: `${kc(START_PRICE)} · 3 месяца` },
@@ -71,6 +72,7 @@ export const NICHE_TRANSLATION_BRNO_RU = {
 
   faqTitle: 'Частые вопросы',
   faq: [
+    priceFaqRu('translation', 'переводческого агентства'),
     { q: 'Когда появляются первые изменения?', a: 'В моих проектах первые изменения обычно появляются через 2–3 месяца. Срок зависит от состояния сайта, конкуренции и объёма работ и уточняется после аудита. Кейс с переводческим агентством начался в марте 2026. Для вашего сайта сначала нужна проверка, и только потом я называю, что в нём можно сделать.' },
     { q: 'Чем SEO отличается от рекламы?', a: 'Рекламу я не веду. SEO строится дольше, а реклама приносит обращения только пока вы за неё платите. Их можно сочетать, а выбор зависит от срока, бюджета и задач. Оба канала можно запускать параллельно, если на это есть бюджет и время. Поэтому я не сравниваю их по цене и результату.' },
     { q: 'Помогут ли профили на Mapy.com и Google Maps?', a: 'Профиль на Mapy.com и Google Maps может помочь, когда человек ищет услугу вместе с названием города. Данные в профиле должны совпадать с данными на сайте, а ссылки из профиля вести на нужные страницы. Mapy.com принадлежит компании Seznam. Работа с картами у меня отдельная услуга.' },

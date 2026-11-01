@@ -13,7 +13,7 @@ import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
-import { FULLSEO_MONTHLY } from './fullseo-shared';
+import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited (dateModified comes from git, so it moves with price edits).
 export const NICHE_ELECTRONICS_PUBLISHED = '2026-10-25';
@@ -22,7 +22,7 @@ const [PAY1, PAY2] = START_PAYMENTS;
 const Q = fmtKc(PRICES.questions);
 const A = fmtKc(PRICES.audit);
 const S = fmtKc(START_PRICE);
-const F = fmtKc(FULLSEO_MONTHLY);
+const F = fmtKc(NICHE_PRICE.electronics.monthly); // Full SEO for this niche (niche-prices.ts)
 
 const raw = {
   lang: 'cs' as const,
@@ -109,7 +109,7 @@ const raw = {
   mapsLink: 'SEO pro Mapy',
 
   coopTitle: 'Jak začít a kolik stojí?',
-  coopAnswer: `Začnete bezplatným technickým auditem. Konzultace stojí ${Q} za hodinu nebo ${A} s auditem webu a plánem na 12 měsíců, balíček Start na 3 měsíce ${S}, Full SEO od ${F} měsíčně. Pracuji současně nejvýše se třemi firmami z jednoho oboru; k ${ELECTRONICS_CAPACITY_DATE} je obor volný.`,
+  coopAnswer: priceAnswerCs('electronics'), // the capacity sentence lives in the FAQ below
   coopLinks: [
     { page: 'consulting' as const, text: 'SEO konzultace' },
     { page: 'start' as const, text: 'SEO start na 3 měsíce' },
@@ -118,7 +118,7 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
-    { q: 'Kolik stojí SEO pro e-shop s elektronikou?', a: `Konzultace stojí ${Q} za hodinu, konzultace s auditem webu a plánem na 12 měsíců ${A}. Balíček Start na 3 měsíce stojí ${S}, Full SEO začíná od ${F} měsíčně podle rozsahu a oboru. Bezplatný technický audit je zdarma. Aktuální ceny najdete na stránkách služeb.` },
+    priceFaqCs('electronics', 'e-shop s elektronikou'),
     { q: 'Co dostanu po bezplatném auditu a co bude dál?', a: 'Po auditu dostanete prezentaci technických chyb webu do 24 hodin, bez hovoru a bez závazku. Co dál, rozhodnete sami: konzultace, balíček Start nebo Full SEO. Strukturu, obsah, konverzi a FAQ audit neřeší, ty patří do placených formátů. Audit také nezahrnuje klíčová slova, konkurenci, mapy ani viditelnost v AI.' },
     { q: 'Čím se liší Start od Full SEO?', a: `Start je tříměsíční balíček za ${S}: ${fmtKc(PAY1)} se platí na začátku a ${fmtKc(PAY2)} po dohodě. Full SEO je dlouhodobá práce od ${F} měsíčně podle rozsahu a oboru. Oba formáty zahrnují vedení profilů na Google, Mapy.com a Firmy.cz. Co se vám hodí, ukáže bezplatný audit.` },
     { q: 'Jak vypadá spolupráce krok za krokem?', a: 'Začnete bezplatným technickým auditem. Pokud chcete řešit i strukturu a obsah webu, následuje konzultace a poté balíček Start na 3 měsíce nebo průběžné Full SEO. Rozsah práce upřesníme na konzultaci. První změny u svých projektů vidím obvykle za 2–3 měsíce.' },

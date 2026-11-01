@@ -205,12 +205,22 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
     </div>
   </section>
 
+  <!-- PRICE: Full SEO price of the niche (niche-prices.ts; one value for every city and language) -->
+  {C.priceTitle && (
+    <section class="section section--grey">
+      <div class="container narrow">
+        <h2>{C.priceTitle}</h2>
+        <p class="answer">{C.priceAnswer}</p>
+      </div>
+    </section>
+  )}
+
   <!-- FORMATS: the same service cards (price, duration) as on the home page -->
   <section class="section">
     <div class="container">
       <h2>{C.formatsTitle}</h2>
       <p class="answer">{C.formatsAnswer}</p>
-      <ServiceCards lang={lang} art />
+      <ServiceCards lang={lang} art fullSeoMonthly={C.fullSeoMonthly} />
       <p>{C.formatsNote}</p>
     </div>
   </section>

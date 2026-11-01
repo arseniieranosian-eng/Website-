@@ -2,6 +2,7 @@
 // Written for Pardubice, not by substituting words of the Brno / Prague pages. Facts equal to the Czech page: the AI Overview check of 16.10.2026 and the observation of 15.09.2026 (the client's branch first; organic and local pack first to second place),
 // the review video (the same recording, neutral poster, no company names), the case without B2B tripling and without city data in the formula, the capacity rule and its status (24.10.2026: free), the audit scope, the formats and their prices.
 // No client address / hours / phone, no company names, no guarantee statements (author's decision of 1.11.2026), "агентство" only about clients. The client's written confirmation of the paragraph about competition in Pardubice is kept by the author.
+import { priceAnswerRu, priceFaqRu } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { NICHE_CAPACITY_DATE_TRANSLATION_RU as DATE } from './niche-shared';
 import { START_PRICE } from './start-shared';
@@ -58,7 +59,7 @@ export const NICHE_TRANSLATION_PARDUBICE_RU = {
   auditAnswer: 'Бесплатный аудит проверяет индексацию, дубли и другие технические проблемы, а на многоязычных сайтах отдельно индексацию языковых версий и дубли между ними. Презентацию я отправляю в течение 24 часов, без звонка и без обязательств. Ключевые слова, конкуренты, карты, видимость в ИИ, скорость и мобильная версия в аудит не входят.',
 
   formatsTitle: 'Какие форматы сотрудничества есть и сколько они стоят?',
-  formatsAnswer: `Форматов четыре: консультация, «Старт» на три месяца, Full SEO на год и работа с картами. Консультация стоит от ${kc(PRICES.questions)}, «Старт» — ${kc(START_PRICE)}, Full SEO — от ${kc(FULLSEO_MONTHLY)} в месяц. Цена работы с картами на странице не указана. Подробности есть на странице каждого формата.`,
+  formatsAnswer: priceAnswerRu('translation'),
   formats: [
     { page: 'consulting' as const, name: 'Консультация', text: 'Разбор сайта, ответы на вопросы и понятный план действий. Онлайн или лично в Праге.', meta: `От ${kc(PRICES.questions)} · 1 час или без ограничения по времени` },
     { page: 'start' as const, name: 'Старт на 3 месяца', text: 'Три месяца интенсивной работы: аудит, исправления, ключевые слова и оптимизация главных страниц.', meta: `${kc(START_PRICE)} · 3 месяца` },
@@ -72,6 +73,7 @@ export const NICHE_TRANSLATION_PARDUBICE_RU = {
 
   faqTitle: 'Частые вопросы',
   faq: [
+    priceFaqRu('translation', 'переводческого агентства'),
     { q: 'Когда проявятся первые изменения?', a: 'В моих проектах первые изменения обычно появляются через 2–3 месяца. Срок зависит от состояния сайта, конкуренции и объёма работ и уточняется после аудита. Спад может быть сезонным, а может быть ошибкой, и это видно только после проверки сайта. Кейс с переводческим агентством начался в марте 2026.' },
     { q: 'Подходит ли локальный поиск небольшому городу?', a: 'В небольшом городе люди часто ищут услугу вместе с названием города, поэтому важны верные профили на Google Maps и Mapy.com и отдельная страница города. Это моё предположение, и его нужно проверять по выдаче: без проверки вывод о конкретном городе делать нельзя.' },
     { q: 'Как выглядит SEO для агентства с филиалами в нескольких городах?', a: 'Каждому городу нужна своя страница с уникальным содержанием и свой профиль на картах с теми же данными, что на сайте. Данные на сайте, в Google Maps и на Mapy.com должны совпадать. Страницы, которые отличаются только названием города, создают дубли, поэтому тексты нельзя копировать между городами.' },

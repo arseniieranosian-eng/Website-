@@ -5,6 +5,7 @@
 // Reviews: none from translation agencies exist in the shared source, so the block is a link to all reviews. The video block (9 min, real
 // companies) is rendered only when NICHE_VIDEO is set: until then no chapters, observations, transcript or VideoObject exist. The "Další města"
 // block (Brno, Pardubice) appears when those pages are published. The quote is a draft for the author's approval.
+import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { HALF_FORMULA_CS } from './case-summary';
 import { NICHE_SHARED_CS_TR as NICHE_SHARED_CS } from './niche-shared';
@@ -99,6 +100,9 @@ const raw = {
   auditNot: NICHE_SHARED_CS.audit.not,
   auditCta: NICHE_SHARED_CS.audit.cta,
 
+  priceTitle: 'Kolik to stojí?',
+  priceAnswer: priceAnswerCs('translation'),
+  fullSeoMonthly: NICHE_PRICE.translation.monthly,
   formatsTitle: NICHE_SHARED_CS.formats.title,
   formatsAnswer: NICHE_SHARED_CS.formats.answer,
   formats: NICHE_SHARED_CS.formats.table,
@@ -112,6 +116,7 @@ const raw = {
 
   faqTitle: 'Často kladené otázky',
   faq: [
+    priceFaqCs('translation', 'překladatelskou agenturu'),
     { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu?', a: 'První výsledky se obvykle objeví za 2–3 měsíce. Garantovat je nelze, záleží na stavu webu a konkurenci v oboru.' },
     { q: 'Čím se SEO liší od reklamy pro překladatelskou agenturu?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
     { q: 'Potřebuje agentura samostatnou stránku pro každý jazykový pár?', a: 'Ne vždy. Stránku má smysl dělat tam, kde na pár existuje poptávka a agentura umí o něm napsat konkrétně.' },

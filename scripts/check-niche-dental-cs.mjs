@@ -50,15 +50,16 @@ if (sum.replace(/ /g, ' ') !== SUM || main.indexOf('summary-box') > main.indexO
 for (const m of main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)) { const n = words(txt(m[1])); if (n < 6 || n > 60) e(`answer length ${n}: ${txt(m[1]).slice(0, 50)}`); }
 // D1 exact figures
 for (const s of ['K 31. 10. 2026 jsem si prohlédl 14 webů zubních ordinací', 'dotaz „stomatologie v Praze“', 'U 11 z 14 chybí blog', 'u všech 14 jsou FAQ nedostatečné', 'u tří jsou služby jen na jedné stránce', 'žádný nemá strukturovaná data', 'Názvy webů neuvádím']) if (!mainTxt.replace(/ /g, ' ').includes(s)) e(`D1 text missing: ${s}`);
+if (!mainTxt.includes('Full SEO pro zubní ordinace začíná na 24 000 Kč měsíčně.') || /15 000/.test(mainTxt)) e('price block: Full SEO for dental = 24 000 Kč, one version only');
 if (!mainTxt.includes('Proč jsou tyto weby vpředu, nevím')) e('weak-competition sentence');
 if (main.indexOf('Proč jsou tyto weby vpředu') < main.indexOf('Názvy webů neuvádím') || main.indexOf('Proč jsou tyto weby vpředu') > main.indexOf('Co pro zubní ordinaci')) e('weak-competition sentence must follow D1 and precede the "what I do" block');
-// FAQ = JSON-LD 1:1 (f1 and f5 are not written: guarantee rule, capacity date S4)
+// FAQ = JSON-LD 1:1 (f1 and f5 are not written: guarantee rule, capacity date S4; the price FAQ is added by the brief of 01.11.2026)
 const faqHtml = [...main.matchAll(/<div class="faq-open">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/g)][0]?.[1] || '';
 const vis = [...faqHtml.matchAll(/<h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 const ld = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
 const nodes = ld.flatMap((x) => x['@graph'] || [x]);
 const faq = nodes.find((n) => n['@type'] === 'FAQPage');
-if (vis.length !== 4 || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 4 questions and equal to the JSON-LD');
+if (vis.length !== 5 || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 5 questions and equal to the JSON-LD');
 const types = nodes.map((n) => n['@type']);
 for (const need of ['Person', 'WebPage', 'Service', 'BreadcrumbList', 'FAQPage']) if (!types.includes(need)) e(`JSON-LD: ${need} missing`);
 if (/"(Review|AggregateRating|HowTo|VideoObject|Product|Offer|Quotation|LocalBusiness|MedicalBusiness|Dentist)"/.test(JSON.stringify(nodes))) e('forbidden schema types');

@@ -9,9 +9,9 @@ const NAME = 'SEO a GEO/AEO pro tiskárny a polygrafii'; // the breadcrumb label
 const H1 = 'SEO a GEO/AEO pro tiskárny a polygrafii: poptávky z Googlu a AI';
 const TITLE = 'SEO pro tiskárny a polygrafii: katalog | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Začněte technickým auditem zdarma.';
-const SECTIONS = [H1, 'Co pro tiskárny a polygrafické firmy dělám?', 'Pro koho je to a pro koho ne?', 'Jaký výsledek měla případová studie tiskárny?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Časté otázky', 'Další krok'];
+const SECTIONS = [H1, 'Co pro tiskárny a polygrafické firmy dělám?', 'Pro koho je to a pro koho ne?', 'Jaký výsledek měla případová studie tiskárny?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Kolik to stojí?', 'Časté otázky', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/pripadove-studie/seo-tiskarna/', '/o-mne/'];
-const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'rychlé výsledky pro', 'SEO agentur', 'Kč', 'Sklik:', 'Petrohrad', 'Sankt', 'ofset', '1 200', '10 500', '775', 'tiskárnu', 'AggregateRating', 'na části webů', '9 webů'];
+const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'rychlé výsledky pro', 'SEO agentur', 'Sklik:', 'Petrohrad', 'Sankt', 'ofset', '1 200', '10 500', '775', 'tiskárnu', 'AggregateRating', 'na části webů', '9 webů'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
 const txt = (s) => norm(dec(s.replace(/<(script|style|svg)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/ ([.,:;!?)])/g, '$1').replace(/\( /g, '('));

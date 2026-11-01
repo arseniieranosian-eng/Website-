@@ -4,9 +4,7 @@
 // statements (29.10.2026), no guarantees, no portal / competitor / client names, no address in Brno, "agentura" never about the author, GEO/AEO always together. hreflang: self only (cs).
 import { walk } from '../lib/cs-typo';
 import SUMMARIES from './niche-summaries.json';
-import { START_PRICE } from './start-shared';
-import { FULLSEO_MONTHLY } from './fullseo-shared';
-import { PRICES, fmtKc } from './consulting-shared';
+import { priceAnswerCs, priceFaqCs } from './niche-prices';
 
 export const NICHE_REALTY_BRNO_PUBLISHED = '2026-10-31';
 // Capacity status of the niche (the same status as on the Prague page; update on both pages together, the date on the day of publication [?]6).
@@ -76,7 +74,7 @@ const raw = {
   expLink: 'Rozbor webu malé realitní kanceláře (příklad z Prahy)',
 
   coopTitle: 'Jak spolupracuji s realitními kancelářemi a kolik to stojí?',
-  coopAnswer: `Začíná se bezplatným auditem technických chyb webu. Poté si můžete vybrat placenou konzultaci za ${fmtKc(PRICES.questions)} za hodinu, nebo za ${fmtKc(PRICES.audit)} s auditem webu a plánem na 12 měsíců, balíček Start za ${fmtKc(START_PRICE)} na tři měsíce, nebo Full SEO od ${fmtKc(FULLSEO_MONTHLY)} měsíčně. Žádný krok nezavazuje k dalšímu.`,
+  coopAnswer: priceAnswerCs('realty'),
 
   auditTitle: 'Co zahrnuje bezplatný audit?',
   auditAnswer: 'Audit se týká pouze technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci vám pošlu do 24 hodin, bez hovoru a bez závazku. V auditu nejsou klíčová slova, konkurence, mapy, viditelnost v AI, rychlost ani mobilní verze. Ty patří do placené spolupráce, o které rozhodujete až po auditu.',
@@ -88,6 +86,7 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
+    priceFaqCs('realty', 'realitní kancelář'),
     { q: 'Musíte mít kancelář v Brně?', a: 'Ne. V Brně adresu nemám, pracuji z Prahy. Spolupráce probíhá na dálku a konzultaci lze vést videohovorem, nebo osobně v Praze. Nic o místní přítomnosti v Brně na svém webu netvrdím. Pro SEO webu realitní kanceláře v Brně to není překážka, protože web se upravuje na dálku.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit se týká jen technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi audit neobsahuje. Ty jsou součástí placené spolupráce, na kterou po auditu nemusíte přistoupit.' },
     { q: 'S kolika firmami pracujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru, aby na každou zbýval čas. Stav pro obor realitní služby uvádím vždy s datem, k ${NICHE_REALTY_BRNO_STATUS_DATE}: volno. Až se stav změní, upravím ho na stránce pro Prahu i pro Brno zároveň, aby oba údaje odpovídaly.` },

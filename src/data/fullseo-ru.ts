@@ -25,6 +25,7 @@ export const FULLSEO_RU = {
 
   priceTitle: 'Сколько стоит SEO продвижение на год?',
   // The euro estimate appears only in visible text (JSON-LD has CZK only).
+  priceNiche: `Full SEO начинается от ${fmtKc(FULLSEO_MONTHLY)} в месяц. Цена для вашей ниши указана на странице ниши.`,
   priceAnswer: `SEO продвижение на год стоит ${from} (≈ €600). Точная цена зависит от объёма работ и ниши. Уточните цену в заявке, я предложу лучшую стоимость под ваш бюджет.`,
   priceNote: 'Сумма в евро ориентировочная, по курсу на дату публикации; основная цена в кронах.',
   // JSON-LD Offer.description: this sentence is also the answer of the first FAQ item.

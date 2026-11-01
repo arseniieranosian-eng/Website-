@@ -7,9 +7,7 @@
 // translation case). Own structure: not a copy of the other niche pages. hreflang: self only (cs). No quote, no video, no articles block, no Review/Offer markup.
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
-import { START_PRICE } from './start-shared';
-import { FULLSEO_MONTHLY } from './fullseo-shared';
-import { PRICES, fmtKc } from './consulting-shared';
+import { priceAnswerCs, priceFaqCs } from './niche-prices';
 
 export const NICHE_DENTAL_PUBLISHED = '2026-11-01';
 
@@ -33,7 +31,7 @@ const raw = {
   coopAnswer: 'Spolupráce začíná {audit|bezplatným auditem} technických chyb webu: indexace, duplicity a další technické věci. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Potom si můžete vybrat placenou {consulting|konzultaci}, balíček {start|Start} na tři měsíce, nebo {fullSeo|Full SEO} na rok. Mapy a místní profily řeším {maps|samostatnou službou}.',
 
   priceTitle: 'Kolik to stojí?',
-  priceAnswer: `Konzultace stojí ${fmtKc(PRICES.questions)} za hodinu, nebo ${fmtKc(PRICES.audit)} s auditem webu a plánem na 12 měsíců. Balíček Start stojí ${fmtKc(START_PRICE)} za tři měsíce, Full SEO začíná na ${fmtKc(FULLSEO_MONTHLY)} měsíčně. Začít můžete bezplatným auditem technických chyb, který nic nestojí a k ničemu nezavazuje.`,
+  priceAnswer: priceAnswerCs('dental'),
 
   expTitle: 'Jaké mám zkušenosti v oboru zubní péče?',
   expAnswer: 'Pracoval jsem v jiných oborech, například pro překladatelskou agenturu, jejíž výsledky uvádím výše. Ze zubních ordinací mám vlastní pozorování jejich webů, uvádím je níže. Nevydávám je za výsledek své práce.',
@@ -52,6 +50,7 @@ const raw = {
 
   faqTitle: 'Časté otázky',
   faq: [
+    priceFaqCs('dental', 'zubní ordinace'),
     { q: 'Musí mít ordinace vlastní web, nebo stačí profil na mapách?', a: 'Profil na mapách pomáhá, když lidé hledají ordinaci spolu s názvem města, ale obvykle nenahradí web, na kterém jsou služby, lékaři a způsob objednání. Je to moje doporučení, ne pravidlo trhu. Údaje v profilu mají odpovídat webu. Mapy řeším jako samostatnou službu.' },
     { q: 'Kdo schvaluje texty o léčbě?', a: 'Texty o léčbě má schvalovat lékař ordinace, protože za obsah odpovídá ordinace. Já připravuji strukturu stránek a formulace a upozorním na místa, kde je potřeba odborný souhlas. Medicínská tvrzení nepíšu a jejich správnost neposuzuji. Jde o moji doporučenou praxi, ne o právní pokyn.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit se týká jen technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi audit neobsahuje. Ty jsou součástí placené spolupráce, na kterou po auditu nemusíte přistoupit.' },
