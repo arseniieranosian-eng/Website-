@@ -774,8 +774,6 @@ ul, ol { margin-bottom: var(--flow); }
 }
 @media (max-width: 899px) { .case-teaser--large .case-teaser__media { max-width: 300px; } }
 
-/* Decorative illustrations added by the base layout (lib/page-art.ts): "at least two illustrations on every page" */
-.page-art-row { padding-top: 24px; padding-bottom: 40px; }
-.page-art-row__inner { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
-.page-art { flex: 0 1 260px; }
+/* Decorative illustrations inserted under H2 headings by the base layout (lib/page-art.ts): "at least two illustrations on every page" */
+.page-art { width: 200px; max-width: 70%; margin: 4px 0 18px; }
 .page-art svg { display: block; width: 100%; height: auto; }

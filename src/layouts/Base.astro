@@ -3,7 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageArt from '../components/PageArt.astro';
-import { artFor } from '../lib/page-art';
+import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { artFor, injectArt } from '../lib/page-art';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Analytics from '../components/Analytics.astro';
 import LeadModal from '../components/LeadModal.astro';
@@ -31,6 +32,13 @@ interface Props {
 
 const { lang, title, description, path, alternates, breadcrumbs, noindex = false, pageKey, schema = [], ogType = 'website', ogImage = '/images/og-card.png', langFallback = ROUTES.home } = Astro.props;
 const art = artFor(pageKey, lang);
+// Decorative illustrations (lib/page-art.ts) are inserted under the headings (H2) of the page body, not in a separate row.
+let body = await Astro.slots.render('default');
+if (art.length) {
+  const container = await AstroContainer.create();
+  const drawn = await Promise.all(art.map((k) => container.renderToString(PageArt, { props: { kind: k } })));
+  body = injectArt(body, drawn);
+}
 const site = Astro.site!;
 const abs = (p: string) => new URL(p, site).href;
 const canonical = abs(path);
@@ -77,10 +85,7 @@ const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
     <Header lang={lang} pageKey={pageKey} alternates={alternates} langFallback={langFallback} />
     {breadcrumbs && <Breadcrumbs items={breadcrumbs} lang={lang} />}
     <main id="main">
-      <slot />
-      {art.length > 0 && (
-        <section class="section page-art-row"><div class="container"><div class="page-art-row__inner">{art.map((k) => <PageArt kind={k} />)}</div></div></section>
-      )}
+      <Fragment set:html={body} />
     </main>
     <Footer lang={lang} />
     {pageKey !== 'thanks' && <LeadModal lang={lang} />}
