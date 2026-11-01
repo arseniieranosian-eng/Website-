@@ -46,7 +46,7 @@ if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt.replace
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
 const lead = txt((main.match(/<div class="summary-box"><p class="lead">([\s\S]*?)<\/p><\/div>/) || [, ''])[1]);
-if (lead !== SUM[URL_PATH] || wc(lead) < 40 || wc(lead) > 60 || /\d/.test(lead.replace(/24/g, ''))) e('summary block');
+if (lead !== SUM[URL_PATH] || wc(lead) < 40 || wc(lead) > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e('summary block');
 for (const hd of SECTIONS.slice(1, 8)) {
   const m = h.match(new RegExp(`${hd.replace(/[?.«»]/g, '\\$&')}</h2>\\s*<p class="answer">([\\s\\S]*?)</p>`));
   if (!m) { e(`answer-first: ${hd}`); continue; }

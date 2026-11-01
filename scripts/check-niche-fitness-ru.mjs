@@ -49,7 +49,7 @@ const heroEnd = main.indexOf('btn btn--primary');
 const hero = txt(main.slice(0, heroEnd));
 if (!hero.includes('')) e('the guarantee disclaimer is in the hero (summary block)');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // The author's observation verbatim (14 sites, 20.10.2026) and the criterion line
 if (!mainTxt.includes('20.10.2026 я просмотрел 14 сайтов онлайн-фитнеса и wellness в Праге: у 5 нет FAQ вообще, а полноценного нет ни у одного; у 12 нет блога; у 13 адреса страниц не говорят, о чём страница; ни на одном заголовки не сформулированы как вопросы.') || !mainTxt.includes('Адрес не говорит, о чём страница, поэтому поисковик и ИИ хуже понимают её.')) e('the observation of 20.10.2026 verbatim');

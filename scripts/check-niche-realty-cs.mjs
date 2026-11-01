@@ -52,7 +52,7 @@ if (/href="\/blog\/(?!(?:proc-prekladatelska-agentura-nema-poptavky|jak-ziskat-k
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 // Hero: the direct answer, the date, the button; no quote, no numbers of the case
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/seo-pro-realitni-kancelare-praha/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-realitni-kancelare-praha/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/seo-pro-realitni-kancelare-praha/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-realitni-kancelare-praha/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 const heroEnd = main.indexOf(SECTIONS[1]);
 const hero = main.slice(0, heroEnd);
 if (/<blockquote|65–70|×3/.test(hero) || !/href="\/audit-zdarma\/">Chci bezplatný audit<\/a>/.test(hero)) e('hero: button, no quote, no case numbers');

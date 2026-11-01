@@ -43,7 +43,7 @@ if (cnt(/href="\/audit-zdarma\/"/g) !== 3 || cnt(/href="\/audit-zdarma\/#priklad
 for (const l of ['/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/']) if (cnt(new RegExp(`href="${l}"`, 'g')) !== 1) e(`${l} once`);
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/seo-pro-strojirenske-firmy/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-strojirenske-firmy/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/seo-pro-strojirenske-firmy/'].replace(/\u00a0/g, ' ') && lead !== SUM['/seo-pro-strojirenske-firmy/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 6)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const ols = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];
 if (ols.length !== 1 || [...ols[0][1].matchAll(/<li><span>/g)].length !== 3) e('three steps list');

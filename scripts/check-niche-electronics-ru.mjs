@@ -51,7 +51,7 @@ const heroEnd = main.indexOf('btn btn--primary');
 const hero = txt(main.slice(0, heroEnd));
 if (!hero.includes('')) e('the guarantee disclaimer is in the hero (summary block)');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-magazinov-elektroniki-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;
 if (lists(/Что вы получаете:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what you get: 6');

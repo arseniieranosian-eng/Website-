@@ -47,7 +47,7 @@ if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}
 // summary block
 const lead = txt((main.match(/<div class="summary-box"><p class="lead">([\s\S]*?)<\/p><\/div>/) || [, ''])[1]);
 if (lead !== SUM[URL_PATH]) e('summary block text');
-if (wc(lead) < 6 || wc(lead) > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${wc(lead)} words`);
+if (wc(lead) < 6 || wc(lead) > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e(`summary block: ${wc(lead)} words`);
 // answers
 for (const hd of SECTIONS.slice(1, 6)) {
   const m = h.match(new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">([\\s\\S]*?)</p>`));

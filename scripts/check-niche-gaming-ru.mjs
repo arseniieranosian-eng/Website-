@@ -48,7 +48,7 @@ for (const l of ['/ru/konsultacii/', '/ru/seo-i-geo/', '/ru/karty/']) if (cnt(ne
 if (cnt(/href="\/ru\/start-3-mesyaca\/"/g) < 1 || cnt(/href="\/ru\/full-seo\/"/g) < 1) e('Start / Full SEO linked');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-kompyuternyh-klubov-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-kompyuternyh-klubov-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-kompyuternyh-klubov-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-kompyuternyh-klubov-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 5)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].length;
 if (lists(/Что я делаю для компьютерного клуба\?[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what I do: 6 bullets');

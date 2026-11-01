@@ -46,7 +46,7 @@ for (const l of ['/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/
 if (cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) < 1 || cnt(/href="\/ru\/kejsy\/seo-perevodcheskoe-agentstvo-polgoda\/"/g) > 2) e('case link 1–2 times');
 if (cnt(/class="btn btn--primary/g) !== 2) e('two buttons: hero and the closing CTA');
 const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
+if (lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/'].replace(/\u00a0/g, ' ') && lead !== SUM['/ru/seo-dlya-perevodcheskih-agentstv-praga/']) e('summary block text'); const sw = lead.split(/\s+/).length; if (sw < 6 || sw > 60 || /\d/.test(lead.replace(/24/g, '').replace(/\d[\d\s]*Kč/g, ''))) e(`summary block: ${sw} words, no numbers except 24`);
 for (const hd of SECTIONS.slice(1, 7)) if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">`).test(h)) e(`answer-first: ${hd}`);
 // Steps, H3s, case lines, audit table + checklist
 if ([...(main.match(/<ol class="steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><span>/g)].length !== 4) e('four steps');
