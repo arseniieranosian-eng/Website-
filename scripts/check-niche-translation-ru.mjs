@@ -37,7 +37,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (new RegExp(f).test(mainTxt)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/(?!slabe-seo-konkurence-prekladatelske-agentury\/)|<form|<video|\/seo-pro-prekladatelske-agentury-(?:brno|pardubice)|seo-dlya-agentstv-nedvizhimosti|seo-dlya-finansovyh/.test(main)) e('no blog / form / video, no links to Brno / Pardubice / other niches');
+if (/href="\/(?:en\/|ru\/)?blog\/(?!slabaya-seo-konkurenciya-perevodcheskie-agentstva\/)|<form|<video|\/seo-pro-prekladatelske-agentury-(?:brno|pardubice)|seo-dlya-agentstv-nedvizhimosti|seo-dlya-finansovyh/.test(main)) e('no blog / form / video, no links to Brno / Pardubice / other niches');
 if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt)) e('"агентство" about the author');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
 const cnt = (re) => (main.match(re) || []).length;

@@ -1,0 +1,89 @@
+---
+// Blog article "Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?" (ru), brief of 1.11.2026. Content: data/post-weak-seo-ru.ts.
+// Informational: observations and hypotheses; no sales in the body; the closing block has three equal buttons (the author's decision) to the three translation niche pages. The video is a facade (loads on click).
+import Base from '../layouts/Base.astro';
+import YoutubeFacade from '../components/YoutubeFacade.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postWeakSeoSchemas } from '../lib/schema-post-weak-seo';
+import { POST_WEAK_SEO_RU as C, POST_WEAK_SEO_RU_PUBLISHED, GOOGLE_RANKING_URL_RU } from '../data/post-weak-seo-ru';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostWeakSeoRuPage.astro', 'src/data/post-weak-seo-ru.ts'], '2026-11-01'), POST_WEAK_SEO_RU_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-slabe-seo-konkurence-prekladatelske-agentury.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postWeakSeo', lang)} ogType="article" ogImage={OG} schema={postWeakSeoSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postWeakSeo.ru.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.seenTitle}</h2>
+      <p class="answer">{C.seenAnswer}</p>
+      <p>{C.seenMore}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.videoTitle}</h2>
+      <p class="answer">{C.videoAnswer}</p>
+      <YoutubeFacade {...C.video} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+      <p class="small"><a class="link-arrow" href={GOOGLE_RANKING_URL_RU} rel="noopener">{C.whySource}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.easyTitle}</h2>
+      <p class="answer">{C.easyAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.takeTitle}</h2>
+      <p class="answer">{C.takeAnswer}</p>
+      <p class="muted small">{C.takeNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row">{C.ctas.map((c) => <a class="btn btn--primary btn--lg" href={t(c.page)}>{c.label}</a>)}</div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -286,7 +286,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?',
     },
     en: { name: 'Why competitors with weak SEO rank ahead', title: 'Why competitors with weak SEO rank ahead', description: 'Why competitors with weak SEO rank ahead', h1: 'Why do translation agencies with weak SEO rank ahead?' },
-    ru: { name: 'Почему впереди конкуренты со слабым SEO', title: 'Почему впереди конкуренты со слабым SEO', description: 'Почему впереди конкуренты со слабым SEO', h1: 'Почему в поиске впереди переводческие агентства со слабым SEO?' },
+    ru: {
+      name: 'Слабое SEO у конкурентов-переводчиков',
+      title: 'Слабое SEO переводческих агентств в поиске | Eranosian',
+      description: 'Почему выше в поиске бывает конкурент со слабым сайтом: наблюдения по выдаче «překlady», гипотезы и то, что из них не следует.',
+      h1: 'Почему в поиске выше и переводческие агентства со слабым SEO?',
+    },
   },
   postRealtyPragueDistricts: {
     cs: {
@@ -797,7 +802,7 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'Blog about SEO and GEO/AEO',
     },
     ru: {
-      name: 'Блог',
+      name: 'Статьи',
       title: 'SEO-блог – статьи о SEO и GEO/AEO',
       description: 'Практические статьи об SEO, GEO/AEO, локальном SEO и поиске в Google, Seznam и нейросетях. Советы, которые можно применить сразу.',
       h1: 'Блог об SEO и GEO/AEO',

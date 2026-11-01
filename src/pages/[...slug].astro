@@ -86,6 +86,7 @@ import PostRealtyDistrictsCsPage from '../views/PostRealtyDistrictsCsPage.astro'
 import PostRealtyBrnoDistrictsCsPage from '../views/PostRealtyBrnoDistrictsCsPage.astro';
 import PostRealtyPragueDistrictsCsPage from '../views/PostRealtyPragueDistrictsCsPage.astro';
 import PostWeakSeoCsPage from '../views/PostWeakSeoCsPage.astro';
+import PostWeakSeoRuPage from '../views/PostWeakSeoRuPage.astro';
 import PostRealtyPortalsCsPage from '../views/PostRealtyPortalsCsPage.astro';
 import Blog from '../views/Blog.astro';
 import PostView from '../views/Post.astro';
@@ -147,6 +148,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postRealtyBrnoDistricts' && props.lang === 'cs' && <PostRealtyBrnoDistrictsCsPage />}
 {props.key === 'postRealtyPragueDistricts' && props.lang === 'cs' && <PostRealtyPragueDistrictsCsPage />}
 {props.key === 'postWeakSeo' && props.lang === 'cs' && <PostWeakSeoCsPage />}
+{props.key === 'postWeakSeo' && props.lang === 'ru' && <PostWeakSeoRuPage />}
 {props.key === 'postRealtyLocal' && props.lang === 'cs' && <PostRealtyLocalCsPage />}
 {props.key === 'postAccountingNoLeads' && props.lang === 'cs' && <PostAccountingNoLeadsCsPage />}
 {props.key === 'postAccountingSmall' && props.lang === 'cs' && <PostAccountingSmallCsPage />}

@@ -40,7 +40,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!main.includes(`href="${l}"`)) e(`missing link ${l}`);
-if (/href="\/(?!ru\/|#)(?!blog\/slabe-seo-konkurence-prekladatelske-agentury\/)[^"]*"/.test(main)) e('links lead to Russian pages (one exception: the Czech article)');
+if (/href="\/(?!ru\/|#)[^"]*"/.test(main)) e('links lead to Russian pages only');
 if (/<form|<iframe/.test(main)) e('no form, no iframe before the click');
 if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt.replace(/переводческих агентств|переводческого агентства|агентства в Пардубице|агентства/g, ''))) e('"агентство" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
@@ -59,7 +59,7 @@ if (!mainTxt.includes('Статус для ниши переводческих �
 // the video facade: neutral poster, no company names, one link to the Czech article, no VideoObject
 const vid = (main.match(/<figure class="niche-video"[\s\S]*?<\/figure>/) || [''])[0];
 if (!/data-youtube="l2-SXybLlss"/.test(vid) || !/slabe-seo-video-poster\.webp/.test(vid) || !/data-title="Разбор сайтов двух переводческих агентств"/.test(vid) || !/href="https:\/\/youtu\.be\/l2-SXybLlss"/.test(vid)) e('video facade');
-if ((main.match(/href="\/blog\/slabe-seo-konkurence-prekladatelske-agentury\/"/g) || []).length !== 1) e('one link to the article about weak competition');
+if ((main.match(/href="\/ru\/blog\/slabaya-seo-konkurenciya-perevodcheskie-agentstva\/"/g) || []).length !== 1) e('one link to the article about weak competition');
 const cnt = (re) => (main.match(re) || []).length;
 if (cnt(/href="\/ru\/besplatnyj-audit\/"/g) !== 3) e(`audit links: ${cnt(/href="\/ru\/besplatnyj-audit\/"/g)} (hero, audit section, CTA)`);
 if (cnt(/class="btn btn--primary/g) !== 3) e('three buttons: hero, audit section, closing CTA');

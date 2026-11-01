@@ -30,7 +30,11 @@ if (desc !== DESC || desc.length > 150 || /Požádejte|Objednejte|Kontaktujte/i.
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:type article / og:locale');
 if (!h.includes(`<meta property="og:image" content="${BASE}/images/blog/og-slabe-seo-konkurence-prekladatelske-agentury.png">`)) e('og:image');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h)) e('Czech-only page: no hreflang alternates');
+{
+  const alts = [...h.matchAll(/<link rel="alternate"[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/g)].map((m) => m[1] + ' ' + m[2]).sort();
+  const want = ['cs https://seo-eranosian.com/blog/slabe-seo-konkurence-prekladatelske-agentury/', 'ru https://seo-eranosian.com/ru/blog/slabaya-seo-konkurenciya-perevodcheskie-agentstva/', 'x-default https://seo-eranosian.com/blog/slabe-seo-konkurence-prekladatelske-agentury/'].sort();
+  if (JSON.stringify(alts) !== JSON.stringify(want)) e('hreflang pair cs/ru/x-default expected, got: ' + alts.join(' | '));
+}
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
@@ -75,7 +79,7 @@ const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s
 if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (4 questions)');
 for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 6 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
 if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'Quotation', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / Quotation / VideoObject markup');
-if (existsSync('dist/en/blog/why-competitors-with-weak-seo-rank-ahead') || existsSync('dist/ru/blog/pochemu-vperedi-konkurenty-so-slabym-seo')) e('no en/ru versions');
+if (existsSync('dist/en/blog/why-competitors-with-weak-seo-rank-ahead')) e('no en version');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');
 for (const c of CTAS) if (!readFileSync(`dist${c}index.html`, 'utf8').includes(`href="${URL_PATH}"`)) e(`${c} links to the article (Další články)`);
 
