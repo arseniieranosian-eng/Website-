@@ -1,7 +1,7 @@
 // Post-build check of the blog article /blog/prazske-mestske-casti-a-ctvrti-web-realitni-kancelare/ (cs, brief N9 of 31.10.2026): meta (title <= 55, description <= 150, no call to action), H1 and H2 order,
 // direct answers of 40-60 words, the list of the 57 city sections (22 linked to metropolevsech.eu), one link to N6, one CTA button to the Prague landing page, FAQ = JSON-LD, forbidden text (no prices / services /
 // guarantees / portals), JSON-LD without HowTo / Offer / ratings / Quotation, inbound links (the Prague landing page and N6).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/blog/prazske-mestske-casti-a-ctvrti-web-realitni-kancelare/';

@@ -1,6 +1,6 @@
 // Post-build check of the Russian mini-case "Разбор сайта агентства недвижимости в Праге" /ru/kejsy/razbor-agentstvo-nedvizhimosti-praga/ (brief of 23.10.2026).
 // A review, not a result: no figures, no "рост", "привело", "×", no purchased-links slide, no client or third-party names.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/kejsy/razbor-agentstvo-nedvizhimosti-praga/';

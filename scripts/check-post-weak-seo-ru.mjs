@@ -1,7 +1,7 @@
 // Post-build check of the Russian blog article /ru/blog/slabaya-seo-konkurenciya-perevodcheskie-agentstva/ (brief of 1.11.2026): meta (title <= 55, description <= 150, no call to action), H1 and H2 order, direct answers (max 60 words),
 // FAQ = JSON-LD (4), one Google link, the video facade (youtube-nocookie on click, neutral poster, no company names), three equal CTA buttons to the Russian city pages, hreflang pair cs ↔ ru (+ x-default = cs),
 // parity of the facts with the Czech article, no names / guarantees / prices / "X of Y", inbound links (the three Russian city pages, the Russian blog index).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/blog/slabaya-seo-konkurenciya-perevodcheskie-agentstva/';

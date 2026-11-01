@@ -1,6 +1,6 @@
 // Post-build check of the Russian niche landing /ru/seo-dlya-finansovyh-konsultantov-chehiya/ (brief of 24.10.2026): meta, section order, answer-first, tables, checklist,
 // one confirmed quote, no prices, no volumes, no guarantees, no "агентство" about the author, FAQ = JSON-LD, no Offer / video / HowTo, ru-only hreflang, inbound links.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

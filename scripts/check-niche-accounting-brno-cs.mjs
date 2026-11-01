@@ -1,6 +1,6 @@
 // Post-build check of the niche landing page /seo-pro-ucetni-kancelare-brno/ (cs, brief of 31.10.2026). While NICHE_READY.nicheAccountingBrno is false the page must be absent
 // (no file, not in the sitemap, not linked). When it is true the page must contain B2 (the search check), otherwise the check fails (doorway rule of the brief).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-ucetni-kancelare-brno/';

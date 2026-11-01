@@ -1,5 +1,5 @@
 // Post-build check of the Czech home page / (hub) against its brief of 20.10.2026.
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from './fs-clean.mjs';
 import { join } from 'node:path';
 
 const BASE = 'https://seo-eranosian.com';

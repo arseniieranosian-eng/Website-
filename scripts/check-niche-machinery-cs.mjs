@@ -1,6 +1,6 @@
 // Post-build check of the niche landing /seo-pro-strojirenske-firmy/ (cs, brief of 25.10.2026): meta (title <= 55, description <= 150), section order, answer-first, lists/tables, the audit example block
 // (links only, findings as on the audit page, no client / domain), no prices, no guarantees, no "agentura" about the author, FAQ = JSON-LD, Service without Offer, cs-only (no hreflang), inbound links.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

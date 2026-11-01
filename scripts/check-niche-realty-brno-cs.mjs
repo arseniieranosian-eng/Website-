@@ -1,6 +1,6 @@
 // Post-build check of the niche landing page /seo-pro-realitni-kancelare-brno/ (cs, brief of 31.10.2026). While NICHE_READY.nicheRealtyBrno is false the page must be absent
 // (no file, not in the sitemap, not linked). When it is true the page must contain R3 (the official list of the Brno districts), otherwise the check fails (doorway rule of the brief).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-realitni-kancelare-brno/';

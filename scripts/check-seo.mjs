@@ -7,7 +7,7 @@
 //  - sitemap.xml lists exactly the indexable pages
 //  - global JSON-LD: Person / ProfessionalService / WebSite identical on every page, tied to the
 //    social profiles via sameAs, every {"@id"} reference resolves, social links are present in the HTML
-import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync } from './fs-clean.mjs';
 import { join, relative, sep } from 'node:path';
 
 const DIST = new URL('../dist/', import.meta.url).pathname;

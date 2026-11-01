@@ -1,5 +1,5 @@
 // "At least two illustrations on every page" (author's rule of 01.11.2026). Pages whose own content has fewer than two drawings / images get decorative ones from here:
-// the base layout inserts them under the headings (H2) of the page body: the first under the 1st H2, the second under the 3rd (or the last one if there are fewer). `kinds` = how many to add (1 or 2) and which; `langs` limits the entry to some languages.
+// the base layout inserts them under the headings (H2) of the page body: the first directly under the 1st H2, the second directly under the 3rd (or the last one if there are fewer). `kinds` = how many to add (1 or 2) and which; `langs` limits the entry to some languages.
 // scripts/check-illustrations.mjs fails the build if any page ends up with fewer than two; when a new page has fewer, add it here.
 import type { Lang, PageKey } from '../i18n/routes';
 
@@ -42,15 +42,17 @@ export const artFor = (key: PageKey | undefined, lang: Lang): string[] => {
   return e && (!e.langs || e.langs.includes(lang)) ? e.kinds : [];
 };
 
-// Inserts the drawings (already rendered HTML) right after the chosen headings (after the direct-answer paragraph when the heading has one); without H2 they go after the first paragraph.
+// Inserts the drawings (already rendered HTML) right after the closing </h2> of the chosen headings (content checks ignore them, see scripts/fs-clean.mjs); without H2 they go after the first paragraph.
 export function injectArt(html: string, drawn: string[]): string {
   const ends: number[] = [];
-  for (const m of html.matchAll(/<\/h2>/g)) {
-    // answer-first rule: the direct answer stays right under the heading, the drawing goes after it
-    let at = m.index! + m[0].length;
-    const a = html.slice(at).match(/^\s*<p class="answer"[^>]*>[\s\S]*?<\/p>/);
-    if (a) at += a[0].length;
-    ends.push(at);
+  // Only plain headings: not in dark CTA bands / flex heading rows (section-head, cta-inner), where a drawing would break the layout.
+  for (const m of html.matchAll(/<h2\b[^>]*>[\s\S]*?<\/h2>/g)) {
+    const before = html.slice(Math.max(0, m.index! - 400), m.index!);
+    const sec = before.lastIndexOf('<section');
+    const secTag = sec >= 0 ? before.slice(sec, before.indexOf('>', sec) + 1) : '';
+    const tail = before.slice(-120);
+    if (/section--dark|cta-band/.test(secTag) || /section-head|cta-inner/.test(tail)) continue;
+    ends.push(m.index! + m[0].length);
   }
   const pos: number[] = [];
   if (ends.length === 0) {

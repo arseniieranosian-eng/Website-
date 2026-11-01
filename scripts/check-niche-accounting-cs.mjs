@@ -1,6 +1,6 @@
 // Post-build check of the niche landing page /seo-pro-ucetni-kancelare-praha/ (cs, brief of 23.10.2026): meta, section order, answer-first, the two tables, the checklist, no prices,
 // no search volumes, no guarantees, no "agentura" about the author, FAQ = JSON-LD, no Offer / Quotation / video / HowTo, hreflang pair with the Russian page (since 31.10.2026), inbound links.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

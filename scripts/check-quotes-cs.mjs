@@ -1,5 +1,5 @@
 // Post-build check of the author's quotes on the Czech service pages (brief of 20.10.2026): position, markup, Quotation node.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const PAGES = [

@@ -1,6 +1,6 @@
 // Post-build check of the blog article /blog/jak-ziskat-klienty-pro-ucetni-kancelar/ (cs, brief U1 of 24.10.2026): meta, H2 order, answer-first, channel table, checklist, steps,
 // one confirmed quote, no invented observation, links, FAQ = JSON-LD, no HowTo/Service, cs-only, blog index.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/blog/jak-ziskat-klienty-pro-ucetni-kancelar/';

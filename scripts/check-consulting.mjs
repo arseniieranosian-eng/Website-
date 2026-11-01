@@ -2,7 +2,7 @@
 //  - title 50-60 chars, description 120-160, one H1, section order
 //  - JSON-LD matches the visible text (title, description, lead, FAQ, steps, offers, date,)
 //  - prices in JSON-LD are CZK only, no AggregateRating / stars, correct canonical and hreflang
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const PAGES = {

@@ -1,6 +1,6 @@
 // Post-build check of the niche landing page /seo-pro-zubni-ordinace-praha/ (cs, brief of 01.11.2026). While NICHE_READY.nicheDental is false the page must be absent
 // (no file, not in the sitemap, not linked). When it is true the page is checked against the brief (with the author's standing rules: no guarantee phrases, no "no results in the niche").
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-zubni-ordinace-praha/';

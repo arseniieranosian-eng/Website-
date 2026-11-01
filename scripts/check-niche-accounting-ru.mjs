@@ -1,7 +1,7 @@
 // Post-build check of the Russian niche landing /ru/seo-dlya-buhgalterskih-kompanij-praga/ (brief of 31.10.2026): meta (title <= 55, description <= 150), H1, the summary block (from niche-summaries.json),
 // section order, direct answers of 40–60 words, FAQ = JSON-LD, hreflang pair cs ↔ ru (+ x-default = cs), parity of the facts with the Czech page, no guarantees / site names / "агентство" about the author,
 // links to the Russian service pages, JSON-LD without Offer / Review / HowTo, inbound links (home, menu), sitemap.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/seo-dlya-buhgalterskih-kompanij-praga/';

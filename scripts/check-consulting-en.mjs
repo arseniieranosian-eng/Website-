@@ -1,5 +1,5 @@
 // Post-build check of /en/consulting/ (en): the same content as the Czech page, translated (brief of 29.10.2026).
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/en/consulting/';

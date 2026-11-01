@@ -1,5 +1,5 @@
 // Post-build check of the Russian half-year case study /ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/ (brief of 22.10.2026), page 3 of the series.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/';

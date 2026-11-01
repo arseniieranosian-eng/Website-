@@ -1,5 +1,5 @@
 // Post-build check of /lokalni-seo-mapy/ (cs) against its keyword brief of 20.10.2026.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/lokalni-seo-mapy/';

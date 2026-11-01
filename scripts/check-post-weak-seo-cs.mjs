@@ -1,7 +1,7 @@
 // Post-build check of the blog article /blog/slabe-seo-konkurence-prekladatelske-agentury/ (cs, brief of 1.11.2026): meta (title <= 55, description <= 150, no call to action), H1 and H2 order, direct answers
 // of 40-60 words, FAQ = JSON-LD (5), one Google link, the video facade (youtube-nocookie on click, Czech title, no VideoObject), three equal CTA buttons to the translation niche pages, no names / guarantees / prices,
 // inbound links (the three niche pages, the blog index).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/blog/slabe-seo-konkurence-prekladatelske-agentury/';

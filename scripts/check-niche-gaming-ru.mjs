@@ -1,7 +1,7 @@
 // Post-build check of the Russian niche landing /ru/seo-dlya-kompyuternyh-klubov-praga/ (brief of 25.10.2026): meta (title <= 55, description <= 150), section order, answer-first, lists/tables,
 // no bare "игровой клуб" / "игровые автоматы", nothing about minors, no prices / competitors / guarantees, FAQ = JSON-LD, Service without Offer, hreflang pair with the Czech page,
 // the same niche status date and the same audit terms as the Czech page, inbound links.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

@@ -1,6 +1,6 @@
 // Post-build check of the Russian niche landing page /ru/seo-dlya-agentstv-nedvizhimosti-praga/ (brief of 22.10.2026). Built together with the Czech page
 // (NICHE_READY.nicheRealty); until then it only confirms that the page is not built, not in the sitemap and not linked.
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

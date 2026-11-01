@@ -1,5 +1,5 @@
 // Post-build check of the main case study (cs, brief of 21.10.2026), plus the site-wide anonymisation.
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from './fs-clean.mjs';
 import { join } from 'node:path';
 
 const BASE = 'https://seo-eranosian.com';

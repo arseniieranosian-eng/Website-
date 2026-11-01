@@ -1,7 +1,7 @@
 // Post-build check of the Russian niche landing /ru/seo-dlya-perevodcheskih-agentstv-brno/ (brief of 1.11.2026): meta (title <= 55, description <= 150), H1, the summary block, section order, direct answers (max 60 words),
 // FAQ = JSON-LD (6), hreflang pair cs ↔ ru (+ x-default = cs), parity of the facts with the Czech Brno page, the video facade (neutral poster, no company names), no guarantees / site names / "агентство" about the author / B2B tripling,
 // prices equal to the Czech page, links to the Russian pages, JSON-LD without Offer / Review / VideoObject / HowTo / Quotation, inbound links, sitemap.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/seo-dlya-perevodcheskih-agentstv-brno/';

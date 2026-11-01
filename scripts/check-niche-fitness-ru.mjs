@@ -1,7 +1,7 @@
 // Post-build check of the Russian niche landing /ru/seo-dlya-onlajn-fitnesa-i-wellness-praga/ (brief of 25.10.2026, rules A–G): meta (title <= 55, description <= 150), the H1 rule, the disclaimer and the "no results" line on
 // the first screen, section order, answer-first, the author's observation verbatim, lists/tables, prices = the live service pages, no health / medical words, no competitors, no guarantees in the H1, FAQ = JSON-LD,
 // Service without Offer, no hreflang (ru only until the Czech pair), inbound links.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

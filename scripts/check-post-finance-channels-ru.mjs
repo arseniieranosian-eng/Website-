@@ -1,6 +1,6 @@
 // Post-build check of the blog article /ru/blog/kak-poluchit-klientov-finansovomu-konsultantu-chehiya/ (ru, brief F1 of 24.10.2026): meta, H2 order, answer-first, channel table,
 // checklist, steps, one confirmed quote, the dated observation, links, FAQ = JSON-LD, no HowTo/Service, ru-only hreflang, blog index.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/blog/kak-poluchit-klientov-finansovomu-konsultantu-chehiya/';

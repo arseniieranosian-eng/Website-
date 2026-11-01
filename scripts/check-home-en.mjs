@@ -1,5 +1,5 @@
 // Post-build check of the English home page /en/ against its brief of 21.10.2026.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const H1 = 'English-speaking SEO specialist in Prague: enquiries from Google, Seznam and AI';

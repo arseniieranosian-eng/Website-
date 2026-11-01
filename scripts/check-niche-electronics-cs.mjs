@@ -1,6 +1,6 @@
 // Post-build check of the niche landing /seo-pro-obchody-s-elektronikou/ (cs, brief of 25.10.2026): meta (title <= 55, description <= 150), the H1 rule (result, no disclaimer, no negation), the proof line under the H1,
 // section order, answer-first, lists/tables, prices = the live service pages, no quote without consent, no Heureka / brands / competitors, no guarantees, FAQ = JSON-LD, Service without Offer, cs-only, inbound links.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

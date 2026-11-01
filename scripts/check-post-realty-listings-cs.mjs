@@ -1,5 +1,5 @@
 // Post-build check of the blog article /blog/jak-ziskat-klienty-pro-prekladatelskou-agenturu/ (cs, brief of 21.10.2026).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/blog/nabidky-nemovitosti-seo-indexace-duplicity/';

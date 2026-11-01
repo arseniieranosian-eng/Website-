@@ -1,6 +1,6 @@
 // Post-build check of the niche landing page /seo-pro-realitni-kancelare-praha/ (cs, brief of 22.10.2026). The page is built only when
 // NICHE_READY.nicheRealty is true; until then this check only confirms that it is not built, not in the sitemap and not linked.
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

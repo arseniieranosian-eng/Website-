@@ -1,5 +1,5 @@
 // Post-build check of the anonymised print-shop case (ru only) against its brief of 20.10.2026.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/ru/kejsy/seo-tipografiya/';

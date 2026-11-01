@@ -1,7 +1,7 @@
 // Post-build check of the Czech review /pripadove-studie/rozbor-webu-realitni-kancelare-praha/ (brief of 26.10.2026): meta limits, H1/H2 order, direct answers of 40-60 words,
 // "Výsledky zatím nejsou" visible, anonymity (no names), no Quotation/Review/Service markup, FAQ = JSON-LD, links, hreflang pair with the Russian review, pointers from the landing page,
 // the cases index and the consulting page.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/pripadove-studie/rozbor-webu-realitni-kancelare-praha/';

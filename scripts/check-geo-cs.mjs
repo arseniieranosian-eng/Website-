@@ -1,5 +1,5 @@
 // Post-build check of /seo-a-geo/ (cs) against its brief of 20.10.2026: an informational hub, not a service.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-a-geo/';

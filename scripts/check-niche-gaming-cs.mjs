@@ -1,6 +1,6 @@
 // Post-build check of the niche landing /seo-pro-pocitacove-herny-praha/ (cs, brief of 25.10.2026): meta, section order, answer-first, lists/tables, the gambling-ambiguity rule (no bare "herna"),
 // nothing about minors, no prices / competitors / guarantees, no "agentura" about the author, FAQ = JSON-LD, Service without Offer, cs-only (no hreflang, no x-default), inbound links.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));

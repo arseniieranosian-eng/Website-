@@ -1,6 +1,6 @@
 // Post-build check of the Russian niche landing /ru/seo-dlya-perevodcheskih-agentstv-praga/ (brief of 24.10.2026): meta, section order, answer-first, lists/tables, case lines with windows,
 // no absolute figures / names, no prices, no guarantees, FAQ = JSON-LD, Service without Offer, hreflang pair with the Czech page, inbound links, one capacity date everywhere.
-import { readFileSync } from 'node:fs';
+import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
