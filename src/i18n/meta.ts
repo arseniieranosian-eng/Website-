@@ -721,7 +721,12 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
       h1: 'SEO a GEO/AEO pro překladatelské agentury v Pardubicích: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for translation agencies in Pardubice', title: 'SEO for translation agencies in Pardubice', description: 'SEO for translation agencies in Pardubice', h1: 'SEO for translation agencies in Pardubice' },
-    ru: { name: 'SEO для переводческих агентств в Пардубице', title: 'SEO для переводческих агентств в Пардубице', description: 'SEO для переводческих агентств в Пардубице', h1: 'SEO для переводческих агентств в Пардубице' },
+    ru: {
+      name: 'SEO для переводческих агентств в Пардубице',
+      title: 'SEO для переводческих агентств в Пардубице | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для переводческих агентств в Пардубице: сайт, языковые версии, карты, FAQ. Закажите бесплатный технический аудит.',
+      h1: 'SEO и GEO/AEO для переводческих агентств в Пардубице: заявки из Google и ИИ',
+    },
   },
   nicheTranslation: {
     cs: {

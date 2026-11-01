@@ -123,11 +123,11 @@ const raw = {
 
   faqTitle: 'Často kladené otázky',
   faq: [
-    { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu v Pardubicích?', a: 'První výsledky se u mých služeb obvykle objeví za 2–3 měsíce. Je to zkušenost s mými projekty, ne obecné pravidlo trhu, a nic neručí. Doba závisí na stavu webu, konkurenci v oboru a na tom, zda jde o sezónní pokles, nebo o chybu.' },
+    { q: 'Kdy se projeví první změny?', a: 'V mých projektech se první změny obvykle objevují za 2–3 měsíce. Je to zkušenost s mými projekty, ne obecné pravidlo trhu. Termín závisí na stavu webu, konkurenci v oboru a na tom, zda jde o sezónní pokles, nebo o chybu, což je vidět až po kontrole webu.' },
     { q: 'Má smysl pro agenturu v menším městě lokální vyhledávání?', a: 'V menším městě firmy často hledají dodavatele s názvem města, proto je důležité mít správný profil na Google Maps a Mapy.com i stránky, které místo zmiňují. Je to můj předpoklad, ne tvrdé pravidlo: ověřte ho na výsledcích hledání ve svém oboru a na vlastních poptávkách.' },
     { q: 'Jak se řeší SEO agentury s pobočkami v několika městech?', a: 'U agentury s pobočkami v několika městech se obvykle dělají samostatné stránky a profily pro každé město s vlastním obsahem, ne kopie jedné stránky. Důležité je, aby se údaje na webu, Google Maps a Mapy.com shodovaly. Konkrétní řešení závisí na tom, kde mají zákazníci sídlo.' },
     { q: 'Konkurují mi agentury z Prahy a Brna?', a: 'Záleží na tom, na jaké dotazy cílíte. U dotazů bez názvu města se můžete potkat s agenturami z celé země, u dotazů s městem jde hlavně o místní firmy. Konkrétní závěry nedělám bez prohlédnutí výsledků hledání pro váš obor a bez data kontroly.' },
-    { q: 'S kolika firmami z oboru pracujete současně?', a: `Nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti. Údaj platí k ${NICHE_CAPACITY_DATE} a při změně ho aktualizuji. Počítám podle oboru, ne podle města, proto se číslo neliší mezi stránkami pro jednotlivá města.` },
+    { q: 'S kolika firmami z oboru pracujete současně?', a: `Nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti. Stav pro obor překladatelských agentur k ${NICHE_CAPACITY_DATE}: volno. Údaj aktualizuji při změně. Počítám podle oboru, ne podle města, proto se číslo neliší mezi stránkami pro jednotlivá města.` },
   ],
 
   endTitle: NICHE_SHARED_CS.end.title,
