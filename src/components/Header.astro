@@ -14,7 +14,7 @@ const ui = t(lang);
 // "Services" is a dropdown of the service pages (there is no services collection page); the rest are plain links.
 // The blog is in the menu of the Czech and Russian versions (the Russian section is open since 24.10.2026, noindex until its first post); en follows when it has posts.
 const NAV: PageKey[] = ['cases', 'geo', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' || lang === 'ru' ? (['blog'] as PageKey[]) : [])];
-const label = (k: PageKey) => (k === 'geo' ? ui.navGeo : META[k][lang].name);
+const label = (k: PageKey) => (k === 'geo' ? ui.navGeo : k === 'blog' && lang === 'cs' ? 'Články' : META[k][lang].name); // the Czech menu says "Články", the page name and the address stay "Blog"
 const current = (k: PageKey) => pageKey === k || (k === 'cases' && pageKey === 'caseKb');
 // Niche menu ("SEO pro" in Czech, "SEO для" in Russian): only the groups and pages that exist in the current language.
 const nicheGroups = (lang === 'cs' || lang === 'ru' ? NICHE_GROUPS : [])
