@@ -1,6 +1,6 @@
 ---
 import { META } from '../i18n/meta';
-import { LANGS, NICHE_GROUPS, SERVICE_MENU, langsFor, path, type Lang, type PageKey } from '../i18n/routes';
+import { LANGS, NICHE_GROUPS, NICHE_PARENTS, SERVICE_MENU, langsFor, path, type Lang, type PageKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
 
 interface Props {
@@ -17,12 +17,22 @@ const NAV: PageKey[] = ['cases', 'geo', 'about', 'reviews', 'faq', 'contact', ..
 const label = (k: PageKey) => (k === 'geo' ? ui.navGeo : k === 'blog' && lang === 'cs' ? 'Články' : META[k][lang].name); // the Czech menu says "Články", the page name and the address stay "Blog"
 const current = (k: PageKey) => pageKey === k || (k === 'cases' && pageKey === 'caseKb');
 // Niche menu ("SEO pro" in Czech, "SEO для" in Russian): only the groups and pages that exist in the current language.
-const nicheGroups = (lang === 'cs' || lang === 'ru' ? NICHE_GROUPS : [])
-  .map((g: any) => ({ id: g.id as string, label: (lang === 'ru' ? g.labelRu ?? g.label : g.label) as string, items: g.items.filter((i: any) => langsFor(i.page).includes(lang)).map((i: any) => ({ page: i.page as PageKey, label: (lang === 'ru' ? i.labelRu ?? i.label : i.label) as string })) }))
+const leafGroups = (lang === 'cs' || lang === 'ru' ? NICHE_GROUPS : [])
+  .map((g: any) => ({ id: g.id as string, parent: g.parent as string | undefined, label: (lang === 'ru' ? g.labelRu ?? g.label : g.label) as string, items: g.items.filter((i: any) => langsFor(i.page).includes(lang)).map((i: any) => ({ page: i.page as PageKey, label: (lang === 'ru' ? i.labelRu ?? i.label : i.label) as string })) }))
   .filter((g) => g.items.length > 0);
+// Menu tree: top level = groups without a parent + parent entries (Medicína) holding their groups, in the order of first appearance.
+type MenuGroup = { id: string; label: string; items?: { page: PageKey; label: string }[]; children?: MenuGroup[] };
+const nicheGroups: MenuGroup[] = [];
+for (const g of leafGroups) {
+  if (!g.parent) { nicheGroups.push(g); continue; }
+  let p = nicheGroups.find((x) => x.id === g.parent);
+  if (!p) { const meta: any = NICHE_PARENTS.find((x) => x.id === g.parent); p = { id: g.parent, label: lang === 'ru' ? meta.labelRu ?? meta.label : meta.label, children: [] }; nicheGroups.push(p); }
+  p.children!.push(g);
+}
+const leavesOf = (g: MenuGroup) => g.children ? g.children.flatMap(leavesOf) : g.items!;
 const showNiches = nicheGroups.length > 0;
 const nichesLabel = lang === 'ru' ? 'SEO для' : 'SEO pro';
-const inNiches = nicheGroups.some((g) => g.items.some((i) => i.page === pageKey));
+const inNiches = nicheGroups.some((g) => leavesOf(g).some((i) => i.page === pageKey));
 const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as PageKey);
 ---
 <header class="site-header">
@@ -54,11 +64,22 @@ const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as Page
               <ul class="nav-sub" id="nav-niches">
                 {nicheGroups.map((g) => (
                   <li class="nav-group">
-                    <button class={g.items.some((i) => i.page === pageKey) ? 'nav-group__btn is-current' : 'nav-group__btn'} type="button" aria-expanded="false" aria-controls={`nav-group-${g.id}`}>
+                    <button class={leavesOf(g).some((i) => i.page === pageKey) ? 'nav-group__btn is-current' : 'nav-group__btn'} type="button" aria-expanded="false" aria-controls={`nav-group-${g.id}`}>
                       {g.label}<span class="nav-dd__chev" aria-hidden="true"></span>
                     </button>
                     <ul class="nav-sub2" id={`nav-group-${g.id}`}>
-                      {g.items.map((i) => (
+                      {g.children ? g.children.map((c) => (
+                        <li class="nav-group">
+                          <button class={c.items!.some((i) => i.page === pageKey) ? 'nav-group__btn is-current' : 'nav-group__btn'} type="button" aria-expanded="false" aria-controls={`nav-group-${c.id}`}>
+                            {c.label}<span class="nav-dd__chev" aria-hidden="true"></span>
+                          </button>
+                          <ul class="nav-sub2" id={`nav-group-${c.id}`}>
+                            {c.items!.map((i) => (
+                              <li><a href={path(i.page, lang)} aria-current={pageKey === i.page ? 'page' : undefined}>{i.label}</a></li>
+                            ))}
+                          </ul>
+                        </li>
+                      )) : g.items!.map((i) => (
                         <li><a href={path(i.page, lang)} aria-current={pageKey === i.page ? 'page' : undefined}>{i.label}</a></li>
                       ))}
                     </ul>

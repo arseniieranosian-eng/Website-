@@ -168,9 +168,11 @@ export const NICHE_GROUPS = [
   ...(NICHE_READY.nicheMachinery ? [{ id: 'machinery', label: 'Strojírenské firmy', labelRu: 'Машиностроение', items: [{ page: 'nicheMachinery', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),
   ...(NICHE_READY.nicheTypography ? [{ id: 'printing', label: 'Tiskárny a polygrafie', labelRu: 'Типографии', items: [{ page: 'nicheTypography', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),
   ...(NICHE_READY.nicheFinance ? [{ id: 'finance', label: 'Finanční poradci', labelRu: 'Финансовые консультанты', items: [{ page: 'nicheFinance', label: 'Česko', labelRu: 'Чехия' }] } as const] : []),
-  ...(NICHE_READY.nicheDental ? [{ id: 'dental', label: 'Zubní ordinace', labelRu: 'Стоматологии', items: [{ page: 'nicheDental', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
+  ...(NICHE_READY.nicheDental ? [{ id: 'dental', parent: 'medicine', label: 'Stomatologie', labelRu: 'Стоматология', items: [{ page: 'nicheDental', label: 'Praha', labelRu: 'Прага' }] } as const] : []),
   ...(NICHE_READY.nicheRealty ? [{ id: 'realty', label: 'Realitní kanceláře', labelRu: 'Агентства недвижимости', items: [{ page: 'nicheRealty', label: 'Praha', labelRu: 'Прага' }, ...(NICHE_READY.nicheRealtyBrno ? [{ page: 'nicheRealtyBrno', label: 'Brno', labelRu: 'Брно' } as const] : [])] } as const] : []),
-] as const satisfies readonly { id: string; label: string; labelRu?: string; items: readonly { page: PageKey; label: string; labelRu?: string }[] }[];
+] as const satisfies readonly { id: string; parent?: string; label: string; labelRu?: string; items: readonly { page: PageKey; label: string; labelRu?: string }[] }[];
+// Menu level above the niches: a group with `parent: 'medicine'` is listed under "Medicína" (SEO pro → Medicína → Stomatologie → Praha).
+export const NICHE_PARENTS = [{ id: 'medicine', label: 'Medicína', labelRu: 'Медицина' }] as const;
 export const NICHE_MENU: readonly PageKey[] = NICHE_GROUPS.flatMap((g) => g.items.map((i) => i.page));
 
 export const postPath = (lang: Lang, slug: string): string => `${LANG_PREFIX[lang]}blog/${slug}/`;
