@@ -70,6 +70,10 @@ export const HOME_CS = {
       id: 'printing' as const,
       cards: [{ page: 'nicheTypography' as const, title: 'SEO a GEO/AEO pro tiskárny a polygrafii', text: 'Katalog, varianty produktů, kalkulačky a FAQ, technický základ webu.' }],
     }] : []),
+    ...(NICHE_READY.nicheDental ? [{
+      id: 'dental' as const,
+      cards: [{ page: 'nicheDental' as const, title: 'SEO a GEO/AEO pro zubní ordinace v Praze', text: 'Stránky služeb a lékařů, FAQ, způsob objednání a technický základ webu.' }],
+    }] : []),
     ...(NICHE_READY.nicheRealty ? [{
       id: 'realty' as const,
       cards: [{ page: 'nicheRealty' as const, title: 'SEO pro realitní kanceláře v Praze', text: 'Stránky nabídek a čtvrtí, indexace a duplicity z filtrů a lokální přítomnost.' }],

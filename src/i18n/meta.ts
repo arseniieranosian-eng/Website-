@@ -623,6 +623,16 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     en: { name: 'SEO for accounting firms in Brno', title: 'SEO for accounting firms in Brno', description: 'SEO for accounting firms in Brno', h1: 'SEO for accounting firms in Brno' },
     ru: { name: 'SEO для бухгалтерских компаний в Брно', title: 'SEO для бухгалтерских компаний в Брно', description: 'SEO для бухгалтерских компаний в Брно', h1: 'SEO для бухгалтерских компаний в Брно' },
   },
+  nicheDental: {
+    cs: {
+      name: 'SEO pro zubní ordinace v Praze',
+      title: 'SEO pro zubní ordinace Praha: web a GEO/AEO | Eranosian',
+      description: 'Dělám SEO a GEO/AEO pro zubní ordinace v Praze: technický základ webu, stránky služeb, FAQ. Požádejte o bezplatný technický audit.',
+      h1: 'SEO a GEO/AEO pro zubní ordinace v Praze: poptávky z Googlu a AI',
+    },
+    en: { name: 'SEO for dental practices in Prague', title: 'SEO for dental practices in Prague', description: 'SEO for dental practices in Prague', h1: 'SEO for dental practices in Prague' },
+    ru: { name: 'SEO для стоматологий в Праге', title: 'SEO для стоматологий в Праге', description: 'SEO для стоматологий в Праге', h1: 'SEO для стоматологий в Праге' },
+  },
   nicheRealtyBrno: {
     cs: {
       name: 'SEO pro realitní kanceláře v Brně',

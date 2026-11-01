@@ -1,0 +1,113 @@
+---
+// Niche landing page "SEO pro zubní ordinace v Praze" (cs), brief of 01.11.2026. Built only when NICHE_READY.nicheDental is true (routes.ts; currently OFF, see data/niche-dental-cs.ts).
+// Own structure from the brief. No quote, no video, no articles block, no Review / Offer markup.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { nicheDentalSchemas } from '../lib/schema-niche-dental';
+import { NICHE_DENTAL_CS as C, NICHE_DENTAL_D2 as D2 } from '../data/niche-dental-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = lastModified(['src/views/NicheDentalCsPage.astro', 'src/data/niche-dental-cs.ts'], '2026-11-01');
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+// "{key|text}" in an answer becomes a link to the page `key`.
+const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).map((p) => {
+  const m = p.match(/^\{([a-zA-Z]+)\|([^}]+)\}$/);
+  return m ? { href: t(m[1] as Parameters<typeof path>[0]), text: m[2] } : { text: p };
+});
+---
+<Base {...pageProps('nicheDental', lang)} schema={nicheDentalSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{META.nicheDental.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p>{C.proof}</p>
+      <div class="summary-box"><p class="lead">{C.lead}</p></div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{parts(C.coopAnswer).map((p) => p.href ? <a href={p.href}>{p.text}</a> : p.text)}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.expTitle}</h2>
+      <p class="answer">{C.expAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.obsTitle}</h2>
+      <p class="answer">{C.obsAnswer}</p>
+      <p class="muted small">{C.obsNote}</p>
+    </div>
+  </section>
+
+  {D2 && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{D2.title}</h2>
+        <p class="answer">{D2.answer}</p>
+      </div>
+    </section>
+  )}
+
+  <section class={D2 ? 'section section--grey' : 'section'}>
+    <div class="container narrow">
+      <p>{C.weakText}</p>
+    </div>
+  </section>
+
+  <section class={D2 ? 'section' : 'section section--grey'}>
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <p class="answer">{C.doAnswer}</p>
+    </div>
+  </section>
+
+  <section class={D2 ? 'section section--grey' : 'section'}>
+    <div class="container narrow">
+      <h2>{C.fitTitle}</h2>
+      <p class="answer">{C.fitAnswer}</p>
+    </div>
+  </section>
+
+  <section class={D2 ? 'section' : 'section section--grey'}>
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>
