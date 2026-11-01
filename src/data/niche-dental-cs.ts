@@ -1,4 +1,4 @@
-// Czech content of the niche landing page /seo-pro-zubni-ordinace-praha/ (brief of 01.11.2026). Built ONLY when NICHE_READY.nicheDental is true (routes.ts), which is OFF:
+// Czech content of the niche landing page /seo-pro-zubni-ordinace-praha/ (brief of 01.11.2026). Published by the author's decision of 01.11.2026 WITHOUT D2 and before S2; S3 confirmed, S4 declined. Original stop list:
 // the brief's stop list is open: S1 (block D2 has no data → the page is built without it), S2 (regulatory check of zákon č. 372/2011 Sb. and the ČSK rules not done:
 // the page contains no legal or medical statements), S3 (the Google-documentation wording in the weak-competition sentence is not verified), S4 (capacity date and status
 // for the dental niche missing → FAQ f5 is not written).

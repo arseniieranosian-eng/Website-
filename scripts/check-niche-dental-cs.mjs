@@ -24,7 +24,7 @@ if (!ready) {
   if (readFileSync('dist/sitemap.xml', 'utf8').includes('seo-pro-zubni-ordinace')) e('page in the sitemap');
   for (const f of ['dist/index.html']) if (readFileSync(f, 'utf8').includes('seo-pro-zubni-ordinace')) e(`link to the unpublished page in ${f}`);
   done();
-  console.log('✓ check-niche-dental-cs: page not published (stop list S1–S4 open), nothing leaks');
+  console.log('✓ check-niche-dental-cs: page not published (flag off), nothing leaks');
   process.exit(0);
 }
 
