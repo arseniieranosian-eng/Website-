@@ -4,8 +4,11 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const walk = (d) => readdirSync(d).flatMap((n) => { const p = join(d, n); return statSync(p).isDirectory() ? walk(p) : n === 'index.html' ? [p] : []; });
+// Exception of the author (02.11.2026): the FAQ page in every language has no illustrations.
+const EXEMPT = new Set(['dist/caste-dotazy/index.html', 'dist/en/faq/index.html', 'dist/ru/voprosy-i-otvety/index.html']);
 const bad = [];
 for (const f of walk('dist')) {
+  if (EXEMPT.has(f)) continue;
   const h = readFileSync(f, 'utf8');
   const m = h.match(/<main[\s\S]*?<\/main>/);
   if (!m) continue;

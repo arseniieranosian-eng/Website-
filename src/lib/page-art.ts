@@ -7,7 +7,7 @@ type Entry = { kinds: string[]; langs?: Lang[] };
 
 const article = (n: string): Entry => ({ kinds: [n] });
 export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
-  faq: { kinds: ['faq', 'audit'] },
+  // faq: no illustrations (the author's exception to the two-illustration rule, 02.11.2026)
   contact: { kinds: ['contact', 'audit'] },
   thanks: { kinds: ['thanks', 'audit'] },
   privacy: { kinds: ['privacy', 'audit'] },
