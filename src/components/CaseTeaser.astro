@@ -10,10 +10,15 @@ const c = caseByKey(caseKey);
 const H = heading;
 const ART: Record<string, string> = { caseKb: 'kb', caseHalf: 'half', caseTypo: 'typo', caseEdu: 'edu', caseSeason: 'season', caseRazbor: 'razbor' };
 // Large mode (the cases page, Czech): a bigger illustration in its own column; the first case has a picture with the three branches (an illustration, not a photo of the client).
-const PHOTO: Record<string, { src: string; alt: string }> = {
-  caseKb: { src: '/images/cases/kb-3-pobocky.webp', alt: 'Ilustrace: mapa České republiky se třemi pobočkami agentury, Praha, Pardubice a Brno' },
+const PHOTO: Record<string, Record<string, { src: string; alt: string }>> = {
+  cs: { caseKb: { src: '/images/cases/kb-3-pobocky.webp', alt: 'Ilustrace: mapa České republiky se třemi pobočkami agentury, Praha, Pardubice a Brno' } },
+  // Russian cases page (author's pictures of 02.11.2026). The print-shop picture shows the ratio 8,75× with rounded example numbers (1 000 → 8 750 visits).
+  ru: {
+    caseKb: { src: '/images/cases/kb-3-filiala-ru.webp', alt: 'Иллюстрация: карта Чехии с тремя филиалами агентства: Прага, Пардубице и Брно' },
+    caseTypo: { src: '/images/cases/typo-vyrosla-ru.webp', alt: 'Иллюстрация: посещаемость типографии выросла в 8,75 раза' },
+  },
 };
-const photo = large && lang === 'cs' ? PHOTO[c.key] : undefined;
+const photo = large ? PHOTO[lang]?.[c.key] : undefined;
 ---
 <a class:list={['card card--link case-teaser', large && 'case-teaser--large']} href={path(c.key, lang)}>
   {large && (
