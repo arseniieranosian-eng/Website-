@@ -777,3 +777,6 @@ ul, ol { margin-bottom: var(--flow); }
 /* Decorative illustrations inserted under H2 headings by the base layout (lib/page-art.ts): "at least two illustrations on every page" */
 .page-art { width: 200px; max-width: 70%; margin: 4px 0 18px; }
 .page-art svg { display: block; width: 100%; height: auto; }
+
+/* Compact case card with the picture of the first case (three branches) */
+.case-teaser .case-teaser__thumb { display: block; width: 160px; max-width: 100%; height: auto; margin-bottom: 14px; border-radius: 12px; }

@@ -19,6 +19,8 @@ const PHOTO: Record<string, Record<string, { src: string; alt: string }>> = {
   },
 };
 const photo = large ? PHOTO[lang]?.[c.key] : undefined;
+// Compact card (reviews, about, audit and service pages): the first case shows the new three-branches picture instead of the old small drawing (cs and ru; the en pages keep the drawing, the picture has no English text).
+const thumb = !large && c.key === 'caseKb' ? PHOTO[lang]?.[c.key] : undefined;
 ---
 <a class:list={['card card--link case-teaser', large && 'case-teaser--large']} href={path(c.key, lang)}>
   {large && (
@@ -27,7 +29,7 @@ const photo = large ? PHOTO[lang]?.[c.key] : undefined;
     </div>
   )}
   <div>
-    {!large && <CaseArt kind={ART[c.key]} />}
+    {!large && (thumb ? <img class="case-teaser__thumb" src={thumb.src} width="768" height="840" alt={thumb.alt} loading="lazy" decoding="async" /> : <CaseArt kind={ART[c.key]} />)}
     <p class="eyebrow">{t(lang).relatedCase} · {c.industry[lang]}</p>
     <H>{META[c.key][lang].h1}</H>
     <p>{c.teaser[lang]}</p>
