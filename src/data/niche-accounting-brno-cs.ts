@@ -47,6 +47,8 @@ const raw = {
   obsTitle: 'Co jsem zjistil na webech brněnských účetních kanceláří?',
   obsAnswer: 'K 25. 10. 2026 jsem si prohlédl 10 webů účetních kanceláří v Brně. U všech deseti byly často kladené otázky nedostatečné, devět z deseti nemělo blog a u všech deseti nebyla struktura nadpisů vhodná pro AI vyhledávání. Je to můj pozorovací vzorek, ne průzkum trhu. Názvy webů neuvádím.',
   obsNote: OBS_NOTE.cs,
+  weakText: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi účetními kancelářemi zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:',
+  weakLink: 'Proč jsou ve vyhledávání vpředu i účetní kanceláře se slabým SEO?',
   obsText: 'Taková slabá místa jsou prostor ke zlepšení. Práci směřuji na poptávky, ne jen na pozice.',
 
   localTitle: 'Na co si dát pozor, když má účetní kancelář sídlo nebo pobočku v Brně?',

@@ -1,0 +1,78 @@
+---
+// Blog article "Proč jsou ve vyhledávání vpředu i účetní kanceláře se slabým SEO?" (cs), brief of 02.11.2026. Content: data/post-weak-seo-accounting-cs.ts.
+// Informational: observation and hypothesis; no links and no sales in the body; the closing block has two equal buttons (the author's exception to rule H) to the Prague and Brno accounting niche pages.
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postWeakSeoAccSchemas } from '../lib/schema-post-weak-seo-accounting';
+import { POST_WEAK_SEO_ACC_CS as C, POST_WEAK_SEO_ACC_PUBLISHED } from '../data/post-weak-seo-accounting-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostWeakSeoAccCsPage.astro', 'src/data/post-weak-seo-accounting-cs.ts'], '2026-11-02'), POST_WEAK_SEO_ACC_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-slabe-seo-konkurence-ucetni-kancelare.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+---
+<Base {...pageProps('postWeakSeoAcc', lang)} ogType="article" ogImage={OG} schema={postWeakSeoAccSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postWeakSeoAcc.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.seenTitle}</h2>
+      <p class="answer">{C.seenAnswer}</p>
+      <p>{C.seenMore}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whatTitle}</h2>
+      <p class="answer">{C.whatAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.checkTitle}</h2>
+      <p class="answer">{C.checkAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row">{C.ctas.map((c) => <a class="btn btn--primary btn--lg" href={t(c.page)}>{c.label}</a>)}</div>
+      </div>
+    </div>
+  </section>
+</Base>

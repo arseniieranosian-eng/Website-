@@ -58,6 +58,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.obsTitle}</h2>
       <p class="answer">{C.obsAnswer}</p>
       <p>{C.obsText}</p>
+      <p>{C.weakText}{' '}<a href={t('postWeakSeoAcc')}>{C.weakLink}</a></p>
       <p class="muted small">{C.obsNote}</p>
     </div>
   </section>
@@ -96,7 +97,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
   <section class="section">
     <div class="container narrow">
       <h2>{C.articlesTitle}</h2>
-      <RelatedPosts lang={lang} keys={['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingPages', 'postAccountingLocal', 'postAccountingTime']} more={C.articlesMore} />
+      <RelatedPosts lang={lang} keys={['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingPages', 'postAccountingLocal', 'postAccountingTime', 'postWeakSeoAcc']} more={C.articlesMore} />
     </div>
   </section>
 

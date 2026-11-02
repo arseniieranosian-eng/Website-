@@ -23,6 +23,7 @@ import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './pos
 import { POST_SEO_PLAN_CS, POST_SEO_PLAN_PUBLISHED } from './post-seo-plan-cs';
 import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './post-select-specialist-cs';
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
+import { POST_WEAK_SEO_ACC_CS, POST_WEAK_SEO_ACC_PUBLISHED } from './post-weak-seo-accounting-cs';
 import { POST_ACCOUNTING_TIME_CS, POST_ACCOUNTING_TIME_PUBLISHED } from './post-accounting-time-cs';
 import { POST_ACCOUNTING_PAGES_CS, POST_ACCOUNTING_PAGES_PUBLISHED } from './post-accounting-pages-cs';
 import { POST_ACCOUNTING_LOCAL_CS, POST_ACCOUNTING_LOCAL_PUBLISHED } from './post-accounting-local-cs';
@@ -55,6 +56,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postSeoPlan', lang: 'cs', date: POST_SEO_PLAN_PUBLISHED, title: META.postSeoPlan.cs.h1, description: META.postSeoPlan.cs.description, image: POST_SEO_PLAN_CS.cover },
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
+  { key: 'postWeakSeoAcc', lang: 'cs', date: POST_WEAK_SEO_ACC_PUBLISHED, title: META.postWeakSeoAcc.cs.h1, description: META.postWeakSeoAcc.cs.description, image: POST_WEAK_SEO_ACC_CS.cover },
   { key: 'postAccountingTime', lang: 'cs', date: POST_ACCOUNTING_TIME_PUBLISHED, title: META.postAccountingTime.cs.h1, description: META.postAccountingTime.cs.description, image: POST_ACCOUNTING_TIME_CS.cover },
   { key: 'postAccountingPages', lang: 'cs', date: POST_ACCOUNTING_PAGES_PUBLISHED, title: META.postAccountingPages.cs.h1, description: META.postAccountingPages.cs.description, image: POST_ACCOUNTING_PAGES_CS.cover },
   { key: 'postAccountingLocal', lang: 'cs', date: POST_ACCOUNTING_LOCAL_PUBLISHED, title: META.postAccountingLocal.cs.h1, description: META.postAccountingLocal.cs.description, image: POST_ACCOUNTING_LOCAL_CS.cover },
@@ -115,7 +117,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'accounting',
     title: { cs: 'Účetní kanceláře', en: 'Accounting firms', ru: 'Бухгалтерские фирмы' },
     lead: { cs: 'Jak účetní kancelář získává nové klienty.', en: 'How an accounting firm gets new clients.', ru: 'Как бухгалтерская фирма получает новых клиентов.' },
-    keys: ['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingLocal', 'postAccountingPages', 'postAccountingTime'],
+    keys: ['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingLocal', 'postAccountingPages', 'postAccountingTime', 'postWeakSeoAcc'],
   },
   {
     id: 'finance',
