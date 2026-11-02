@@ -1,5 +1,6 @@
 import { MAPS_MIN_MONTHS } from '../data/maps-shared';
 import type { MAPS_RU } from '../data/maps-ru';
+import type { MAPS_UK } from '../data/maps-uk';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
@@ -8,7 +9,7 @@ import { ids } from './schema';
 // Page-specific JSON-LD for /ru/karty/. The global Person / ProfessionalService / WebSite graph and the
 // BreadcrumbList come from the layout. No price (pay-per-result terms are not confirmed yet), no LocalBusiness
 // (it would describe the client), no VideoObject, no AggregateRating.
-export function mapsSchemas(site: URL, C: typeof MAPS_RU, opts: { modified: string; reviews: Review[] }) {
+export function mapsSchemas(site: URL, C: typeof MAPS_RU | typeof MAPS_UK, opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('maps', lang));

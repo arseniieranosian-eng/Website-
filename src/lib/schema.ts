@@ -15,7 +15,7 @@ export const ids = (site: URL) => ({
 type Tagged = { '@language': string; '@value': string };
 const knowsAbout = (): (string | Tagged)[] =>
   SITE.knowsAbout.flatMap((k): (string | Tagged)[] => (typeof k === 'string' ? [k] : langValue(k)));
-const langValue = (v: Record<Lang, string>) => (['cs', 'en', 'ru'] as Lang[]).map((l) => ({ '@language': l, '@value': v[l] }));
+const langValue = (v: Record<Lang, string>) => (['cs', 'en', 'ru', 'uk'] as Lang[]).map((l) => ({ '@language': l, '@value': v[l] }));
 
 // Global entity graph, emitted on every page. It is deliberately identical on all
 // pages and languages (stable @id, stable url) so the person, the business and
@@ -96,7 +96,7 @@ export function baseGraph(site: URL) {
       url: home,
       name: SITE.brand,
       description: langValue(SITE.description),
-      inLanguage: ['cs', 'en', 'ru'],
+      inLanguage: ['cs', 'en', 'ru', 'uk'],
       publisher: { '@id': id.business },
       copyrightHolder: { '@id': id.person },
     },

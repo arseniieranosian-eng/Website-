@@ -78,7 +78,7 @@ for (const p of pages.values()) {
 for (const p of indexable) {
   if (!p.canonical) err(`${p.url}: missing canonical`);
   else if (pathOf(p.canonical) !== p.url) err(`${p.url}: canonical points to ${p.canonical}`);
-  const isHome = ['/', '/en/', '/ru/'].includes(p.url);
+  const isHome = ['/', '/en/', '/ru/', '/uk/'].includes(p.url);
   if (!isHome && !p.hasCrumbs) err(`${p.url}: missing breadcrumbs (HTML + BreadcrumbList)`);
 
   const alts = Object.entries(p.alternates).filter(([l]) => l !== 'x-default');

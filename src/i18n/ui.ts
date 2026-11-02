@@ -125,10 +125,51 @@ export const UI = {
     metricsSource: 'Источник: собственные данные проекта и отзыв Make Up Digital Agency.',
     sampleNote: 'Пример контента – замените реальными данными перед запуском.',
   },
+  uk: {
+    langName: 'Українська',
+    skip: 'Перейти до змісту',
+    menu: 'Меню',
+    services: 'Послуги',
+    navGeo: 'SEO та GEO/AEO',
+    ctaAudit: 'Безкоштовний аудит',
+    ctaAuditLong: 'Отримати безкоштовний аудит',
+    ctaContact: 'Написати мені',
+    more: 'Докладніше',
+    readMore: 'Читати',
+    allReviews: 'Усі відгуки',
+    allPosts: 'Усі статті',
+    allFaq: 'Усі питання',
+    allCases: 'Усі кейси',
+    caseRead: 'Читати кейс повністю',
+    aboutMore: 'Докладніше про мене',
+    breadcrumbs: 'Навігаційний ланцюжок',
+    langSwitch: 'Мова',
+    footerPages: 'Сторінки',
+    footerServices: 'Послуги',
+    footerContact: 'Контакти',
+    footerTagline: 'SEO та GEO/AEO-спеціаліст у Празі. Чеська, англійська, російська, українська.',
+    rights: 'Усі права захищено.',
+    published: 'Опубліковано',
+    relatedServices: 'Пов’язані послуги',
+    relatedCase: 'Кейс',
+    reviewsTitle: 'Що кажуть клієнти?',
+    faqTitle: 'Питання та відповіді',
+    formTitle: 'Залишити заявку',
+    modalTitleAudit: 'Замовити безкоштовний аудит',
+    modalClose: 'Закрити форму',
+    blogOtherLang: 'Більше статей — у чеській версії блогу.',
+    blogOtherLangLink: 'Блог чеською',
+    cookieText: 'Я використовую аналітичні cookie (Google Analytics), щоб розуміти, як використовується сайт. Без вашої згоди вони не вмикаються.',
+    cookieAccept: 'Прийняти',
+    cookieReject: 'Відхилити',
+    cookieMore: 'Докладніше',
+    metricsSource: 'Джерело: власні дані проєкту та відгук Make Up Digital Agency.',
+    sampleNote: 'Приклад контенту – замініть реальними даними перед запуском.',
+  },
 } satisfies Record<Lang, Record<string, string>>;
 
 export const t = (lang: Lang) => UI[lang];
 
-export const DATE_LOCALE: Record<Lang, string> = { cs: 'cs-CZ', en: 'en-GB', ru: 'ru-RU' };
+export const DATE_LOCALE: Record<Lang, string> = { cs: 'cs-CZ', en: 'en-GB', ru: 'ru-RU', uk: 'uk-UA' };
 export const formatDate = (d: Date, lang: Lang) =>
   d.toLocaleDateString(DATE_LOCALE[lang], { day: 'numeric', month: 'long', year: 'numeric' });

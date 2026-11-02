@@ -53,7 +53,7 @@ const collection = {
   },
 };
 ---
-<Base {...pageProps('blog', lang)} alternates={alternates} langFallback={ROUTES.blog} noindex={empty} schema={empty ? [] : [collection]}>
+<Base {...pageProps('blog', lang)} alternates={alternates} langFallback={{ ...ROUTES.blog, uk: ROUTES.home.uk }} noindex={empty} schema={empty ? [] : [collection]}>
   <PageHero h1={m.h1} lead={C.lead} />
   <section class="section section--tight">
     <div class="container">

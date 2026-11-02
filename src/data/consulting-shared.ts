@@ -18,7 +18,7 @@ export interface OfferContent {
 }
 
 export interface ConsultingContent {
-  lang: 'cs' | 'ru' | 'en';
+  lang: 'cs' | 'ru' | 'en' | 'uk';
   h1: string;
   lead: string;
   updatedLabel: string;

@@ -22,6 +22,7 @@ const C = {
   cs: { lead: 'Zkušenosti klientů se spoluprací – od jednorázových konzultací po celoroční SEO.', ctaTitle: 'Chcete být další spokojený klient?', ctaText: 'Začněte bezplatným auditem.' },
   en: { lead: 'Clients on working together – from one-off consultations to full-year SEO.', ctaTitle: 'Want to be the next happy client?', ctaText: 'Start with a free audit.' },
   ru: { lead: 'Отзывы клиентов о сотрудничестве — от разовых консультаций до SEO на целый год.', ctaTitle: 'Хотите стать следующим довольным клиентом?', ctaText: 'Начните с бесплатного аудита.' },
+  uk: { lead: 'Відгуки клієнтів про співпрацю — від разових консультацій до SEO на цілий рік.', ctaTitle: 'Хочете стати наступним задоволеним клієнтом?', ctaText: 'Почніть із безкоштовного аудиту.' },
 }[lang];
 ---
 <Base {...pageProps('reviews', lang)} schema={[reviewSchema(Astro.site!, reviews, lang)]}>

@@ -6,7 +6,7 @@ import LeadForm from '../components/LeadForm.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import CaseTeaser from '../components/CaseTeaser.astro';
 import CaseArt from '../components/CaseArt.astro';
-import { TYPO_FORMULA } from '../data/case-summary';
+import { TYPO_FORMULA, TYPO_FORMULA_UK } from '../data/case-summary';
 import ReviewCards from '../components/ReviewCards.astro';
 import PostCard from '../components/PostCard.astro';
 import FaqList from '../components/FaqList.astro';
@@ -37,6 +37,7 @@ const QUOTE: Record<Lang, string> = {
   cs: 'SEO není o aktivitě, ale o pořadí priorit. Nejdřív odstraníte, co Googlu brání web pochopit, pak postavíte architekturu podle byznysu a teprve potom škálujete obsah.',
   en: 'SEO isn\'t about activity. It\'s about the order of priorities. First you remove what keeps Google from understanding the site, then you build an architecture around the business, and only then do you scale content.',
   ru: 'SEO — это не про активность, а про порядок приоритетов. Сначала убираете то, что мешает Google понять сайт, потом строите архитектуру под бизнес и только потом масштабируете контент.',
+  uk: 'SEO — це не про активність, а про порядок пріоритетів. Спочатку прибираєте те, що заважає Google зрозуміти сайт, потім будуєте архітектуру під бізнес і лише потім масштабуєте контент.',
 };
 const site = Astro.site!;
 const url = new URL(path('home', lang), site).href;
@@ -115,6 +116,29 @@ const C = {
     ctaText: 'Бесплатный аудит покажет главные точки роста вашего сайта. Без обязательств.',
     photoAlt: 'Arsenii Eranosian, SEO-специалист в Праге',
   },
+  uk: {
+    eyebrow: 'SEO-спеціаліст · Прага',
+    lead: 'Допомагаю бізнесу отримувати клієнтів із Google, Seznam і відповідей нейромереж. Почніть із безкоштовного аудиту — за 24 години дізнаєтеся, що гальмує ваш сайт.',
+    formTitle: 'Безкоштовний SEO-аудит',
+    points: ['Технічний стан і швидкість', 'Ключові слова та конкуренти', 'Видимість у ChatGPT і AI Overviews'],
+    proofTitle: 'Результати в цифрах',
+    proofLink: 'Дивитися кейси',
+    servicesTitle: 'Послуги',
+    servicesText: 'Від разової консультації до SEO на цілий рік. Оберіть формат під ваше завдання.',
+    geoTitle: 'SEO + GEO/AEO: два в одному',
+    geoText: 'Люди дедалі частіше запитують нейромережі замість пошуковика. Я оптимізую сайт так, щоб вас знайшов Google і порекомендував ChatGPT.',
+    geoLink: 'Як працює SEO + GEO/AEO',
+    caseTitle: 'Кейс',
+    reviewsText: 'Відгуки компаній, з якими я працюю.',
+    blogTitle: 'З блогу',
+    blogText: 'Практичні статті про SEO, GEO/AEO та локальний пошук.',
+    faqText: 'Найчастіші питання перед початком роботи.',
+    aboutTitle: 'Хто за цим стоїть?',
+    aboutText: 'Я Arsenii Eranosian, SEO-спеціаліст із Праги. З кожним клієнтом працюю особисто — чеською, англійською, російською або українською.',
+    ctaTitle: 'Дізнайтеся, скільки клієнтів ви втрачаєте',
+    ctaText: 'Безкоштовний аудит покаже головні точки зростання вашого сайту. Без зобов’язань.',
+    photoAlt: 'Arsenii Eranosian, SEO-спеціаліст у Празі',
+  },
 }[lang];
 ---
 <Base {...pageProps('home', lang)} schema={schema}>
@@ -123,8 +147,8 @@ const C = {
     <div class="container hero-grid">
       <div class="hero-copy">
         <div class="hero-person">
-          <img src="/images/author-2-avatar.jpg" width="160" height="160" alt={lang === 'ru' ? 'Арсений Ераносьян, SEO-специалист в Праге' : 'Arsenii Eranosian, SEO specialist in Prague'} fetchpriority="high" decoding="async" />
-          <div><p class="hero-person__name">{lang === 'ru' ? 'Арсений Ераносьян' : 'Arsenii Eranosian'}</p><p class="eyebrow">{C.eyebrow}</p></div>
+          <img src="/images/author-2-avatar.jpg" width="160" height="160" alt={lang === 'ru' ? 'Арсений Ераносьян, SEO-специалист в Праге' : lang === 'uk' ? 'Арсеній Ераносян, SEO-спеціаліст у Празі' : 'Arsenii Eranosian, SEO specialist in Prague'} fetchpriority="high" decoding="async" />
+          <div><p class="hero-person__name">{lang === 'ru' ? 'Арсений Ераносьян' : lang === 'uk' ? 'Арсеній Ераносян' : 'Arsenii Eranosian'}</p><p class="eyebrow">{C.eyebrow}</p></div>
         </div>
         <h1>{m.h1}</h1>
         <p class="lead">{C.lead}</p>
@@ -140,7 +164,7 @@ const C = {
 
   <!-- 2. Trust bar: the same five tiles as on the Czech and English home pages (data/trust-ru.ts) -->
   <section class="section section--tight" aria-label={C.proofTitle}>
-    <div class="container"><TrustBar lang={lang as 'en' | 'ru'} /></div>
+    <div class="container"><TrustBar lang={lang as 'en' | 'ru' | 'uk'} /></div>
   </section>
 
   <!-- 3. Services -->
@@ -299,7 +323,27 @@ const C = {
   <section class="section">
     <div class="container">
       <h2>{C.caseTitle}</h2>
-      {lang === 'ru' ? (
+      {lang === 'uk' ? (
+        <>
+          <div class="grid grid-2">
+            <a class="card card--link case-card" href={path('caseHalf', lang)}>
+              <CaseArt kind="half" />
+              <p class="eyebrow">Пів року роботи</p>
+              <h3>Перекладацька агенція: пів року роботи</h3>
+              <p>Заявки три місяці поспіль +65–70 % на місяць, B2B-заявки ×3 (+200 %), березень–вересень 2026</p>
+              <span class="link-arrow">Читати кейс</span>
+            </a>
+            <a class="card card--link case-card" href={path('caseTypo', lang)}>
+              <CaseArt kind="typo" />
+              <p class="eyebrow">Зростання трафіку</p>
+              <h3>Друкарня</h3>
+              <p>{TYPO_FORMULA_UK}</p>
+              <span class="link-arrow">Читати кейс</span>
+            </a>
+          </div>
+          <p><a class="link-arrow" href={path('cases', lang)}>Усі кейси</a></p>
+        </>
+      ) : lang === 'ru' ? (
         <>
           <div class="grid grid-2">
             <a class="card card--link case-card" href={path('caseHalf', lang)}>

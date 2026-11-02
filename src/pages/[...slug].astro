@@ -13,6 +13,10 @@ import Service from '../views/Service.astro';
 import ConsultingPage from '../views/ConsultingPage.astro';
 import ConsultingCsPage from '../views/ConsultingCsPage.astro';
 import StartPage from '../views/StartPage.astro';
+import StartUkPage from '../views/StartUkPage.astro';
+import FullSeoUkPage from '../views/FullSeoUkPage.astro';
+import MapsUkPage from '../views/MapsUkPage.astro';
+import AuditUkPage from '../views/AuditUkPage.astro';
 import StartCsPage from '../views/StartCsPage.astro';
 import FullSeoPage from '../views/FullSeoPage.astro';
 import FullSeoCsPage from '../views/FullSeoCsPage.astro';
@@ -118,7 +122,7 @@ const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
 const isService = (k: PageKey): k is ServiceKey => (SERVICE_KEYS as readonly string[]).includes(k);
-const View = props.key && !isService(props.key) && !(props.key === 'home' && (props.lang === 'cs' || props.lang === 'en')) && !(props.key === 'about' && props.lang === 'cs') && !(props.key === 'audit' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'geo' && props.lang === 'cs') && !(props.key === 'caseKb' && props.lang === 'cs') ? VIEWS[props.key] : null;
+const View = props.key && !isService(props.key) && !(props.key === 'home' && (props.lang === 'cs' || props.lang === 'en')) && !(props.key === 'about' && props.lang === 'cs') && !(props.key === 'audit' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'geo' && props.lang === 'cs') && !(props.key === 'caseKb' && props.lang === 'cs') ? VIEWS[props.key] : null;
 ---
 {props.post && <PostView post={props.post} />}
 {props.key === 'home' && props.lang === 'cs' && <HomeCsPage />}
@@ -196,6 +200,11 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'caseSeason' && props.lang === 'ru' && <CaseSeasonRuPage />}
 {props.key === 'consulting' && props.lang === 'cs' && <ConsultingCsPage lang="cs" />}
 {props.key === 'consulting' && props.lang === 'ru' && <ConsultingPage lang="ru" />}
+{props.key === 'consulting' && props.lang === 'uk' && <ConsultingPage lang="uk" />}
+{props.key === 'start' && props.lang === 'uk' && <StartUkPage />}
+{props.key === 'fullSeo' && props.lang === 'uk' && <FullSeoUkPage />}
+{props.key === 'maps' && props.lang === 'uk' && <MapsUkPage />}
+{props.key === 'audit' && props.lang === 'uk' && <AuditUkPage />}
 {props.key === 'consulting' && props.lang === 'en' && <ConsultingCsPage lang="en" />}
 {props.key === 'start' && props.lang === 'cs' && <StartCsPage />}
 {props.key === 'start' && props.lang === 'ru' && <StartPage />}
@@ -203,5 +212,5 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'fullSeo' && props.lang === 'ru' && <FullSeoPage />}
 {props.key === 'maps' && props.lang === 'cs' && <MapsCsPage />}
 {props.key === 'maps' && props.lang === 'ru' && <MapsPage />}
-{props.key && isService(props.key) && !(props.key === 'consulting') && !(props.key === 'start' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'fullSeo' && (props.lang === 'ru' || props.lang === 'cs')) && !(props.key === 'maps' && (props.lang === 'ru' || props.lang === 'cs')) && <Service lang={props.lang} service={props.key} />}
+{props.key && isService(props.key) && !(props.key === 'consulting') && !(props.key === 'start' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'fullSeo' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'maps' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && <Service lang={props.lang} service={props.key} />}
 {View && <View lang={props.lang} />}

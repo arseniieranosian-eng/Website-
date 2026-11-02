@@ -31,7 +31,7 @@ for (const g of leafGroups) {
 }
 const leavesOf = (g: MenuGroup) => g.children ? g.children.flatMap(leavesOf) : g.items!;
 const showNiches = nicheGroups.length > 0;
-const nichesLabel = lang === 'ru' ? 'SEO для' : 'SEO pro';
+const nichesLabel = lang === 'ru' || lang === 'uk' ? 'SEO для' : 'SEO pro';
 const inNiches = nicheGroups.some((g) => leavesOf(g).some((i) => i.page === pageKey));
 const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as PageKey);
 ---

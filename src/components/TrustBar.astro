@@ -3,10 +3,11 @@
 import { path, type Lang } from '../i18n/routes';
 import { TRUST_EN } from '../data/trust-en';
 import { TRUST_RU } from '../data/trust-ru';
+import { TRUST_UK } from '../data/trust-uk';
 import TrustArt from './TrustArt.astro';
 interface Props { lang: Exclude<Lang, 'cs'> }
 const { lang } = Astro.props;
-const T = lang === 'ru' ? TRUST_RU : TRUST_EN;
+const T = lang === 'uk' ? TRUST_UK : lang === 'ru' ? TRUST_RU : TRUST_EN;
 ---
 <div class="trust-bar">
   <dl class="stats stats--five">

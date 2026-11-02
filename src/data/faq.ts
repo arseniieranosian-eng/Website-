@@ -20,11 +20,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Co obsahuje bezplatný SEO audit?',
       en: 'What does the free SEO audit include?',
       ru: 'Что входит в бесплатный SEO-аудит?',
+      uk: 'Що входить у безкоштовний SEO-аудит?',
     },
     a: {
       cs: 'Zkontroluji technické chyby webu: indexaci, duplicity stránek a další technické problémy. Dostanete krátkou prezentaci s hlavními chybami a doporučeními.',
       en: 'I check the technical errors of the site: indexing, duplicate pages and other technical problems. You get a short presentation with the main errors and recommendations.',
       ru: 'Я проверяю технические ошибки сайта: индексацию, дубли страниц и другие технические проблемы. Вы получаете короткую презентацию с главными ошибками и рекомендациями.',
+      uk: 'Я перевіряю технічні помилки сайту: індексацію, дублі сторінок та інші технічні проблеми. Ви отримуєте коротку презентацію з головними помилками та рекомендаціями.',
     },
   },
   {
@@ -35,11 +37,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Za jak dlouho uvidím výsledky?',
       en: 'How soon will I see results?',
       ru: 'Когда будут результаты?',
+      uk: 'Коли будуть результати?',
     },
     a: {
       cs: 'První změny po technických opravách bývají vidět za 4–8 týdnů. Výrazný růst návštěvnosti a poptávek obvykle přichází mezi 3. a 6. měsícem, v konkurenčních oborech později.',
       en: 'The first changes after technical fixes usually show within 4–8 weeks. Significant growth in traffic and enquiries typically comes between months 3 and 6, later in competitive niches.',
       ru: 'Первые изменения после технических исправлений обычно видны через 4–8 недель. Заметный рост трафика и заявок — как правило, на 3–6-м месяце, в конкурентных нишах позже.',
+      uk: 'Перші зміни після технічних виправлень зазвичай помітні через 4–8 тижнів. Помітне зростання трафіку та заявок — як правило, на 3–6-му місяці, у конкурентних нішах пізніше.',
     },
   },
   {
@@ -50,11 +54,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Jaký je rozdíl mezi SEO a GEO/AEO?',
       en: 'What is the difference between SEO and GEO/AEO?',
       ru: 'Чем SEO отличается от GEO/AEO?',
+      uk: 'Чим SEO відрізняється від GEO/AEO?',
     },
     a: {
       cs: 'SEO zlepšuje pozice ve výsledcích vyhledávání Google a Seznamu. GEO/AEO (Generative and Answer Engine Optimization) zvyšuje šanci, že vás doporučí a ocitují AI nástroje jako ChatGPT, Gemini nebo Google AI Overviews. Dělám obojí najednou, protože se navzájem posilují.',
       en: 'SEO improves rankings in Google and Seznam results. GEO/AEO (Generative and Answer Engine Optimization) increases the chance that AI tools like ChatGPT, Gemini or Google AI Overviews recommend and cite you. I do both at once because they reinforce each other.',
       ru: 'SEO улучшает позиции в выдаче Google и Seznam. GEO/AEO (Generative and Answer Engine Optimization) повышает шанс, что вас порекомендуют и процитируют ChatGPT, Gemini или Google AI Overviews. Я делаю и то и другое сразу — они усиливают друг друга.',
+      uk: 'SEO покращує позиції у видачі Google і Seznam. GEO/AEO (Generative and Answer Engine Optimization) підвищує шанс, що вас порекомендують і процитують ChatGPT, Gemini або Google AI Overviews. Я роблю і те, і інше одразу — вони підсилюють одне одного.',
     },
   },
   {
@@ -65,11 +71,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Jak probíhá spolupráce?',
       en: 'How does working together look?',
       ru: 'Как строится сотрудничество?',
+      uk: 'Як будується співпраця?',
     },
     a: {
       cs: 'Začínáme bezplatným auditem: pošlu vám krátkou prezentaci, bez hovoru. Pak vyberete formu spolupráce (call je až u placených služeb), já připravím plán a pravidelně reportuji výsledky. Na všechno máte jednoho člověka – mě.',
       en: 'We start with a free audit: I send you a short presentation, no call. Then you choose the format (a call comes only with paid services), I prepare a plan and report results regularly. You always deal with one person – me.',
       ru: 'Начинаем с бесплатного аудита: я присылаю короткую презентацию, без созвона. Затем вы выбираете формат (созвон бывает только в платных услугах), я готовлю план и регулярно отчитываюсь о результатах. Вы всегда общаетесь с одним человеком — со мной.',
+      uk: 'Починаємо з безкоштовного аудиту: я надсилаю коротку презентацію, без дзвінка. Потім ви обираєте формат (дзвінок буває лише в платних послугах), я готую план і регулярно звітую про результати. Ви завжди спілкуєтеся з однією людиною — зі мною.',
     },
   },
   {
@@ -80,11 +88,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Pracujete i s firmami mimo Prahu?',
       en: 'Do you work with businesses outside Prague?',
       ru: 'Работаете ли вы с компаниями не из Праги?',
+      uk: 'Чи працюєте ви з компаніями не з Праги?',
     },
     a: {
       cs: 'Ano. Sídlím v Praze, ale většina spolupráce probíhá online, takže pracuji s firmami z celé ČR i ze zahraničí. Osobní schůzku rád domluvím v Praze.',
       en: 'Yes. I am based in Prague, but most work happens online, so I work with businesses across Czechia and abroad. I am happy to meet in person in Prague.',
       ru: 'Да. Я живу в Праге, но большая часть работы идёт онлайн, поэтому я работаю с компаниями по всей Чехии и за рубежом. Лично могу встретиться в Праге.',
+      uk: 'Так. Я живу в Празі, але більша частина роботи йде онлайн, тому я працюю з компаніями по всій Чехії та за кордоном. Особисто можу зустрітися в Празі.',
     },
   },
   {
@@ -94,11 +104,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Garantujete první místo v Google?',
       en: 'Do you guarantee the #1 spot on Google?',
       ru: 'Гарантируете ли вы первое место в Google?',
+      uk: 'Чи гарантуєте ви перше місце в Google?',
     },
     a: {
       cs: 'Ne – a nikdo seriózní to nedělá, protože algoritmy vyhledávačů nikdo neovládá. Garantuji transparentní práci, jasný plán a měřitelné cíle, které si na začátku společně nastavíme.',
       en: 'No – and nobody serious does, because no one controls search algorithms. I guarantee transparent work, a clear plan and measurable goals that we agree on at the start.',
       ru: 'Нет — и никто добросовестный этого не обещает, потому что алгоритмы поисковиков никому не подконтрольны. Я гарантирую прозрачную работу, понятный план и измеримые цели, которые мы согласуем в начале.',
+      uk: 'Ні — і ніхто сумлінний цього не обіцяє, бо алгоритми пошукових систем нікому не підконтрольні. Я гарантую прозору роботу, зрозумілий план і вимірні цілі, які ми погодимо на початку.',
     },
   },
   {
@@ -108,11 +120,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Řešíte i Seznam, nebo jen Google?',
       en: 'Do you work on Seznam too, or only Google?',
       ru: 'Работаете ли вы с Seznam или только с Google?',
+      uk: 'Чи працюєте ви з Seznam чи тільки з Google?',
     },
     a: {
       cs: 'Obojí. Seznam má v Česku stále významný podíl vyhledávání, zvlášť u lokálních dotazů a v Mapy.com. Optimalizaci i měření nastavuji pro oba vyhledávače.',
       en: 'Both. Seznam still holds a significant share of searches in Czechia, especially for local queries and on Mapy.com. I set up optimisation and tracking for both search engines.',
       ru: 'И с тем, и с другим. У Seznam по-прежнему заметная доля поиска в Чехии, особенно в локальных запросах и на Mapy.com. Оптимизацию и аналитику я настраиваю под оба поисковика.',
+      uk: 'І з тим, і з іншим. У Seznam досі помітна частка пошуку в Чехії, особливо в локальних запитах і на Mapy.com. Оптимізацію й аналітику я налаштовую під обидві пошукові системи.',
     },
   },
   {
@@ -122,11 +136,13 @@ export const FAQ: FaqItem[] = [
       cs: 'Jak se na konzultaci připravit?',
       en: 'How should I prepare for a consultation?',
       ru: 'Как подготовиться к консультации?',
+      uk: 'Як підготуватися до консультації?',
     },
     a: {
       cs: 'Stačí poslat adresu webu a seznam otázek. Pokud mi dáte přístup do Google Search Console a GA4, rozbor bude přesnější.',
       en: 'Just send your website address and a list of questions. If you give me access to Google Search Console and GA4, the review will be more precise.',
       ru: 'Достаточно прислать адрес сайта и список вопросов. Если дадите доступ к Google Search Console и GA4, разбор будет точнее.',
+      uk: 'Достатньо надіслати адресу сайту і список запитань. Якщо дасте доступ до Google Search Console і GA4, розбір буде точнішим.',
     },
   },
   {
@@ -136,11 +152,13 @@ export const FAQ: FaqItem[] = [
       cs: 'V jakých jazycích pracujete?',
       en: 'Which languages do you work in?',
       ru: 'На каких языках вы работаете?',
+      uk: 'Якими мовами ви працюєте?',
     },
     a: {
       cs: 'Konzultace i práce probíhají česky, anglicky a rusky. S ukrajinským obsahem umím pracovat. Umím připravit i SEO pro vícejazyčné weby, včetně správného nastavení hreflang.',
       en: 'Consultations and work are in Czech, English and Russian. I can work with Ukrainian content. I also handle SEO for multilingual websites, including correct hreflang setup.',
       ru: 'Консультации и работа проходят на чешском, английском и русском. С украинским контентом работать умею. Делаю SEO и для многоязычных сайтов, включая правильную настройку hreflang.',
+      uk: 'Консультації та робота проходять чеською, англійською, російською та українською. З українським контентом працювати вмію. Роблю SEO і для багатомовних сайтів, включно з правильним налаштуванням hreflang.',
     },
   },
 ];

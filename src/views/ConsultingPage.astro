@@ -16,12 +16,13 @@ import { lastModified } from '../lib/lastmod';
 import { consultingSchemas } from '../lib/schema-consulting';
 import { fmtKc, fmtCzk, PRICES } from '../data/consulting-shared';
 import { CONSULTING_RU } from '../data/consulting-ru';
+import { CONSULTING_UK } from '../data/consulting-uk';
 import { reviewsWithFallback } from '../data/reviews';
 import { serviceByKey } from '../data/services';
 
-interface Props { lang: 'ru' | 'en' }
+interface Props { lang: 'ru' | 'en' | 'uk' }
 const { lang } = Astro.props;
-const C = CONSULTING_RU;
+const C = lang === 'uk' ? CONSULTING_UK : CONSULTING_RU;
 const money = lang === 'en' ? fmtCzk : fmtKc;
 const site = Astro.site!;
 
@@ -31,10 +32,10 @@ const MOD = lastModified(
   '2026-10-19',
 );
 const [y, mo, d] = MOD.split('-').map(Number);
-const modText = lang === 'ru' || lang === 'en' ? `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}` : `${d}. ${mo}. ${y}`;
+const modText = lang === 'ru' || lang === 'en' || lang === 'uk' ? `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}` : `${d}. ${mo}. ${y}`;
 
 // Russian page: prefer reviews that were written in Russian.
-const reviews = reviewsWithFallback('consulting', 3, 3, lang === 'ru' ? 'ru' : undefined);
+const reviews = reviewsWithFallback('consulting', 3, 3, lang === 'ru' || lang === 'uk' ? 'ru' : undefined);
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 const name = (k: keyof typeof META) => META[k][lang].name;
 const others = [

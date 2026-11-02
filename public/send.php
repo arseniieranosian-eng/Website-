@@ -12,7 +12,7 @@ $SERVICES = [
     'audit' => 'Бесплатный SEO-аудит', 'consulting' => 'Консультация', 'start' => 'Старт на 3 месяца',
     'fullSeo' => 'Full SEO на год', 'maps' => 'Карты (Google + Seznam)', 'geo' => 'SEO + GEO', 'other' => 'Другое',
 ];
-$LANGS = ['cs' => 'чешский', 'en' => 'английский', 'ru' => 'русский'];
+$LANGS = ['cs' => 'чешский', 'en' => 'английский', 'ru' => 'русский', 'uk' => 'украинский'];
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');

@@ -8,8 +8,9 @@ const href = langsFor(pageKey).includes('cs') ? path(pageKey, 'cs') : path('home
 const T = {
   en: { text: 'Czech is the main language of this site: more articles, case studies and pages are available in the Czech version.', link: 'Open the Czech version' },
   ru: { text: 'Чешский — основной язык этого сайта: больше статей, кейсов и страниц можно увидеть в чешской версии.', link: 'Открыть чешскую версию' },
+  uk: { text: 'Чеська — основна мова цього сайту: більше статей, кейсів і сторінок можна побачити в чеській версії.', link: 'Відкрити чеську версію' },
 } as const;
-const c = lang === 'ru' ? T.ru : T.en;
+const c = lang === 'uk' ? T.uk : lang === 'ru' ? T.ru : T.en;
 ---
 {lang !== 'cs' && (
   <div class="container czech-note"><p class="muted small">{c.text}{' '}<a href={href} hreflang="cs">{c.link}</a></p></div>

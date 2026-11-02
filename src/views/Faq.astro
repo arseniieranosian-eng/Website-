@@ -17,6 +17,7 @@ const C = {
   cs: { lead: 'Nenašli jste odpověď? Napište mi.', link: 'Kontakt', ctaTitle: 'Máte jinou otázku?', ctaText: 'Odpovím do jednoho pracovního dne.' },
   en: { lead: 'Didn’t find your answer? Write to me.', link: 'Contact', ctaTitle: 'Have another question?', ctaText: 'I reply within one business day.' },
   ru: { lead: 'Не нашли ответ? Напишите мне.', link: 'Контакты', ctaTitle: 'Остались вопросы?', ctaText: 'Отвечу в течение одного рабочего дня.' },
+  uk: { lead: 'Не знайшли відповідь? Напишіть мені.', link: 'Контакти', ctaTitle: 'Залишилися питання?', ctaText: 'Відповім протягом одного робочого дня.' },
 }[lang];
 ---
 <Base {...pageProps('faq', lang)} schema={[faqSchema(FAQ, lang)]}>

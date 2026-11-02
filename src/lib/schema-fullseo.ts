@@ -1,5 +1,6 @@
 import { FULLSEO_MONTHLY, FULLSEO_MONTHS } from '../data/fullseo-shared';
 import type { FULLSEO_RU } from '../data/fullseo-ru';
+import type { FULLSEO_UK } from '../data/fullseo-uk';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
@@ -8,7 +9,7 @@ import { ids } from './schema';
 // Page-specific JSON-LD for /ru/full-seo/. The global Person / ProfessionalService / WebSite graph and
 // the BreadcrumbList come from the layout. HowTo describes the four stages of the year. No VideoObject
 // (no video on the page), no AggregateRating.
-export function fullSeoSchemas(site: URL, C: typeof FULLSEO_RU, opts: { modified: string; reviews: Review[] }) {
+export function fullSeoSchemas(site: URL, C: typeof FULLSEO_RU | typeof FULLSEO_UK, opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('fullSeo', lang));

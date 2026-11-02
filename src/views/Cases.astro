@@ -17,10 +17,12 @@ const C = {
   cs: { lead: 'Konkrétní projekty: výchozí stav, co jsme udělali a jaké to mělo výsledky.', ctaTitle: 'Chcete podobné výsledky?', ctaText: 'Začněte bezplatným auditem vašeho webu.' },
   en: { lead: 'Real projects: the starting point, what we did and the results it brought.', ctaTitle: 'Want similar results?', ctaText: 'Start with a free audit of your website.' },
   ru: { lead: 'Реальные проекты: исходная ситуация, что мы сделали и какие получили результаты.', ctaTitle: 'Хотите такие же результаты?', ctaText: 'Начните с бесплатного аудита сайта.' },
+  uk: { lead: 'Реальні проєкти: вихідна ситуація, що ми зробили і які отримали результати.', ctaTitle: 'Хочете такі самі результати?', ctaText: 'Почніть із безкоштовного аудиту сайту.' },
 }[lang];
 const site = Astro.site!;
 const url = new URL(path('cases', lang), site).href;
-const items = CASES.filter((c) => !c.langs || c.langs.includes(lang));
+// The Ukrainian list mirrors the Russian one (the case pages themselves are linked at their Russian addresses until they are translated).
+const items = CASES.filter((c) => !c.langs || c.langs.includes(lang === 'uk' ? 'ru' : lang));
 // CollectionPage: the list of case studies shown below (names = the card headings, urls = the card links).
 const collection = {
   '@type': 'CollectionPage',
@@ -40,7 +42,7 @@ const collection = {
 <Base {...pageProps('cases', lang)} schema={[collection]}>
   <PageHero h1={m.h1} lead={C.lead} />
   <section class="section section--tight">
-    <div class="container stack">{items.map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" large={lang === 'cs' || lang === 'ru'} />)}</div>
+    <div class="container stack">{items.map((c) => <CaseTeaser lang={lang} caseKey={c.key} heading="h2" large={lang === 'cs' || lang === 'ru' || lang === 'uk'} />)}</div>
   </section>
   <CtaBand lang={lang} title={C.ctaTitle} text={C.ctaText} />
   <CzechNote lang={lang} pageKey={'cases'} />

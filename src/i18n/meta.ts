@@ -1,4 +1,5 @@
 import type { Lang, PageKey } from './routes';
+import { META_UK } from './meta-uk';
 
 // Unique title / meta description / H1 for every page and language.
 // `name` is the short label used in navigation and breadcrumbs.
@@ -11,7 +12,7 @@ export interface PageMeta {
   h1: string;
 }
 
-export const META: Record<PageKey, Record<Lang, PageMeta>> = {
+const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   home: {
     cs: {
       name: 'Domů',
@@ -929,3 +930,8 @@ export const META: Record<PageKey, Record<Lang, PageMeta>> = {
     },
   },
 };
+
+// Ukrainian: the entries of meta-uk.ts; a page without one falls back to the Russian entry (it is not built in Ukrainian, see UK_READY in routes.ts).
+export const META = Object.fromEntries(
+  (Object.keys(META_BASE) as PageKey[]).map((k) => [k, { ...META_BASE[k], uk: META_UK[k] ?? META_BASE[k].ru }]),
+) as Record<PageKey, Record<Lang, PageMeta>>;

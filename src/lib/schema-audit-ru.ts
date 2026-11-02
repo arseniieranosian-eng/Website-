@@ -1,4 +1,5 @@
 import type { AUDIT_RU, AUDIT_VIDEO, AuditExample } from '../data/audit-ru';
+import type { AUDIT_UK } from '../data/audit-uk';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import type { Review } from '../data/reviews';
@@ -7,7 +8,7 @@ import { ids } from './schema';
 // Page-specific JSON-LD for /ru/besplatnyj-audit/. The global Person / ProfessionalService / WebSite graph and the
 // BreadcrumbList come from the layout. The VideoObject is emitted only once the sample video exists
 // (AUDIT_VIDEO is not null). No AggregateRating. Nothing about keywords, competitors, maps, AI visibility or speed.
-export function auditSchemas(site: URL, C: typeof AUDIT_RU, video: typeof AUDIT_VIDEO, examples: AuditExample[], opts: { modified: string; reviews: Review[] }) {
+export function auditSchemas(site: URL, C: typeof AUDIT_RU | typeof AUDIT_UK, video: typeof AUDIT_VIDEO, examples: AuditExample[], opts: { modified: string; reviews: Review[] }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('audit', lang));

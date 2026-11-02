@@ -3,7 +3,7 @@ import type { Lang } from '../i18n/routes';
 export const SITE = {
   person: 'Arsenii Eranosian',
   brand: 'Arsenii Eranosian · SEO',
-  jobTitle: { cs: 'SEO a GEO/AEO specialista', en: 'SEO and GEO/AEO specialist', ru: 'SEO и GEO/AEO специалист' } as Record<Lang, string>,
+  jobTitle: { cs: 'SEO a GEO/AEO specialista', en: 'SEO and GEO/AEO specialist', ru: 'SEO и GEO/AEO специалист', uk: 'SEO та GEO/AEO спеціаліст' } as Record<Lang, string>,
   email: 'arseniieranosian@gmail.com',
   phone: '+420 735 080 267',
   ico: '21462259', // IČO (company ID)
@@ -11,21 +11,22 @@ export const SITE = {
   address: { street: 'Příčná 1892/4', postalCode: '110 00', city: 'Praha 1', district: 'Nové Město' },
   city: 'Praha',
   country: 'CZ',
-  alternateNames: ['Арсений Ераносьян'],
+  alternateNames: ['Арсений Ераносьян', 'Арсеній Ераносян'],
   description: {
     cs: 'SEO a GEO/AEO specialista z Prahy. SEO jako systém, který mění vyhledávání v tržby.',
     en: 'SEO and GEO/AEO specialist based in Prague. SEO as a system that turns search into revenue.',
     ru: 'SEO и GEO/AEO-специалист из Праги. SEO как система, которая превращает поиск в выручку.',
+    uk: 'SEO та GEO/AEO-спеціаліст із Праги. SEO як система, що перетворює пошук на виручку.',
   } as Record<Lang, string>,
   // Plain strings are language-neutral; objects are emitted once per language (language-tagged values).
   knowsAbout: [
     'SEO',
     'GEO/AEO',
-    { cs: 'optimalizace pro AI vyhledávání', en: 'AI search optimization', ru: 'оптимизация под ИИ-поиск' },
-    { cs: 'Google Maps a Mapy.com', en: 'Google Maps and Mapy.com', ru: 'Google Maps и Mapy.com' },
+    { cs: 'optimalizace pro AI vyhledávání', en: 'AI search optimization', ru: 'оптимизация под ИИ-поиск', uk: 'оптимізація під ШІ-пошук' },
+    { cs: 'Google Maps a Mapy.com', en: 'Google Maps and Mapy.com', ru: 'Google Maps и Mapy.com', uk: 'Google Maps і Mapy.com' },
   ] as (string | Record<Lang, string>)[],
   // Spoken/working languages (ISO 639-1).
-  languages: ['cs', 'en', 'ru'],
+  languages: ['cs', 'en', 'ru', 'uk'],
   // Every profile here is emitted as sameAs on the Person, the business and (via footer/contacts) linked on the site.
   // To tie a new profile to the site, just add it to this list.
   socials: [
@@ -50,8 +51,8 @@ export const SITE = {
 // "Numbers as proof" block on the home page → links to case studies.
 // ×8 (leads) goes first: the site is about enquiries. Figures are the author's own (About page / LinkedIn); the translation-agency case is anonymous (data/case-summary.ts).
 export const PROOF: { art: 'forms' | 'visits' | 'platform' | 'years'; value: string; label: Record<Lang, string> }[] = [
-  { art: 'forms', value: '×8', label: { cs: 'poptávek v červnu oproti květnu (překladatelská agentura)', en: 'enquiries in June vs May (translation agency)', ru: 'заявок в июне по сравнению с маем (переводческое агентство)' } },
-  { art: 'visits', value: '+775 %', label: { cs: 'organická návštěvnost webu tiskárny meziročně', en: 'organic traffic growth for a print shop website, YoY', ru: 'рост органического трафика сайта типографии за год' } },
-  { art: 'platform', value: '55–60 %', label: { cs: 'průměrný růst návštěvnosti na projekt', en: 'average traffic growth per project', ru: 'средний рост трафика на проект' } },
-  { art: 'years', value: '3', label: { cs: 'roky praxe v SEO', en: 'years in SEO', ru: 'года опыта в SEO' } },
+  { art: 'forms', value: '×8', label: { cs: 'poptávek v červnu oproti květnu (překladatelská agentura)', en: 'enquiries in June vs May (translation agency)', ru: 'заявок в июне по сравнению с маем (переводческое агентство)', uk: 'заявок у червні порівняно з травнем (перекладацька агенція)' }  },
+  { art: 'visits', value: '+775 %', label: { cs: 'organická návštěvnost webu tiskárny meziročně', en: 'organic traffic growth for a print shop website, YoY', ru: 'рост органического трафика сайта типографии за год', uk: 'зростання органічного трафіку сайту друкарні за рік' }  },
+  { art: 'platform', value: '55–60 %', label: { cs: 'průměrný růst návštěvnosti na projekt', en: 'average traffic growth per project', ru: 'средний рост трафика на проект', uk: 'середнє зростання трафіку на проєкт' } },
+  { art: 'years', value: '3', label: { cs: 'roky praxe v SEO', en: 'years in SEO', ru: 'года опыта в SEO', uk: 'роки досвіду в SEO' } },
 ];
