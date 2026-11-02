@@ -98,22 +98,6 @@ export const FAQ: FaqItem[] = [
     },
   },
   {
-    id: 'guarantee',
-    pages: ['fullSeo', 'start'],
-    q: {
-      cs: 'Garantujete první místo v Google?',
-      en: 'Do you guarantee the #1 spot on Google?',
-      ru: 'Гарантируете ли вы первое место в Google?',
-      uk: 'Чи гарантуєте ви перше місце в Google?',
-    },
-    a: {
-      cs: 'Ne – a nikdo seriózní to nedělá, protože algoritmy vyhledávačů nikdo neovládá. Garantuji transparentní práci, jasný plán a měřitelné cíle, které si na začátku společně nastavíme.',
-      en: 'No – and nobody serious does, because no one controls search algorithms. I guarantee transparent work, a clear plan and measurable goals that we agree on at the start.',
-      ru: 'Нет — и никто добросовестный этого не обещает, потому что алгоритмы поисковиков никому не подконтрольны. Я гарантирую прозрачную работу, понятный план и измеримые цели, которые мы согласуем в начале.',
-      uk: 'Ні — і ніхто сумлінний цього не обіцяє, бо алгоритми пошукових систем нікому не підконтрольні. Я гарантую прозору роботу, зрозумілий план і вимірні цілі, які ми погодимо на початку.',
-    },
-  },
-  {
     id: 'seznam',
     pages: ['maps', 'fullSeo'],
     q: {
