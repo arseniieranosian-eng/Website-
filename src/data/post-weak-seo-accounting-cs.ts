@@ -40,6 +40,8 @@ const raw = {
     { q: 'Kdy má smysl začít s SEO?', a: 'Smysl to má, když chcete poptávky z vyhledávání a jste ochotni web průběžně doplňovat. Rozhodnutí nechávám na vás: nejdřív si web projděte a zhodnoťte, co chybí.' },
   ],
 
+  // The author's quote (brief of 02.11.2026: every article about weak competition carries one quote derived from a paragraph).
+  quote: 'To, že mají weby vpředu nedostatky, ještě neznamená, že jsou jejich příčinou: z deseti webů nelze odvozovat obecné pravidlo.',
   disclosure: 'Jsem SEO specialista, proto může být moje hodnocení zaujaté.',
   endTitle: 'Chcete, aby byl web vaší účetní kanceláře srozumitelný pro Google i AI?',
   endText: 'Podívejte se na stránku pro své město.',

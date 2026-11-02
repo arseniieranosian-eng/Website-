@@ -45,11 +45,11 @@ for (const c of CTAS) if ((main.match(new RegExp(`class="btn btn--primary btn--l
 if ((main.match(/class="btn /g) || []).length !== 3) e('exactly three buttons (the closing block)');
 if (/href="\/(?:audit-zdarma|konzultace|start-3-mesice|full-seo|lokalni-seo-mapy)\//.test(main)) e('no links to the other services / audit');
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
-if (/<form|★|AggregateRating|ratingValue|<blockquote|\[\?\]|\[počet\]/.test(main)) e('no form / stars / quote / placeholder');
+if (/<form|★|AggregateRating|ratingValue|\[\?\]|\[počet\]/.test(main)) e('no form / stars / quote / placeholder');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt.replace(/Jsem SEO specialista/g, '')) || /GEO(?!\/AEO)/.test(mainTxt)) e('"agentura" about the author / bare GEO');
 if (!/<img class="post-cover" src="\/images\/blog\/slabe-seo-konkurence-prekladatelske-agentury\.webp" width="1200" height="630" alt="Ilustrace:[^"]+"/.test(main) || main.indexOf('post-cover') > main.indexOf('<h1')) e('cover illustration before the H1');
 if (!/<a class="card card--link post-card" href="\/blog\/slabe-seo[^>]*>\s*<img class="post-card-img"/.test(readFileSync('dist/blog/index.html', 'utf8'))) e('blog card with the cover');
-if (!/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="2026-11-01">1\. 11\. 2026<\/time> · Čtení: \d+ min/.test(h)) e('byline with the date 1. 11. 2026');
+if (!/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="2026-11-0[12]">[12]\. 11\. 2026<\/time> · Čtení: \d+ min/.test(h)) e('byline with the date 1. 11. 2026');
 // the video: a facade (no iframe before the click), youtube-nocookie on click, a title in Czech, the link to the original, no VideoObject
 const vid = (main.match(/<figure class="niche-video"[\s\S]*?<\/figure>/) || [''])[0];
 if (!vid || /<iframe/.test(main) || !/data-youtube="l2-SXybLlss"/.test(vid) || !/data-title="Rozbor webů dvou překladatelských agentur"/.test(vid) || !/href="https:\/\/youtu\.be\/l2-SXybLlss"/.test(vid) || !/<img [^>]*alt="Náhled videa/.test(vid)) e('video facade');
@@ -69,7 +69,7 @@ const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/
 const node = (t) => g.filter((n) => n['@type'] === t);
 const U = BASE + URL_PATH;
 const post = node('BlogPosting')[0];
-if (!post || post['@id'] !== `${U}#article` || post.headline !== H1 || post.author['@id'] !== `${BASE}/#arsenii` || post.datePublished !== '2026-11-01' || post.dateModified !== '2026-11-01') e('BlogPosting (dates 2026-11-01)');
+if (!post || post['@id'] !== `${U}#article` || post.headline !== H1 || post.author['@id'] !== `${BASE}/#arsenii` || post.datePublished !== '2026-11-01' || !/^2026-11-0[12]$/.test(post.dateModified)) e('BlogPosting (dates 2026-11-01)');
 const wp = node('WebPage')[0];
 if (!wp || wp['@id'] !== `${U}#webpage` || wp.inLanguage !== 'cs' || wp.name !== title || wp.description !== desc) e('WebPage');
 const bc = node('BreadcrumbList')[0];
@@ -78,7 +78,8 @@ const faq = node('FAQPage')[0];
 const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/)[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (4 questions)');
 for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 6 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
-if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'Quotation', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / Quotation / VideoObject markup');
+if ((main.match(/<figure class="quote-fig">/g) || []).length !== 1 || g.filter((n) => n['@type'] === 'Quotation').length !== 1) e('one author quote with the Quotation node');
+if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / VideoObject markup');
 if (existsSync('dist/en/blog/why-competitors-with-weak-seo-rank-ahead')) e('no en version');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');
 for (const c of CTAS) if (!readFileSync(`dist${c}index.html`, 'utf8').includes(`href="${URL_PATH}"`)) e(`${c} links to the article (Další články)`);

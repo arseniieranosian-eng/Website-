@@ -2,6 +2,7 @@
 // Blog article "Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?" (cs), brief of 1.11.2026. Content: data/post-weak-seo-cs.ts.
 // Informational: observations and hypotheses; no sales in the body; the closing block has three equal buttons (the author's decision) to the three translation niche pages. The video is a facade (loads on click).
 import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
 import YoutubeFacade from '../components/YoutubeFacade.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -58,6 +59,10 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.easyTitle}</h2>
       <p class="answer">{C.easyAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={new URL(path('postWeakSeo', lang), site).href}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
     </div>
   </section>
 

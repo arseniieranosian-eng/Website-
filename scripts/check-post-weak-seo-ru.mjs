@@ -43,7 +43,7 @@ for (const c of CTAS) if ((main.match(new RegExp(`class="btn btn--primary btn--l
 if ((main.match(/class="btn /g) || []).length !== 3) e('exactly three buttons (the closing block)');
 if (/href="\/ru\/(?:besplatnyj-audit|konsultacii|start-3-mesyaca|full-seo|karty)\//.test(main)) e('no links to the other services / audit');
 for (const f of FORBIDDEN) if (new RegExp(f, 'i').test(mainTxt)) e(`forbidden text: ${f}`);
-if (/<form|★|AggregateRating|<blockquote/.test(main)) e('no form / stars / quote');
+if (/<form|★|AggregateRating/.test(main)) e('no form / stars / quote');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('bare GEO');
 if (!/<img class="post-cover" src="\/images\/blog\/slabe-seo-konkurence-prekladatelske-agentury\.webp"[^>]*alt="Иллюстрация:/.test(main)) e('cover with a Russian alt');
 if (!/Автор: <a href="\/ru\/obo-mne\/">Арсений Ераносьян<\/a> · Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time> · Время чтения: \d+ мин/.test(h)) e('byline');
@@ -74,7 +74,8 @@ const faq = node('FAQPage')[0];
 const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/)[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (4 questions)');
 for (const [i, q] of visFaq.entries()) if (wc(q[1]) > 60) e(`FAQ ${i + 1} answer: ${wc(q[1])} words`);
-if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'Quotation', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / Quotation / VideoObject markup');
+if ((main.match(/<figure class="quote-fig">/g) || []).length !== 1 || g.filter((n) => n['@type'] === 'Quotation').length !== 1) e('one author quote with the Quotation node');
+if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / VideoObject markup');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');
 if (!hc.includes(`href="${URL_PATH}"`)) e('the Czech article: language switcher leads to the Russian article');
 for (const c of CTAS) if (!readFileSync(`dist${c}index.html`, 'utf8').includes(`href="${URL_PATH}"`)) e(`${c} links to the article`);

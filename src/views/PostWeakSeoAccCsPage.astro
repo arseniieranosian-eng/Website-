@@ -2,6 +2,7 @@
 // Blog article "Proč jsou ve vyhledávání vpředu i účetní kanceláře se slabým SEO?" (cs), brief of 02.11.2026. Content: data/post-weak-seo-accounting-cs.ts.
 // Informational: observation and hypothesis; no links and no sales in the body; the closing block has two equal buttons (the author's exception to rule H) to the Prague and Brno accounting niche pages.
 import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -41,6 +42,10 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.whatTitle}</h2>
       <p class="answer">{C.whatAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={new URL(path('postWeakSeoAcc', lang), site).href}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
     </div>
   </section>
 
