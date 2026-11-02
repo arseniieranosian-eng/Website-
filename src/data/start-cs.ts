@@ -88,8 +88,6 @@ export const START_CS = {
   resultsTitle: 'Kdy přijdou první výsledky SEO?',
   resultsAnswer: 'První výsledky SEO obvykle přijdou za 2-3 měsíce od začátku spolupráce. Přesný průběh závisí na oboru a konkurenci. Každý týden vidíte v reportu, co je hotovo a jak se mění čísla.',
 
-  guaranteeTitle: 'Garantujete první místo v Google?',
-  guaranteeAnswer: 'Ne. První místo v Google nelze poctivě garantovat, protože algoritmy vyhledávačů nikdo neovládá. Garantuji transparentní práci, srozumitelný plán a měřitelné cíle domluvené na začátku.',
 
   compareTitle: 'Start na 3 měsíce, nebo Full SEO na rok?',
   table: {

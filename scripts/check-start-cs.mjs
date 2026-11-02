@@ -4,7 +4,7 @@ import { readFileSync } from './fs-clean.mjs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/start-3-mesice/';
 const H1 = 'SEO start na 3 měsíce';
-const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu?', 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku', 'Jak probíhá SEO start?', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům?', 'Co říkají klienti?', 'Související články', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí SEO start na 3 měsíce?', 'Pro koho je SEO start vhodný?', 'Co je v ceně SEO startu?', 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku', 'Jak probíhá SEO start?', 'Kdy přijdou první výsledky SEO?', 'Start na 3 měsíce, nebo Full SEO na rok?', 'Co to přineslo klientům?', 'Co říkají klienti?', 'Související články', 'Časté otázky o SEO startu', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['agentura Praha', 'SEO agentura', 'měsíční report', '4–8 týdnů', 'Jak probíhá spolupráce', 'Marketingové týmy', 'in-house'];
 // Wording of the maps item of the OfferCatalog is fixed by the brief (merges the three map bullets).
@@ -81,7 +81,7 @@ const EXPECT = [
   ['Reporty', 'Týdenní, call podle zájmu', 'Týdenní, call podle zájmu'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
-for (const [hd, ans] of [['Kolik stojí SEO start na 3 měsíce?', 'SEO start na 3 měsíce stojí 50 000 Kč'], ['Kdy přijdou první výsledky SEO?', 'První výsledky SEO obvykle přijdou za 2-3 měsíce'], ['Garantujete první místo v Google?', 'Ne. První místo v Google nelze poctivě garantovat']]) {
+for (const [hd, ans] of [['Kolik stojí SEO start na 3 měsíce?', 'SEO start na 3 měsíce stojí 50 000 Kč'], ['Kdy přijdou první výsledky SEO?', 'První výsledky SEO obvykle přijdou za 2-3 měsíce']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 if (!body.includes('od 4 měsíců, s platbou za výsledek')) e('maps block must mention the standalone service terms');

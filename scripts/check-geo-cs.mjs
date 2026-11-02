@@ -4,7 +4,7 @@ import { readFileSync } from './fs-clean.mjs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-a-geo/';
 const H1 = 'SEO + GEO/AEO: dvě v jednom';
-const SECTIONS = [H1, 'Co je GEO a co je AEO?', 'Jaký je rozdíl mezi SEO a GEO/AEO?', 'Proč dělám SEO a GEO/AEO dohromady?', 'Co o tom říká Google?', 'Co konkrétně dělám pro GEO/AEO?', 'Garantujete zmínku v odpovědích AI?', 'Platím za GEO/AEO zvlášť?', 'Jak vás vidí AI a kde to ověřím?', 'Příklady z praxe', 'Časté otázky o GEO a AEO', 'Chcete začít u základu?'];
+const SECTIONS = [H1, 'Co je GEO a co je AEO?', 'Jaký je rozdíl mezi SEO a GEO/AEO?', 'Proč dělám SEO a GEO/AEO dohromady?', 'Co o tom říká Google?', 'Co konkrétně dělám pro GEO/AEO?', 'Platím za GEO/AEO zvlášť?', 'Jak vás vidí AI a kde to ověřím?', 'Příklady z praxe', 'Časté otázky o GEO a AEO', 'Chcete začít u základu?'];
 const LINKS = ['/audit-zdarma/', '/kontakt/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/o-mne/'];
 const FORBIDDEN = ['SEO služby cena', 'od 2 000 Kč', 'od 15 000 Kč', '50 000 Kč', 'zaručíme', 'zaručujeme zmínku'];
 
@@ -79,7 +79,7 @@ const EXPECT = [
   ['Jak se měří', 'Pozice, návštěvnost, poptávky', 'Zmínky v odpovědích AI'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
-for (const [hd, ans] of [['Jaký je rozdíl mezi SEO a GEO/AEO?', 'SEO zlepšuje pozice'], ['Proč dělám SEO a GEO/AEO dohromady?', 'AI nástroje čerpají'], ['Co o tom říká Google?', 'Google ve své dokumentaci'], ['Garantujete zmínku v odpovědích AI?', 'Ne.'], ['Platím za GEO/AEO zvlášť?', 'Ne. GEO/AEO je součástí každé služby'], ['Jak vás vidí AI a kde to ověřím?', 'Viditelnost vašeho webu v AI odpovědích']]) {
+for (const [hd, ans] of [['Jaký je rozdíl mezi SEO a GEO/AEO?', 'SEO zlepšuje pozice'], ['Proč dělám SEO a GEO/AEO dohromady?', 'AI nástroje čerpají'], ['Co o tom říká Google?', 'Google ve své dokumentaci'], ['Platím za GEO/AEO zvlášť?', 'Ne. GEO/AEO je součástí každé služby'], ['Jak vás vidí AI a kde to ověřím?', 'Viditelnost vašeho webu v AI odpovědích']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 // Screenshots of AI answers: four images in the order medical → diploma (two parts of one query) → cities, each with alt, size,

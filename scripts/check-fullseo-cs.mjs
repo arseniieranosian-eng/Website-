@@ -4,7 +4,7 @@ import { readFileSync } from './fs-clean.mjs';
 const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/full-seo/';
 const H1 = 'Full SEO na rok';
-const SECTIONS = [H1, 'Kolik stojí Full SEO na rok?', 'Pro koho je Full SEO na rok vhodné?', 'Co je v ceně Full SEO na rok?', 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku', 'Jak probíhá Full SEO na rok?', 'Kdy přijdou první výsledky SEO?', 'Garantujete první místo v Google?', 'Full SEO na rok, nebo Start na 3 měsíce?', 'Co to přineslo klientům?', 'Co říkají klienti?', 'Související články', 'Časté otázky o Full SEO na rok', 'Nezávazná poptávka', 'Další služby'];
+const SECTIONS = [H1, 'Kolik stojí Full SEO na rok?', 'Pro koho je Full SEO na rok vhodné?', 'Co je v ceně Full SEO na rok?', 'Mapy Google, Mapy.com a Firmy.cz jsou součástí balíčku', 'Jak probíhá Full SEO na rok?', 'Kdy přijdou první výsledky SEO?', 'Full SEO na rok, nebo Start na 3 měsíce?', 'Co to přineslo klientům?', 'Co říkají klienti?', 'Související články', 'Časté otázky o Full SEO na rok', 'Nezávazná poptávka', 'Další služby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/seo-prekladatelska-agentura-4-mesice/', '/recenze/', '/caste-dotazy/', '/ochrana-osobnich-udaju/'];
 // Positioning: a specialist ("já"), not an agency ("my"). The client's own agency in the case text is fine.
 const FORBIDDEN = ['SEO agentura', 'naše agentura', 'agentura Praha', 'Marketingové týmy', 'in-house', 'měsíční report', '4–8 týdnů', 'ESP', 'PMŘ'];
@@ -84,7 +84,7 @@ const EXPECT = [
   ['Reporty', 'Týdenní, call podle zájmu', 'Týdenní, call podle zájmu'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
-for (const [hd, ans] of [['Kolik stojí Full SEO na rok?', 'Full SEO na rok stojí od 15 000 Kč měsíčně'], ['Kdy přijdou první výsledky SEO?', 'První výsledky SEO obvykle přijdou za 2-3 měsíce'], ['Garantujete první místo v Google?', 'Ne. První místo v Google nelze poctivě garantovat']]) {
+for (const [hd, ans] of [['Kolik stojí Full SEO na rok?', 'Full SEO na rok stojí od 15 000 Kč měsíčně'], ['Kdy přijdou první výsledky SEO?', 'První výsledky SEO obvykle přijdou za 2-3 měsíce']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 if (!body.includes('od 4 měsíců, s platbou za výsledek')) e('maps block must mention the standalone service terms');

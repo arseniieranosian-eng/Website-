@@ -58,8 +58,6 @@ export const GEO_CS = {
     'Pravidelné měření zmínek v odpovědích AI.',
   ],
 
-  guaranteeTitle: 'Garantujete zmínku v odpovědích AI?',
-  guaranteeAnswer: 'Ne. Nikdo nemůže zaručit konkrétní zmínku v odpovědi AI, protože AI nástroje nelze ovládat a jejich odpovědi se mění. Garantuji transparentní práci, srozumitelný plán a měřitelné cíle domluvené na začátku.',
 
   separateTitle: 'Platím za GEO/AEO zvlášť?',
   separateAnswer: 'Ne. GEO/AEO je součástí každé služby, není to samostatný balíček ani samostatná cena.',
