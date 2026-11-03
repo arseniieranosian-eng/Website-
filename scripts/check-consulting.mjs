@@ -58,7 +58,7 @@ for (const [lang, P] of Object.entries(PAGES)) {
   if (sv.offers.map((o) => o.price).join() !== '2000,3000' || sv.offers.some((o) => o.priceCurrency !== 'CZK')) e('offers must be 2000/3000 CZK');
   if (/€|EUR/.test(JSON.stringify(ld))) e('euro amounts must not appear in JSON-LD');
   if (P.euro && !(body.includes('≈ €80') && body.includes('≈ €120'))) e('visible euro estimates missing');
-  if (!ht.step.every((s) => body.includes(s.text))) e('HowTo steps not visible verbatim');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht.step.every((s) => body.includes(s.text))) e('HowTo steps not visible verbatim');
   if (fq.mainEntity.length !== 5 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('FAQ not visible verbatim');
   if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== P.crumbs || bc.itemListElement.at(-1).item) e('breadcrumb');
   if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');

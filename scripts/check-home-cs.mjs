@@ -86,18 +86,17 @@ const date = h.match(/Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time>/)
 
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
-const wp = by('WebPage'), fq = by('FAQPage'), pro = by('ProfessionalService');
+const wp = by('WebPage'), fq = by('FAQPage'), pro = null;
 const qn = ld.filter((n) => n['@type'] === 'Quotation');
-if (qn.length !== 1 || qn[0]['@id'] !== `${BASE}/#quote-1` || qn[0].text !== Q || qn[0].inLanguage !== 'cs' || qn[0].isPartOf['@id'] !== wp['@id'] || qn[0].creator['@id'] !== by('Person')['@id']) e('Quotation node (#quote-1) must repeat the quote word for word');
+// P1.1 (brief of 03.11.2026): Quotation markup is no longer used on the site. if (qn.length !== 1 || qn[0]['@id'] !== `${BASE}/#quote-1` || qn[0].text !== Q || qn[0].inLanguage !== 'cs' || qn[0].isPartOf['@id'] !== wp['@id'] || qn[0].creator['@id'] !== by('Person')['@id']) e('Quotation node (#quote-1) must repeat the quote word for word');
 if (ld.some((n) => ['AggregateRating', 'Review', 'BreadcrumbList', 'Service', 'Offer'].includes(n['@type']))) e('home markup: no ratings / reviews / breadcrumb / services');
 if (/SearchAction/.test(JSON.stringify(ld))) e('no SearchAction');
 if (norm(wp.name) !== title || norm(wp.description) !== desc || wp.inLanguage !== 'cs') e('WebPage name / description / inLanguage');
-if (wp['@id'] !== `${BASE}/#webpage` || wp.isPartOf['@id'] !== by('WebSite')['@id'] || wp.about['@id'] !== pro['@id']) e('WebPage ids / isPartOf / about');
+if (wp['@id'] !== `${BASE}/#webpage` || wp.isPartOf['@id'] !== by('WebSite')['@id'] || wp.about['@id'] !== by('Person')['@id']) e('WebPage ids / isPartOf / about (the business is the Person: no ProfessionalService)');
 if (!date || date[1] !== wp.dateModified) e(`dateModified ${wp.dateModified} must match the visible date`);
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(norm(q.name)) && body.includes(norm(q.acceptedAnswer.text)))) e('6 FAQ Q/A not visible verbatim');
-const cat = (pro.hasOfferCatalog?.itemListElement ?? []).map((i) => i['@id']);
-if (JSON.stringify(cat) !== JSON.stringify(['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/'].map((p) => `${BASE}${p}#service`))) e(`ProfessionalService.hasOfferCatalog order: ${JSON.stringify(cat)}`);
-if (/agentur/i.test(JSON.stringify([wp, pro.name]))) e('"agentura" must not appear in the markup');
+// no ProfessionalService / OfferCatalog any more (brief of 03.11.2026, P1.1)
+if (/agentur/i.test(JSON.stringify([wp]))) e('"agentura" must not appear in the markup');
 
 // Site-wide: the Blog is in the menu and the footer of the Czech pages only (en / ru have no posts yet)
 const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); return statSync(p).isDirectory() ? walk(p) : p.endsWith('index.html') ? [p] : []; });

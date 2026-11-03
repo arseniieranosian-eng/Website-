@@ -71,10 +71,10 @@ if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(q.na
 const langAns = fq.mainEntity.at(-1).acceptedAnswer.text;
 if (!new RegExp(`V jakých jazycích konzultace probíhá\\?</h2>\\s*<p class="answer">${langAns}</p>`).test(h)) e('language block must repeat the FAQ answer verbatim, right under its heading');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > SEO konzultace' || bc.itemListElement.at(-1).item) e('breadcrumb');
-if (!ht || ht.step.length !== 4) e('HowTo: expected 4 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.step.length !== 4) e('HowTo: expected 4 steps');
 else {
   const ol = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
-  ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Krok ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Krok ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);

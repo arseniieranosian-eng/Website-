@@ -34,6 +34,14 @@ const { lang, title, description, path, alternates, breadcrumbs, noindex = false
 const art = artFor(pageKey, lang);
 // Decorative illustrations (lib/page-art.ts) are inserted under the headings (H2) of the page body, not in a separate row.
 let body = await Astro.slots.render('default');
+// K6 (brief of 03.11.2026, P2.2): the publication date is shown next to the update date, from the datePublished of the page's JSON-LD ("Zveřejněno · Aktualizováno").
+const pubIso = (schema as any[]).filter(Boolean).map((n) => n.datePublished).find((d) => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d));
+if (pubIso) {
+  const [py, pm, pd] = pubIso.split('-').map(Number);
+  const pubText = lang === 'cs' ? `${pd}. ${pm}. ${py}` : `${String(pd).padStart(2, '0')}.${String(pm).padStart(2, '0')}.${py}`;
+  const pubLabel = { cs: 'Zveřejněno', en: 'Published', ru: 'Опубликовано', uk: 'Опубліковано' }[lang];
+  body = body.replace(/(Aktualizováno|Обновлено|Updated|Оновлено): <time/, `${pubLabel}: <time datetime="${pubIso}">${pubText}</time> · $1: <time`);
+}
 if (art.length) {
   const container = await AstroContainer.create();
   const drawn = await Promise.all(art.map((k) => container.renderToString(PageArt, { props: { kind: k } })));
@@ -45,7 +53,25 @@ const canonical = abs(path);
 const hreflangs = LANGS.filter((l) => alternates[l]).map((l) => ({ l, href: abs(alternates[l]!) }));
 const xDefault = alternates[DEFAULT_LANG] ? abs(alternates[DEFAULT_LANG]!) : null;
 const graph = [...baseGraph(site), ...(breadcrumbs ? [breadcrumbSchema(site, breadcrumbs, path)] : []), ...schema.filter(Boolean)];
-const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+// Quotation and HowTo markup is not used on the site (brief of 03.11.2026, P1.1): the nodes and every reference to them are dropped here, in one place, whatever a page's schema builder emits.
+const BANNED_TYPES = new Set(['Quotation', 'HowTo']);
+const dead = new Set((graph as any[]).filter((n) => BANNED_TYPES.has(n['@type'])).map((n) => n['@id']).filter(Boolean));
+const scrub = (x: any): any => {
+  if (Array.isArray(x)) return x.filter((v) => !(v && typeof v === 'object' && Object.keys(v).length === 1 && dead.has(v['@id']))).map(scrub);
+  if (x && typeof x === 'object') {
+    const o: any = {};
+    for (const [k, v] of Object.entries(x)) {
+      if (v && typeof v === 'object' && !Array.isArray(v) && Object.keys(v as object).length === 1 && dead.has((v as any)['@id'])) continue;
+      const sv = scrub(v);
+      if (Array.isArray(sv) && sv.length === 0 && Array.isArray(v) && v.length > 0) continue;
+      o[k] = sv;
+    }
+    return o;
+  }
+  return x;
+};
+const cleanGraph = scrub((graph as any[]).filter((n) => !BANNED_TYPES.has(n['@type'])));
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': cleanGraph }).replace(/</g, '\\u003c');
 const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
 ---
 <!doctype html>

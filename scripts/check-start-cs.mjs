@@ -61,10 +61,10 @@ else if (!cat.itemListElement.every((i) => flat.includes(i.itemOffered.name) || 
 if (!cat.itemListElement.some((i) => i.itemOffered.name === MAPS_ITEM)) e('maps item of the OfferCatalog must use the wording from the brief');
 if (fq.mainEntity.length !== 5 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('5 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > SEO start na 3 měsíce' || bc.itemListElement.at(-1).item) e('breadcrumb');
-if (!ht || ht.totalTime !== 'P3M' || ht.step.length !== 3) e('HowTo: expected totalTime P3M and 3 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.totalTime !== 'P3M' || ht.step.length !== 3) e('HowTo: expected totalTime P3M and 3 steps');
 else {
   const lis = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
-  ht.step.forEach((st, i) => { if (lis[i] !== `${st.name}: ${st.text}`) e(`stage ${i + 1} in <ol> != HowToStep ("${lis[i]}")`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (lis[i] !== `${st.name}: ${st.text}`) e(`stage ${i + 1} in <ol> != HowToStep ("${lis[i]}")`); });
   if (!/<\/ol>\s*<p[^>]*>Každý týden dostanete report\.<\/p>/.test(h)) e('weekly line must be a separate paragraph right under the list');
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');

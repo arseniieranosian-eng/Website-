@@ -4,5 +4,5 @@ import * as fs from 'node:fs';
 export * from 'node:fs';
 export const readFileSync = (p, o) => {
   const r = fs.readFileSync(p, o);
-  return typeof r === 'string' && String(p).endsWith('.html') ? r.replace(/<div class="page-art"[^>]*>[\s\S]*?<\/svg>\s*<\/div>/g, '') : r;
+  return typeof r === 'string' && String(p).endsWith('.html') ? r.replace(/<div class="page-art"[^>]*>[\s\S]*?<\/svg>\s*<\/div>/g, '').replace(/(?:Zveřejněno|Опубликовано|Published|Опубліковано): <time[^>]*>[^<]*<\/time> · /g, '') : r;
 };

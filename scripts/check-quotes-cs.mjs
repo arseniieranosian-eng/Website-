@@ -30,7 +30,8 @@ for (const P of PAGES) {
   const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
   const q = ld.filter((n) => n['@type'] === 'Quotation');
   const wp = ld.find((n) => n['@type'] === 'WebPage'), person = ld.find((n) => n['@type'] === 'Person');
-  if (q.length !== 1 || q[0]['@id'] !== `${url}#quote-1` || q[0].text !== P.text || q[0].inLanguage !== 'cs' || q[0].creator['@id'] !== person['@id'] || q[0].isPartOf['@id'] !== wp['@id']) e(`${P.path}: Quotation node`);
+  // P1.1 (brief of 03.11.2026): Quotation markup is no longer used on the site; the visible figure is checked above.
+  // if (q.length !== 1 || q[0]['@id'] !== `${url}#quote-1` || q[0].text !== P.text || q[0].inLanguage !== 'cs' || q[0].creator['@id'] !== person['@id'] || q[0].isPartOf['@id'] !== wp['@id']) e(`${P.path}: Quotation node`);
 }
 
 if (errors.length) {

@@ -5,7 +5,7 @@
 //  - breadcrumbs on every inner page
 //  - every internal link resolves to a built page
 //  - sitemap.xml lists exactly the indexable pages
-//  - global JSON-LD: Person / ProfessionalService / WebSite identical on every page, tied to the
+//  - global JSON-LD: Person / WebSite identical on every page, tied to the
 //    social profiles via sameAs, every {"@id"} reference resolves, social links are present in the HTML
 import { readFileSync, readdirSync, existsSync, statSync } from './fs-clean.mjs';
 import { join, relative, sep } from 'node:path';
@@ -107,7 +107,7 @@ for (const p of pages.values()) {
 }
 
 // Global structured data
-const BASE = ['Person', 'ProfessionalService', 'WebSite', 'ImageObject'];
+const BASE = ['Person', 'WebSite', 'ImageObject']; // no ProfessionalService / LocalBusiness node (brief of 03.11.2026, P1.1): the Person is the business
 let reference = null;
 for (const p of pages.values()) {
   if (p.url === '/404/') continue;
@@ -116,7 +116,7 @@ for (const p of pages.values()) {
   const missing = BASE.filter((_, i) => !base[i]);
   if (missing.length) { err(`${p.url}: JSON-LD lacks ${missing.join(', ')}`); continue; }
   const sig = JSON.stringify(base);
-  if (reference === null) reference = { sig, url: p.url, person: base[0], business: base[1] };
+  if (reference === null) reference = { sig, url: p.url, person: base[0], business: base[0] };
   else if (sig !== reference.sig) err(`${p.url}: global JSON-LD differs from ${reference.url} (must be identical on every page)`);
   // Entities declared anywhere in the graph (also nested ones, e.g. DefinedTerms inside a DefinedTermSet)
   const idSet = new Set();
@@ -146,7 +146,6 @@ for (const p of pages.values()) {
   const same = new Set(base[0].sameAs ?? []);
   if (!same.size) err(`${p.url}: Person.sameAs is empty`);
   for (const u of same) {
-    if (!(base[1].sameAs ?? []).includes(u)) err(`${p.url}: ${u} is in Person.sameAs but not in ProfessionalService.sameAs`);
     if (!p.socialLinks.some((l) => l === u)) err(`${p.url}: sameAs profile ${u} is not linked (rel="me") in the page HTML`);
   }
 }

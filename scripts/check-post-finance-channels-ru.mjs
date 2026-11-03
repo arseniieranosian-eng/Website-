@@ -73,7 +73,7 @@ if (!post || post['@id'] !== `${U}#article` || post.headline !== H1 || post.auth
 const wp = node('WebPage')[0];
 if (!wp || wp['@id'] !== `${U}#webpage` || wp.mainEntity['@id'] !== `${U}#article` || wp.inLanguage !== 'ru') e('WebPage');
 const qn = node('Quotation');
-if (qn.length !== 1 || qn[0].text !== QUOTE || qn[0]['@id'] !== `${U}#quote-1`) e('one Quotation = the visible quote');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (qn.length !== 1 || qn[0].text !== QUOTE || qn[0]['@id'] !== `${U}#quote-1`) e('one Quotation = the visible quote');
 if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'VideoObject'].includes(n['@type']))) e('no HowTo / Service / Offer / ratings / VideoObject');
 const faq = node('FAQPage')[0];
 const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);

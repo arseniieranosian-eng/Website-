@@ -84,7 +84,7 @@ if (sv.offers || sv.areaServed !== 'Česko' || sv.provider['@id'] !== by('Person
 if (wp.inLanguage !== 'ru' || wp.name !== H1 && wp.name !== TITLE.replace(/ \| Eranosian$/, '')) e('WebPage');
 if (fq.mainEntity.length !== 6) e('FAQPage: 6 questions');
 for (const q of fq.mainEntity) if (!mainTxt.includes(norm(q.acceptedAnswer.text)) || !mainTxt.includes(norm(q.name))) e(`FAQ not visible word for word: ${q.name}`);
-if (!qt || qt.text !== 'Финансовые тексты пишет консультант, а моя задача — чтобы сайт был понятен поиску и ИИ.') e('Quotation');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!qt || qt.text !== 'Финансовые тексты пишет консультант, а моя задача — чтобы сайт был понятен поиску и ИИ.') e('Quotation');
 if (!bc || bc.itemListElement.length !== 2 || bc.itemListElement[1].name !== H1 && !bc.itemListElement[1].name.includes('финансовых')) e('breadcrumbs: two levels');
 
 if (!main.includes('href="/ru/blog/kak-poluchit-klientov-finansovomu-konsultantu-chehiya/"') || !mainTxt.includes('Другие материалы')) e('block "Другие материалы" with F1');

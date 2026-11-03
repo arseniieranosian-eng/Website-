@@ -72,12 +72,12 @@ const ment = (art.mentions ?? []).map((m) => m['@id']);
 for (const p of ['/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
 if (!art.image.some((i) => i['@id'] === im['@id']) || !body.includes(im.caption) || im.width !== 720 || im.height !== 730) e('ImageObject must match the visible figure');
 // HowTo: the six steps, name and text word for word as in the visible numbered list
-if (!ht || ht.name !== 'Šest kroků pro váš web' || ht.step.length !== 6) e('HowTo: "Šest kroků pro váš web" with 6 steps expected');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.name !== 'Šest kroků pro váš web' || ht.step.length !== 6) e('HowTo: "Šest kroků pro váš web" with 6 steps expected');
 else {
   const li = [...(h.match(/<ol class="case-steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/li>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-  ht.step.forEach((st, i) => { if (!li[i] || li[i][0] !== st.name || li[i][1] !== st.text) e(`HowTo step ${i + 1} != the visible list item`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (!li[i] || li[i][0] !== st.name || li[i][1] !== st.text) e(`HowTo step ${i + 1} != the visible list item`); });
 }
-if (!bq || !mainTxt.includes(qt.text) || qt.creator['@id'] !== by('Person')['@id']) e('Quotation must equal the visible pull quote');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!bq || !mainTxt.includes(qt.text) || qt.creator['@id'] !== by('Person')['@id']) e('Quotation must equal the visible pull quote');
 if (fq.mainEntity.length !== 4 || !fq.mainEntity.every((q) => flat.includes(q.name) && flat.includes(q.acceptedAnswer.text))) e('4 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Případové studie > SEO pro překladatelskou agenturu' || bc.itemListElement.at(-1).item || bc.itemListElement[1].item !== `${BASE}/pripadove-studie/`) e('breadcrumb (three levels)');
 for (const [hd, ans] of [['Jaký byl výchozí stav webu?', 'Web fungoval'], ['Proč jedna stránka pro každé město?', 'Agentura má pobočky'], ['Jak funguje obsah jako trychtýř?', 'Stránka služby zachytí'], ['Proč lokalizovat, a ne jen překládat?', 'Web běží ve čtyřech jazycích'], ['Co jsem udělal v technickém SEO?', 'Zaměřil jsem se na tři oblasti'], ['Jaké byly výsledky?', 'Za 4 měsíce práce'], ['Jak se v analytice objevil nový kanál AI Assistant?', 'V GA4 jsem našel']]) {

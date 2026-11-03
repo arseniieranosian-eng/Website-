@@ -87,10 +87,10 @@ if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Perso
 if (JSON.stringify(sv.areaServed) !== JSON.stringify(['Česko', 'Spojené státy', 'Evropská unie']) || JSON.stringify(sv.availableLanguage) !== JSON.stringify(['cs', 'en', 'ru'])) e('areaServed / availableLanguage');
 const o = sv.offers;
 if (Array.isArray(o) || o.price !== '0' || o.priceCurrency !== 'CZK' || o.url !== `${BASE}${URL_PATH}`) e('single free Offer, price 0 CZK');
-if (!ht || ht['@id'] !== `${BASE}${URL_PATH}#howto` || ht.totalTime !== 'PT24H' || ht.step.length !== 4) e('HowTo: expected #howto, PT24H and 4 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht['@id'] !== `${BASE}${URL_PATH}#howto` || ht.totalTime !== 'PT24H' || ht.step.length !== 4) e('HowTo: expected #howto, PT24H and 4 steps');
 else {
   const ol = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
-  ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.position !== i + 1 || !st.name) e(`step ${i + 1}: <ol> "${ol[i]}" != HowToStep`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.position !== i + 1 || !st.name) e(`step ${i + 1}: <ol> "${ol[i]}" != HowToStep`); });
 }
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(norm(q.name)) && body.includes(norm(q.acceptedAnswer.text)))) e('6 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Bezplatný audit' || bc.itemListElement.at(-1).item) e('breadcrumb');
@@ -101,7 +101,7 @@ if (!qf || qf[2] !== QT || qf[1] !== `${BASE}${URL_PATH}`) e('quote figure: text
 const iq = mainTxt.indexOf(QT);
 if (!(mainTxt.indexOf('Co v auditu nenajdete?') < iq && iq < mainTxt.indexOf('Jak audit probíhá?')) || iq < mainTxt.indexOf('Co v bezplatném auditu zkontroluji?')) e('quote position: after "Co v auditu nenajdete?", before "Jak audit probíhá?"');
 const qn = ld.find((n) => n['@type'] === 'Quotation');
-if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'cs' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'cs' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: when present, everything lines up
 const hasVideo = /<video/.test(h);
 if (hasVideo !== Boolean(vd)) e('<video> and VideoObject must appear together');

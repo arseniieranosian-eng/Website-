@@ -1,6 +1,9 @@
 ---
-interface Props { h1: string; lead?: string; eyebrow?: string }
-const { h1, lead, eyebrow } = Astro.props;
+interface Props { h1: string; lead?: string; eyebrow?: string; updated?: { iso: string; lang: 'cs' | 'en' | 'ru' | 'uk' } }
+const { h1, lead, eyebrow, updated } = Astro.props;
+// Optional "Updated: date" line under the H1 (brief of 03.11.2026, P2.2); the date is the explicit one of lib/lastmod.ts, the same as in the JSON-LD dateModified.
+const UPD = { cs: 'Aktualizováno', en: 'Updated', ru: 'Обновлено', uk: 'Оновлено' };
+const updText = updated ? (([y, m, d]) => (updated.lang === 'cs' ? `${d}. ${m}. ${y}` : `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${y}`))(updated.iso.split('-').map(Number)) : '';
 const hasArt = Astro.slots.has('art');
 ---
 <section class="page-hero">
@@ -10,6 +13,7 @@ const hasArt = Astro.slots.has('art');
         <div>
           {eyebrow && <p class="eyebrow">{eyebrow}</p>}
           <h1>{h1}</h1>
+          {updated && <p class="updated">{UPD[updated.lang]}: <time datetime={updated.iso}>{updText}</time></p>}
           {lead && <p class="lead">{lead}</p>}
           <slot />
         </div>
@@ -19,6 +23,7 @@ const hasArt = Astro.slots.has('art');
       <>
         {eyebrow && <p class="eyebrow">{eyebrow}</p>}
         <h1>{h1}</h1>
+        {updated && <p class="updated">{UPD[updated.lang]}: <time datetime={updated.iso}>{updText}</time></p>}
         {lead && <p class="lead">{lead}</p>}
         <slot />
       </>

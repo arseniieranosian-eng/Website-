@@ -7,7 +7,7 @@ const abs = (site: URL, p: string) => new URL(p, site).href;
 
 export const ids = (site: URL) => ({
   person: abs(site, '/#arsenii'),
-  business: abs(site, '/#business'),
+  business: abs(site, '/#arsenii'), // the business is the Person: there is no ProfessionalService / LocalBusiness node (brief of 03.11.2026, P1.1)
   website: abs(site, '/#website'),
 });
 
@@ -62,32 +62,6 @@ export function baseGraph(site: URL) {
       homeLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: SITE.country } },
       knowsLanguage: SITE.languages,
       knowsAbout: knowsAbout(),
-      worksFor: { '@id': id.business },
-      sameAs,
-    },
-    {
-      '@type': 'ProfessionalService',
-      '@id': id.business,
-      name: SITE.brand,
-      description: langValue(SITE.description),
-      url: home,
-      image: { '@id': image['@id'] },
-      logo: { '@id': logo['@id'] },
-      email: SITE.email,
-      telephone: SITE.phone,
-      identifier: { '@type': 'PropertyValue', propertyID: 'IČO', value: SITE.ico },
-      founder: { '@id': id.person },
-      employee: { '@id': id.person },
-      address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: SITE.country },
-      areaServed: [{ '@type': 'Country', name: 'Czech Republic' }, { '@type': 'Continent', name: 'Europe' }],
-      availableLanguage: SITE.languages,
-      contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', email: SITE.email, telephone: SITE.phone, availableLanguage: SITE.languages },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Služby',
-        itemListElement: ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/'].map((p) => ({ '@id': abs(site, p) + '#service' })),
-      },
-      knowsAbout: knowsAbout(),
       sameAs,
     },
     {
@@ -97,7 +71,7 @@ export function baseGraph(site: URL) {
       name: SITE.brand,
       description: langValue(SITE.description),
       inLanguage: ['cs', 'en', 'ru', 'uk'],
-      publisher: { '@id': id.business },
+      publisher: { '@id': id.person },
       copyrightHolder: { '@id': id.person },
     },
     image,
@@ -143,8 +117,10 @@ export const reviewSchema = (site: URL, reviews: Review[], lang: Lang) => {
   const real = reviews.filter((r) => !r.sample && r.author && r.rating);
   if (!real.length) return null;
   return {
-    '@type': 'ProfessionalService',
-    '@id': ids(site).business,
+    '@type': 'Service',
+    '@id': abs(site, '/#service'),
+    name: SITE.brand,
+    provider: { '@id': ids(site).person },
     review: real.map((r) => ({
       '@type': 'Review',
       author: { '@type': 'Person', name: r.author },

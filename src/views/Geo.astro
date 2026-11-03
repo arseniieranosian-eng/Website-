@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import PageHero from '../components/PageHero.astro';
+import { lastModified } from '../lib/lastmod';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { META } from '../i18n/meta';
@@ -73,7 +74,7 @@ const C = {
 const cols = [C.colSeo, C.colGeo] as [string, string, string[]][];
 ---
 <Base {...pageProps('geo', lang)} schema={[faq.length ? faqSchema(faq, lang) : null]}>
-  <PageHero h1={m.h1} lead={C.lead} eyebrow="Search Engine Optimization + Generative Engine Optimization" />
+  <PageHero updated={{ iso: lastModified(['src/views/Geo.astro'], '2026-11-03'), lang }} h1={m.h1} lead={C.lead} eyebrow="Search Engine Optimization + Generative Engine Optimization" />
   <section class="section section--tight">
     <div class="container grid grid-2 two-in-one">
       {cols.map(([name, where, items]) => (

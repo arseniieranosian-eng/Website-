@@ -64,11 +64,11 @@ if (!art.about.every((a) => ts.hasDefinedTerm.some((t) => t['@id'] === a['@id'])
 if (!body.includes('Generative Engine Optimization') || !body.includes('Answer Engine Optimization')) e('alternateNames not visible');
 if (fq.mainEntity.length !== 5 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('5 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > SEO + GEO/AEO' || bc.itemListElement.at(-1).item) e('breadcrumb (two levels)');
-if (!ht || ht.step.length !== 5) e('HowTo: expected 5 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.step.length !== 5) e('HowTo: expected 5 steps');
 else {
   const ol = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
-  ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Krok ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
-  if (!ht.step[1].text.includes('není to podmínka zobrazení v Google')) e('step 2 must say that markup is not a condition for Google');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Krok ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht.step[1].text.includes('není to podmínka zobrazení v Google')) e('step 2 must say that markup is not a condition for Google');
 }
 const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 const EXPECT = [

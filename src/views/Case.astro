@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { ids } from '../lib/schema';
 import PageHero from '../components/PageHero.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import ServiceCards from '../components/ServiceCards.astro';
@@ -31,13 +32,15 @@ const part2 = lang === 'ru';
 const schema = part2
   ? [
       { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.title, description: m.description, inLanguage: lang, mainEntity: { '@id': `${url}#article` }, relatedLink: new URL(path('caseSeason', lang), Astro.site!).href },
-      { '@type': 'Article', '@id': `${url}#article`, headline: m.h1, inLanguage: lang, mainEntityOfPage: { '@id': `${url}#webpage` }, isPartOf: { '@id': CASE_SEASON_SERIES_ID } },
+      { '@type': 'Article', '@id': `${url}#article`, headline: m.h1, inLanguage: lang, author: { '@id': ids(Astro.site!).person }, mainEntityOfPage: { '@id': `${url}#webpage` }, isPartOf: { '@id': CASE_SEASON_SERIES_ID } },
       { '@type': 'CreativeWorkSeries', '@id': CASE_SEASON_SERIES_ID, name: CASE_SEASON_SERIES_NAME },
     ]
   : [];
 ---
 <Base {...pageProps('caseKb', lang)} schema={schema}>
-  <PageHero h1={m.h1} lead={c.teaser[lang]} eyebrow={c.industry[lang]} />
+  <PageHero h1={m.h1} lead={c.teaser[lang]} eyebrow={c.industry[lang]}>
+    {lang === 'ru' && <p class="updated">Автор: <a href={path('about', lang)}>Арсений Ераносьян</a></p>}
+  </PageHero>
   <section class="section section--tight">
     <div class="container">
       <h2 class="sr-only">{C.results}</h2>

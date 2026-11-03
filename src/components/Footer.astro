@@ -6,6 +6,8 @@ import { SITE } from '../data/site';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const ui = t(lang);
+// K7 (brief of 03.11.2026, P2.1): a line for reporting a mistake, in every language, a mailto link to the site's contact address.
+const MISTAKE = { cs: ['Našli jste chybu? ', 'Napište mi.'], en: ['Found a mistake? ', 'Write to me.'], ru: ['Нашли ошибку? ', 'Напишите мне.'], uk: ['Знайшли помилку? ', 'Напишіть мені.'] }[lang];
 const PAGES: PageKey[] = ['home', 'audit', 'geo', 'cases', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' ? (['blog'] as PageKey[]) : [])];
 const year = new Date().getFullYear();
 ---
@@ -34,6 +36,7 @@ const year = new Date().getFullYear();
       </ul>
     </div>
   </div>
+  <div class="container footer-mistake"><p class="small">{MISTAKE[0]}<a href={`mailto:${SITE.email}?subject=${encodeURIComponent(lang === 'cs' ? 'Chyba na webu' : lang === 'ru' ? 'Ошибка на сайте' : lang === 'uk' ? 'Помилка на сайті' : 'Mistake on the site')}`}>{MISTAKE[1]}</a></p></div>
   <div class="container footer-bottom">
     <span>© {year} {SITE.person} · IČO {SITE.ico}. {ui.rights}</span>
     <a href={path('privacy', lang)}>{META.privacy[lang].name}</a>

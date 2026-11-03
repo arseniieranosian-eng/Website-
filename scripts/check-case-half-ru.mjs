@@ -70,7 +70,7 @@ const art = by('Article').find((n) => n['@id'] === `${BASE}${URL_PATH}#article`)
 if (!wp || wp.name !== TITLE || wp.inLanguage !== 'ru' || wp.description !== DESC) e('WebPage');
 if (!art || art.headline !== H1 || art.author['@id'] !== `${BASE}/#arsenii` || !art.datePublished || !art.isPartOf || !by('CreativeWorkSeries').length) e('Article + CreativeWorkSeries');
 const qn = by('Quotation').map((n) => n.text).sort();
-if (JSON.stringify(qn) !== JSON.stringify([AQ, OQ].sort())) e('two Quotations = the two visible quotes');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (JSON.stringify(qn) !== JSON.stringify([AQ, OQ].sort())) e('two Quotations = the two visible quotes');
 const fq = by('FAQPage')[0];
 const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!fq || fq.mainEntity.length !== 5 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');

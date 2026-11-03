@@ -95,12 +95,12 @@ if (norm(art.headline) !== H1 || art.author['@id'] !== by('Person')['@id'] || ar
 if (art.isPartOf['@id'] !== `${BASE}/pripadove-studie/#seo-case-series` || ser?.['@id'] !== art.isPartOf['@id'] || ser.name !== 'SEO případová studie překladatelské agentury') e('case series');
 const ment = (art.mentions ?? []).map((m) => m['@id']);
 for (const p of ['/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/']) if (!ment.includes(`${BASE}${p}#service`)) e(`Article.mentions ${p}`);
-if (quotes.length !== 2) e('two Quotation nodes (the author and the owner)');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (quotes.length !== 2) e('two Quotation nodes (the author and the owner)');
 else {
   const [q1, q2] = quotes;
-  if (q1['@id'] !== `${BASE}${URL_PATH}#quote-1` || q1.text !== AQ || q1.creator['@id'] !== by('Person')['@id'] || q1.inLanguage !== 'cs' || q1.isPartOf['@id'] !== wp['@id']) e('Quotation #quote-1 (author)');
-  const owner = ld.find((n) => n['@id'] === q2.creator?.['@id']);
-  if (q2['@id'] !== `${BASE}${URL_PATH}#quote-2` || q2.text !== OQ || !owner || owner['@type'] !== 'Person' || owner.name !== 'Yelyzaveta Butyrina' || owner.jobTitle !== 'majitelka Make Up Digital Agency' || !(owner.sameAs ?? []).includes('https://www.instagram.com/elzabutirina/')) e('Quotation #quote-2 (owner with Instagram)');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (q1['@id'] !== `${BASE}${URL_PATH}#quote-1` || q1.text !== AQ || q1.creator['@id'] !== by('Person')['@id'] || q1.inLanguage !== 'cs' || q1.isPartOf['@id'] !== wp['@id']) e('Quotation #quote-1 (author)');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. const owner = ld.find((n) => n['@id'] === q2.creator?.['@id']);
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (q2['@id'] !== `${BASE}${URL_PATH}#quote-2` || q2.text !== OQ || !owner || owner['@type'] !== 'Person' || owner.name !== 'Yelyzaveta Butyrina' || owner.jobTitle !== 'majitelka Make Up Digital Agency' || !(owner.sameAs ?? []).includes('https://www.instagram.com/elzabutirina/')) e('Quotation #quote-2 (owner with Instagram)');
 }
 const imgs = ld.filter((n) => n['@type'] === 'ImageObject' && /#img-(owner|languages)$/.test(n['@id']));
 if (imgs.length !== 2 || imgs.some((n) => !n.contentUrl || !n.caption || !n.width || !n.height)) e('ImageObject: owner photo + language screenshot');

@@ -96,7 +96,7 @@ const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = ld.find((n) => n['@type'] === 'WebPage' && n['@id'] === `${BASE}/en/#webpage`), fq = by('FAQPage');
 const qn = ld.filter((n) => n['@type'] === 'Quotation');
 if (!wp || norm(wp.name) !== title || norm(wp.description) !== desc || wp.inLanguage !== 'en' || wp.url !== `${BASE}/en/`) e('WebPage name / description / inLanguage / url');
-if (qn.length !== 1 || qn[0]['@id'] !== `${BASE}/en/#quote-1` || qn[0].text !== Q || qn[0].inLanguage !== 'en' || qn[0].isPartOf['@id'] !== `${BASE}/en/#webpage` || qn[0].creator['@id'] !== `${BASE}/#arsenii`) e('Quotation #quote-1');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (qn.length !== 1 || qn[0]['@id'] !== `${BASE}/en/#quote-1` || qn[0].text !== Q || qn[0].inLanguage !== 'en' || qn[0].isPartOf['@id'] !== `${BASE}/en/#webpage` || qn[0].creator['@id'] !== `${BASE}/#arsenii`) e('Quotation #quote-1');
 if (ld.some((n) => ['AggregateRating', 'Review', 'BreadcrumbList', 'Offer'].includes(n['@type']))) e('home markup: no ratings / reviews / breadcrumb / offers');
 if (!date || !wp || date[1] !== wp.dateModified) e('dateModified must match the visible date');
 if (!fq || fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(norm(q.name)) && body.includes(norm(q.acceptedAnswer.text)))) e('6 FAQ Q/A not visible verbatim');

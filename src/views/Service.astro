@@ -3,6 +3,7 @@
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import PageHero from '../components/PageHero.astro';
+import { lastModified } from '../lib/lastmod';
 import LeadForm from '../components/LeadForm.astro';
 import FaqList from '../components/FaqList.astro';
 import ReviewCards from '../components/ReviewCards.astro';
@@ -41,7 +42,7 @@ const C = {
 }[lang];
 ---
 <Base {...pageProps(service, lang)} schema={[serviceSchema(site, m.name, m.description, path(service, lang)), faq.length ? faqSchema(faq, lang) : null]}>
-  <PageHero h1={m.h1} lead={s.intro[lang]} eyebrow={`${C.duration}: ${s.duration[lang]}`}>
+  <PageHero updated={{ iso: lastModified(['src/views/Service.astro'], '2026-11-03'), lang }} h1={m.h1} lead={s.intro[lang]} eyebrow={`${C.duration}: ${s.duration[lang]}`}>
     <div class="btn-row">
       <a class="btn btn--primary btn--lg" href="#form">{C.form}</a>
       <a class="btn btn--secondary btn--lg" href={path('audit', lang)}>{ui.ctaAudit}</a>

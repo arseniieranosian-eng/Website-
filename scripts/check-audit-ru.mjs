@@ -64,10 +64,10 @@ const items = cat.itemListElement.map((i) => i.itemOffered.name);
 if (!body.includes(cat.name) || items.length !== 4 || !items.every((n) => body.includes(n))) e('OfferCatalog must have 4 visible items');
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('6 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Бесплатный аудит' || bc.itemListElement.at(-1).item) e('breadcrumb');
-if (!ht || ht.totalTime !== 'PT24H' || ht.step.length !== 4) e('HowTo: expected PT24H and 4 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.totalTime !== 'PT24H' || ht.step.length !== 4) e('HowTo: expected PT24H and 4 steps');
 else {
   const ol = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
-  ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Шаг ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Шаг ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
@@ -92,7 +92,7 @@ if (!qf || qf[2] !== QT || qf[1] !== `${BASE}${URL_PATH}`) e('quote figure: text
 const iq = mainTxt.indexOf(QT);
 if (!(mainTxt.indexOf('Чего в бесплатном аудите нет?') < iq && iq < mainTxt.indexOf('Как проходит SEO-аудит?'))) e('quote position: after the "not included" block, before the stages');
 const qn = ld.find((n) => n['@type'] === 'Quotation');
-if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'ru' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'ru' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: optional until the anonymised file exists; when present everything must line up
 const hasVideo = /<video/.test(h);
 if ((h.match(/<video/g) || []).length !== vdAll.length) e('every <video> on the page needs its VideoObject in JSON-LD (and vice versa)');

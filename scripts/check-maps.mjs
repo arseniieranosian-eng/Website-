@@ -67,12 +67,12 @@ if (!incl || incl.length !== 9) e('"Что входит" list must have 9 items'
 if (!incl || !cat.itemListElement.every((i, k) => incl[k].startsWith(i.itemOffered.name))) e('OfferCatalog order != visible list');
 if (fq.mainEntity.length !== 8 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('8 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Карты (Google + Mapy.com)' || bc.itemListElement.at(-1).item) e('breadcrumb');
-if (!ht || ht.step.length !== 4) e('HowTo: expected 4 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.step.length !== 4) e('HowTo: expected 4 steps');
 else {
   const ol = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
   if (ol.length !== 4) e(`<ol> must have 4 items, has ${ol.length}`);
-  ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Шаг ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
-  if (ht.step.some((st) => /ежемесяч/i.test(st.text))) e('monitoring must be weekly');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (ol[i] !== st.text || st.name !== `Шаг ${i + 1}`) e(`step ${i + 1} in <ol> != HowToStep ("${ol[i]}")`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (ht.step.some((st) => /ежемесяч/i.test(st.text))) e('monitoring must be weekly');
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);

@@ -66,7 +66,7 @@ if (!post || post['@id'] !== `${U}#article` || post.headline !== H1 || post.auth
 const wp = node('WebPage')[0];
 if (!wp || wp['@id'] !== `${U}#webpage` || wp.mainEntity['@id'] !== `${U}#article` || wp.inLanguage !== 'cs') e('WebPage');
 const qn = node('Quotation')[0];
-if (node('Quotation').length !== 1 || qn.text !== QUOTE || qn['@id'] !== `${U}#quote-1`) e('one Quotation = the visible quote');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (node('Quotation').length !== 1 || qn.text !== QUOTE || qn['@id'] !== `${U}#quote-1`) e('one Quotation = the visible quote');
 const visSteps = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)].map((m) => [...m[1].matchAll(/<li><span>([\s\S]*?)<\/span><\/li>/g)].map((x) => txt(x[1])));
 if (node('HowTo').length) e('no HowTo on this article');
 const faq = node('FAQPage')[0];

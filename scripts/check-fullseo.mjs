@@ -65,11 +65,11 @@ const cat = sv.hasOfferCatalog;
 if (!body.includes(cat.name) || cat.itemListElement.length !== 11 || !cat.itemListElement.every((i) => body.includes(i.itemOffered.name) || i.itemOffered.name === MAPS_ITEM)) e('OfferCatalog does not match the visible list');
 if (!cat.itemListElement.some((i) => i.itemOffered.name === MAPS_ITEM)) e('maps item of the OfferCatalog must use the wording from the brief');
 if (fq.mainEntity.length !== 6 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('6 FAQ Q/A not visible verbatim');
-if (!ht || ht.totalTime !== 'P12M' || ht.step.length !== 4) e('HowTo: expected totalTime P12M and 4 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.totalTime !== 'P12M' || ht.step.length !== 4) e('HowTo: expected totalTime P12M and 4 steps');
 else {
   const lis = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
   if (lis.length !== 4) e(`stages <ol> must have 4 items, has ${lis.length}`);
-  ht.step.forEach((st, i) => { if (lis[i] !== st.text) e(`stage ${i + 1} in <ol> != HowToStep ("${lis[i]}")`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (lis[i] !== st.text) e(`stage ${i + 1} in <ol> != HowToStep ("${lis[i]}")`); });
 }
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Full SEO на год' || bc.itemListElement.at(-1).item) e('breadcrumb');
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');

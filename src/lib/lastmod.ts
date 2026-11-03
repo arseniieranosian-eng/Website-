@@ -1,19 +1,11 @@
-import { execSync } from 'node:child_process';
+import DATES from '../data/page-dates.json';
 
-// "Last modified" date of a page's content, taken from git so it updates by itself with every edit:
-//  - files with uncommitted changes -> today (the build is being made for a new edit)
-//  - otherwise the date of the latest commit that touched them
-// Falls back to `fallback` when git is unavailable (e.g. building from a plain copy of the sources).
+// "Last modified" date of a page's content (brief of 03.11.2026, P2.2): an EXPLICIT value, not the date of the latest git commit.
+// The value lives in data/page-dates.json, keyed by the first file of the call (the page's view). Change it by hand only after a SUBSTANTIAL edit of the page
+// (facts, prices, structure, new sections); a typo fix, a rename or a technical commit does not move it. The visible "Aktualizováno" date and the dateModified
+// of the JSON-LD both come from here, so they always match. A page that is not in the file gets `fallback` (give it the day of its publication).
 export function lastModified(files: string[], fallback: string): string {
-  const run = (cmd: string) => execSync(cmd, { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
-  try {
-    const list = files.map((f) => `"${f}"`).join(' ');
-    if (run(`git status --porcelain -- ${list}`)) return new Date().toISOString().slice(0, 10);
-    const d = run(`git log -1 --format=%cs -- ${list}`);
-    return d || fallback;
-  } catch {
-    return fallback;
-  }
+  return (DATES as Record<string, string>)[files[0]] ?? fallback;
 }
 
 // 2026-10-19 -> "19. 10. 2026"

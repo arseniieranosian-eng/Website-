@@ -82,9 +82,9 @@ if (!wp || wp.name !== 'Продвижение агентства недвижи
 if (!sv || sv.areaServed !== 'Praha' || sv.audience?.audienceType !== 'агентства недвижимости' || sv.offers) e('Service: Praha, audience, no offers');
 const how = by('HowTo');
 const vis = [...(main.match(/Как я сотрудничаю с агентствами недвижимости\?[\s\S]*?<\/section>/) || [''])[0].matchAll(/<li><span>([\s\S]*?)<\/span><\/li>/g)].map((x) => txt(x[1]));
-if (!how || how.step.length !== 3 || how.step.some((s, i) => norm(s.text) !== vis[i])) e('HowTo steps = the visible three steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!how || how.step.length !== 3 || how.step.some((s, i) => norm(s.text) !== vis[i])) e('HowTo steps = the visible three steps');
 const qn = ld.filter((n) => n['@type'] === 'Quotation');
-if (qn.length !== 1 || qn[0].text !== Q) e('Quotation');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (qn.length !== 1 || qn[0].text !== Q) e('Quotation');
 const fq = by('FAQPage');
 const visFaq = [...main.slice(main.indexOf('class="faq-open"')).matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!fq || fq.mainEntity.length !== 6 || fq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage = the visible 5 questions');

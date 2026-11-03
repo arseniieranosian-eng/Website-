@@ -58,12 +58,12 @@ if (!/бизнесу\. Работаю со всеми метриками/.test(b
 if (fq.mainEntity.length !== 7 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('7 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Главная > Старт на 3 месяца' || bc.itemListElement.at(-1).item) e('breadcrumb');
 // HowTo: three monthly stages as a numbered list, word for word; the weekly report is a separate paragraph
-if (!ht || ht.totalTime !== 'P3M' || ht.step.length !== 3) e('HowTo: expected totalTime P3M and 3 steps');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.totalTime !== 'P3M' || ht.step.length !== 3) e('HowTo: expected totalTime P3M and 3 steps');
 else {
   const lis = [...(h.match(/<ol class="steps[^>]*>([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]));
   if (lis.length !== 3) e(`stages <ol> must have 3 items, has ${lis.length}`);
-  ht.step.forEach((st, i) => { if (lis[i] !== `${st.name}: ${st.text}`) e(`stage ${i + 1} in <ol> != HowToStep ("${lis[i]}")`); });
-  if (ht.step.some((st) => /недел/i.test(st.name + st.text))) e('the weekly report must not be a HowTo step');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. ht.step.forEach((st, i) => { if (lis[i] !== `${st.name}: ${st.text}`) e(`stage ${i + 1} in <ol> != HowToStep ("${lis[i]}")`); });
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (ht.step.some((st) => /недел/i.test(st.name + st.text))) e('the weekly report must not be a HowTo step');
   if (!/<\/ol>\s*<p[^>]*>Каждую неделю: отчёт о проделанной работе\.<\/p>/.test(h)) e('weekly line must be a separate paragraph right under the list');
 }
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');

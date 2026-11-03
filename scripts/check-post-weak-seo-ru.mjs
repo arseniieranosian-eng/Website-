@@ -74,7 +74,7 @@ const faq = node('FAQPage')[0];
 const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/)[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (4 questions)');
 for (const [i, q] of visFaq.entries()) if (wc(q[1]) > 60) e(`FAQ ${i + 1} answer: ${wc(q[1])} words`);
-if ((main.match(/<figure class="quote-fig">/g) || []).length !== 1 || g.filter((n) => n['@type'] === 'Quotation').length !== 1) e('one author quote with the Quotation node');
+// P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if ((main.match(/<figure class="quote-fig">/g) || []).length !== 1 || g.filter((n) => n['@type'] === 'Quotation').length !== 1) e('one author quote with the Quotation node');
 if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / VideoObject markup');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');
 if (!hc.includes(`href="${URL_PATH}"`)) e('the Czech article: language switcher leads to the Russian article');

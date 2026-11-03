@@ -784,3 +784,7 @@ ul, ol { margin-bottom: var(--flow); }
 /* Links inside dark bands: light blue instead of the default blue (blue on navy was 3:1) */
 .section--dark a:not(.btn), .cta-band a:not(.btn) { color: #9db8ff; }
 .section--dark a:not(.btn):hover, .cta-band a:not(.btn):hover { color: #c7d6ff; }
+
+.footer-mistake { padding-top: 8px; }
+.footer-mistake p { margin: 0; color: #a9afbd; }
+.footer-mistake a { color: #9db8ff; }
