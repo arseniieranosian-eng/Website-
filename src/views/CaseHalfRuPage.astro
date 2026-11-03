@@ -95,6 +95,10 @@ const chartH = C.langRows.length * (BAR_H + GAP) + 8;
       </div>
     </div>
     <div class="container narrow">
+      <figure class="lang-shot">
+        <img src={C.awareShot.src} width={C.awareShot.width} height={C.awareShot.height} alt={C.awareShot.alt} loading="lazy" decoding="async" />
+        <figcaption class="muted small">{C.awareShot.caption}</figcaption>
+      </figure>
       <p class="muted small">{C.resCaption}</p>
       <p>{C.windowsLead} {C.windows.map((w, i) => <>{i > 0 && ', '}<a href={t(w.key)}>{w.text}</a></>)}.</p>
     </div>

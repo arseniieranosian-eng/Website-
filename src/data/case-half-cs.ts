@@ -93,6 +93,7 @@ const raw = {
       ['Povědomí o firmě', 'Brno', 'top 5 a výš u klíčových dotazů; Google AI Overview', 'konec projektu', 'Google'],
     ],
   },
+  awareShot: { src: '/images/pripadove-studie/povedomi-gsc.webp', width: 968, height: 370, alt: 'Graf z Google Search Console po dnech od 12. 3. do září 2026: zobrazení a kliky webu překladatelské agentury rostou od června, hodnoty na osách jsou skryté', caption: 'Povědomí o firmě: zobrazení (fialová čára) a kliky (modrá čára) v Google Search Console po dnech, březen–září 2026. Hodnoty na osách jsou skryté, data jsou relativní.' },
   resCaption: 'Čísla a vývoj webu potvrdil klient. Data jsou relativní, absolutní čísla nezveřejňuji.',
   seasonFormula: SEASON_FORMULA_CS,
   seasonFormulaLink: 'SEO v nízké sezóně',
