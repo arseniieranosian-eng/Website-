@@ -279,6 +279,16 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postWebPages: {
+    cs: {
+      name: 'Jaké stránky má mít web firmy',
+      title: 'Jaké stránky má mít web firmy a k čemu jsou | Eranosian',
+      description: 'Stránky služeb, informační články a stránky důvěry: co každá z nich dělá na webu firmy, jak se doplňují a proč je nemíchat.',
+      h1: 'Jaké stránky má mít web firmy a co která z nich dělá?',
+    },
+    en: { name: 'Which pages a company website needs', title: 'Which pages a company website needs', description: 'Which pages a company website needs', h1: 'Which pages should a company website have?' },
+    ru: { name: 'Какие страницы нужны сайту компании', title: 'Какие страницы нужны сайту компании', description: 'Какие страницы нужны сайту компании', h1: 'Какие страницы должен иметь сайт компании?' },
+  },
   postWeakSeoAcc: {
     cs: {
       name: 'Slabé SEO konkurence u účetní kanceláře',

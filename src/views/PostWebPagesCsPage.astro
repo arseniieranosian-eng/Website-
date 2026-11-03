@@ -1,0 +1,97 @@
+---
+// Blog article "Jaké stránky má mít web firmy a co která z nich dělá?" (cs), brief of 03.11.2026. Content: data/post-web-pages-cs.ts.
+// Informational: no links in the body; the author's quote (rule J) is a plain blockquote without Quotation markup; the closing block has ONE button (to the free audit).
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postWebPagesSchemas } from '../lib/schema-post-web-pages';
+import { POST_WEB_PAGES_CS as C, POST_WEB_PAGES_PUBLISHED } from '../data/post-web-pages-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostWebPagesCsPage.astro', 'src/data/post-web-pages-cs.ts'], '2026-11-03'), POST_WEB_PAGES_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-jake-stranky-ma-mit-web-firmy.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+const cite = new URL(path('postWebPages', lang), site).href;
+---
+<Base {...pageProps('postWebPages', lang)} ogType="article" ogImage={OG} schema={postWebPagesSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postWebPages.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.rolesTitle}</h2>
+      <p class="answer">{C.rolesAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.serviceTitle}</h2>
+      <p class="answer">{C.serviceAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.blogTitle}</h2>
+      <p class="answer">{C.blogAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.trustTitle}</h2>
+      <p class="answer">{C.trustAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.cityTitle}</h2>
+      <p class="answer">{C.cityAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.linkTitle}</h2>
+      <p class="answer">{C.linkAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a></div>
+      </div>
+    </div>
+  </section>
+</Base>

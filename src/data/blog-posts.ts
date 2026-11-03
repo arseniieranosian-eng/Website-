@@ -23,6 +23,7 @@ import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './pos
 import { POST_SEO_PLAN_CS, POST_SEO_PLAN_PUBLISHED } from './post-seo-plan-cs';
 import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './post-select-specialist-cs';
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
+import { POST_WEB_PAGES_CS, POST_WEB_PAGES_PUBLISHED } from './post-web-pages-cs';
 import { POST_WEAK_SEO_ACC_CS, POST_WEAK_SEO_ACC_PUBLISHED } from './post-weak-seo-accounting-cs';
 import { POST_ACCOUNTING_TIME_CS, POST_ACCOUNTING_TIME_PUBLISHED } from './post-accounting-time-cs';
 import { POST_ACCOUNTING_PAGES_CS, POST_ACCOUNTING_PAGES_PUBLISHED } from './post-accounting-pages-cs';
@@ -56,6 +57,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postSeoPlan', lang: 'cs', date: POST_SEO_PLAN_PUBLISHED, title: META.postSeoPlan.cs.h1, description: META.postSeoPlan.cs.description, image: POST_SEO_PLAN_CS.cover },
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
+  { key: 'postWebPages', lang: 'cs', date: POST_WEB_PAGES_PUBLISHED, title: META.postWebPages.cs.h1, description: META.postWebPages.cs.description, image: POST_WEB_PAGES_CS.cover },
   { key: 'postWeakSeoAcc', lang: 'cs', date: POST_WEAK_SEO_ACC_PUBLISHED, title: META.postWeakSeoAcc.cs.h1, description: META.postWeakSeoAcc.cs.description, image: POST_WEAK_SEO_ACC_CS.cover },
   { key: 'postAccountingTime', lang: 'cs', date: POST_ACCOUNTING_TIME_PUBLISHED, title: META.postAccountingTime.cs.h1, description: META.postAccountingTime.cs.description, image: POST_ACCOUNTING_TIME_CS.cover },
   { key: 'postAccountingPages', lang: 'cs', date: POST_ACCOUNTING_PAGES_PUBLISHED, title: META.postAccountingPages.cs.h1, description: META.postAccountingPages.cs.description, image: POST_ACCOUNTING_PAGES_CS.cover },
@@ -99,7 +101,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'choose',
     title: { cs: 'Jak vybrat první krok v SEO', en: 'Choosing the first step in SEO', ru: 'Как выбрать первый шаг в SEO' },
     lead: { cs: 'Audit, konzultace, Start nebo reklama: co se hodí jako první.', en: 'Audit, consultation, Start or ads: what fits first.', ru: 'Аудит, консультация, Старт или реклама: с чего начать.' },
-    keys: ['postChoose', 'postAds'],
+    keys: ['postChoose', 'postAds', 'postWebPages'],
   },
   {
     id: 'translation',
