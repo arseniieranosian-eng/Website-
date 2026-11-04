@@ -40,7 +40,9 @@ const raw = {
   obsAnswer: 'K 31. 10. 2026 jsem si prohlédl 14 webů zubních ordinací, které se zobrazují na dotaz „stomatologie v Praze“. Všechny zobrazují recenze na stránkách, což je dobré využití signálů důvěry. U 11 z 14 chybí blog, u všech 14 jsou FAQ nedostatečné, u tří jsou služby jen na jedné stránce a žádný nemá strukturovaná data.',
   obsNote: 'FAQ je nedostatečné různě: někde chybí na stránkách služeb, jinde není samostatná stránka. Je to můj pozorovací vzorek, ne průzkum trhu. Názvy webů neuvádím.',
   // sentence about weak competition: after the observation (S3: "Google podle své dokumentace" is NOT verified against the documentation)
-  weakText: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi zubními ordinacemi zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web.',
+  weakText: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi zubními ordinacemi zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:',
+  weakLink: 'Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?',
+  weakSource: { text: 'Google Search Central, Ranking systems guide', href: 'https://developers.google.com/search/docs/appearance/ranking-systems-guide' },
 
   doTitle: 'Co pro zubní ordinaci konkrétně dělám?',
   doAnswer: 'Řeším, aby web zubní ordinace byl srozumitelný pro vyhledávače i AI: samostatné stránky služeb, stránky lékařů s ověřenými údaji, přehledný ceník ordinace, způsob objednání a správně vedený místní profil. Texty o léčbě musí schválit lékař ordinace, já připravuji strukturu a formulace. Mapy řeším samostatnou službou.',

@@ -2,6 +2,7 @@
 // Niche landing page "SEO pro zubní ordinace v Praze" (cs), brief of 01.11.2026. Built only when NICHE_READY.nicheDental is true (routes.ts; currently OFF, see data/niche-dental-cs.ts).
 // Own structure from the brief. No quote, no video, no articles block, no Review / Offer markup.
 import Base from '../layouts/Base.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -74,7 +75,8 @@ const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).m
 
   <section class={D2 ? 'section section--grey' : 'section'}>
     <div class="container narrow">
-      <p>{C.weakText}</p>
+      <p>{C.weakText}{' '}<a href={t('postWeakSeoDental')}>{C.weakLink}</a></p>
+      <p class="small muted">Zdroj: <a href={C.weakSource.href} rel="noopener">{C.weakSource.text}</a></p>
     </div>
   </section>
 
@@ -96,6 +98,13 @@ const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).m
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>Další články</h2>
+      <RelatedPosts lang={lang} keys={['postWeakSeoDental']} more="Číst článek" />
     </div>
   </section>
 

@@ -40,7 +40,7 @@ const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)"/g)].map((m
 if (alts.some((a) => !['cs', 'cs-CZ', 'x-default'].includes(a))) e(`hreflang: ${alts}`);
 if ((main.match(/<h1[ >]/g) || []).length !== 1 || txt((main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]) !== H1) e('H1');
 const hs = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
-const SECTIONS = ['Jak probíhá spolupráce?', 'Kolik to stojí?', 'Jaké mám zkušenosti v oboru zubní péče?', 'Co jsem zjistil na webech zubních ordinací v Praze?', 'Co pro zubní ordinaci konkrétně dělám?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Chcete vědět, jaké technické chyby má váš web?'];
+const SECTIONS = ['Jak probíhá spolupráce?', 'Kolik to stojí?', 'Jaké mám zkušenosti v oboru zubní péče?', 'Co jsem zjistil na webech zubních ordinací v Praze?', 'Co pro zubní ordinaci konkrétně dělám?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order (D2 not published yet): ${JSON.stringify(hs)}`);
 // line under the H1 exactly, then the summary box, both before the first H2
 if (!mainTxt.includes('U překladatelské agentury: poptávky z webu +65–70 % měsíc po měsíci tři měsíce po sobě (březen–září 2026).') || main.indexOf('U překladatelské') > main.indexOf('summary-box')) e('line under the H1 / order');
@@ -78,7 +78,7 @@ if (/B2B|×\s?3|\+200/.test(mainTxt)) e('no B2B ×3 / +200 %');
 const cnt = (re) => (main.match(re) || []).length;
 if (cnt(/href="\/audit-zdarma\/"/g) < 3 || cnt(/href="\/konzultace\/"/g) < 1 || cnt(/href="\/lokalni-seo-mapy\/"/g) !== 1 || cnt(/href="\/start-3-mesice\/"/g) < 1) e('links: audit-zdarma (≥3), konzultace, lokalni-seo-mapy exactly once, start');
 if (/href="\/seo-pro-(?!zubni)/.test(main)) e('no links to other niche pages');
-if (/related-posts|<form|<video/.test(main)) e('no articles block / form / video');
+if (/<form|<video/.test(main) || (main.match(/class="post-card/g) || []).length !== 1) e('no form / video; one article card (Další články: the weak-competition article)');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 if (!readFileSync('dist/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('home page lists the niche');
 done();

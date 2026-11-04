@@ -78,6 +78,7 @@
  "src/views/PostSeoPlanCsPage.astro": "2026-10-31",
  "src/views/PostWeakSeoAccCsPage.astro": "2026-11-02",
  "src/views/PostWeakSeoCsPage.astro": "2026-11-02",
+ "src/views/PostWeakSeoDentalCsPage.astro": "2026-11-04",
  "src/views/PostWeakSeoRuPage.astro": "2026-11-02",
  "src/views/PostWebPagesCsPage.astro": "2026-11-03",
  "src/views/Service.astro": "2026-11-03",

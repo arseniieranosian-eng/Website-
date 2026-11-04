@@ -23,6 +23,7 @@ import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './pos
 import { POST_SEO_PLAN_CS, POST_SEO_PLAN_PUBLISHED } from './post-seo-plan-cs';
 import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './post-select-specialist-cs';
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
+import { POST_WEAK_SEO_DENTAL_CS, POST_WEAK_SEO_DENTAL_PUBLISHED } from './post-weak-seo-dental-cs';
 import { POST_DUP_ESHOP_CS, POST_DUP_ESHOP_PUBLISHED } from './post-dup-eshop-cs';
 import { POST_WEB_PAGES_CS, POST_WEB_PAGES_PUBLISHED } from './post-web-pages-cs';
 import { POST_WEAK_SEO_ACC_CS, POST_WEAK_SEO_ACC_PUBLISHED } from './post-weak-seo-accounting-cs';
@@ -58,6 +59,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postSeoPlan', lang: 'cs', date: POST_SEO_PLAN_PUBLISHED, title: META.postSeoPlan.cs.h1, description: META.postSeoPlan.cs.description, image: POST_SEO_PLAN_CS.cover },
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
+  { key: 'postWeakSeoDental', lang: 'cs', date: POST_WEAK_SEO_DENTAL_PUBLISHED, title: META.postWeakSeoDental.cs.h1, description: META.postWeakSeoDental.cs.description, image: POST_WEAK_SEO_DENTAL_CS.cover },
   { key: 'postDupEshop', lang: 'cs', date: POST_DUP_ESHOP_PUBLISHED, title: META.postDupEshop.cs.h1, description: META.postDupEshop.cs.description, image: POST_DUP_ESHOP_CS.cover },
   { key: 'postWebPages', lang: 'cs', date: POST_WEB_PAGES_PUBLISHED, title: META.postWebPages.cs.h1, description: META.postWebPages.cs.description, image: POST_WEB_PAGES_CS.cover },
   { key: 'postWeakSeoAcc', lang: 'cs', date: POST_WEAK_SEO_ACC_PUBLISHED, title: META.postWeakSeoAcc.cs.h1, description: META.postWeakSeoAcc.cs.description, image: POST_WEAK_SEO_ACC_CS.cover },
@@ -122,6 +124,12 @@ export const BLOG_GROUPS: BlogGroup[] = [
     title: { cs: 'Účetní kanceláře', en: 'Accounting firms', ru: 'Бухгалтерские фирмы' },
     lead: { cs: 'Jak účetní kancelář získává nové klienty.', en: 'How an accounting firm gets new clients.', ru: 'Как бухгалтерская фирма получает новых клиентов.' },
     keys: ['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingLocal', 'postAccountingPages', 'postAccountingTime', 'postWeakSeoAcc'],
+  },
+  {
+    id: 'dental',
+    title: { cs: 'Zubní ordinace', en: 'Dental practices', ru: 'Стоматологии' },
+    lead: { cs: 'Pozorování webů zubních ordinací ve výsledcích vyhledávání.', en: 'Observations of dental practice websites in search results.', ru: 'Наблюдения за сайтами стоматологий в поисковой выдаче.' },
+    keys: ['postWeakSeoDental'],
   },
   {
     id: 'finance',

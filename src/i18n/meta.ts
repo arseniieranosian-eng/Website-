@@ -279,6 +279,16 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postWeakSeoDental: {
+    cs: {
+      name: 'Slabé SEO konkurence u zubní ordinace',
+      title: 'Slabé SEO zubních ordinací ve výsledcích | Eranosian',
+      description: 'Proč bývá ve vyhledávání vpředu zubní ordinace se slabým webem: pozorování u 14 webů, hypotézy a to, co z toho nevyplývá.',
+      h1: 'Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?',
+    },
+    en: { name: 'Weak SEO competitors of dental practices', title: 'Weak SEO competitors of dental practices', description: 'Weak SEO competitors of dental practices', h1: 'Why do dental practices with weak SEO rank ahead?' },
+    ru: { name: 'Слабое SEO у конкурентов-стоматологий', title: 'Слабое SEO у конкурентов-стоматологий', description: 'Слабое SEO у конкурентов-стоматологий', h1: 'Почему в поиске выше и стоматологии со слабым SEO?' },
+  },
   postDupEshop: {
     cs: {
       name: 'Duplicitní stránky v e-shopu s tiskem',
