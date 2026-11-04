@@ -6,7 +6,9 @@ import { ids } from './schema';
 // Page-specific JSON-LD for /audit-zdarma/ (brief of 20.10.2026). Service describes exactly what the audit contains
 // (technical errors): nothing about keywords, competitors, maps, AI or speed. Offer price 0 CZK; consultation prices
 // never enter this markup. No AggregateRating, no Review. VideoObject only while the sample video is on the page.
-export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDIT_VIDEO, examples: typeof AUDIT_EXAMPLES, opts: { modified: string }) {
+export function auditCsSchemas(site: URL, C: typeof AUDIT_CS, video: typeof AUDIT_VIDEO, allExamples: typeof AUDIT_EXAMPLES, opts: { modified: string }) {
+  // A plain YouTube video (`wide`) is only embedded: no VideoObject for it (site rule for videos hosted on YouTube).
+  const examples = allExamples.filter((x) => !x.wide);
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('audit', lang));
