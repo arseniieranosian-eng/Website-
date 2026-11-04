@@ -123,12 +123,12 @@ import QuoteCaption from '../components/QuoteCaption.astro';
             <div class="audit-example">
               <p><strong>{C.examplesNiche}:</strong> {x.niche}</p>
               <p class="muted small">{C.examplesLang}: {x.presentationLang}</p>
-              <figure class="niche-video niche-video--short" data-youtube={x.youtube}>
+              <figure class:list={['niche-video', !x.wide && 'niche-video--short']} data-youtube={x.youtube}>
                 <button class="niche-video__facade" type="button" aria-label={C.examplesPlay}>
-                  <img src={x.poster} width="720" height="1280" alt={`Náhled videa: ukázka auditu, obor ${x.niche}`} loading="lazy" decoding="async" />
+                  <img src={x.poster} width={x.wide ? x.wide.width : 720} height={x.wide ? x.wide.height : 1280} alt={`Náhled videa: ukázka auditu, obor ${x.niche}`} loading="lazy" decoding="async" />
                   <span class="niche-video__play" aria-hidden="true"></span>
                 </button>
-                <figcaption class="muted small"><a href={`https://youtube.com/shorts/${x.youtube}`} target="_blank" rel="noopener">{C.examplesOpen}</a></figcaption>
+                <figcaption class="muted small">{x.wide && <>{x.wide.note} · </>}<a href={x.wide ? `https://youtu.be/${x.youtube}` : `https://youtube.com/shorts/${x.youtube}`} target="_blank" rel="noopener">{C.examplesOpen}</a></figcaption>
               </figure>
               <p>{x.text}</p>
               {x.landing && <p>{C.examplesLandingLead}{' '}<a href={t(x.landing)}>{C.examplesLandingLink}</a>.</p>}

@@ -25,6 +25,8 @@ export const AUDIT_VIDEO: {
 export const AUDIT_EXAMPLES: {
   id: string; niche: string; youtube: string; poster: string; presentationLang: string; text: string;
   name: string; description: string; uploadDate: string; duration: string; landing?: 'nicheMachinery';
+  // `wide`: a 16:9 video (a normal YouTube video, link youtu.be/<id>) instead of a vertical Short; `inLanguage` of the presentation (default en).
+  wide?: { width: number; height: number; note: string }; inLanguage?: string;
 }[] = [
   {
     id: 'machinery-software',
@@ -38,6 +40,20 @@ export const AUDIT_EXAMPLES: {
     uploadDate: '2026-10-24',
     duration: 'PT36S',
     landing: 'nicheMachinery',
+  },
+  {
+    id: 'pilates-studio',
+    niche: 'Studio pilates',
+    youtube: 'K1kHjO7At0M',
+    poster: '/media/audit-example-pilates-poster.jpg',
+    presentationLang: 'ruština',
+    text: 'Hlavní závěr auditu: web tvoří jediná stránka a první doporučení zní rozdělit jednostránkový web na samostatné stránky, aby každá sekce měla vlastní URL, title, meta description a H1. Kritické chyby crawler nenašel. Název studia ve videu není vidět.',
+    name: 'Ukázka prezentace SEO auditu pro web studia pilates',
+    description: 'Ukázka prezentace bezplatného SEO auditu pro web studia pilates: výsledek crawlingu, hlavní závěr o struktuře webu, technická upozornění a plán kroků. Prezentace je v ruštině.',
+    uploadDate: '2026-11-04',
+    duration: 'PT26S',
+    wide: { width: 1280, height: 686, note: 'Ukázka prezentace bezplatného SEO auditu pro web studia pilates (26 sekund, bez zvuku)' },
+    inLanguage: 'ru',
   },
 ];
 
