@@ -23,6 +23,7 @@ import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './pos
 import { POST_SEO_PLAN_CS, POST_SEO_PLAN_PUBLISHED } from './post-seo-plan-cs';
 import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './post-select-specialist-cs';
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
+import { POST_DUP_ESHOP_CS, POST_DUP_ESHOP_PUBLISHED } from './post-dup-eshop-cs';
 import { POST_WEB_PAGES_CS, POST_WEB_PAGES_PUBLISHED } from './post-web-pages-cs';
 import { POST_WEAK_SEO_ACC_CS, POST_WEAK_SEO_ACC_PUBLISHED } from './post-weak-seo-accounting-cs';
 import { POST_ACCOUNTING_TIME_CS, POST_ACCOUNTING_TIME_PUBLISHED } from './post-accounting-time-cs';
@@ -57,6 +58,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postSeoPlan', lang: 'cs', date: POST_SEO_PLAN_PUBLISHED, title: META.postSeoPlan.cs.h1, description: META.postSeoPlan.cs.description, image: POST_SEO_PLAN_CS.cover },
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
+  { key: 'postDupEshop', lang: 'cs', date: POST_DUP_ESHOP_PUBLISHED, title: META.postDupEshop.cs.h1, description: META.postDupEshop.cs.description, image: POST_DUP_ESHOP_CS.cover },
   { key: 'postWebPages', lang: 'cs', date: POST_WEB_PAGES_PUBLISHED, title: META.postWebPages.cs.h1, description: META.postWebPages.cs.description, image: POST_WEB_PAGES_CS.cover },
   { key: 'postWeakSeoAcc', lang: 'cs', date: POST_WEAK_SEO_ACC_PUBLISHED, title: META.postWeakSeoAcc.cs.h1, description: META.postWeakSeoAcc.cs.description, image: POST_WEAK_SEO_ACC_CS.cover },
   { key: 'postAccountingTime', lang: 'cs', date: POST_ACCOUNTING_TIME_PUBLISHED, title: META.postAccountingTime.cs.h1, description: META.postAccountingTime.cs.description, image: POST_ACCOUNTING_TIME_CS.cover },
@@ -89,7 +91,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'audit',
     title: { cs: 'Bezplatný audit: technické chyby webu', en: 'Free audit: technical website errors', ru: 'Бесплатный аудит: технические ошибки сайта' },
     lead: { cs: 'Články o problémech, které ukáže bezplatný audit: indexace, duplicity, přesměrování a změny webu.', en: 'Articles on the problems a free audit shows: indexing, duplicates, redirects and site changes.', ru: 'Статьи о проблемах, которые показывает бесплатный аудит: индексация, дубли, редиректы и изменения сайта.' },
-    keys: ['postIndexing', 'postNotShown', 'postSeoAudit', 'postDuplicates', 'postRedirects', 'postNewSite', 'postRedesign'],
+    keys: ['postIndexing', 'postNotShown', 'postSeoAudit', 'postDuplicates', 'postRedirects', 'postNewSite', 'postRedesign', 'postDupEshop'],
   },
   {
     id: 'consulting',

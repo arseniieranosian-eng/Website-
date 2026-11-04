@@ -89,6 +89,8 @@ const raw = {
   fearAnswer: 'Drobné přirozené duplicity, například právní text nebo varianty produktu, obvykle nevadí, pokud je hlavní adresa jasně označená.',
   fearText: 'Cílem není mít na webu nulu podobných textů, ale aby Google věděl, kterou verzi má vybrat. Nemusíte kvůli tomu přepisovat vše, co se trochu opakuje.',
 
+  eshopLead: 'Konkrétně pro e-shop s tiskem:',
+  eshopLink: 'Jak vznikají duplicitní stránky v e-shopu s tiskovými produkty?',
   indexTitle: 'Jak souvisejí duplicity s indexací?',
   indexAnswer: 'Duplicita bývá častým důvodem, proč Google stránku nezařadí do indexu. Pokud se web v Googlu nezobrazuje, je to jedna z věcí ke kontrole.',
   indexLead1: 'Další příčiny, proč se web v Googlu nezobrazuje, najdete v článku',

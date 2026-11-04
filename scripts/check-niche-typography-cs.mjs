@@ -9,7 +9,7 @@ const NAME = 'SEO a GEO/AEO pro tiskárny a polygrafii'; // the breadcrumb label
 const H1 = 'SEO a GEO/AEO pro tiskárny a polygrafii: poptávky z Googlu a AI';
 const TITLE = 'SEO pro tiskárny a polygrafii: katalog | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Začněte technickým auditem zdarma.';
-const SECTIONS = [H1, 'Co pro tiskárny a polygrafické firmy dělám?', 'Pro koho je to a pro koho ne?', 'Jaký výsledek měla případová studie tiskárny?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Kolik to stojí?', 'Časté otázky', 'Další krok'];
+const SECTIONS = [H1, 'Co pro tiskárny a polygrafické firmy dělám?', 'Pro koho je to a pro koho ne?', 'Jaký výsledek měla případová studie tiskárny?', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Kolik to stojí?', 'Časté otázky', 'Další články', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/pripadove-studie/seo-tiskarna/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'rychlé výsledky pro', 'SEO agentur', 'Sklik:', 'Petrohrad', 'Sankt', 'ofset', '1 200', '10 500', '775', 'tiskárnu', 'AggregateRating', 'na části webů', '9 webů'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -35,7 +35,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/|<form|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni/.test(main)) e('no blog links, no form, no links to the other niche landing pages');
+if (/href="\/(?:en\/|ru\/)?blog\/(?!duplicitni-stranky-eshop-tisk-varianty\/)|<form|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni/.test(main)) e('no blog links, no form, no links to the other niche landing pages');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');

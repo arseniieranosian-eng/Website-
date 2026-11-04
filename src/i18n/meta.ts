@@ -279,6 +279,16 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postDupEshop: {
+    cs: {
+      name: 'Duplicitní stránky v e-shopu s tiskem',
+      title: 'Duplicitní stránky e-shopu s tiskem | Eranosian',
+      description: 'Formáty, materiály, náklady a filtry mohou v e-shopu s tiskem vytvořit stovky podobných stránek. Co jsou duplicity a kdy je řešit.',
+      h1: 'Jak vznikají duplicitní stránky v e-shopu s tiskovými produkty?',
+    },
+    en: { name: 'Duplicate pages in a print e-shop', title: 'Duplicate pages in a print e-shop', description: 'Duplicate pages in a print e-shop', h1: 'How do duplicate pages arise in a print e-shop?' },
+    ru: { name: 'Дубли страниц в магазине с печатью', title: 'Дубли страниц в магазине с печатью', description: 'Дубли страниц в магазине с печатью', h1: 'Как возникают дубли страниц в интернет-магазине с печатью?' },
+  },
   postWebPages: {
     cs: {
       name: 'Jaké stránky má mít web firmy',

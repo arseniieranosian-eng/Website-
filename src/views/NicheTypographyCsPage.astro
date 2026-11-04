@@ -2,6 +2,7 @@
 // Niche landing page "SEO a GEO/AEO pro tiskárny a polygrafii" (cs), brief of 24.10.2026. Content: data/niche-typography-cs.ts. Own structure (not the template of the other niche pages):
 // differences of the niche, 3 steps, for whom, the case (metric + window only), audit scope table and checklist, cooperation, FAQ. No prices, no quote, no video, no funnel articles yet.
 import Base from '../layouts/Base.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -92,6 +93,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>Další články</h2>
+      <RelatedPosts lang={lang} keys={['postDupEshop']} more="Číst článek" />
     </div>
   </section>
 
