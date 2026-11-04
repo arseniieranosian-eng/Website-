@@ -103,7 +103,7 @@ if (hasVideo) {
   if (!vd.contentUrl || vd.embedUrl) e('VideoObject: contentUrl only');
   if (!(Array.isArray(wp.video) ? wp.video : [wp.video]).some((v) => v?.['@id'] === vd['@id'])) e('WebPage.video must reference the VideoObject');
   // second video: the other-niche example (added 27.10.2026)
-  if (!body.includes('Пример аудита для другой ниши') || !body.includes('разработка специализированного программного обеспечения для автоматизации машиностроительных и металлообрабатывающих предприятий') || !body.includes('Язык презентации: английский') || !body.includes('Пример презентации бесплатного SEO-аудита для сайта на английском языке (37 секунд, без звука).')) e('other-niche example: heading, niche, language and caption');
+  if (!body.includes('Примеры аудитов для других ниш') || !body.includes('разработка специализированного программного обеспечения для автоматизации машиностроительных и металлообрабатывающих предприятий') || !body.includes('Язык презентации: английский') || !body.includes('Пример презентации бесплатного SEO-аудита для сайта на английском языке (37 секунд, без звука).')) e('other-niche example: heading, niche, language and caption');
   const v2 = vdAll.find((n) => /video-machinery-software/.test(n['@id']));
   if (!v2 || !body.includes(v2.description) || !v2.contentUrl || v2.embedUrl) e('VideoObject of the other-niche example: visible description, contentUrl only');
   if (/Windows|VEED/i.test(body)) e('no editor / OS names in the text');
