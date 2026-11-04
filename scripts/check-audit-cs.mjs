@@ -74,7 +74,8 @@ if (/<iframe/.test(h)) e('YouTube player must load only on click');
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = by('WebPage'), sv = by('Service'), fq = by('FAQPage'), bc = by('BreadcrumbList'), ht = by('HowTo'), vd = ld.find((n) => n['@type'] === 'VideoObject' && n.contentUrl), ex = ld.find((n) => n['@type'] === 'VideoObject' && n.embedUrl);
-if (!ex || ex.uploadDate !== '2026-10-24' || ex.name !== 'Včera přišla první poptávka z webu | SEO' || !wp.video.some((v) => v['@id'] === ex['@id'])) e('example VideoObject');
+// the YouTube examples (Short and plain video) carry no VideoObject (site rule): only the sample video of the page does
+if (ex) e('YouTube examples must not have a VideoObject');
 if (!mainTxt.includes('Obor ukázky: e-shop s kosmetikou a parfémy.')) e('sample niche');
 if (ld.some((n) => ['AggregateRating', 'Review'].includes(n['@type'])) || sv.review) e('no AggregateRating / Review');
 if (/klíčov|konkurenc|mapy|viditelnost|rychlost|Core Web|mobiln/i.test(JSON.stringify([sv.name, sv.serviceType, sv.description, sv.offers]))) e('Service markup must describe technical errors only');
