@@ -40,7 +40,10 @@ const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)"/g)].map((m
 if (alts.some((a) => !['cs', 'cs-CZ', 'x-default'].includes(a))) e(`hreflang: ${alts}`);
 if ((main.match(/<h1[ >]/g) || []).length !== 1 || txt((main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]) !== H1) e('H1');
 const hs = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
-const SECTIONS = ['Jak probíhá spolupráce?', 'Kolik to stojí?', 'Jaké mám zkušenosti v oboru zubní péče?', 'Co jsem zjistil na webech zubních ordinací v Praze?', 'Co pro zubní ordinaci konkrétně dělám?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
+const ZL = /ZNAMYLEKAR_PUBLISHED = true/.test(readFileSync('src/data/niche-dental-cs.ts', 'utf8')); // block of the brief of 05.11.2026 (blocked until S1–S3)
+const ZL_H2 = 'Co je objednání přes ZnamyLekar.cz a proč ho u ordinace řeším?';
+const SECTIONS0 = ['Jak probíhá spolupráce?', 'Kolik to stojí?', 'Jaké mám zkušenosti v oboru zubní péče?', 'Co jsem zjistil na webech zubních ordinací v Praze?', 'Co pro zubní ordinaci konkrétně dělám?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
+const SECTIONS = ZL ? SECTIONS0.flatMap((x) => x === 'Pro koho SEO dává smysl a pro koho ne?' ? [ZL_H2, x] : [x]) : SECTIONS0;
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order (D2 not published yet): ${JSON.stringify(hs)}`);
 // line under the H1 exactly, then the summary box, both before the first H2
 if (!mainTxt.includes('U překladatelské agentury: poptávky z webu +65–70 % měsíc po měsíci tři měsíce po sobě (březen–září 2026).') || main.indexOf('U překladatelské') > main.indexOf('summary-box')) e('line under the H1 / order');
@@ -59,7 +62,7 @@ const vis = [...faqHtml.matchAll(/<h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map
 const ld = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
 const nodes = ld.flatMap((x) => x['@graph'] || [x]);
 const faq = nodes.find((n) => n['@type'] === 'FAQPage');
-if (vis.length !== 5 || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 5 questions and equal to the JSON-LD');
+if (vis.length !== (ZL ? 6 : 5) || !faq || JSON.stringify(faq.mainEntity.map((q) => [q.name, q.acceptedAnswer.text].map(txt))) !== JSON.stringify(vis)) e('FAQ must be 5 questions (6 with the ZnamyLekar.cz block) and equal to the JSON-LD');
 const types = nodes.map((n) => n['@type']);
 for (const need of ['Person', 'WebPage', 'Service', 'BreadcrumbList', 'FAQPage']) if (!types.includes(need)) e(`JSON-LD: ${need} missing`);
 if (/"(Review|AggregateRating|HowTo|VideoObject|Product|Offer|Quotation|LocalBusiness|MedicalBusiness|Dentist)"/.test(JSON.stringify(nodes))) e('forbidden schema types');
@@ -83,3 +86,10 @@ if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}<
 if (!readFileSync('dist/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('home page lists the niche');
 done();
 console.log(`✓ check-niche-dental-cs: ok (${words(mainTxt)} words)`);
+
+if (ZL) {
+  const blk = (main.match(/id="znamylekar"[\s\S]*?<\/section>/) || [''])[0];
+  const bt = txt(blk);
+  if (/\d\s?%|největší|widget|vidžet|backlink|zpětn|nejlepší|bezbolestně|zaručuj|slib/i.test(bt)) e('ZnamyLekar block: forbidden word');
+  if (!/5\. 11\. 2026/.test(bt)) e('ZnamyLekar block: dated observation / source');
+}

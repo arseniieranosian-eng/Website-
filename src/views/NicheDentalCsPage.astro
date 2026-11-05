@@ -8,7 +8,11 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { nicheDentalSchemas } from '../lib/schema-niche-dental';
-import { NICHE_DENTAL_CS as C, NICHE_DENTAL_D2 as D2 } from '../data/niche-dental-cs';
+import { NICHE_DENTAL_CS as C, NICHE_DENTAL_D2 as D2, ZNAMYLEKAR_PUBLISHED as ZL } from '../data/niche-dental-cs';
+// Background of the sections alternates; the ZnamyLekar.cz block (brief of 05.11.2026, blocked until S1–S3) shifts the ones after it.
+const doBg = D2 ? 'section' : 'section section--grey';
+const zlBg = D2 ? 'section section--grey' : 'section';
+const fitBg = ZL ? doBg : zlBg;
 
 const lang = C.lang;
 const site = Astro.site!;
@@ -80,14 +84,28 @@ const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).m
     </div>
   </section>
 
-  <section class={D2 ? 'section' : 'section section--grey'}>
+  <section class={doBg}>
     <div class="container narrow">
       <h2>{C.doTitle}</h2>
       <p class="answer">{C.doAnswer}</p>
     </div>
   </section>
 
-  <section class={D2 ? 'section section--grey' : 'section'}>
+  {ZL && (
+  <section class={zlBg} id="znamylekar">
+    <div class="container narrow">
+      <h2>{C.zlTitle}</h2>
+      <p class="answer">{C.zlAnswer}</p>
+      <p class="muted small">{C.zlSource.before}{' '}<a href={C.zlSource.href} target="_blank" rel="noopener">{C.zlSource.text}</a>{C.zlSource.after}</p>
+      <p>{C.zlObs}</p>
+      <p>{C.zlData}</p>
+      <p>{C.zlFull}</p>
+      <p>{C.zlDoctor}</p>
+    </div>
+  </section>
+  )}
+
+  <section class={fitBg}>
     <div class="container narrow">
       <h2>{C.fitTitle}</h2>
       <p class="answer">{C.fitAnswer}</p>

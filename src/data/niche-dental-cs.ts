@@ -11,6 +11,14 @@ import { priceAnswerCs, priceFaqCs } from './niche-prices';
 
 export const NICHE_DENTAL_PUBLISHED = '2026-11-01';
 
+// Brief of 05.11.2026 (block ZnamyLekar.cz, profile work in Full SEO, observation of 05.11.2026, FAQ no. 6). BLOCKED: the block is in the code but NOT on the site until the stop items are done
+// (S1 the portal's rules and review rules checked, S2 the regulatory check 11A done and read by the author, S3 the sentence "Práci s profilem portálu jsem zatím pro žádnou ordinaci neprováděl"
+// confirmed). Part A could not be done in the session (the portal and the statute sites are outside the allowed network), so nothing here is verified. To publish: set the flag to true,
+// choose the B5 variant, bump dateModified in data/page-dates.json (+ the visible date follows), and adjust scripts/check-niche-dental-cs.mjs (FAQ 6, the new H2).
+// Differences from the brief's wording (the author's standing rule "no guarantee phrases anywhere"): the clauses "nic předem neslibuji" (B3), "umístění v portálu nezaručuji" (B4) and
+// "pozici na portálu nezaručuji" (B6) are left out; "Recenze neovlivňuji" stays. Word counts of the paragraphs are measured after that.
+export const ZNAMYLEKAR_PUBLISHED = false;
+
 // D2 (one-off check of the Google results with query, date and result types) is missing: the block is not rendered.
 export const NICHE_DENTAL_D2: null | { title: string; answer: string } = null;
 
@@ -47,6 +55,17 @@ const raw = {
   doTitle: 'Co pro zubní ordinaci konkrétně dělám?',
   doAnswer: 'Řeším, aby web zubní ordinace byl srozumitelný pro vyhledávače i AI: samostatné stránky služeb, stránky lékařů s ověřenými údaji, přehledný ceník ordinace, způsob objednání a správně vedený místní profil. Texty o léčbě musí schválit lékař ordinace, já připravuji strukturu a formulace. Mapy řeším samostatnou službou.',
 
+  // --- Block ZnamyLekar.cz (brief of 05.11.2026), rendered only when ZNAMYLEKAR_PUBLISHED ---
+  zlTitle: 'Co je objednání přes ZnamyLekar.cz a proč ho u ordinace řeším?',
+  zlAnswer: 'ZnamyLekar.cz je portál, na kterém lidé hledají lékaře, čtou hodnocení a objednávají se na návštěvu. Ordinace tam může mít profil. Pokud web ordinace nemá vlastní objednávání a odkazuje na portál, rezervace se dokončí mimo web ordinace. Proto s ordinací probírám, jak spolu web a profil na portálu souvisejí.',
+  zlSource: { before: 'Zdroj: ZnamyLekar.cz,', text: 'https://www.znamylekar.cz/', after: ', zkontrolováno 5. 11. 2026.', href: 'https://www.znamylekar.cz/' },
+  zlObs: 'K 5. 11. 2026 jsem na dotaz „zubní lékař v Praze“ viděl mezi organickými výsledky stránku portálu ZnamyLekar.cz na 10. místě a stránku jiného portálu s přehledem lékařů na 3. místě. Je to jedno pozorování jednoho dotazu v jeden den a nic z něj neodvozuji o podílu pacientů ani o tom, odkud ordinace získávají pacienty.',
+  zlData: 'Rezervace dokončená na cizím webu se v analytice ordinace nemusí propojit s návštěvou jejího webu. Zda to jde u konkrétního řešení, zjišťuji teprve při práci. Údaje o ordinaci, například název, služby a kontakty, mají být na webu a na portálu stejné. To je moje doporučení.',
+  zlFull: 'U zubních ordinací může být součástí Full SEO i kontrola profilu na ZnamyLekar.cz: shoda údajů s webem a doporučení k popisu, který schvaluje lékař. Recenze neovlivňuji. Rozsah práce s profilem určuji u každé ordinace zvlášť.',
+  // B5 variant B (the register is not confirmed: A3 not done). Variant A (official register) only after A3.
+  zlDoctor: 'Stránka lékaře na webu ordinace je důvěryhodnější, když si čtenář může jeho údaje ověřit i jinde, například v jeho profilu na portálu. Odkaz tak slouží k ověření, ne k předání váhy webu. Zda a kam odkaz dát, domluvte s lékařem. Je to moje doporučení, ne pravidlo Google.',
+  zlFaq: { q: 'Řešíte i profil na ZnamyLekar.cz?', a: 'U zubních ordinací může být součástí Full SEO kontrola profilu na ZnamyLekar.cz: shoda údajů s webem a doporučení k popisu, který schvaluje lékař. Recenze neovlivňuji. Práci s profilem portálu jsem zatím pro žádnou ordinaci neprováděl. Rozsah určuji u každé ordinace zvlášť.' },
+
   fitTitle: 'Pro koho SEO dává smysl a pro koho ne?',
   fitAnswer: 'SEO dává smysl zubní ordinaci, která chce poptávky z vyhledávání, má jasně popsané služby a je ochotná web průběžně doplňovat. Nehodí se ordinaci, která nechce o svém webu nic měnit.',
 
@@ -71,4 +90,5 @@ const raw = {
   },
 };
 
-export const NICHE_DENTAL_CS = walk(raw);
+const full = ZNAMYLEKAR_PUBLISHED ? { ...raw, faq: [...raw.faq, raw.zlFaq] } : raw;
+export const NICHE_DENTAL_CS = walk(full);
