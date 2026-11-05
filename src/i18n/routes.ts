@@ -190,7 +190,7 @@ export const postPath = (lang: Lang, slug: string): string => `${LANG_PREFIX[lan
 
 // Pairs whose hreflang cluster and language-switcher link are prepared but NOT switched on yet (brief of 05.11.2026: only after both pages are published and parity is confirmed).
 // Remove the key from this set to switch the pair on: until then each page lists only itself (hreflang cs / ru), no cross-link and no switcher link; after: itself + the other and x-default = cs.
-export const HREFLANG_HOLD: ReadonlySet<PageKey> = new Set<PageKey>(['postAccountingChannels']);
+export const HREFLANG_HOLD: ReadonlySet<PageKey> = new Set<PageKey>([]);
 
 export const alternatesFor = (key: PageKey, lang?: Lang): Partial<Record<Lang, string>> =>
   HREFLANG_HOLD.has(key) && lang

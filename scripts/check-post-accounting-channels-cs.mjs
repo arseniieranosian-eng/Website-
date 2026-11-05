@@ -27,7 +27,9 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:type article / og:locale cs_CZ');
 if (!h.includes(`<meta property="og:image" content="${BASE}/images/blog/og-jak-ziskat-klienty-pro-ucetni-kancelar.png">`)) e('og:image');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h) || /<meta name="robots"[^>]*noindex/.test(h)) e('Czech only, indexable, no hreflang');
+// Since 05.11.2026 the cs <-> ru pair is on (Russian mirror, brief of 05.11.2026): exactly cs, ru and x-default (= cs).
+const hl = [...h.matchAll(/<link rel="alternate"[^>]*hreflang="([^"]+)"/g)].map((m) => m[1]).sort().join(',');
+if (hl !== 'cs,ru,x-default' || /<meta name="robots"[^>]*noindex/.test(h)) e('indexable, hreflang cs + ru + x-default');
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
