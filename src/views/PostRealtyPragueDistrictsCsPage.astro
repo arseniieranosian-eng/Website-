@@ -2,6 +2,7 @@
 // Blog article N9 "Jak uvést pražské městské části a čtvrti na webu realitní kanceláře?" (cs), brief of 31.10.2026. Content: data/post-realty-prague-districts-cs.ts.
 // Informational, no sales in the body; the closing block is one button to the Prague landing page. One link to N6, one link to the source of the list.
 import Base from '../layouts/Base.astro';
+import { NICHE_REALTY_CS } from '../data/niche-realty-cs';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -9,6 +10,7 @@ import { lastModified } from '../lib/lastmod';
 import { postRealtyPragueDistrictsSchemas } from '../lib/schema-post-realty-prague-districts';
 import { POST_REALTY_PRAGUE_DISTRICTS_CS as C, POST_REALTY_PRAGUE_DISTRICTS_PUBLISHED } from '../data/post-realty-prague-districts-cs';
 
+const REALTY_REVIEWER = NICHE_REALTY_CS.reviewer!;
 const lang = C.lang;
 const site = Astro.site!;
 const MOD = [lastModified(['src/views/PostRealtyPragueDistrictsCsPage.astro', 'src/data/post-realty-prague-districts-cs.ts'], '2026-10-31'), POST_REALTY_PRAGUE_DISTRICTS_PUBLISHED].sort().pop()!;
@@ -25,6 +27,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
       <h1>{META.postRealtyPragueDistricts.cs.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="small muted">{REALTY_REVIEWER.before}{' '}<a href={REALTY_REVIEWER.href} target="_blank" rel="noopener">{REALTY_REVIEWER.name}</a>{REALTY_REVIEWER.after}</p>
       <p class="lead">{C.lead}</p>
     </div>
   </section>

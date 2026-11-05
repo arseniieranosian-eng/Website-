@@ -2,6 +2,7 @@
 // Blog article N3 "Má SEO smysl pro malou realitní kancelář?" (cs), brief of 23.10.2026. Content: data/post-realty-small-cs.ts.
 // Published 24. 10. 2026 (the author's date): the visible "Aktualizováno" and dateModified never precede it. The quote is confirmed; no observations, no portal names, no figures.
 import Base from '../layouts/Base.astro';
+import { NICHE_REALTY_CS } from '../data/niche-realty-cs';
 import PostCta from '../components/PostCta.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
@@ -11,6 +12,7 @@ import { lastModified } from '../lib/lastmod';
 import { postRealtySmallSchemas } from '../lib/schema-post-realty-small';
 import { POST_REALTY_SMALL_CS as C, POST_REALTY_SMALL_PUBLISHED } from '../data/post-realty-small-cs';
 
+const REALTY_REVIEWER = NICHE_REALTY_CS.reviewer!;
 const lang = C.lang;
 const site = Astro.site!;
 const MOD = [lastModified(['src/views/PostRealtySmallCsPage.astro', 'src/data/post-realty-small-cs.ts'], '2026-10-22'), POST_REALTY_SMALL_PUBLISHED].sort().pop()!;
@@ -28,6 +30,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
       <h1>{META.postRealtySmall.cs.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="small muted">{REALTY_REVIEWER.before}{' '}<a href={REALTY_REVIEWER.href} target="_blank" rel="noopener">{REALTY_REVIEWER.name}</a>{REALTY_REVIEWER.after}</p>
       <p class="lead">{C.lead}</p>
       <p>{C.forWhom}</p>
       <p class="muted small">{C.tocTitle}:</p>

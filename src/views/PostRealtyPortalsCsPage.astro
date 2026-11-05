@@ -2,6 +2,7 @@
 // Blog article N4 "Vlastní web, nebo realitní portály? Jak spolu fungují" (cs), brief of 24.10.2026. Content: data/post-realty-portals-cs.ts.
 // Logic only (no observations, no portal names); the quote is shown only when QUOTE_CONFIRMED is true.
 import Base from '../layouts/Base.astro';
+import { NICHE_REALTY_CS } from '../data/niche-realty-cs';
 import PostCta from '../components/PostCta.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
@@ -11,6 +12,7 @@ import { lastModified } from '../lib/lastmod';
 import { postRealtyPortalsSchemas } from '../lib/schema-post-realty-portals';
 import { POST_REALTY_PORTALS_CS as C, POST_REALTY_PORTALS_PUBLISHED, QUOTE_CONFIRMED } from '../data/post-realty-portals-cs';
 
+const REALTY_REVIEWER = NICHE_REALTY_CS.reviewer!;
 const lang = C.lang;
 const site = Astro.site!;
 const MOD = [lastModified(['src/views/PostRealtyPortalsCsPage.astro', 'src/data/post-realty-portals-cs.ts'], '2026-10-22'), POST_REALTY_PORTALS_PUBLISHED].sort().pop()!;
@@ -28,6 +30,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
       <h1>{META.postRealtyPortals.cs.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="small muted">{REALTY_REVIEWER.before}{' '}<a href={REALTY_REVIEWER.href} target="_blank" rel="noopener">{REALTY_REVIEWER.name}</a>{REALTY_REVIEWER.after}</p>
       <p class="lead">{C.lead}</p>
       <p>{C.forWhom}</p>
       <p class="muted small">{C.tocTitle}:</p>

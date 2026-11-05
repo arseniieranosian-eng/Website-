@@ -2,6 +2,7 @@
 // Blog article N8 "Jak má realitní kancelář vypadat na mapách a v katalozích?" (cs), brief of 25.10.2026. Content: data/post-realty-local-cs.ts.
 // Informational: no prices, no CTA, no link to the maps service; the closing block is one link to the landing page.
 import Base from '../layouts/Base.astro';
+import { NICHE_REALTY_CS } from '../data/niche-realty-cs';
 import PostCta from '../components/PostCta.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -10,6 +11,7 @@ import { lastModified } from '../lib/lastmod';
 import { postRealtyLocalSchemas } from '../lib/schema-post-realty-local';
 import { POST_REALTY_LOCAL_CS as C, POST_REALTY_LOCAL_PUBLISHED } from '../data/post-realty-local-cs';
 
+const REALTY_REVIEWER = NICHE_REALTY_CS.reviewer!;
 const lang = C.lang;
 const site = Astro.site!;
 const MOD = [lastModified(['src/views/PostRealtyLocalCsPage.astro', 'src/data/post-realty-local-cs.ts'], '2026-10-25'), POST_REALTY_LOCAL_PUBLISHED].sort().pop()!;
@@ -26,6 +28,7 @@ const OG = '/images/blog/og-lokalni-pritomnost-realitni-kancelare.png';
       <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
       <h1>{META.postRealtyLocal.cs.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a>, {C.authorRole} · {C.publishedLabel} <time datetime={POST_REALTY_LOCAL_PUBLISHED}>{pubText}</time> · {C.updatedLabel} <time datetime={MOD}>{modText}</time></p>
+      <p class="small muted">{REALTY_REVIEWER.before}{' '}<a href={REALTY_REVIEWER.href} target="_blank" rel="noopener">{REALTY_REVIEWER.name}</a>{REALTY_REVIEWER.after}</p>
       <p class="lead">{C.lead}</p>
     </div>
   </section>
