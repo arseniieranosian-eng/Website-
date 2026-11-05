@@ -17,6 +17,7 @@ export function nicheTranslationSchemas(site: URL, C: any, opts: { modified: str
   return [
     node({
       '@type': 'WebPage',
+      ...(C.reviewer ? { reviewedBy: { '@type': 'Person', name: C.reviewer.name, jobTitle: C.reviewer.jobTitle, url: C.reviewer.href } } : {}),
       '@id': `${url}#webpage`,
       url,
       name: m.title.replace(/ \| Eranosian$/, ''),

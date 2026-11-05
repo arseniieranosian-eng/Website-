@@ -15,6 +15,8 @@ export const NICHE_REALTY_RU_PUBLISHED = '2026-10-22';
 export const NICHE_REALTY_RU = {
   lang: 'ru' as const,
   published: NICHE_REALTY_RU_PUBLISHED,
+  // Reviewer of the content (the author's statement of 05.11.2026): a real-estate broker consulted the page and checked its factual correctness.
+  reviewer: { before: 'Содержание консультировала и проверила на фактическую точность', name: 'Katariina Kofanova', after: ', риелтор.', jobTitle: 'Риелтор', href: 'https://katariinaestates.cz/' },
   authorLabel: 'Автор',
   authorName: 'Арсений Ераносьян',
   updatedLabel: 'Обновлено',

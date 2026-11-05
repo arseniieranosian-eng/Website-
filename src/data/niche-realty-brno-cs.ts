@@ -51,6 +51,8 @@ export const NICHE_REALTY_BRNO_DISTRICTS: null | { count: number; lead: string; 
 const raw = {
   lang: 'cs' as const,
   published: NICHE_REALTY_BRNO_PUBLISHED,
+  // Reviewer of the content (the author's statement of 05.11.2026): a real-estate broker consulted the page and checked its factual correctness.
+  reviewer: { before: 'Obsah konzultovala a věcně zkontrolovala', name: 'Katariina Kofanova', after: ', realitní makléřka.', jobTitle: 'Realitní makléřka', href: 'https://katariinaestates.cz/' },
   authorLabel: 'Autor',
   authorName: 'Arsenii Eranosian',
   updatedLabel: 'Aktualizováno',

@@ -45,7 +45,8 @@ if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x) || /^Co jsem viděl na webech/.test(x));
 const hsNoVideo = hs.filter((x) => !/^Co jsem viděl na webech/.test(x));
 if (JSON.stringify(hsNoVideo) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
-for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
+const mainNoReviewer = mainTxt.replace('Obsah konzultovala a věcně zkontrolovala Katariina Kofanova, realitní makléřka.', ''); // the reviewer line (author's statement of 05.11.2026) names her profession
+for (const f of FORBIDDEN) if (mainNoReviewer.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/href="\/blog\/(?!(?:proc-prekladatelska-agentura-nema-poptavky|jak-ziskat-klienty-pro-prekladatelskou-agenturu|jak-ziskat-b2b-klienty-pro-prekladatelskou-agenturu|jak-ziskat-klienty-pro-realitni-kancelar|proc-web-realitni-kancelare-neprinasi-poptavky|ma-seo-smysl-pro-malou-realitni-kancelar|nabidky-nemovitosti-seo-indexace-duplicity|vlastni-web-nebo-realitni-portaly|stranky-ctvrti-a-lokalit-realitni-kancelare|lokalni-pritomnost-realitni-kancelare|prazske-mestske-casti-a-ctvrti-web-realitni-kancelare)\/)|<form/.test(main)) e("no blog links except the agency articles for agencies, no form on this page");
 // "agentura" is never used about the author

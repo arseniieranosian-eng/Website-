@@ -12,7 +12,7 @@ export function nicheRealtyBrnoSchemas(site: URL, C: any, opts: { modified: stri
   const m = META.nicheRealtyBrno[lang];
   const id = ids(site);
   return [
-    { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.h1, description: m.description, inLanguage: lang, datePublished: C.published ?? NICHE_REALTY_BRNO_PUBLISHED, dateModified: opts.modified, author: { '@id': id.person }, breadcrumb: { '@id': `${url}#breadcrumb` }, about: { '@id': `${url}#service` } },
+    { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.h1, description: m.description, inLanguage: lang, datePublished: C.published ?? NICHE_REALTY_BRNO_PUBLISHED, dateModified: opts.modified, ...(C.reviewer ? { reviewedBy: { '@type': 'Person', name: C.reviewer.name, jobTitle: C.reviewer.jobTitle, url: C.reviewer.href } } : {}), author: { '@id': id.person }, breadcrumb: { '@id': `${url}#breadcrumb` }, about: { '@id': `${url}#service` } },
     { '@type': 'Service', '@id': `${url}#service`, name: C.schema.serviceName, serviceType: C.schema.serviceType, provider: { '@id': id.person }, areaServed: C.schema.areaServed, audience: { '@type': 'Audience', audienceType: C.schema.audience }, url },
     { '@type': 'FAQPage', mainEntity: C.faq.map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   ];
