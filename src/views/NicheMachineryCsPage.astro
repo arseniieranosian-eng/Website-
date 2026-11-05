@@ -1,15 +1,18 @@
 ---
 // Niche landing page "SEO a GEO/AEO pro strojírenské firmy" (cs), brief of 25.10.2026. Content: data/niche-machinery-cs.ts. Own structure: differences of the niche, 3 steps, for whom,
-// the audit example from the related niche (links only), audit scope table and checklist, cooperation, FAQ. No prices, no quote, no video embed, no funnel articles yet.
+// the audit example from the related niche (links only), audit scope table and checklist, cooperation, FAQ. No prices, no quote, no funnel articles yet.
 import Base from '../layouts/Base.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { nicheMachinerySchemas } from '../lib/schema-niche-machinery';
+import { AUDIT_EXAMPLES, AUDIT_CS } from '../data/audit-cs';
 import { NICHE_MACHINERY_CS as C, NICHE_MACHINERY_PUBLISHED, MACHINERY_SHORT_URL } from '../data/niche-machinery-cs';
 
 const lang = C.lang;
+// The audit example of the audit page (a YouTube Short, anonymised), embedded as a facade at the author's request of 05.11.2026 (the player loads only on click).
+const EX = AUDIT_EXAMPLES.find((x) => x.id === 'machinery-software')!;
 const site = Astro.site!;
 const MOD = [lastModified(['src/views/NicheMachineryCsPage.astro', 'src/data/niche-machinery-cs.ts'], '2026-10-25'), NICHE_MACHINERY_PUBLISHED].sort().pop()!;
 const [y, mo, d] = MOD.split('-').map(Number);
@@ -54,6 +57,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.exampleTitle}</h2>
       <p class="answer">{C.exampleAnswer}</p>
       <p>{C.exampleFindings}</p>
+      <figure class="niche-video niche-video--short" data-youtube={EX.youtube}>
+        <button class="niche-video__facade" type="button" aria-label={AUDIT_CS.examplesPlay}>
+          <img src={EX.poster} width="720" height="1280" alt={`Náhled videa: ukázka auditu, obor ${EX.niche}`} loading="lazy" decoding="async" />
+          <span class="niche-video__play" aria-hidden="true"></span>
+        </button>
+        <figcaption class="muted small"><a href={MACHINERY_SHORT_URL} target="_blank" rel="noopener">{AUDIT_CS.examplesOpen}</a></figcaption>
+      </figure>
       <p>{C.exampleLead}{' '}<a href={t('audit') + '#priklady-auditu'}>{C.exampleLink}</a>{' '}{C.exampleOr}{' '}<a href={MACHINERY_SHORT_URL} target="_blank" rel="noopener">{C.exampleShort}</a>.</p>
     </div>
   </section>
@@ -109,3 +119,17 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 </Base>
+<script>
+  document.querySelectorAll<HTMLElement>('.niche-video').forEach((fig) => {
+    const btn = fig.querySelector<HTMLButtonElement>('.niche-video__facade');
+    btn?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${fig.dataset.youtube}?autoplay=1&rel=0`;
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      f.title = 'Ukázka auditu';
+      f.className = 'niche-video__frame';
+      btn.replaceWith(f);
+    });
+  });
+</script>
