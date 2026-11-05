@@ -5,7 +5,7 @@ import { join } from 'node:path';
 const BASE = 'https://seo-eranosian.com';
 const SECTIONS = ['SEO, které přivádí poptávky. Ve vyhledávačích i v AI.', 'Kam dál? Vyberte podle toho, co potřebujete', 'Jaké služby nabízím?', 'Obory a města', 'Co je GEO/AEO a proč ho dělám spolu se SEO?', 'Jaké výsledky už mají moji klienti?', 'Co říkají klienti?', 'Proč mi klienti věří?', 'Časté otázky', 'Kdo za tím stojí?', 'Zjistěte, kolik zákazníků vám uniká'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura/', '/pripadove-studie/seo-tiskarna/', '/recenze/', '/seo-pro-prekladatelske-agentury-praha/', '/caste-dotazy/', '/o-mne/', '/kontakt/', '/ochrana-osobnich-udaju/'];
-const FORBIDDEN = ['první pozice', 'YoY', '3 roky', 'průměrný růst', '55–60', 'ChatGPT v odpovědích', 'technický stav a rychlost', '4–8 týdnů', '3–6 měsíců', 'krátký call po auditu', 'SEO agentur', '6×', '300×', 'B2B ×3'];
+const FORBIDDEN = ['první pozice', 'YoY', '3 roky', 'průměrný růst', '55–60', 'ChatGPT v odpovědích', 'technický stav a rychlost', '4–8 týdnů', '3–6 měsíců', 'krátký call po auditu', 'SEO agentur', 'B2B ×3'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s ]+/g, ' ').trim();
@@ -30,9 +30,12 @@ const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
-for (const f of FORBIDDEN) if (mainTxt.includes(f) || desc.includes(f) || title.includes(f)) e(`forbidden text: ${f}`);
+// the partner-agency review (author's decision of 05.11.2026) is the first review of the home page: its figures and the word "agentura" are the client's own words, so the reviews block is left out of these text checks
+const RVBLOCK = (main.match(/Co říkají klienti\?[\s\S]*?<\/section>/) || [''])[0];
+const mainTxtNoRv = txt(main.replace(RVBLOCK, ''));
+for (const f of [...FORBIDDEN, '6×', '300×']) if (mainTxtNoRv.includes(f) || desc.includes(f) || title.includes(f)) e(`forbidden text: ${f}`);
 // "agentura" only inside the case names (the brief names the translation-agency case that way)
-if (/agentur/i.test(mainTxt.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro|překladatelské agentury v (?:Praze|Brně|Pardubicích)|Překladatelské agentury)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
+if (/agentur/i.test(mainTxtNoRv.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro|překladatelské agentury v (?:Praze|Brně|Pardubicích)|Překladatelské agentury)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/href="\/blog\//.test(main)) e('no blog links in the body of the home page (the menu and the footer have one)');
 if (/★|AggregateRating|ratingValue/.test(h)) e('no stars / AggregateRating');
@@ -69,7 +72,7 @@ for (const f of [FORMULAS[2], FORMULAS[3]]) if (!startTxt.includes(f)) e(`Start 
 // Reviews: none of the unconfirmed figures
 const rv = (main.match(/Co říkají klienti\?[\s\S]*?<\/section>/) || [''])[0];
 if (!/class="card review"/.test(rv)) e('reviews block expected');
-if (/\d+\s*×|×\s*\d/.test(txt(rv)) || /Make Up/.test(rv)) e('reviews: no figures / partner-agency review on the home page');
+if (!/Make Up/.test(rv) || rv.indexOf('Make Up') > rv.indexOf('Unimenty') || rv.split('class="card review"').slice(1).filter((c) => /Unimenty/.test(c)).length !== 1 || (rv.match(/class="card review"/g) || []).length !== 3) e('reviews: the partner-agency review first, one Unimenty review, three in total');
 // One pull quote between the case cards and the reviews, signed with a link to /o-mne/; same text in the markup
 const Q = 'SEO není o aktivitě, ale o pořadí priorit. Nejdřív odstraníte, co Googlu brání web pochopit, pak postavíte architekturu podle byznysu a teprve potom škálujete obsah.';
 const order = (a) => mainTxt.indexOf(a);

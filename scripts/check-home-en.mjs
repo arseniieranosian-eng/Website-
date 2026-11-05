@@ -7,7 +7,7 @@ const TITLE = 'SEO & GEO/AEO Specialist in Prague | Arsenii Eranosian';
 const DESC = 'English-speaking SEO and GEO/AEO specialist in Prague for Google, Seznam and AI search. Start with a free technical audit: no call, no obligation.';
 const SECTIONS = [H1, 'Which service fits you?', 'Why search in Czechia needs local knowledge', 'How do SEO and GEO/AEO work together?', 'Case studies', 'What clients say', 'Frequently asked questions', 'About me', 'Find out whether your site has technical errors'];
 const LINKS = ['/en/free-audit/', '/en/consulting/', '/en/3-month-start/', '/en/full-seo/', '/en/maps/', '/en/seo-and-geo/', '/en/case-studies/', '/en/reviews/', '/en/faq/', '/en/about/', '/en/contact/', '/en/privacy-policy/'];
-const FORBIDDEN = ['we guarantee', 'guaranteed results', 'Years in SEO', '55–60', '×8', '8×', '6×', '300×', 'ChatGPT and AI Overviews', 'free audit and a short call', '4–8 weeks', 'page one', 'SEO agency', '/blog'];
+const FORBIDDEN = ['we guarantee', 'guaranteed results', 'Years in SEO', '55–60', '×8', '8×', 'ChatGPT and AI Overviews', 'free audit and a short call', '4–8 weeks', 'page one', 'SEO agency', '/blog'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
@@ -19,6 +19,8 @@ const h = readFileSync('dist/en/index.html', 'utf8');
 const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
 const body = txt(h);
 const mainTxt = txt(main);
+const RVBLOCK = (main.match(/What clients say[\s\S]*?<\/section>/) || [''])[0];
+const mainTxtNoRv = txt(main.replace(RVBLOCK, ''));
 const title = norm(dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]));
 const desc = norm(dec(h.match(/<meta name="description" content="([^"]*)"/)[1]));
 if (title !== TITLE || title.length > 55) e(`title: ${title} (${title.length})`);
@@ -33,9 +35,9 @@ if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 // "agency" only inside the case name ("Translation agency"); the company is never called an agency, never "we"
-if (/agency/i.test(mainTxt.replace(/[Tt]ranslation agency/g, ''))) e('the word "agency" must not be used about myself');
+if (/agency/i.test(mainTxtNoRv.replace(/[Tt]ranslation agency/g, ''))) e('the word "agency" must not be used about myself');
 if (/\bWe (are|help|do|offer|work|provide)\b/.test(mainTxt)) e('"I", not "we"');
-for (const f of FORBIDDEN) if (mainTxt.includes(f) || desc.includes(f) || title.includes(f)) e(`forbidden text: ${f}`);
+for (const f of [...FORBIDDEN, '6×', '300×']) if (mainTxtNoRv.includes(f) || desc.includes(f) || title.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/★|AggregateRating|ratingValue/.test(h)) e('no stars / AggregateRating');
 if (/<ul class="checks">/.test(main.split('Results with a method')[0])) e('the hero list of audit scope must be gone');
@@ -81,7 +83,7 @@ if (!(mainTxt.indexOf('All case studies') < mainTxt.indexOf(Q) && mainTxt.indexO
 if ([...main.matchAll(/<blockquote class="pullquote">/g)].length !== 1 || !/<cite><a href="\/en\/about\/">Arsenii Eranosian<\/a><span>SEO and GEO\/AEO specialist<\/span><\/cite>/.test(main)) e('one signed quote');
 // Reviews from the shared source: no partner-agency review, no figures
 const rv = (main.match(/What clients say[\s\S]*?<\/section>/) || [''])[0];
-if (!/class="card review"/.test(rv) || /Make Up|6×|300×/.test(rv)) e('reviews block from the shared source');
+if ((rv.match(/class="card review"/g) || []).length !== 3 || !/Make Up/.test(rv) || rv.indexOf('Make Up') > rv.indexOf('Unimenty') || rv.split('class="card review"').slice(1).filter((c) => /Unimenty/.test(c)).length !== 1) e('reviews block: the partner-agency review first, one Unimenty review, three in total');
 // FAQ
 const FAQ = [['What does the free audit cover?', 'A check of technical errors: indexing, duplicate pages and other technical problems. You receive a short presentation within 24 hours, with no call and no obligation. It does not cover keywords, competitors, maps, AI visibility, speed or mobile.'], ['How soon will I see results?', 'Technical fixes can show an effect within weeks, and the first results of ongoing work usually appear in 2–3 months.'], ['What is the difference between SEO and GEO/AEO?', 'SEO helps pages rank in Google and Seznam.'], ['How does working together look?', 'It starts with a free audit'], ['Do you work with English-speaking clients and the Czech market?', 'Yes. I work in English, Czech and Russian'], ['Which languages do you work in?', 'English, Czech and Russian.']];
 for (const [q, a] of FAQ) if (!mainTxt.includes(q) || !mainTxt.includes(a)) e(`FAQ: ${q}`);

@@ -27,10 +27,12 @@ const MOD = lastModified(['src/views/HomeCsPage.astro', 'src/data/home-cs.ts', '
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 
-// Reviews without the partner-agency review (its figures are not confirmed), newest first, at most three.
-const reviews = REVIEWS.filter((r) => !r.sample && r.id !== 'make-up-agency' && !r.services.includes('consulting'))
-  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
-  .slice(0, 3);
+// Home reviews (author's decision of 05.11.2026): the partner-agency review (the translation-agency site) goes first, then the newest of the rest; only one of the two Unimenty reviews
+// (the teammate's is left out), the consultation reviews are not shown here. Three in total.
+const reviews = [
+  ...REVIEWS.filter((r) => r.id === 'make-up-agency'),
+  ...REVIEWS.filter((r) => !r.sample && r.id !== 'make-up-agency' && r.id !== 'linkedin-teammate' && !r.services.includes('consulting')).sort((a, b) => (b.date ?? '').localeCompare(a.date ?? '')),
+].slice(0, 3);
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 const name = (k: keyof typeof META) => META[k][lang].name;
 const m = META.home[lang];
