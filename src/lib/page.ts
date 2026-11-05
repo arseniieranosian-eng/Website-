@@ -21,7 +21,7 @@ export function pageProps(key: PageKey, lang: Lang) {
     title: m.title,
     description: m.description,
     path: path(key, lang),
-    alternates: alternatesFor(key),
+    alternates: alternatesFor(key, lang),
     breadcrumbs: key === 'home' ? null : crumbsFor(key, lang),
     noindex: NOINDEX.includes(key),
   };

@@ -19,6 +19,7 @@ import { POST_REALTY_NOLEADS_CS, POST_REALTY_NOLEADS_PUBLISHED } from './post-re
 import { POST_REALTY_SMALL_CS, POST_REALTY_SMALL_PUBLISHED } from './post-realty-small-cs';
 import { POST_REALTY_LISTINGS_CS, POST_REALTY_LISTINGS_PUBLISHED } from './post-realty-listings-cs';
 import { POST_ACCOUNTING_CHANNELS_CS, POST_ACCOUNTING_CHANNELS_PUBLISHED } from './post-accounting-channels-cs';
+import { POST_ACCOUNTING_CHANNELS_RU, POST_ACCOUNTING_CHANNELS_RU_PUBLISHED } from './post-accounting-channels-ru';
 import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './post-finance-channels-ru';
 import { POST_SEO_PLAN_CS, POST_SEO_PLAN_PUBLISHED } from './post-seo-plan-cs';
 import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './post-select-specialist-cs';
@@ -44,6 +45,7 @@ export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: 
 
 const ALL: DedicatedPost[] = [
   { key: 'postAccountingChannels', lang: 'cs', date: POST_ACCOUNTING_CHANNELS_PUBLISHED, title: META.postAccountingChannels.cs.h1, description: META.postAccountingChannels.cs.description, image: POST_ACCOUNTING_CHANNELS_CS.cover },
+  { key: 'postAccountingChannels', lang: 'ru', date: POST_ACCOUNTING_CHANNELS_RU_PUBLISHED, title: META.postAccountingChannels.ru.h1, description: META.postAccountingChannels.ru.description, image: POST_ACCOUNTING_CHANNELS_RU.cover },
   { key: 'postFinanceChannels', lang: 'ru', date: POST_FINANCE_CHANNELS_PUBLISHED, title: META.postFinanceChannels.ru.h1, description: META.postFinanceChannels.ru.description, image: POST_FINANCE_CHANNELS_RU.cover },
   { key: 'postIndexing', lang: 'cs', date: POST_INDEXING_PUBLISHED, title: META.postIndexing.cs.h1, description: META.postIndexing.cs.description, image: POST_INDEXING_CS.cover },
   { key: 'postNotShown', lang: 'cs', date: POST_NOT_SHOWN_PUBLISHED, title: META.postNotShown.cs.h1, description: META.postNotShown.cs.description, image: POST_NOT_SHOWN_CS.cover },

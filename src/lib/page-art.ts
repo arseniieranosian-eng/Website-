@@ -31,6 +31,7 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   postRedesignPlan: article('article'),
   postAccountingTime: article('article'),
   postWeakSeoAcc: article('article'),
+  postAccountingChannels: { kinds: ['article'], langs: ['ru'] },
   postWebPages: article('article'),
   postDupEshop: article('article'),
   postWeakSeoDental: article('article'),

@@ -18,7 +18,7 @@ export const GET: APIRoute = async ({ site }) => {
       for (const lang of withPosts) entries.push({ loc: ROUTES.blog[lang], alternates });
       continue;
     }
-    for (const lang of langsFor(key)) entries.push({ loc: ROUTES[key][lang], alternates: alternatesFor(key) });
+    for (const lang of langsFor(key)) entries.push({ loc: ROUTES[key][lang], alternates: alternatesFor(key, lang) });
   }
   for (const post of await allPosts()) {
     entries.push({

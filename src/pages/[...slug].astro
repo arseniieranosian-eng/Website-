@@ -55,6 +55,7 @@ import NicheTranslationPardubiceRuPage from '../views/NicheTranslationPardubiceR
 import NicheRealtyCsPage from '../views/NicheRealtyCsPage.astro';
 import NicheRealtyRuPage from '../views/NicheRealtyRuPage.astro';
 import PostAccountingChannelsCsPage from '../views/PostAccountingChannelsCsPage.astro';
+import PostAccountingChannelsRuPage from '../views/PostAccountingChannelsRuPage.astro';
 import PostFinanceChannelsRuPage from '../views/PostFinanceChannelsRuPage.astro';
 import NicheTranslationRuPage from '../views/NicheTranslationRuPage.astro';
 import NicheElectronicsRuPage from '../views/NicheElectronicsRuPage.astro';
@@ -184,6 +185,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nicheRealty' && props.lang === 'cs' && <NicheRealtyCsPage />}
 {props.key === 'nicheRealty' && props.lang === 'ru' && <NicheRealtyRuPage />}
 {props.key === 'postAccountingChannels' && props.lang === 'cs' && <PostAccountingChannelsCsPage />}
+{props.key === 'postAccountingChannels' && props.lang === 'ru' && <PostAccountingChannelsRuPage />}
 {props.key === 'postFinanceChannels' && props.lang === 'ru' && <PostFinanceChannelsRuPage />}
 {props.key === 'nicheFitness' && props.lang === 'ru' && <NicheFitnessRuPage />}
 {props.key === 'nicheElectronics' && props.lang === 'cs' && <NicheElectronicsCsPage />}

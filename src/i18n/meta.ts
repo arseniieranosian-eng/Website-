@@ -257,7 +257,12 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       h1: 'Jak získat klienty pro účetní kancelář: přehled kanálů',
     },
     en: { name: 'How to get clients for an accounting firm', title: 'How to get clients for an accounting firm', description: 'How to get clients for an accounting firm', h1: 'How to get clients for an accounting firm: an overview of channels' },
-    ru: { name: 'Как получить клиентов бухгалтерской фирме', title: 'Как получить клиентов бухгалтерской фирме', description: 'Как получить клиентов бухгалтерской фирме', h1: 'Как получить клиентов бухгалтерской фирме: обзор каналов' },
+    ru: {
+      name: 'Как получить клиентов бухгалтерской компании',
+      title: 'Как получить клиентов бухгалтерской компании | Eranosian',
+      description: 'Обзор каналов, которыми бухгалтерская компания в Чехии может привлекать клиентов: рекомендации, сайт, карты, реклама. Ни один канал не даёт гарантий.',
+      h1: 'Как получить клиентов бухгалтерской компании: обзор каналов',
+    },
   },
   postFinanceChannels: {
     cs: { name: 'Jak získat klienty pro finančního poradce', title: 'Jak získat klienty pro finančního poradce', description: 'Jak získat klienty pro finančního poradce', h1: 'Jak získat klienty pro finančního poradce v Česku: přehled kanálů' },
