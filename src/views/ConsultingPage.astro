@@ -58,7 +58,7 @@ const others = [
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      <ConsultHeroArt />
+      {lang === 'ru' || lang === 'uk' ? <img class="hero-art hero-photo" src="/images/services/seo-consulting-ru.webp" width="768" height="512" alt="" decoding="async" /> : <ConsultHeroArt />}
     </div>
   </section>
 
@@ -73,7 +73,7 @@ const others = [
       <div class="grid grid-2 offers">
         {C.offers.map((o) => (
           <article class="card offer">
-            <ServiceArt kind={o.id} size={96} />
+            <ServiceArt kind={o.id} size={96} lang={lang} />
             <h3>{o.name}</h3>
             <p class="price"><strong>{money(PRICES[o.id])}</strong> · {o.duration}</p>
             <p>{o.cardText}</p>

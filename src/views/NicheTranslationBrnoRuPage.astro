@@ -105,7 +105,7 @@ const cite = new URL(t('nicheBrno'), site).href;
       <div class="grid grid-2">
         {C.formats.map((f) => (
           <a class="card card--link service-card" href={t(f.page)}>
-            <span class="svc-card-art"><ServiceArt kind={f.page} size={96} /></span>
+            <span class="svc-card-art"><ServiceArt kind={f.page} size={96} lang={lang} /></span>
             <h3>{f.name}</h3>
             <p>{f.text}</p>
             <span class="meta">{f.meta}</span>

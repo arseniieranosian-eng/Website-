@@ -50,7 +50,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <div class="table-wrap">
         <table class="compare">
           <thead><tr>{C.steps.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
-          <tbody>{C.steps.rows.map((r) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={r.page} />{r.name}</span></th><td>{r.text}</td><td><a href={t(r.page)}>{r.link}</a></td></tr>)}</tbody>
+          <tbody>{C.steps.rows.map((r) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={r.page} lang={lang} />{r.name}</span></th><td>{r.text}</td><td><a href={t(r.page)}>{r.link}</a></td></tr>)}</tbody>
         </table>
       </div>
     </div>

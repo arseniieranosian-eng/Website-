@@ -788,3 +788,11 @@ ul, ol { margin-bottom: var(--flow); }
 .footer-mistake { padding-top: 8px; }
 .footer-mistake p { margin: 0; color: #a9afbd; }
 .footer-mistake a { color: #9db8ff; }
+
+/* Photos of the free audit and the SEO consultation (author, 05.11.2026): ru / uk service cards, tables, hero and the decorative slot */
+.svc-photo { border-radius: 10px; object-fit: cover; height: auto; }
+.svc-card-art .svc-photo { width: 96px; }
+.svc-card-photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; margin-bottom: 14px; }
+.page-art-photo { display: block; width: 100%; height: auto; border-radius: 12px; }
+.hero-art-split .hero-photo { border-radius: 16px; object-fit: cover; }
+@media (min-width: 900px) { .hero-art-split .hero-photo { display: block; max-width: 420px; justify-self: end; } }

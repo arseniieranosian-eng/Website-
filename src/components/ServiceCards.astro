@@ -18,11 +18,12 @@ const AUDIT = {
 }[lang];
 const list = keys ? SERVICES.filter((s) => keys.includes(s.key)) : SERVICES;
 const H = heading;
+const photoOn = lang === 'ru' || lang === 'uk';
 ---
 <div class:list={['grid', withAudit ? 'grid-3' : list.length > 2 ? 'grid-4' : 'grid-2']}>
   {withAudit && (
     <a class="card card--link service-card" href={path('audit', lang)}>
-      <span class="icon-box"><Icon name="check" /></span>
+      {photoOn ? <img class="svc-card-photo" src="/images/services/audit-free-ru.webp" width="768" height="512" alt="" loading="lazy" decoding="async" /> : <span class="icon-box"><Icon name="check" /></span>}
       <H>{META.audit[lang].name}</H>
       <p>{AUDIT.text}</p>
       <span class="meta">{AUDIT.meta}</span>
@@ -31,7 +32,7 @@ const H = heading;
   )}
   {list.map((s) => (
     <a class="card card--link service-card" href={path(s.key, lang)}>
-      {art ? <span class="svc-card-art"><ServiceArt kind={s.key} size={96} /></span> : <span class="icon-box"><Icon name={s.icon} /></span>}
+      {photoOn && s.key === 'consulting' ? <img class="svc-card-photo" src="/images/services/seo-consulting-ru.webp" width="768" height="512" alt="" loading="lazy" decoding="async" /> : art ? <span class="svc-card-art"><ServiceArt kind={s.key} size={96} lang={lang} /></span> : <span class="icon-box"><Icon name={s.icon} /></span>}
       <H>{META[s.key][lang].name}</H>
       <p>{s.short[lang]}</p>
       <span class="meta">{s.key === 'fullSeo' && fullSeoMonthly ? s.duration[lang].replace(fmtKc(FULLSEO_MONTHLY), fmtKc(fullSeoMonthly)) : s.duration[lang]}</span>

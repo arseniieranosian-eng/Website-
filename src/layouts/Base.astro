@@ -44,7 +44,7 @@ if (pubIso) {
 }
 if (art.length) {
   const container = await AstroContainer.create();
-  const drawn = await Promise.all(art.map((k) => container.renderToString(PageArt, { props: { kind: k } })));
+  const drawn = await Promise.all(art.map((k) => container.renderToString(PageArt, { props: { kind: k, lang } })));
   body = injectArt(body, drawn);
 }
 const site = Astro.site!;
