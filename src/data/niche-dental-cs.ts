@@ -17,7 +17,7 @@ export const NICHE_DENTAL_PUBLISHED = '2026-11-01';
 // choose the B5 variant, bump dateModified in data/page-dates.json (+ the visible date follows), and adjust scripts/check-niche-dental-cs.mjs (FAQ 6, the new H2).
 // Differences from the brief's wording (the author's standing rule "no guarantee phrases anywhere"): the clauses "nic předem neslibuji" (B3), "umístění v portálu nezaručuji" (B4) and
 // "pozici na portálu nezaručuji" (B6) are left out; "Recenze neovlivňuji" stays. Word counts of the paragraphs are measured after that.
-export const ZNAMYLEKAR_PUBLISHED = false;
+export const ZNAMYLEKAR_PUBLISHED = true;
 
 // D2 (one-off check of the Google results with query, date and result types) is missing: the block is not rendered.
 export const NICHE_DENTAL_D2: null | { title: string; answer: string } = null;
@@ -58,6 +58,7 @@ const raw = {
   // --- Block ZnamyLekar.cz (brief of 05.11.2026), rendered only when ZNAMYLEKAR_PUBLISHED ---
   zlTitle: 'Co je objednání přes ZnamyLekar.cz a proč ho u ordinace řeším?',
   zlAnswer: 'ZnamyLekar.cz je portál, na kterém lidé hledají lékaře, čtou hodnocení a objednávají se na návštěvu. Ordinace tam může mít profil. Pokud web ordinace nemá vlastní objednávání a odkazuje na portál, rezervace se dokončí mimo web ordinace. Proto s ordinací probírám, jak spolu web a profil na portálu souvisejí.',
+  // The block was lifted by the author on 05.11.2026 with the date "zkontrolováno 5. 11. 2026" (the portal itself could not be opened in the session; the author takes the check date).
   zlSource: { before: 'Zdroj: ZnamyLekar.cz,', text: 'https://www.znamylekar.cz/', after: ', zkontrolováno 5. 11. 2026.', href: 'https://www.znamylekar.cz/' },
   zlObs: 'K 5. 11. 2026 jsem na dotaz „zubní lékař v Praze“ viděl mezi organickými výsledky stránku portálu ZnamyLekar.cz na 10. místě a stránku jiného portálu s přehledem lékařů na 3. místě. Je to jedno pozorování jednoho dotazu v jeden den a nic z něj neodvozuji o podílu pacientů ani o tom, odkud ordinace získávají pacienty.',
   zlData: 'Rezervace dokončená na cizím webu se v analytice ordinace nemusí propojit s návštěvou jejího webu. Zda to jde u konkrétního řešení, zjišťuji teprve při práci. Údaje o ordinaci, například název, služby a kontakty, mají být na webu a na portálu stejné. To je moje doporučení.',
