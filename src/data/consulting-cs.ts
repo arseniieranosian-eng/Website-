@@ -75,8 +75,8 @@ export const CONSULTING_CS = {
       title: `Konzultace za ${fmtKc(PRICES.questions)}: odpovědi na vaše otázky`,
       text: 'Za konzultací přišla klientka s otázkami k SEO v digitálním marketingu: chtěla vědět, od čeho má v SEO začít. Na snímcích videohovor a zpětná vazba po něm.',
       images: [
-        { src: '/images/consulting/call-2000.webp', alt: 'Videohovor SEO konzultace, tvář klienta je znepřístupněna' },
-        { src: '/images/consulting/review-2000.webp', alt: 'E-mailová zpětná vazba klienta po SEO konzultaci' },
+        { src: '/images/consulting/call-2000-cs.webp', alt: 'Videohovor SEO konzultace, tvář klienta je znepřístupněna' },
+        { src: '/images/consulting/review-2000-cs.webp', alt: 'E-mailová zpětná vazba klienta po SEO konzultaci' },
       ],
     },
     {
