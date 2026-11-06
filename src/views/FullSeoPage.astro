@@ -51,7 +51,7 @@ const others = [
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      <FullHeroArt />
+      {lang === 'ru' || lang === 'uk' ? <img class="hero-art hero-photo" src="/images/services/full-seo-ru.webp" width="768" height="512" alt="" decoding="async" /> : <FullHeroArt />}
     </div>
   </section>
 

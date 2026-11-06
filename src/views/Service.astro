@@ -47,8 +47,8 @@ const C = {
       <a class="btn btn--primary btn--lg" href="#form">{C.form}</a>
       <a class="btn btn--secondary btn--lg" href={path('audit', lang)}>{ui.ctaAudit}</a>
     </div>
-    {service === 'start' && <StartHeroArt slot="art" />}
-    {service === 'fullSeo' && <FullHeroArt slot="art" />}
+    {service === 'start' && (lang === 'ru' || lang === 'uk' ? <img slot="art" class="hero-art hero-photo" src="/images/services/start-3-months-ru.webp" width="768" height="512" alt="" decoding="async" /> : <StartHeroArt slot="art" />)}
+    {service === 'fullSeo' && (lang === 'ru' || lang === 'uk' ? <img slot="art" class="hero-art hero-photo" src="/images/services/full-seo-ru.webp" width="768" height="512" alt="" decoding="async" /> : <FullHeroArt slot="art" />)}
   </PageHero>
 
   <section class="section section--tight">

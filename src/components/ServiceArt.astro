@@ -3,7 +3,7 @@
 // The name next to it carries the meaning, so the drawing is hidden from assistive technology. kind: audit, consulting, start, fullSeo, maps.
 interface Props { kind: string; size?: number; lang?: string }
 const { kind, size = 72, lang } = Astro.props;
-const PHOTO: Record<string, { src: string }> = { audit: { src: '/images/services/audit-free-ru.webp' }, consulting: { src: '/images/services/seo-consulting-ru.webp' } };
+const PHOTO: Record<string, { src: string }> = { audit: { src: '/images/services/audit-free-ru.webp' }, consulting: { src: '/images/services/seo-consulting-ru.webp' }, start: { src: '/images/services/start-3-months-ru.webp' }, fullSeo: { src: '/images/services/full-seo-ru.webp' } };
 // ru / uk: the author's photos (05.11.2026) replace the drawings of the free audit and the SEO consultation.
 const photo = lang === 'ru' || lang === 'uk' ? PHOTO[kind] : undefined;
 ---
