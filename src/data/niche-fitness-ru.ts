@@ -85,6 +85,9 @@ export const NICHE_FITNESS_RU = {
     'параметрические адреса и дубли',
     'языковые версии (если есть)',
   ],
+  // Example of the audit presentation (the pilates-studio video of the audit page, brief of 06.11.2026): no studio name, the video is the same file as on /ru/audit-sajta-besplatno/.
+  exTitle: 'Как выглядит презентация аудита?',
+  exAnswer: 'Это короткая запись презентации бесплатного аудита для сайта студии пилатеса: итог краулинга, главный вывод о структуре сайта, технические предупреждения и план действий. Презентация на русском языке, студия не названа. Это пример формата и порядка изложения, а не вывод о вашем сайте.',
   auditLead: 'Подробнее об аудите:',
   auditLink: 'Бесплатный аудит',
 

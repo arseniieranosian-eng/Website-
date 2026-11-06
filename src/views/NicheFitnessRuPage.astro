@@ -1,6 +1,6 @@
 ---
 // Niche landing page "SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге" (ru), brief of 25.10.2026 (rules A–G). Content: data/niche-fitness-ru.ts. Commercial intent only: help, the author's
-// dated observation (verbatim), for whom, audit scope table + technical checklist, maps offer, start and prices (single sources), FAQ. No quote, no case, no video, no funnel articles yet.
+// dated observation (verbatim), for whom, audit scope table + technical checklist, maps offer, start and prices (single sources), FAQ. No quote, no case, no funnel articles yet; one video: the audit example of the pilates studio (brief of 06.11.2026).
 import Base from '../layouts/Base.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -8,6 +8,9 @@ import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { nicheFitnessSchemas } from '../lib/schema-niche-fitness';
 import { NICHE_FITNESS_RU as C, NICHE_FITNESS_RU_PUBLISHED } from '../data/niche-fitness-ru';
+import { AUDIT_EXAMPLES_RU } from '../data/audit-ru';
+
+const EX = AUDIT_EXAMPLES_RU.find((x) => x.id === 'pilates-studio')!;
 
 const lang = C.lang;
 const site = Astro.site!;
@@ -73,6 +76,15 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <p>{C.auditChecksLead}</p>
       <ul class="checks">{C.auditChecks.map((x) => <li>{x}</li>)}</ul>
       <p>{C.auditLead}{' '}<a href={t('audit')}>{C.auditLink}</a>.</p>
+      <h2 id="primer-audita">{C.exTitle}</h2>
+      <p class="answer">{C.exAnswer}</p>
+      <figure class="audit-video">
+        <video controls preload="metadata" poster={EX.poster} width={EX.width} height={EX.height}>
+          <source src={EX.src} type="video/mp4" />
+        </video>
+        <figcaption class="muted small">{EX.caption}</figcaption>
+      </figure>
+      <p>{EX.text}</p>
     </div>
   </section>
 

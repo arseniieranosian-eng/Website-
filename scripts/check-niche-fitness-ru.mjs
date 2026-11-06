@@ -10,7 +10,7 @@ const H1 = 'SEO и GEO/AEO для онлайн-фитнеса и wellness в П�
 const NAME = 'SEO для онлайн-фитнеса и wellness';
 const TITLE = 'SEO для онлайн-фитнеса и wellness в Праге | Eranosian';
 const DESC = 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: FAQ, структура адресов, заголовки, блог. Старт: бесплатный технический аудит.';
-const SECTIONS = [H1, 'С чем я помогаю онлайн-фитнесу и wellness в Праге?', 'Что я вижу на сайтах онлайн-фитнеса и что с этим делаю?', 'Для кого это и для кого нет?', 'Что входит в бесплатный аудит, а что нет?', 'А что с профилями студии на картах?', 'Как начать и сколько стоит?', 'Частые вопросы', 'Следующий шаг'];
+const SECTIONS = [H1, 'С чем я помогаю онлайн-фитнесу и wellness в Праге?', 'Что я вижу на сайтах онлайн-фитнеса и что с этим делаю?', 'Для кого это и для кого нет?', 'Что входит в бесплатный аудит, а что нет?', 'Как выглядит презентация аудита?', 'А что с профилями студии на картах?', 'Как начать и сколько стоит?', 'Частые вопросы', 'Следующий шаг'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/obo-mne/'];
 const FORBIDDEN = ['(?<!не )гарантирую(?! число)', 'гарантированно(?![а-я])', 'первое место в выдаче(?!\\.)', 'похуден', 'лечени', 'диет', 'БАД', 'добавк', 'Mall', 'AggregateRating', 'часто нахожу', 'GEO(?!/AEO)'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -37,7 +37,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (new RegExp(f).test(mainTxt)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/|<form|<video|<iframe|<blockquote|kejsy|seo-dlya-perevodcheskih|seo-dlya-agentstv|seo-dlya-finansovyh|seo-dlya-kompyuternyh/.test(main)) e('no blog links, no form / video / iframe / quote, no case links, no links to other niches');
+if (/href="\/(?:en\/|ru\/)?blog\/|<form|<iframe|<blockquote|kejsy|seo-dlya-perevodcheskih|seo-dlya-agentstv|seo-dlya-finansovyh|seo-dlya-kompyuternyh/.test(main)) e('no blog links, no form / video / iframe / quote, no case links, no links to other niches');
 if (/\b(?:я|моё|наше)\b[^.]{0,30}агентств/i.test(mainTxt)) e('"агентство" about the author');
 if (!/Обновлено: <time datetime="\d{4}-\d{2}-\d{2}">\d{2}\.\d{2}\.\d{4}<\/time>/.test(h)) e('visible date dd.mm.yyyy');
 const cnt = (re) => (main.match(re) || []).length;
