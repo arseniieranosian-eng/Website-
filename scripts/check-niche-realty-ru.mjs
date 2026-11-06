@@ -68,8 +68,8 @@ if (cards.length !== 4 || ['/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full
 // Control-areas table: header + 6 rows
 const area = (main.match(/Какие области проверяю[\s\S]*?<\/table>/) || [''])[0];
 const rows = [...area.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
-// Audit example: short description + a link to the mini-case (the slides live on that page), no client / third-party names
-if (/<img[^>]*niche-realty-audit|<img[^>]*razbor-slide/.test(main) || !/href="\/ru\/kejsy\/razbor-agentstvo-nedvizhimosti-praga\/"/.test(main)) e('audit example: link to the mini-case, no slides on this page');
+// Audit example: short description + a link to the case + the three masked slides of the case (the author's instruction of 06.11.2026), no client / third-party names
+if (/<img[^>]*niche-realty-audit/.test(main) || (main.match(/<img[^>]*razbor-slide-[123]/g) || []).length !== 3 || !/href="\/ru\/kejsy\/razbor-agentstvo-nedvizhimosti-praga\/"/.test(main)) e('audit example: link to the mini-case, no slides on this page');
 // One quote
 const Q = 'Агентство недвижимости выигрывает не тем, что у него много объектов, а тем, что их легко найти.';
 if (mainTxt.indexOf(Q) < mainTxt.indexOf('GEO/AEO: входит в каждую услугу') || [...main.matchAll(/<blockquote/g)].length !== 1) e('one quote after the "what I do" section');

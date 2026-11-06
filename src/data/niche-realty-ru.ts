@@ -8,6 +8,7 @@
 // used about the author. The quote is a draft for the author's approval.
 import { NICHE_PRICE, priceAnswerRu, priceFaqRu } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
+import { CASE_RAZBOR_RU } from './case-razbor-ru';
 import { NICHE_SHARED_RU as SH, NICHE_CAPACITY_DATE_RU as DATE } from './niche-shared';
 
 export const NICHE_REALTY_RU_PUBLISHED = '2026-10-22';
@@ -90,8 +91,9 @@ export const NICHE_REALTY_RU = {
       'С чем пришёл владелец, что я увидел на сайте и какие три направления предложил, описано в отдельном разборе. Это пример подхода, а не результат: что было сделано после аудита, я здесь не заявляю.',
     ],
     link: { page: 'caseRazbor' as const, text: 'Разбор сайта агентства недвижимости в Праге: что я увидел и что предложил' },
-    slides: [] as { src: string; width: number; height: number; alt: string }[],
-    caption: '',
+    // Slides of the case study /ru/kejsy/razbor-agentstvo-nedvizhimosti-praga/ (client data hidden), added on the author's instruction of 06.11.2026.
+    slides: CASE_RAZBOR_RU.slides,
+    caption: CASE_RAZBOR_RU.slidesCaption,
   },
 
   coopTitle: SH.capacityTitle,
