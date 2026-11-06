@@ -2,6 +2,7 @@
 // The Czech home page (hub), built from the brief of 20.10.2026. Content: data/home-cs.ts. No blog links (the blog is empty),
 // reviews from the shared source without the figures that are not confirmed.
 import ServiceArt from '../components/ServiceArt.astro';
+import { servicePhoto } from '../lib/service-photos';
 import Base from '../layouts/Base.astro';
 import CaseArt from '../components/CaseArt.astro';
 import LogoStrip from '../components/LogoStrip.astro';
@@ -75,7 +76,7 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
       <div class="grid grid-3">
         {C.nav.map((n) => (
           <a class="card card--link" href={t(n.page)}>
-            <ServiceArt kind={n.page} size={84} lang={lang} />
+            {servicePhoto(lang, n.page) ? <img class:list={['svc-card-photo', servicePhoto(lang, n.page)!.wide && 'svc-card-photo--wide']} src={servicePhoto(lang, n.page)!.src} width={servicePhoto(lang, n.page)!.width} height={servicePhoto(lang, n.page)!.height} alt="" loading="lazy" decoding="async" /> : <ServiceArt kind={n.page} size={84} lang={lang} />}
             <p class="eyebrow">{n.need}</p>
             <h3>{n.title ?? name(n.page)}</h3>
             <p>{n.text}</p>
