@@ -1,0 +1,92 @@
+---
+// Blog article "Jak má vypadat FAQ na webu zubní ordinace?" (cs), brief B2 of 06.11.2026. Content: data/post-faq-dental-cs.ts.
+// Informational: no body links except the two visible sources (K4); the author's quote (rule J) is a plain blockquote without Quotation markup; the closing block has ONE button.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postFaqDentalSchemas } from '../lib/schema-post-faq-dental';
+import { POST_FAQ_DENTAL_CS as C, POST_FAQ_DENTAL_PUBLISHED } from '../data/post-faq-dental-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostFaqDentalCsPage.astro', 'src/data/post-faq-dental-cs.ts'], '2026-11-06'), POST_FAQ_DENTAL_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-faq-na-webu-zubni-ordinace.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+const cite = new URL(path('postFaqDental', lang), site).href;
+---
+<Base {...pageProps('postFaqDental', lang)} ogType="article" ogImage={OG} schema={postFaqDentalSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postFaqDental.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whatTitle}</h2>
+      <p class="answer">{C.whatAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whichTitle}</h2>
+      <p class="answer">{C.whichAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.whereTitle}</h2>
+      <p class="answer">{C.whereAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.seenTitle}</h2>
+      <p class="answer">{C.seenAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.markupTitle}</h2>
+      <p class="answer">{C.markupAnswer}</p>
+      {C.sources.map((s) => <p class="small muted">{C.sourceLabel} {s.before}{' '}<a href={s.href} target="_blank" rel="noopener">{s.href}</a>{s.after}</p>)}
+      <p>{C.obs}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('nicheDental')}>{C.endCta}</a></div>
+      </div>
+    </div>
+  </section>
+</Base>

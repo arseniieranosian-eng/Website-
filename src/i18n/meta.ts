@@ -284,6 +284,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postFaqDental: {
+    cs: {
+      name: 'FAQ na webu zubní ordinace',
+      title: 'FAQ na webu zubní ordinace: jak má vypadat | Eranosian',
+      description: 'Jak sestavit FAQ na webu zubní ordinace: jak vybrat otázky, jak napsat odpovědi, kam je na webu umístit a co do FAQ nepatří.',
+      h1: 'Jak má vypadat FAQ na webu zubní ordinace?',
+    },
+    en: { name: 'FAQ on a dental practice website', title: 'FAQ on a dental practice website', description: 'FAQ on a dental practice website', h1: 'What should the FAQ on a dental practice website look like?' },
+    ru: { name: 'FAQ на сайте стоматологии', title: 'FAQ на сайте стоматологии', description: 'FAQ на сайте стоматологии', h1: 'Как должен выглядеть FAQ на сайте стоматологии?' },
+    uk: { name: 'FAQ на сайті стоматології', title: 'FAQ на сайті стоматології', description: 'FAQ на сайті стоматології', h1: 'Як має виглядати FAQ на сайті стоматології?' },
+  },
   postWeakSeoDental: {
     cs: {
       name: 'Slabé SEO konkurence u zubní ordinace',
