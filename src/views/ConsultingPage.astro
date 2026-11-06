@@ -1,6 +1,7 @@
 ---
 // /ru/konsultacii/ (ru, brief of 19.10.2026) and /en/consulting/ (en, brief of 23.10.2026); the Czech page is ConsultingCsPage.
 // Content lives in data/consulting-ru.ts and data/consulting-en.ts. Neither language has a video any more (removed on the author's instruction); the hero's right column is a decorative illustration.
+import { servicePhoto } from '../lib/service-photos';
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import LogoStrip from '../components/LogoStrip.astro';
@@ -58,7 +59,7 @@ const others = [
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      {lang === 'ru' || lang === 'uk' ? <img class="hero-art hero-photo" src="/images/services/seo-consulting-ru.webp" width="768" height="512" alt="" decoding="async" /> : <ConsultHeroArt />}
+      {(() => { const p = servicePhoto(lang, 'consulting'); return p ? <img class="hero-art hero-photo" src={p.src} width={p.width} height={p.height} alt="" decoding="async" /> : <ConsultHeroArt />; })()}
     </div>
   </section>
 

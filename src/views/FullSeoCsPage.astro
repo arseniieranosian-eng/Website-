@@ -1,5 +1,6 @@
 ---
 // /full-seo/ (cs) built from the brief of 20.10.2026. Content: data/fullseo-cs.ts, prices: data/fullseo-shared.ts.
+import { servicePhoto } from '../lib/service-photos';
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 import GeoNote from '../components/GeoNote.astro';
@@ -54,7 +55,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      <FullHeroArt />
+      {(() => { const p = servicePhoto(lang, 'fullSeo'); return p ? <img class="hero-art hero-photo" src={p.src} width={p.width} height={p.height} alt="" decoding="async" /> : <FullHeroArt />; })()}
     </div>
   </section>
 

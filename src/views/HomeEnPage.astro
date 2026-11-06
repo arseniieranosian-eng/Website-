@@ -78,7 +78,7 @@ const m = META.home[lang];
           <tbody>
             {C.hub.rows.map((r) => (
               <tr>
-                <th scope="row"><span class="svc-name"><ServiceArt kind={r.page} />{<a href={t(r.page)}>{r.label}</a>}</span></th>
+                <th scope="row"><span class="svc-name"><ServiceArt kind={r.page} lang={lang} />{<a href={t(r.page)}>{r.label}</a>}</span></th>
                 <td>{r.what}</td>
                 <td>{r.best}</td>
                 <td>{r.time}</td>

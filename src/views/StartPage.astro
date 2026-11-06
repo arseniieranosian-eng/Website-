@@ -1,5 +1,6 @@
 ---
 // /ru/start-3-mesyaca/ built from the brief of 19.10.2026. Content: data/start-ru.ts, prices: data/start-shared.ts.
+import { servicePhoto } from '../lib/service-photos';
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import LeadForm from '../components/LeadForm.astro';
@@ -51,7 +52,7 @@ const others = [
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      {lang === 'ru' || lang === 'uk' ? <img class="hero-art hero-photo" src="/images/services/start-3-months-ru.webp" width="768" height="512" alt="" decoding="async" /> : <StartHeroArt />}
+      {(() => { const p = servicePhoto(lang, 'start'); return p ? <img class="hero-art hero-photo" src={p.src} width={p.width} height={p.height} alt="" decoding="async" /> : <StartHeroArt />; })()}
     </div>
   </section>
 

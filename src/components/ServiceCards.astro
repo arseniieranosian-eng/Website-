@@ -18,13 +18,13 @@ const AUDIT = {
 }[lang];
 const list = keys ? SERVICES.filter((s) => keys.includes(s.key)) : SERVICES;
 const H = heading;
-const photoOn = lang === 'ru' || lang === 'uk';
-const CARD_PHOTO: Record<string, string> = { maps: '/images/services/maps-ru.webp', consulting: '/images/services/seo-consulting-ru.webp', start: '/images/services/start-3-months-ru.webp', fullSeo: '/images/services/full-seo-ru.webp' };
+import { servicePhoto } from '../lib/service-photos';
+const photoOf = (k: string) => servicePhoto(lang, k);
 ---
 <div class:list={['grid', withAudit ? 'grid-3' : list.length > 2 ? 'grid-4' : 'grid-2']}>
   {withAudit && (
     <a class="card card--link service-card" href={path('audit', lang)}>
-      {photoOn ? <img class="svc-card-photo" src="/images/services/audit-free-ru.webp" width="768" height="512" alt="" loading="lazy" decoding="async" /> : <span class="icon-box"><Icon name="check" /></span>}
+      {photoOf('audit') ? <img class="svc-card-photo" src={photoOf('audit')!.src} width="768" height="512" alt="" loading="lazy" decoding="async" /> : <span class="icon-box"><Icon name="check" /></span>}
       <H>{META.audit[lang].name}</H>
       <p>{AUDIT.text}</p>
       <span class="meta">{AUDIT.meta}</span>
@@ -33,7 +33,7 @@ const CARD_PHOTO: Record<string, string> = { maps: '/images/services/maps-ru.web
   )}
   {list.map((s) => (
     <a class="card card--link service-card" href={path(s.key, lang)}>
-      {photoOn && CARD_PHOTO[s.key] ? <img class:list={['svc-card-photo', s.key === 'maps' && 'svc-card-photo--wide']} src={CARD_PHOTO[s.key]} width="768" height={s.key === 'maps' ? 432 : 512} alt="" loading="lazy" decoding="async" /> : art ? <span class="svc-card-art"><ServiceArt kind={s.key} size={96} lang={lang} /></span> : <span class="icon-box"><Icon name={s.icon} /></span>}
+      {photoOf(s.key) ? <img class:list={['svc-card-photo', photoOf(s.key)!.wide && 'svc-card-photo--wide']} src={photoOf(s.key)!.src} width={photoOf(s.key)!.width} height={photoOf(s.key)!.height} alt="" loading="lazy" decoding="async" /> : art ? <span class="svc-card-art"><ServiceArt kind={s.key} size={96} lang={lang} /></span> : <span class="icon-box"><Icon name={s.icon} /></span>}
       <H>{META[s.key][lang].name}</H>
       <p>{s.short[lang]}</p>
       <span class="meta">{s.key === 'fullSeo' && fullSeoMonthly ? s.duration[lang].replace(fmtKc(FULLSEO_MONTHLY), fmtKc(fullSeoMonthly)) : s.duration[lang]}</span>

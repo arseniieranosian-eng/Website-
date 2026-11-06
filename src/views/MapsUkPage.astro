@@ -1,6 +1,7 @@
 ---
 // /uk/mapy/ built from the brief of 19.10.2026. Content: data/maps-uk.ts, terms: data/maps-shared.ts.
 // The case-study block is hidden until a maps case exists .
+import { servicePhoto } from '../lib/service-photos';
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import LeadForm from '../components/LeadForm.astro';
@@ -49,7 +50,7 @@ const others = [
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      <img class="hero-art hero-photo" src="/images/services/maps-ru.webp" width="768" height="432" alt="" decoding="async" />
+      <img class="hero-art hero-photo" src={servicePhoto(lang, 'maps')!.src} width="768" height="432" alt="" decoding="async" />
     </div>
   </section>
 

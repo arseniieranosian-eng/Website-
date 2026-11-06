@@ -75,7 +75,7 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
       <div class="grid grid-3">
         {C.nav.map((n) => (
           <a class="card card--link" href={t(n.page)}>
-            <ServiceArt kind={n.page} size={84} />
+            <ServiceArt kind={n.page} size={84} lang={lang} />
             <p class="eyebrow">{n.need}</p>
             <h3>{n.title ?? name(n.page)}</h3>
             <p>{n.text}</p>

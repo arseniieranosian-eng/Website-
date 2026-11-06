@@ -1,5 +1,6 @@
 ---
 // /konzultace/ (cs, brief of 19.10.2026) and /en/consulting/ (en, brief of 29.10.2026: the same content translated). Content: data/consulting-cs.ts and data/consulting-en.ts, prices: data/consulting-shared.ts.
+import { servicePhoto } from '../lib/service-photos';
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import LeadForm from '../components/LeadForm.astro';
@@ -59,7 +60,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
           <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
         </div>
       </div>
-      <ConsultHeroArt />
+      {(() => { const p = servicePhoto(lang, 'consulting'); return p ? <img class="hero-art hero-photo" src={p.src} width={p.width} height={p.height} alt="" decoding="async" /> : <ConsultHeroArt />; })()}
     </div>
   </section>
 
@@ -75,7 +76,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
         <table class="compare">
           <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
           <tbody>
-            {C.offers.map((o) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={o.id} />{o.name}</span></th><td style="white-space:nowrap">{money(PRICES[o.id])}</td><td>{o.duration}</td><td>{o.gets}</td></tr>)}
+            {C.offers.map((o) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={o.id} lang={lang} />{o.name}</span></th><td style="white-space:nowrap">{money(PRICES[o.id])}</td><td>{o.duration}</td><td>{o.gets}</td></tr>)}
           </tbody>
         </table>
       </div>
