@@ -798,3 +798,6 @@ ul, ol { margin-bottom: var(--flow); }
 @media (min-width: 900px) { .hero-art-split .hero-photo { display: block; max-width: 420px; justify-self: end; } }
 
 .svc-card-photo--wide { aspect-ratio: 16 / 9; }
+
+/* Nickname line (the author, 06.11.2026) near the top of the home and about pages */
+.nick-note { margin: 0 0 12px; font-size: 0.95rem; opacity: 0.85; }

@@ -1,6 +1,7 @@
 ---
 // /o-mne/ (cs) built from the brief of 20.10.2026. Content: data/about-cs.ts, trust bar: data/trust-cs.ts.
 // No blog block (the blog is empty). Reviews from the shared source without the unconfirmed figures.
+import { NICKNAME } from '../data/site';
 import Base from '../layouts/Base.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import ReviewCards from '../components/ReviewCards.astro';
@@ -37,6 +38,7 @@ const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
       <div>
         <h1>{m.h1}</h1>
         <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+        <p class="nick-note">{NICKNAME.cs}</p>
         <p class="lead">{C.answer}</p>
         <div class="btn-row">
           <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>

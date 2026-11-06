@@ -11,7 +11,7 @@ import { path, type Lang } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { ids } from '../lib/schema';
-import { SITE } from '../data/site';
+import { SITE, NICKNAME } from '../data/site';
 import { CASE_LABEL, CASE_LINE } from '../data/case-summary';
 
 interface Props { lang: Lang }
@@ -111,7 +111,7 @@ const profile = {
 };
 ---
 <Base {...pageProps('about', lang)} schema={[profile]}>
-  <PageHero h1={m.h1} lead={C.lead} />
+  <PageHero h1={m.h1} lead={C.lead}><p class="nick-note">{NICKNAME[lang]}</p></PageHero>
   <LogoStrip lang={lang} />
   <section class="section section--tight">
     <div class="container split">

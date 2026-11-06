@@ -1,4 +1,5 @@
 ---
+import { NICKNAME } from '../data/site';
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
 import LogoStrip from '../components/LogoStrip.astro';
@@ -150,6 +151,7 @@ const C = {
           <img src="/images/author-2-avatar.jpg" width="160" height="160" alt={lang === 'ru' ? 'Арсений Ераносьян, SEO-специалист в Праге' : lang === 'uk' ? 'Арсеній Ераносян, SEO-спеціаліст у Празі' : 'Arsenii Eranosian, SEO specialist in Prague'} fetchpriority="high" decoding="async" />
           <div><p class="hero-person__name">{lang === 'ru' ? 'Арсений Ераносьян' : lang === 'uk' ? 'Арсеній Ераносян' : 'Arsenii Eranosian'}</p><p class="eyebrow">{C.eyebrow}</p></div>
         </div>
+        <p class="nick-note">{NICKNAME[lang]}</p>
         <h1>{m.h1}</h1>
         <p class="lead">{C.lead}</p>
         <ul class="checks">{C.points.map((p) => <li><Icon name="check" size={18} />{p}</li>)}</ul>

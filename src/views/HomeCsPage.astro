@@ -1,6 +1,7 @@
 ---
 // The Czech home page (hub), built from the brief of 20.10.2026. Content: data/home-cs.ts. No blog links (the blog is empty),
 // reviews from the shared source without the figures that are not confirmed.
+import { NICKNAME } from '../data/site';
 import ServiceArt from '../components/ServiceArt.astro';
 import { servicePhoto } from '../lib/service-photos';
 import Base from '../layouts/Base.astro';
@@ -48,6 +49,7 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
           <img src="/images/author-2-avatar.jpg" width="160" height="160" alt="Arsenii Eranosian, SEO specialista v Praze" fetchpriority="high" decoding="async" />
           <div><p class="hero-person__name">{C.heroName}</p><p class="eyebrow">{C.eyebrow}</p></div>
         </div>
+        <p class="nick-note">{NICKNAME['cs']}</p>
         <h1>{m.h1}</h1>
         <p class="lead">{C.lead}</p>
         <div class="btn-row">

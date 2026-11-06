@@ -1,6 +1,7 @@
 ---
 // The English home page /en/ (hub), built from the brief of 21.10.2026: a separate adaptation for English-speaking entrepreneurs and
 // expats in Czechia. Content: data/home-en.ts, trust bar: data/trust-en.ts (same five tiles as the Czech and Russian versions). No blog links, reviews from the shared source.
+import { NICKNAME } from '../data/site';
 import ServiceArt from '../components/ServiceArt.astro';
 import Base from '../layouts/Base.astro';
 import CzechNote from '../components/CzechNote.astro';
@@ -46,6 +47,7 @@ const m = META.home[lang];
           <img src="/images/author-2-avatar.jpg" width="160" height="160" alt={C.photoAlt} fetchpriority="high" decoding="async" />
           <div><p class="hero-person__name">{C.heroName}</p><p class="eyebrow">{C.eyebrow}</p></div>
         </div>
+        <p class="nick-note">{NICKNAME['en']}</p>
         <h1>{m.h1}</h1>
         <p class="lead">{C.lead}</p>
         <div class="btn-row">

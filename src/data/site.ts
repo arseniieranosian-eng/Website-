@@ -1,5 +1,13 @@
 import type { Lang } from '../i18n/routes';
 
+// How the author likes to be addressed (his instruction of 06.11.2026): a short line near the top of the home and about pages. No domain is mentioned.
+export const NICKNAME: Record<'cs' | 'en' | 'ru' | 'uk', string> = {
+  cs: 'Můžete mi říkat Senya.',
+  en: 'You can call me Senya.',
+  ru: 'Можно называть меня Сеней.',
+  uk: 'Можна називати мене Сенею.',
+};
+
 export const SITE = {
   person: 'Arsenii Eranosian',
   brand: 'Arsenii Eranosian · SEO',
@@ -11,7 +19,7 @@ export const SITE = {
   address: { street: 'Příčná 1892/4', postalCode: '110 00', city: 'Praha 1', district: 'Nové Město' },
   city: 'Praha',
   country: 'CZ',
-  alternateNames: ['Арсений Ераносьян', 'Арсеній Ераносян'],
+  alternateNames: ['Арсений Ераносьян', 'Арсеній Ераносян', 'Senya', 'Сеня'],
   description: {
     cs: 'SEO a GEO/AEO specialista z Prahy. SEO jako systém, který mění vyhledávání v tržby.',
     en: 'SEO and GEO/AEO specialist based in Prague. SEO as a system that turns search into revenue.',
