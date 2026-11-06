@@ -796,3 +796,5 @@ ul, ol { margin-bottom: var(--flow); }
 .page-art-photo { display: block; width: 100%; height: auto; border-radius: 12px; }
 .hero-art-split .hero-photo { border-radius: 16px; object-fit: cover; }
 @media (min-width: 900px) { .hero-art-split .hero-photo { display: block; max-width: 420px; justify-self: end; } }
+
+.svc-card-photo--wide { aspect-ratio: 16 / 9; }

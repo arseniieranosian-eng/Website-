@@ -38,15 +38,18 @@ const others = [
 <Base {...pageProps('maps', lang)} schema={mapsSchemas(site, C, { modified: MOD, reviews })}>
   <!-- HERO -->
   <section class="page-hero">
-    <div class="container">
-      <h1>{C.h1}</h1>
-      <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
-      <p class="lead">{C.lead}</p>
-      <p class="price-badge">{C.badge}</p>
-      <div class="btn-row">
-        <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
-        <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+    <div class="container hero-art-split">
+      <div>
+        <h1>{C.h1}</h1>
+        <p class="updated">{C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+        <p class="lead">{C.lead}</p>
+        <p class="price-badge">{C.badge}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+          <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        </div>
       </div>
+      <img class="hero-art hero-photo" src="/images/services/maps-ru.webp" width="768" height="432" alt="" decoding="async" />
     </div>
   </section>
 
