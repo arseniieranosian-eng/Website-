@@ -52,6 +52,14 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.expTitle}</h2>
       <p class="answer">{C.expAnswer}</p>
       <p><a class="link-arrow" href={t('caseRazbor')}>{C.expLink}</a></p>
+      <h2>{C.exTitle}</h2>
+      <p class="answer">{C.exAnswer}</p>
+      {C.exSlides.map((s) => (
+        <figure class="case-figure">
+          <img src={s.src} width={s.width} height={s.height} alt={s.alt} loading="lazy" decoding="async" />
+        </figure>
+      ))}
+      <p class="muted small">{C.exCaption}</p>
     </div>
   </section>
 

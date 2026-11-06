@@ -3,6 +3,7 @@
 // (add its key to the list in views/NicheRealtyBrnoCsPage.astro and to check-niche-realty-brno-cs.mjs). The data of the 29 districts below is kept for that article; the landing page does not render it. Own structure from the brief; the text of the Prague page is not reused. Decisions applied from the author's standing rules: no "no results in the niche"
 // statements (29.10.2026), no guarantees, no portal / competitor / client names, no address in Brno, "agentura" never about the author, GEO/AEO always together. hreflang: self only (cs).
 import { walk } from '../lib/cs-typo';
+import { CASE_RAZBOR_CS } from './case-razbor-cs';
 import SUMMARIES from './niche-summaries.json';
 import { priceAnswerCs, priceFaqCs } from './niche-prices';
 
@@ -74,6 +75,12 @@ const raw = {
   expTitle: 'Jaké mám zkušenosti s weby nemovitostí?',
   expAnswer: 'V říjnu 2026 jsem zpracoval SEO audit a strategii na 12 měsíců pro web z oboru nemovitostí. Z Prahy mohu ukázat rozbor webu malé realitní kanceláře jako příklad postupu, ne jako výsledek pro Brno. Případová studie z Prahy je uvedena s touto poznámkou.',
   expLink: 'Rozbor webu malé realitní kanceláře (příklad z Prahy)',
+
+  // Example of the author's review (the Prague case): the same slides as on the case page, client data hidden (brief of 06.11.2026); an example of the procedure, not a result for Brno.
+  exTitle: 'Jak vypadá můj rozbor webu realitní kanceláře?',
+  exAnswer: 'Takto vypadá rozbor s plánem na 12 měsíců: současný stav, upřímné zhodnocení konkurence a realistické směry růstu. Ukázky jsou z prezentace pro malou realitní kancelář z Prahy z října 2026, údaje klienta jsou skryté. Je to příklad postupu z Prahy, ne výsledek pro Brno.',
+  exSlides: CASE_RAZBOR_CS.slides,
+  exCaption: CASE_RAZBOR_CS.slidesCaption,
 
   coopTitle: 'Jak spolupracuji s realitními kancelářemi a kolik to stojí?',
   coopAnswer: priceAnswerCs('realty'),

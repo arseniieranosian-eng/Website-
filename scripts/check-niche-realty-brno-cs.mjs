@@ -37,7 +37,7 @@ const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)"/g)].map((m
 if (alts.some((a) => !['cs', 'cs-CZ', 'x-default'].includes(a))) e(`hreflang: ${alts}`);
 if ((main.match(/<h1[ >]/g) || []).length !== 1 || txt((main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]) !== H1) e('H1');
 const hs = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
-const SECTIONS = ['Co jsem viděl v Brně?', 'Co pro realitní kancelář v Brně konkrétně dělám?', 'Jaké mám zkušenosti s weby nemovitostí?', 'Jak spolupracuji s realitními kancelářemi a kolik to stojí?', 'Co zahrnuje bezplatný audit?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
+const SECTIONS = ['Co jsem viděl v Brně?', 'Co pro realitní kancelář v Brně konkrétně dělám?', 'Jaké mám zkušenosti s weby nemovitostí?', 'Jak vypadá můj rozbor webu realitní kanceláře?', 'Jak spolupracuji s realitními kancelářemi a kolik to stojí?', 'Co zahrnuje bezplatný audit?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 // direct answers 40–60 words
 for (const m of main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)) { const n = words(txt(m[1])); if (n < 6 || n > 60) e(`answer length ${n}: ${txt(m[1]).slice(0, 50)}`); }

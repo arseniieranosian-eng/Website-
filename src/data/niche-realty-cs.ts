@@ -11,6 +11,7 @@ import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
 import { NICHE_SHARED_CS, NICHE_CAPACITY_DATE } from './niche-shared';
 import { NICHE_READY } from '../i18n/routes';
+import { CASE_RAZBOR_CS } from './case-razbor-cs';
 import { walk } from '../lib/cs-typo';
 
 export const NICHE_REALTY_PUBLISHED = '2026-10-22';
@@ -120,6 +121,16 @@ const raw = {
   videoTranscriptTitle: 'Přepis videa',
   videoPlay: 'Přehrát video',
   videoOpen: 'Otevřít video na YouTube',
+
+  // Example of the author's review (the case /pripadove-studie/rozbor-webu-realitni-kancelare-praha/): the same slides as on the case page, client data hidden (brief of 06.11.2026).
+  auditExample: {
+    title: 'Jak vypadá můj rozbor webu realitní kanceláře?',
+    answer: 'Takto vypadá rozbor s plánem na 12 měsíců: současný stav, upřímné zhodnocení konkurence a realistické směry růstu. Ukázky jsou z prezentace pro malou realitní kancelář v Praze z října 2026, údaje klienta jsou skryté. Je to příklad postupu, ne výsledek: co se po rozboru udělalo, zde neuvádím.',
+    paragraphs: ['Co jsem viděl na webu a které tři směry jsem navrhl, popisuje samostatný rozbor.'],
+    link: { page: 'caseRazbor' as const, text: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?' },
+    slides: CASE_RAZBOR_CS.slides,
+    caption: CASE_RAZBOR_CS.slidesCaption,
+  },
 
   experience: NICHE_REALTY_EXPERIENCE,
 
