@@ -284,6 +284,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postDentalChannels: {
+    cs: {
+      name: 'Jak získat pacienty pro zubní ordinaci',
+      title: 'Jak získat pacienty pro zubní ordinaci: kanály | Eranosian',
+      description: 'Přehled kanálů, kterými může zubní ordinace oslovit nové pacienty: doporučení, web a vyhledávání, mapy, sociální sítě. Žádný kanál nic nezaručuje.',
+      h1: 'Jak získat pacienty pro zubní ordinaci: přehled kanálů',
+    },
+    en: { name: 'How to get patients for a dental practice', title: 'How to get patients for a dental practice', description: 'How to get patients for a dental practice', h1: 'How to get patients for a dental practice: an overview of channels' },
+    ru: { name: 'Как получить пациентов стоматологии', title: 'Как получить пациентов стоматологии', description: 'Как получить пациентов стоматологии', h1: 'Как получить пациентов стоматологии: обзор каналов' },
+    uk: { name: 'Як отримати пацієнтів стоматології', title: 'Як отримати пацієнтів стоматології', description: 'Як отримати пацієнтів стоматології', h1: 'Як отримати пацієнтів стоматології: огляд каналів' },
+  },
   postFaqDental: {
     cs: {
       name: 'FAQ na webu zubní ordinace',
