@@ -295,6 +295,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: { name: 'FAQ на сайте стоматологии', title: 'FAQ на сайте стоматологии', description: 'FAQ на сайте стоматологии', h1: 'Как должен выглядеть FAQ на сайте стоматологии?' },
     uk: { name: 'FAQ на сайті стоматології', title: 'FAQ на сайті стоматології', description: 'FAQ на сайті стоматології', h1: 'Як має виглядати FAQ на сайті стоматології?' },
   },
+  postWeakSeoRealty: {
+    cs: {
+      name: 'Slabé SEO konkurence u realitní kanceláře',
+      title: 'Slabé SEO realitních kanceláří ve vyhledávání | Eranosian',
+      description: 'Proč bývá ve vyhledávání vpředu realitní kancelář se slabým webem: pozorování u webů z Prahy a Brna, hypotézy a to, co z toho nevyplývá.',
+      h1: 'Proč jsou ve vyhledávání vpředu i realitní kanceláře se slabým SEO?',
+    },
+    en: { name: 'Weak SEO competitors of real estate agencies', title: 'Weak SEO competitors of real estate agencies', description: 'Weak SEO competitors of real estate agencies', h1: 'Why do real estate agencies with weak SEO rank ahead?' },
+    ru: { name: 'Слабое SEO у конкурентов-агентств недвижимости', title: 'Слабое SEO у конкурентов-агентств недвижимости', description: 'Слабое SEO у конкурентов-агентств недвижимости', h1: 'Почему в поиске впереди и агентства недвижимости со слабым SEO?' },
+    uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
+  },
   postWeakSeoDental: {
     cs: {
       name: 'Slabé SEO konkurence u zubní ordinace',

@@ -96,6 +96,7 @@ import PostWeakSeoAccCsPage from '../views/PostWeakSeoAccCsPage.astro';
 import PostWebPagesCsPage from '../views/PostWebPagesCsPage.astro';
 import PostDupEshopCsPage from '../views/PostDupEshopCsPage.astro';
 import PostWeakSeoDentalCsPage from '../views/PostWeakSeoDentalCsPage.astro';
+import PostWeakSeoRealtyCsPage from '../views/PostWeakSeoRealtyCsPage.astro';
 import PostFaqDentalCsPage from '../views/PostFaqDentalCsPage.astro';
 import PostWeakSeoRuPage from '../views/PostWeakSeoRuPage.astro';
 import PostRealtyPortalsCsPage from '../views/PostRealtyPortalsCsPage.astro';
@@ -122,7 +123,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  postFaqDental: null, caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheAccountingBrno: null, nicheDental: null, nicheRealtyBrno: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postRealtyBrnoDistricts: null, postRealtyPragueDistricts: null, postWeakSeo: null, postWeakSeoAcc: null, postWebPages: null, postDupEshop: null, postWeakSeoDental: null, postRealtyLocal: null, postAccountingNoLeads: null, postAccountingSmall: null, postAccountingLocal: null, postAccountingPages: null, postAccountingTime: null, postRedesignPlan: null, postSelectSpecialist: null, postSeoPlan: null, postFinanceChannels: null, postAccountingChannels: null,
+  postFaqDental: null, postWeakSeoRealty: null, caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheAccountingBrno: null, nicheDental: null, nicheRealtyBrno: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postRealtyBrnoDistricts: null, postRealtyPragueDistricts: null, postWeakSeo: null, postWeakSeoAcc: null, postWebPages: null, postDupEshop: null, postWeakSeoDental: null, postRealtyLocal: null, postAccountingNoLeads: null, postAccountingSmall: null, postAccountingLocal: null, postAccountingPages: null, postAccountingTime: null, postRedesignPlan: null, postSelectSpecialist: null, postSeoPlan: null, postFinanceChannels: null, postAccountingChannels: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -163,6 +164,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postWebPages' && props.lang === 'cs' && <PostWebPagesCsPage />}
 {props.key === 'postDupEshop' && props.lang === 'cs' && <PostDupEshopCsPage />}
 {props.key === 'postWeakSeoDental' && props.lang === 'cs' && <PostWeakSeoDentalCsPage />}
+{props.key === 'postWeakSeoRealty' && props.lang === 'cs' && <PostWeakSeoRealtyCsPage />}
 {props.key === 'postFaqDental' && props.lang === 'cs' && <PostFaqDentalCsPage />}
 {props.key === 'postWeakSeo' && props.lang === 'ru' && <PostWeakSeoRuPage />}
 {props.key === 'postRealtyLocal' && props.lang === 'cs' && <PostRealtyLocalCsPage />}

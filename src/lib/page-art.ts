@@ -35,6 +35,7 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   postWebPages: article('article'),
   postDupEshop: article('article'),
   postWeakSeoDental: article('article'),
+  postWeakSeoRealty: article('article'),
   postFaqDental: article('article'),
   postRealtyLocal: article('article'),
   postAccountingLocal: article('article'),

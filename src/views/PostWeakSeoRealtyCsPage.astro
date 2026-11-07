@@ -1,0 +1,106 @@
+---
+// Blog article "Proč jsou ve vyhledávání vpředu i realitní kanceláře se slabým SEO?" (cs), brief of 07.11.2026. Content: data/post-weak-seo-realty-cs.ts.
+// Informational: the only body link is the one to the article about missing enquiries (rule F) plus the two visible Google sources (K4); the author's quote (rule J) is a plain blockquote without Quotation
+// markup; the closing block has TWO buttons by city (the brief's exception to rule H).
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postWeakSeoRealtySchemas } from '../lib/schema-post-weak-seo-realty';
+import { POST_WEAK_SEO_REALTY_CS as C, POST_WEAK_SEO_REALTY_PUBLISHED } from '../data/post-weak-seo-realty-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostWeakSeoRealtyCsPage.astro', 'src/data/post-weak-seo-realty-cs.ts'], '2026-11-07'), POST_WEAK_SEO_REALTY_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-slabe-seo-konkurence-realitni-kancelare.png';
+const cite = new URL(path('postWeakSeoRealty', lang), site).href;
+---
+<Base {...pageProps('postWeakSeoRealty', lang)} ogType="article" ogImage={OG} schema={postWeakSeoRealtySchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postWeakSeoRealty.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: 3 {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.prahaTitle}</h2>
+      <p class="answer">{C.prahaAnswer}</p>
+      <p>{C.prahaMore}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.brnoTitle}</h2>
+      <p class="answer">{C.brnoAnswer}</p>
+      <p>{C.brnoMore}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.ratedTitle}</h2>
+      <p class="answer">{C.ratedAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+      <p>{C.whyMore}</p>
+      <p class="small muted">{C.sourceLabel} {C.whySource.before}{' '}<a href={C.whySource.href} target="_blank" rel="noopener">{C.whySource.href}</a>{C.whySource.after}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.aiTitle}</h2>
+      <p class="answer">{C.aiAnswer}</p>
+      <p class="small muted">{C.sourceLabel} {C.aiSource.before}{' '}<a href={C.aiSource.href} target="_blank" rel="noopener">{C.aiSource.href}</a>{C.aiSource.after}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.checkTitle}</h2>
+      <p class="answer">{C.checkAnswer}</p>
+      <p>{C.checkMore}</p>
+      <p>{C.checkLink.before}{' '}<a href={t('postRealtyNoLeads')}>{C.checkLink.text}</a>{C.checkLink.after}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href={t('nicheRealty')}>{C.endPraha}</a>
+          <a class="btn btn--primary btn--lg" href={t('nicheRealtyBrno')}>{C.endBrno}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
