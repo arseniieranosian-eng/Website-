@@ -38,6 +38,7 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   postWeakSeoRealty: article('article'),
   postFaqDental: article('article'),
   postDentalChannels: article('article'),
+  postWeakSeoGaming: article('article'),
   postRealtyLocal: article('article'),
   postAccountingLocal: article('article'),
   postSeoPlan: article('article'),

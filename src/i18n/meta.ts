@@ -284,6 +284,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postWeakSeoGaming: {
+    cs: {
+      name: 'Slabé SEO konkurence u počítačové herny',
+      title: 'Slabé SEO počítačových heren: proč jsou vpředu | Eranosian',
+      description: 'Proč bývá ve vyhledávání vpředu počítačová herna se slabým webem: pozorování u 11 webů v Praze, hypotézy a to, co z toho nevyplývá.',
+      h1: 'Proč jsou ve vyhledávání vpředu i počítačové herny se slabým SEO?',
+    },
+    en: { name: 'Weak SEO competitors of computer clubs', title: 'Weak SEO competitors of computer clubs', description: 'Weak SEO competitors of computer clubs', h1: 'Why do computer clubs with weak SEO rank ahead?' },
+    ru: { name: 'Слабое SEO у компьютерных клубов', title: 'Слабое SEO у компьютерных клубов', description: 'Слабое SEO у компьютерных клубов', h1: 'Почему в поиске выше и компьютерные клубы со слабым SEO?' },
+    uk: { name: 'Слабке SEO у комп’ютерних клубів', title: 'Слабке SEO у комп’ютерних клубів', description: 'Слабке SEO у комп’ютерних клубів', h1: 'Чому в пошуку попереду й комп’ютерні клуби зі слабким SEO?' },
+  },
   postDentalChannels: {
     cs: {
       name: 'Jak získat pacienty pro zubní ordinaci',
