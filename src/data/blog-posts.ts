@@ -26,6 +26,7 @@ import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './p
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
 import { POST_WEAK_SEO_DENTAL_CS, POST_WEAK_SEO_DENTAL_PUBLISHED } from './post-weak-seo-dental-cs';
 import { POST_WEAK_SEO_REALTY_CS, POST_WEAK_SEO_REALTY_PUBLISHED } from './post-weak-seo-realty-cs';
+import { POST_WEAK_SEO_REALTY_RU, POST_WEAK_SEO_REALTY_RU_PUBLISHED } from './post-weak-seo-realty-ru';
 import { POST_FAQ_DENTAL_CS, POST_FAQ_DENTAL_PUBLISHED } from './post-faq-dental-cs';
 import { POST_DUP_ESHOP_CS, POST_DUP_ESHOP_PUBLISHED } from './post-dup-eshop-cs';
 import { POST_WEB_PAGES_CS, POST_WEB_PAGES_PUBLISHED } from './post-web-pages-cs';
@@ -84,6 +85,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postRealtySmall', lang: 'cs', date: POST_REALTY_SMALL_PUBLISHED, title: META.postRealtySmall.cs.h1, description: META.postRealtySmall.cs.description, image: POST_REALTY_SMALL_CS.cover },
   { key: 'postRealtyNoLeads', lang: 'cs', date: POST_REALTY_NOLEADS_PUBLISHED, title: META.postRealtyNoLeads.cs.h1, description: META.postRealtyNoLeads.cs.description, image: POST_REALTY_NOLEADS_CS.cover },
   { key: 'postWeakSeoRealty', lang: 'cs', date: POST_WEAK_SEO_REALTY_PUBLISHED, title: META.postWeakSeoRealty.cs.h1, description: META.postWeakSeoRealty.cs.description, image: POST_WEAK_SEO_REALTY_CS.cover },
+  { key: 'postWeakSeoRealty', lang: 'ru', date: POST_WEAK_SEO_REALTY_RU_PUBLISHED, title: META.postWeakSeoRealty.ru.h1, description: META.postWeakSeoRealty.ru.description, image: POST_WEAK_SEO_REALTY_RU.cover },
   { key: 'postRealty', lang: 'cs', date: POST_REALTY_PUBLISHED, title: META.postRealty.cs.h1, description: META.postRealty.cs.description, image: POST_REALTY_CS.cover },
   { key: 'postPairs', lang: 'cs', date: POST_PAIRS_PUBLISHED, title: META.postPairs.cs.h1, description: META.postPairs.cs.description, image: POST_PAIRS_CS.cover },
   { key: 'postB2b', lang: 'cs', date: POST_B2B_PUBLISHED, title: META.postB2b.cs.h1, description: META.postB2b.cs.description, image: POST_B2B_CS.cover },

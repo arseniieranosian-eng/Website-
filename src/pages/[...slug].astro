@@ -97,6 +97,7 @@ import PostWebPagesCsPage from '../views/PostWebPagesCsPage.astro';
 import PostDupEshopCsPage from '../views/PostDupEshopCsPage.astro';
 import PostWeakSeoDentalCsPage from '../views/PostWeakSeoDentalCsPage.astro';
 import PostWeakSeoRealtyCsPage from '../views/PostWeakSeoRealtyCsPage.astro';
+import PostWeakSeoRealtyRuPage from '../views/PostWeakSeoRealtyRuPage.astro';
 import PostFaqDentalCsPage from '../views/PostFaqDentalCsPage.astro';
 import PostWeakSeoRuPage from '../views/PostWeakSeoRuPage.astro';
 import PostRealtyPortalsCsPage from '../views/PostRealtyPortalsCsPage.astro';
@@ -165,6 +166,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'postDupEshop' && props.lang === 'cs' && <PostDupEshopCsPage />}
 {props.key === 'postWeakSeoDental' && props.lang === 'cs' && <PostWeakSeoDentalCsPage />}
 {props.key === 'postWeakSeoRealty' && props.lang === 'cs' && <PostWeakSeoRealtyCsPage />}
+{props.key === 'postWeakSeoRealty' && props.lang === 'ru' && <PostWeakSeoRealtyRuPage />}
 {props.key === 'postFaqDental' && props.lang === 'cs' && <PostFaqDentalCsPage />}
 {props.key === 'postWeakSeo' && props.lang === 'ru' && <PostWeakSeoRuPage />}
 {props.key === 'postRealtyLocal' && props.lang === 'cs' && <PostRealtyLocalCsPage />}

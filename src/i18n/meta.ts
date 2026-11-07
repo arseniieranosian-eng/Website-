@@ -303,7 +303,12 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       h1: 'Proč jsou ve vyhledávání vpředu i realitní kanceláře se slabým SEO?',
     },
     en: { name: 'Weak SEO competitors of real estate agencies', title: 'Weak SEO competitors of real estate agencies', description: 'Weak SEO competitors of real estate agencies', h1: 'Why do real estate agencies with weak SEO rank ahead?' },
-    ru: { name: 'Слабое SEO у конкурентов-агентств недвижимости', title: 'Слабое SEO у конкурентов-агентств недвижимости', description: 'Слабое SEO у конкурентов-агентств недвижимости', h1: 'Почему в поиске впереди и агентства недвижимости со слабым SEO?' },
+    ru: {
+      name: 'Слабое SEO у агентств недвижимости',
+      title: 'Слабое SEO агентств недвижимости в поиске | Eranosian',
+      description: 'Почему в поиске впереди бывает агентство недвижимости со слабым сайтом: наблюдения по сайтам Праги и Брно, гипотезы и то, что из них не следует.',
+      h1: 'Почему в поиске выше и агентства недвижимости со слабым SEO?',
+    },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
   },
   postWeakSeoDental: {
