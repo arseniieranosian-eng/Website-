@@ -1,7 +1,8 @@
 ---
 // Niche landing page "SEO a GEO/AEO pro počítačové herny v Praze" (cs), brief of 25.10.2026. Content: data/niche-gaming-cs.ts. Own structure: page types, what I do, for whom, local presence (a link only),
-// audit scope table and technical checklist, cooperation, FAQ. No prices, no quote, no video, no observations, no funnel articles yet.
+// audit scope table and technical checklist, cooperation, FAQ. No prices, no quote, no video, no observations; the block "Další články" holds the weak-SEO article (brief C3 of 07.11.2026).
 import Base from '../layouts/Base.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -80,6 +81,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>Další články</h2>
+      <RelatedPosts lang={lang} keys={['postWeakSeoGaming']} more="Číst článek" />
     </div>
   </section>
 

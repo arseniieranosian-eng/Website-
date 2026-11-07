@@ -41,7 +41,7 @@ for (const m of mainTxt.matchAll(/(\S+)\s+(hern[aeuy]\b|hernou|hernách|heren\b)
 for (const m of mainTxt.matchAll(/(^|[.?!:;]\s)(Herna|Herny|Hernu)\b/g)) e(`bare "herna" at the start of a sentence: ${m[0]}`);
 if (/\b(herna|herny|hernu)\b/i.test(h1s[0] + ' ' + title + ' ' + desc) && !/počítačov/i.test(h1s[0])) e('bare "herna" in H1 / title / description');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/|<form|<video|<iframe|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny|\/seo-pro-strojirenske/.test(main)) e('no blog links, no form / video / iframe, no links to the other niche landing pages');
+if (/href="\/(?:en\/|ru\/)?blog\/(?!slabe-seo-konkurence-pocitacove-herny\/)|<form|<video|<iframe|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny|\/seo-pro-strojirenske/.test(main)) e('no blog links, no form / video / iframe, no links to the other niche landing pages');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');
