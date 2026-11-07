@@ -65,7 +65,9 @@ const raw = {
   heroConsulting: 'Konzultace',
 
   seenTitle: 'Co jsem viděl v Brně?',
-  seenAnswer: 'K 29. 10. 2026 jsem si na dotaz „realitní kancelář Brno“ prohlédl výsledky vyhledávání a 11 webů realitních kanceláří v Brně. Google ukazoval blok s mapou. U všech jedenácti webů byly často kladené otázky nedostatečné. Je to můj pozorovací vzorek, ne průzkum trhu. Názvy webů neuvádím.',
+  // Replaced on 07.11.2026 (brief of 07.11.2026, part 2): the new dated observation; the statement about the map block was not measured again, so it stays as a separate paragraph with its old date and query.
+  seenAnswer: 'K 7. 11. 2026 jsem na dotaz „realitní kancelář v Brně“ prohlédl 11 webů realitních kanceláří. Žádný z nich neměl FAQ, čtyři neměly blog a na stránkách služeb jsem u žádného nenašel jasnou krátkou odpověď na otázku klienta. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  seenMap: 'K 29. 10. 2026 jsem na dotaz „realitní kancelář Brno“ viděl, že Google ukazoval blok s mapou.',
 
   doTitle: 'Co pro realitní kancelář v Brně konkrétně dělám?',
   doAnswer: 'Řeším, aby byl web realitní kanceláře srozumitelný pro vyhledávače i AI: samostatné stránky nabídek a lokalit, správnou indexaci a odstranění duplicit, například u filtrů a prodaných nabídek, jasně popsané služby a odpovědi na časté otázky. Mapy a místní profily řeším samostatnou službou.',

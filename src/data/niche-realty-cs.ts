@@ -162,7 +162,7 @@ const raw = {
   reviewsAnswer: NICHE_SHARED_CS.reviews.answer,
   reviewsLink: NICHE_SHARED_CS.reviews.link,
 
-  articles: { title: 'Další články', lead: 'Praktické články pro majitele realitních kanceláří.', more: 'Číst článek', keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyPragueDistricts', 'postRealtyLocal'] as const },
+  articles: { title: 'Další články', lead: 'Praktické články pro majitele realitních kanceláří.', more: 'Číst článek', keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyPragueDistricts', 'postRealtyLocal', 'postWeakSeoRealty'] as const },
 
   faqTitle: 'Často kladené otázky',
   faq: [
