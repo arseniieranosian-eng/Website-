@@ -81,7 +81,7 @@ if (/B2B|×\s?3|\+200/.test(mainTxt)) e('no B2B ×3 / +200 %');
 const cnt = (re) => (main.match(re) || []).length;
 if (cnt(/href="\/audit-zdarma\/"/g) < 3 || cnt(/href="\/konzultace\/"/g) < 1 || cnt(/href="\/lokalni-seo-mapy\/"/g) !== 1 || cnt(/href="\/start-3-mesice\/"/g) < 1) e('links: audit-zdarma (≥3), konzultace, lokalni-seo-mapy exactly once, start');
 if (/href="\/seo-pro-(?!zubni)/.test(main)) e('no links to other niche pages');
-if (/<form|<video/.test(main) || (main.match(/class="post-card/g) || []).length !== 2) e('no form / video; two article cards (Další články: the weak-competition article and the FAQ article)');
+if (/<form|<video/.test(main) || (main.match(/class="post-card/g) || []).length !== 3) e('no form / video; three article cards (Další články: the weak-competition, FAQ and channels articles)');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`<loc>${BASE}${URL_PATH}</loc>`)) e('sitemap');
 if (!readFileSync('dist/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('home page lists the niche');
 done();
