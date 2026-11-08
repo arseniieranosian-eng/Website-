@@ -58,7 +58,8 @@ if (rows.length !== 5 || rows[0].join('|') !== 'Входит|Не входит')
 if (!mainTxt.includes('на 25.10.2026 ниша свободна') || !mainTxt.includes('На 25.10.2026 ниша компьютерных клубов свободна.') || /\d из 3/.test(mainTxt)) e('capacity lines, no counter');
 // Same terms as the Czech page: capacity date, audit exclusions, 7 FAQ
 const cs = txt(readFileSync('dist/seo-pro-pocitacove-herny-praha/index.html', 'utf8'));
-if (!cs.includes('25. 10. 2026')) e('the Czech page carries the same status date 25.10.2026');
+// 08.11.2026: the author confirmed the capacity ("volno") for the Czech page only; the Russian date 25.10.2026 waits for his decision, so the two dates differ for now (reported to the author).
+if (!cs.includes('25. 10. 2026') && !cs.includes('8. 11. 2026')) e('the Czech page carries a status date');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);

@@ -45,6 +45,16 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
+  <section class="section section--grey" id="pozorovani">
+    <div class="container narrow">
+      <h2>{C.obsTitle}</h2>
+      <p class="answer">{C.obsAnswer}</p>
+      <p class="muted small">{C.obsNote}</p>
+      <p>{C.obsWeak}</p>
+      <p class="small muted">Zdroj: {C.obsSource.before}{' '}<a href={C.obsSource.href} target="_blank" rel="noopener">{C.obsSource.href}</a>{C.obsSource.after}</p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container narrow">
       <h2>{C.auditTitle}</h2>

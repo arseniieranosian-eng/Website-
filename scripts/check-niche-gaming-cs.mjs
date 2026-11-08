@@ -37,7 +37,9 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 // Gambling ambiguity: every "herna" form must follow "počítačov…" (or be inside "herní"/"počítačov…" compounds); never a bare "herna"
-for (const m of mainTxt.matchAll(/(\S+)\s+(hern[aeuy]\b|hernou|hernách|heren\b)/gi)) if (!/^počítačov/i.test(m[1]) && !/^(a|i)$/i.test(m[1])) e(`bare "herna": "${m[0]}"`);
+// Brief of 08.11.2026: the observation block quotes the query „počítačová herna praha“ and says "Názvy heren a katalogů neuvádím" (verbatim from the brief).
+const hernaTxt = mainTxt.replace('Názvy heren a katalogů neuvádím', '');
+for (const m of hernaTxt.matchAll(/(\S+)\s+(hern[aeuy]\b|hernou|hernách|heren\b)/gi)) if (!/^[(„“"]*počítačov/i.test(m[1]) && !/^(a|i)$/i.test(m[1])) e(`bare "herna": "${m[0]}"`);
 for (const m of mainTxt.matchAll(/(^|[.?!:;]\s)(Herna|Herny|Hernu)\b/g)) e(`bare "herna" at the start of a sentence: ${m[0]}`);
 if (/\b(herna|herny|hernu)\b/i.test(h1s[0] + ' ' + title + ' ' + desc) && !/počítačov/i.test(h1s[0])) e('bare "herna" in H1 / title / description');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
@@ -61,7 +63,7 @@ if (lists(/Co se technicky kontroluje na webu počítačové herny:[\s\S]*?<ul c
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 5 || rows[0].join('|') !== 'Co obsahuje|Co neobsahuje') e('audit table: header + 4 rows');
 if (/Příklad auditu z příbuzného oboru|ukázk/i.test(mainTxt)) e('no audit-example link / video (the author has not decided)');
-if (!mainTxt.includes('k 25. 10. 2026 je obor volný') || !mainTxt.includes('K 25. 10. 2026 je obor počítačových heren volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity lines, no counter');
+if (!mainTxt.includes('k 8. 11. 2026 je obor volný') || !mainTxt.includes('K 8. 11. 2026 je obor počítačových heren volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity lines, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);

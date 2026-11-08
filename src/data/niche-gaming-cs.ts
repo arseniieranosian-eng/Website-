@@ -9,7 +9,8 @@ import { walk } from '../lib/cs-typo';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited.
 export const NICHE_GAMING_PUBLISHED = '2026-10-25';
-export const GAMING_CAPACITY_DATE = '25. 10. 2026';
+// Capacity date confirmed by the author on 08.11.2026 (the field stays free). The Russian page keeps its own date (GAMING_CAPACITY_DATE_RU) until the author decides.
+export const GAMING_CAPACITY_DATE = '8. 11. 2026';
 export const GAMING_CAPACITY_DATE_RU = '25.10.2026';
 
 const raw = {
@@ -49,6 +50,14 @@ const raw = {
   forTitle: 'Pro koho je to a pro koho ne?',
   forAnswer: 'Služba je pro jednu počítačovou hernu, menší síť klubů nebo esport arénu v Praze, která chce, aby ji zájemci našli na webu i v odpovědích AI. Začínáme technickým základem webu a pokračujeme stránkami tarifů, rezervací a akcí a odpověďmi na časté dotazy.',
 
+  // Observation block (brief of 08.11.2026): measurements of 07.11.2026, query "počítačová herna praha", mobile browser, Prague, English interface; 11 sites of the clubs themselves, catalogues excluded.
+  obsTitle: 'Co jsem zjistil na webech počítačových heren v Praze?',
+  obsAnswer: 'K 7. 11. 2026 jsem v Praze prohlédl 11 webů počítačových heren: u 10 chybělo FAQ, u všech blog a osm mělo všechny služby na jedné stránce. Ve zdrojovém kódu jsem strukturovaná data nenašel. Nad výsledky navíc stojí reklama, AI Overview a mapy, takže SEO je jen jeden z kanálů. Pozici nezaručuji.',
+  obsNote: 'Je to můj pozorovací vzorek, ne průzkum trhu: jeden dotaz („počítačová herna praha“), jedno zařízení, jeden den. Názvy heren a katalogů neuvádím.',
+  // The sentence about weak competition, approved verbatim by the author on 08.11.2026 (the same as in the article about the weak SEO of computer clubs).
+  obsWeak: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi počítačovými hernami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. To může být příležitost, ale ne jistota. Mým cílem je, aby jím byl váš web. Výsledek ani pozici nezaručuji.',
+  obsSource: { before: 'Google Search Central, Systémy řazení (ranking systems guide),', href: 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', after: ', Last updated 2025-12-10, zkontrolováno 7. 11. 2026.' },
+
   auditTitle: 'Co obsahuje bezplatný audit a co ne?',
   auditAnswer: 'Bezplatný audit je technický: kontroluji indexaci, duplicity a další technické chyby webu. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Nezahrnuje klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi. Další oblasti řeší placené služby, o kterých rozhodujete až po auditu.',
   audit: {
@@ -87,7 +96,8 @@ const raw = {
   faq: [
     priceFaqCs('gaming', 'počítačovou hernu'),
     { q: 'Potřebuje počítačová herna web, když má sociální sítě?', a: 'Sociální sítě slouží stávající komunitě, ale ceník, rezervace, adresu a otevírací hodiny najdou noví zájemci snáz na webu. Web zachytí i lidi, kteří hledají v Google nebo na mapách. Co potřebuje konkrétní počítačová herna, záleží na tom, odkud jí dnes zájemci přicházejí.' },
-    { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objeví za 2–3 měsíce. Délka závisí na stavu webu, konkurenci a rozsahu prací. Nejdřív proto doporučuji bezplatný technický audit.' },
+    // Answer replaced on 08.11.2026 (brief of 08.11.2026): the niche has no own projects, so the period "2–3 měsíce" is not confirmed by data of the niche.
+    { q: 'Jak dlouho trvá SEO?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Čím se SEO liší od reklamy?', a: 'Reklama přináší návštěvy rychleji, ale jen dokud za ni platíte. SEO se rozbíhá pomaleji, zato web a profily pracují i bez průběžného rozpočtu na kliknutí. Obě cesty lze kombinovat; SEO nenahrazuje reklamu a reklama nenahrazuje pořádek na webu. Co se vyplatí, závisí na rozpočtu a cílech klubu.' },
     { q: 'Co dělá bezplatný audit u webu s rezervacemi?', a: 'Zkontroluji, zda vyhledávač vidí stránky s rezervacemi, zda widgety a iframe nebrání indexaci a zda kalendář nebo parametry v adrese nevytvářejí duplicity. Do auditu nepatří klíčová slova, konkurence, mapy, viditelnost v AI, rychlost a mobilní verze.' },
     { q: 'Kolik firem z oboru obsluhujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Jde o limit mé kapacity, ne o exkluzivitu. K ${GAMING_CAPACITY_DATE} je obor počítačových heren volný. Změní-li se to, údaj na stránce aktualizuji, aby byl vždy platný a stejný ve všech jazykových verzích.` },
