@@ -58,7 +58,7 @@ for (const hd of SECTIONS.slice(1, 6)) {
 const steps = [...(main.match(/Как выглядит сотрудничество\?[\s\S]*?<\/table>/) || [''])[0].matchAll(/<tr>/g)].length;
 if (steps !== 6) e('steps table: header + 5 rows');
 // parity of the facts with the Czech page
-const par = [['16', '16'], ['14 из 16', '14 z nich'], ['5 сайтов', '5 webů'], ['65–70 %', '65–70 %'], ['2–3 месяца', '2–3 měsíce'], ['31.10.2026', '31. 10. 2026'], ['24 часов', '24 hodin'], ['три', 'tři'], ['2 000 Kč', '2 000 Kč'], ['3 000 Kč', '3 000 Kč'], ['50 000 Kč', '50 000 Kč'], ['15 000 Kč', '15 000 Kč'], ['25.10.2026', '25. 10. 2026']];
+const par = [['16', '16'], ['14 из 16', '14 z nich'], ['5 сайтов', '5 webů'], ['65–70 %', '65–70 %'], ['31.10.2026', '31. 10. 2026'], ['24 часов', '24 hodin'], ['три', 'tři'], ['2 000 Kč', '2 000 Kč'], ['3 000 Kč', '3 000 Kč'], ['50 000 Kč', '50 000 Kč'], ['15 000 Kč', '15 000 Kč'], ['25.10.2026', '25. 10. 2026']];
 for (const [r, c] of par) if (!mainTxt.includes(r) || !mainC.includes(c)) e(`parity: "${r}" (ru) and "${c}" (cs)`);
 if (!mainTxt.includes('Статус для ниши бухгалтерии на 31.10.2026: свободно.') || /\d из 3/.test(mainTxt)) e('capacity status: dated, no counter');
 if (!mainTxt.includes('март–сентябрь 2026')) e('translation case period');

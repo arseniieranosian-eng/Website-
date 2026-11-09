@@ -84,7 +84,7 @@ const EXPECT = [
   ['Reporty', 'Týdenní, call podle zájmu', 'Týdenní, call podle zájmu'],
 ];
 if (JSON.stringify(rows) !== JSON.stringify(EXPECT)) e(`table: ${JSON.stringify(rows)}`);
-for (const [hd, ans] of [['Kolik stojí Full SEO na rok?', 'Full SEO na rok stojí od 15 000 Kč měsíčně'], ['Kdy přijdou první výsledky SEO?', 'První výsledky SEO obvykle přijdou za 2-3 měsíce']]) {
+for (const [hd, ans] of [['Kolik stojí Full SEO na rok?', 'Full SEO na rok stojí od 15 000 Kč měsíčně'], ['Kdy přijdou první výsledky SEO?', 'Čas ani výsledek nelze zaručit']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 if (!body.includes('od 4 měsíců, s platbou za výsledek')) e('maps block must mention the standalone service terms');

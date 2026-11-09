@@ -26,7 +26,7 @@ export const NICHE_SHARED_CS = walk({
         { page: 'maps' as const, label: 'SEO pro Mapy', who: 'pro agentury, které hledají zákazníky lokálně', what: 'Google Maps a Mapy.com, od 4 měsíců' },
       ],
     },
-    note: 'První výsledky se obvykle objeví za 2–3 měsíce.',
+    note: 'Čas ani výsledek nelze zaručit.',
   },
   articles: { title: 'Další články pro agentury', lead: 'Praktické články pro majitele překladatelských agentur.', more: 'Číst článek', keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs', 'postWeakSeo'] as const },
   reviews: { title: 'Co říkají klienti?', answer: 'Recenze od klientů najdete na samostatné stránce, vždy s uvedením zdroje.', link: 'Všechny recenze' },
@@ -56,5 +56,5 @@ export const NICHE_SHARED_RU = {
   capacityTitle: 'Как я сотрудничаю с агентствами недвижимости?',
   capacityAnswer: `Я работаю одновременно не более чем с тремя компаниями из одной ниши. Данные на ${NICHE_CAPACITY_DATE_RU}, при изменении обновляю. Благодаря этому на каждую компанию хватает времени. Статус я обновляю при каждом изменении и показываю одинаковым во всех языковых версиях страницы. Счёт идёт отдельно по каждой нише.`,
   auditNot: ['ключевые слова', 'конкуренты', 'карты', 'видимость в AI-поиске', 'скорость загрузки', 'мобильная версия'],
-  formatsNote: 'Первые результаты обычно через 2–3 месяца.',
+  formatsNote: 'Срок и результат гарантировать нельзя.',
 };

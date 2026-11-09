@@ -104,7 +104,7 @@ export const HOME_CS = {
   faq: [
     { q: 'Jak probíhá bezplatný audit?', a: 'Pošlete adresu webu, zkontroluji technické chyby (indexaci, duplicity a další problémy) a do 24 hodin dostanete krátkou prezentaci. Bez callu a bez závazků.' },
     { q: 'Kolik stojí SEO služby?', a: `Audit je zdarma. Konzultace stojí od ${fmtKc(PRICES.questions)}, SEO start ${fmtKc(START_PRICE)} za 3 měsíce a Full SEO od ${fmtKc(FULLSEO_MONTHLY)} měsíčně. Ceny najdete u jednotlivých služeb výše.` },
-    { q: 'Za jak dlouho přijdou první výsledky?', a: 'První výsledky přicházejí obvykle za 2–3 měsíce. Záleží na oboru, konkurenci a stavu webu.' },
+    { q: 'Za jak dlouho přijdou první výsledky?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Pracujete i mimo Prahu?', a: 'Ano. Pracuji převážně na dálku, s klienty po celém Česku i v zahraničí; osobní schůzka v Praze je možná.' },
     { q: 'Čím se liší SEO a GEO/AEO?', a: 'SEO míří na pozice v Googlu a Seznamu, GEO/AEO na to, aby vás doporučovaly a citovaly AI nástroje. Dělám je společně.', link: 'geo' as const, linkText: 'SEO a GEO/AEO' },
     { q: 'Co když nevím, kterou službu potřebuji?', a: 'Začněte bezplatným auditem nebo konzultací, případně použijte výše blok „Kam dál?“.' },

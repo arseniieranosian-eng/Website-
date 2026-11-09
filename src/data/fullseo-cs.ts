@@ -122,7 +122,7 @@ export const FULLSEO_CS = {
   faqTitle: 'Časté otázky o Full SEO na rok',
   faq: [
     { q: 'Kolik stojí Full SEO na rok?', a: `Od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, přesná cena závisí na rozsahu práce a oboru.` },
-    { q: 'Jak dlouho než uvidím výsledky?', a: 'Obvykle za 2-3 měsíce.' },
+    { q: 'Jak dlouho než uvidím výsledky?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Jsou mapy součástí balíčku?', a: 'Ano, profily na Google, Mapy.com a Firmy.cz bez omezení počtu, včetně hovorů, tras a recenzí.' },
     { q: 'Jak často dostanu report?', a: 'Týdenní report, call podle zájmu.' },
     { q: 'Čím se liší Full SEO od Startu na 3 měsíce?', a: `Start je intenzivní první etapa na 3 měsíce za ${startPrice}: technický základ, struktura webu a mapy. Full SEO je práce na 12 měsíců podle roční strategie, ${from}, s obsahem každý měsíc, linkbuildingem a čtvrtletními plány.` },

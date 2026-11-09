@@ -128,7 +128,7 @@ const raw = {
   faqTitle: 'Často kladené otázky',
   faq: [
     priceFaqCs('translation', 'překladatelskou agenturu'),
-    { q: 'Kdy se projeví první změny?', a: 'V mých projektech se první změny obvykle objevují za 2–3 měsíce. Je to zkušenost s mými projekty, ne obecné pravidlo trhu. Termín závisí na stavu webu, konkurenci v oboru a na tom, zda jde o sezónní pokles, nebo o chybu, což je vidět až po kontrole webu.' },
+    { q: 'Kdy se projeví první změny?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Má smysl pro agenturu v menším městě lokální vyhledávání?', a: 'V menším městě firmy často hledají dodavatele s názvem města, proto je důležité mít správný profil na Google Maps a Mapy.com i stránky, které místo zmiňují. Je to můj předpoklad, ne tvrdé pravidlo: ověřte ho na výsledcích hledání ve svém oboru a na vlastních poptávkách.' },
     { q: 'Jak se řeší SEO agentury s pobočkami v několika městech?', a: 'U agentury s pobočkami v několika městech se obvykle dělají samostatné stránky a profily pro každé město s vlastním obsahem, ne kopie jedné stránky. Důležité je, aby se údaje na webu, Google Maps a Mapy.com shodovaly. Konkrétní řešení závisí na tom, kde mají zákazníci sídlo.' },
     { q: 'Konkurují mi agentury z Prahy a Brna?', a: 'Záleží na tom, na jaké dotazy cílíte. U dotazů bez názvu města se můžete potkat s agenturami z celé země, u dotazů s městem jde hlavně o místní firmy. Konkrétní závěry nedělám bez prohlédnutí výsledků hledání pro váš obor a bez data kontroly.' },

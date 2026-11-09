@@ -40,9 +40,9 @@ export const FAQ: FaqItem[] = [
       uk: 'Коли будуть результати?',
     },
     a: {
-      cs: 'První změny po technických opravách bývají vidět za 4–8 týdnů. Výrazný růst návštěvnosti a poptávek obvykle přichází mezi 3. a 6. měsícem, v konkurenčních oborech později.',
+      cs: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.',
       en: 'The first changes after technical fixes usually show within 4–8 weeks. Significant growth in traffic and enquiries typically comes between months 3 and 6, later in competitive niches.',
-      ru: 'Первые изменения после технических исправлений обычно видны через 4–8 недель. Заметный рост трафика и заявок — как правило, на 3–6-м месяце, в конкурентных нишах позже.',
+      ru: 'Срок и результат гарантировать нельзя, потому что всё зависит от состояния сайта, конкуренции и объёма правок. Сначала проходит бесплатный технический аудит: он показывает ошибки индексации и дубли страниц. По его итогам согласуется порядок работ. Назвать срок я не могу, поэтому не указываю его.',
       uk: 'Перші зміни після технічних виправлень зазвичай помітні через 4–8 тижнів. Помітне зростання трафіку та заявок — як правило, на 3–6-му місяці, у конкурентних нішах пізніше.',
     },
   },

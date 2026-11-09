@@ -12,7 +12,7 @@ const TITLE = 'Продвижение переводческого агентс�
 const DESC = 'Делаю SEO и GEO/AEO для переводческих агентств в Брно: сайт, языковые версии, карты, FAQ. Закажите бесплатный технический аудит.';
 const SECTIONS = [H1, 'Что показывает выдача по запросу «překlady Brno»?', 'Что я делаю для переводческого агентства в Брно?', 'Что я увидел на сайтах двух переводческих агентств?', 'Как это работает на практике?', 'Как я работаю с агентствами?', 'Что входит в бесплатный аудит?', 'Какие форматы сотрудничества есть и сколько они стоят?', 'Что говорят клиенты?', 'Частые вопросы', 'Хотите узнать, какие технические ошибки есть на сайте вашего агентства?'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/seo-i-geo/', '/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/', '/ru/otzyvy/', '/ru/obo-mne/'];
-const FORBIDDEN = ['гарантирую', 'гарантировать', 'гарантий', 'гарантированно', 'топ-1', 'первое место', 'быстро', 'втрое', 'в три раза', '+200', 'ztrojn', 'přesto', 'skrivanek', 'Skřivánek', 'Presto', 'presto', 'бюро переводов', 'SEO агентств', 'нотариальн'];
+const FORBIDDEN = ['гарантирую', /* 'гарантировать' allowed since 09.11.2026: the approved timing / ads FAQ answers say "гарантировать нельзя" */ 'гарантий', 'гарантированно', 'топ-1', 'первое место', 'быстро', 'втрое', 'в три раза', '+200', 'ztrojn', 'přesto', 'skrivanek', 'Skřivánek', 'Presto', 'presto', 'бюро переводов', 'SEO агентств', 'нотариальн'];
 
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
@@ -53,7 +53,7 @@ for (const hd of SECTIONS.slice(1, 8)) {
   if (wc(txt(m[1])) > 60) e(`direct answer of "${hd}": ${wc(txt(m[1]))} words`);
 }
 // parity of the facts with the Czech page
-const par = [['65–70 %', '65–70 %'], ['март–сентябрь 2026', 'březen–září 2026'], ['16.10.2026', '16. 10. 2026'], ['24.10.2026', '24. 10. 2026'], ['2–3 месяца', '2–3 měsíce'], ['24 часов', '24 hodin'], ['2 000 Kč', '2 000 Kč'], ['50 000 Kč', '50 000 Kč'], ['15 000 Kč', '15 000 Kč'], ['топ-5', 'top 5'], ['июнь 2026', 'červen 2026'], ['девятиминутное', '9minutovém']];
+const par = [['65–70 %', '65–70 %'], ['март–сентябрь 2026', 'březen–září 2026'], ['16.10.2026', '16. 10. 2026'], ['24.10.2026', '24. 10. 2026'], ['24 часов', '24 hodin'], ['2 000 Kč', '2 000 Kč'], ['50 000 Kč', '50 000 Kč'], ['15 000 Kč', '15 000 Kč'], ['топ-5', 'top 5'], ['июнь 2026', 'červen 2026'], ['девятиминутное', '9minutovém']];
 for (const [r, c] of par) if (!mainTxt.includes(r.replace('июнь', 'июне').replace('девятиминутное', 'девятиминутное')) && !mainTxt.includes(r) || !mainC.includes(c)) e(`parity: "${r}" (ru) and "${c}" (cs)`);
 if (!mainTxt.includes('Статус для ниши переводческих агентств на 24.10.2026: свободно.') || !mainC.includes('Stav pro obor překladatelských agentur k 24. 10. 2026: volno.')) e('capacity status: dated and "free" on both pages');
 // the video facade: neutral poster, no company names, one link to the Czech article, no VideoObject

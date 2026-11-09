@@ -32,7 +32,7 @@ const raw = {
   ],
 
   doTitle: 'Co pro tiskárny a polygrafické firmy dělám?',
-  doAnswer: 'Postupuji ve třech krocích: technický základ webu, mapa dotazů podle nákupního trychtýře a až poté vstupní stránky pro služby a produkty. K tomu přidávám FAQ a přípravu na GEO/AEO. U mých projektů se první změny obvykle objevují za 2–3 měsíce.',
+  doAnswer: 'Postupuji ve třech krocích: technický základ webu, mapa dotazů podle nákupního trychtýře a až poté vstupní stránky pro služby a produkty. K tomu přidávám FAQ a přípravu na GEO/AEO.',
   do: [
     'Technický základ webu: indexace, duplicity a další technické problémy.',
     'Mapa dotazů podle nákupního trychtýře.',
@@ -86,7 +86,7 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     { q: 'Funguje to i v Česku?', a: 'Postup se přenést dá: nejdřív technický základ, potom mapa dotazů podle trychtýře a až poté vstupní stránky. Konkrétní čísla ani poptávka se nepřenesou, záleží na oboru, konkurenci a stavu webu. Proto vždy začínám technickou kontrolou konkrétního webu a teprve potom plánuji další kroky.' },
-    { q: 'Za jak dlouho se SEO projeví?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav. Případová studie sledovala růst za 12 měsíců, ne za první měsíce. Termín pro váš web vychází až z kontroly konkrétního webu.' },
+    { q: 'Za jak dlouho se SEO projeví?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Je to pro e-shop i pro místní polygrafii?', a: 'Ano, postup je podobný, liší se důraz. E-shop řeší hlavně katalog, varianty produktů, filtry a kalkulačky. Místní polygrafie s menším webem řeší hlavně stránky služeb a jejich srozumitelnost pro vyhledávač i pro AI. Pokud si nejste jistí, začněte bezplatným technickým auditem.' },
     { q: 'Pracujete s více tiskárnami současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${TYPOGRAPHY_CAPACITY_DATE} je obor tiskáren a polygrafie volný.` },
     priceFaqCs('printing', 'tiskárny a polygrafii'),

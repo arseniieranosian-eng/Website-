@@ -121,7 +121,7 @@ const raw = {
   faqTitle: 'Časté otázky o přesměrování a chybách 404',
   faq: [
     { q: 'Jak dlouho nechat přesměrování zapnuté?', a: 'Dlouhodobě, ideálně trvale, pokud stará adresa měla návštěvnost nebo odkazy. Odstranit ho lze, až když na starou adresu nikdo neodkazuje ani nechodí.' },
-    { q: 'Zachová 301 pozice?', a: '301 pomáhá předat signály ze staré adresy na novou, ale pozice nezaručuje. Výsledek závisí na webu a na dalších změnách; obvykle se projeví za dny až týdny.' },
+    { q: 'Zachová 301 pozice?', a: '301 pomáhá předat signály ze staré adresy na novou, ale pozice nezaručuje. Výsledek závisí na webu a na dalších změnách.' },
     { q: 'Co je soft 404?', a: 'Stránka, která se tváří jako nalezená, ale ve skutečnosti nemá obsah nebo ukazuje chybu. Google ji může zpracovat jako 404.' },
     { q: 'Mám přesměrovat vše na úvodní stránku?', a: 'Ne. Každou starou adresu přesměrujte na nejbližší odpovídající novou stránku. Hromadné přesměrování na úvodní stránku může Google vyhodnotit jako soft 404.' },
   ],

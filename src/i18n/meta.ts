@@ -77,7 +77,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'SEO start na 3 měsíce',
       title: 'SEO start na 3 měsíce za 50 000 Kč | Eranosian',
-      description: 'Technický audit, opravy, hlavní stránky a mapy Google/Mapy.com za 3 měsíce. První výsledky obvykle za 2-3 měsíce. Nezávazná poptávka.',
+      description: 'Technický audit, opravy, hlavní stránky a mapy Google/Mapy.com za 3 měsíce. Čas ani výsledek nelze zaručit. Nezávazná poptávka.',
       h1: 'SEO start na 3 měsíce',
     },
     en: {
@@ -89,7 +89,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: {
       name: 'Старт на 3 месяца',
       title: 'SEO на 3 месяца — от 50 000 Kč | Eranosian',
-      description: 'Технический аудит, правки, контент и карты Google/Seznam за 3 месяца. Первые результаты через 2-3 месяца, отчёты еженедельно. Оставьте заявку.',
+      description: 'Технический аудит, правки, контент и карты Google/Seznam за 3 месяца. Отчёты еженедельно, срок гарантировать нельзя. Оставьте заявку.',
       h1: 'SEO продвижение сайта на 3 месяца',
     },
   },
@@ -97,7 +97,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Full SEO na rok',
       title: 'Full SEO na rok — od 15 000 Kč měsíčně | Eranosian',
-      description: 'Kompletní SEO na 12 měsíců: obsah, odkazy, technický dohled a mapy Google/Mapy.com. První výsledky obvykle za 2-3 měsíce. Pošlete nezávaznou poptávku.',
+      description: 'Kompletní SEO na 12 měsíců: obsah, odkazy, technický dohled a mapy Google/Mapy.com. Čas ani výsledek nelze zaručit. Pošlete nezávaznou poptávku.',
       h1: 'Full SEO na rok',
     },
     en: {
@@ -109,7 +109,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: {
       name: 'Full SEO на год',
       title: 'SEO на год — от 15 000 Kč/мес | Eranosian',
-      description: 'Полное SEO-сопровождение на 12 месяцев: аудит, контент, ссылки, карты Google и Seznam. Первые результаты через 2-3 месяца. Оставьте заявку на SEO.',
+      description: 'Полное SEO-сопровождение на 12 месяцев: аудит, контент, ссылки, карты Google и Seznam. Срок и результат гарантировать нельзя. Оставьте заявку на SEO.',
       h1: 'SEO продвижение сайта на год',
     },
   },

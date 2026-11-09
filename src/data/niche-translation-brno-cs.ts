@@ -129,7 +129,7 @@ const raw = {
   faqTitle: 'Často kladené otázky',
   faq: [
     priceFaqCs('translation', 'překladatelskou agenturu'),
-    { q: 'Kdy se projeví první změny?', a: 'V mých projektech se první změny obvykle objevují za 2–3 měsíce. Termín závisí na stavu webu, konkurenci a rozsahu úprav a vychází až z auditu. Případová studie s překladatelskou agenturou začala v březnu 2026.' },
+    { q: 'Kdy se projeví první změny?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Jak se liší SEO od reklamy pro agenturu v Brně?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
     { q: 'Pomůže agentuře v Brně profil na Mapy.com a Google Maps?', a: 'Může pomoci, aby ji firmy našly při hledání s názvem města. Důležité je, aby byly údaje v profilu shodné s webem a aby odkazy z profilu vedly na správné stránky. Mapy.com provozuje Seznam, takže profil pomáhá i těm, kdo hledají přes Seznam.' },
     { q: 'Potřebuje agentura samostatné stránky pro jazykové páry?', a: 'Ne vždy, jen tam, kde je poptávka.' },

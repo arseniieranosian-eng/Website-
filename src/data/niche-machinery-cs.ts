@@ -27,7 +27,7 @@ const raw = {
   diffText: 'Rozhodují tu technické detaily a spolehlivost, ne rychlé nákupní rozhodnutí. Proto má smysl, aby web odpovídal na otázky odběratele ještě před prvním kontaktem.',
 
   doTitle: 'Co pro strojírenskou firmu dělám?',
-  doAnswer: 'Postupuji ve třech krocích: technický základ webu, stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ a příprava na GEO/AEO. Řeším také indexaci PDF katalogů a existujících jazykových verzí. U mých projektů se první změny obvykle objevují za 2–3 měsíce.',
+  doAnswer: 'Postupuji ve třech krocích: technický základ webu, stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ a příprava na GEO/AEO. Řeším také indexaci PDF katalogů a existujících jazykových verzí.',
   do: [
     'Technický základ webu: indexace, duplicity a další technické problémy.',
     'Stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ.',
@@ -87,7 +87,7 @@ const raw = {
   faq: [
     priceFaqCs('machinery', 'strojírenskou firmu'),
     { q: 'Potřebuje výrobní firma web, když má stálé zákazníky?', a: 'Záleží na tom, odkud chcete zakázky získávat. Stálí zákazníci jsou dobrý základ, ale nový odběratel si dodavatele může před oslovením vyhledat. Web pak slouží k ověření důvěry a k zachycení poptávek od těch, kdo vás hledají sami.' },
-    { q: 'Jak dlouho trvá SEO?', a: 'U mých projektů se první změny obvykle objevují za 2–3 měsíce. Tuto dobu nelze brát jako slib pro váš web.' },
+    { q: 'Jak dlouho trvá SEO?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Jak se SEO liší od reklamy?', a: 'Reklama přivádí zájemce rychleji, ale jen po dobu, kdy za ni platíte. SEO potřebuje čas, zlepšení webu ale zůstávají, i když výsledek není zaručen. Pravidla reklamních platforem je před spuštěním vhodné ověřit. Kanály lze kombinovat, který přinese víc, předem říct nelze.' },
     { q: 'Co dělá bezplatný audit u webu s PDF katalogy a více jazyky?', a: 'Kontroluje, zda se PDF katalogy a jazykové verze indexují a zda nevznikají duplicity s HTML stránkami, včetně canonical adres. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Co konkrétně se najde, předem říct nelze. Klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi audit neřeší.' },
     { q: 'Kolik firem z oboru obsluhujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${MACHINERY_CAPACITY_DATE} je obor strojírenských a výrobních firem volný. Názvy a data klientů nezveřejňuji. Údaje o kapacitě aktualizuji při změně. Díky tomu na každý projekt zbývá dost času. Stav je vždy uveden s datem.` },

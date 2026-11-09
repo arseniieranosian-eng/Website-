@@ -76,7 +76,7 @@ const raw = {
     { q: 'Musí mít ordinace vlastní web, nebo stačí profil na mapách?', a: 'Profil na mapách pomáhá, když lidé hledají ordinaci spolu s názvem města, ale obvykle nenahradí web, na kterém jsou služby, lékaři a způsob objednání. Je to moje doporučení, ne pravidlo trhu. Údaje v profilu mají odpovídat webu. Mapy řeším jako samostatnou službu.' },
     { q: 'Kdo schvaluje texty o léčbě?', a: 'Texty o léčbě má schvalovat lékař ordinace, protože za obsah odpovídá ordinace. Já připravuji strukturu stránek a formulace a upozorním na místa, kde je potřeba odborný souhlas. Medicínská tvrzení nepíšu a jejich správnost neposuzuji. Jde o moji doporučenou praxi, ne o právní pokyn.' },
     { q: 'Co zahrnuje bezplatný audit?', a: 'Bezplatný audit se týká jen technických chyb webu: indexace, duplicit a dalších technických věcí. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi audit neobsahuje. Ty jsou součástí placené spolupráce, na kterou po auditu nemusíte přistoupit.' },
-    { q: 'Kdy se projeví první změny?', a: 'V mých projektech se první změny obvykle projevují po dvou až třech měsících. Je to zkušenost z mých projektů: termín před prohlídkou webu neurčuji, protože závisí na jeho stavu a na konkurenci. Nejprve se podívám na web a teprve potom řeknu, co lze udělat.' },
+    { q: 'Kdy se projeví první změny?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
   ],
 
   endTitle: 'Chcete vědět, jaké technické chyby má váš web?',

@@ -117,7 +117,7 @@ const raw = {
   faqTitle: 'Často kladené otázky',
   faq: [
     priceFaqCs('translation', 'překladatelskou agenturu'),
-    { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu?', a: 'První výsledky se obvykle objeví za 2–3 měsíce. Záleží na stavu webu a konkurenci v oboru.' },
+    { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Čím se SEO liší od reklamy pro překladatelskou agenturu?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
     { q: 'Potřebuje agentura samostatnou stránku pro každý jazykový pár?', a: 'Ne vždy. Stránku má smysl dělat tam, kde na pár existuje poptávka a agentura umí o něm napsat konkrétně.' },
     { q: 'Jak vypadá SEO pro agenturu s pobočkami v několika městech?', a: 'Každé město potřebuje vlastní lokální stránku a profil na Google Maps a na Mapy.com s jednotnými údaji. Praha má vlastní podmínky a konkurenci, proto její stránka popisuje pražskou nabídku a nekopíruje text jiných měst.' },

@@ -86,7 +86,7 @@ export const START_CS = {
   weekly: 'Každý týden dostanete report.',
 
   resultsTitle: 'Kdy přijdou první výsledky SEO?',
-  resultsAnswer: 'První výsledky SEO obvykle přijdou za 2-3 měsíce od začátku spolupráce. Přesný průběh závisí na oboru a konkurenci. Každý týden vidíte v reportu, co je hotovo a jak se mění čísla.',
+  resultsAnswer: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.',
 
 
   compareTitle: 'Start na 3 měsíce, nebo Full SEO na rok?',
@@ -130,7 +130,7 @@ export const START_CS = {
   faq: [
     { q: 'Kolik stojí SEO start na 3 měsíce?', a: `${price}, ${payment}.` },
     { q: 'Jak často dostanu report?', a: 'Týdenní report, call podle zájmu.' },
-    { q: 'Kdy přijdou první výsledky?', a: 'Obvykle za 2-3 měsíce.' },
+    { q: 'Kdy přijdou první výsledky?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Jsou mapy součástí balíčku?', a: 'Ano, profily na Google, Mapy.com a Firmy.cz bez omezení počtu, včetně hovorů, tras a recenzí.' },
     { q: 'Čím se liší Start od Full SEO na rok?', a: `Start je intenzivní první etapa na 3 měsíce za ${price}: technický základ, struktura webu a mapy. Full SEO je práce na 12 měsíců podle roční strategie, od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, s obsahem každý měsíc, linkbuildingem a čtvrtletními plány.` },
   ],

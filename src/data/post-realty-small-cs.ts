@@ -65,7 +65,7 @@ const raw = {
   checkAuditLinkText: 'bezplatný audit',
 
   timeTitle: 'Kolik času a práce SEO vyžaduje?',
-  timeAnswer: 'SEO vyžaduje pravidelnou práci a trpělivost, ne jednorázový zásah. Kancelář musí počítat s tím, že obsah vzniká postupně a změny se projeví až po čase. Konkrétní rozsah a ceny jsou na stránkách jednotlivých služeb. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce.',
+  timeAnswer: 'SEO vyžaduje pravidelnou práci a trpělivost, ne jednorázový zásah. Kancelář musí počítat s tím, že obsah vzniká postupně a změny se projeví až po čase. Konkrétní rozsah a ceny jsou na stránkách jednotlivých služeb.',
   timeLead: 'Rozsah najdete u služeb',
   timeStart: 'SEO start na 3 měsíce',
   timeFull: 'Full SEO na rok',
@@ -90,7 +90,7 @@ const raw = {
     { q: 'Má SEO smysl pro malý byznys?', a: 'Může mít, pokud firma chce získávat klienty i z vyhledávání a umí pravidelně pracovat s obsahem. Nemusí mít, pokud klienty získává jen doporučením a vyhledávání nepotřebuje. Záleží na cíli, kapacitě a konkurenci. Zda se SEO vyplatí právě vám, rozhodne až konzultace nad konkrétním webem.' },
     { q: 'Může malá realitní kancelář uspět v SEO?', a: 'Může, pokud cílí na reálné cíle: užší, místní dotazy a konkrétní služby, ne obecné dotazy typu prodej bytu v Praze. Je to otázka času, kapacity a konkurence na vašem trhu. Začněte lokalitami a službami, které kancelář opravdu zná a nabízí.' },
     { q: 'Kdy SEO nedává smysl?', a: 'SEO nedává smysl, pokud potřebujete klienty okamžitě, nemáte kapacitu na obsah, nebo klienty získáváte jen doporučením. Také nemá smysl bez jasné nabídky, kterou lze popsat na webu. V těchto případech bývá lepší jiný kanál, například reklama nebo mapy, o kterých píšu v přehledu kanálů.' },
-    { q: 'Kolik času zabere SEO?', a: 'SEO vyžaduje pravidelnou práci a čas, žádný jednorázový zásah. U mých vlastních projektů se první změny obvykle objevují za 2–3 měsíce. Doba závisí na stavu webu, konkurenci a rozsahu úprav. Pomalejší průběh neznamená, že je něco špatně. Sledujte stránky, poptávky a návštěvnost v delším období.' },
+    { q: 'Kolik času zabere SEO?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Mám začít SEO, nebo reklamou?', a: 'Záleží na cíli a rozpočtu. Reklama obvykle přivede návštěvníky rychleji, ale jen po dobu placení. SEO pracuje déle a nemá záruku výsledku. Kombinace závisí na velikosti kanceláře a kapacitě. Podrobné srovnání kanálů najdete v samostatném článku. Reklamu nespravuji, takže doporučení nestavím na vlastním zájmu.' },
     { q: 'Co mám zkontrolovat jako první?', a: 'Zkontrolujte, zda jsou důležité stránky ve vyhledávání, zda má každá služba vlastní stránku, zda je vidět kontakt, zda poznáte zdroj poptávky a zda máte kapacitu na obsah. Technické chyby ukáže bezplatný audit, prezentaci dostanete do 24 hodin, bez hovoru a bez závazku.', links: [{ page: 'audit' as const, text: 'Bezplatný audit' }] },
   ],

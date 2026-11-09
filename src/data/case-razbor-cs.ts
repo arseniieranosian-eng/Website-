@@ -82,7 +82,7 @@ const raw = {
     { q: 'Může se malá kancelář dostat na top u dotazu „ocenění nemovitosti“?', a: 'Na široký dotaz „ocenění nemovitosti“ je top pozice pro malou kancelář nereálná, protože v hledání převažují velké projekty a specializované služby. Lepší šanci mají užší místní dotazy a obsah, který odpovídá na otázky majitelů. Plán proto staví na užších dotazech a konkrétních odpovědích.' },
     { q: 'Dává SEO smysl pro každou malou kancelář?', a: 'SEO často pomůže, ale ne vždy. Pokud poptávky přicházejí hlavně z doporučení a z reklamy, může být vyhledávání jen doplňkovým kanálem. Rozhodnutí závisí na webu, oboru a rozpočtu. Proto konzultace u každého navrženého směru začíná ověřením poptávky, ne slibem výsledku.' },
     { q: 'Co obsahuje plán na 12 měsíců?', a: 'Plán na 12 měsíců má etapy s ověřitelnými kroky: opravy webu, spuštění vybraných směrů a vyhodnocení dat. Rozsah a načasování závisí na webu, oboru a rozpočtu. Každá etapa má vlastní cíl a kontrolní bod, takže je vidět, co se udělalo, proč a co z toho plyne. Plán se upravuje podle dat z předchozí etapy.' },
-    { q: 'Kdy se objeví první výsledky?', a: 'U tohoto klienta lhůtu uvést nelze, protože práce zatím nezačala. U svých projektů vidím změny obvykle po dvou až třech měsících. Rychlost závisí na stavu webu, konkurenci a rozsahu změn. Až práce začne, doplním na stránku skutečný průběh s daty.' },
+    { q: 'Kdy se objeví první výsledky?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
   ],
 
   relatedTitle: 'Související stránky',
