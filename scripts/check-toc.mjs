@@ -13,7 +13,16 @@ let articles = 0;
 for (const p of pages) {
   const u = urlOf(p); const h = readFileSync(p, 'utf8');
   const nav = h.match(/<nav class="toc"[\s\S]*?<\/nav>/);
-  if (!isArticle(u)) { if (nav || /<ol class="toc"/.test(h)) e(`${u}: table of contents outside a blog article`); continue; }
+  if (u === '/caste-dotazy/') { // the FAQ hub page has its own contents (6 groups, brief of 09.11.2026): links = ids of the H2 groups, the closing CTA heading is not listed
+    const m0 = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
+    const hs = [...m0.matchAll(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/g)].map((m) => ({ id: (m[1].match(/\bid="([^"]*)"/) || [, ''])[1], text: txt(m[2]) }));
+    const ls = nav ? [...nav[0].matchAll(/<a href="#([^"]+)">([\s\S]*?)<\/a>/g)].map((m) => ({ id: m[1], text: txt(m[2]) })) : [];
+    if (!nav || !nav[0].includes('aria-label="Obsah stránky"')) e(`${u}: contents block missing`);
+    if (hs.length !== ls.length + 1 || hs[hs.length - 1].id !== 'jina-otazka') e(`${u}: contents must list every H2 group but the closing CTA`);
+    for (const l of ls) { const t = hs.find((x) => x.id === l.id); if (!t) e(`${u}: broken anchor #${l.id}`); else if (t.text !== l.text) e(`${u}: link text differs from heading #${l.id}`); }
+    continue;
+  }
+  if (!isArticle(u)) { if (nav || /<ol class=\"toc\"/.test(h)) e(`${u}: table of contents outside a blog article`); continue; }
   articles++;
   const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
   const h2 = [...main.matchAll(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/g)].map((m) => ({ id: (m[1].match(/\bid="([^"]*)"/) || [, ''])[1], text: txt(m[2]) }));
