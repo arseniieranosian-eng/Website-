@@ -76,3 +76,61 @@ export function addToc(body: string, lang: Lang, pageKey: string | undefined): s
   }
   return newHero + newRest;
 }
+
+// ---- Service pages (audit, consultation, 3-month start, full SEO, maps, SEO and GEO/AEO; every language), brief of 09.11.2026 ----
+// The same block as in the articles, directly under the introduction of the hero (below its buttons, full width). The ids of the headings are made from the heading text (no hand-written map: the
+// structure differs per language), the links are the headings themselves. Not listed: the enquiry form, the "other services" cards and dark call-to-action bands.
+export const SERVICE_KEYS_TOC = new Set(['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo']);
+const LABEL_SERVICE: Record<Lang, { title: string; aria: string }> = {
+  cs: { title: 'Na stránce najdete:', aria: 'Obsah stránky' },
+  ru: { title: 'На странице:', aria: 'Содержание страницы' },
+  en: { title: 'On this page:', aria: 'Page contents' },
+  uk: { title: 'На сторінці:', aria: 'Зміст сторінки' },
+};
+const CYR: Record<string, string> = { а: 'a', б: 'b', в: 'v', г: 'g', ґ: 'g', д: 'd', е: 'e', є: 'ie', ж: 'zh', з: 'z', и: 'i', і: 'i', ї: 'i', й: 'i', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f', х: 'kh', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'shch', ъ: '', ы: 'y', ь: '', э: 'e', ю: 'iu', я: 'ia', ё: 'e' };
+const OTHER_SERVICES = /^(?:Other services|Další služby|Другие услуги|Інші послуги)$/i;
+const decode = (s: string) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ');
+function slug(text: string): string {
+  const t = decode(text).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[а-яёіїєґъь]/g, (c) => CYR[c] ?? '');
+  const words = t.replace(/[^a-z0-9]+/g, ' ').trim().split(' ').filter(Boolean).slice(0, 7);
+  return words.join('-') || 'sekce';
+}
+
+export function addServiceToc(body: string, lang: Lang): string {
+  const heroStart = body.indexOf('<section class="page-hero">');
+  if (heroStart < 0) return body;
+  const heroEnd = body.indexOf('</section>', heroStart);
+  const rest = body.slice(heroEnd + '</section>'.length);
+  const taken = new Set([...body.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
+  const used = new Set<string>();
+  const entries: { id: string; text: string }[] = [];
+  const secRx = /<section(\b[^>]*)>([\s\S]*?)<\/section>/g;
+  const newRest = rest.replace(secRx, (whole, attrs: string, inner: string) => {
+    const nH2 = (inner.match(/<h2\b/g) || []).length;
+    if (/section--dark|cta-band/.test(attrs) || (/<form\b/.test(inner) && nH2 <= 1)) return whole;
+    let secAttrs = attrs;
+    const inner2 = inner.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/g, (h, hattrs: string, content: string) => {
+      const text = strip(content);
+      if (!text || OTHER_SERVICES.test(text)) return h;
+      const own = (hattrs.match(/\bid="([^"]*)"/) || [, ''])[1];
+      if (own) { used.add(own); entries.push({ id: own, text }); return h; }
+      // the "other services" cards: a heading in a section head followed by link cards only
+      if (/section-head/.test(inner.slice(Math.max(0, inner.indexOf(h) - 60), inner.indexOf(h))) && (inner.match(/card--link/g) || []).length >= 3 && !/<p class="answer"/.test(inner)) return h;
+      let id = (secAttrs.match(/\sid="([^"]*)"/) || [, ''])[1];
+      if (id) secAttrs = secAttrs.replace(/\sid="[^"]*"/, '');
+      else {
+        const base = slug(text); id = base; let n = 2;
+        while (taken.has(id) || used.has(id) || RESERVED.has(id)) id = `${base}-${n++}`;
+      }
+      used.add(id); taken.add(id);
+      entries.push({ id, text });
+      return `<h2${hattrs} id="${id}">${content}</h2>`;
+    });
+    return `<section${secAttrs}>${inner2}</section>`;
+  });
+  if (entries.length < TOC_MIN_ITEMS) return body;
+  const L = LABEL_SERVICE[lang] ?? LABEL_SERVICE.cs;
+  const li = entries.map((e) => `<li><a href="#${e.id}">${e.text}</a></li>`).join('');
+  const nav = `<div class="container"><nav class="toc toc--cols" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div>`;
+  return body.slice(0, heroEnd) + nav + body.slice(heroEnd, heroEnd + '</section>'.length) + newRest;
+}
