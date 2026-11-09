@@ -793,7 +793,7 @@ ul, ol { margin-bottom: var(--flow); }
 
 .footer-mistake { padding-top: 8px; }
 .footer-mistake p { margin: 0; color: #a9afbd; }
-.footer-mistake a { color: #9db8ff; }
+.footer-mistake a { color: #9db8ff; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Photos of the free audit and the SEO consultation (author, 05.11.2026): ru / uk service cards, tables, hero and the decorative slot */
 .svc-photo { border-radius: 10px; object-fit: cover; height: auto; }
