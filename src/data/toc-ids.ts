@@ -1,0 +1,51 @@
+// Anchor ids of the H2 headings of the blog articles (table of contents, brief of 09.11.2026). One place: the key is the Czech path of the article, the value the ids of its H2 in order
+// (the closing call-to-action heading and an empty heading have no id and are not in the list). The same section has the same id in every language version (the Russian mirrors use the key of
+// the Czech article). Ids that already existed on the sections (e.g. #kanaly ... #zacit of the real-estate article) are kept as they were. Ids are short, ASCII, semantic words, not the heading text.
+// Adding an H2 to an article without adding its id here fails the build (layouts/Base.astro and scripts/check-toc.mjs).
+export const TOC_IDS: Record<string, string[]> = {
+  '/blog/audit-konzultace-nebo-start/': ['prvni-krok', 'audit', 'konzultace', 'start', 'full-seo', 'povinnost', 'navaznost', 'zeptat-se', 'faq'],
+  '/blog/co-je-seo-audit/': ['definice', 'slozeni', 'typy', 'zdarma', 'nenajde', 'vysledek', 'kdy-staci', 'kvalita', 'faq'],
+  '/blog/duplicitni-obsah/': ['definice', 'priciny', 'dopad', 'poznani', 'reseni', 'nevadi', 'indexace', 'faq'],
+  '/blog/duplicitni-stranky-eshop-tisk-varianty/': ['vznik', 'varianty', 'filtry', 'canonical', 'kontrola', 'faq'],
+  '/blog/faq-na-webu-zubni-ordinace/': ['definice', 'otazky', 'umisteni', 'pozorovani', 'faqpage', 'faq'],
+  '/blog/jak-dlouho-trva-seo-pro-ucetni-kancelar/': ['faktory', 'prvni-zmeny', 'etapy', 'mereni', 'zpozdeni', 'zmena-planu', 'cekani', 'faq'],
+  '/blog/jak-vybrat-seo-specialistu/': ['dovednosti', 'otazky', 'slib', 'varovani', 'pristup', 'reference', 'odpovednost', 'schuzka', 'faq', 'souvisejici'],
+  '/blog/jak-ziskat-b2b-klienty-pro-prekladatelskou-agenturu/': ['rozdil', 'stranka', 'firmy', 'hledani', 'osloveni', 'audit', 'agentury-praha', 'faq'],
+  '/blog/jak-ziskat-klienty-pro-prekladatelskou-agenturu/': ['kanaly', 'vyber', 'reklama', 'web', 'audit', 'agentury-praha', 'faq'],
+  '/blog/jak-ziskat-klienty-pro-realitni-kancelar/': ['kanaly', 'portaly', 'web', 'doporuceni', 'reklama', 'seo', 'velikost', 'zacit', 'faq'],
+  '/blog/jak-ziskat-klienty-pro-ucetni-kancelar/': ['kanaly', 'doporuceni', 'web', 'mapy', 'reklama', 'vyber', 'start', 'faq', 'souvisejici'],
+  '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/': ['kanaly', 'doporuceni', 'web', 'mapy', 'reklama', 'vyber', 'start', 'faq'],
+  '/blog/jak-zjistit-jestli-je-web-indexovany/': ['prehled', 'definice', 'site-operator', 'search-console', 'bing', 'priciny', 'frekvence', 'postup', 'faq'],
+  '/blog/jake-stranky-ma-mit-web-firmy/': ['ulohy', 'sluzby', 'blog', 'duvera', 'mesta-obory', 'souvislosti', 'faq'],
+  '/blog/lokalni-pritomnost-realitni-kancelare/': ['definice', 'profily', 'shoda-udaju', 'udaje', 'pobocky', 'nemovitost', 'propojeni', 'kontrola', 'faq', 'souvisejici'],
+  '/blog/lokalni-pritomnost-ucetni-kancelare/': ['definice', 'viditelnost', 'adresa', 'udaje', 'shoda-udaju', 'pobocky', 'propojeni', 'kontrola', 'faq', 'souvisejici'],
+  '/blog/ma-seo-smysl-pro-malou-realitni-kancelar/': ['komu', 'konkurence', 'cile', 'kontrola', 'cas', 'kanal', 'krok', 'faq'],
+  '/blog/ma-seo-smysl-pro-malou-ucetni-kancelar/': ['komu', 'klienti', 'dlouhodoby-klient', 'konkurence', 'cile', 'predpoklady', 'jiny-kanal', 'prvni-krok', 'faq'],
+  '/blog/mestske-casti-brna-web-realitni-kancelare/': ['uzemi', 'stranka', 'nazvy', 'chyby', 'struktura', 'faq'],
+  '/blog/nabidky-nemovitosti-seo-indexace-duplicity/': ['slozite', 'indexace', 'filtry', 'prodane', 'portaly', 'kontrola', 'audit', 'faq', 'zdroje'],
+  '/blog/novy-web-a-google-ho-nevidi/': ['normalni', 'doba', 'kontrola', 'po-spusteni', 'rychlost', 'cekani', 'vyhnout-se', 'seznam', 'faq'],
+  '/blog/po-redesignu-klesla-navstevnost/': ['priciny', 'mereni', 'normalni-pokles', 'adresy', 'indexace', 'obsah', 'struktura', 'duplicity', 'search-console', 'pred-redesignem', 'nejistota', 'faq'],
+  '/blog/prazske-mestske-casti-a-ctvrti-web-realitni-kancelare/': ['uzemi', 'stranka', 'nazvy', 'chyby', 'struktura', 'faq'],
+  '/blog/presmerovani-301-a-chyby-404/': ['postup', 'redirect-301', 'rozdil-301-302', 'chyba-404', 'mapa', 'nastaveni', 'overeni', 'chyby', 'chyby-gsc', 'nejistota', 'faq'],
+  '/blog/proc-prekladatelska-agentura-nema-poptavky/': ['prehled', 'sezonnost', 'indexace', 'duplicity', 'stranky', 'firmy', 'zmeny', 'mapy', 'kontakt', 'audit', 'agentury-praha', 'faq'],
+  '/blog/proc-se-web-nezobrazuje-v-googlu/': ['duvody', 'indexace', 'novy-web', 'noindex', 'robots', 'nalezeni', 'duplicity', 'redesign', 'opatreni', 'kontrola', 'faq'],
+  '/blog/proc-web-realitni-kancelare-neprinasi-poptavky/': ['priciny', 'google', 'portaly', 'sluzby', 'lokalita', 'kontakt', 'mereni', 'prvni', 'faq'],
+  '/blog/proc-web-ucetni-kancelare-neprinasi-poptavky/': ['google', 'cilova-skupina', 'sluzby', 'po-kontaktu', 'duvera', 'hledani', 'mereni', 'prvni-krok', 'faq'],
+  '/blog/redesign-webu-seo-pred-spustenim/': ['redesign-migrace', 'stary-web', 'mapa-adres', 'presmerovani', 'zachovat', 'overeni', 'spusteni', 'po-spusteni', 'faq', 'souvisejici'],
+  '/blog/seo-a-reklama/': ['rozdily', 'cena', 'pripraveny-web', 'neoptimalizovany-web', 'poradi', 'prvni-volba', 'pripravenost', 'faq'],
+  '/blog/seo-plan-na-12-mesicu/': ['definice', 'slozeni', 'audit', 'etapy', 'priority', 'mereni', 'rozdil', 'odnest', 'faq', 'souvisejici'],
+  '/blog/slabe-seo-konkurence-pocitacove-herny/': ['vysledky', 'weby', 'hodnoceni', 'proc-vpredu', 'ai-prehledy', 'kontrola', 'faq'],
+  '/blog/slabe-seo-konkurence-prekladatelske-agentury/': ['vysledky', 'weby', 'nedostatky', 'konkurence', 'doporuceni', 'faq'],
+  '/blog/slabe-seo-konkurence-realitni-kancelare/': ['praha', 'brno', 'hodnoceni', 'proc-vpredu', 'ai-prehledy', 'kontrola', 'faq'],
+  '/blog/slabe-seo-konkurence-ucetni-kancelare/': ['vysledky', 'plyne', 'kontrola', 'proc-vpredu', 'faq'],
+  '/blog/slabe-seo-konkurence-zubni-ordinace/': ['vysledky', 'plyne', 'kontrola', 'proc-vpredu', 'faq'],
+  '/blog/stranka-pro-kazdy-jazykovy-par/': ['rozdil', 'smysl', 'poptavka', 'obsah', 'sablona', 'ostatni', 'audit', 'agentury-praha', 'faq'],
+  '/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/': ['definice', 'otazky', 'obsah', 'sablony', 'pocet', 'nabidky', 'aktualnost', 'faq', 'souvisejici'],
+  '/blog/stranky-sluzeb-ucetni-kancelare/': ['kdy', 'slozeni', 'uvod', 'pro-koho', 'postup', 'nazev-url', 'propojeni', 'chyby', 'faq', 'souvisejici'],
+  '/blog/vlastni-web-nebo-realitni-portaly/': ['portaly', 'web', 'rozdil', 'nezavislost', 'kdy', 'propojeni', 'seo', 'faq', 'aktualizace'],
+  '/blog/web-nebo-socialni-site-pocitacova-herna/': ['rozdily', 'staci', 'spolu', 'smm', 'pozorovani', 'start', 'faq'],
+};
+// The Russian-only finance article has no Czech page; its key is the Czech route kept for it in ROUTES.
+export const TOC_IDS_RU_ONLY: Record<string, string[]> = {
+  postFinanceChannels: ['kanaly', 'rekomendacii', 'socseti', 'reklama', 'sajt', 'vybor', 'start', 'faq', 'tehnicheskie-oshibki'],
+};
