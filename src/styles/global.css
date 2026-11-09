@@ -559,6 +559,8 @@ nav.toc ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
 nav.toc li { line-height: 1.4; }
 .toc a { color: var(--blue); text-decoration: none; }
 .toc a:hover { text-decoration: underline; }
+nav.toc--cols { max-width: none; }
+@media (min-width: 760px) { nav.toc--cols ul { display: block; columns: 2; column-gap: 32px; } nav.toc--cols li { break-inside: avoid; margin-bottom: 6px; } }
 h2[id] { scroll-margin-top: 96px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
