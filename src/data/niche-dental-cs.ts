@@ -72,7 +72,7 @@ const raw = {
   zlFaq: { q: 'Řešíte i profil na ZnamyLekar.cz?', a: 'U zubních ordinací může být součástí Full SEO kontrola profilu na ZnamyLekar.cz: shoda údajů s webem a doporučení k popisu, který schvaluje lékař. Recenze neovlivňuji. Práci s profilem portálu jsem zatím pro žádnou ordinaci neprováděl. Rozsah určuji u každé ordinace zvlášť.' },
 
   fitTitle: 'Pro koho SEO dává smysl a pro koho ne?',
-  fitAnswer: 'SEO dává smysl zubní ordinaci, která chce poptávky z vyhledávání, má jasně popsané služby a je ochotná web průběžně doplňovat. Nehodí se ordinaci, která nechce o svém webu nic měnit.',
+  fitAnswer: 'SEO dává smysl zubní ordinaci, která chce poptávky z vyhledávání, má jasně popsané služby a je ochotná web průběžně doplňovat. Nehodí se ordinaci, která nechce o svém webu nic měnit, nebo čeká výsledek v pevném termínu. Podle bezplatného auditu poznáte, co je na webu technicky potřeba opravit.',
 
   faqTitle: 'Časté otázky',
   faq: [
