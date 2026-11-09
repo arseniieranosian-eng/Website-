@@ -119,7 +119,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
   <section class="section">
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
-      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+      <div class="faq-open">{C.faq.filter((f) => f.a).map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
     </div>
   </section>
 

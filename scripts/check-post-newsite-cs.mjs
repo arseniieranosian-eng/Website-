@@ -72,7 +72,8 @@ const hows = node('HowTo');
 // P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (hows.length !== 1 || hows.some((hw, k) => hw.step.length !== 4 || visSteps[k].length !== 5 || hw.step.some((st, i) => norm(st.text) !== visSteps[k][i]))) e('HowTo step texts must equal the visible numbered steps word for word');
 const faq = node('FAQPage')[0];
 const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!faq || faq.mainEntity.length !== 5 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
+// 09.11.2026 (retro-audit P1 B): the FAQ item with an empty answer ("Pomůže žádost o indexaci?") is no longer rendered; FAQPage = the 4 visible questions.
+if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
 if (g.some((n) => ['Service', 'Offer', 'AggregateRating', 'Review'].includes(n['@type']))) e('no Service/Offer/rating markup');
 if (!mainTxt.includes('Audit nezrychlí práci Googlu, ukáže jen technické chyby, které mohou bránit zařazení.')) e('honest border: the audit does not speed up Google');
 // Length (brief: 1 200–1 600 words is the target; flag only when far off)

@@ -70,7 +70,25 @@ const scrub = (x: any): any => {
   }
   return x;
 };
-const cleanGraph = scrub((graph as any[]).filter((n) => !BANNED_TYPES.has(n['@type'])));
+const cleanGraph0 = scrub((graph as any[]).filter((n) => !BANNED_TYPES.has(n['@type'])));
+// FAQPage is derived from the visible FAQ of the page (retro-audit P1 B, brief of 09.11.2026): the truth is the visible text. For every question of a FAQPage node the visible question and the visible answer
+// are taken from the rendered body (a question with an answer below it in <h3>/<p>, <summary>/<p> or an answer-first <h2>/<p class="answer">); a question that is not visible on the page is left out;
+// a page without any visible question has no FAQPage. This keeps the markup identical to the page whatever a page's schema builder passes.
+// Euro estimates in brackets, e.g. "(≈ €600)" / "(approx. €80)", are visible on the service pages but must stay out of the JSON-LD (rule of the author, checked by check-consulting / check-fullseo): they are removed from the derived text.
+const plain = (h: string, noEuro = false) => (noEuro ? h.replace(/\s*\((?:≈|approx\.?)\s*€[^)]*\)/g, '') : h).replace(/<[^>]+>/g, '').replace(/&nbsp;/g, '\u00a0').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/[ \t\r\n]+/g, ' ').trim();
+const qkey = (q: string) => q.replace(/\s+/g, ' ').trim();
+const visibleQA = new Map<string, { q: string; a: string }>();
+for (const rx of [/<h3[^>]*>((?:(?!<h3)[\s\S])*?)<\/h3>\s*<p>([\s\S]*?)<\/p>/g, /<summary[^>]*>((?:(?!<summary)[\s\S])*?)<\/summary>\s*(?:<div[^>]*>)?\s*<p>([\s\S]*?)<\/p>/g, /<h2[^>]*>((?:(?!<h2)[\s\S])*?)<\/h2>\s*(?:<[^>]*>\s*)*<p class="answer">([\s\S]*?)<\/p>/g]) {
+  for (const m of body.matchAll(rx)) { const q = plain(m[1]); const a = plain(m[2], true); if (q && a && !visibleQA.has(qkey(q))) visibleQA.set(qkey(q), { q, a }); }
+}
+const cleanGraph = (cleanGraph0 as any[]).map((node: any) => {
+  if (!node || node['@type'] !== 'FAQPage' || !Array.isArray(node.mainEntity)) return node;
+  const me = node.mainEntity.map((e: any) => {
+    const v = visibleQA.get(qkey(String(e?.name ?? '')));
+    return v ? { ...e, name: v.q, acceptedAnswer: { ...(e.acceptedAnswer ?? { '@type': 'Answer' }), text: v.a } } : null;
+  }).filter(Boolean);
+  return me.length ? { ...node, mainEntity: me } : null;
+}).filter(Boolean);
 const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': cleanGraph }).replace(/</g, '\\u003c');
 const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
 ---
