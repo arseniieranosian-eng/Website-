@@ -552,9 +552,15 @@ table.compare { min-width: 0; }
 }
 @media (min-width: 1440px) { .nav-group__btn { font-size: 0.92rem; } }
 
-.toc { margin: 0 0 20px; padding-left: 1.2em; display: grid; gap: 4px; }
+/* Generated table of contents of a blog article (src/lib/toc.ts) */
+nav.toc { margin: 20px 0 4px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: rgb(255 255 255 / 6%); max-width: 46rem; }
+nav.toc .toc-title { margin: 0 0 8px; font-weight: 700; font-size: 0.95rem; }
+nav.toc ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+nav.toc li { line-height: 1.4; }
 .toc a { color: var(--blue); text-decoration: none; }
 .toc a:hover { text-decoration: underline; }
+h2[id] { scroll-margin-top: 96px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 /* Home: the niche name above its city cards */
 .niche-group + .niche-group { margin-top: 32px; }
