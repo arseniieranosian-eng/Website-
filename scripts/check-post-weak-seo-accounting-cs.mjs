@@ -34,7 +34,7 @@ if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 // no links in the body (the author, the closing buttons and nothing else)
-const bodyLinks = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((x) => x !== '/o-mne/' && !CTAS.includes(x));
+const bodyLinks = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((x) => x !== '/o-mne/' && !CTAS.includes(x) && x !== 'https://developers.google.com/search/docs/appearance/ranking-systems-guide'); // + the visible Google source line (09.11.2026, K4)
 if (bodyLinks.length) e(`no links in the body: ${bodyLinks}`);
 for (const c of CTAS) if ((main.match(new RegExp(`class="btn btn--primary btn--lg" href="${c}"`, 'g')) || []).length !== 1) e(`CTA button to ${c}`);
 if ((main.match(/class="btn /g) || []).length !== 2) e('exactly two buttons (the closing block)');

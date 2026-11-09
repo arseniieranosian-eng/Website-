@@ -59,6 +59,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <p class="answer">{C.obsAnswer}</p>
       <p>{C.obsText}</p>
       <p>{C.weakText}{' '}<a href={t('postWeakSeoAcc')}>{C.weakLink}</a></p>
+      <p class="small muted">Zdroj: {C.weakSource.before}{' '}<a href={C.weakSource.href} target="_blank" rel="noopener">{C.weakSource.href}</a>{C.weakSource.after}</p>
       <p class="muted small">{C.obsNote}</p>
     </div>
   </section>

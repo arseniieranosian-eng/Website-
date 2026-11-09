@@ -69,7 +69,7 @@ const cite = new URL(t('nicheBrno'), site).href;
       <h2>{C.videoTitle}</h2>
       <p class="answer">{C.videoAnswer}</p>
       <YoutubeFacade {...C.video} />
-      <p>{C.weak.text}{' '}<a href={path('postWeakSeo', 'ru')}>{C.weak.linkText}</a></p>
+      {C.weak && <p>{C.weak.text}{' '}<a href={path('postWeakSeo', 'ru')}>{C.weak.linkText}</a></p>}
     </div>
   </section>
 

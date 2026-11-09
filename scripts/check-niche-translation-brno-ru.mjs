@@ -59,7 +59,7 @@ if (!mainTxt.includes('Статус для ниши переводческих �
 // the video facade: neutral poster, no company names, one link to the Czech article, no VideoObject
 const vid = (main.match(/<figure class="niche-video"[\s\S]*?<\/figure>/) || [''])[0];
 if (!/data-youtube="l2-SXybLlss"/.test(vid) || !/slabe-seo-video-poster\.webp/.test(vid) || !/data-title="Разбор сайтов двух переводческих агентств"/.test(vid) || !/href="https:\/\/youtu\.be\/l2-SXybLlss"/.test(vid)) e('video facade');
-if ((main.match(/href="\/ru\/blog\/slabaya-seo-konkurenciya-perevodcheskie-agentstva\/"/g) || []).length !== 1) e('one link to the article about weak competition');
+if ((main.match(/href="\/ru\/blog\/slabaya-seo-konkurenciya-perevodcheskie-agentstva\/"/g) || []).length !== 0) e('no link to the article about weak competition (the weak-competition paragraph was removed on 09.11.2026)');
 const cnt = (re) => (main.match(re) || []).length;
 if (cnt(/href="\/ru\/besplatnyj-audit\/"/g) !== 3) e(`audit links: ${cnt(/href="\/ru\/besplatnyj-audit\/"/g)} (hero, audit section, CTA)`);
 if (cnt(/class="btn btn--primary/g) !== 3) e('three buttons: hero, audit section, closing CTA');

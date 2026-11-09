@@ -57,7 +57,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
         <figcaption>{C.practiceImage.caption}</figcaption>
       </figure>
       <p>{C.practiceObservation}</p>
-      <p>{C.weak.text}{' '}<a href={path('postWeakSeo', 'ru')}>{C.weak.linkText}</a></p>
+      {C.weak && <p>{C.weak.text}{' '}<a href={path('postWeakSeo', 'ru')}>{C.weak.linkText}</a></p>}
       <p class="muted small">{C.practiceNote}</p>
       <p>{C.practiceLead2}{' '}<a href={t('caseHalf')}>{C.practiceLink}</a>.</p>
     </div>

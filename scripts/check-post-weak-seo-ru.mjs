@@ -78,6 +78,7 @@ for (const [i, q] of visFaq.entries()) if (wc(q[1]) > 60) e(`FAQ ${i + 1} answer
 if (g.some((n) => ['HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / VideoObject markup');
 if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');
 if (!hc.includes(`href="${URL_PATH}"`)) e('the Czech article: language switcher leads to the Russian article');
-for (const c of CTAS) if (!readFileSync(`dist${c}index.html`, 'utf8').includes(`href="${URL_PATH}"`)) e(`${c} links to the article`);
+// 09.11.2026 (retro-audit P1 C3): the weak-competition paragraph (the link to this article) was removed from the three Russian translation landings: no dated numeric observation block there.
+// The landings no longer link to the article; it stays reachable from the Russian blog index and the language switcher.
 if (errors.length) { console.error('✗ check-post-weak-seo-ru:\n  - ' + errors.join('\n  - ')); process.exit(1); }
 console.log(`✓ check-post-weak-seo-ru: ok (${mainTxt.split(/\s+/).length} words)`);

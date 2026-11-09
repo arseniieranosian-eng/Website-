@@ -32,6 +32,8 @@ const raw = {
 
   whyTitle: 'Proč jsou tyto weby vpředu?',
   whyAnswer: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi účetními kancelářemi zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web.',
+  // Source line added on 09.11.2026 (retro-audit P1, K4): the weak-competition sentence stays only with a dated observation block and a visible Google source; the page was opened on 07.11.2026.
+  whySource: { before: 'Google Search Central, Systémy řazení (ranking systems guide),', href: 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', after: ', Last updated 2025-12-10, zkontrolováno 7. 11. 2026.' },
 
   faqTitle: 'Časté otázky',
   faq: [

@@ -61,7 +61,6 @@ const raw = {
     'Jazykové páry: lidé hledají konkrétní kombinaci, například překlad z češtiny do angličtiny.',
     'Město: agentury v Pardubicích potřebují stránky, které Pardubice opravdu jmenují.',
   ],
-  weak: { text: 'Proč jsou v Pardubicích vpředu právě tyto weby, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi pardubickými překladatelskými agenturami zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:', linkText: 'Proč jsou ve vyhledávání vpředu i překladatelské agentury se slabým SEO?' },
   whyText: 'Nejde o to mít web, ale o marketing překladatelské agentury Pardubice, který přivádí nové klienty a zakázky z vyhledávání.',
   market: NICHE_PARDUBICE_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Pardubice?', paragraphs: NICHE_PARDUBICE_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_PARDUBICE_MARKET.checked } : null,
 

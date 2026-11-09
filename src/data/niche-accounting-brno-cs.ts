@@ -49,6 +49,8 @@ const raw = {
   obsNote: OBS_NOTE.cs,
   weakText: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi účetními kancelářemi zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:',
   weakLink: 'Proč jsou ve vyhledávání vpředu i účetní kanceláře se slabým SEO?',
+  // Source line added on 09.11.2026 (retro-audit P1, K4); the page was opened on 07.11.2026.
+  weakSource: { before: 'Google Search Central, Systémy řazení (ranking systems guide),', href: 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', after: ', Last updated 2025-12-10, zkontrolováno 7. 11. 2026.' },
   obsText: 'Taková slabá místa jsou prostor ke zlepšení. Práci směřuji na poptávky, ne jen na pozice.',
 
   localTitle: 'Na co si dát pozor, když má účetní kancelář sídlo nebo pobočku v Brně?',
