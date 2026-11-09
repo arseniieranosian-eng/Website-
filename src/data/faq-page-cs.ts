@@ -3,6 +3,7 @@
 import { FAQ } from './faq';
 
 export const FAQ_PAGE_UPDATED = '2026-11-09'; // manual date, not from git
+export const FAQ_PAGE_PUBLISHED = '2026-10-18'; // first publication = the day the site was built (first commit); author asked for it on 09.11.2026
 export type FaqPageItem = { q: string; a: string };
 export type FaqPageGroup = { id: string; title: string; items: FaqPageItem[] };
 
@@ -17,7 +18,7 @@ export const FAQ_PAGE_GROUPS: FaqPageGroup[] = [
     { q: 'Kolik stojí SEO?', a: 'Full SEO na rok stojí od 15 000 Kč měsíčně, spolupráce trvá 12 měsíců. Balíček {start|Start} na 3 měsíce stojí 50 000 Kč. Konzultace stojí 2 000 Kč za hodinu. Přesná cena {fullSeo|Full SEO} závisí na oboru a na rozsahu práce, který upřesníme po vaší poptávce.' },
     { q: 'Jak se skládá cena a proč se liší podle oboru?', a: 'Cena Full SEO začíná na 15 000 Kč měsíčně a liší se podle oboru. Záleží na konkurenci v oboru a na tom, v jakém stavu web je: jak je dnes vidět ve vyhledávání a v odpovědích AI a jak je optimalizovaný. Rozsah práce, hlavně objem obsahu, volím individuálně a upřesníme ho po vaší poptávce.' },
     { q: 'Co je v ceně Full SEO?', a: 'V ceně Full SEO je práce na webu (audit, klíčová slova, úpravy textů a nadpisů, obsah každý měsíc, technický dohled), práce mimo web (linkbuilding a profily na mapách Google, Mapy.com a Firmy.cz) a optimalizace pro AI. Každý týden dostanete report. Podrobný přehled je na {fullSeo|stránce Full SEO}.' },
-    { q: 'Čím se liší Start na 3 měsíce od Full SEO?', a: '{start|Start} je tříměsíční balíček za 50 000 Kč. {fullSeo|Full SEO} je roční spolupráce od 15 000 Kč měsíčně. Rozdíl v rozsahu práce je popsaný na stránkách obou služeb. Co se hodí, záleží na stavu webu, oboru a rozpočtu. Doporučení dám po vaší poptávce.' },
+    { q: 'Čím se liší Start na 3 měsíce od Full SEO?', a: '{start|Start} je tříměsíční balíček za 50 000 Kč. {fullSeo|Full SEO} je roční spolupráce od 15 000 Kč měsíčně. Start zahrnuje technický audit a opravy, analýzu klíčových slov, plán na 12 měsíců, strukturu webu, obsah a práci s mapami; rozdíl v rozsahu popisují stránky obou služeb. Co se hodí, záleží na stavu webu, oboru a rozpočtu. Doporučení dám po vaší poptávce.' },
     { q: 'Kolik stojí konzultace?', a: 'Konzultace stojí 2 000 Kč za hodinu, nebo 3 000 Kč s auditem webu a konzultací bez časového omezení. Která varianta se hodí, záleží na tom, co od konzultace čekáte. Podrobnosti najdete na {consulting|stránce konzultace}. Před konzultací pošlete adresu webu a seznam otázek.' },
     { q: 'Je k cenám nutné připočítat DPH?', a: 'Nejsem plátce DPH, proto se k cenám DPH nepřičítá. Částky uvedené na webu jsou to, co platíte. Konzultace stojí 2 000 Kč za hodinu, balíček Start na 3 měsíce 50 000 Kč a Full SEO na rok začíná na 15 000 Kč měsíčně.' },
   ] },

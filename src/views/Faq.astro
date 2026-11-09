@@ -9,7 +9,7 @@ import { path, type Lang } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { FAQ } from '../data/faq';
 import { faqSchema } from '../lib/schema';
-import { FAQ_PAGE_GROUPS, FAQ_PAGE_UPDATED } from '../data/faq-page-cs';
+import { FAQ_PAGE_GROUPS, FAQ_PAGE_UPDATED, FAQ_PAGE_PUBLISHED } from '../data/faq-page-cs';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -22,6 +22,7 @@ const C = {
 }[lang];
 const isCs = lang === 'cs';
 const [uy, um, ud] = FAQ_PAGE_UPDATED.split('-').map(Number);
+const [py, pm, pd] = FAQ_PAGE_PUBLISHED.split('-').map(Number);
 // Czech page: 6 groups with questions as H3; "{key|text}" in an answer is a link; the JSON-LD gets the plain text (Base derives it from the visible page anyway).
 const linkParts = (a: string) => a.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).map((p) => {
   const m = p.match(/^\{([a-zA-Z]+)\|([^}]+)\}$/);
@@ -35,7 +36,7 @@ const csItems = FAQ_PAGE_GROUPS.flatMap((g) => g.items.map((i) => ({ id: '', pag
     <section class="page-hero">
       <div class="container narrow">
         <h1>{m.h1}</h1>
-        <p class="updated">Autor: <a href={path('about', lang)}>Arsenii Eranosian</a> · Aktualizováno: <time datetime={FAQ_PAGE_UPDATED}>{ud}. {um}. {uy}</time></p>
+        <p class="updated">Autor: <a href={path('about', lang)}>Arsenii Eranosian</a> · Zveřejněno: <time datetime={FAQ_PAGE_PUBLISHED}>{pd}. {pm}. {py}</time> · Aktualizováno: <time datetime={FAQ_PAGE_UPDATED}>{ud}. {um}. {uy}</time></p>
         <p class="lead">{C.lead}{' '}<a class="link-arrow" href={path('contact', lang)}>{C.link}</a></p>
         <nav class="toc" aria-label="Obsah stránky"><p class="toc-title">Na stránce najdete:</p><ul>{FAQ_PAGE_GROUPS.map((g) => <li><a href={`#${g.id}`}>{g.title}</a></li>)}</ul></nav>
       </div>
