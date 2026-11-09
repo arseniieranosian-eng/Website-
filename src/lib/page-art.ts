@@ -22,7 +22,6 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   nicheGaming: { kinds: ['niche:gaming', 'audit'] },
   nicheTypography: { kinds: ['niche:printing', 'audit'] },
   nicheMachinery: { kinds: ['niche:machinery', 'audit'] },
-  nicheDental: { kinds: ['niche:dental', 'audit'] },
   postRealtyBrnoDistricts: article('article'),
   postRealtyPragueDistricts: article('article'),
   postAccountingPages: article('article'),
