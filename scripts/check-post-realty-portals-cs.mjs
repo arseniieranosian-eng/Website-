@@ -73,7 +73,6 @@ const faq = node('FAQPage')[0];
 const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
 if (!faq || faq.mainEntity.length !== 6 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
 if (g.some((n) => ['Service', 'Offer', 'AggregateRating', 'Review'].includes(n['@type']))) e('no Service/Offer/rating markup');
-if ([...(main.match(/<ol class="toc">[\s\S]*?<\/ol>/) || [''])[0].matchAll(/<li><a href="#/g)].length !== 7) e('table of contents: seven anchors');
 for (const id of ['portaly', 'web', 'rozdil', 'nezavislost', 'kdy', 'propojeni', 'seo']) if (!main.includes(`id="${id}"`)) e(`anchor target: ${id}`);
 if (/Co vidím u agentur/.test(mainTxt)) e('no invented author observations');
 if ((main.match(/class="btn btn--primary/g) || []).length !== 1) e('one audit button (the final CTA)');

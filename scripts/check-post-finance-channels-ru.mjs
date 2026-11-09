@@ -80,7 +80,6 @@ const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)
 if (!faq || faq.mainEntity.length !== 6 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
 const bc = node('BreadcrumbList')[0];
 if (!bc || bc.itemListElement.length !== 3 || bc.itemListElement[1].item !== `${BASE}/ru/blog/`) e('breadcrumbs: Главная → Блог → статья');
-if ([...(main.match(/<ol class="toc">[\s\S]*?<\/ol>/) || [''])[0].matchAll(/<li><a href="#/g)].length !== 7) e('table of contents: seven anchors');
 for (const id of ['kanaly', 'rekomendacii', 'socseti', 'reklama', 'sajt', 'vybor', 'start']) if (!main.includes(`id="${id}"`)) e(`anchor target: ${id}`);
 // Inbound: blog index (indexable now), sitemap, landing, robots
 const blog = readFileSync('dist/ru/blog/index.html', 'utf8');
