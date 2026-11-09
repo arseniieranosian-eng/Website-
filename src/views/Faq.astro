@@ -36,7 +36,7 @@ const csItems = FAQ_PAGE_GROUPS.flatMap((g) => g.items.map((i) => ({ id: '', pag
       <div class="container narrow">
         <h1>{m.h1}</h1>
         <p class="updated">Autor: <a href={path('about', lang)}>Arsenii Eranosian</a> · Aktualizováno: <time datetime={FAQ_PAGE_UPDATED}>{ud}. {um}. {uy}</time></p>
-        <p class="lead">{C.lead} <a class="link-arrow" href={path('contact', lang)}>{C.link}</a></p>
+        <p class="lead">{C.lead}{' '}<a class="link-arrow" href={path('contact', lang)}>{C.link}</a></p>
         <nav class="toc" aria-label="Obsah stránky"><p class="toc-title">Na stránce najdete:</p><ul>{FAQ_PAGE_GROUPS.map((g) => <li><a href={`#${g.id}`}>{g.title}</a></li>)}</ul></nav>
       </div>
     </section>
