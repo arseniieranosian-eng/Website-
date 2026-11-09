@@ -54,7 +54,8 @@ if (t2.length !== 6 || t2[0].join('|') !== 'Krok|Co obsahuje|Odkaz') e('formats 
 // Checklist of 6, the honest experience block, the capacity status
 if (!mainTxt.includes('poptávky z formulářů rostly o 65–70 % měsíc po měsíci tři měsíce po sobě (březen až září 2026)') || /ztrojnás|×8|×24|\+400/.test(mainTxt)) e('experience: the approved formula only (no B2B tripling)');
 if (!mainTxt.includes('Stav pro obor účetnictví k 31. 10. 2026: volno.') || /zbývá|\d ze 3/.test(mainTxt)) e('capacity status (volno, dated), no counter');
-if (!mainTxt.includes('K 25. 10. 2026 jsem si prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog.') || !mainTxt.includes('U všech 16 webů chybí strukturovaná data')) e('observation block: 16 sites, 14 without a blog, dated');
+// 09.11.2026 (retro-audit P1 G): the query „účetní kancelář Praha“ is named in the dated sentence (confirmed by the author).
+if (!mainTxt.includes('K 25. 10. 2026 jsem si na dotaz „účetní kancelář Praha“ prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog.') || !mainTxt.includes('U všech 16 webů chybí strukturovaná data')) e('observation block: 16 sites, 14 without a blog, dated');
 // JSON-LD
 const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => ld.filter((n) => n['@type'] === t);

@@ -89,7 +89,7 @@ const raw = {
   expLink: 'Přečíst případovou studii překladatelské agentury',
 
   obsTitle: 'Co jsem zjistil na webech účetních kanceláří?',
-  obsAnswer: 'K 25. 10. 2026 jsem si prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog. U všech 16 je FAQ nedostatečné, chybí strukturovaná data a web je málo připravený na AI: menu a nadpisy tomu neodpovídají.',
+  obsAnswer: 'K 25. 10. 2026 jsem si na dotaz „účetní kancelář Praha“ prohlédl 16 webů účetních kanceláří. U 14 z nich chybí blog. U všech 16 je FAQ nedostatečné, chybí strukturovaná data a web je málo připravený na AI: menu a nadpisy tomu neodpovídají.',
   obsList: [
     'U 14 z 16 webů není blog.',
     'U všech 16 webů je FAQ nedostatečné.',
