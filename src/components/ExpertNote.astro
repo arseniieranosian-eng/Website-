@@ -1,0 +1,12 @@
+---
+// Disclosure of the relationship with the real-estate expert (retro-audit P1 D, brief of 09.11.2026; the author confirmed on 09.11.2026: no reward and no commercial cooperation).
+// A separate muted line placed before the closing call to action (and before the interest line, where a page has one).
+import type { Lang } from '../i18n/routes';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T: Partial<Record<Lang, string>> = {
+  cs: 'Katariina Kofanova za konzultaci nedostala odměnu a nespolupracuje se mnou na komerčním základě.',
+  ru: 'Катариина Кофанова не получала вознаграждения за консультацию и не сотрудничает со мной на коммерческой основе.',
+};
+---
+{T[lang] && <p class="muted expert-note">{T[lang]}</p>}

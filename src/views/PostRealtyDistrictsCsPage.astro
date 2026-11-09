@@ -2,6 +2,7 @@
 // Blog article N7 "Jak napsat stránku čtvrti na web realitní kanceláře?" (cs), brief of 25.10.2026. Content: data/post-realty-districts-cs.ts.
 // General principles only: no district data, no observations, no quote, no audit CTA (the closing block is one link to the landing page).
 import Base from '../layouts/Base.astro';
+import ExpertNote from '../components/ExpertNote.astro';
 import { NICHE_REALTY_CS } from '../data/niche-realty-cs';
 import PostCta from '../components/PostCta.astro';
 import { META } from '../i18n/meta';
@@ -118,6 +119,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
 
   <section class="section">
     <div class="container narrow">
+      <ExpertNote lang={lang} />
       <PostCta lang={lang} postKey="postRealtyDistricts" />
     </div>
   </section>

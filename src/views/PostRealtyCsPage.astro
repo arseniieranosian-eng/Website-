@@ -2,6 +2,7 @@
 // Blog article N1 "Jak získat klienty pro realitní kancelář: přehled kanálů" (cs), brief of 23.10.2026. Content: data/post-realty-cs.ts.
 // Hub of the real-estate funnel; the quote is shown only when QUOTE_CONFIRMED is true; no portal names, no figures.
 import Base from '../layouts/Base.astro';
+import ExpertNote from '../components/ExpertNote.astro';
 import { NICHE_REALTY_CS } from '../data/niche-realty-cs';
 import PostCta from '../components/PostCta.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
@@ -125,6 +126,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
     <div class="container narrow">
       <h2>{C.endTitle}</h2>
       <p>{C.endText}</p>
+      <ExpertNote lang={lang} />
       <PostCta lang={lang} postKey="postRealty" />
       <p>{C.endConsulting}{' '}<a href={t('consulting')}>{C.endConsultingLink}</a>.</p>
       <p>{C.landingLead}{' '}<a href={t('nicheRealty')}>{C.seoLinkText}</a>.</p>

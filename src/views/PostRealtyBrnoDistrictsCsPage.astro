@@ -2,6 +2,7 @@
 // Blog article N8 "Jak uvést městské části Brna na webu realitní kanceláře?" (cs), brief of 31.10.2026. Content: data/post-realty-brno-districts-cs.ts.
 // Informational, no sales in the body; the closing block is one button to the Brno landing page. One link to N6, one link to the source of the list.
 import Base from '../layouts/Base.astro';
+import ExpertNote from '../components/ExpertNote.astro';
 import { NICHE_REALTY_CS } from '../data/niche-realty-cs';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -79,6 +80,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
 
   <section class="section">
     <div class="container narrow">
+      <ExpertNote lang={lang} />
       <div class="post-cta">
         <p class="post-cta__title">{C.endTitle}</p>
         <p class="post-cta__text">{C.endText}</p>

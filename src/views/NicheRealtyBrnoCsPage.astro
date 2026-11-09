@@ -3,6 +3,7 @@
 // Own structure from the brief. No quote, no video, no Review / Offer markup.
 import Base from '../layouts/Base.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import ExpertNote from '../components/ExpertNote.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -98,6 +99,10 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.articlesTitle}</h2>
       <RelatedPosts lang={lang} keys={['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyBrnoDistricts', 'postRealtyLocal', 'postWeakSeoRealty']} more={C.articlesMore} />
     </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow"><ExpertNote lang={lang} /></div>
   </section>
 
   <section class="section section--dark cta-band">
