@@ -130,7 +130,7 @@ const raw = {
   faq: [
     priceFaqCs('translation', 'překladatelskou agenturu'),
     { q: 'Kdy se projeví první změny?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
-    { q: 'Jak se liší SEO od reklamy pro agenturu v Brně?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
+    { q: 'Jak se liší SEO od reklamy pro agenturu v Brně?', a: 'Reklama a SEO jsou různé kanály: reklama se platí po dobu kampaně, SEO vyžaduje průběžnou práci na webu. Čas ani výsledek nelze zaručit u žádného z nich. Co se hodí, závisí na rozpočtu a na cílech. Nejdřív se vyplatí zjistit, odkud přicházejí zájemci dnes.' },
     { q: 'Pomůže agentuře v Brně profil na Mapy.com a Google Maps?', a: 'Může pomoci, aby ji firmy našly při hledání s názvem města. Důležité je, aby byly údaje v profilu shodné s webem a aby odkazy z profilu vedly na správné stránky. Mapy.com provozuje Seznam, takže profil pomáhá i těm, kdo hledají přes Seznam.' },
     { q: 'Potřebuje agentura samostatné stránky pro jazykové páry?', a: 'Ne vždy, jen tam, kde je poptávka.' },
     { q: 'Jak se SEO řeší u agentury s pobočkou v Brně a v dalších městech?', a: 'Každé město potřebuje vlastní lokální stránku a profil na Google Maps a na Mapy.com s jednotnými údaji. Města mají různé podmínky i konkurenci, proto stránka pro Brno popisuje brněnskou nabídku a nekopíruje text stránky pro jiné město.' },

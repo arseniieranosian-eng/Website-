@@ -32,7 +32,7 @@ const raw = {
   startText: 'Nový web nemá data o tom, které stránky fungují, proto bylo důležité nejdřív vybrat dotazy, u kterých můžeme vůbec proniknout do výsledků.',
 
   lowTitle: 'Proč jsme na začátku zvolili málo hledané dotazy?',
-  lowAnswer: 'Nový web nemá autoritu, takže se u nejhledanějších dotazů zpravidla nezobrazuje. Málo hledané dotazy jsou konkrétnější a méně konkurenční, a proto u nich lze snáz získat první pozice a první návštěvnost, a poté se rozšiřovat.',
+  lowAnswer: 'Nový web nemá autoritu, takže se u nejhledanějších dotazů zpravidla nezobrazuje. Málo hledané dotazy jsou konkrétnější a méně konkurenční, a proto jsem projekt začal u nich a poté jej rozšiřoval.',
   lowText: 'Společně s kolegou jsme se nesnažili bojovat o nejpopulárnější formulace, ale hledali jsme dotazy, u kterých může nová platforma reálně proniknout do výsledků. Tato sázka na startu určila, které stránky a sekce blogu jsme dál navrhovali.',
 
   doTitle: 'Co jsme dělali?',
@@ -62,7 +62,7 @@ const raw = {
   faqTitle: 'Časté otázky k případové studii',
   faq: [
     { q: 'Jak propagovat nový web bez autority?', a: 'Začněte výzkumem klíčových slov a vyberte málo hledané dotazy, u kterých se může nový web reálně zobrazit. Podle nich navrhněte stránky a blog. Výsledek záleží na oboru a konkurenci.' },
-    { q: 'Proč začínat málo hledanými dotazy?', a: 'Nový web nemá autoritu, a proto se u nejhledanějších dotazů zpravidla nezobrazuje. Málo hledané dotazy jsou méně konkurenční, a proto u nich lze snáz získat první návštěvnost.' },
+    { q: 'Proč začínat málo hledanými dotazy?', a: 'Nový web nemá autoritu, a proto se u nejhledanějších dotazů zpravidla nezobrazuje. Málo hledané dotazy jsou méně konkurenční, a proto jsem začal u nich.' },
     { q: 'Za jak dlouho přijdou první výsledky SEO?', a: 'V tomto projektu byl růst o 55 % změřen za 7 měsíců (březen → září 2025).' },
   ],
 

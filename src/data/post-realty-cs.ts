@@ -64,7 +64,7 @@ const raw = {
   refLinkText: 'SEO pro Mapy',
 
   adsTitle: 'Kdy dává smysl placená reklama?',
-  adsAnswer: 'Placená reklama obvykle přivede návštěvníky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Hodí se pro konkrétní nabídky nebo období a nevytváří trvalé aktivum. Ceny a nastavení zde neřeším, reklamu nespravuji. Srovnání slouží k tomu, abyste mohli kanály rozumně poměřit.',
+  adsAnswer: 'Placená reklama působí jen po dobu, kdy za ni platíte. Hodí se pro konkrétní nabídky nebo období a nevytváří trvalé aktivum. Ceny a nastavení zde neřeším, reklamu nespravuji. Srovnání slouží k tomu, abyste mohli kanály rozumně poměřit.',
 
   seoTitle: 'Kdy dává smysl SEO a GEO/AEO?',
   seoAnswer: 'SEO a GEO/AEO dávají smysl, pokud chcete získávat klienty i z vyhledávání, máte co nabídnout a můžete počkat. Podrobnosti jsou na stránce SEO pro realitní kanceláře. Doba závisí na stavu webu a konkurenci.',
@@ -103,7 +103,7 @@ const raw = {
     { q: 'Jakou roli hraje vlastní web v získávání klientů?', a: 'Má, ale nenahrazuje portály, jen je doplňuje. Vlastní web řídíte sami: značku, obsah i způsob, jak zachytíte poptávku. Klienty nepřináší hned a musí ho lidé najít. Podrobnější srovnání portálů a vlastního webu najdete v samostatném článku. Hodí se zejména tehdy, když chcete, aby vás klienti našli i mimo portály.', links: [{ page: 'postRealtyPortals' as const, text: 'Vlastní web, nebo realitní portály?' }] },
     { q: 'Kolik stojí marketing realitní kanceláře?', a: 'Cena závisí na zvolených kanálech a jejich rozsahu: portály, reklama a SEO mají každé jiný model placení. Konkrétní částky zde neuvádím. Ceny mých služeb najdete na stránkách konzultace, tříměsíčního Startu a Full SEO. Technické chyby webu zkontroluje bezplatný audit bez závazku.', links: [{ page: 'consulting' as const, text: 'SEO konzultace' }, { page: 'start' as const, text: 'SEO start na 3 měsíce' }, { page: 'fullSeo' as const, text: 'Full SEO na rok' }, { page: 'audit' as const, text: 'Bezplatný audit' }] },
     { q: 'Kdy začne SEO přinášet první poptávky?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
-    { q: 'Je lepší reklama, nebo SEO pro realitní kancelář?', a: 'Nelze říct obecně. Reklama obvykle přivede návštěvníky rychleji, ale jen po dobu placení. SEO pracuje déle a nemá záruku výsledku, ale nezávisí na každém kliknutí. Vyberte podle rozpočtu, časového horizontu a schopnosti obsah udržovat. Reklamu nespravuji, proto doporučení nestavím na mém zájmu.' },
+    { q: 'Je lepší reklama, nebo SEO pro realitní kancelář?', a: 'Nelze říct obecně. Reklama se platí po dobu kampaně, SEO vyžaduje průběžnou práci na webu. Vyberte podle rozpočtu, časového horizontu a schopnosti obsah udržovat. Reklamu nespravuji, proto doporučení nestavím na mém zájmu.' },
     { q: 'Jak začít, když kancelář nemá velký rozpočet?', a: 'Začněte jedním kanálem, který zvládnete udržovat, ne všemi najednou. Zjistěte, odkud klienti přicházejí dnes, využijte doporučení a profil na mapách a upravte několik klíčových stránek webu. Po několika měsících vyhodnoťte výsledky a teprve potom přidejte další kanál. Plán s ověřitelnými kroky je lepší než velký rozpočet bez plánu.' },
   ],
 

@@ -39,12 +39,12 @@ const raw = {
   webAnswer: 'Vlastní web dává kanceláři kontrolu nad značkou, obsahem a tím, jak zachytí poptávku. Sám ale klienty nepřivede: lidé ho musí najít, například ve vyhledávání, z reklamy nebo z doporučení. Přínos se projevuje postupně a vyžaduje péči o obsah. Hodí se zejména tehdy, když kancelář chce budovat vlastní značku.',
 
   diffTitle: 'Portál, nebo vlastní web: v čem se liší?',
-  diffAnswer: 'Portál obvykle dává rychlejší první kontakty, vlastní web větší kontrolu nad značkou a obsahem a dlouhodobější hodnotu. Porovnání vychází z obecné logiky, ne z měření konkrétních portálů. Číselné srovnání neuvádím, protože závisí na portálu, oblasti a webu. Která kombinace se hodí, určuje váš cíl.',
+  diffAnswer: 'Portál a vlastní web plní různé role: portál slouží k zveřejnění nabídek, vlastní web dává větší kontrolu nad značkou a obsahem. Porovnání vychází z obecné logiky, ne z měření konkrétních portálů. Číselné srovnání neuvádím, protože závisí na portálu, oblasti a webu. Která kombinace se hodí, určuje váš cíl.',
   diff: {
     head: ['Kritérium', 'Portál', 'Vlastní web'],
     rows: [
       ['Kontrola', 'omezená pravidly platformy', 'kancelář řídí obsah i uspořádání'],
-      ['Rychlost prvních kontaktů', 'obvykle rychlejší', 'obvykle pomalejší, výsledky se projevují postupně'],
+      ['Role', 'zveřejnění nabídek a první kontakt', 'kontrola nad značkou, obsahem a stránkami'],
       ['Závislost', 'na provozovateli a jeho podmínkách', 'na tom, zda vás lidé najdou'],
       ['Značka', 'kancelář stojí vedle mnoha dalších', 'prostor pro vlastní značku a příběh'],
       ['Čas na odezvu', 'kratší cesta k prvním kontaktům', 'delší, vyžaduje péči o obsah'],

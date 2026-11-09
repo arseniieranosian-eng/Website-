@@ -43,7 +43,7 @@ const raw = {
   quote1: 'Reklama dodá návštěvníky, ale o tom, jestli z nich budou poptávky, rozhoduje web. Proto začínám základem, ne rozpočtem.',
 
   helpTitle: 'Jak pomáhá SEO-připravený web reklamě?',
-  helpAnswer: 'Web připravený pro SEO má stránky, které odpovídají na konkrétní dotazy, jsou srozumitelné a vzbuzují důvěru. Na takovou stránku se reklama míří snáz a návštěvník má větší šanci udělat další krok.',
+  helpAnswer: 'Web připravený pro SEO má stránky, které odpovídají na konkrétní dotazy, jsou srozumitelné a vzbuzují důvěru. Na takovou stránku lze směrovat i reklamu.',
   help: [
     'Stránka odpovídá na to, co člověk hledal.',
     'Struktura a nadpisy vedou k jednomu cíli stránky.',

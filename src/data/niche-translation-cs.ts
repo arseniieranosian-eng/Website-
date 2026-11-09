@@ -118,7 +118,7 @@ const raw = {
   faq: [
     priceFaqCs('translation', 'překladatelskou agenturu'),
     { q: 'Jak dlouho trvá SEO pro překladatelskou agenturu?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
-    { q: 'Čím se SEO liší od reklamy pro překladatelskou agenturu?', a: 'Reklamu nespravuji. SEO buduje stránky, které přivádějí poptávky dlouhodobě; reklama přináší poptávky po dobu, kdy za ni platíte.' },
+    { q: 'Čím se SEO liší od reklamy pro překladatelskou agenturu?', a: 'Reklama a SEO jsou různé kanály: reklama se platí po dobu kampaně, SEO vyžaduje průběžnou práci na webu. Čas ani výsledek nelze zaručit u žádného z nich. Co se hodí, závisí na rozpočtu a na cílech. Nejdřív se vyplatí zjistit, odkud přicházejí zájemci dnes.' },
     { q: 'Potřebuje agentura samostatnou stránku pro každý jazykový pár?', a: 'Ne vždy. Stránku má smysl dělat tam, kde na pár existuje poptávka a agentura umí o něm napsat konkrétně.' },
     { q: 'Jak vypadá SEO pro agenturu s pobočkami v několika městech?', a: 'Každé město potřebuje vlastní lokální stránku a profil na Google Maps a na Mapy.com s jednotnými údaji. Praha má vlastní podmínky a konkurenci, proto její stránka popisuje pražskou nabídku a nekopíruje text jiných měst.' },
     { q: 'Co dělá bezplatný audit u webů s více jazykovými verzemi?', a: 'Zkontroluje indexaci jazykových verzí a duplicity mezi nimi. Klíčová slova, konkurence, mapy, viditelnost v AI, rychlost a mobilní verze do auditu nepatří.' },

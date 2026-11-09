@@ -95,10 +95,10 @@ const raw = {
   faqTitle: 'Časté otázky',
   faq: [
     priceFaqCs('gaming', 'počítačovou hernu'),
-    { q: 'Potřebuje počítačová herna web, když má sociální sítě?', a: 'Sociální sítě slouží stávající komunitě, ale ceník, rezervace, adresu a otevírací hodiny najdou noví zájemci snáz na webu. Web zachytí i lidi, kteří hledají v Google nebo na mapách. Co potřebuje konkrétní počítačová herna, záleží na tom, odkud jí dnes zájemci přicházejí.' },
+    { q: 'Potřebuje počítačová herna web, když má sociální sítě?', a: 'Sociální sítě slouží stávající komunitě. Ceník, rezervace, adresu a otevírací hodiny může mít počítačová herna také na vlastním webu pod svou kontrolou. Web a sociální sítě plní různé role. Co potřebuje konkrétní počítačová herna, záleží na tom, odkud jí dnes zájemci přicházejí.' },
     // Answer replaced on 08.11.2026 (brief of 08.11.2026): the niche has no own projects, so the period "2–3 měsíce" is not confirmed by data of the niche.
     { q: 'Jak dlouho trvá SEO?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
-    { q: 'Čím se SEO liší od reklamy?', a: 'Reklama přináší návštěvy rychleji, ale jen dokud za ni platíte. SEO se rozbíhá pomaleji, zato web a profily pracují i bez průběžného rozpočtu na kliknutí. Obě cesty lze kombinovat; SEO nenahrazuje reklamu a reklama nenahrazuje pořádek na webu. Co se vyplatí, závisí na rozpočtu a cílech klubu.' },
+    { q: 'Čím se SEO liší od reklamy?', a: 'Reklama a SEO jsou různé kanály: reklama se platí po dobu kampaně, SEO vyžaduje průběžnou práci na webu. Čas ani výsledek nelze zaručit u žádného z nich. Co se hodí, závisí na rozpočtu a na cílech. Nejdřív se vyplatí zjistit, odkud přicházejí zájemci dnes.' },
     { q: 'Co dělá bezplatný audit u webu s rezervacemi?', a: 'Zkontroluji, zda vyhledávač vidí stránky s rezervacemi, zda widgety a iframe nebrání indexaci a zda kalendář nebo parametry v adrese nevytvářejí duplicity. Do auditu nepatří klíčová slova, konkurence, mapy, viditelnost v AI, rychlost a mobilní verze.' },
     { q: 'Kolik firem z oboru obsluhujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Jde o limit mé kapacity, ne o exkluzivitu. K ${GAMING_CAPACITY_DATE} je obor počítačových heren volný. Změní-li se to, údaj na stránce aktualizuji, aby byl vždy platný a stejný ve všech jazykových verzích.` },
   ],

@@ -40,7 +40,7 @@ const raw = {
       ['Doporučení a reference', 'od stávajících klientů a známých', 'když už má kancelář spokojené klienty', 'nelze plánovat, roste jen s okruhem klientů'],
       ['Vlastní web a SEO, GEO/AEO', 'z vyhledávání a z odpovědí AI', 'když klient hledá kancelář sám', ''],
       ['Mapy a profil firmy', 'z map a hledání v okolí', 'když klienta rozhoduje poloha', 'profil je třeba udržovat; podrobnosti na stránce'],
-      ['Placená reklama', 'z reklam ve vyhledávání a na sítích', 'když je třeba rychlejší start', 'působí jen po dobu platby; pravidla platformy a profese prověřit'],
+      ['Placená reklama', 'z reklam ve vyhledávání a na sítích', 'když chce kancelář oslovit zájemce placeným kanálem', 'působí jen po dobu platby; pravidla platformy a profese prověřit'],
       ['Sociální sítě a obsah', 'z příspěvků a článků', 'když chcete budovat důvěru', 'vyžaduje pravidelnou práci'],
       ['Partnerství s jinými profesemi', 'od právníků, podnikatelských poradců a dalších oborů', 'když máte spřízněné obory', 'závisí na vztazích; bez slibu výsledku'],
     ],
@@ -64,7 +64,7 @@ const raw = {
   mapsLinkText: 'SEO pro Mapy',
 
   adsTitle: 'Kdy se vyplatí placená reklama?',
-  adsAnswer: 'Placená reklama může přivést poptávky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Vyplatí se, když kancelář potřebuje rychlý start a má rozpočet na testování. Pravidla reklamní platformy i své profese si před spuštěním prověřte. Obě cesty lze kombinovat.',
+  adsAnswer: 'Placená reklama působí jen po dobu, kdy za ni platíte. Vyplatí se, když kancelář potřebuje rychlý start a má rozpočet na testování. Pravidla reklamní platformy i své profese si před spuštěním prověřte. Obě cesty lze kombinovat.',
   adsText: 'U e-mailových a dalších rozesílek existují pravidla, před spuštěním se obraťte na právníka.',
 
   chooseTitle: 'Jak vybrat kanál, když není čas na všechno?',
@@ -93,8 +93,8 @@ const raw = {
     { q: 'Jak získat první klienty jako účetní?', a: 'Začít lze u lidí, které už znáte: bývalých kolegů, známých podnikatelů a lidí z jiných oborů, kteří mohou kancelář doporučit. Zároveň si připravte web nebo profil, kde se klient dozví, co nabízíte. Který kanál bude fungovat, nelze předem zaručit, proto první měsíce sledujte, odkud poptávky přišly.' },
     { q: 'Jak získat klienty jako účetní OSVČ?', a: 'Pokud má účetní OSVČ omezený čas nebo rozpočet, dává smysl vybrat jeden až dva kanály: doporučení od stávajících klientů, profil na mapách nebo jednoduchý web. Reklama a sociální sítě vyžadují průběžně čas nebo peníze. Žádný kanál nezaručuje poptávku, proto sledujte, co funguje.' },
     { q: 'Má smysl vlastní web účetní kanceláře?', a: 'Záleží na tom, odkud chcete klienty získávat. Pokud vás klienti hledají sami ve vyhledávání nebo se ptají AI, web jim umožní kancelář najít a posoudit. Pokud klienty získáváte jen z doporučení, může web sloužit hlavně k ověření důvěry. Web tedy slouží vždy, jen s jinou rolí.' },
-    { q: 'Který kanál je nejlepší pro účetní kancelář?', a: 'Univerzálně nejlepší kanál neexistuje. Doporučení jsou dobrý základ, web a mapy pomáhají těm, kdo hledají sami, reklama přináší rychlejší start za průběžnou platbu. Výběr závisí na vašem čase, rozpočtu a typu klientů. Začněte jedním až dvěma kanály a po několika měsících vyhodnoťte výsledky.' },
-    { q: 'Vyplatí se placená reklama pro účetní kancelář?', a: 'Reklama může přivést poptávky rychleji než SEO, ale jen po dobu, kdy za ni platíte. Vyplatí se, pokud máte rozpočet na testování a umíte vyhodnotit, odkud poptávky přišly. Před spuštěním si prověřte pravidla reklamní platformy a své profese. Obě cesty lze kombinovat.' },
+    { q: 'Který kanál je nejlepší pro účetní kancelář?', a: 'Univerzálně nejlepší kanál neexistuje. Doporučení jsou dobrý základ, web a mapy pomáhají těm, kdo hledají sami, reklama se platí průběžně. Výběr závisí na vašem čase, rozpočtu a typu klientů. Začněte jedním až dvěma kanály a po několika měsících vyhodnoťte výsledky.' },
+    { q: 'Vyplatí se placená reklama pro účetní kancelář?', a: 'Reklama působí jen po dobu, kdy za ni platíte. Vyplatí se, pokud máte rozpočet na testování a umíte vyhodnotit, odkud poptávky přišly. Před spuštěním si prověřte pravidla reklamní platformy a své profese. Obě cesty lze kombinovat.' },
     { q: 'Za jak dlouho se projeví SEO?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
   ],
 

@@ -61,7 +61,7 @@ const raw = {
   pickB2bLinkText: 'Jak získat B2B klienty pro překladatelskou agenturu',
 
   adsTitle: 'Čím se SEO liší od reklamy pro překladatelskou agenturu?',
-  adsAnswer: 'SEO buduje stránky, které přivádějí poptávky dlouhodobě, ale první výsledky přicházejí později. Reklama přináší poptávky rychle, ale jen po dobu, kdy za ni platíte. Reklamu nespravuji. Obě cesty se dají kombinovat podle situace.',
+  adsAnswer: 'SEO vyžaduje průběžnou práci na webu. Reklama se platí po dobu kampaně. Reklamu nespravuji. Obě cesty se dají kombinovat podle situace.',
   adsText: 'Reklama překladatelské agentury je rychlý nástroj, SEO je dlouhodobější základ. Co je důležité vědět před kombinací obou, vysvětluji v článku',
   adsLinkText: 'SEO a reklama',
   quote: 'Nejlepší kanál je ten, který agentura dokáže dělat pravidelně. Jednorázový zásah klienty nepřivede.',
@@ -88,7 +88,7 @@ const raw = {
   faqTitle: 'Často kladené otázky',
   faq: [
     { q: 'S čím začít, když překladatelská agentura nemá dost klientů?', a: 'Začněte kontrolou toho, co už máte: zda je web vidět v Googlu, zda má stránky pro hledané dotazy a zda funguje kontakt. Teprve potom volte další kanál. Pořadí kontroly najdete v článku o chybějících poptávkách z webu. Bez tohoto základu další kanály přinesou méně.', links: [{ page: 'postNoLeads' as const, text: 'Proč překladatelská agentura nemá poptávky z webu?' }] },
-    { q: 'Je lepší SEO, nebo reklama pro překladatelskou agenturu?', a: 'Záleží na situaci. Reklama přináší poptávky rychleji, ale jen po dobu, kdy za ni platíte. SEO se buduje déle a výsledky zůstávají. Reklamu nespravuji, proto k ní nedávám doporučení. Porovnání obou cest je v samostatném článku o SEO a reklamě.', links: [{ page: 'postAds' as const, text: 'SEO a reklama' }] },
+    { q: 'Je lepší SEO, nebo reklama pro překladatelskou agenturu?', a: 'Záleží na situaci. Reklama se platí po dobu kampaně, SEO vyžaduje průběžnou práci na webu. Reklamu nespravuji, proto k ní nedávám doporučení. Porovnání obou cest je v samostatném článku o SEO a reklamě.', links: [{ page: 'postAds' as const, text: 'SEO a reklama' }] },
     { q: 'Pomáhají katalogy a profily na mapách?', a: 'Pomáhají, pokud jsou údaje shodné s webem a profil je úplný, ale pozici ani počet poptávek nezaručí. Profil na mapách firmám usnadňuje najít vás při hledání s městem. Postup a kontrola budou v samostatném článku o Google Maps a Mapy.com.' },
     { q: 'Jak dlouho trvá, než SEO přinese první poptávky?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
   ],
