@@ -80,7 +80,7 @@ if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).
 for (const p of ['dist/konzultace/index.html', 'dist/start-3-mesice/index.html', 'dist/full-seo/index.html', 'dist/lokalni-seo-mapy/index.html']) {
   const c = readFileSync(p, 'utf8');
   const t0 = txt(c.replace(/<main[\s\S]*?<\/main>/, (m) => m));
-  if (!c.includes('<h2>Proč mi klienti věří?</h2>') || !c.includes(`href="${URL_PATH}"`) || !t0.includes('Klienti mi svěřují práci, protože si mohou všechno ověřit') || [...c.matchAll(/id="proc-mi-veri"[\s\S]*?<div class="card"><h3>/g)].length !== 1) e(`${p}: "Proč mi klienti věří?" block with four reasons and a link to /o-mne/`);
+  if (!/<h2[^>]*>Proč mi klienti věří\?<\/h2>/.test(c) || !c.includes(`href="${URL_PATH}"`) || !t0.includes('Klienti mi svěřují práci, protože si mohou všechno ověřit') || [...c.matchAll(/id="proc-mi-veri"[\s\S]*?<div class="card"><h3>/g)].length !== 1) e(`${p}: "Proč mi klienti věří?" block with four reasons and a link to /o-mne/`);
 }
 
 if (errors.length) {
