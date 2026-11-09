@@ -34,8 +34,6 @@ const minutes = Math.max(3, Math.ceil(words / 200));
       <p class="small muted">{REALTY_REVIEWER.before}{' '}<a href={REALTY_REVIEWER.href} target="_blank" rel="noopener">{REALTY_REVIEWER.name}</a>{REALTY_REVIEWER.after}</p>
       <p class="lead">{C.lead}</p>
       <p>{C.forWhom}</p>
-      <p class="muted small">{C.tocTitle}:</p>
-      <ol class="toc">{C.toc.map((x) => <li><a href={`#${x.id}`}>{x.text}</a></li>)}</ol>
     </div>
   </section>
 

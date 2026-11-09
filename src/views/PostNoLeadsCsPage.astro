@@ -37,7 +37,6 @@ const minutes = Math.max(3, Math.ceil(words / 200));
   <section class="section section--tight">
     <div class="container narrow">
       <h2>{C.tableTitle}</h2>
-      <ol class="toc">{C.toc.map((x) => <li><a href={`#${x.id}`}>{x.text}</a></li>)}</ol>
       <div class="table-wrap">
         <table class="compare">
           <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
