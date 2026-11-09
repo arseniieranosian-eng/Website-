@@ -95,17 +95,13 @@ const qn = ld.find((n) => n['@type'] === 'Quotation');
 // P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'ru' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: optional until the anonymised file exists; when present everything must line up
 const hasVideo = /<video/.test(h);
-if ((h.match(/<video/g) || []).length !== vdAll.length) e('every <video> on the page needs its VideoObject in JSON-LD (and vice versa)');
+// 09.11.2026 (retro-audit P1 A): VideoObject is not used on the site; the videos stay on the page.
+if (vdAll.length) e('no VideoObject in JSON-LD');
 if (hasVideo) {
   if (!/<video[^>]*controls[^>]*preload="metadata"[^>]*poster=/.test(h) || /autoplay/.test(h)) e('video: controls, preload=metadata, poster, no autoplay');
-  if (!body.includes(vd.description) || !body.includes(vd.transcript)) e('video description / transcript must be visible under the video');
   if (!body.includes('Пример презентации бесплатного SEO-аудита (32 секунды, без звука).')) e('video caption missing');
-  if (!vd.contentUrl || vd.embedUrl) e('VideoObject: contentUrl only');
-  if (!(Array.isArray(wp.video) ? wp.video : [wp.video]).some((v) => v?.['@id'] === vd['@id'])) e('WebPage.video must reference the VideoObject');
   // second video: the other-niche example (added 27.10.2026)
   if (!body.includes('Примеры аудитов для других ниш') || !body.includes('разработка специализированного программного обеспечения для автоматизации машиностроительных и металлообрабатывающих предприятий') || !body.includes('Язык презентации: английский') || !body.includes('Пример презентации бесплатного SEO-аудита для сайта на английском языке (37 секунд, без звука).')) e('other-niche example: heading, niche, language and caption');
-  const v2 = vdAll.find((n) => /video-machinery-software/.test(n['@id']));
-  if (!v2 || !body.includes(v2.description) || !v2.contentUrl || v2.embedUrl) e('VideoObject of the other-niche example: visible description, contentUrl only');
   if (/Windows|VEED/i.test(body)) e('no editor / OS names in the text');
 }
 void own;

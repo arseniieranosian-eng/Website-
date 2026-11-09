@@ -105,11 +105,10 @@ const qn = ld.find((n) => n['@type'] === 'Quotation');
 // P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!qn || qn['@id'] !== `${BASE}${URL_PATH}#quote-1` || qn.text !== QT || qn.creator['@id'] !== by('Person')['@id'] || qn.inLanguage !== 'cs' || qn.isPartOf['@id'] !== wp['@id']) e('Quotation node');
 // Video: when present, everything lines up
 const hasVideo = /<video/.test(h);
-if (hasVideo !== Boolean(vd)) e('<video> and VideoObject must appear together');
+// 09.11.2026 (retro-audit P1 A): VideoObject is not used on the site; the video stays on the page.
+if (ld.some((n) => n['@type'] === 'VideoObject')) e('no VideoObject in JSON-LD');
 if (hasVideo) {
   if (!/<video[^>]*controls[^>]*preload="metadata"[^>]*poster=/.test(h) || /<video[^>]*autoplay/.test(h)) e('video: controls, preload=metadata, poster, no autoplay');
-  if (!body.includes(norm(vd.description)) || !body.includes(norm(vd.transcript))) e('video description / transcript must be visible');
-  if (!vd.contentUrl || vd.embedUrl || !wp.video?.some((v) => v['@id'] === vd['@id']) || vd.name !== 'Ukázka výstupu bezplatného SEO auditu (anonymizováno)') e('VideoObject fields');
 }
 // One source: the case line equals the shared one, the consultation prices come from the consultation page
 if (!mainTxt.includes('Překladatelská agentura se třemi pobočkami')) e('case line from the shared source');

@@ -53,8 +53,8 @@ const canonical = abs(path);
 const hreflangs = LANGS.filter((l) => alternates[l]).map((l) => ({ l, href: abs(alternates[l]!) }));
 const xDefault = alternates[DEFAULT_LANG] ? abs(alternates[DEFAULT_LANG]!) : null;
 const graph = [...baseGraph(site), ...(breadcrumbs ? [breadcrumbSchema(site, breadcrumbs, path)] : []), ...schema.filter(Boolean)];
-// Quotation and HowTo markup is not used on the site (brief of 03.11.2026, P1.1): the nodes and every reference to them are dropped here, in one place, whatever a page's schema builder emits.
-const BANNED_TYPES = new Set(['Quotation', 'HowTo']);
+// VideoObject markup is not used either (retro-audit P1 A, brief of 09.11.2026; the videos stay on the pages). Quotation and HowTo markup is not used on the site (brief of 03.11.2026, P1.1): the nodes and every reference to them are dropped here, in one place, whatever a page's schema builder emits.
+const BANNED_TYPES = new Set(['Quotation', 'HowTo', 'VideoObject']);
 const dead = new Set((graph as any[]).filter((n) => BANNED_TYPES.has(n['@type'])).map((n) => n['@id']).filter(Boolean));
 const scrub = (x: any): any => {
   if (Array.isArray(x)) return x.filter((v) => !(v && typeof v === 'object' && Object.keys(v).length === 1 && dead.has(v['@id']))).map(scrub);
