@@ -81,6 +81,8 @@ export function addToc(body: string, lang: Lang, pageKey: string | undefined): s
 // The same block as in the articles, directly under the introduction of the hero (below its buttons, full width). The ids of the headings are made from the heading text (no hand-written map: the
 // structure differs per language), the links are the headings themselves. Not listed: the enquiry form, the "other services" cards and dark call-to-action bands.
 export const SERVICE_KEYS_TOC = new Set(['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo']);
+// the niche landing pages (nicheDental, nicheGaming, ... in every language) get the same block
+export const hasServiceToc = (key: string) => SERVICE_KEYS_TOC.has(key) || /^niche[A-Z]/.test(key);
 const LABEL_SERVICE: Record<Lang, { title: string; aria: string }> = {
   cs: { title: 'Na stránce najdete:', aria: 'Obsah stránky' },
   ru: { title: 'На странице:', aria: 'Содержание страницы' },
@@ -131,6 +133,7 @@ export function addServiceToc(body: string, lang: Lang): string {
   if (entries.length < TOC_MIN_ITEMS) return body;
   const L = LABEL_SERVICE[lang] ?? LABEL_SERVICE.cs;
   const li = entries.map((e) => `<li><a href="#${e.id}">${e.text}</a></li>`).join('');
-  const nav = `<div class="container"><nav class="toc toc--cols" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div>`;
+  const narrow = /<div class="container[^"]*\bnarrow\b/.test(body.slice(heroStart, heroEnd)); // same width as the introduction of the hero
+  const nav = `<div class="container${narrow ? ' narrow' : ''}"><nav class="toc${narrow ? '' : ' toc--cols'}" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div>`;
   return body.slice(0, heroEnd) + nav + body.slice(heroEnd, heroEnd + '</section>'.length) + newRest;
 }

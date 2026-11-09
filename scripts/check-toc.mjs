@@ -6,7 +6,8 @@ const errs = []; const e = (m) => errs.push(m);
 const txt = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;| /g, ' ').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const routes = readFileSync('src/i18n/routes.ts', 'utf8');
 const SERVICE = new Set(); // service pages (brief of 09.11.2026): same block under the introduction, ids made from the headings
-for (const k of ['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo']) { const m = routes.match(new RegExp(`^  ${k}: \\{([^}]*)\\}`, 'm')); for (const x of (m ? m[1].matchAll(/'([^']+)'/g) : [])) SERVICE.add(x[1]); }
+const nicheKeys = [...routes.matchAll(/^  (niche[A-Z]\w*): \{/gm)].map((m) => m[1]); // + the niche landing pages
+for (const k of ['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo', ...nicheKeys]) { const m = routes.match(new RegExp(`^  ${k}: \\{([^}]*)\\}`, 'm')); for (const x of (m ? m[1].matchAll(/'([^']+)'/g) : [])) SERVICE.add(x[1]); }
 const pages = [];
 (function walk(d) { for (const n of readdirSync(d)) { const p = join(d, n); if (statSync(p).isDirectory()) walk(p); else if (n === 'index.html') pages.push(p); } })('dist');
 const urlOf = (p) => '/' + p.replace(/^dist\/?/, '').replace(/index\.html$/, '');
@@ -34,7 +35,7 @@ for (const p of pages) {
     if (ids0.length !== new Set(ids0).size) e(`${u}: duplicate ids`);
     if (ls.length < 4) e(`${u}: contents with fewer than 4 items`);
     for (const l of ls) { const t = hs.find((x) => x.id === l.id); if (!t) e(`${u}: broken anchor #${l.id}`); else if (t.text !== l.text) e(`${u}: link text differs from heading #${l.id}`); }
-    if (!/^<div class="container"><nav/.test(nav.input.slice(nav.index - 30, nav.index + 5).replace(/^[\s\S]*(<div class="container"><nav)/, '$1'))) e(`${u}: contents block is not directly after the hero`);
+    if (!/<\/div>\s*<div class="container(?: narrow)?"><nav class="toc[^"]*"[\s\S]*?<\/nav><\/div><\/section>/.test(h)) e(`${u}: contents block is not directly after the hero`);
     continue;
   }
   if (!isArticle(u)) { if (nav || /<ol class=\"toc\"/.test(h)) e(`${u}: table of contents outside a blog article`); continue; }
