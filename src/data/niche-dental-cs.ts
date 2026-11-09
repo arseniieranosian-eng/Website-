@@ -8,6 +8,8 @@
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { priceAnswerCs, priceFaqCs } from './niche-prices';
+// Capacity status of the niche, confirmed by the author on 09.11.2026 (the field stays free; no "last places" wording).
+export const DENTAL_CAPACITY_DATE = '9. 11. 2026';
 
 export const NICHE_DENTAL_PUBLISHED = '2026-11-01';
 
@@ -37,6 +39,7 @@ const raw = {
   heroAudit: 'Požádat o bezplatný audit',
 
   coopTitle: 'Jak probíhá spolupráce?',
+  capacityLine: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${DENTAL_CAPACITY_DATE} obor zubní ordinace: volno.`,
   coopAnswer: 'Spolupráce začíná {audit|bezplatným auditem} technických chyb webu: indexace, duplicity a další technické věci. Prezentaci pošlu do 24 hodin, bez hovoru a bez závazku. Potom si můžete vybrat placenou {consulting|konzultaci}, balíček {start|Start} na tři měsíce, nebo {fullSeo|Full SEO} na rok. Mapy a místní profily řeším {maps|samostatnou službou}.',
 
   priceTitle: 'Kolik to stojí?',
