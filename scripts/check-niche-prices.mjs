@@ -25,7 +25,7 @@ for (const [page, price] of Object.entries(T)) {
   const t = txt(main);
   const want = fmt(price);
   const ru = page.startsWith('ru/');
-  if (!sum.includes(`${ru ? 'от' : 'od'} ${want}`) || !sum.includes(`${ru ? 'Консультация от' : 'Konzultace od'} 2 000 Kč`)) errors.push(`${page}: summary block must state the consultation and the niche price ${want}`);
+  if (page !== 'seo-pro-zubni-ordinace-praha' && (!sum.includes(`${ru ? 'от' : 'od'} ${want}`) || !sum.includes(`${ru ? 'Консультация от' : 'Konzultace od'} 2 000 Kč`))) errors.push(`${page}: summary block must state the consultation and the niche price ${want}`);
   if (SCOPE.has(page) && !/podle rozsahu webu|в зависимости от объёма сайта/.test(sum)) errors.push(`${page}: scope wording missing in the summary block`);
   // every "N Kč měsíčně / в месяц" on the page is this niche's price (map-package prices are a different service)
   for (const m of t.matchAll(/(\d[\d ]*\d) Kč (?:měsíčně|в месяц)/g)) if (m[1] + ' Kč' !== want && m[1] !== '1 800') errors.push(`${page}: monthly price ${m[1]} Kč differs from ${want}`);

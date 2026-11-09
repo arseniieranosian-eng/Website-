@@ -72,7 +72,7 @@ if (!svc || svc.areaServed !== 'Praha' || svc.offers || svc.provider?.['@id'] !=
 const wp = nodes.find((n) => n['@type'] === 'WebPage' && n.url === BASE + URL_PATH);
 if (!wp || wp.name !== H1) e('WebPage name = H1');
 // content rules
-for (const w of ['bezbolestně', 'nejlepší', 'účinnost', 'hodně pacientů', 'noví pacienti', 'udělám z vás', 'vyvedu do topu', 'jen proto', 'pouze protože', 'zubař', 'DPH', 'zaručuj', 'záruk', 'garant', 'slib', 'neručí']) if (new RegExp(w, 'i').test(mainTxt.replace('Bez slibů výsledku.', ''))) e(`forbidden text: ${w}`);
+for (const w of ['bezbolestně', 'nejlepší', 'účinnost', 'hodně pacientů', 'noví pacienti', 'udělám z vás', 'vyvedu do topu', 'jen proto', 'pouze protože', 'zubař', 'DPH', 'zaručuj', 'záruk', 'garant', 'slib', 'neručí']) if (new RegExp(w, 'i').test(mainTxt.replace('Bez slibů výsledku.', '').replace('Výsledek ani termín nezaručuji.', ''))) e(`forbidden text: ${w}`);
 if (/zatím nemám|výsledky nemám|případovou studii nemám/.test(mainTxt)) e('no "no results in the niche" statements');
 if (/\b(jsem|moje|naše|moji)\b[^.]{0,30}\bagentur/i.test(mainTxt.replace(/pro překladatelskou agenturu|U překladatelské agentury/g, ''))) e('"agentura" about the author');
 if (/(^|[^A-Za-z])GEO(?!\/AEO| a AEO)/.test(mainTxt)) e('bare GEO (use GEO/AEO)');
