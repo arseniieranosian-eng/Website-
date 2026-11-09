@@ -927,9 +927,9 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   faq: {
     cs: {
       name: 'Časté dotazy',
-      title: 'Časté dotazy o SEO – ceny, termíny, spolupráce',
-      description: 'Odpovědi na nejčastější otázky o SEO: jak dlouho trvá, co obsahuje audit, jak probíhá spolupráce a jaký je rozdíl mezi SEO a GEO/AEO.',
-      h1: 'Časté dotazy',
+      title: 'Časté dotazy o SEO: ceny, termíny, spolupráce | Eranosian',
+      description: 'Odpovědi na časté otázky o SEO a GEO/AEO: kolik stojí Full SEO, Start a konzultace, co zahrnuje bezplatný audit, jak probíhá spolupráce.',
+      h1: 'Časté dotazy o SEO a GEO/AEO',
     },
     en: {
       name: 'FAQ',
