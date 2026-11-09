@@ -284,6 +284,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
     ru: { name: 'Локальное присутствие агентства недвижимости', title: 'Локальное присутствие агентства недвижимости', description: 'Локальное присутствие агентства недвижимости', h1: 'Как агентству недвижимости выглядеть на картах и в каталогах?' },
   },
+  postWebSocialGaming: {
+    cs: {
+      name: 'Web nebo sociální sítě pro počítačovou hernu',
+      title: 'Web nebo sociální sítě pro počítačovou hernu | Eranosian',
+      description: 'Vlastní web a sociální sítě u počítačové herny: čím se liší, co každý z nich dělá a jak se mohou doplňovat. Bez slibů a bez pořadí důležitosti.',
+      h1: 'Web nebo sociální sítě: co potřebuje počítačová herna?',
+    },
+    en: { name: 'Website or social media for a computer club', title: 'Website or social media for a computer club', description: 'Website or social media for a computer club', h1: 'Website or social media: what does a computer club need?' },
+    ru: { name: 'Сайт или соцсети для компьютерного клуба', title: 'Сайт или соцсети для компьютерного клуба', description: 'Сайт или соцсети для компьютерного клуба', h1: 'Сайт или соцсети: что нужно компьютерному клубу?' },
+    uk: { name: 'Сайт або соцмережі для комп’ютерного клубу', title: 'Сайт або соцмережі для комп’ютерного клубу', description: 'Сайт або соцмережі для комп’ютерного клубу', h1: 'Сайт або соцмережі: що потрібно комп’ютерному клубу?' },
+  },
   postWeakSeoGaming: {
     cs: {
       name: 'Slabé SEO konkurence u počítačové herny',

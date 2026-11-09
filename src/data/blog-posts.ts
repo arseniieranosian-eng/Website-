@@ -30,6 +30,7 @@ import { POST_WEAK_SEO_REALTY_RU, POST_WEAK_SEO_REALTY_RU_PUBLISHED } from './po
 import { POST_FAQ_DENTAL_CS, POST_FAQ_DENTAL_PUBLISHED } from './post-faq-dental-cs';
 import { POST_DENTAL_CHANNELS_CS, POST_DENTAL_CHANNELS_PUBLISHED } from './post-dental-channels-cs';
 import { POST_WEAK_SEO_GAMING_CS, POST_WEAK_SEO_GAMING_PUBLISHED } from './post-weak-seo-gaming-cs';
+import { POST_WEB_SOCIAL_GAMING_CS, POST_WEB_SOCIAL_GAMING_PUBLISHED } from './post-web-social-gaming-cs';
 import { POST_DUP_ESHOP_CS, POST_DUP_ESHOP_PUBLISHED } from './post-dup-eshop-cs';
 import { POST_WEB_PAGES_CS, POST_WEB_PAGES_PUBLISHED } from './post-web-pages-cs';
 import { POST_WEAK_SEO_ACC_CS, POST_WEAK_SEO_ACC_PUBLISHED } from './post-weak-seo-accounting-cs';
@@ -70,6 +71,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postFaqDental', lang: 'cs', date: POST_FAQ_DENTAL_PUBLISHED, title: META.postFaqDental.cs.h1, description: META.postFaqDental.cs.description, image: POST_FAQ_DENTAL_CS.cover },
   { key: 'postDentalChannels', lang: 'cs', date: POST_DENTAL_CHANNELS_PUBLISHED, title: META.postDentalChannels.cs.h1, description: META.postDentalChannels.cs.description, image: POST_DENTAL_CHANNELS_CS.cover },
   { key: 'postWeakSeoGaming', lang: 'cs', date: POST_WEAK_SEO_GAMING_PUBLISHED, title: META.postWeakSeoGaming.cs.h1, description: META.postWeakSeoGaming.cs.description, image: POST_WEAK_SEO_GAMING_CS.cover },
+  { key: 'postWebSocialGaming', lang: 'cs', date: POST_WEB_SOCIAL_GAMING_PUBLISHED, title: META.postWebSocialGaming.cs.h1, description: META.postWebSocialGaming.cs.description, image: POST_WEB_SOCIAL_GAMING_CS.cover },
   { key: 'postDupEshop', lang: 'cs', date: POST_DUP_ESHOP_PUBLISHED, title: META.postDupEshop.cs.h1, description: META.postDupEshop.cs.description, image: POST_DUP_ESHOP_CS.cover },
   { key: 'postWebPages', lang: 'cs', date: POST_WEB_PAGES_PUBLISHED, title: META.postWebPages.cs.h1, description: META.postWebPages.cs.description, image: POST_WEB_PAGES_CS.cover },
   { key: 'postWeakSeoAcc', lang: 'cs', date: POST_WEAK_SEO_ACC_PUBLISHED, title: META.postWeakSeoAcc.cs.h1, description: META.postWeakSeoAcc.cs.description, image: POST_WEAK_SEO_ACC_CS.cover },
@@ -147,7 +149,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'gaming',
     title: { cs: 'Počítačové herny', en: 'Computer clubs', ru: 'Компьютерные клубы' },
     lead: { cs: 'Pozorování webů počítačových heren ve výsledcích vyhledávání.', en: 'Observations of computer club websites in search results.', ru: 'Наблюдения за сайтами компьютерных клубов в поисковой выдаче.' },
-    keys: ['postWeakSeoGaming'],
+    keys: ['postWeakSeoGaming', 'postWebSocialGaming'],
   },
   {
     id: 'finance',

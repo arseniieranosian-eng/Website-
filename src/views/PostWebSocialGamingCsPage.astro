@@ -1,0 +1,112 @@
+---
+// Blog article "Web nebo sociální sítě: co potřebuje počítačová herna?" (cs), brief C2 of 09.11.2026. Content: data/post-web-social-gaming-cs.ts.
+// Informational and neutral: no body links except the author's byline and the expert's name (published after the author's three confirmations of 09.11.2026); the quote of the expert and the
+// author's quote (rule J) are plain blockquotes without Quotation markup; the step block (rule L) is a numbered list without HowTo markup; the closing block has ONE button (rule H).
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postWebSocialGamingSchemas } from '../lib/schema-post-web-social-gaming';
+import { POST_WEB_SOCIAL_GAMING_CS as C, POST_WEB_SOCIAL_GAMING_PUBLISHED, EXPERT_URL } from '../data/post-web-social-gaming-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostWebSocialGamingCsPage.astro', 'src/data/post-web-social-gaming-cs.ts'], '2026-11-09'), POST_WEB_SOCIAL_GAMING_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-web-nebo-socialni-site-pocitacova-herna.png';
+const cite = new URL(path('postWebSocialGaming', lang), site).href;
+---
+<Base {...pageProps('postWebSocialGaming', lang)} ogType="article" ogImage={OG} schema={postWebSocialGamingSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postWebSocialGaming.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: 4 {C.readUnit}</p>
+      <p class="small muted">{C.expertLine.before}{' '}<a href={EXPERT_URL} target="_blank" rel="noopener">{C.expertLine.name}</a>{C.expertLine.after}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="rozdily">
+    <div class="container narrow">
+      <h2>{C.diffTitle}</h2>
+      <p class="answer">{C.diffAnswer}</p>
+      <p class="muted small">{C.tableCaption}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.table.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.tableNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="staci">
+    <div class="container narrow">
+      <h2>{C.enoughTitle}</h2>
+      <p class="answer">{C.enoughAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section" id="spolu">
+    <div class="container narrow">
+      <h2>{C.togetherTitle}</h2>
+      <p class="answer">{C.togetherAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="smm">
+    <div class="container narrow">
+      <h2>{C.expertTitle}</h2>
+      <p class="answer">{C.expertAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.expertQuote}</p></blockquote>
+        <figcaption><span>— <a href={EXPERT_URL} target="_blank" rel="noopener">{C.expertCaption.name}</a>, {C.expertCaption.role}</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="pozorovani">
+    <div class="container narrow">
+      <h2>{C.seenTitle}</h2>
+      <p class="answer">{C.seenAnswer}</p>
+      <p>{C.seenMore}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--grey" id="start">
+    <div class="container narrow">
+      <h2>{C.startTitle}</h2>
+      <p class="answer">{C.startAnswer}</p>
+      <ol class="steps">{C.start.map((x) => <li><span>{x}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <p class="muted">{C.expertDisclosure}</p>
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('nicheGaming')}>{C.endCta}</a></div>
+      </div>
+    </div>
+  </section>
+</Base>
