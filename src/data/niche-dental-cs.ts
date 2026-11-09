@@ -31,7 +31,8 @@ const raw = {
   updatedLabel: 'Aktualizováno',
 
   // line under the H1 (rule B): the translation-agency case only
-  proof: 'U překladatelské agentury: poptávky z webu +65–70 % měsíc po měsíci tři měsíce po sobě (březen–září 2026).',
+  // Replaced on 09.11.2026 (retro-audit P1 E, K10): no result of another niche on the YMYL page, no numbers.
+  proof: 'Technický základ webu, stránky služeb a FAQ pro zubní ordinace. Bez slibů výsledku.',
   lead: SUMMARIES['/seo-pro-zubni-ordinace-praha/'],
   heroAudit: 'Požádat o bezplatný audit',
 

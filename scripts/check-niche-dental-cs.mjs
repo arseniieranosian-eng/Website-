@@ -46,7 +46,8 @@ const SECTIONS0 = ['Jak probíhá spolupráce?', 'Kolik to stojí?', 'Jaké mám
 const SECTIONS = ZL ? SECTIONS0.flatMap((x) => x === 'Pro koho SEO dává smysl a pro koho ne?' ? [ZL_H2, x] : [x]) : SECTIONS0;
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order (D2 not published yet): ${JSON.stringify(hs)}`);
 // line under the H1 exactly, then the summary box, both before the first H2
-if (!mainTxt.includes('U překladatelské agentury: poptávky z webu +65–70 % měsíc po měsíci tři měsíce po sobě (březen–září 2026).') || main.indexOf('U překladatelské') > main.indexOf('summary-box')) e('line under the H1 / order');
+// 09.11.2026 (retro-audit P1 E): the line under the H1 has no result of another niche and no numbers.
+if (!mainTxt.includes('Technický základ webu, stránky služeb a FAQ pro zubní ordinace. Bez slibů výsledku.') || main.indexOf('Technický základ webu, stránky služeb') > main.indexOf('summary-box') || /65[–-]70/.test(mainTxt)) e('line under the H1 / order');
 const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'))[URL_PATH];
 const sum = txt((main.match(/<div class="summary-box"><p class="lead">([\s\S]*?)<\/p><\/div>/) || [, ''])[1]);
 if (sum.replace(/ /g, ' ') !== SUM || main.indexOf('summary-box') > main.indexOf('<h2')) e('summary block: text and position');
@@ -71,7 +72,7 @@ if (!svc || svc.areaServed !== 'Praha' || svc.offers || svc.provider?.['@id'] !=
 const wp = nodes.find((n) => n['@type'] === 'WebPage' && n.url === BASE + URL_PATH);
 if (!wp || wp.name !== H1) e('WebPage name = H1');
 // content rules
-for (const w of ['bezbolestně', 'nejlepší', 'účinnost', 'hodně pacientů', 'noví pacienti', 'udělám z vás', 'vyvedu do topu', 'jen proto', 'pouze protože', 'zubař', 'DPH', 'zaručuj', 'záruk', 'garant', 'slib', 'neručí']) if (new RegExp(w, 'i').test(mainTxt)) e(`forbidden text: ${w}`);
+for (const w of ['bezbolestně', 'nejlepší', 'účinnost', 'hodně pacientů', 'noví pacienti', 'udělám z vás', 'vyvedu do topu', 'jen proto', 'pouze protože', 'zubař', 'DPH', 'zaručuj', 'záruk', 'garant', 'slib', 'neručí']) if (new RegExp(w, 'i').test(mainTxt.replace('Bez slibů výsledku.', ''))) e(`forbidden text: ${w}`);
 if (/zatím nemám|výsledky nemám|případovou studii nemám/.test(mainTxt)) e('no "no results in the niche" statements');
 if (/\b(jsem|moje|naše|moji)\b[^.]{0,30}\bagentur/i.test(mainTxt.replace(/pro překladatelskou agenturu|U překladatelské agentury/g, ''))) e('"agentura" about the author');
 if (/(^|[^A-Za-z])GEO(?!\/AEO| a AEO)/.test(mainTxt)) e('bare GEO (use GEO/AEO)');
