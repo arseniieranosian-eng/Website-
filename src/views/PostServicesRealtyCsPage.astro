@@ -1,0 +1,124 @@
+---
+// Blog article "Jak popsat služby realitní kanceláře na webu?" (cs), brief of 10.11.2026. Content: data/post-services-realty-cs.ts. DRAFT: not linked from other pages, not in the blog index.
+// Body links: only those of the brief (H2-3 template pages, H2-4 FAQ article, H2-7 observation source, FAQ 1 the article about missing enquiries) plus the Google source (K4); the author's quote (rule J) is a plain
+// blockquote without Quotation markup; the closing block has TWO buttons by city (the exception of rule H). The expert lines are shown only when EXPERT_CONFIRMED_SERVICES is true.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postServicesRealtySchemas } from '../lib/schema-post-services-realty';
+import { POST_SERVICES_REALTY_CS as C, POST_SERVICES_REALTY_PUBLISHED, EXPERT_CONFIRMED_SERVICES as EXPERT, FAQ_ARTICLE_PUBLISHED } from '../data/post-services-realty-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostServicesRealtyCsPage.astro', 'src/data/post-services-realty-cs.ts'], '2026-11-10'), POST_SERVICES_REALTY_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-stranky-sluzeb-realitni-kancelare.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+const cite = new URL(path('postServicesRealty', lang), site).href;
+const L_DISTRICT = 'https://seo-eranosian.com/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/';
+const L_FAQ = 'https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/';
+const L_SOURCE = 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/';
+const faqParts = (f: { a: string; links?: Record<string, { text: string; href: string }> }) => f.a.split(/(\{\w+\})/).filter(Boolean).map((p) => {
+  const m = p.match(/^\{(\w+)\}$/);
+  return m && f.links?.[m[1]] ? f.links[m[1]] : { text: p };
+});
+---
+<Base {...pageProps('postServicesRealty', lang)} ogType="article" ogImage={OG} schema={postServicesRealtySchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postServicesRealty.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      {EXPERT && <p class="small muted">{C.reviewer.before}{' '}<a href={C.reviewer.href} target="_blank" rel="noopener">{C.reviewer.name}</a>{C.reviewer.after}</p>}
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.startTitle}</h2>
+      <p class="answer">{C.startAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.contentTitle}</h2>
+      <p class="answer">{C.contentAnswer}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.differTitle}</h2>
+      <p class="answer">{C.differAnswer}</p>
+      <p>{C.differTemplate.before} <a href={L_DISTRICT}>{C.differTemplate.link}</a>{C.differTemplate.after}</p>
+      <p>{C.differGoogle}</p>
+      <p class="small muted">{C.sourceLabel} {C.differSource.before}{' '}<a href={C.differSource.href} target="_blank" rel="noopener">{C.differSource.href}</a>{C.differSource.after}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.answersTitle}</h2>
+      <p class="answer">{C.answersAnswer}</p>
+      {FAQ_ARTICLE_PUBLISHED && <p>{C.answersFaq.before} <a href={L_FAQ}>{C.answersFaq.link}</a>{C.answersFaq.after}</p>}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.promiseTitle}</h2>
+      <p class="answer">{C.promiseAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.stepsTitle}</h2>
+      <p class="answer">{C.stepsAnswer}</p>
+      <ol class="steps">{C.steps.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.seenTitle}</h2>
+      <p class="answer">{C.seenAnswer.before} <a href={L_SOURCE}>{C.seenAnswer.link}</a>{C.seenAnswer.after}</p>
+      <p>{C.seenMore}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{faqParts(f).map((p: any) => p.href ? <a href={p.href}>{p.text}</a> : p.text)}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <p class="muted">{C.mistake.before} <a href={t('contact')}>{C.mistake.link}</a></p>
+      {EXPERT && <p class="muted expert-note">{C.expertNote}</p>}
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <h2 class="post-cta__title">{C.endTitle}</h2>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href={t('nicheRealty')}>{C.endPraha}</a>
+          <a class="btn btn--primary btn--lg" href={t('nicheRealtyBrno')}>{C.endBrno}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
