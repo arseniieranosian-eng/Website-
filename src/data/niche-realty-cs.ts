@@ -9,7 +9,7 @@
 // The quote is a draft for the author's approval.
 import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
-import { NICHE_SHARED_CS, NICHE_CAPACITY_DATE } from './niche-shared';
+import { NICHE_SHARED_CS, NICHE_CAPACITY_DATE, WEAK_COMP_CS } from './niche-shared';
 import { NICHE_READY } from '../i18n/routes';
 import { CASE_RAZBOR_CS } from './case-razbor-cs';
 import { walk } from '../lib/cs-typo';
@@ -87,6 +87,7 @@ const raw = {
     title: 'Co jsem zjistil na webech realitních kanceláří v Praze?',
     text: 'K 7. 11. 2026 jsem si na dotaz „realitní kancelář v Praze“ prohlédl 12 webů realitních kanceláří; katalogy jsem do vzorku nezahrnul. FAQ chybělo u všech dvanácti, blog u šesti. U všech dvanácti jsem na stránkách služeb nenašel jasnou krátkou odpověď na otázku klienta. Je to můj pozorovací vzorek, ne průzkum trhu.',
   },
+  weakComp: WEAK_COMP_CS,
   doTitle: 'Co pro realitní kancelář v Praze konkrétně dělám?',
   doAnswer: 'Pro realitní kancelář v Praze upravuji stránky nabídek a čtvrtí, hlídám indexaci, duplicity z filtrů a zastaralé nabídky, připravuji obsah i pro AI odpovědi a pracuji s profily na Google Maps a Mapy.com. Začínám kontrolou technických chyb a postupuji podle toho, co ukáže.',
   doIntro: 'Optimalizace webu realitní kanceláře není jedna úprava, ale několik oblastí, které na sebe navazují:',

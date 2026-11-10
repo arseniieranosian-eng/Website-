@@ -38,6 +38,8 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <h2>{C.seenTitle}</h2>
       <p class="answer">{C.seenAnswer}</p>
       <p>{C.seenMap}</p>
+      <p>{C.weakComp.text}</p>
+      <p class="muted small">{C.weakComp.source.before}{' '}<a href={C.weakComp.source.href} target="_blank" rel="noopener">{C.weakComp.source.text}</a>{C.weakComp.source.after}</p>
     </div>
   </section>
 

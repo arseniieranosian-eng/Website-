@@ -6,6 +6,7 @@ import { walk } from '../lib/cs-typo';
 import { CASE_RAZBOR_CS } from './case-razbor-cs';
 import SUMMARIES from './niche-summaries.json';
 import { priceAnswerCs, priceFaqCs } from './niche-prices';
+import { WEAK_COMP_CS } from './niche-shared';
 
 export const NICHE_REALTY_BRNO_PUBLISHED = '2026-10-31';
 // Capacity status of the niche (the same status as on the Prague page; update on both pages together, the date on the day of publication [?]6).
@@ -67,6 +68,7 @@ const raw = {
   seenTitle: 'Co jsem viděl v Brně?',
   // Replaced on 07.11.2026 (brief of 07.11.2026, part 2): the new dated observation; the statement about the map block was not measured again, so it stays as a separate paragraph with its old date and query.
   seenAnswer: 'K 7. 11. 2026 jsem na dotaz „realitní kancelář v Brně“ prohlédl 11 webů realitních kanceláří. Žádný z nich neměl FAQ, čtyři neměly blog a na stránkách služeb jsem u žádného nenašel jasnou krátkou odpověď na otázku klienta. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  weakComp: WEAK_COMP_CS, // brief of 10.11.2026: the same sentence and Google source as on the Praha page
   seenMap: 'K 29. 10. 2026 jsem na dotaz „realitní kancelář Brno“ viděl, že Google ukazoval blok s mapou.',
 
   doTitle: 'Co pro realitní kancelář v Brně konkrétně dělám?',
