@@ -137,3 +137,16 @@ export function addServiceToc(body: string, lang: Lang): string {
   const nav = `<div class="container${narrow ? ' narrow' : ''}"><nav class="toc${narrow ? '' : ' toc--cols'}" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div>`;
   return body.slice(0, heroEnd) + nav + body.slice(heroEnd, heroEnd + '</section>'.length) + newRest;
 }
+
+// ---- Blog index (/blog/ in every language): one entry per group of articles (H2 of a `blog-group` section, whose id already exists) ----
+export function addBlogToc(body: string, lang: Lang): string {
+  const heroStart = body.indexOf('<section class="page-hero">');
+  if (heroStart < 0) return body;
+  const heroEnd = body.indexOf('</section>', heroStart) + '</section>'.length;
+  const entries = [...body.slice(heroEnd).matchAll(/<section class="blog-group" id="([^"]+)">\s*<h2>([\s\S]*?)<\/h2>/g)].map((m) => ({ id: m[1], text: strip(m[2]) })).filter((e) => e.text);
+  if (entries.length < TOC_MIN_ITEMS) return body;
+  const L = LABEL_SERVICE[lang] ?? LABEL_SERVICE.cs;
+  const li = entries.map((e) => `<li><a href="#${e.id}">${e.text}</a></li>`).join('');
+  const nav = `<div class="container"><nav class="toc toc--cols" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div>`;
+  return body.slice(0, heroEnd - '</section>'.length) + nav + '</section>' + body.slice(heroEnd);
+}

@@ -7,7 +7,7 @@ const txt = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;| /g, ' ').replace(
 const routes = readFileSync('src/i18n/routes.ts', 'utf8');
 const SERVICE = new Set(); // service pages (brief of 09.11.2026): same block under the introduction, ids made from the headings
 const nicheKeys = [...routes.matchAll(/^  (niche[A-Z]\w*): \{/gm)].map((m) => m[1]); // + the niche landing pages
-for (const k of ['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo', ...nicheKeys]) { const m = routes.match(new RegExp(`^  ${k}: \\{([^}]*)\\}`, 'm')); for (const x of (m ? m[1].matchAll(/'([^']+)'/g) : [])) SERVICE.add(x[1]); }
+for (const k of ['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo', 'blog', ...nicheKeys]) { const m = routes.match(new RegExp(`^  ${k}: \\{([^}]*)\\}`, 'm')); for (const x of (m ? m[1].matchAll(/'([^']+)'/g) : [])) SERVICE.add(x[1]); }
 const pages = [];
 (function walk(d) { for (const n of readdirSync(d)) { const p = join(d, n); if (statSync(p).isDirectory()) walk(p); else if (n === 'index.html') pages.push(p); } })('dist');
 const urlOf = (p) => '/' + p.replace(/^dist\/?/, '').replace(/index\.html$/, '');
