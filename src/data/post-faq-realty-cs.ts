@@ -45,6 +45,8 @@ const raw = {
   whereAnswer: 'Krátké FAQ patří přímo na stránku služby nebo lokality, kde otázka vzniká, aby návštěvník nemusel hledat jinde. Obecné otázky o spolupráci se hodí na jednu společnou stránku. Stejnou otázku s odpovědí neopakujte na více stránkách, jinak se odpovědi časem rozejdou.',
   whereLinks: { before: 'Jak rozdělit', services: 'stránky služeb', middle: 'a jak napsat', district: 'stránku čtvrti', after: ', popisují samostatné články.' },
 
+  whereServices: { before: 'Co napsat na stránku služby, popisuje', link: 'samostatný článek', after: '.' },
+
   seenTitle: 'Co jsem viděl u webů realitních kanceláří?',
   seenAnswer: { before: 'K 7. 11. 2026 jsem si prohlédl 12 webů realitních kanceláří z výsledků pro dotaz „realitní kancelář v Praze“ a 11 webů pro dotaz „realitní kancelář v Brně“. FAQ chybělo u všech dvanácti v Praze i u všech jedenácti v Brně. Jasnou krátkou odpověď na stránce služby jsem nenašel ani u jednoho. Je to', link: 'můj pozorovací vzorek', after: ', ne průzkum trhu.' },
   seenMore: 'Praha a Brno jsou dva samostatné vzorky s různým dotazem. Jasná krátká odpověď je moje kritérium, ne měření. Názvy webů neuvádím.',
