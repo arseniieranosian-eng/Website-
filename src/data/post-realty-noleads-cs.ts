@@ -69,6 +69,8 @@ const raw = {
   servicesTitle: 'Má každá služba vlastní stránku?',
   servicesAnswer: 'Pokud nabídka služeb, například prodej, koupě, pronájem a odhad, leží na jedné stránce, vyhledávač vidí jedno téma místo několika. Samostatné stránky služeb mají jasnější obsah i vlastní adresu. Menu, které jen odkazuje kotvami níž na stejné stránce, samostatné stránky nevytváří.',
 
+  servicesMore: { before: 'Co na stránku služby napsat, popisuji v', link: 'samostatném článku', after: '.' },
+
   localTitle: 'Hledají lidé vaši lokalitu?',
   localAnswer: 'Lidé často hledají nemovitost nebo službu s lokalitou, třeba městskou částí nebo čtvrtí. Pokud web na lokalitu nemá žádnou stránku, nemá se o co opřít. Stránky lokalit ale mají smysl jen s vlastním obsahem. Šablonovité kopie s vyměněným názvem jsou riziko, ne řešení.',
 
