@@ -58,3 +58,9 @@ export const NICHE_SHARED_RU = {
   auditNot: ['ключевые слова', 'конкуренты', 'карты', 'видимость в AI-поиске', 'скорость загрузки', 'мобильная версия'],
   formatsNote: 'Срок и результат гарантировать нельзя.',
 };
+
+// Weak-competition sentence of the real-estate landings (brief of 10.11.2026, from the article of 07.11.2026). Identical on Praha and Brno; not strengthened on purpose.
+export const WEAK_COMP_CS = {
+  text: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi realitními kancelářemi zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. To může být příležitost, ale ne jistota. Výsledek ani pozici nezaručuji.',
+  source: { before: 'Zdroj: Google Search Central, Systémy řazení,', text: 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', after: ', Last updated 2025-12-10, zkontrolováno 7. 11. 2026.', href: 'https://developers.google.com/search/docs/appearance/ranking-systems-guide' },
+};

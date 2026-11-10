@@ -82,6 +82,11 @@ const raw = {
   whyText: 'Pořadí na portálech neurčuje váš web. Vlastní web si budujete sami a výsledky zůstávají vám.',
   market: NICHE_REALTY_MARKET ? { title: 'Co ukazují výsledky vyhledávání pro Prahu?', paragraphs: NICHE_REALTY_MARKET.observations, checkedLabel: 'Zkontrolováno', checked: NICHE_REALTY_MARKET.checked } : null,
 
+  // Observation of 07.11.2026 (the numbers are those of the article /blog/slabe-seo-konkurence-realitni-kancelare/; no site names, no link to the article in the body, no device or search conditions: the article does not give them for Praha)
+  observation: {
+    title: 'Co jsem zjistil na webech realitních kanceláří v Praze?',
+    text: 'K 7. 11. 2026 jsem si na dotaz „realitní kancelář v Praze“ prohlédl 12 webů realitních kanceláří; katalogy jsem do vzorku nezahrnul. FAQ chybělo u všech dvanácti, blog u šesti. U všech dvanácti jsem na stránkách služeb nenašel jasnou krátkou odpověď na otázku klienta. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  },
   doTitle: 'Co pro realitní kancelář v Praze konkrétně dělám?',
   doAnswer: 'Pro realitní kancelář v Praze upravuji stránky nabídek a čtvrtí, hlídám indexaci, duplicity z filtrů a zastaralé nabídky, připravuji obsah i pro AI odpovědi a pracuji s profily na Google Maps a Mapy.com. Začínám kontrolou technických chyb a postupuji podle toho, co ukáže.',
   doIntro: 'Optimalizace webu realitní kanceláře není jedna úprava, ale několik oblastí, které na sebe navazují:',

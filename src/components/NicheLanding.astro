@@ -19,7 +19,7 @@ interface Props { C: any; V: any; pageKey: PageKey; files: string[]; modifiedFal
 const { C, V, pageKey, files, modifiedFallback } = Astro.props;
 const lang = C.lang;
 const site = Astro.site!;
-const MOD = lastModified(['src/components/NicheLanding.astro', 'src/data/blog-posts.ts', 'src/data/niche-shared.ts', 'src/data/case-summary.ts', ...files], modifiedFallback);
+const MOD = lastModified([...files, 'src/components/NicheLanding.astro', 'src/data/blog-posts.ts', 'src/data/niche-shared.ts', 'src/data/case-summary.ts'], modifiedFallback);
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = lang === 'ru' ? `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}` : `${d}. ${mo}. ${y}`;
 const t = (k: PageKey) => path(k, lang);
@@ -69,6 +69,22 @@ const tc = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0
       </div>
     </section>
 
+  )}
+
+  <!-- OBSERVATION of the author's sample (optional, dated) + the weak-competition sentence with its Google source (real-estate landings) -->
+  {C.observation && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{C.observation.title}</h2>
+        <p class="answer">{C.observation.text}</p>
+        {C.weakComp && (
+          <>
+            <p>{C.weakComp.text}</p>
+            <p class="muted small">{C.weakComp.source.before}{' '}<a href={C.weakComp.source.href} target="_blank" rel="noopener">{C.weakComp.source.text}</a>{C.weakComp.source.after}</p>
+          </>
+        )}
+      </div>
+    </section>
   )}
 
   <!-- WHAT I DO + author quote -->
