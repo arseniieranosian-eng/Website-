@@ -28,6 +28,7 @@ import { POST_WEAK_SEO_DENTAL_CS, POST_WEAK_SEO_DENTAL_PUBLISHED } from './post-
 import { POST_WEAK_SEO_REALTY_CS, POST_WEAK_SEO_REALTY_PUBLISHED } from './post-weak-seo-realty-cs';
 import { POST_WEAK_SEO_REALTY_RU, POST_WEAK_SEO_REALTY_RU_PUBLISHED } from './post-weak-seo-realty-ru';
 import { POST_FAQ_DENTAL_CS, POST_FAQ_DENTAL_PUBLISHED } from './post-faq-dental-cs';
+import { POST_FAQ_REALTY_CS, POST_FAQ_REALTY_PUBLISHED } from './post-faq-realty-cs';
 import { POST_DENTAL_CHANNELS_CS, POST_DENTAL_CHANNELS_PUBLISHED } from './post-dental-channels-cs';
 import { POST_WEAK_SEO_GAMING_CS, POST_WEAK_SEO_GAMING_PUBLISHED } from './post-weak-seo-gaming-cs';
 import { POST_WEB_SOCIAL_GAMING_CS, POST_WEB_SOCIAL_GAMING_PUBLISHED } from './post-web-social-gaming-cs';
@@ -69,6 +70,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
   { key: 'postWeakSeoDental', lang: 'cs', date: POST_WEAK_SEO_DENTAL_PUBLISHED, title: META.postWeakSeoDental.cs.h1, description: META.postWeakSeoDental.cs.description, image: POST_WEAK_SEO_DENTAL_CS.cover },
   { key: 'postFaqDental', lang: 'cs', date: POST_FAQ_DENTAL_PUBLISHED, title: META.postFaqDental.cs.h1, description: META.postFaqDental.cs.description, image: POST_FAQ_DENTAL_CS.cover },
+  { key: 'postFaqRealty', lang: 'cs', date: POST_FAQ_REALTY_PUBLISHED, title: META.postFaqRealty.cs.h1, description: 'Jaké otázky do FAQ zařadit, kdo odpovědi schvaluje a kam FAQ umístit.', image: POST_FAQ_REALTY_CS.cover },
   { key: 'postDentalChannels', lang: 'cs', date: POST_DENTAL_CHANNELS_PUBLISHED, title: META.postDentalChannels.cs.h1, description: META.postDentalChannels.cs.description, image: POST_DENTAL_CHANNELS_CS.cover },
   { key: 'postWeakSeoGaming', lang: 'cs', date: POST_WEAK_SEO_GAMING_PUBLISHED, title: META.postWeakSeoGaming.cs.h1, description: META.postWeakSeoGaming.cs.description, image: POST_WEAK_SEO_GAMING_CS.cover },
   { key: 'postWebSocialGaming', lang: 'cs', date: POST_WEB_SOCIAL_GAMING_PUBLISHED, title: META.postWebSocialGaming.cs.h1, description: META.postWebSocialGaming.cs.description, image: POST_WEB_SOCIAL_GAMING_CS.cover },
@@ -131,7 +133,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'realty',
     title: { cs: 'Realitní kanceláře', en: 'Real estate agencies', ru: 'Агентства недвижимости' },
     lead: { cs: 'Web, nabídky, čtvrti, mapy a portály z pohledu realitní kanceláře.', en: 'Website, listings, neighbourhoods, maps and portals from a real estate agency’s point of view.', ru: 'Сайт, объявления, районы, карты и порталы с точки зрения агентства недвижимости.' },
-    keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyPragueDistricts', 'postRealtyBrnoDistricts', 'postRealtyLocal', 'postWeakSeoRealty'],
+    keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyPragueDistricts', 'postRealtyBrnoDistricts', 'postRealtyLocal', 'postWeakSeoRealty', 'postFaqRealty'],
   },
   {
     id: 'accounting',
