@@ -8,7 +8,7 @@ import { walk } from '../lib/cs-typo';
 // First publication (Q1 default: the day of the brief); do NOT bump it when the page is edited.
 export const POST_FAQ_REALTY_PUBLISHED = '2026-11-10';
 // Visible only after the author writes that Katariina has seen the final text and agrees with the wording of H2-2, H2-3 and H2-5 (brief of 10.11.2026).
-export const EXPERT_CONFIRMED = false;
+export const EXPERT_CONFIRMED = true; // the author confirmed on 10.11.2026 that Katariina agrees with the final text
 
 const raw = {
   lang: 'cs' as const,
