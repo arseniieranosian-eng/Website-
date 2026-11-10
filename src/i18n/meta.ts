@@ -339,6 +339,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: { name: 'FAQ на сайте агентства недвижимости', title: 'FAQ на сайте агентства недвижимости', description: 'FAQ на сайте агентства недвижимости', h1: 'Как должен выглядеть FAQ на сайте агентства недвижимости?' },
     uk: { name: 'FAQ на сайті агентства нерухомості', title: 'FAQ на сайті агентства нерухомості', description: 'FAQ на сайті агентства нерухомості', h1: 'Як має виглядати FAQ на сайті агентства нерухомості?' },
   },
+  postServicesRealty: {
+    cs: {
+      name: 'Služby realitní kanceláře na webu',
+      title: 'Služby realitní kanceláře na webu: jak je popsat | Eranosian',
+      description: 'Co má obsahovat stránka služby realitní kanceláře: pro koho je, co zahrnuje, jak probíhá, krátké odpovědi a co nechat ověřit makléřem.',
+      h1: 'Jak popsat služby realitní kanceláře na webu?',
+    },
+    en: { name: 'Service pages of a real estate agency', title: 'Service pages of a real estate agency', description: 'Service pages of a real estate agency', h1: 'How should a real estate agency describe its services on the website?' },
+    ru: { name: 'Страницы услуг агентства недвижимости', title: 'Страницы услуг агентства недвижимости', description: 'Страницы услуг агентства недвижимости', h1: 'Как описать услуги агентства недвижимости на сайте?' },
+    uk: { name: 'Сторінки послуг агентства нерухомості', title: 'Сторінки послуг агентства нерухомості', description: 'Сторінки послуг агентства нерухомості', h1: 'Як описати послуги агентства нерухомості на сайті?' },
+  },
   postWeakSeoRealty: {
     cs: {
       name: 'Slabé SEO konkurence u realitní kanceláře',
