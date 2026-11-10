@@ -328,6 +328,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: { name: 'FAQ на сайте стоматологии', title: 'FAQ на сайте стоматологии', description: 'FAQ на сайте стоматологии', h1: 'Как должен выглядеть FAQ на сайте стоматологии?' },
     uk: { name: 'FAQ на сайті стоматології', title: 'FAQ на сайті стоматології', description: 'FAQ на сайті стоматології', h1: 'Як має виглядати FAQ на сайті стоматології?' },
   },
+  postFaqRealty: {
+    cs: {
+      name: 'FAQ na webu realitní kanceláře',
+      title: 'FAQ na webu realitní kanceláře: jak má vypadat | Eranosian',
+      description: 'Jak sestavit FAQ na webu realitní kanceláře: jaké otázky zařadit, kdo odpovědi schvaluje, kam FAQ umístit a co jsem viděl u 23 webů.',
+      h1: 'Jak má vypadat FAQ na webu realitní kanceláře?',
+    },
+    en: { name: 'FAQ on a real estate agency website', title: 'FAQ on a real estate agency website', description: 'FAQ on a real estate agency website', h1: 'What should the FAQ on a real estate agency website look like?' },
+    ru: { name: 'FAQ на сайте агентства недвижимости', title: 'FAQ на сайте агентства недвижимости', description: 'FAQ на сайте агентства недвижимости', h1: 'Как должен выглядеть FAQ на сайте агентства недвижимости?' },
+    uk: { name: 'FAQ на сайті агентства нерухомості', title: 'FAQ на сайті агентства нерухомості', description: 'FAQ на сайті агентства нерухомості', h1: 'Як має виглядати FAQ на сайті агентства нерухомості?' },
+  },
   postWeakSeoRealty: {
     cs: {
       name: 'Slabé SEO konkurence u realitní kanceláře',
