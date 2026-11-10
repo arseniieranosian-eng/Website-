@@ -43,6 +43,7 @@ const raw = {
   aiAnswer: 'Ne. Podle dokumentace Google neexistují pro zobrazení v AI Overviews ani AI Mode žádné další požadavky ani zvláštní optimalizace a není potřeba ani zvláštní strukturovaná data schema.org. Jasné krátké odpovědi proto beru jako užitečné pro čtenáře, ne jako podmínku zobrazení.',
   aiSource: { before: 'Google Search Central, AI features and your website,', href: 'https://developers.google.com/search/docs/appearance/ai-features', after: ', Last updated 2025-12-10, zkontrolováno 7. 11. 2026.' },
 
+  aiFaq: { before: 'Jak FAQ sestavit, popisuji v', link: 'samostatném článku', after: '.' },
   checkTitle: 'Jak si web své realitní kanceláře zkontrolovat sám?',
   checkAnswer: 'Projděte stránku každé služby a zeptejte se, zda klient hned najde krátkou odpověď: co služba zahrnuje, pro koho je a jak začít. Zkontrolujte, zda má každá služba vlastní stránku se srozumitelnou adresou URL a zda je na webu FAQ. Nic z toho nezaručuje pozici.',
   checkMore: 'Služby na jedné stránce míchají různé záměry hledání. Samostatná stránka dovolí popsat každou službu konkrétně: co zahrnuje, pro koho je a jak začít. Jak se to projeví na pozici, nevím.',
