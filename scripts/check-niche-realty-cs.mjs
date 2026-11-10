@@ -68,7 +68,7 @@ if (/<img src="\/images\/niche-ai-overview/.test(main) || /KB P|kb-?preklady|Př
 if (!/Zkontrolováno: \d/.test(mainTxt)) e('market observations with the date of the check');
 // Capacity rule: one source, the date, the three steps
 if (!/Další obory:[\s\S]*seo-pro-prekladatelske-agentury-praha/.test(main)) e('Další obory: translation agencies Praha');
-if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Údaj platí k 22. 10. 2026')) e('capacity rule');
+if (!mainTxt.includes('Pracuji současně nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti') || !mainTxt.includes('Stav pro obor realitní služby uvádím vždy s datem, k 10. 11. 2026: volno.')) e('capacity rule');
 if (/zbývá|volných míst|\d ze 3/.test(mainTxt)) e('no counter / places left');
 // Audit
 if (!mainTxt.includes('Bezplatný audit zkontroluje technické chyby webu: indexaci, duplicitní obsah a další technické problémy. U realitních kanceláří se dívám zvlášť na indexaci nabídek a duplicity z filtrů.') || !mainTxt.includes('Výsledek dostanete jako krátkou prezentaci do 24 hodin')) e('audit wording');

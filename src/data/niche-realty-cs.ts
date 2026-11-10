@@ -9,7 +9,8 @@
 // The quote is a draft for the author's approval.
 import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
-import { NICHE_SHARED_CS, NICHE_CAPACITY_DATE, WEAK_COMP_CS } from './niche-shared';
+import { NICHE_SHARED_CS, WEAK_COMP_CS } from './niche-shared';
+import { NICHE_REALTY_BRNO_STATUS_DATE as STATUS_DATE } from './niche-realty-brno-cs';
 import { NICHE_READY } from '../i18n/routes';
 import { CASE_RAZBOR_CS } from './case-razbor-cs';
 import { walk } from '../lib/cs-typo';
@@ -141,7 +142,8 @@ const raw = {
   experience: NICHE_REALTY_EXPERIENCE,
 
   coopTitle: 'Jak spolupracuji s realitními kancelářemi?',
-  coopAnswer: NICHE_SHARED_CS.capacityAnswer,
+  // capacity: the shared sentence, but the closing sentence is the status of the niche with its date (brief of 10.11.2026), as on the Brno page
+  coopAnswer: NICHE_SHARED_CS.capacityAnswer.replace(/Údaj platí k \d+\. \d+\. \d+ a při změně ho aktualizuji\./, `Stav pro obor realitní služby uvádím vždy s datem, k ${STATUS_DATE}: volno.`),
   coopHowToName: 'Jak spolupráce probíhá',
   coopStepNames: ['Bezplatný audit', 'Rozhodnutí o formátu', 'Práce podle formátu'],
   coopSteps: [
@@ -177,7 +179,7 @@ const raw = {
     { q: 'Jak dlouho trvá SEO pro realitní kancelář?', a: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.' },
     { q: 'Mám dávat nabídky na vlastní web, když je mám na portálech?', a: 'Záleží na stavu webu a na tom, jak nabídky zobrazujete. Nabídky na vlastním webu mohou přivádět poptávky, ale je nutné hlídat technickou stránku: indexaci, zastaralé nabídky a duplicity. Zda obsah z portálů opakovat, rozhodněte podle vlastní situace. Konkrétní doporučení vyžaduje prohlídku webu.' },
     { q: 'Jak se SEO liší od reklamy pro realitní kancelář?', a: 'Reklama a SEO jsou různé kanály: reklama se platí po dobu kampaně, SEO vyžaduje průběžnou práci na webu. Čas ani výsledek nelze zaručit u žádného z nich. Co se hodí, závisí na rozpočtu a na cílech. Nejdřív se vyplatí zjistit, odkud přicházejí zájemci dnes.' },
-    { q: 'S kolika firmami z oboru pracujete současně?', a: `Nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti. Údaj platí k ${NICHE_CAPACITY_DATE} a při změně ho aktualizuji. Počítám podle oboru, proto se číslo pro realitní kanceláře počítá zvlášť od ostatních oborů. Hranice platí pro každý obor zvlášť.` },
+    { q: 'S kolika firmami z oboru pracujete současně?', a: `Nejvýše se třemi firmami z jednoho oboru. Je to omezení kapacity, ne příslib výlučnosti. Stav pro obor realitní služby uvádím vždy s datem, k ${STATUS_DATE}: volno. Počítám podle oboru, proto se číslo pro realitní kanceláře počítá zvlášť od ostatních oborů. Hranice platí pro každý obor zvlášť.` },
   ],
 
   endTitle: NICHE_SHARED_CS.end.title,

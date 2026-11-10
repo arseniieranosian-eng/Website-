@@ -10,7 +10,7 @@ import { WEAK_COMP_CS } from './niche-shared';
 
 export const NICHE_REALTY_BRNO_PUBLISHED = '2026-10-31';
 // Capacity status of the niche (the same status as on the Prague page; update on both pages together, the date on the day of publication [?]6).
-export const NICHE_REALTY_BRNO_STATUS_DATE = '22. 10. 2026';
+export const NICHE_REALTY_BRNO_STATUS_DATE = '10. 11. 2026'; // status of the niche confirmed by the author on 10.11.2026: volno (the same date and wording as on the Praha page)
 
 // The list of the Brno city districts (29), for the future article. Source given by the author on 31.10.2026: the Czech Wikipedia list (names 1–15) completed with the other 14 names read from the map of the city districts the author sent (names match the map); replace the source by brno.cz / Statut města Brna when it is reachable. Shape: { count, source: { label, url }, names: [...] }.
 export const NICHE_REALTY_BRNO_DISTRICTS: null | { count: number; lead: string; source: { label: string; url: string }; names: { name: string; url: string }[] } = {
