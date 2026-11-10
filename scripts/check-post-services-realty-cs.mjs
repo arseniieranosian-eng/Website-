@@ -29,14 +29,17 @@ if (!fp || JSON.stringify(fp.mainEntity.map((q) => [q.name, q.acceptedAnswer.tex
 const bp = ld.find((x) => x['@type'] === 'BlogPosting');
 if (!bp || bp.inLanguage !== 'cs' || bp.headline !== h1 || bp.datePublished !== bp.dateModified) e('BlogPosting');
 const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
-const okLinks = ['/o-mne/', 'https://seo-eranosian.com/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/', 'https://developers.google.com/search/docs/essentials/spam-policies', 'https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/', 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/', 'https://seo-eranosian.com/blog/proc-web-realitni-kancelare-neprinasi-poptavky/#sluzby', '/kontakt/', '/seo-pro-realitni-kancelare-praha/', '/seo-pro-realitni-kancelare-brno/'];
+const okLinks = ['/o-mne/', 'https://katariinaestates.cz/', 'https://seo-eranosian.com/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/', 'https://developers.google.com/search/docs/essentials/spam-policies', 'https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/', 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/', 'https://seo-eranosian.com/blog/proc-web-realitni-kancelare-neprinasi-poptavky/#sluzby', '/kontakt/', '/seo-pro-realitni-kancelare-praha/', '/seo-pro-realitni-kancelare-brno/'];
 if (links.some((l) => !okLinks.includes(l)) || (main.match(/class="btn btn--primary/g) || []).length !== 2 || /<form/.test(main)) e(`links / two buttons: ${links}`);
 const body = txt(main);
 if (/\bTOP\b|\d\s?%|snáz|rychleji|lépe než|2[–-]3 měsíc|dvou až třech|zaručuj|(?<!ne)slibuj|nejlepší|AI Overviews|AI Mode|AI to má ráda|HowTo|penaliz|správa|správu|hypotéky|hypotéku/i.test(body)) e('forbidden word');
 if (/[Ѐ-ӿ]/.test(body)) e('Cyrillic in the Czech text');
 if (!/K 7\. 11\. 2026 jsem si prohlédl 12 webů[^.]*„realitní kancelář v Praze“ a 11 webů pro dotaz „realitní kancelář v Brně“\. U všech dvanácti v Praze i u všech jedenácti v Brně jsem na stránkách služeb nenašel jasnou krátkou odpověď/.test(body)) e('observation numbers');
 if (!/Last updated 2026-08-28, zkontrolováno 10\. 11\. 2026/.test(body) || !body.includes('doorway abuse')) e('Google source');
-if (/Katariina|Kofanova|konzultovala|komerčním základě/.test(body)) e('expert lines must stay hidden until the author confirms (EXPERT_CONFIRMED_SERVICES)');
+// the author confirmed on 10.11.2026 that the expert agrees: both lines visible, the link only under the byline, nothing in the markup
+if (!/Obsah konzultovala a věcně zkontrolovala Katariina Kofanova, realitní makléřka\./.test(inl(main)) || !main.includes('<a href="https://katariinaestates.cz/" target="_blank" rel="noopener">Katariina Kofanova</a>')) e('expert line under the byline');
+if (!body.includes('Katariina Kofanova za konzultaci nedostala odměnu a nespolupracuje se mnou na komerčním základě.') || body.indexOf('Našli jste chybu') > body.indexOf('komerčním základě') || body.indexOf('komerčním základě') > body.indexOf('Jsem SEO specialista')) e('expert disclosure line order');
+if (/Katariina|Kofanova/.test(JSON.stringify(ld))) e('expert in JSON-LD');
 if (!body.includes('Jsem SEO specialista, proto může být moje hodnocení zaujaté.') || !body.includes('Našli jste chybu? Napište mi.') || body.indexOf('Našli jste chybu') > body.indexOf('Jsem SEO specialista') || body.indexOf('Jsem SEO specialista') > body.indexOf('Řešíte, jak popsat služby na webu své realitní kanceláře?')) e('closing lines order');
 if (errs.length) { console.error('✗ check-post-services-realty-cs:\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log(`✓ check-post-services-realty-cs: ok (answers ${answers})`);

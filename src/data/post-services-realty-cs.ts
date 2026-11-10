@@ -8,7 +8,7 @@ import { walk } from '../lib/cs-typo';
 // Date of publication: the author sets it by hand on the day the article goes out (Q1); the day of the brief is only a placeholder. Do NOT bump it when the page is edited.
 export const POST_SERVICES_REALTY_PUBLISHED = '2026-11-10';
 // Visible only after the author writes "Katariina viděla finální text a souhlasí" (and confirms her participation in this article, Q3).
-export const EXPERT_CONFIRMED_SERVICES = false;
+export const EXPERT_CONFIRMED_SERVICES = true; // the author confirmed on 10.11.2026 that Katariina agrees with the final text of this article
 // The link to the FAQ article (H2-4) is shown once that article is published; the author approved its publication links on 10.11.2026.
 export const FAQ_ARTICLE_PUBLISHED = true;
 
