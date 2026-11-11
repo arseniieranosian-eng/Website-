@@ -350,6 +350,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: { name: 'Страницы услуг агентства недвижимости', title: 'Страницы услуг агентства недвижимости', description: 'Страницы услуг агентства недвижимости', h1: 'Как описать услуги агентства недвижимости на сайте?' },
     uk: { name: 'Сторінки послуг агентства нерухомості', title: 'Сторінки послуг агентства нерухомості', description: 'Сторінки послуг агентства нерухомості', h1: 'Як описати послуги агентства нерухомості на сайті?' },
   },
+  postMakleriRealty: {
+    cs: {
+      name: 'Makléři na webu realitní kanceláře',
+      title: 'Makléři na webu realitní kanceláře: co uvést | Eranosian',
+      description: 'Jak ukázat makléře na webu realitní kanceláře: jaké údaje uvést, co bez souhlasu nepatří a kdo texty podepisuje a kontroluje.',
+      h1: 'Jak ukázat makléře na webu realitní kanceláře?',
+    },
+    en: { name: 'Brokers on a real estate agency website', title: 'Brokers on a real estate agency website', description: 'Brokers on a real estate agency website', h1: 'How should a real estate agency show its brokers on the website?' },
+    ru: { name: 'Маклеры на сайте агентства недвижимости', title: 'Маклеры на сайте агентства недвижимости', description: 'Маклеры на сайте агентства недвижимости', h1: 'Как показать маклеров на сайте агентства недвижимости?' },
+    uk: { name: 'Маклери на сайті агентства нерухомості', title: 'Маклери на сайті агентства нерухомості', description: 'Маклери на сайті агентства нерухомості', h1: 'Як показати маклерів на сайті агентства нерухомості?' },
+  },
   postWeakSeoRealty: {
     cs: {
       name: 'Slabé SEO konkurence u realitní kanceláře',
