@@ -63,6 +63,7 @@ const raw = {
   ],
 
   agentsTitle: 'Jak je to s makléři a pobočkami?',
+  agentsMore: { before: 'Jak makléře ukázat na webu kanceláře, popisuji v', link: 'samostatném článku', after: '.' },
   agentsAnswer: 'Pobočka má v Google jeden profil na jedno místo. Makléř může mít vlastní profil jen za podmínek uvedených v nápovědě Google a ne více profilů pro různé specializace. Kancelář bez provozovny pro klienty používá oblast působení a adresu skrývá. Zda profil makléře dává smysl, je třeba posoudit podle aktuální nápovědy.',
 
   offerTitle: 'Může mít profil na mapách i nabízená nemovitost?',
