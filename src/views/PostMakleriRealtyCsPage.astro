@@ -1,0 +1,132 @@
+---
+// Blog article "Jak ukázat makléře na webu realitní kanceláře?" (cs), brief of 11.11.2026. Content: data/post-makleri-realty-cs.ts. DRAFT: not linked from other pages, not in the blog index.
+// Body links: those of the brief (H2-2 profile on maps, H2-5 FAQ article, H2-6 services article, H2-7 observation source when it is shown) plus the Google source (K4); the author's quote (rule J) is a plain blockquote
+// without Quotation markup; the closing block has TWO buttons by city (the exception of rule H). The expert lines are shown only when EXPERT_CONFIRMED_MAKLERI is true; H2-7 only when OBSERVATION is filled.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { lastModified } from '../lib/lastmod';
+import { postMakleriRealtySchemas } from '../lib/schema-post-makleri-realty';
+import { POST_MAKLERI_REALTY_CS as C, POST_MAKLERI_REALTY_PUBLISHED, EXPERT_CONFIRMED_MAKLERI as EXPERT, FAQ_ARTICLE_PUBLISHED_M, SERVICES_ARTICLE_PUBLISHED_M, OBSERVATION } from '../data/post-makleri-realty-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = [lastModified(['src/views/PostMakleriRealtyCsPage.astro', 'src/data/post-makleri-realty-cs.ts'], '2026-11-11'), POST_MAKLERI_REALTY_PUBLISHED].sort().pop()!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-makleri-na-webu-realitni-kancelare.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+const cite = new URL(path('postMakleriRealty', lang), site).href;
+const L_MAPS = 'https://seo-eranosian.com/blog/lokalni-pritomnost-realitni-kancelare/';
+const L_FAQ = 'https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/';
+const L_SERVICES = 'https://seo-eranosian.com/blog/stranky-sluzeb-realitni-kancelare/';
+const L_SOURCE = 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/';
+---
+<Base {...pageProps('postMakleriRealty', lang)} ogType="article" ogImage={OG} schema={postMakleriRealtySchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postMakleriRealty.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      {EXPERT && <p class="small muted">{C.reviewer.before}{' '}<a href={C.reviewer.href} target="_blank" rel="noopener">{C.reviewer.name}</a>{C.reviewer.after}</p>}
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whyTitle}</h2>
+      <p class="answer">{C.whyAnswer}</p>
+      <p class="small muted">{C.sourceLabel} {C.whySource.before}{' '}<a href={C.whySource.href} target="_blank" rel="noopener">{C.whySource.href}</a>{C.whySource.after}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.dataTitle}</h2>
+      <p class="answer">{C.dataAnswer}</p>
+      <p><a href={L_MAPS}>{C.dataMaps.link}</a>{C.dataMaps.after}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+      <h3>{C.tableTitle}</h3>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.tableHead.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.tableRows.map((r) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="muted small">{C.tableNote}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.notTitle}</h2>
+      <p class="answer">{C.notAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.writeTitle}</h2>
+      <p class="answer">{C.writeAnswer}</p>
+      <ol class="steps">{C.writeSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.signTitle}</h2>
+      <p class="answer">{C.signAnswer}</p>
+      <p class="small muted">{C.sourceLabel} {C.signSource}</p>
+      {FAQ_ARTICLE_PUBLISHED_M && <p>{C.signFaq.before} <a href={L_FAQ}>{C.signFaq.link}</a>{C.signFaq.after}</p>}
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.pageTitle}</h2>
+      <p class="answer">{C.pageAnswer}</p>
+      {SERVICES_ARTICLE_PUBLISHED_M && <p>{C.pageServices.before} <a href={L_SERVICES}>{C.pageServices.link}</a>{C.pageServices.after}</p>}
+    </div>
+  </section>
+
+  {OBSERVATION && (
+    <section class="section">
+      <div class="container narrow">
+        <h2>{C.seenTitle}</h2>
+        <p class="answer">{OBSERVATION.text}</p>
+        <p>{OBSERVATION.more} <a href={L_SOURCE}>můj pozorovací vzorek</a></p>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <p class="muted">{C.mistake.before} <a href={t('contact')}>{C.mistake.link}</a></p>
+      {EXPERT && <p class="muted expert-note">{C.expertNote}</p>}
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <h2 class="post-cta__title">{C.endTitle}</h2>
+        <p class="post-cta__text">{C.endText}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href={t('nicheRealty')}>{C.endPraha}</a>
+          <a class="btn btn--primary btn--lg" href={t('nicheRealtyBrno')}>{C.endBrno}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
