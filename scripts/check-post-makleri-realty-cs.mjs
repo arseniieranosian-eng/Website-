@@ -1,5 +1,5 @@
 // Check of the blog article /blog/makleri-na-webu-realitni-kancelare/ (brief of 11.11.2026, DRAFT): meta lengths, answers 40-60 words, FAQ 4 = JSON-LD, no forbidden types / words, only the allowed body links,
-// two city buttons, the expert lines hidden until the author confirms, H2-7 only with the author's numbers, the Google source with date, no Cyrillic, no legal claims.
+// two city buttons, the expert lines hidden until the author confirms, H2-7 = checklist without numbers, the Google source with date, no Cyrillic, no legal claims.
 import { readFileSync } from './fs-clean.mjs';
 const errs = []; const e = (m) => errs.push(m);
 const h = readFileSync('dist/blog/makleri-na-webu-realitni-kancelare/index.html', 'utf8');
@@ -14,9 +14,8 @@ if (h1 !== 'Jak ukázat makléře na webu realitní kanceláře?' || h1.length !
 if (desc.length !== 125) e(`description ${desc.length}`);
 if (!h.includes('<link rel="canonical" href="https://seo-eranosian.com/blog/makleri-na-webu-realitni-kancelare/">')) e('canonical');
 if (!h.includes('hreflang="cs-CZ"') && !h.includes('hreflang="cs"')) e('hreflang self');
-const hasSeen = /<h2[^>]*>Co jsem viděl u webů realitních kanceláří\?<\/h2>/.test(main); // H2-7 only with the author's numbers (Q2)
 const answers = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]).split(' ').length);
-if (answers.length !== (hasSeen ? 7 : 6) || answers.some((n) => n < 40 || n > 60)) e(`direct answers 40-60: ${answers}`);
+if (answers.length !== 7 || answers.some((n) => n < 40 || n > 60)) e(`direct answers 40-60: ${answers}`);
 const faq = [...main.matchAll(/<h3>((?:(?!<h3>)[\s\S])*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [inl(m[1]), inl(m[2])]);
 if (faq.length !== 4 || faq.some(([, a]) => a.split(' ').length < 40 || a.split(' ').length > 60)) e('FAQ 4 questions, 40-60 words');
 const steps = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];
@@ -37,8 +36,8 @@ const body = txt(main);
 if (/\bTOP\b|nejlepší|\d\s?%|snáz|rychleji|lépe než|2[–-]3 měsíc|dvou až třech|zaručuj|slibuj|AI Overviews|AI Mode|AI to má ráda|HowTo|správa|správu|hypotéky|hypotéku|GDPR|licenc|E-E-A-T/i.test(body)) e('forbidden word');
 if (/[Ѐ-ӿ]/.test(body)) e('Cyrillic in the Czech text');
 if (!/Last updated 2026-10-05, zkontrolováno 11\. 11\. 2026/.test(body)) e('Google source');
-if (hasSeen && !/K \d+\. \d+\. 2026 jsem si prohlédl/.test(body)) e('observation date');
+if (!/<h2[^>]*>Co u webů realitních kanceláří kontroluji u makléřů\?<\/h2>/.test(main) || (main.match(/<ul class="checks">[\s\S]*?<\/ul>/) || [''])[0].split('<li>').length !== 5 || !/tato kritéria jsem v něm nepočítal/.test(body) || /\d+ z \d+|z 12|z 11/.test(body.replace(/12 webů|11 webů/g, ''))) e('H2-7: checklist of four criteria without numbers');
 if (/Katariina|Kofanova|konzultovala|komerčním základě/.test(body)) e('expert lines must stay hidden until the author confirms (EXPERT_CONFIRMED_MAKLERI)');
 if (!body.includes('Jsem SEO specialista, proto může být moje hodnocení zaujaté.') || !body.includes('Našli jste chybu? Napište mi.') || body.indexOf('Našli jste chybu') > body.indexOf('Jsem SEO specialista') || body.indexOf('Jsem SEO specialista') > body.indexOf('Řešíte, jak ukázat makléře na webu své realitní kanceláře?')) e('closing lines order');
 if (errs.length) { console.error('✗ check-post-makleri-realty-cs:\n  - ' + errs.join('\n  - ')); process.exit(1); }
-console.log(`✓ check-post-makleri-realty-cs: ok (answers ${answers}${hasSeen ? '' : ', H2-7 waits for the author\'s numbers'})`);
+console.log(`✓ check-post-makleri-realty-cs: ok (answers ${answers})`);
