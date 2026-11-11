@@ -24,6 +24,7 @@ const cite = new URL(path('postFaqRealty', lang), site).href;
 const L_SERVICES = 'https://seo-eranosian.com/blog/proc-web-realitni-kancelare-neprinasi-poptavky/#sluzby';
 const L_DISTRICT = 'https://seo-eranosian.com/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/';
 const L_SERVICES_ARTICLE = 'https://seo-eranosian.com/blog/stranky-sluzeb-realitni-kancelare/';
+const L_MAKLERI = 'https://seo-eranosian.com/blog/makleri-na-webu-realitni-kancelare/';
 const L_SOURCE = 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/';
 // "{key}" in a FAQ answer is a link of that answer (`links`), the JSON-LD gets the same words without the markup
 const faqParts = (f: { a: string; links?: Record<string, { text: string; href: string }> }) => f.a.split(/(\{\w+\})/).filter(Boolean).map((p) => {
@@ -64,6 +65,7 @@ const faqParts = (f: { a: string; links?: Record<string, { text: string; href: s
     <div class="container narrow">
       <h2>{C.approveTitle}</h2>
       <p class="answer">{C.approveAnswer}</p>
+      <p>{C.approveMore.before} <a href={L_MAKLERI}>{C.approveMore.link}</a>{C.approveMore.after}</p>
     </div>
   </section>
 

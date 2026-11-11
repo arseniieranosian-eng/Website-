@@ -23,6 +23,7 @@ const minutes = Math.max(3, Math.ceil(words / 200));
 const cite = new URL(path('postServicesRealty', lang), site).href;
 const L_DISTRICT = 'https://seo-eranosian.com/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/';
 const L_FAQ = 'https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/';
+const L_MAKLERI = 'https://seo-eranosian.com/blog/makleri-na-webu-realitni-kancelare/';
 const L_SOURCE = 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/';
 const faqParts = (f: { a: string; links?: Record<string, { text: string; href: string }> }) => f.a.split(/(\{\w+\})/).filter(Boolean).map((p) => {
   const m = p.match(/^\{(\w+)\}$/);
@@ -80,6 +81,7 @@ const faqParts = (f: { a: string; links?: Record<string, { text: string; href: s
     <div class="container narrow">
       <h2>{C.promiseTitle}</h2>
       <p class="answer">{C.promiseAnswer}</p>
+      <p>{C.promiseMore.before} <a href={L_MAKLERI}>{C.promiseMore.link}</a>{C.promiseMore.after}</p>
     </div>
   </section>
 

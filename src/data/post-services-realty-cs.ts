@@ -45,6 +45,8 @@ const raw = {
   promiseTitle: 'Co na stránce služby neslibovat a co nechat ověřit makléřem nebo právníkem?',
   promiseAnswer: 'Na stránce neslibujte výsledek, rychlost prodeje ani konkrétní částky bez schválení kanceláře. Texty o provizi, smlouvě, daních a dokumentech má před zveřejněním zkontrolovat makléř, případně právník. Já jako SEO specialista tyto části neposuzuji. Bezpečnější je uvést méně informací než informaci, která může klienta uvést v omyl.',
 
+  promiseMore: { before: 'Jak makléře ukázat na webu a kdo texty podepisuje, popisuje', link: 'samostatný článek', after: '.' },
+
   stepsTitle: 'Jak stránku služby postavit krok za krokem?',
   stepsAnswer: 'Stránku služby lze postavit v několika krocích: vybrat situaci klienta, popsat obsah a postup služby, doplnit krátké odpovědi, nechat text schválit a přidat kontakt s odkazy na související stránky. Pořadí není pravidlo, ale praktická pomůcka. Každou službu napište zvlášť, nikdy jednu stránku pro všechny.',
   steps: [

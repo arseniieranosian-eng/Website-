@@ -32,6 +32,8 @@ const raw = {
   approveTitle: 'Kdo má odpovědi ve FAQ schvalovat?',
   approveAnswer: 'Odpovědi ve FAQ má schvalovat makléř, který za kancelář odpovídá. Pokud se odpověď týká smlouvy, provize, daní nebo dokumentů, má ji zkontrolovat právník nebo jiný odborník. Já jako SEO specialista pomáhám se strukturou a formulací; odbornou správnost odpovědí neposuzuji a nenahrazuji právní radu.',
 
+  approveMore: { before: 'Jak makléře ukázat na webu a kdo texty podepisuje, popisuje', link: 'samostatný článek', after: '.' },
+
   writeTitle: 'Jak napsat krátkou odpověď?',
   writeAnswer: 'Krátká odpověď začíná přímou větou, která odpovídá na položenou otázku, a pokračuje jednou až třemi větami s upřesněním. Podle mého doporučení stačí 40 až 60 slov. Vyhněte se slibům výsledku a odkazům místo odpovědi. Hotový text projde schválením makléře, případně právníka.',
   writeSteps: [
