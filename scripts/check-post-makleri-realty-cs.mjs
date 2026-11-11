@@ -30,14 +30,17 @@ if (!fp || JSON.stringify(fp.mainEntity.map((q) => [q.name, q.acceptedAnswer.tex
 const bp = ld.find((x) => x['@type'] === 'BlogPosting');
 if (!bp || bp.inLanguage !== 'cs' || bp.headline !== h1 || bp.datePublished !== bp.dateModified) e('BlogPosting');
 const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
-const okLinks = ['/o-mne/', 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content', 'https://seo-eranosian.com/blog/lokalni-pritomnost-realitni-kancelare/', 'https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/', 'https://seo-eranosian.com/blog/stranky-sluzeb-realitni-kancelare/', 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/', '/kontakt/', '/seo-pro-realitni-kancelare-praha/', '/seo-pro-realitni-kancelare-brno/'];
+const okLinks = ['/o-mne/', 'https://katariinaestates.cz/', 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content', 'https://seo-eranosian.com/blog/lokalni-pritomnost-realitni-kancelare/', 'https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/', 'https://seo-eranosian.com/blog/stranky-sluzeb-realitni-kancelare/', 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-kancelare/', '/kontakt/', '/seo-pro-realitni-kancelare-praha/', '/seo-pro-realitni-kancelare-brno/'];
 if (links.some((l) => !okLinks.includes(l)) || (main.match(/class="btn btn--primary/g) || []).length !== 2 || /<form/.test(main)) e(`links / two buttons: ${links}`);
 const body = txt(main);
 if (/\bTOP\b|nejlepší|\d\s?%|snáz|rychleji|lépe než|2[–-]3 měsíc|dvou až třech|zaručuj|slibuj|AI Overviews|AI Mode|AI to má ráda|HowTo|správa|správu|hypotéky|hypotéku|GDPR|licenc|E-E-A-T/i.test(body)) e('forbidden word');
 if (/[Ѐ-ӿ]/.test(body)) e('Cyrillic in the Czech text');
 if (!/Last updated 2026-10-05, zkontrolováno 11\. 11\. 2026/.test(body)) e('Google source');
 if (!/<h2[^>]*>Co u webů realitních kanceláří kontroluji u makléřů\?<\/h2>/.test(main) || (main.match(/<ul class="checks">[\s\S]*?<\/ul>/) || [''])[0].split('<li>').length !== 5 || !/tato kritéria jsem v něm nepočítal/.test(body) || /\d+ z \d+|z 12|z 11/.test(body.replace(/12 webů|11 webů/g, ''))) e('H2-7: checklist of four criteria without numbers');
-if (/Katariina|Kofanova|konzultovala|komerčním základě/.test(body)) e('expert lines must stay hidden until the author confirms (EXPERT_CONFIRMED_MAKLERI)');
+// the author confirmed on 11.11.2026: both expert lines visible, the link only under the byline, nothing in the markup
+if (!/Obsah konzultovala a věcně zkontrolovala Katariina Kofanova, realitní makléřka\./.test(inl(main)) || !main.includes('<a href="https://katariinaestates.cz/" target="_blank" rel="noopener">Katariina Kofanova</a>')) e('expert line under the byline');
+if (!body.includes('Katariina Kofanova za konzultaci nedostala odměnu a nespolupracuje se mnou na komerčním základě.') || body.indexOf('Našli jste chybu') > body.indexOf('komerčním základě') || body.indexOf('komerčním základě') > body.indexOf('Jsem SEO specialista')) e('expert disclosure line order');
+if (/Katariina|Kofanova/.test(JSON.stringify(ld))) e('expert in JSON-LD');
 if (!body.includes('Jsem SEO specialista, proto může být moje hodnocení zaujaté.') || !body.includes('Našli jste chybu? Napište mi.') || body.indexOf('Našli jste chybu') > body.indexOf('Jsem SEO specialista') || body.indexOf('Jsem SEO specialista') > body.indexOf('Řešíte, jak ukázat makléře na webu své realitní kanceláře?')) e('closing lines order');
 if (errs.length) { console.error('✗ check-post-makleri-realty-cs:\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log(`✓ check-post-makleri-realty-cs: ok (answers ${answers})`);

@@ -11,7 +11,7 @@ import { walk } from '../lib/cs-typo';
 // Date of publication: the author sets it by hand on the day the article goes out (Q6); the day of the brief is only a placeholder. Do NOT bump it when the page is edited.
 export const POST_MAKLERI_REALTY_PUBLISHED = '2026-11-11';
 // Visible only after the author writes that Katariina agrees to take part in this article and has seen the final text (Q3).
-export const EXPERT_CONFIRMED_MAKLERI = false;
+export const EXPERT_CONFIRMED_MAKLERI = true; // the author confirmed on 11.11.2026 that Katariina agrees to take part and has seen the final text
 // The links to the FAQ article and the services article are shown because both are published (the author approved their links on 10.11.2026).
 export const FAQ_ARTICLE_PUBLISHED_M = true;
 export const SERVICES_ARTICLE_PUBLISHED_M = true;
