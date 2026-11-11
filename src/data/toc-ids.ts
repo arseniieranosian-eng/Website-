@@ -1,4 +1,3 @@
-import { OBSERVATION } from './post-makleri-realty-cs';
 // Anchor ids of the H2 headings of the blog articles (table of contents, brief of 09.11.2026). One place: the key is the Czech path of the article, the value the ids of its H2 in order
 // (the closing call-to-action heading and an empty heading have no id and are not in the list). The same section has the same id in every language version (the Russian mirrors use the key of
 // the Czech article). Ids that already existed on the sections (e.g. #kanaly ... #zacit of the real-estate article) are kept as they were. Ids are short, ASCII, semantic words, not the heading text.
@@ -8,8 +7,7 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/co-je-seo-audit/': ['definice', 'slozeni', 'typy', 'zdarma', 'nenajde', 'vysledek', 'kdy-staci', 'kvalita', 'faq'],
   '/blog/duplicitni-obsah/': ['definice', 'priciny', 'dopad', 'poznani', 'reseni', 'nevadi', 'indexace', 'faq'],
   '/blog/duplicitni-stranky-eshop-tisk-varianty/': ['vznik', 'varianty', 'filtry', 'canonical', 'kontrola', 'faq'],
-  // the item "pozorovani" exists only when the author's numbers are in (OBSERVATION in data/post-makleri-realty-cs.ts)
-  '/blog/makleri-na-webu-realitni-kancelare/': ['proc', 'udaje', 'nepatri', 'popis', 'podpis', 'stranka', ...(OBSERVATION ? ['pozorovani'] : []), 'faq'],
+  '/blog/makleri-na-webu-realitni-kancelare/': ['proc', 'udaje', 'nepatri', 'popis', 'podpis', 'stranka', 'pozorovani', 'faq'],
   '/blog/stranky-sluzeb-realitni-kancelare/': ['zacatek', 'obsah', 'odlisnost', 'odpovedi', 'neslibovat', 'kroky', 'pozorovani', 'faq'],
   '/blog/faq-na-webu-realitni-kancelare/': ['faq-co', 'otazky', 'schvalovani', 'odpoved', 'umisteni', 'pozorovani', 'nepatri', 'faq'],
   '/blog/faq-na-webu-zubni-ordinace/': ['definice', 'otazky', 'umisteni', 'pozorovani', 'faqpage', 'faq'],

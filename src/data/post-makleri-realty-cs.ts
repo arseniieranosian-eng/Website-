@@ -3,9 +3,8 @@
 // pages (one sentence + link in H2-6). Services prodej / pronájem / odhad only as examples of the reader's services ("například"); no "správa", no "hypotéky"; no legal statement about GDPR, licences or consent to photos
 // (always "ověřte u právníka"); no claim about the behaviour of clients; reviews and ratings are never evidence; the claims about Google (authorship, fabricated profiles) have the source with Last updated and the date of
 // the check (11. 11. 2026); nothing about AI Overviews / AI Mode, E-E-A-T is not called a ranking factor.
-// H2-7 (the author's observation) is CONDITIONAL: it waits for the author's numbers (brief Q2); until OBSERVATION is filled the block and its contents item are not rendered and the article must not be published.
-// Template for the text once the numbers exist (40-60 words): "K [datum] jsem si prohlédl 12 webů realitních kanceláří z výsledků pro dotaz „realitní kancelář v Praze“ a 11 webů pro dotaz „realitní kancelář v Brně“.
-// Samostatnou stránku nebo sekci o makléřích mělo [X] z 12 v Praze a [Y] z 11 v Brně. Je to můj pozorovací vzorek, ne průzkum trhu." + "Praha a Brno jsou dva samostatné vzorky s různým dotazem. Kritéria (a)-(d) jsou moje, ne měření. Názvy webů neuvádím."
+// H2-7: the author has no counts for the criteria (a)-(d) (decision of 11.11.2026, variant 2), so the block is a checklist of the author's criteria WITHOUT numbers and without a claim that they were measured; the sample of
+// 07.11.2026 is only pointed to (the article about the weak SEO), and the text says that these criteria were not counted there. K2 is therefore met only partly (reported to the author).
 // The expert lines stay hidden until the author gives the command (EXPERT_CONFIRMED_MAKLERI). The author's quote (rule J) is a plain blockquote without Quotation markup.
 import { walk } from '../lib/cs-typo';
 
@@ -16,8 +15,6 @@ export const EXPERT_CONFIRMED_MAKLERI = false;
 // The links to the FAQ article and the services article are shown because both are published (the author approved their links on 10.11.2026).
 export const FAQ_ARTICLE_PUBLISHED_M = true;
 export const SERVICES_ARTICLE_PUBLISHED_M = true;
-// H2-7: null until the author gives the numbers (Q2). When set: { text, more } with the final paragraph (40-60 words) and the sentence(s) below it.
-export const OBSERVATION: null | { text: string; more: string } = null;
 
 const raw = {
   lang: 'cs' as const,
@@ -74,7 +71,15 @@ const raw = {
   pageAnswer: 'Ne nutně. U menší kanceláře může stačit jeden blok „Náš tým“ s krátkým popisem každého makléře. Vlastní stránka dává smysl tam, kde makléř vede vlastní nabídky nebo samostatnou oblast a je o čem psát. Stránky, které se liší jen jménem a fotografií, čtenáři nepomáhají.',
   pageServices: { before: 'Jak psát stránky služeb, rozebírám v', link: 'článku o popisu služeb', after: '.' },
 
-  seenTitle: 'Co jsem viděl u webů realitních kanceláří?',
+  checkTitle: 'Co u webů realitních kanceláří kontroluji u makléřů?',
+  checkAnswer: 'Při procházení webů realitních kanceláří se u makléřů dívám na čtyři věci: zda web má stránku nebo sekci o makléřích, zda uvádí jméno a fotografii, zda je kontakt na konkrétní osobu a zda jsou odborné texty podepsané autorem. Počty u těchto kritérií neuvádím, protože jsem je nezměřil. Jsou to moje kritéria, ne požadavek Google.',
+  checkItems: [
+    'stránka nebo sekce o makléřích či týmu',
+    'jméno a fotografie makléře',
+    'kontakt na konkrétní osobu',
+    'podpis autora u odborných textů',
+  ],
+  checkSample: { before: 'Vzorek webů realitních kanceláří z 7. 11. 2026 popisuji v', link: 'článku o slabém SEO', after: '; tato kritéria jsem v něm nepočítal.' },
 
   faqTitle: 'Časté otázky',
   faq: [

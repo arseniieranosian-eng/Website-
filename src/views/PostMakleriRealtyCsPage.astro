@@ -1,7 +1,7 @@
 ---
 // Blog article "Jak ukázat makléře na webu realitní kanceláře?" (cs), brief of 11.11.2026. Content: data/post-makleri-realty-cs.ts. DRAFT: not linked from other pages, not in the blog index.
 // Body links: those of the brief (H2-2 profile on maps, H2-5 FAQ article, H2-6 services article, H2-7 observation source when it is shown) plus the Google source (K4); the author's quote (rule J) is a plain blockquote
-// without Quotation markup; the closing block has TWO buttons by city (the exception of rule H). The expert lines are shown only when EXPERT_CONFIRMED_MAKLERI is true; H2-7 only when OBSERVATION is filled.
+// without Quotation markup; the closing block has TWO buttons by city (the exception of rule H). The expert lines are shown only when EXPERT_CONFIRMED_MAKLERI is true; H2-7 is a checklist of the author's criteria without numbers.
 import Base from '../layouts/Base.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
 import { META } from '../i18n/meta';
@@ -9,7 +9,7 @@ import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { postMakleriRealtySchemas } from '../lib/schema-post-makleri-realty';
-import { POST_MAKLERI_REALTY_CS as C, POST_MAKLERI_REALTY_PUBLISHED, EXPERT_CONFIRMED_MAKLERI as EXPERT, FAQ_ARTICLE_PUBLISHED_M, SERVICES_ARTICLE_PUBLISHED_M, OBSERVATION } from '../data/post-makleri-realty-cs';
+import { POST_MAKLERI_REALTY_CS as C, POST_MAKLERI_REALTY_PUBLISHED, EXPERT_CONFIRMED_MAKLERI as EXPERT, FAQ_ARTICLE_PUBLISHED_M, SERVICES_ARTICLE_PUBLISHED_M } from '../data/post-makleri-realty-cs';
 
 const lang = C.lang;
 const site = Astro.site!;
@@ -97,15 +97,14 @@ const L_SOURCE = 'https://seo-eranosian.com/blog/slabe-seo-konkurence-realitni-k
     </div>
   </section>
 
-  {OBSERVATION && (
-    <section class="section">
-      <div class="container narrow">
-        <h2>{C.seenTitle}</h2>
-        <p class="answer">{OBSERVATION.text}</p>
-        <p>{OBSERVATION.more} <a href={L_SOURCE}>můj pozorovací vzorek</a></p>
-      </div>
-    </section>
-  )}
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.checkTitle}</h2>
+      <p class="answer">{C.checkAnswer}</p>
+      <ul class="checks">{C.checkItems.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.checkSample.before} <a href={L_SOURCE}>{C.checkSample.link}</a>{C.checkSample.after}</p>
+    </div>
+  </section>
 
   <section class="section section--grey">
     <div class="container narrow">
