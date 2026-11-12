@@ -71,7 +71,7 @@ export const AUDIT_UK = {
     { label: 'Видимість у ШІ:', links: [{ text: 'SEO + GEO/AEO', page: 'geo' as const }], sep: '' },
   ],
 
-  quote: { text: 'Чесніше одразу сказати, чого в безкоштовному аудиті немає, ніж обіцяти більше, ніж він здатен дати.', author: 'Арсеній Ераносян', role: 'SEO- та GEO/AEO-спеціаліст' },
+  quote: { text: 'Чесніше одразу сказати, чого в безкоштовному аудиті немає, ніж обіцяти більше, ніж він здатен дати.', author: 'Арсеній Ераносьян', role: 'SEO- та GEO/AEO-спеціаліст' },
 
   stagesTitle: 'Як проходить SEO-аудит?',
   // The same strings are shown in the numbered list and emitted as HowToStep text (word for word).

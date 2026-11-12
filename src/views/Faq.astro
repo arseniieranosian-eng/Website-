@@ -26,7 +26,7 @@ const C = {
 const PAGES = {
   cs: { groups: FAQ_PAGE_GROUPS, upd: FAQ_PAGE_UPDATED, pub: FAQ_PAGE_PUBLISHED, by: ['Autor', 'Arsenii Eranosian', 'Zveřejněno', 'Aktualizováno'], toc: ['Obsah stránky', 'Na stránce najdete:'] },
   ru: { groups: FAQ_PAGE_RU_GROUPS, upd: FAQ_PAGE_RU_UPDATED, pub: FAQ_PAGE_RU_PUBLISHED, by: ['Автор', 'Арсений Ераносьян', 'Опубликовано', 'Обновлено'], toc: ['Содержание страницы', 'На странице:'] },
-  uk: { groups: FAQ_PAGE_UK_GROUPS, upd: FAQ_PAGE_UK_UPDATED, pub: FAQ_PAGE_UK_PUBLISHED, by: ['Автор', 'Арсеній Ераносян', 'Опубліковано', 'Оновлено'], toc: ['Зміст сторінки', 'На сторінці:'] },
+  uk: { groups: FAQ_PAGE_UK_GROUPS, upd: FAQ_PAGE_UK_UPDATED, pub: FAQ_PAGE_UK_PUBLISHED, by: ['Автор', 'Арсеній Ераносьян', 'Опубліковано', 'Оновлено'], toc: ['Зміст сторінки', 'На сторінці:'] },
 } as const;
 const PG = (PAGES as any)[lang] as (typeof PAGES)['cs'] | undefined;
 const isNew = !!PG;
