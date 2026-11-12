@@ -5,11 +5,13 @@ import { path } from '../i18n/routes';
 import { SITE } from '../data/site';
 import { WHY_TRUST_CS } from '../data/why-trust-cs';
 import { WHY_TRUST_EN } from '../data/why-trust-en';
+import { WHY_TRUST_RU } from '../data/why-trust-ru';
+import { WHY_TRUST_UK } from '../data/why-trust-uk';
 import type { Lang } from '../i18n/routes';
-interface Props { tone?: 'white' | 'grey'; cases?: boolean; lang?: 'cs' | 'en' } // cases=false: no link to the case list (the maps page has no case for now)
+interface Props { tone?: 'white' | 'grey'; cases?: boolean; lang?: 'cs' | 'en' | 'ru' | 'uk' } // cases=false: no link to the case list (the maps page has no case for now)
 const { tone = 'white', cases = true, lang = 'cs' } = Astro.props;
-const W = lang === 'en' ? WHY_TRUST_EN : WHY_TRUST_CS;
-const L = lang === 'en' ? { reviews: 'Reviews', cases: 'Case studies' } : { reviews: 'Recenze', cases: 'Případové studie' };
+const W = { cs: WHY_TRUST_CS, en: WHY_TRUST_EN, ru: WHY_TRUST_RU, uk: WHY_TRUST_UK }[lang];
+const L = { cs: { reviews: 'Recenze', cases: 'Případové studie' }, en: { reviews: 'Reviews', cases: 'Case studies' }, ru: { reviews: 'Отзывы', cases: 'Кейсы' }, uk: { reviews: 'Відгуки', cases: 'Кейси' } }[lang];
 const linkedin = SITE.socials.find((s) => s.name === 'LinkedIn')!.url;
 ---
 <section class:list={['section', { 'section--grey': tone === 'grey' }]} id="proc-mi-veri">

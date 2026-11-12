@@ -25,6 +25,7 @@ import NicheArt from '../components/NicheArt.astro';
 import { NICHE_READY } from '../i18n/routes';
 import { featuredReviews } from '../data/reviews';
 import { homeFaq } from '../data/faq';
+import WhyTrustCs from '../components/WhyTrustCs.astro';
 import { postsByLang } from '../lib/blog';
 
 interface Props { lang: Lang }
@@ -403,8 +404,11 @@ const C = {
     </section>
   )}
 
+  <!-- 7b. Why clients trust me (the same block as on the Czech and English pages; data/why-trust-*.ts) -->
+  <WhyTrustCs lang={lang} tone={posts.length > 0 ? 'grey' : 'white'} />
+
   <!-- 8. FAQ -->
-  <section class="section section--grey">
+  <section class={posts.length > 0 ? 'section' : 'section section--grey'}>
     <div class="container narrow">
       <div class="section-head">
         <div><h2>{ui.faqTitle}</h2><p>{C.faqText}</p></div>
