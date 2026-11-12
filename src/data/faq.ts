@@ -43,7 +43,7 @@ export const FAQ: FaqItem[] = [
       cs: 'Čas ani výsledek nelze zaručit, protože záleží na stavu webu, na konkurenci a na rozsahu úprav. Nejdřív proběhne bezplatný technický audit, který ukáže chyby indexace a duplicitní stránky. Podle něj se dohodne postup. Žádný termín slíbit nemohu, proto ho neuvádím.',
       en: 'The first changes after technical fixes usually show within 4–8 weeks. Significant growth in traffic and enquiries typically comes between months 3 and 6, later in competitive niches.',
       ru: 'Срок и результат гарантировать нельзя, потому что всё зависит от состояния сайта, конкуренции и объёма правок. Сначала проходит бесплатный технический аудит: он показывает ошибки индексации и дубли страниц. По его итогам согласуется порядок работ. Назвать срок я не могу, поэтому не указываю его.',
-      uk: 'Перші зміни після технічних виправлень зазвичай помітні через 4–8 тижнів. Помітне зростання трафіку та заявок — як правило, на 3–6-му місяці, у конкурентних нішах пізніше.',
+      uk: 'Термін і результат гарантувати не можна, бо все залежить від стану сайту, конкуренції та обсягу правок. Спочатку проходить безкоштовний технічний аудит: він показує помилки індексації та дублі сторінок. За його підсумками узгоджується порядок робіт. Назвати термін я не можу, тому не вказую його.',
     },
   },
   {
