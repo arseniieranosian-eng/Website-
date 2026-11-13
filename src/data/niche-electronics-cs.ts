@@ -8,7 +8,6 @@
 // Instagram are the ones of the case page; she is the owner of the partner agency of the translation case, so the relationship is disclosed). Defaults taken: publication as in the brief, the maps block included, NO observation block (no data), NO "Související články", NO VAT statement (the service pages
 // do not say whether the prices include it), the translation-agency client's consent is assumed to cover this line as the case page (open question 9), the audit video is only linked (text link to the example on /audit-zdarma/, described as an example of an e-shop audit, not as a case). No Heureka / Zboží.cz (only "srovnávače"),
 // no brands / shops / competitors, no guarantees, "agentura" never about the author, only "SEO a GEO/AEO", no Product/Offer, "2–3 měsíce" only about the author's own projects. Review every 90 days and at any price change (23. 1. 2027).
-import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { walk } from '../lib/cs-typo';
 import { fmtKc, PRICES } from './consulting-shared';
@@ -17,7 +16,7 @@ import { NICHE_PRICE, priceAnswerCs, priceFaqCs } from './niche-prices';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited (dateModified comes from git, so it moves with price edits).
 export const NICHE_ELECTRONICS_PUBLISHED = '2026-10-25';
-export const ELECTRONICS_CAPACITY_DATE = '25. 10. 2026';
+export const ELECTRONICS_CAPACITY_DATE = '12. 11. 2026'; // brief of 13.11.2026 (the status of the niche is dated with the author's check of 12. 11. 2026)
 const [PAY1, PAY2] = START_PAYMENTS;
 const Q = fmtKc(PRICES.questions);
 const A = fmtKc(PRICES.audit);
@@ -59,15 +58,18 @@ const raw = {
   doGeoLink: 'SEO a GEO/AEO',
 
   seeTitle: 'Co vidím na webech obchodů s elektronikou a co s tím dělám?',
-  seeAnswer: 'K 15. 10. 2026 jsem si prohlédl 12 webů obchodů s elektronikou. Nejčastěji chybí FAQ nebo je nedostatečné, téměř vždy chybí blog, nadpisy nejsou formulované jako otázky a často chybí strukturovaná data. Tyto body nejsou součástí bezplatného auditu, řeší se v konzultaci a v balíčku Start.',
-  seeNote: OBS_NOTE.cs,
+  // brief of 13.11.2026: the observation of 12.11.2026 (30 organic results, 12 shop sites); the numbers are those of the article /blog/obchody-s-elektronikou-praha-co-jsem-zjistil/ (FAQ 0 on category / product level, 5 general; blog 8 of 12 without;
+  // short answer 0 of 12; structured data 9 of 12). The pair "structured data" is not a problem any more, it is one sentence after the list (seeAfter). The pair about the question headings is replaced by the short answer
+  // (the headings were not measured on 12.11.2026); its "what I do" part is kept as it was (open question reported to the author).
+  seeAnswer: 'K 12. 11. 2026 jsem prošel 30 výsledků pro dotaz „obchod s elektronikou Praha“ (počítač, poloha Praha). Bylo mezi nimi 12 webů obchodů. Je to můj pozorovací vzorek, ne průzkum trhu. Tyto body nejsou součástí bezplatného auditu, řeší se v konzultaci a v balíčku Start.',
+  seeNote: 'Pozorování vychází z prvních 30 organických výsledků a nevysvětluje, proč jsou weby na svých pozicích.',
   seeLead: 'Problém a co nabízím:',
   see: [
-    'chybí FAQ nebo je nedostatečné → sada otázek a formát odpovědí',
-    'chybí blog → struktura blogu a témata článků',
-    'nadpisy nejsou otázky → nadpisy sekcí ve formě otázky',
-    'chybí strukturovaná data → značení produktů v rámci placené práce',
+    'žádný z 12 webů nemá FAQ na úrovni kategorie nebo produktu, obecné FAQ pro celý web má pět webů → sada otázek a formát odpovědí',
+    'blog nemá osm z 12 webů → struktura blogu a témata článků',
+    'na stránce kategorie nemá krátkou odpověď žádný z 12 webů (co kategorie obsahuje a jak vybírat) → nadpisy sekcí ve formě otázky',
   ],
+  seeAfter: 'Strukturovaná data má devět z 12 webů (podle zdroje stránky).',
   seeLink: 'Rozebrat můj web na konzultaci',
 
   forTitle: 'Pro koho je to a pro koho ne?',
@@ -126,6 +128,8 @@ const raw = {
     { q: 'Kolik firem z oboru obsluhujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. Jde o limit mé kapacity, ne o exkluzivitu. K ${ELECTRONICS_CAPACITY_DATE} je obor obchodů s elektronikou volný. Změní-li se to, údaj na stránce aktualizuji, aby byl vždy platný a stejný ve všech jazykových verzích.` },
   ],
 
+  articlesTitle: 'Další články',
+  articlesMore: 'Číst článek',
   endTitle: 'Další krok',
   endText: 'Chcete vědět, jestli má váš e-shop technické chyby, které brání indexaci kategorií nebo produktů? Začněte bezplatným technickým auditem.',
   endCta: 'Chci bezplatný technický audit',

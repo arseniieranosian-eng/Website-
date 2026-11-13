@@ -1,6 +1,7 @@
 ---
 // Niche landing page "SEO a GEO/AEO pro obchody s elektronikou" (cs), brief of 25.10.2026. Content: data/niche-electronics-cs.ts. Own structure: page types, what I do, for whom, audit scope table and
 // technical checklist (+ a text link to the audit example), the maps block, the objection block (ads; no quote without written consent), cooperation with prices (single sources), FAQ.
+import RelatedPosts from '../components/RelatedPosts.astro';
 import Base from '../layouts/Base.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -45,6 +46,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <p class="muted small">{C.seeNote}</p>
       <p>{C.seeLead}</p>
       <ul class="checks">{C.see.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.seeAfter}</p>
       <p><a class="link-arrow" href={t('consulting')}>{C.seeLink}</a></p>
     </div>
   </section>
@@ -94,6 +96,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.articlesTitle}</h2>
+      <RelatedPosts lang={lang} keys={['postElectronicsObs']} more={C.articlesMore} />
     </div>
   </section>
 

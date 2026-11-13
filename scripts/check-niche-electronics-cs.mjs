@@ -37,7 +37,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/|<form|<video|<iframe|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny|\/seo-pro-strojirenske|\/seo-pro-pocitacove/.test(main)) e('no blog links, no form / video / iframe, no links to the other niche landing pages');
+if ([...main.matchAll(/href="(\/(?:en\/|ru\/)?blog\/[^"]*)"/g)].some((m) => m[1] !== '/blog/obchody-s-elektronikou-praha-co-jsem-zjistil/') || (main.match(/href="\/blog\/obchody-s-elektronikou-praha-co-jsem-zjistil\/"/g) || []).length !== 1 || /<form|<video|<iframe|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny|\/seo-pro-strojirenske|\/seo-pro-pocitacove/.test(main)) e('no blog links, no form / video / iframe, no links to the other niche landing pages');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');
@@ -59,7 +59,8 @@ const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].mat
 if (rows.length !== 5 || rows[0].join('|') !== 'Co obsahuje|Co neobsahuje') e('audit table: header + 4 rows');
 // v2: no quote and no objection block on the landing (they moved to funnel article 4)
 if (/<blockquote|<figure class="owner-quote"|Butyrina|kliknutí se platí/.test(h)) e('no PPC quote / objection block on the landing');
-if (!mainTxt.includes('K 15. 10. 2026 jsem si prohlédl 12 webů obchodů s elektronikou. Nejčastěji chybí FAQ nebo je nedostatečné, téměř vždy chybí blog, nadpisy nejsou formulované jako otázky a často chybí strukturovaná data.') || /\d+ z 12|X z/.test(mainTxt)) e('the observation of 15. 10. 2026: qualitative, no counts');
+// brief of 13.11.2026: the observation of 12.11.2026 (30 results, 12 shop sites) with the numbers of the article; no old "chybí" claims; no 15. 10. 2026
+if (!mainTxt.includes('K 12. 11. 2026 jsem prošel 30 výsledků pro dotaz „obchod s elektronikou Praha“ (počítač, poloha Praha). Bylo mezi nimi 12 webů obchodů. Je to můj pozorovací vzorek, ne průzkum trhu.') || !mainTxt.includes('Pozorování vychází z prvních 30 organických výsledků a nevysvětluje, proč jsou weby na svých pozicích.') || !mainTxt.includes('žádný z 12 webů nemá FAQ na úrovni kategorie nebo produktu, obecné FAQ pro celý web má pět webů') || !mainTxt.includes('blog nemá osm z 12 webů') || !mainTxt.includes('Strukturovaná data má devět z 12 webů (podle zdroje stránky).') || /15\. 10\. 2026|chybí strukturovaná data|téměř vždy chybí blog|často chybí|Nejčastěji chybí/.test(mainTxt)) e('the observation of 12. 11. 2026 with the numbers of the article');
 // Prices: the same as on the live service pages (single sources)
 const pg = (f) => txt(readFileSync(f, 'utf8'));
 const cons = pg('dist/konzultace/index.html'), start = pg('dist/start-3-mesice/index.html'), full = pg('dist/full-seo/index.html');
@@ -68,7 +69,7 @@ for (const [p, where, label] of [['2 000 Kč', cons, 'konzultace'], ['3 000 Kč'
   if (!mainTxt.includes(p) && p !== '25 000 Kč') e(`price ${p} missing on this page`);
 }
 if (!mainTxt.includes('Full SEO pro obchody s elektronikou začíná na 30 000 Kč měsíčně podle rozsahu webu.')) e('cooperation answer with the price of the niche (30 000 Kč, podle rozsahu webu)');
-if (!mainTxt.includes('K 25. 10. 2026 je obor obchodů s elektronikou volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity lines, no counter');
+if (!mainTxt.includes('K 12. 11. 2026 je obor obchodů s elektronikou volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity lines, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);
