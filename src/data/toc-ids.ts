@@ -7,6 +7,7 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/co-je-seo-audit/': ['definice', 'slozeni', 'typy', 'zdarma', 'nenajde', 'vysledek', 'kdy-staci', 'kvalita', 'faq'],
   '/blog/duplicitni-obsah/': ['definice', 'priciny', 'dopad', 'poznani', 'reseni', 'nevadi', 'indexace', 'faq'],
   '/blog/duplicitni-stranky-eshop-tisk-varianty/': ['vznik', 'varianty', 'filtry', 'canonical', 'kontrola', 'faq'],
+  '/blog/obchody-s-elektronikou-praha-co-jsem-zjistil/': ['metoda', 'vysledky', 'spolecne', 'slabe', 'kontrola', 'faq'],
   '/blog/makleri-na-webu-realitni-kancelare/': ['proc', 'udaje', 'nepatri', 'popis', 'podpis', 'stranka', 'pozorovani', 'faq'],
   '/blog/stranky-sluzeb-realitni-kancelare/': ['zacatek', 'obsah', 'odlisnost', 'odpovedi', 'neslibovat', 'kroky', 'pozorovani', 'faq'],
   '/blog/faq-na-webu-realitni-kancelare/': ['faq-co', 'otazky', 'schvalovani', 'odpoved', 'umisteni', 'pozorovani', 'nepatri', 'faq'],

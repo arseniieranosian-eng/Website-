@@ -361,6 +361,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: { name: 'Маклеры на сайте агентства недвижимости', title: 'Маклеры на сайте агентства недвижимости', description: 'Маклеры на сайте агентства недвижимости', h1: 'Как показать маклеров на сайте агентства недвижимости?' },
     uk: { name: 'Маклери на сайті агентства нерухомості', title: 'Маклери на сайті агентства нерухомості', description: 'Маклери на сайті агентства нерухомості', h1: 'Як показати маклерів на сайті агентства нерухомості?' },
   },
+  postElectronicsObs: {
+    cs: {
+      name: 'Co jsem zjistil na webech obchodů s elektronikou v Praze',
+      title: 'Obchody s elektronikou v Praze: co jsem zjistil | Eranosian',
+      description: 'K 12. 11. 2026 jsem prošel 30 výsledků pro dotaz „obchod s elektronikou Praha“ a spočítal, co mají weby obchodů a co na nich nenajdete.',
+      h1: 'Co jsem zjistil na webech obchodů s elektronikou v Praze',
+    },
+    en: { name: 'Electronics stores in Prague: what I found', title: 'Electronics stores in Prague: what I found', description: 'Electronics stores in Prague: what I found', h1: 'What I found on the websites of electronics stores in Prague' },
+    ru: { name: 'Магазины электроники в Праге: что я обнаружил', title: 'Магазины электроники в Праге: что я обнаружил', description: 'Магазины электроники в Праге: что я обнаружил', h1: 'Что я обнаружил на сайтах магазинов электроники в Праге' },
+    uk: { name: 'Магазини електроніки в Празі: що я з’ясував', title: 'Магазини електроніки в Празі: що я з’ясував', description: 'Магазини електроніки в Празі: що я з’ясував', h1: 'Що я з’ясував на сайтах магазинів електроніки в Празі' },
+  },
   postWeakSeoRealty: {
     cs: {
       name: 'Slabé SEO konkurence u realitní kanceláře',

@@ -1,3 +1,4 @@
+import { lastModified } from '../lib/lastmod';
 import type { APIRoute } from 'astro';
 import { DEFAULT_LANG, LANGS, NOINDEX, PAGE_KEYS, ROUTES, alternatesFor, langsFor, type Lang } from '../i18n/routes';
 import { dedicatedPosts } from '../data/blog-posts';
@@ -18,7 +19,9 @@ export const GET: APIRoute = async ({ site }) => {
       for (const lang of withPosts) entries.push({ loc: ROUTES.blog[lang], alternates });
       continue;
     }
-    for (const lang of langsFor(key)) entries.push({ loc: ROUTES[key][lang], alternates: alternatesFor(key, lang) });
+    // lastmod only where the brief asks for it (the electronics observation article, 13.11.2026); the date is the manual one of the page (data/page-dates.json)
+    const lastmod = key === 'postElectronicsObs' ? lastModified(['src/views/PostElectronicsObsCsPage.astro'], '2026-11-13') : undefined;
+    for (const lang of langsFor(key)) entries.push({ loc: ROUTES[key][lang], alternates: alternatesFor(key, lang), lastmod });
   }
   for (const post of await allPosts()) {
     entries.push({
