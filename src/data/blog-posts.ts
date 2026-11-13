@@ -31,6 +31,7 @@ import { POST_FAQ_DENTAL_CS, POST_FAQ_DENTAL_PUBLISHED } from './post-faq-dental
 import { POST_FAQ_REALTY_CS, POST_FAQ_REALTY_PUBLISHED } from './post-faq-realty-cs';
 import { POST_SERVICES_REALTY_CS, POST_SERVICES_REALTY_PUBLISHED } from './post-services-realty-cs';
 import { POST_MAKLERI_REALTY_CS, POST_MAKLERI_REALTY_PUBLISHED } from './post-makleri-realty-cs';
+import { POST_ELECTRONICS_OBS_CS, POST_ELECTRONICS_OBS_PUBLISHED } from './post-electronics-obs-cs';
 import { POST_DENTAL_CHANNELS_CS, POST_DENTAL_CHANNELS_PUBLISHED } from './post-dental-channels-cs';
 import { POST_WEAK_SEO_GAMING_CS, POST_WEAK_SEO_GAMING_PUBLISHED } from './post-weak-seo-gaming-cs';
 import { POST_WEB_SOCIAL_GAMING_CS, POST_WEB_SOCIAL_GAMING_PUBLISHED } from './post-web-social-gaming-cs';
@@ -75,6 +76,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postFaqRealty', lang: 'cs', date: POST_FAQ_REALTY_PUBLISHED, title: META.postFaqRealty.cs.h1, description: 'Jaké otázky do FAQ zařadit, kdo odpovědi schvaluje a kam FAQ umístit.', image: POST_FAQ_REALTY_CS.cover },
   { key: 'postServicesRealty', lang: 'cs', date: POST_SERVICES_REALTY_PUBLISHED, title: META.postServicesRealty.cs.h1, description: 'Co napsat na stránku služby realitní kanceláře: pro koho je, co zahrnuje, jak probíhá a co nechat ověřit makléřem.', image: POST_SERVICES_REALTY_CS.cover },
   { key: 'postMakleriRealty', lang: 'cs', date: POST_MAKLERI_REALTY_PUBLISHED, title: META.postMakleriRealty.cs.h1, description: 'Jaké údaje o makléři uvést, co bez souhlasu nepatří a kdo texty podepisuje.', image: POST_MAKLERI_REALTY_CS.cover },
+  { key: 'postElectronicsObs', lang: 'cs', date: POST_ELECTRONICS_OBS_PUBLISHED, title: META.postElectronicsObs.cs.h1, description: META.postElectronicsObs.cs.description, image: POST_ELECTRONICS_OBS_CS.cover },
   { key: 'postDentalChannels', lang: 'cs', date: POST_DENTAL_CHANNELS_PUBLISHED, title: META.postDentalChannels.cs.h1, description: META.postDentalChannels.cs.description, image: POST_DENTAL_CHANNELS_CS.cover },
   { key: 'postWeakSeoGaming', lang: 'cs', date: POST_WEAK_SEO_GAMING_PUBLISHED, title: META.postWeakSeoGaming.cs.h1, description: META.postWeakSeoGaming.cs.description, image: POST_WEAK_SEO_GAMING_CS.cover },
   { key: 'postWebSocialGaming', lang: 'cs', date: POST_WEB_SOCIAL_GAMING_PUBLISHED, title: META.postWebSocialGaming.cs.h1, description: META.postWebSocialGaming.cs.description, image: POST_WEB_SOCIAL_GAMING_CS.cover },
@@ -138,6 +140,12 @@ export const BLOG_GROUPS: BlogGroup[] = [
     title: { cs: 'Realitní kanceláře', en: 'Real estate agencies', ru: 'Агентства недвижимости' },
     lead: { cs: 'Web, nabídky, čtvrti, mapy a portály z pohledu realitní kanceláře.', en: 'Website, listings, neighbourhoods, maps and portals from a real estate agency’s point of view.', ru: 'Сайт, объявления, районы, карты и порталы с точки зрения агентства недвижимости.' },
     keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyPragueDistricts', 'postRealtyBrnoDistricts', 'postRealtyLocal', 'postWeakSeoRealty', 'postFaqRealty', 'postServicesRealty', 'postMakleriRealty'],
+  },
+  {
+    id: 'electronics',
+    title: { cs: 'Obchody s elektronikou', en: 'Electronics stores', ru: 'Магазины электроники' },
+    lead: { cs: 'Pozorování webů obchodů s elektronikou ve výsledcích vyhledávání.', en: 'Observations of electronics store websites in search results.', ru: 'Наблюдения за сайтами магазинов электроники в поисковой выдаче.' },
+    keys: ['postElectronicsObs'],
   },
   {
     id: 'accounting',
