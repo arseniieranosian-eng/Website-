@@ -57,8 +57,9 @@ const lists = (re) => [...(main.match(re) || [, ''])[1].matchAll(/<li>/g)].lengt
 if (lists(/Что вы получаете:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 6) e('what you get: 6');
 if (lists(/Что технически проверяется на сайте магазина:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 8) e('audit checklist: 8');
 if (cnt(/href="\/ru\/besplatnyj-audit\/#vystup-auditu"/g) !== 1) e('the link to the audit example');
-if (!mainTxt.includes('15.10.2026 я просмотрел 12 сайтов магазинов электроники. Чаще всего у них нет FAQ или его недостаточно, почти всегда нет блога, заголовки не сформулированы как вопросы, а микроразметки часто нет.') || /\d+ из 12|у X/.test(mainTxt) || /12 сайтов магазинов электроники в Праге/.test(mainTxt)) e('the observation of 15.10.2026: qualitative, no counts, no city');
-if (lists(/Проблема и что я предлагаю:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 4) e('problem → offer: 4');
+// brief of 13.11.2026: the observation of 12.11.2026 with the numbers of the Czech page and the article; no 15.10.2026
+if (!mainTxt.includes('12.11.2026 я просмотрел 30 результатов по запросу «obchod s elektronikou Praha» (компьютер, локация Прага). Среди них было 12 сайтов магазинов. Это моя наблюдательная выборка, а не исследование рынка.') || !mainTxt.includes('Микроразметка есть у девяти из 12 сайтов (по источнику страницы).') || !mainTxt.includes('блога нет у восьми из 12 сайтов') || /15\.10\.2026/.test(mainTxt)) e('the observation of 12.11.2026 with the numbers');
+if (lists(/Проблема и что я предлагаю:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) !== 3) e('problem → offer: 3 (structured data is one sentence after the list, brief of 13.11.2026)');
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 5 || rows[0].join('|') !== 'Входит|Не входит') e('audit table: header + 4 rows');
 if (!mainTxt.includes('Говорю на чешском, английском и русском; могу работать с сайтами на украинском, польском и словацком.')) e('languages line');
@@ -71,7 +72,7 @@ for (const [p, where, label] of [['2 000 Kč', cons, 'консультации']
   if (!mainTxt.includes(p)) e(`price ${p} missing on this page`);
 }
 if (!mainTxt.includes('Full SEO для магазинов электроники начинается от 30 000 Kč в месяц в зависимости от объёма сайта.') || /DPH|НДС/.test(mainTxt)) e('cooperation answer with prices, nothing about VAT');
-if (!mainTxt.includes('На 25.10.2026 ниша магазинов электроники свободна.') || /\d из 3/.test(mainTxt)) e('capacity lines, no counter');
+if (!mainTxt.includes('На 12.11.2026 ниша магазинов электроники свободна.') || /\d из 3/.test(mainTxt)) e('capacity lines, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);

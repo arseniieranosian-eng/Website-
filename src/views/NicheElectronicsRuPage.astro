@@ -45,6 +45,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
       <p class="muted small">{C.seeNote}</p>
       <p>{C.seeLead}</p>
       <ul class="checks">{C.see.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.seeAfter}</p>
       <p><a class="link-arrow" href={t('consulting')}>{C.seeLink}</a></p>
     </div>
   </section>

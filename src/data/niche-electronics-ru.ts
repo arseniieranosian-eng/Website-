@@ -3,7 +3,6 @@
 // the translation case too, default of the brief). Defaults taken (no answers to the brief's open questions): slug as in the brief, the observation block of 15.10.2026 (12 sites, the author's qualitative findings, NO counts, no city: it is not stated that all 12 are from Prague), no funnel articles, nothing about VAT,
 // no brands / shops / competitors / Heureka / Zboží.cz, no quote, no Product/Offer, nothing about the metrics "звонки, маршруты, переходы" (the RU service pages do not state them). The Title is shortened to <= 55 characters and the
 // Description to <= 150 (the site rule of 25.10.2026). Prices come from the single sources of the service pages. Review every 90 days and at any price change (23.01.2027).
-import { OBS_NOTE } from './niche-obs-note';
 import SUMMARIES from './niche-summaries.json';
 import { fmtKc, PRICES } from './consulting-shared';
 import { START_PAYMENTS, START_PRICE } from './start-shared';
@@ -11,7 +10,7 @@ import { NICHE_PRICE, priceAnswerRu, priceFaqRu } from './niche-prices';
 
 // Publication date of this address (the brief: 25.10.2026); do NOT bump it when the page is edited (dateModified comes from git and moves with price edits).
 export const NICHE_ELECTRONICS_RU_PUBLISHED = '2026-10-25';
-export const ELECTRONICS_CAPACITY_DATE_RU = '25.10.2026';
+export const ELECTRONICS_CAPACITY_DATE_RU = '12.11.2026'; // as the Czech page (brief of 13.11.2026)
 const [PAY1, PAY2] = START_PAYMENTS;
 const Q = fmtKc(PRICES.questions);
 const A = fmtKc(PRICES.audit);
@@ -47,15 +46,16 @@ export const NICHE_ELECTRONICS_RU = {
   ],
 
   seeTitle: 'Что я вижу на сайтах магазинов электроники и что с этим делаю?',
-  seeAnswer: '15.10.2026 я просмотрел 12 сайтов магазинов электроники. Чаще всего у них нет FAQ или его недостаточно, почти всегда нет блога, заголовки не сформулированы как вопросы, а микроразметки часто нет. Эти пункты не входят в бесплатный аудит, их разбор идёт в консультации и пакете Start.',
-  seeNote: OBS_NOTE.ru,
+  // brief of 13.11.2026 (applied to the Russian page "the same numbers and dates"): the observation of 12.11.2026, 30 organic results for the Czech query, 12 shop sites; the numbers are those of the Czech page and article
+  seeAnswer: '12.11.2026 я просмотрел 30 результатов по запросу «obchod s elektronikou Praha» (компьютер, локация Прага). Среди них было 12 сайтов магазинов. Это моя наблюдательная выборка, а не исследование рынка. Эти пункты не входят в бесплатный аудит, их разбор идёт в консультации и пакете Start.',
+  seeNote: 'Наблюдение основано на первых 30 органических результатах и не объясняет, почему сайты стоят на своих позициях.',
   seeLead: 'Проблема и что я предлагаю:',
   see: [
-    'нет FAQ или его недостаточно → набор вопросов и формат ответов',
-    'нет блога → структура блога и темы статей',
-    'заголовки не вопросы → заголовки разделов в формате вопроса',
-    'нет микроразметки → разметка товаров в рамках платной работы',
+    'ни у одного из 12 сайтов нет FAQ на уровне категории или товара, общий FAQ для всего сайта есть у пяти сайтов → набор вопросов и формат ответов',
+    'блога нет у восьми из 12 сайтов → структура блога и темы статей',
+    'на странице категории нет короткого ответа ни у одного из 12 сайтов (что в категории и как выбирать) → заголовки разделов в формате вопроса',
   ],
+  seeAfter: 'Микроразметка есть у девяти из 12 сайтов (по источнику страницы).',
   seeLink: 'Разобрать мой сайт на консультации',
 
   forTitle: 'Для кого это и для кого нет?',
