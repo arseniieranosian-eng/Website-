@@ -372,6 +372,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: { name: 'Магазины электроники в Праге: что я обнаружил', title: 'Магазины электроники в Праге: что я обнаружил', description: 'Магазины электроники в Праге: что я обнаружил', h1: 'Что я обнаружил на сайтах магазинов электроники в Праге' },
     uk: { name: 'Магазини електроніки в Празі: що я з’ясував', title: 'Магазини електроніки в Празі: що я з’ясував', description: 'Магазини електроніки в Празі: що я з’ясував', h1: 'Що я з’ясував на сайтах магазинів електроніки в Празі' },
   },
+  postTiskOnline: {
+    cs: {
+      name: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „tisk online“',
+      title: 'Tisk online: co jsem zjistil | Eranosian',
+      description: 'K 14. 11. 2026 jsem na Googlu a Seznamu prošel po 30 výsledcích dotazu „tisk online“ a spočítal, co mají weby tiskových služeb.',
+      h1: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „tisk online“',
+    },
+    en: { name: 'Online printing: what I found', title: 'Online printing: what I found', description: 'Online printing: what I found', h1: 'What I found in Google and Seznam results for “tisk online”' },
+    ru: { name: 'Онлайн-печать: что я обнаружил', title: 'Онлайн-печать: что я обнаружил', description: 'Онлайн-печать: что я обнаружил', h1: 'Что я обнаружил в выдаче Google и Seznam по запросу «tisk online»' },
+    uk: { name: 'Онлайн-друк: що я з’ясував', title: 'Онлайн-друк: що я з’ясував', description: 'Онлайн-друк: що я з’ясував', h1: 'Що я з’ясував у видачі Google і Seznam за запитом «tisk online»' },
+  },
   postWeakSeoRealty: {
     cs: {
       name: 'Slabé SEO konkurence u realitní kanceláře',
