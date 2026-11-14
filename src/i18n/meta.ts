@@ -364,8 +364,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postElectronicsObs: {
     cs: {
       name: 'Co jsem zjistil na webech obchodů s elektronikou v Praze',
-      title: 'Obchody s elektronikou v Praze: co jsem zjistil | Eranosian',
-      description: 'K 12. 11. 2026 jsem prošel 30 výsledků pro dotaz „obchod s elektronikou Praha“ a spočítal, co mají weby obchodů a co na nich nenajdete.',
+      title: 'Obchody s elektronikou: co jsem našel | Eranosian',
+      description: 'K 12. 11. 2026 jsem prošel 30 výsledků pro „obchod s elektronikou Praha“ a spočítal, co mají weby obchodů a co na nich nenajdete.',
       h1: 'Co jsem zjistil na webech obchodů s elektronikou v Praze',
     },
     en: { name: 'Electronics stores in Prague: what I found', title: 'Electronics stores in Prague: what I found', description: 'Electronics stores in Prague: what I found', h1: 'What I found on the websites of electronics stores in Prague' },
