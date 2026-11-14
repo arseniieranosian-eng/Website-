@@ -9,7 +9,7 @@ import { walk } from '../lib/cs-typo';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited.
 export const NICHE_TYPOGRAPHY_PUBLISHED = '2026-10-25';
-export const TYPOGRAPHY_CAPACITY_DATE = '24. 10. 2026';
+export const TYPOGRAPHY_CAPACITY_DATE = '14. 11. 2026'; // status of the niche "volno" confirmed by the author on 14.11.2026 (brief of 14.11.2026)
 
 const raw = {
   lang: 'cs' as const,
@@ -40,6 +40,16 @@ const raw = {
   ],
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
+
+  // brief of 14.11.2026: the observation of 14.11.2026 (30 results of Google and 30 of Seznam for "tisk online", 24 sites of print services on each); the numbers are those of the article /blog/tisk-online-co-jsem-zjistil/.
+  // No line about the audit and Start (the author has not confirmed it); no link to the article in this block (rule F: only in "Další články").
+  seeTitle: 'Co vidím na webech tiskáren a polygrafie?',
+  seeAnswer: 'K 14. 11. 2026 jsem na Googlu a na Seznamu prošel po 30 výsledcích dotazu „tisk online“. Jasnou krátkou odpověď na stránce kategorie nebo produktu měl jen 1 z 20 sledovaných výsledků a FAQ na úrovni kategorie nebo produktu jediný web. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  see: [
+    'Obecné FAQ mělo 8 z 24 webů na Googlu a 10 z 24 na Seznamu.',
+    'Blog mělo 13 z 24 webů na Googlu a 13 z 24 na Seznamu.',
+    'Strukturovaná data mělo 11 z 24 webů na Googlu a 13 z 24 na Seznamu.',
+  ],
 
   forTitle: 'Pro koho je to a pro koho ne?',
   forAnswer: 'Hodí se pro tiskárny a polygrafické firmy s webem nebo e-shopem, které chtějí být vidět ve vyhledávání a v odpovědích AI. Nehodí se pro firmy, které čekají zaručené pořadí nebo rychlé výsledky, ani pro ty, které hledají jen nový design webu.',

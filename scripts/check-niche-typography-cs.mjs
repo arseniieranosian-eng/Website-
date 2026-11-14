@@ -35,7 +35,7 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/(?!duplicitni-stranky-eshop-tisk-varianty\/)|<form|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni/.test(main)) e('no blog links, no form, no links to the other niche landing pages');
+if (/href="\/(?:en\/|ru\/)?blog\/(?!duplicitni-stranky-eshop-tisk-varianty\/|tisk-online-co-jsem-zjistil\/)|<form|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni/.test(main)) e('no blog links, no form, no links to the other niche landing pages');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');
@@ -57,7 +57,9 @@ if (([...(main.match(/Co se u webu tiskárny kontroluje:[\s\S]*?<ul class="check
 if (!mainTxt.includes('Organická návštěvnost webu tiskárny vzrostla 8,75× za 12 měsíců (červenec 2024 → červenec 2025).') || !mainTxt.includes('Co se přenáší a co ne:')) e('case block');
 if ((mainTxt.match(/8,75×/g) || []).length !== 1 || /×8/.test(mainTxt)) e('8,75× once, with metric and window; no "×8"');
 if (mainTxt.includes('zatím výsledky nemám')) e('no "no results" line');
-if (!mainTxt.includes('k 24. 10. 2026 je obor tiskáren volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity line, no counter');
+// brief of 14.11.2026: the observation of 14.11.2026 (Google + Seznam, "tisk online") with the numbers of the article, no audit / Start line, no link to the article inside the block
+if (!mainTxt.includes('K 14. 11. 2026 jsem na Googlu a na Seznamu prošel po 30 výsledcích dotazu „tisk online“. Jasnou krátkou odpověď na stránce kategorie nebo produktu měl jen 1 z 20 sledovaných výsledků a FAQ na úrovni kategorie nebo produktu jediný web. Je to můj pozorovací vzorek, ne průzkum trhu.') || !mainTxt.includes('Obecné FAQ mělo 8 z 24 webů na Googlu a 10 z 24 na Seznamu.') || !mainTxt.includes('Blog mělo 13 z 24 webů na Googlu a 13 z 24 na Seznamu.') || !mainTxt.includes('Strukturovaná data mělo 11 z 24 webů na Googlu a 13 z 24 na Seznamu.') || !/<h2[^>]*>Co vidím na webech tiskáren a polygrafie\?<\/h2>/.test(main) || (main.match(/href="\/blog\/tisk-online-co-jsem-zjistil\/"/g) || []).length !== 1 || /24\. 10\. 2026/.test(mainTxt.replace(/Zveřejněno[^·]*/, ''))) e('observation of 14. 11. 2026');
+if (!mainTxt.includes('k 14. 11. 2026 je obor tiskáren volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity line, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);
