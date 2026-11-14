@@ -17,13 +17,13 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Domů',
       title: 'SEO specialista Praha: SEO a GEO/AEO | Eranosian',
-      description: 'Pracuji osobně: bezplatný SEO audit, konzultace, SEO start na 3 měsíce a Full SEO na rok včetně GEO/AEO. Zjistěte, kolik zákazníků vám uniká.',
+      description: 'Pracuji osobně: bezplatný SEO audit, konzultace, SEO start na 3 měsíce a Full SEO na rok s GEO/AEO. Kolik zákazníků vám uniká?',
       h1: 'SEO, které přivádí poptávky. Ve vyhledávačích i v AI.',
     },
     en: {
       name: 'Home',
-      title: 'SEO & GEO/AEO Specialist in Prague | Arsenii Eranosian',
-      description: 'English-speaking SEO and GEO/AEO specialist in Prague for Google, Seznam and AI search. Start with a free technical audit: no call, no obligation.',
+      title: 'SEO & GEO/AEO Specialist in Prague | Eranosian',
+      description: 'English-speaking SEO and GEO/AEO specialist in Prague for Google, Seznam and AI search. Start with a free technical audit.',
       h1: 'English-speaking SEO specialist in Prague: enquiries from Google, Seznam and AI',
     },
     ru: {
@@ -36,20 +36,20 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   audit: {
     cs: {
       name: 'Bezplatný audit',
-      title: 'Bezplatný SEO audit webu: technické chyby | Eranosian',
-      description: 'Bezplatná kontrola technických chyb webu: indexace, duplicity a další problémy. Prezentace do 24 hodin, bez callu a bez závazků. Požádejte o audit.',
+      title: 'Bezplatný SEO audit webu | Eranosian',
+      description: 'Bezplatná kontrola technických chyb webu: indexace, duplicity a další problémy. Prezentace do 24 hodin, bez callu a závazků.',
       h1: 'Bezplatný SEO audit technických chyb vašeho webu',
     },
     en: {
       name: 'Free audit',
       title: 'Free SEO Audit of Your Website | Arsenii Eranosian',
-      description: 'Free check of your website\'s technical errors: indexing, duplicates and more. A short presentation within 24 hours, no call, no obligation.',
+      description: 'Free check of your website\'s technical errors: indexing, duplicates and more. Presentation in 24 hours, no call, no obligation.',
       h1: 'A free SEO audit of your website',
     },
     ru: {
       name: 'Бесплатный аудит',
       title: 'Бесплатный технический SEO-аудит сайта | Eranosian',
-      description: 'Бесплатная проверка технических ошибок сайта: индексация, дубли страниц и другие проблемы. Отчёт с рекомендациями за 24 часа. Без обязательств.',
+      description: 'Бесплатная проверка технических ошибок сайта: индексация, дубли страниц и другие проблемы. Отчёт за 24 часа, без обязательств.',
       h1: 'Бесплатный SEO-аудит вашего сайта',
     },
   },
@@ -57,18 +57,18 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'SEO konzultace',
       title: 'SEO konzultace — od 2 000 Kč za hodinu | Eranosian',
-      description: 'Potřebujete nezávislý pohled na SEO vašeho webu? Konzultace online nebo v Praze, odpovědi na otázky i audit s plánem na 12 měsíců. Domluvte si termín.',
+      description: 'Potřebujete nezávislý pohled na SEO webu? Konzultace online nebo v Praze, odpovědi na otázky i audit s plánem na 12 měsíců.',
       h1: 'SEO konzultace',
     },
     en: {
       name: 'Consulting',
-      title: 'SEO Consultation Prague: 1 Hour or Audit | Eranosian',
-      description: 'SEO consulting in Prague, online or in person: answers in one hour, or a full site review with a 12-month action plan. Book a consultation.',
+      title: 'SEO Consultation Prague: Hour or Audit | Eranosian',
+      description: 'SEO consulting in Prague, online or in person: answers in one hour, or a full site review with a 12-month plan. Book a call.',
       h1: 'SEO consulting in Prague',
     },
     ru: {
       name: 'Консультации',
-      title: 'SEO консультация и аудит сайта: от 2 000 Kč | Eranosian',
+      title: 'SEO-консультация и аудит: от 2 000 Kč | Eranosian',
       description: 'Нужен независимый взгляд на SEO вашего сайта? Консультация онлайн или в Праге: ответы, аудит и план на 12 месяцев. Запишитесь.',
       h1: 'SEO консультация',
     },
@@ -89,7 +89,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     ru: {
       name: 'Старт на 3 месяца',
       title: 'SEO на 3 месяца — от 50 000 Kč | Eranosian',
-      description: 'Технический аудит, правки, контент и карты Google/Seznam за 3 месяца. Отчёты еженедельно, срок гарантировать нельзя. Оставьте заявку.',
+      description: 'Технический аудит, правки, контент и карты Google/Seznam за 3 месяца. Отчёты еженедельно, срок гарантировать нельзя. Заявка.',
       h1: 'SEO продвижение сайта на 3 месяца',
     },
   },
@@ -97,19 +97,19 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Full SEO na rok',
       title: 'Full SEO na rok — od 15 000 Kč měsíčně | Eranosian',
-      description: 'Kompletní SEO na 12 měsíců: obsah, odkazy, technický dohled a mapy Google/Mapy.com. Čas ani výsledek nelze zaručit. Pošlete nezávaznou poptávku.',
+      description: 'Kompletní SEO na 12 měsíců: obsah, odkazy, technický dohled a mapy. Čas ani výsledek nelze zaručit. Pošlete nezávaznou poptávku.',
       h1: 'Full SEO na rok',
     },
     en: {
       name: 'Full SEO (1 year)',
-      title: 'Full-Year SEO – Strategy, Content, Links & Reporting',
-      description: 'Full SEO for 12 months: strategy, content, link building, technical monitoring, GEO/AEO optimisation and monthly reports for long-term growth.',
+      title: 'Full-Year SEO – Strategy, Content, Links, Reports',
+      description: 'Full SEO for 12 months: strategy, content, link building, technical monitoring, GEO/AEO optimisation and monthly reports.',
       h1: 'Full SEO for a year',
     },
     ru: {
       name: 'Full SEO на год',
       title: 'SEO на год — от 15 000 Kč/мес | Eranosian',
-      description: 'Полное SEO-сопровождение на 12 месяцев: аудит, контент, ссылки, карты Google и Seznam. Срок и результат гарантировать нельзя. Оставьте заявку на SEO.',
+      description: 'Полное SEO-сопровождение на 12 месяцев: аудит, контент, ссылки, карты Google и Seznam. Срок и результат гарантировать нельзя.',
       h1: 'SEO продвижение сайта на год',
     },
   },
@@ -117,38 +117,38 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Mapy (Google + Mapy.com)',
       title: 'Lokální SEO: Google Maps a Mapy.com | Eranosian',
-      description: 'Propagace v mapách Google a Seznam s platbou za výsledek: hovory, trasy, prokliky, recenze. Balíček Full od 1800 Kč měsíčně. Nezávazná poptávka.',
+      description: 'Propagace v mapách Google a Seznam s platbou za výsledek: hovory, trasy, prokliky, recenze. Balíček Full od 1800 Kč měsíčně.',
       h1: 'Lokální SEO: propagace na Google Maps a Mapy.com',
     },
     en: {
       name: 'Maps (Google + Mapy.com)',
-      title: 'Local SEO: Google Maps & Mapy.com (Seznam) | Prague',
-      description: 'Local SEO for businesses in Czechia: Google Business Profile and Firmy.cz / Mapy.com optimisation, reviews and higher map rankings.',
+      title: 'Local SEO: Google Maps & Mapy.com | Prague',
+      description: 'Local SEO for businesses in Czechia: Google Business Profile and Firmy.cz / Mapy.com optimisation, reviews and map rankings.',
       h1: 'Local SEO: Google Maps and Mapy.com',
     },
     ru: {
       name: 'Карты (Google + Mapy.com)',
       title: 'Продвижение в Google Maps и Mapy.com | Eranosian',
-      description: 'Продвижение бизнеса в картах Google и Seznam с оплатой за результат: отзывы, звонки, маршруты. Любой город. Оставьте заявку на локальное SEO.',
+      description: 'Продвижение бизнеса в картах Google и Seznam с оплатой за результат: отзывы, звонки, маршруты. Любой город. Оставьте заявку.',
       h1: 'Локальное SEO: Google Maps и Mapy.com',
     },
   },
   geo: {
     cs: {
       name: 'SEO + GEO/AEO',
-      title: 'Co je GEO/AEO? Optimalizace pro Google i AI | Eranosian',
-      description: 'GEO a AEO vysvětleně: jak funguje optimalizace pro ChatGPT, Gemini a AI Overviews a proč jde vždy ruku v ruce se SEO. Žádná záruka zmínky v AI.',
+      title: 'Co je GEO/AEO a jak souvisí se SEO | Eranosian',
+      description: 'GEO a AEO vysvětleně: optimalizace pro ChatGPT, Gemini a AI Overviews a proč jde ruku v ruce se SEO. Žádná záruka zmínky v AI.',
       h1: 'SEO + GEO/AEO: dvě v jednom',
     },
     en: {
       name: 'SEO + GEO/AEO',
-      title: 'SEO + GEO/AEO 2-in-1 – Visibility in Google and ChatGPT',
-      description: 'SEO and GEO/AEO in one: a website found by Google and Seznam as well as ChatGPT, Gemini, Perplexity and AI Overviews. How it works.',
+      title: 'SEO + GEO/AEO 2-in-1: Google and ChatGPT',
+      description: 'SEO and GEO/AEO in one: a website found by Google, Seznam, ChatGPT, Gemini, Perplexity and AI Overviews. How it works.',
       h1: 'SEO + GEO/AEO: two in one',
     },
     ru: {
       name: 'SEO + GEO/AEO',
-      title: 'SEO + GEO/AEO 2 в 1 – видимость в Google и в ChatGPT',
+      title: 'SEO + GEO/AEO 2 в 1 – Google и ChatGPT',
       description: 'SEO и GEO/AEO вместе: сайт, который находят Google и Seznam, а также ChatGPT, Gemini, Perplexity и AI Overviews. Как это работает.',
       h1: 'SEO + GEO/AEO: два в одном',
     },
@@ -162,13 +162,13 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Case studies',
-      title: 'SEO Case Studies – Client Results | Arsenii Eranosian',
+      title: 'SEO Case Studies: Client Results | Eranosian',
       description: 'Case studies: how SEO and GEO/AEO grew traffic and enquiries for my clients. Starting point, approach and measurable results.',
       h1: 'Case studies',
     },
     ru: {
       name: 'Кейсы',
-      title: 'SEO-кейсы – результаты клиентов | Arsenii Eranosian',
+      title: 'SEO-кейсы: результаты клиентов | Eranosian',
       description: 'Кейсы: как SEO и GEO/AEO увеличили трафик и число заявок у моих клиентов. Исходная ситуация, работа и измеримые результаты.',
       h1: 'Кейсы',
     },
@@ -177,30 +177,30 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   caseTypo: {
     cs: {
       name: 'SEO pro tiskárnu',
-      title: 'SEO pro tiskárnu: návštěvnost 8,75× za rok | Eranosian',
-      description: 'Případová studie: jak jsem zvýšil organickou návštěvnost tiskárny z 1\u00a0200 na 10\u00a0500 měsíčně za rok. Priority a 20+ vstupních stránek.',
+      title: 'SEO tiskárny: návštěvnost 8,75× za rok | Eranosian',
+      description: 'Případová studie: jak jsem zvýšil organickou návštěvnost tiskárny z 1\u00a0200 na 10\u00a0500 měsíčně za rok. Priority a vstupní stránky.',
       h1: 'SEO pro tiskárnu: organická návštěvnost vzrostla 8,75× za 12 měsíců',
     },
     en: { name: 'SEO for a print shop', title: 'SEO for a print shop', description: 'SEO for a print shop', h1: 'SEO for a print shop' },
     ru: {
       name: 'SEO для типографии',
-      title: 'SEO типографии: рост трафика в 8,75 раза | Eranosian',
-      description: 'Как я вырастил органический трафик типографии с 1 200 до 10 500 визитов в месяц за год: приоритеты и 20+ посадочных. Бесплатный аудит.',
+      title: 'SEO типографии: трафик в 8,75 раза | Eranosian',
+      description: 'Как я вырастил органический трафик типографии с 1 200 до 10 500 визитов в месяц за год: приоритеты и 20+ посадочных.',
       h1: 'SEO для типографии: рост органического трафика в 8,75 раза за 12 месяцев',
     },
   },
   caseEdu: {
     cs: {
       name: 'SEO pro novou vzdělávací platformu',
-      title: 'SEO pro vzdělávací platformu: +55\u00a0% návštěv | Eranosian',
-      description: 'Jak jsme s kolegou zvýšili organickou návštěvnost nové vzdělávací platformy o 55\u00a0% za 7 měsíců se sázkou na málo hledané dotazy. Audit zdarma.',
+      title: 'SEO vzdělávací platformy: +55\u00a0% | Eranosian',
+      description: 'Jak jsme s kolegou zvýšili organickou návštěvnost nové vzdělávací platformy o 55\u00a0% za 7 měsíců se sázkou na málo hledané dotazy.',
       h1: 'SEO pro novou vzdělávací platformu: +55\u00a0% organické návštěvnosti za 7 měsíců',
     },
     en: { name: 'SEO for an education platform', title: 'SEO for an education platform', description: 'SEO for an education platform', h1: 'SEO for an education platform' },
     ru: {
       name: 'SEO для образовательной платформы',
-      title: 'SEO образовательной платформы: +55% трафика | Eranosian',
-      description: 'Как мы с коллегой подняли органический трафик новой образовательной платформы на 55% за 7 месяцев: ставка на низкочастотные запросы. Закажите аудит.',
+      title: 'SEO образовательной платформы: +55% | Eranosian',
+      description: 'Как мы с коллегой подняли трафик новой образовательной платформы на 55% за 7 месяцев: ставка на низкочастотные запросы.',
       h1: 'SEO для новой образовательной платформы: +55% органического трафика за 7 месяцев',
     },
   },
@@ -208,29 +208,29 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?',
       title: 'Rozbor webu realitní kanceláře v Praze | Eranosian',
-      description: 'Rozbor webu malé pražské realitní kanceláře: co jsem viděl a co navrhl. Konzultace s auditem, prezentace 21.–22. 10. 2026. Více o konzultaci.',
+      description: 'Rozbor webu malé pražské realitní kanceláře: co jsem viděl a co navrhl. Konzultace s auditem, prezentace 21.–22. 10. 2026.',
       h1: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?',
     },
     en: { name: 'Review of a real estate agency website in Prague', title: 'Review of a real estate agency website in Prague', description: 'Review of a real estate agency website in Prague', h1: 'Review of a real estate agency website in Prague' },
     ru: {
       name: 'Разбор сайта агентства недвижимости в Праге',
-      title: 'SEO-аудит агентства недвижимости: разбор | Eranosian',
-      description: 'Честная оценка конкуренции, три направления продвижения и план на 12 месяцев для агентства недвижимости в Праге. Закажите консультацию.',
+      title: 'SEO-аудит агентства недвижимости | Eranosian',
+      description: 'Честная оценка конкуренции, три направления продвижения и план на 12 месяцев для агентства недвижимости в Праге.',
       h1: 'Разбор сайта агентства недвижимости в Праге: что я увидел и что предложил',
     },
   },
   caseSeason: {
     cs: {
       name: 'SEO v nízké sezóně',
-      title: 'SEO v nízké sezóně: poptávky 24× za léto | Eranosian',
-      description: 'Jak jsem za léto zvýšil poptávky z webu překladatelské agentury 24×, zatímco zájem o široký dotaz klesal. Případová studie, část 2. Audit zdarma.',
+      title: 'SEO v nízké sezóně: poptávky 24× | Eranosian',
+      description: 'Jak jsem za léto zvýšil poptávky z webu překladatelské agentury 24×, zatímco zájem o široký dotaz klesal. Případová studie.',
       h1: 'SEO v nízké sezóně pro překladatelskou agenturu: poptávky z webu vzrostly 24×',
     },
     en: { name: 'SEO in the low season', title: 'SEO in the low season', description: 'SEO in the low season', h1: 'SEO in the low season' },
     ru: {
       name: 'SEO в низкий сезон',
-      title: 'SEO в низкий сезон: рост заявок в 24 раза | Eranosian',
-      description: 'Как я за лето вырастил заявки с сайта переводческого агентства в 24 раза в низкий сезон: воронка, FAQ, города. Закажите бесплатный аудит.',
+      title: 'SEO в низкий сезон: заявки в 24 раза | Eranosian',
+      description: 'Как я за лето вырастил заявки с сайта переводческого агентства в 24 раза в низкий сезон: воронка, FAQ, города.',
       h1: 'SEO в низкий сезон для переводческого агентства: заявки с сайта выросли в 24 раза',
     },
   },
@@ -238,13 +238,13 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'SEO pro překladatelskou agenturu: půl roku',
       title: 'Případová studie SEO překladatelské agentury',
-      description: 'Jak jsem za půl roku postavil web překladatelské agentury, který měl nulu poptávek: lokální stránky, B2B poptávky a nové vstupní body. Audit zdarma.',
+      description: 'Jak jsem za půl roku postavil web překladatelské agentury, který měl nulu poptávek: lokální stránky, B2B poptávky, vstupní body.',
       h1: 'Případová studie SEO pro překladatelskou agenturu: půl roku od nuly k růstu poptávek',
     },
     en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
     ru: {
       name: 'SEO для переводческого агентства: полгода',
-      title: 'Кейс SEO переводческого агентства: полгода | Eranosian',
+      title: 'SEO переводческого агентства: полгода | Eranosian',
       description: 'Разбор полугода SEO для переводческого агентства: исходное состояние, структура сайта, города и языковые версии. Бесплатный аудит.',
       h1: 'Кейс SEO для переводческого агентства: полгода от нуля до роста заявок',
     },
@@ -259,8 +259,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'How to get clients for an accounting firm', title: 'How to get clients for an accounting firm', description: 'How to get clients for an accounting firm', h1: 'How to get clients for an accounting firm: an overview of channels' },
     ru: {
       name: 'Как получить клиентов бухгалтерской компании',
-      title: 'Как получить клиентов бухгалтерской компании | Eranosian',
-      description: 'Обзор каналов, которыми бухгалтерская компания в Чехии может привлекать клиентов: рекомендации, сайт, карты, реклама. Ни один канал не даёт гарантий.',
+      title: 'Клиенты для бухгалтерской компании | Eranosian',
+      description: 'Обзор каналов, которыми бухгалтерская компания может привлекать клиентов: рекомендации, сайт, карты, реклама. Гарантий нет.',
       h1: 'Как получить клиентов бухгалтерской компании: обзор каналов',
     },
   },
@@ -277,8 +277,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRealtyLocal: {
     cs: {
       name: 'Lokální přítomnost realitní kanceláře',
-      title: 'Lokální přítomnost realitky: profily a NAP | Eranosian',
-      description: 'Co patří do profilu realitní kanceláře na Google, Mapy.com a Firmy.cz a proč má být stejný název, adresa a telefon. Přehled s tabulkou a checklistem.',
+      title: 'Profily realitní kanceláře a NAP | Eranosian',
+      description: 'Co patří do profilu realitní kanceláře na Google, Mapy.com a Firmy.cz a proč mít stejný název, adresu a telefon.',
       h1: 'Jak má realitní kancelář vypadat na mapách a v katalozích?',
     },
     en: { name: 'Local presence of a real estate agency', title: 'Local presence of a real estate agency', description: 'Local presence of a real estate agency', h1: 'How should a real estate agency appear on maps and in directories?' },
@@ -287,8 +287,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postWebSocialGaming: {
     cs: {
       name: 'Web nebo sociální sítě pro počítačovou hernu',
-      title: 'Web nebo sociální sítě pro počítačovou hernu | Eranosian',
-      description: 'Vlastní web a sociální sítě u počítačové herny: čím se liší, co každý z nich dělá a jak se mohou doplňovat. Bez slibů a bez pořadí důležitosti.',
+      title: 'Web nebo sítě pro počítačovou hernu | Eranosian',
+      description: 'Vlastní web a sociální sítě u počítačové herny: čím se liší, co každý dělá a jak se doplňují. Bez slibů a bez pořadí.',
       h1: 'Web nebo sociální sítě: co potřebuje počítačová herna?',
     },
     en: { name: 'Website or social media for a computer club', title: 'Website or social media for a computer club', description: 'Website or social media for a computer club', h1: 'Website or social media: what does a computer club need?' },
@@ -298,8 +298,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postWeakSeoGaming: {
     cs: {
       name: 'Slabé SEO konkurence u počítačové herny',
-      title: 'Slabé SEO počítačových heren: proč jsou vpředu | Eranosian',
-      description: 'Proč bývá ve vyhledávání vpředu počítačová herna se slabým webem: pozorování u 11 webů v Praze, hypotézy a to, co z toho nevyplývá.',
+      title: 'Slabé SEO počítačových heren | Eranosian',
+      description: 'Proč bývá vpředu počítačová herna se slabým webem: pozorování u 11 webů v Praze, hypotézy a to, co z toho nevyplývá.',
       h1: 'Proč jsou ve vyhledávání vpředu i počítačové herny se slabým SEO?',
     },
     en: { name: 'Weak SEO competitors of computer clubs', title: 'Weak SEO competitors of computer clubs', description: 'Weak SEO competitors of computer clubs', h1: 'Why do computer clubs with weak SEO rank ahead?' },
@@ -309,8 +309,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postDentalChannels: {
     cs: {
       name: 'Jak získat pacienty pro zubní ordinaci',
-      title: 'Jak získat pacienty pro zubní ordinaci: kanály | Eranosian',
-      description: 'Přehled kanálů, kterými může zubní ordinace oslovit nové pacienty: doporučení, web a vyhledávání, mapy, sociální sítě. Žádný kanál nic nezaručuje.',
+      title: 'Pacienty pro zubní ordinaci: kanály | Eranosian',
+      description: 'Přehled kanálů, kterými může zubní ordinace oslovit pacienty: doporučení, web, mapy, sociální sítě. Žádný kanál nic nezaručuje.',
       h1: 'Jak získat pacienty pro zubní ordinaci: přehled kanálů',
     },
     en: { name: 'How to get patients for a dental practice', title: 'How to get patients for a dental practice', description: 'How to get patients for a dental practice', h1: 'How to get patients for a dental practice: an overview of channels' },
@@ -320,7 +320,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postFaqDental: {
     cs: {
       name: 'FAQ na webu zubní ordinace',
-      title: 'FAQ na webu zubní ordinace: jak má vypadat | Eranosian',
+      title: 'FAQ na webu zubní ordinace | Eranosian',
       description: 'Jak sestavit FAQ na webu zubní ordinace: jak vybrat otázky, jak napsat odpovědi, kam je na webu umístit a co do FAQ nepatří.',
       h1: 'Jak má vypadat FAQ na webu zubní ordinace?',
     },
@@ -331,8 +331,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postFaqRealty: {
     cs: {
       name: 'FAQ na webu realitní kanceláře',
-      title: 'FAQ na webu realitní kanceláře: jak má vypadat | Eranosian',
-      description: 'Jak sestavit FAQ na webu realitní kanceláře: jaké otázky zařadit, kdo odpovědi schvaluje, kam FAQ umístit a co jsem viděl u 23 webů.',
+      title: 'FAQ na webu realitní kanceláře | Eranosian',
+      description: 'Jak sestavit FAQ na webu realitní kanceláře: jaké otázky zařadit, kdo odpovědi schvaluje, kam FAQ umístit a co jsem viděl.',
       h1: 'Jak má vypadat FAQ na webu realitní kanceláře?',
     },
     en: { name: 'FAQ on a real estate agency website', title: 'FAQ on a real estate agency website', description: 'FAQ on a real estate agency website', h1: 'What should the FAQ on a real estate agency website look like?' },
@@ -342,8 +342,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postServicesRealty: {
     cs: {
       name: 'Služby realitní kanceláře na webu',
-      title: 'Služby realitní kanceláře na webu: jak je popsat | Eranosian',
-      description: 'Co má obsahovat stránka služby realitní kanceláře: pro koho je, co zahrnuje, jak probíhá, krátké odpovědi a co nechat ověřit makléřem.',
+      title: 'Služby realitní kanceláře na webu | Eranosian',
+      description: 'Co má obsahovat stránka služby realitní kanceláře: pro koho je, co zahrnuje, jak probíhá a co nechat ověřit makléřem.',
       h1: 'Jak popsat služby realitní kanceláře na webu?',
     },
     en: { name: 'Service pages of a real estate agency', title: 'Service pages of a real estate agency', description: 'Service pages of a real estate agency', h1: 'How should a real estate agency describe its services on the website?' },
@@ -353,7 +353,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postMakleriRealty: {
     cs: {
       name: 'Makléři na webu realitní kanceláře',
-      title: 'Makléři na webu realitní kanceláře: co uvést | Eranosian',
+      title: 'Makléři na webu realitní kanceláře | Eranosian',
       description: 'Jak ukázat makléře na webu realitní kanceláře: jaké údaje uvést, co bez souhlasu nepatří a kdo texty podepisuje a kontroluje.',
       h1: 'Jak ukázat makléře na webu realitní kanceláře?',
     },
@@ -375,15 +375,15 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postWeakSeoRealty: {
     cs: {
       name: 'Slabé SEO konkurence u realitní kanceláře',
-      title: 'Slabé SEO realitních kanceláří ve vyhledávání | Eranosian',
-      description: 'Proč bývá ve vyhledávání vpředu realitní kancelář se slabým webem: pozorování u webů z Prahy a Brna, hypotézy a to, co z toho nevyplývá.',
+      title: 'Slabé SEO realitních kanceláří | Eranosian',
+      description: 'Proč bývá vpředu realitní kancelář se slabým webem: pozorování u webů z Prahy a Brna, hypotézy a to, co z toho nevyplývá.',
       h1: 'Proč jsou ve vyhledávání vpředu i realitní kanceláře se slabým SEO?',
     },
     en: { name: 'Weak SEO competitors of real estate agencies', title: 'Weak SEO competitors of real estate agencies', description: 'Weak SEO competitors of real estate agencies', h1: 'Why do real estate agencies with weak SEO rank ahead?' },
     ru: {
       name: 'Слабое SEO у агентств недвижимости',
-      title: 'Слабое SEO агентств недвижимости в поиске | Eranosian',
-      description: 'Почему в поиске впереди бывает агентство недвижимости со слабым сайтом: наблюдения по сайтам Праги и Брно, гипотезы и то, что из них не следует.',
+      title: 'Слабое SEO агентств недвижимости | Eranosian',
+      description: 'Почему в поиске впереди бывает агентство недвижимости со слабым сайтом: наблюдения по Праге и Брно, гипотезы и их пределы.',
       h1: 'Почему в поиске выше и агентства недвижимости со слабым SEO?',
     },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
@@ -391,7 +391,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postWeakSeoDental: {
     cs: {
       name: 'Slabé SEO konkurence u zubní ordinace',
-      title: 'Slabé SEO zubních ordinací ve výsledcích | Eranosian',
+      title: 'Slabé SEO zubních ordinací | Eranosian',
       description: 'Proč bývá ve vyhledávání vpředu zubní ordinace se slabým webem: pozorování u 14 webů, hypotézy a to, co z toho nevyplývá.',
       h1: 'Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?',
     },
@@ -411,7 +411,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postWebPages: {
     cs: {
       name: 'Jaké stránky má mít web firmy',
-      title: 'Jaké stránky má mít web firmy a k čemu jsou | Eranosian',
+      title: 'Jaké stránky má mít web firmy | Eranosian',
       description: 'Stránky služeb, informační články a stránky důvěry: co každá z nich dělá na webu firmy, jak se doplňují a proč je nemíchat.',
       h1: 'Jaké stránky má mít web firmy a co která z nich dělá?',
     },
@@ -421,7 +421,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postWeakSeoAcc: {
     cs: {
       name: 'Slabé SEO konkurence u účetní kanceláře',
-      title: 'Slabé SEO účetních kanceláří ve výsledcích | Eranosian',
+      title: 'Slabé SEO účetních kanceláří | Eranosian',
       description: 'Proč bývá ve vyhledávání vpředu účetní kancelář se slabým webem: pozorování u 10 webů, hypotézy a to, co z toho nevyplývá.',
       h1: 'Proč jsou ve vyhledávání vpředu i účetní kanceláře se slabým SEO?',
     },
@@ -438,7 +438,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'Why competitors with weak SEO rank ahead', title: 'Why competitors with weak SEO rank ahead', description: 'Why competitors with weak SEO rank ahead', h1: 'Why do translation agencies with weak SEO rank ahead?' },
     ru: {
       name: 'Слабое SEO у конкурентов-переводчиков',
-      title: 'Слабое SEO переводческих агентств в поиске | Eranosian',
+      title: 'Слабое SEO переводческих агентств | Eranosian',
       description: 'Почему выше в поиске бывает конкурент со слабым сайтом: наблюдения по выдаче «překlady», гипотезы и то, что из них не следует.',
       h1: 'Почему в поиске выше и переводческие агентства со слабым SEO?',
     },
@@ -447,7 +447,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Pražské městské části na webu realitní kanceláře',
       title: 'Městské části Prahy na webu realitky | Eranosian',
-      description: 'Jak označit pražské lokality na webu realitní kanceláře, aby stránky lokalit nebyly šablonové: městské části, jejich názvy a struktura stránek.',
+      description: 'Jak označit pražské lokality na webu realitní kanceláře, aby stránky nebyly šablonové: městské části, názvy a struktura.',
       h1: 'Jak uvést pražské městské části a čtvrti na webu realitní kanceláře?',
     },
     en: { name: 'Prague districts on a real estate agency website', title: 'Prague districts on a real estate agency website', description: 'Prague districts on a real estate agency website', h1: 'How to present Prague districts and neighbourhoods on a real estate agency website?' },
@@ -457,7 +457,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Městské části Brna na webu realitní kanceláře',
       title: 'Městské části Brna na webu realitky | Eranosian',
-      description: 'Kolik městských částí má Brno, jak je oficiálně pojmenovat a jak postavit stránky lokalit na webu realitní kanceláře bez šablonových textů.',
+      description: 'Kolik městských částí má Brno, jak je oficiálně pojmenovat a jak postavit stránky lokalit na webu realitky bez šablon.',
       h1: 'Jak uvést městské části Brna na webu realitní kanceláře?',
     },
     en: { name: 'Brno city districts on a real estate agency website', title: 'Brno city districts on a real estate agency website', description: 'Brno city districts on a real estate agency website', h1: 'How to present the Brno city districts on a real estate agency website?' },
@@ -466,8 +466,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRealtyDistricts: {
     cs: {
       name: 'Stránky čtvrtí a lokalit realitní kanceláře',
-      title: 'Stránky čtvrtí na webu realitky: jak psát | Eranosian',
-      description: 'Co má obsahovat stránka čtvrti na webu realitky, kolik stránek vytvořit a kdy jde o šablonové doorway stránky. Tabulka a checklist.',
+      title: 'Stránky čtvrtí na webu realitky | Eranosian',
+      description: 'Co má obsahovat stránka čtvrti na webu realitky, kolik stránek vytvořit a kdy jde o šablonové doorway stránky.',
       h1: 'Jak napsat stránku čtvrti na web realitní kanceláře?',
     },
     en: { name: 'Neighbourhood pages of a real estate agency', title: 'Neighbourhood pages of a real estate agency', description: 'Neighbourhood pages of a real estate agency', h1: 'How to write a neighbourhood page for a real estate agency website?' },
@@ -476,8 +476,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postAccountingNoLeads: {
     cs: {
       name: 'Proč web účetní kanceláře nepřináší poptávky',
-      title: 'Web účetní kanceláře bez poptávek: příčiny | Eranosian',
-      description: 'Nemáte klienty z webu účetní kanceláře? Přehled možných příčin od viditelnosti v Googlu po první kontakt. S tabulkou symptomů a checklistem.',
+      title: 'Web účetní kanceláře bez poptávek | Eranosian',
+      description: 'Nemáte klienty z webu účetní kanceláře? Přehled příčin od viditelnosti v Googlu po první kontakt. Tabulka a checklist.',
       h1: 'Proč web účetní kanceláře nepřináší poptávky?',
     },
     en: { name: 'Why an accounting firm website brings no enquiries', title: 'Why an accounting firm website brings no enquiries', description: 'Why an accounting firm website brings no enquiries', h1: 'Why does an accounting firm website bring no enquiries?' },
@@ -487,7 +487,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Má SEO smysl pro malou účetní kancelář',
       title: 'Malá účetní kancelář a SEO: kritéria | Eranosian',
-      description: 'SEO pro malou účetní kancelář: kdy dává smysl, kdy zatím ne a čím se liší od velkých. Kritéria, tabulka situací a checklist připravenosti.',
+      description: 'SEO pro malou účetní kancelář: kdy dává smysl, kdy zatím ne a čím se liší od velkých. Kritéria a checklist připravenosti.',
       h1: 'Má SEO smysl pro malou účetní kancelář?',
     },
     en: { name: 'Does SEO make sense for a small accounting firm', title: 'Does SEO make sense for a small accounting firm', description: 'Does SEO make sense for a small accounting firm', h1: 'Does SEO make sense for a small accounting firm?' },
@@ -496,8 +496,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postAccountingLocal: {
     cs: {
       name: 'Lokální přítomnost účetní kanceláře',
-      title: 'Lokální přítomnost účetní kanceláře a NAP | Eranosian',
-      description: 'Jak vyplnit profil účetní kanceláře na Google, Mapy.com a Firmy.cz, co s adresou při práci z domova a proč má být stejný název, adresa a telefon.',
+      title: 'Profily účetní kanceláře a NAP | Eranosian',
+      description: 'Jak vyplnit profil účetní kanceláře na Google, Mapy.com a Firmy.cz, co s adresou při práci z domova a proč mít stejné NAP.',
       h1: 'Jak má účetní kancelář vypadat na mapách a v katalozích?',
     },
     en: { name: 'Local presence of an accounting firm', title: 'Local presence of an accounting firm', description: 'Local presence of an accounting firm', h1: 'How should an accounting firm appear on maps and in directories?' },
@@ -506,8 +506,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postAccountingPages: {
     cs: {
       name: 'Jak napsat stránku služby účetní kanceláře',
-      title: 'Stránky služeb účetní kanceláře: jak psát | Eranosian',
-      description: 'Stránky služeb účetní kanceláře: kdy mít samostatnou stránku, jak napsat úvod, pro koho je služba a jak stránky propojit. Přehled s příkladem.',
+      title: 'Stránky služeb účetní kanceláře | Eranosian',
+      description: 'Stránky služeb účetní kanceláře: kdy mít samostatnou stránku, jak napsat úvod, pro koho je služba a jak stránky propojit.',
       h1: 'Jak napsat stránku služby účetní kanceláře?',
     },
     en: { name: 'How to write a service page of an accounting firm', title: 'How to write a service page of an accounting firm', description: 'How to write a service page of an accounting firm', h1: 'How to write a service page of an accounting firm?' },
@@ -517,7 +517,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Jak dlouho trvá SEO pro účetní kancelář',
       title: 'Jak dlouho trvá SEO u účetní kanceláře | Eranosian',
-      description: 'Za jak dlouho se SEO projeví u účetní kanceláře: faktory, etapy práce a co měřit v prvních měsících. Přehled s tabulkami a checklisty.',
+      description: 'Za jak dlouho se SEO projeví u účetní kanceláře: faktory, etapy práce a co měřit v prvních měsících. Tabulky a checklisty.',
       h1: 'Jak dlouho trvá SEO pro účetní kancelář?',
     },
     en: { name: 'How long does SEO take for an accounting firm', title: 'How long does SEO take for an accounting firm', description: 'How long does SEO take for an accounting firm', h1: 'How long does SEO take for an accounting firm?' },
@@ -526,8 +526,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRedesignPlan: {
     cs: {
       name: 'Jak zkontrolovat SEO před redesignem nebo migrací webu',
-      title: 'Redesign webu a SEO: checklist před startem | Eranosian',
-      description: 'Redesign webu a SEO: jak zafixovat starý web, připravit mapu URL a přesměrování a ověřit nový web před spuštěním. Tabulka a tři checklisty.',
+      title: 'Redesign webu a SEO: checklist | Eranosian',
+      description: 'Redesign webu a SEO: jak zafixovat starý web, připravit mapu URL a přesměrování a ověřit nový web před spuštěním.',
       h1: 'Jak zkontrolovat SEO před redesignem nebo migrací webu?',
     },
     en: { name: 'SEO before a website redesign or migration', title: 'SEO before a website redesign or migration', description: 'SEO before a website redesign or migration', h1: 'How to check SEO before a website redesign or migration?' },
@@ -536,8 +536,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postSelectSpecialist: {
     cs: {
       name: 'Jak vybrat SEO specialistu a na co se ho zeptat',
-      title: 'Výběr SEO specialisty: otázky a signály | Eranosian',
-      description: 'Jak vybrat SEO specialistu: otázky před spoluprací, varovné signály, přístup do Search Console a ověření referencí. Podle doporučení Googlu.',
+      title: 'Jak vybrat SEO specialistu | Eranosian',
+      description: 'Jak vybrat SEO specialistu: otázky před spoluprací, varovné signály, přístup do Search Console a ověření referencí.',
       h1: 'Jak vybrat SEO specialistu a na co se ho zeptat?',
     },
     en: { name: 'How to choose an SEO specialist', title: 'How to choose an SEO specialist', description: 'How to choose an SEO specialist', h1: 'How to choose an SEO specialist and what to ask them?' },
@@ -547,7 +547,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Jak vypadá SEO plán na 12 měsíců',
       title: 'SEO plán na 12 měsíců: co obsahuje | Eranosian',
-      description: 'Co má obsahovat SEO plán: cíl, výchozí stav, priority, etapy, měření a odpovědnosti. Plán není záruka výsledků. Přehled s tabulkou a třemi checklisty.',
+      description: 'Co má obsahovat SEO plán: cíl, výchozí stav, priority, etapy, měření a odpovědnosti. Plán není záruka výsledků.',
       h1: 'Jak vypadá SEO plán na 12 měsíců a co má obsahovat?',
     },
     en: { name: 'What a 12-month SEO plan looks like', title: 'What a 12-month SEO plan looks like', description: 'What a 12-month SEO plan looks like', h1: 'What does a 12-month SEO plan look like and what should it contain?' },
@@ -556,8 +556,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRealtyPortals: {
     cs: {
       name: 'Vlastní web, nebo realitní portály',
-      title: 'Realitní portály vs vlastní web: co se hodí | Eranosian',
-      description: 'Má smysl vlastní web realitní kanceláře, když jsou portály? Jak se doplňují, kdy stačí portál a co ověří bezplatný audit technických chyb.',
+      title: 'Realitní portály vs vlastní web | Eranosian',
+      description: 'Má smysl vlastní web realitní kanceláře, když jsou portály? Jak se doplňují, kdy stačí portál a co ověří bezplatný audit.',
       h1: 'Vlastní web, nebo realitní portály? Jak spolu fungují',
     },
     en: { name: 'Own website or real estate portals', title: 'Own website or real estate portals', description: 'Own website or real estate portals', h1: 'Own website or real estate portals? How they work together' },
@@ -566,8 +566,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRealtyListings: {
     cs: {
       name: 'Nabídky nemovitostí a SEO',
-      title: 'Nabídky nemovitostí: indexace a duplicity | Eranosian',
-      description: 'Jak se nabídky nemovitostí indexují, odkud jsou duplicity z filtrů a co s prodanými nabídkami. Co zachytí bezplatný technický audit.',
+      title: 'Nabídky nemovitostí a duplicity | Eranosian',
+      description: 'Jak se nabídky nemovitostí indexují, odkud jsou duplicity z filtrů a co s prodanými nabídkami. Co zachytí bezplatný audit.',
       h1: 'Nabídky nemovitostí a SEO: indexace, duplicity filtrů, prodané nabídky',
     },
     en: { name: 'Property listings and SEO', title: 'Property listings and SEO', description: 'Property listings and SEO', h1: 'Property listings and SEO: indexing, filter duplicates, sold listings' },
@@ -576,8 +576,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRealtySmall: {
     cs: {
       name: 'Má SEO smysl pro malou realitní kancelář',
-      title: 'SEO pro malou realitní kancelář: má smysl? | Eranosian',
-      description: 'Má SEO smysl pro malou realitní kancelář? Kdy ano, kdy ne, jaké cíle jsou reálné a co zkontrolovat první. Požádejte o bezplatný audit.',
+      title: 'SEO pro malou realitní kancelář | Eranosian',
+      description: 'Má SEO smysl pro malou realitní kancelář? Kdy ano, kdy ne, jaké cíle jsou reálné a co zkontrolovat první.',
       h1: 'Má SEO smysl pro malou realitní kancelář?',
     },
     en: { name: 'Does SEO make sense for a small real estate agency', title: 'Does SEO make sense for a small real estate agency', description: 'Does SEO make sense for a small real estate agency', h1: 'Does SEO make sense for a small real estate agency?' },
@@ -587,7 +587,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Proč web realitní kanceláře nepřináší poptávky',
       title: 'Web realitní kanceláře bez poptávek | Eranosian',
-      description: 'Proč web realitní kanceláře nepřináší poptávky? Tabulka příčin, jak je poznat a co zkontrolovat první. Požádejte o bezplatný audit.',
+      description: 'Proč web realitní kanceláře nepřináší poptávky? Tabulka příčin, jak je poznat a co zkontrolovat první. Bezplatný audit.',
       h1: 'Proč web realitní kanceláře nepřináší poptávky?',
     },
     en: { name: 'Why a real estate agency website brings no enquiries', title: 'Why a real estate agency website brings no enquiries', description: 'Why a real estate agency website brings no enquiries', h1: 'Why a real estate agency website brings no enquiries' },
@@ -597,7 +597,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Jak získat klienty pro realitní kancelář',
       title: 'Klienti pro realitní kancelář: kanály | Eranosian',
-      description: 'Odkud se berou klienti realitní kanceláře? Porovnávám portály, web, doporučení, reklamu a SEO a ukazuji, čím začít. Audit webu zdarma.',
+      description: 'Odkud se berou klienti realitní kanceláře? Porovnávám portály, web, doporučení, reklamu a SEO a ukazuji, čím začít.',
       h1: 'Jak získat klienty pro realitní kancelář: přehled kanálů',
     },
     en: { name: 'How to get clients for a real estate agency', title: 'How to get clients for a real estate agency', description: 'How to get clients for a real estate agency', h1: 'How to get clients for a real estate agency' },
@@ -606,8 +606,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postPairs: {
     cs: {
       name: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár',
-      title: 'Stránky jazykových párů SEO: kdy dává smysl | Eranosian',
-      description: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár? Ne vždy: kdy dává smysl a co má obsahovat. Bezplatný audit technických chyb.',
+      title: 'Stránky jazykových párů v SEO | Eranosian',
+      description: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár? Ne vždy: kdy dává smysl a co má obsahovat.',
       h1: 'Potřebuje překladatelská agentura stránku pro každý jazykový pár?',
     },
     en: { name: 'Does a translation agency need a page for every language pair', title: 'Does a translation agency need a page for every language pair', description: 'Does a translation agency need a page for every language pair', h1: 'Does a translation agency need a page for every language pair?' },
@@ -616,8 +616,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postB2b: {
     cs: {
       name: 'Jak získat B2B klienty pro překladatelskou agenturu',
-      title: 'B2B klienti pro překladatelskou agenturu | Eranosian',
-      description: 'Jak získat B2B klienty pro překladatelskou agenturu? Co má ukázat stránka pro firmy a jak firmy vybírají. Požádejte o bezplatný audit.',
+      title: 'Překladatelská agentura: B2B klienti | Eranosian',
+      description: 'Jak získat B2B klienty pro překladatelskou agenturu? Co má ukázat stránka pro firmy a jak firmy vybírají.',
       h1: 'Jak získat B2B klienty pro překladatelskou agenturu?',
     },
     en: { name: 'How to get B2B clients for a translation agency', title: 'How to get B2B clients for a translation agency', description: 'How to get B2B clients for a translation agency', h1: 'How to get B2B clients for a translation agency' },
@@ -627,7 +627,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Jak získat klienty pro překladatelskou agenturu',
       title: 'Klienti pro překladatelskou agenturu | Eranosian',
-      description: 'Jak získat klienty pro překladatelskou agenturu? Porovnávám SEO, reklamu, mapy, partnerství a B2B. Požádejte o bezplatný audit technických chyb.',
+      description: 'Jak získat klienty pro překladatelskou agenturu? Porovnávám SEO, reklamu, mapy, partnerství a B2B. Bezplatný audit webu.',
       h1: 'Jak získat klienty pro překladatelskou agenturu: přehled kanálů',
     },
     en: { name: 'How to get clients for a translation agency', title: 'How to get clients for a translation agency', description: 'How to get clients for a translation agency', h1: 'How to get clients for a translation agency' },
@@ -636,8 +636,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postNoLeads: {
     cs: {
       name: 'Proč překladatelská agentura nemá poptávky z webu?',
-      title: 'Web překladatelské agentury bez poptávek | Eranosian',
-      description: 'Web překladatelské agentury nepřináší poptávky? Co zkontrolovat první: indexaci, jazykové verze, stránky pro firmy. Bezplatný audit.',
+      title: 'Překladatelská agentura bez poptávek | Eranosian',
+      description: 'Web překladatelské agentury nepřináší poptávky? Co zkontrolovat první: indexaci, jazykové verze, stránky pro firmy.',
       h1: 'Proč překladatelská agentura nemá poptávky z webu?',
     },
     en: { name: 'Why a translation agency gets no leads from its website', title: 'Why a translation agency gets no leads', description: 'Why a translation agency gets no leads', h1: 'Why a translation agency gets no leads' },
@@ -646,8 +646,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postChoose: {
     cs: {
       name: 'Audit zdarma, konzultace, nebo Start',
-      title: 'SEO audit, konzultace nebo start: jak začít | Eranosian',
-      description: 'Nevíte, jak začít s SEO? Vyberte podle situace: bezplatný audit technických chyb, konzultace, nebo SEO start na 3 měsíce. Poradím, kde začít.',
+      title: 'Audit, konzultace nebo start SEO | Eranosian',
+      description: 'Nevíte, jak začít s SEO? Vyberte podle situace: bezplatný audit, konzultace, nebo SEO start na 3 měsíce. Poradím, kde začít.',
       h1: 'Audit zdarma, konzultace, nebo Start: co si vybrat jako první krok v SEO',
     },
     en: { name: 'Free audit, consulting or Start', title: 'Free audit, consulting or Start', description: 'Free audit, consulting or Start', h1: 'Free audit, consulting or Start' },
@@ -657,7 +657,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Nový web a Google ho nevidí',
       title: 'Nový web nevidí Google: co dělat | Eranosian',
-      description: 'Google nový web nevidí? Ověřte web v Search Console, odešlete mapu webu a zkontrolujte noindex. Při dlouhém čekání pomůže bezplatný audit.',
+      description: 'Google nový web nevidí? Ověřte web v Search Console, odešlete mapu webu a zkontrolujte noindex. Pomůže i bezplatný audit.',
       h1: 'Nový web a Google ho nevidí: jak dlouho trvá indexace a co udělat',
     },
     en: { name: 'New site not in Google', title: 'New site not in Google', description: 'New site not in Google', h1: 'New site not in Google' },
@@ -666,8 +666,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRedirects: {
     cs: {
       name: 'Přesměrování 301 a chyby 404',
-      title: 'Přesměrování 301: jak ho nastavit a ověřit | Eranosian',
-      description: 'Po změně adres webu pomůže správné přesměrování 301. Postup, nejčastější chyby a kontrolní seznam. Bezplatný audit technických chyb.',
+      title: 'Přesměrování 301 a chyby 404 | Eranosian',
+      description: 'Po změně adres webu pomůže správné přesměrování 301. Postup, nejčastější chyby a kontrolní seznam. Bezplatný audit.',
       h1: 'Přesměrování 301 a chyby 404: co dělat po změně adres webu',
     },
     en: { name: '301 redirects and 404 errors', title: '301 redirects and 404 errors', description: '301 redirects and 404 errors', h1: '301 redirects and 404 errors' },
@@ -686,8 +686,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postRedesign: {
     cs: {
       name: 'Po redesignu klesla návštěvnost',
-      title: 'Po redesignu klesla návštěvnost: příčiny | Eranosian',
-      description: 'Po redesignu klesla návštěvnost? Zkontrolujte adresy bez přesměrování, noindex i měření. Bezplatný audit technických chyb, prezentace do 24 hodin.',
+      title: 'Po redesignu klesla návštěvnost | Eranosian',
+      description: 'Po redesignu klesla návštěvnost? Zkontrolujte adresy bez přesměrování, noindex i měření. Bezplatný audit technických chyb.',
       h1: 'Po redesignu webu klesla návštěvnost: co se stalo a kde hledat chybu',
     },
     en: { name: 'Traffic drop after a redesign', title: 'Traffic drop after a redesign', description: 'Traffic drop after a redesign', h1: 'Traffic drop after a redesign' },
@@ -696,8 +696,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postDuplicates: {
     cs: {
       name: 'Duplicitní obsah',
-      title: 'Duplicitní obsah: co to je a jak ho vyřešit | Eranosian',
-      description: 'Co je duplicitní obsah, odkud se bere a proč webu škodí. Jak ho poznat v Search Console a vyřešit přes 301 nebo canonical. Audit zdarma.',
+      title: 'Duplicitní obsah a jak ho vyřešit | Eranosian',
+      description: 'Co je duplicitní obsah, odkud se bere a proč škodí. Jak ho poznat v Search Console a vyřešit přes 301 nebo canonical.',
       h1: 'Duplicitní obsah: co to je, jak ho poznat a jak ho vyřešit',
     },
     en: { name: 'Duplicate content', title: 'Duplicate content', description: 'Duplicate content', h1: 'Duplicate content' },
@@ -706,8 +706,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postSeoAudit: {
     cs: {
       name: 'Co je SEO audit',
-      title: 'Co je SEO audit: co obsahuje, typy a rozsah | Eranosian',
-      description: 'Co je SEO audit, z čeho se skládá a jak poznat dobrý. Co zjistí bezplatný audit technických chyb a co už ne. Poradím, kdy stačí a kdy je potřeba víc.',
+      title: 'Co je SEO audit a co obsahuje | Eranosian',
+      description: 'Co je SEO audit, z čeho se skládá a jak poznat dobrý. Co zjistí bezplatný audit a co ne. Kdy stačí a kdy je potřeba víc.',
       h1: 'Co je SEO audit a co by měl obsahovat: průvodce pro majitele webu',
     },
     en: { name: 'What is an SEO audit', title: 'What is an SEO audit', description: 'What is an SEO audit', h1: 'What is an SEO audit' },
@@ -716,8 +716,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postNotShown: {
     cs: {
       name: 'Proč se web nezobrazuje v Googlu',
-      title: 'Proč se web nezobrazuje v Googlu: 7 důvodů | Eranosian',
-      description: 'Proč se váš web nezobrazuje v Googlu: noindex, robots.txt, nový web i duplicity. Co zkontrolovat dnes a jak pomůže bezplatný audit technických chyb.',
+      title: 'Proč se web nezobrazuje v Googlu | Eranosian',
+      description: 'Proč se váš web nezobrazuje v Googlu: noindex, robots.txt, nový web i duplicity. Co zkontrolovat dnes a co zjistí audit.',
       h1: 'Proč se můj web nezobrazuje v Googlu: 7 nejčastějších důvodů',
     },
     en: { name: 'Why is my site not in Google', title: 'Why is my site not in Google', description: 'Why is my site not in Google', h1: 'Why is my site not in Google' },
@@ -726,8 +726,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   postIndexing: {
     cs: {
       name: 'Jak zjistit, jestli je web indexovaný',
-      title: 'Jak zjistit, zda je web indexovaný v Googlu | Eranosian',
-      description: 'Jak za 5 minut zjistit, zda Google vidí váš web: operátor site: i Search Console. Co dělat, když stránky chybí. Bezplatný audit webu.',
+      title: 'Jak zjistit, zda je web v Googlu | Eranosian',
+      description: 'Jak za 5 minut zjistit, zda Google vidí váš web: operátor site: i Search Console. Co dělat, když stránky chybí.',
       h1: 'Jak zjistit, jestli je web indexovaný v Googlu: 5 jednoduchých způsobů',
     },
     en: { name: 'How to check if a site is indexed', title: 'How to check if a site is indexed', description: 'How to check if a site is indexed', h1: 'How to check if a site is indexed' },
@@ -737,13 +737,13 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'SEO pro překladatelské agentury v Brně',
       title: 'SEO pro překladatelské agentury Brno | Eranosian',
-      description: 'Pomáhám překladatelským agenturám v Brně s B2B poptávkami přes Google a Mapy.com. Prezentace bezplatného auditu do 24 hodin, bez hovoru.',
+      description: 'Pomáhám překladatelským agenturám v Brně s B2B poptávkami přes Google a Mapy.com. Prezentace bezplatného auditu do 24 hodin.',
       h1: 'SEO a GEO/AEO pro překladatelské agentury v Brně: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for translation agencies in Brno', title: 'SEO for translation agencies in Brno', description: 'SEO for translation agencies in Brno', h1: 'SEO for translation agencies in Brno' },
     ru: {
       name: 'SEO для переводческих агентств в Брно',
-      title: 'Продвижение переводческого агентства в Брно | Eranosian',
+      title: 'SEO для переводческих агентств в Брно | Eranosian',
       description: 'Делаю SEO и GEO/AEO для переводческих агентств в Брно: сайт, языковые версии, карты, FAQ. Закажите бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для переводческих агентств в Брно: заявки из Google и ИИ',
     },
@@ -752,13 +752,13 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'SEO pro účetní kanceláře v Praze',
       title: 'SEO pro účetní kanceláře Praha | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Začněte bezplatným auditem technických chyb.',
+      description: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Bezplatný audit technických chyb.',
       h1: 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for accounting firms in Prague', title: 'SEO for accounting firms in Prague', description: 'SEO for accounting firms in Prague', h1: 'SEO for accounting firms in Prague' },
     ru: {
       name: 'SEO для бухгалтерских компаний в Праге',
-      title: 'Продвижение бухгалтерской компании в Праге | Eranosian',
+      title: 'SEO для бухгалтерских компаний | Eranosian',
       description: 'Делаю SEO и GEO/AEO для бухгалтерских компаний в Праге: сайт, страницы услуг, FAQ. Закажите бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для бухгалтерских компаний в Праге: заявки из Google и ИИ',
     },
@@ -776,7 +776,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   nicheDental: {
     cs: {
       name: 'SEO pro zubní ordinace v Praze',
-      title: 'SEO pro zubní ordinace Praha: web a GEO/AEO | Eranosian',
+      title: 'SEO pro zubní ordinace Praha | Eranosian',
       description: 'Dělám SEO a GEO/AEO pro zubní ordinace v Praze: technický základ webu, stránky služeb, FAQ. Požádejte o bezplatný technický audit.',
       h1: 'SEO a GEO/AEO pro zubní ordinace v Praze: poptávky z Googlu a AI',
     },
@@ -786,7 +786,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   nicheRealtyBrno: {
     cs: {
       name: 'SEO pro realitní kanceláře v Brně',
-      title: 'SEO pro realitní kanceláře Brno: GEO/AEO | Eranosian',
+      title: 'SEO pro realitní kanceláře Brno | Eranosian',
       description: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Požádejte o bezplatný technický audit.',
       h1: 'SEO a GEO/AEO pro realitní kanceláře v Brně: poptávky z Googlu a AI',
     },
@@ -798,15 +798,15 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'SEO for online fitness and wellness in Prague', title: 'SEO for online fitness and wellness', description: 'SEO for online fitness and wellness', h1: 'SEO and GEO/AEO for online fitness and wellness in Prague' },
     ru: {
       name: 'SEO для онлайн-фитнеса и wellness',
-      title: 'SEO для онлайн-фитнеса и wellness в Праге | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: FAQ, структура адресов, заголовки, блог. Старт: бесплатный технический аудит.',
+      title: 'SEO для онлайн-фитнеса и wellness | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: FAQ, структура адресов, заголовки, блог. Старт: бесплатный аудит.',
       h1: 'SEO и GEO/AEO для онлайн-фитнеса и wellness в Праге: записи из Google и ИИ',
     },
   },
   nicheElectronics: {
     cs: {
       name: 'SEO pro obchody s elektronikou',
-      title: 'SEO pro obchody s elektronikou a technikou | Eranosian',
+      title: 'SEO pro obchody s elektronikou | Eranosian',
       description: 'Dělám SEO a GEO/AEO pro obchody s elektronikou a technikou: kategorie, filtry, varianty produktů, FAQ. Bezplatný technický audit.',
       h1: 'SEO a GEO/AEO pro obchody s elektronikou: objednávky z Googlu a AI',
     },
@@ -828,7 +828,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'SEO for gaming clubs in Prague', title: 'SEO for gaming clubs in Prague', description: 'SEO for gaming clubs in Prague', h1: 'SEO and GEO/AEO for gaming clubs in Prague' },
     ru: {
       name: 'SEO для компьютерных клубов',
-      title: 'SEO для компьютерных клубов: Прага, GEO/AEO | Eranosian',
+      title: 'SEO для компьютерных клубов в Праге | Eranosian',
       description: 'Делаю SEO и GEO/AEO для компьютерных клубов в Праге: сайт, бронирование, тарифы, акции, FAQ. Бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для компьютерных клубов в Праге: бронирования из Google и ИИ',
     },
@@ -837,7 +837,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'SEO a GEO/AEO pro strojírenské firmy',
       title: 'SEO pro strojírenské firmy a výrobu | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: stránky technologií, PDF katalogy, poptávkový formulář. Technický audit zdarma.',
+      description: 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: stránky technologií, PDF katalogy, poptávkový formulář. Audit zdarma.',
       h1: 'SEO a GEO/AEO pro strojírenské firmy: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for machinery companies', title: 'SEO for machinery companies', description: 'SEO for machinery companies', h1: 'SEO and GEO/AEO for machinery companies' },
@@ -846,8 +846,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   nicheTypography: {
     cs: {
       name: 'SEO a GEO/AEO pro tiskárny a polygrafii',
-      title: 'SEO pro tiskárny a polygrafii: katalog | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Začněte technickým auditem zdarma.',
+      title: 'SEO pro tiskárny a polygrafii | Eranosian',
+      description: 'Dělám SEO a GEO/AEO pro tiskárny a polygrafické firmy: katalog, varianty produktů, kalkulačky, FAQ. Technický audit zdarma.',
       h1: 'SEO a GEO/AEO pro tiskárny a polygrafii: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for printing companies', title: 'SEO for printing companies', description: 'SEO for printing companies', h1: 'SEO and GEO/AEO for printing companies' },
@@ -858,38 +858,38 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'SEO for financial consultants in Czechia', title: 'SEO for financial consultants in Czechia', description: 'SEO for financial consultants in Czechia', h1: 'SEO for financial consultants in Czechia' },
     ru: {
       name: 'SEO для финансовых консультантов в Чехии',
-      title: 'Продвижение сайта финансового консультанта | Eranosian',
-      description: 'SEO для финансового консультанта: как разделить услуги по страницам, добавить FAQ и подготовить сайт для поиска и ИИ. Бесплатный аудит.',
+      title: 'SEO для финансового консультанта | Eranosian',
+      description: 'SEO для финансового консультанта: как разделить услуги по страницам, добавить FAQ и подготовить сайт для поиска и ИИ.',
       h1: 'SEO и GEO/AEO для финансовых консультантов в Чехии: заявки из Google и ИИ',
     },
   },
   nicheRealty: {
     cs: {
       name: 'SEO pro realitní kanceláře v Praze',
-      title: 'SEO a GEO/AEO pro realitní kanceláře Praha | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze: stránky nabídek a čtvrtí, indexace, Mapy.com. Začněte bezplatným auditem technických chyb.',
+      title: 'SEO pro realitní kanceláře Praha | Eranosian',
+      description: 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze: stránky nabídek a čtvrtí, indexace, Mapy.com. Bezplatný technický audit.',
       h1: 'SEO a GEO/AEO pro realitní kanceláře v Praze: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for real estate agencies in Prague', title: 'SEO for real estate agencies in Prague', description: 'SEO for real estate agencies in Prague', h1: 'SEO for real estate agencies in Prague' },
     ru: {
       name: 'SEO для агентств недвижимости в Праге',
-      title: 'Продвижение агентства недвижимости в Праге | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Начните с бесплатного аудита.',
+      title: 'SEO для агентств недвижимости в Праге | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Бесплатный аудит.',
       h1: 'SEO и GEO/AEO для агентств недвижимости в Праге: заявки из Google и ИИ',
     },
   },
   nichePardubice: {
     cs: {
       name: 'SEO pro překladatelské agentury v Pardubicích',
-      title: 'SEO pro překladatelské agentury Pardubice | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích: jazykové páry, služby, Mapy.com. Začněte bezplatným auditem technických chyb.',
+      title: 'SEO překladatelských agentur Pardubice | Eranosian',
+      description: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích: jazykové páry, služby, Mapy.com. Bezplatný audit technických chyb.',
       h1: 'SEO a GEO/AEO pro překladatelské agentury v Pardubicích: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for translation agencies in Pardubice', title: 'SEO for translation agencies in Pardubice', description: 'SEO for translation agencies in Pardubice', h1: 'SEO for translation agencies in Pardubice' },
     ru: {
       name: 'SEO для переводческих агентств в Пардубице',
-      title: 'SEO для переводческих агентств в Пардубице | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для переводческих агентств в Пардубице: сайт, языковые версии, карты, FAQ. Закажите бесплатный технический аудит.',
+      title: 'SEO для агентств переводов, Пардубице | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для переводческих агентств в Пардубице: сайт, языковые версии, карты, FAQ. Бесплатный технический аудит.',
       h1: 'SEO и GEO/AEO для переводческих агентств в Пардубице: заявки из Google и ИИ',
     },
   },
@@ -897,34 +897,34 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'SEO pro překladatelské agentury v Praze',
       title: 'SEO pro překladatelské agentury Praha | Eranosian',
-      description: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Praze: jazykové páry, služby, B2B stránky. Začněte bezplatným auditem technických chyb.',
+      description: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Praze: jazykové páry, služby, B2B stránky. Bezplatný audit technických chyb.',
       h1: 'SEO a GEO/AEO pro překladatelské agentury v Praze: poptávky z Googlu a AI',
     },
     en: { name: 'SEO for translation agencies in Prague', title: 'SEO for translation agencies in Prague', description: 'SEO for translation agencies in Prague', h1: 'SEO for translation agencies in Prague' },
     ru: {
       name: 'SEO для переводческих агентств в Праге',
-      title: 'SEO для бюро переводов в Праге: GEO/AEO | Eranosian',
-      description: 'Делаю SEO и GEO/AEO для бюро переводов и переводческих агентств в Праге: страницы языковых пар, языковые версии, кейс. Бесплатный технический аудит.',
+      title: 'SEO для бюро переводов в Праге | Eranosian',
+      description: 'Делаю SEO и GEO/AEO для бюро переводов и агентств в Праге: страницы языковых пар, языковые версии, кейс. Бесплатный аудит.',
       h1: 'SEO и GEO/AEO для переводческих агентств в Праге: заявки из Google и ИИ',
     },
   },
   caseKb: {
     cs: {
       name: 'SEO pro překladatelskou agenturu',
-      title: 'SEO překladatelské agentury za 4 měsíce | Eranosian',
-      description: 'Jak jsem pomohl překladatelské agentuře získat prvního B2B klienta přes SEO: lokální stránky ve 3 městech, obsah a AI Overviews. Přečtěte si postup.',
+      title: 'SEO překladatelské agentury: 4 měsíce | Eranosian',
+      description: 'Jak jsem pomohl překladatelské agentuře získat prvního B2B klienta přes SEO: lokální stránky ve 3 městech a AI Overviews.',
       h1: 'SEO pro překladatelskou agenturu se třemi pobočkami',
     },
     en: {
       name: 'SEO for a translation agency',
       title: 'SEO Case Study: Translation Agency | Eranosian',
-      description: 'How I helped a translation agency win its first B2B client through SEO: local pages in 3 cities, content and AI Overviews. Read the approach.',
+      description: 'How I helped a translation agency win its first B2B client through SEO: local pages in 3 cities, content and AI Overviews.',
       h1: 'SEO for a translation agency with three branches',
     },
     ru: {
       name: 'SEO для переводческого агентства',
       title: 'Кейс: SEO для переводческого агентства | Eranosian',
-      description: 'Как я помог переводческому агентству получить первого B2B-клиента через SEO: локальные страницы в 3 городах, контент и AI Overviews. Читайте подход.',
+      description: 'Как переводческое агентство получило первого B2B-клиента через SEO: локальные страницы в 3 городах, контент, AI Overviews.',
       h1: 'SEO для переводческого агентства с тремя филиалами',
     },
   },
@@ -937,7 +937,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Reviews',
-      title: 'Client Reviews – Experience Working on SEO Together',
+      title: 'Client Reviews – Working on SEO Together',
       description: 'What clients say: reviews of SEO consulting, the 3-month start, full-year SEO and local SEO work.',
       h1: 'Client reviews',
     },
@@ -971,47 +971,47 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   faq: {
     cs: {
       name: 'Časté dotazy',
-      title: 'Časté dotazy o SEO: ceny, termíny, spolupráce | Eranosian',
-      description: 'Odpovědi na časté otázky o SEO a GEO/AEO: kolik stojí Full SEO, Start a konzultace, co zahrnuje bezplatný audit, jak probíhá spolupráce.',
+      title: 'Časté dotazy o SEO a spolupráci | Eranosian',
+      description: 'Odpovědi na časté otázky o SEO a GEO/AEO: kolik stojí Full SEO, Start a konzultace, co zahrnuje audit a jak probíhá spolupráce.',
       h1: 'Časté dotazy o SEO a GEO/AEO',
     },
     en: {
       name: 'FAQ',
       title: 'SEO FAQ – Timelines, Process and Working Together',
-      description: 'Answers to common SEO questions: how long it takes, what the audit includes, how we work together and how SEO differs from GEO/AEO.',
+      description: 'Answers to common SEO questions: how long it takes, what the audit includes, how we work together and SEO vs GEO/AEO.',
       h1: 'Frequently asked questions',
     },
     ru: {
       name: 'Вопросы и ответы',
-      title: 'Частые вопросы об SEO: цены, сроки, процесс | Eranosian',
-      description: 'Ответы на частые вопросы об SEO и GEO/AEO: сколько стоят Full SEO, Старт и консультация, что входит в бесплатный аудит, как строится сотрудничество.',
+      title: 'Частые вопросы об SEO: цены, сроки | Eranosian',
+      description: 'Ответы на частые вопросы об SEO и GEO/AEO: цены Full SEO, Старта и консультации, что входит в аудит, как строится работа.',
       h1: 'Частые вопросы об SEO и GEO/AEO',
     },
   },
   about: {
     cs: {
       name: 'O mně',
-      title: 'Arsenii Eranosian: SEO a GEO/AEO specialista | O mně',
-      description: 'Jsem Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Začínám od byznys modelu, ne od klíčových slov. Podívejte se na projekty. Napište mi.',
+      title: 'Arsenii Eranosian, SEO a GEO/AEO specialista',
+      description: 'Jsem Arsenii Eranosian, SEO a GEO/AEO specialista v Praze. Začínám od byznys modelu, ne od klíčových slov. Napište mi.',
       h1: 'Arsenii Eranosian: SEO a GEO/AEO specialista v Praze',
     },
     en: {
       name: 'About',
       title: 'About Arsenii Eranosian – SEO Specialist in Prague',
-      description: 'Arsenii Eranosian, SEO specialist in Prague. Organic traffic up to +775% YoY in 3 years. SEO as a system that turns search into revenue.',
+      description: 'Arsenii Eranosian, SEO specialist in Prague. Organic traffic up to +775% YoY in 3 years. SEO that turns search into revenue.',
       h1: 'Arsenii Eranosian, SEO specialist',
     },
     ru: {
       name: 'Обо мне',
-      title: 'Обо мне – Arsenii Eranosian, SEO-специалист в Праге',
-      description: 'Arsenii Eranosian, SEO-специалист из Праги. За 3 года рост трафика до +775% за год. SEO как система, которая превращает поиск в выручку.',
+      title: 'Обо мне – SEO-специалист Arsenii Eranosian',
+      description: 'Arsenii Eranosian, SEO-специалист из Праги. За 3 года рост трафика до +775% за год. SEO как система, превращающая поиск в выручку.',
       h1: 'Arsenii Eranosian, SEO-специалист',
     },
   },
   contact: {
     cs: {
       name: 'Kontakt',
-      title: 'Kontakt – poptávka SEO spolupráce | Arsenii Eranosian',
+      title: 'Kontakt – poptávka SEO | Arsenii Eranosian',
       description: 'Napište mi poptávku SEO, konzultace nebo bezplatného auditu. Odpovím do jednoho pracovního dne. Praha a celá ČR.',
       h1: 'Kontakt',
     },
