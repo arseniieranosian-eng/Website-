@@ -7,8 +7,8 @@ const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/seo-pro-prekladatelske-agentury-pardubice/';
 const NAME = 'SEO pro překladatelské agentury v Pardubicích'; // the breadcrumb label (META name)
 const H1 = 'SEO a GEO/AEO pro překladatelské agentury v Pardubicích: poptávky z Googlu a AI';
-const TITLE = 'SEO pro překladatelské agentury Pardubice | Eranosian';
-const DESC = 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích: jazykové páry, služby, Mapy.com. Začněte bezplatným auditem technických chyb.';
+const TITLE = 'SEO překladatelských agentur Pardubice | Eranosian';
+const DESC = 'Dělám SEO a GEO/AEO pro překladatelské agentury v Pardubicích: jazykové páry, služby, Mapy.com. Bezplatný audit technických chyb.';
 const SECTIONS = [H1, 'Co pro překladatelskou agenturu v Pardubicích konkrétně dělám?', 'Jak to funguje v praxi? Případová studie', 'Jak spolupracuji s překladatelskými agenturami?', 'Co zahrnuje bezplatný audit?', 'Kolik to stojí?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Další články pro agentury', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/pripadove-studie/seo-prekladatelska-agentura/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/', '/seo-pro-prekladatelske-agentury-praha/', '/seo-pro-prekladatelske-agentury-brno/'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentura Pardubice', 'SEO agentura v Pardubicích', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', '5k'];
@@ -87,7 +87,7 @@ const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\
 const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = ld.find((n) => n['@type'] === 'WebPage' && n['@id'] === `${BASE}${URL_PATH}#webpage`);
 const sv = ld.find((n) => n['@type'] === 'Service' && n['@id'] === `${BASE}${URL_PATH}#service`);
-if (!wp || wp.name !== 'SEO pro překladatelské agentury Pardubice' || wp.description !== DESC || wp.about['@id'] !== sv?.['@id'] || wp.author['@id'] !== `${BASE}/#arsenii` || !wp.datePublished) e('WebPage');
+if (!wp || wp.name !== 'SEO překladatelských agentur Pardubice' || wp.description !== DESC || wp.about['@id'] !== sv?.['@id'] || wp.author['@id'] !== `${BASE}/#arsenii` || !wp.datePublished) e('WebPage');
 if (!sv || sv.areaServed !== 'Pardubice' || sv.audience?.audienceType !== 'překladatelské agentury' || sv.offers) e('Service: Pardubice, audience, no offers');
 const how = by('HowTo');
 const coop = (main.match(/Jak spolupracuji s překladatelskými agenturami\?[\s\S]*?<\/section>/) || [''])[0];

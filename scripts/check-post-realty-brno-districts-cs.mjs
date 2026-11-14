@@ -7,7 +7,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/blog/mestske-casti-brna-web-realitni-kancelare/';
 const H1 = 'Jak uvést městské části Brna na webu realitní kanceláře?';
 const TITLE = 'Městské části Brna na webu realitky | Eranosian';
-const DESC = 'Kolik městských částí má Brno, jak je oficiálně pojmenovat a jak postavit stránky lokalit na webu realitní kanceláře bez šablonových textů.';
+const DESC = 'Kolik městských částí má Brno, jak je oficiálně pojmenovat a jak postavit stránky lokalit na webu realitky bez šablon.';
 const SECTIONS = [H1, 'Z čeho se Brno skládá a které názvy jsou oficiální?', 'Jak má stránka lokality v Brně vypadat?', 'Jak psát názvy: oficiálně, nebo tak, jak lidé mluví?', 'Jakým chybám se u stránek lokalit vyhnout?', 'Jak lokality zapsat do struktury webu?', 'Časté otázky'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'Kč', 'SEO agentur', 'první místo', 'top 1', 'rychle', 'Sreality', 'Bezrealitky', 'Reas', 'nejlepší čtvrť', 'kde bydlet', 'Statut'];
 

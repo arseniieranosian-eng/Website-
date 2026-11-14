@@ -6,7 +6,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-zubni-ordinace-praha/';
 const FILE = 'dist/seo-pro-zubni-ordinace-praha/index.html';
 const H1 = 'SEO a GEO/AEO pro zubní ordinace v Praze: poptávky z Googlu a AI';
-const TITLE = 'SEO pro zubní ordinace Praha: web a GEO/AEO | Eranosian';
+const TITLE = 'SEO pro zubní ordinace Praha | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro zubní ordinace v Praze: technický základ webu, stránky služeb, FAQ. Požádejte o bezplatný technický audit.';
 const ready = /nicheDental: true/.test(readFileSync('src/i18n/routes.ts', 'utf8').split('NICHE_READY =')[1].split('\n')[0]);
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');

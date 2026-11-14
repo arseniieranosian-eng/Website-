@@ -7,7 +7,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/blog/prazske-mestske-casti-a-ctvrti-web-realitni-kancelare/';
 const H1 = 'Jak uvést pražské městské části a čtvrti na webu realitní kanceláře?';
 const TITLE = 'Městské části Prahy na webu realitky | Eranosian';
-const DESC = 'Jak označit pražské lokality na webu realitní kanceláře, aby stránky lokalit nebyly šablonové: městské části, jejich názvy a struktura stránek.';
+const DESC = 'Jak označit pražské lokality na webu realitní kanceláře, aby stránky nebyly šablonové: městské části, názvy a struktura.';
 const SECTIONS = [H1, 'Jak se v Praze označují území a čím se liší?', 'Jak má stránka lokality v Praze vypadat?', 'Jak psát názvy: oficiálně, nebo tak, jak lidé mluví?', 'Jakým chybám se u pražských lokalit vyhnout?', 'Jak lokality zapsat do struktury webu?', 'Časté otázky'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'Kč', 'SEO agentur', 'první místo', 'top 1', 'rychle', 'Sreality', 'Bezrealitky', 'Reas', 'nejlepší čtvrť', 'kde bydlet', 'Statut', 'Vinohrady', 'Smíchov', 'Žižkov', 'Brno'];
 

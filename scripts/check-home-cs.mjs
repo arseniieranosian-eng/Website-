@@ -21,7 +21,7 @@ const title = norm(dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]));
 const desc = norm(dec(h.match(/<meta name="description" content="([^"]*)"/)[1]));
 const H1 = SECTIONS[0];
 if (title !== 'SEO specialista Praha: SEO a GEO/AEO | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
-if (desc !== 'Pracuji osobně: bezplatný SEO audit, konzultace, SEO start na 3 měsíce a Full SEO na rok včetně GEO/AEO. Zjistěte, kolik zákazníků vám uniká.') e(`description: ${desc}`);
+if (desc !== 'Pracuji osobně: bezplatný SEO audit, konzultace, SEO start na 3 měsíce a Full SEO na rok s GEO/AEO. Kolik zákazníků vám uniká?') e(`description: ${desc}`);
 if (title.replace(/ \| Arsenii Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}/">`)) e('canonical');
 if (!h.includes('<meta property="og:type" content="website">') || !h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:type website / og:locale cs_CZ');

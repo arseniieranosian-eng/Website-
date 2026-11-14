@@ -20,7 +20,7 @@ const body = txt(h);
 const mainTxt = txt(main);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
-if (title !== 'Co je GEO/AEO? Optimalizace pro Google i AI | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
+if (title !== 'Co je GEO/AEO a jak souvisí se SEO | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
 if (desc.length < 120 || desc.length > 150) e(`description length ${desc.length}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');

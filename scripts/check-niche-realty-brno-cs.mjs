@@ -6,7 +6,7 @@ const BASE = 'https://seo-eranosian.com';
 const URL_PATH = '/seo-pro-realitni-kancelare-brno/';
 const FILE = 'dist/seo-pro-realitni-kancelare-brno/index.html';
 const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Brně: poptávky z Googlu a AI';
-const TITLE = 'SEO pro realitní kanceláře Brno: GEO/AEO | Eranosian';
+const TITLE = 'SEO pro realitní kanceláře Brno | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Brně: nabídky, lokality, indexace, FAQ. Požádejte o bezplatný technický audit.';
 const ready = /nicheRealtyBrno: true/.test(readFileSync('src/i18n/routes.ts', 'utf8').split('NICHE_READY =')[1].split('\n')[0]);
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');

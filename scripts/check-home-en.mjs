@@ -3,8 +3,8 @@ import { readFileSync } from './fs-clean.mjs';
 
 const BASE = 'https://seo-eranosian.com';
 const H1 = 'English-speaking SEO specialist in Prague: enquiries from Google, Seznam and AI';
-const TITLE = 'SEO & GEO/AEO Specialist in Prague | Arsenii Eranosian';
-const DESC = 'English-speaking SEO and GEO/AEO specialist in Prague for Google, Seznam and AI search. Start with a free technical audit: no call, no obligation.';
+const TITLE = 'SEO & GEO/AEO Specialist in Prague | Eranosian';
+const DESC = 'English-speaking SEO and GEO/AEO specialist in Prague for Google, Seznam and AI search. Start with a free technical audit.';
 const SECTIONS = [H1, 'Which service fits you?', 'Why search in Czechia needs local knowledge', 'How do SEO and GEO/AEO work together?', 'Case studies', 'What clients say', 'Frequently asked questions', 'About me', 'Find out whether your site has technical errors'];
 const LINKS = ['/en/free-audit/', '/en/consulting/', '/en/3-month-start/', '/en/full-seo/', '/en/maps/', '/en/seo-and-geo/', '/en/case-studies/', '/en/reviews/', '/en/faq/', '/en/about/', '/en/contact/', '/en/privacy-policy/'];
 const FORBIDDEN = ['we guarantee', 'guaranteed results', 'Years in SEO', '55–60', '×8', '8×', 'ChatGPT and AI Overviews', 'free audit and a short call', '4–8 weeks', 'page one', 'SEO agency', '/blog'];

@@ -18,7 +18,7 @@ const h = readFileSync('dist/en/consulting/index.html', 'utf8');
 const body = txt(h);
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
-if (title !== 'SEO Consultation Prague: 1 Hour or Audit | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
+if (title !== 'SEO Consultation Prague: Hour or Audit | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
 if (desc.length < 120 || desc.length > 150) e(`description length ${desc.length}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical must be the www URL');

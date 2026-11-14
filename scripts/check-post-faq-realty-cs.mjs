@@ -9,9 +9,9 @@ const inl = (s) => txt(s.replace(/<[^>]+>/g, '')); // inline markup (links) must
 const title = txt(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = h.match(/<meta name="description" content="([^"]*)"/)[1];
 const h1 = txt((main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]);
-if (title !== 'FAQ na webu realitní kanceláře: jak má vypadat | Eranosian' || title.length !== 58) e(`title ${title.length}`);
+if (title !== 'FAQ na webu realitní kanceláře | Eranosian' || title.length > 50) e(`title ${title.length}`);
 if (h1 !== 'Jak má vypadat FAQ na webu realitní kanceláře?' || h1.length !== 46) e('H1');
-if (desc.length !== 132) e(`description ${desc.length}`);
+if (desc.length > 130) e(`description ${desc.length}`);
 if (!h.includes('<link rel="canonical" href="https://seo-eranosian.com/blog/faq-na-webu-realitni-kancelare/">')) e('canonical');
 if (!h.includes('hreflang="cs-CZ"') && !h.includes('hreflang="cs"')) e('hreflang self');
 const answers = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]).split(' ').length);

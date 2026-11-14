@@ -8,8 +8,8 @@ const URL_PATH = '/ru/seo-dlya-agentstv-nedvizhimosti-praga/';
 const CS_PATH = '/seo-pro-realitni-kancelare-praha/';
 const NAME = 'SEO для агентств недвижимости в Праге'; // the breadcrumb label (META name)
 const H1 = 'SEO и GEO/AEO для агентств недвижимости в Праге: заявки из Google и ИИ';
-const TITLE = 'Продвижение агентства недвижимости в Праге | Eranosian';
-const DESC = 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Начните с бесплатного аудита.';
+const TITLE = 'SEO для агентств недвижимости в Праге | Eranosian';
+const DESC = 'Делаю SEO и GEO/AEO для агентств недвижимости в Праге: страницы объектов и районов, индексация, Mapy.com. Бесплатный аудит.';
 const SECTIONS = [H1, 'Что я делаю для агентства недвижимости в Праге?', 'Как выглядит аудит с планом на 12 месяцев?', 'Как я сотрудничаю с агентствами недвижимости?', 'Что входит в бесплатный аудит?', 'Сколько это стоит?', 'Какие форматы сотрудничества есть?', 'Что говорят клиенты?', 'Частые вопросы', 'Узнайте, есть ли на вашем сайте технические ошибки'];
 const LINKS = ['/ru/besplatnyj-audit/', '/ru/konsultacii/', '/ru/start-3-mesyaca/', '/ru/full-seo/', '/ru/karty/', '/ru/otzyvy/', '/ru/obo-mne/', '/ru/kontakty/'];
 const FORBIDDEN = ['гарантирую', 'гарантированно', 'первое место', 'SEO агентство', 'Quantum', 'PriceHubble', 'Expats', 'KB P', 'kbpreklady', 'Correct', 'Přikop', '65–70', 'ChatGPT', 'AggregateRating', 'бесплатный аудит за 24 часа', 'купленн', 'Search Console'];
@@ -78,7 +78,7 @@ const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\
 const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = ld.find((n) => n['@type'] === 'WebPage' && n['@id'] === `${BASE}${URL_PATH}#webpage`);
 const sv = ld.find((n) => n['@type'] === 'Service' && n['@id'] === `${BASE}${URL_PATH}#service`);
-if (!wp || wp.name !== 'Продвижение агентства недвижимости в Праге' || wp.description !== DESC || wp.inLanguage !== 'ru' || wp.about['@id'] !== sv?.['@id'] || wp.author['@id'] !== `${BASE}/#arsenii` || !wp.datePublished) e('WebPage');
+if (!wp || wp.name !== 'SEO для агентств недвижимости в Праге' || wp.description !== DESC || wp.inLanguage !== 'ru' || wp.about['@id'] !== sv?.['@id'] || wp.author['@id'] !== `${BASE}/#arsenii` || !wp.datePublished) e('WebPage');
 if (!sv || sv.areaServed !== 'Praha' || sv.audience?.audienceType !== 'агентства недвижимости' || sv.offers) e('Service: Praha, audience, no offers');
 const how = by('HowTo');
 const vis = [...(main.match(/Как я сотрудничаю с агентствами недвижимости\?[\s\S]*?<\/section>/) || [''])[0].matchAll(/<li><span>([\s\S]*?)<\/span><\/li>/g)].map((x) => txt(x[1]));

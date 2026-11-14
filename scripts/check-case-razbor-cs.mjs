@@ -8,7 +8,7 @@ const URL_PATH = '/pripadove-studie/rozbor-webu-realitni-kancelare-praha/';
 const RU_PATH = '/ru/kejsy/razbor-agentstvo-nedvizhimosti-praga/';
 const H1 = 'Co jsem navrhl pro web malé realitní kanceláře v Praze?';
 const TITLE = 'Rozbor webu realitní kanceláře v Praze | Eranosian';
-const DESC = 'Rozbor webu malé pražské realitní kanceláře: co jsem viděl a co navrhl. Konzultace s auditem, prezentace 21.–22. 10. 2026. Více o konzultaci.';
+const DESC = 'Rozbor webu malé pražské realitní kanceláře: co jsem viděl a co navrhl. Konzultace s auditem, prezentace 21.–22. 10. 2026.';
 const SECTIONS = [H1, 'Co chtěl majitel zjistit?', 'Jak konzultace s auditem probíhala?', 'Co jsem na webu viděl?', 'S kým malá kancelář soutěží?', 'Má malá realitní kancelář šanci na dotaz „ocenění nemovitosti“?', 'Které tři směry jsem navrhl?', 'Co obsahuje plán na 12 měsíců?', 'Co zatím nevíme?', 'Co z toho platí pro jinou malou kancelář?', 'Časté otázky', 'Související stránky', 'Chcete podobný rozbor svého webu?'];
 const FORBIDDEN = ['garantuj', 'zaručeně', 'Kč', 'top 1', 'rychlé výsledky', 'případová studie s výsledky', 'Sreality', 'Bezrealitky', 'Reas', 'Seznam.cz', 'agentur'];
 

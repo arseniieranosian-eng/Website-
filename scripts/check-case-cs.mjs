@@ -22,7 +22,7 @@ const mainTxt = txt(main);
 const flat = body.replace(/\( /g, '(').replace(/ ([.,:;)])/g, '$1');
 const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
-if (title !== 'SEO překladatelské agentury za 4 měsíce | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
+if (title !== 'SEO překladatelské agentury: 4 měsíce | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
 if (desc.length < 120 || desc.length > 150 || /jsme /.test(desc)) e(`description (${desc.length}) must be 120-160 chars, first person singular`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');

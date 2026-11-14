@@ -7,8 +7,8 @@ const SUM = JSON.parse(readFileSync('src/data/niche-summaries.json', 'utf8'));
 const URL_PATH = '/seo-pro-realitni-kancelare-praha/';
 const NAME = 'SEO pro realitní kanceláře v Praze'; // the breadcrumb label (META name)
 const H1 = 'SEO a GEO/AEO pro realitní kanceláře v Praze: poptávky z Googlu a AI';
-const TITLE = 'SEO a GEO/AEO pro realitní kanceláře Praha | Eranosian';
-const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze: stránky nabídek a čtvrtí, indexace, Mapy.com. Začněte bezplatným auditem technických chyb.';
+const TITLE = 'SEO pro realitní kanceláře Praha | Eranosian';
+const DESC = 'Dělám SEO a GEO/AEO pro realitní kanceláře v Praze: stránky nabídek a čtvrtí, indexace, Mapy.com. Bezplatný technický audit.';
 const SECTIONS = [H1, 'Co pro realitní kancelář v Praze konkrétně dělám?', 'Jak spolupracuji s realitními kancelářemi?', 'Co zahrnuje bezplatný audit?', 'Kolik to stojí?', 'Jaké formáty spolupráce existují?', 'Co říkají klienti?', 'Často kladené otázky', 'Zjistěte, jestli má váš web technické chyby'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/recenze/', '/o-mne/', '/kontakt/', '/seo-pro-prekladatelske-agentury-praha/'];
 const FORBIDDEN = ['prodej bytu Praha', 'marketing realitní kanceláře', 'SEO realitní kancelář Praha', 'realitní makléř', 'smlouv', 'provize', 'garantuj', 'zaručeně', 'první místo', 'první pozice', '×8', '×24', '+400', 'SEO agentura Pardubice', 'SEO agentura v Pardubicích', 'SEO překladatelské služby', 'jak získat klienty', ' my ', 'AggregateRating', '3 chyby', '5k'];
@@ -87,7 +87,7 @@ const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\
 const by = (t) => ld.find((n) => n['@type'] === t);
 const wp = ld.find((n) => n['@type'] === 'WebPage' && n['@id'] === `${BASE}${URL_PATH}#webpage`);
 const sv = ld.find((n) => n['@type'] === 'Service' && n['@id'] === `${BASE}${URL_PATH}#service`);
-if (!wp || wp.name !== 'SEO a GEO/AEO pro realitní kanceláře Praha' || wp.description !== DESC || wp.about['@id'] !== sv?.['@id'] || wp.author['@id'] !== `${BASE}/#arsenii` || !wp.datePublished) e('WebPage');
+if (!wp || wp.name !== 'SEO pro realitní kanceláře Praha' || wp.description !== DESC || wp.about['@id'] !== sv?.['@id'] || wp.author['@id'] !== `${BASE}/#arsenii` || !wp.datePublished) e('WebPage');
 if (!sv || sv.areaServed !== 'Praha' || sv.audience?.audienceType !== 'realitní kanceláře' || sv.offers) e('Service: Praha, audience, no offers');
 const how = by('HowTo');
 const coop = (main.match(/Jak spolupracuji s realitními kancelářemi\?[\s\S]*?<\/section>/) || [''])[0];
