@@ -811,3 +811,7 @@ ul, ol { margin-bottom: var(--flow); }
 
 /* Nickname line (the author, 06.11.2026) near the top of the home and about pages */
 .nick-note { margin: 0 0 12px; font-size: 0.95rem; opacity: 0.85; }
+
+/* long visible URLs (source lines of the articles) must wrap on a phone instead of widening the page */
+.small a, .muted a, p a[href^="http"] { overflow-wrap: anywhere; word-break: break-word; }
+.small.muted a[href^="http"] { font-size: 0.9em; }
