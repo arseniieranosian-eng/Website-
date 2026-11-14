@@ -758,6 +758,8 @@ ul, ol { margin-bottom: var(--flow); }
 .czech-note p { margin: 0; }
 /* Summary block ("Stručně") of the niche landing pages: plain text on the hero background, no box; brighter and heavier than the lead so it stands out */
 .summary-box { margin: 0 0 20px; }
+/* summary paragraph of an article on a light background (the .summary-box lead is white: it belongs to the dark hero) */
+.summary-plain { margin: 0; font-size: 1.1rem; line-height: 1.6; font-weight: 500; }
 .summary-box .lead { margin: 0; font-size: 1.1rem; line-height: 1.6; font-weight: 500; color: #fff; }
 .page-hero .summary-box .lead { color: #fff; }
 /* Niche hero on phones: more air between the H1, the author line, the proof line, the summary and the buttons; smaller summary text */

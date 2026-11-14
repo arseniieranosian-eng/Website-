@@ -16,7 +16,7 @@ if (!h.includes('<link rel="canonical" href="https://seo-eranosian.com/blog/obch
 if (!h.includes('hreflang="x-default"') && !h.includes('hreflang="cs')) e('hreflang');
 const answers = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]).split(' ').length);
 if (answers.join() !== '44,41,43,42,42') e(`direct answers: ${answers}`);
-const sum = inl((main.match(/<div class="summary-box">([\s\S]*?)<\/div>/) || [, ''])[1]).split(' ').length;
+const sum = inl((main.match(/<p class="summary-plain">([\s\S]*?)<\/p>/) || [, ''])[1]).split(' ').length;
 if (sum !== 49) e(`summary ${sum}`);
 const faq = [...main.matchAll(/<h3>((?:(?!<h3>)[\s\S])*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [inl(m[1]), inl(m[2])]);
 if (faq.length !== 4 || faq.map(([, a]) => a.split(' ').length).join() !== '45,43,43,46') e('FAQ 4 questions: 45/43/43/46');
