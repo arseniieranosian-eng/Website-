@@ -4,7 +4,7 @@ import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { ids } from './schema';
 
-// Page-specific JSON-LD of the blog article "Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?": WebPage + BlogPosting + FAQPage;
+// Page-specific JSON-LD of the blog article "Co jsem zjistil ve výsledcích Googlu a Seznamu pro „stomatologie v Praze“": WebPage + BlogPosting + FAQPage (4 questions, 1:1 with the visible text);
 // BreadcrumbList and the global graph come from the layout. No HowTo, no Service / Offer, no ratings, no Quotation.
 export function postWeakSeoDentalSchemas(site: URL, C: typeof POST_WEAK_SEO_DENTAL_CS, opts: { modified: string }) {
   const lang = C.lang;
@@ -13,8 +13,8 @@ export function postWeakSeoDentalSchemas(site: URL, C: typeof POST_WEAK_SEO_DENT
   const m = META.postWeakSeoDental[lang];
   const id = ids(site);
   return [
-    { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.title, description: m.description, inLanguage: lang, dateModified: opts.modified, breadcrumb: { '@id': `${url}#breadcrumb` }, mainEntity: { '@id': `${url}#article` } },
-    { '@type': 'BlogPosting', '@id': `${url}#article`, headline: m.h1, inLanguage: lang, author: { '@id': id.person }, datePublished: POST_WEAK_SEO_DENTAL_PUBLISHED, dateModified: opts.modified, mainEntityOfPage: { '@id': `${url}#webpage` }, image: abs(C.cover.src) },
+    { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.title.replace(/ \| Eranosian$/, ''), description: m.description, inLanguage: 'cs-CZ', dateModified: opts.modified, breadcrumb: { '@id': `${url}#breadcrumb` }, mainEntity: { '@id': `${url}#article` } },
+    { '@type': 'BlogPosting', '@id': `${url}#article`, headline: m.h1, description: m.description, inLanguage: 'cs-CZ', author: { '@id': id.person }, datePublished: POST_WEAK_SEO_DENTAL_PUBLISHED, dateModified: opts.modified, mainEntityOfPage: { '@id': `${url}#webpage` }, image: abs(C.cover.src) },
     { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   ];
 }

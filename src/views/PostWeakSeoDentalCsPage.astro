@@ -1,8 +1,10 @@
 ---
-// Blog article "Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?" (cs), brief B1 of 04.11.2026. Content: data/post-weak-seo-dental-cs.ts.
-// Informational: no links in the body; the author's quote (rule J) is a plain blockquote without Quotation markup; the closing block has ONE button (to the free audit).
+// Blog article "Co jsem zjistil ve výsledcích Googlu a Seznamu pro „stomatologie v Praze“" (cs; the slug slabe-seo-konkurence-zubni-ordinace stays), brief of 15.11.2026. Content: data/post-weak-seo-dental-cs.ts.
+// Neutral observation (no names of sites, clinics, catalogues or portals). Body links: the three Google sources; the closing block has ONE button to the landing page of the niche (rule F: no links to Start, Full SEO,
+// consultation, audit or maps in the body); the author's quote (rule J) is a plain blockquote without Quotation markup.
 import Base from '../layouts/Base.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -12,7 +14,7 @@ import { POST_WEAK_SEO_DENTAL_CS as C, POST_WEAK_SEO_DENTAL_PUBLISHED } from '..
 
 const lang = C.lang;
 const site = Astro.site!;
-const MOD = [lastModified(['src/views/PostWeakSeoDentalCsPage.astro', 'src/data/post-weak-seo-dental-cs.ts'], '2026-11-04'), POST_WEAK_SEO_DENTAL_PUBLISHED].sort().pop()!;
+const MOD = [lastModified(['src/views/PostWeakSeoDentalCsPage.astro', 'src/data/post-weak-seo-dental-cs.ts'], '2026-11-15'), POST_WEAK_SEO_DENTAL_PUBLISHED].sort().pop()!;
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
@@ -27,22 +29,43 @@ const cite = new URL(path('postWeakSeoDental', lang), site).href;
       <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
       <h1>{META.postWeakSeoDental.cs.h1}</h1>
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
-      <p class="lead">{C.lead}</p>
+      <p class="small muted">{C.updateNote}</p>
+      <p class="lead">{C.summary}</p>
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="container narrow">
-      <h2>{C.seenTitle}</h2>
-      <p class="answer">{C.seenAnswer}</p>
-      <p>{C.seenMore}</p>
+      <h2>{C.methodTitle}</h2>
+      <p class="answer">{C.methodAnswer}</p>
     </div>
   </section>
 
   <section class="section section--grey">
     <div class="container narrow">
-      <h2>{C.whatTitle}</h2>
-      <p class="answer">{C.whatAnswer}</p>
+      <h2>{C.aroundTitle}</h2>
+      <p class="answer">{C.aroundAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.originTitle}</h2>
+      <p class="answer">{C.originAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.findTitle}</h2>
+      <p class="answer">{C.findAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.tableHead.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.tableRows.map((r) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="small muted">{C.tableNote}</p>
       <figure class="quote-fig">
         <blockquote cite={cite}><p>{C.quote}</p></blockquote>
         <QuoteCaption lang={lang} />
@@ -52,16 +75,18 @@ const cite = new URL(path('postWeakSeoDental', lang), site).href;
 
   <section class="section">
     <div class="container narrow">
-      <h2>{C.checkTitle}</h2>
-      <p class="answer">{C.checkAnswer}</p>
+      <h2>{C.notTitle}</h2>
+      <p class="answer">{C.notAnswer}</p>
+      <p class="small muted">{C.sourceLabel} {C.notSource.before}{' '}<a href={C.notSource.href} target="_blank" rel="noopener">{C.notSource.href}</a>{C.notSource.after}</p>
     </div>
   </section>
 
   <section class="section section--grey">
     <div class="container narrow">
-      <h2>{C.whyTitle}</h2>
-      <p class="answer">{C.whyAnswer}</p>
-      <p class="small muted">{C.sourceLabel} <a href={C.whySource.href} rel="noopener">{C.whySource.text}</a></p>
+      <h2>{C.checkTitle}</h2>
+      <p class="answer">{C.checkAnswer}</p>
+      <ol class="steps">{C.checkSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+      <p class="small muted">{C.sourceLabel} <a href={C.checkSource.href} target="_blank" rel="noopener">{C.checkSource.href}</a>{C.checkSource.after}.</p>
     </div>
   </section>
 
@@ -69,17 +94,26 @@ const cite = new URL(path('postWeakSeoDental', lang), site).href;
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+      <p class="small muted">{C.sourceLabel} <a href={C.faqAiSource.href} target="_blank" rel="noopener">{C.faqAiSource.href}</a> (aktualizováno 10. 12. 2025).</p>
     </div>
   </section>
 
   <section class="section section--grey">
     <div class="container narrow">
       <p class="muted">{C.disclosure}</p>
+      <p class="muted">{C.mistake.before} <a href={t('contact')}>{C.mistake.link}</a></p>
       <div class="post-cta">
         <p class="post-cta__title">{C.endTitle}</p>
         <p class="post-cta__text">{C.endText}</p>
         <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('nicheDental')}>{C.endCta}</a></div>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.moreTitle}</h2>
+      <RelatedPosts lang={lang} keys={['postDentalChannels', 'postFaqDental']} more={C.moreMore} />
     </div>
   </section>
 </Base>
