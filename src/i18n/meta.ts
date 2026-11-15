@@ -401,10 +401,10 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
   },
   postWeakSeoDental: {
     cs: {
-      name: 'Slabé SEO konkurence u zubní ordinace',
-      title: 'Slabé SEO zubních ordinací | Eranosian',
-      description: 'Proč bývá ve vyhledávání vpředu zubní ordinace se slabým webem: pozorování u 14 webů, hypotézy a to, co z toho nevyplývá.',
-      h1: 'Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?',
+      name: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „stomatologie v Praze“',
+      title: 'Stomatologie v Praze: co jsem zjistil | Eranosian',
+      description: 'K 15. 11. 2026 jsem na Googlu a Seznamu prošel po 30 výsledcích dotazu „stomatologie v Praze“ a spočítal, co mají weby ordinací.',
+      h1: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „stomatologie v Praze“',
     },
     en: { name: 'Weak SEO competitors of dental practices', title: 'Weak SEO competitors of dental practices', description: 'Weak SEO competitors of dental practices', h1: 'Why do dental practices with weak SEO rank ahead?' },
     ru: { name: 'Слабое SEO у конкурентов-стоматологий', title: 'Слабое SEO у конкурентов-стоматологий', description: 'Слабое SEO у конкурентов-стоматологий', h1: 'Почему в поиске выше и стоматологии со слабым SEO?' },
