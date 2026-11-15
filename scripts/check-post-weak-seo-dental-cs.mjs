@@ -1,88 +1,59 @@
-// Post-build check of the blog article /blog/slabe-seo-konkurence-zubni-ordinace/ (cs, brief B1 of 04.11.2026): meta (title <= 55, description <= 150, no call to action), H1 and H2 order, direct answers,
-// the author's quote after H2-1 (plain blockquote, NO Quotation markup), FAQ = JSON-LD (4), no links in the body, ONE closing button to the free audit, no names / guarantees / prices,
-// no hreflang (cs only), inbound (blog index, sitemap), the landing pages do NOT link to the article yet (rule F).
+// Check of the blog article /blog/slabe-seo-konkurence-zubni-ordinace/ (rewritten 15.11.2026 as a neutral observation "stomatologie v Praze", Google + Seznam): meta (Title 49, Description 128, H1 73),
+// summary 56, direct answers (51/44/49/50/46/43), FAQ (38/50/44/55) = JSON-LD, the author's numbers, no old claims (14 webů, 31. 10. 2026 only in the update line, "Domněnkou", weak competition), no site names,
+// the allowed links only (three Google pages, the landing page, the related articles), one CTA button, no Cyrillic.
 import { readFileSync } from './fs-clean.mjs';
-
-const BASE = 'https://seo-eranosian.com';
-const URL_PATH = '/blog/slabe-seo-konkurence-zubni-ordinace/';
-const FILE = 'dist/blog/slabe-seo-konkurence-zubni-ordinace/index.html';
-const H1 = 'Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?';
-const TITLE = 'Slabé SEO zubních ordinací | Eranosian';
-const DESC = 'Proč bývá ve vyhledávání vpředu zubní ordinace se slabým webem: pozorování u 14 webů, hypotézy a to, co z toho nevyplývá.';
-const SECTIONS = [H1, 'Co jsem viděl u prvních výsledků pro „stomatologie v Praze“?', 'Co z toho plyne a co ne?', 'Jak si svůj web zkontrolovat sám?', 'Proč jsou tyto weby vpředu?', 'Časté otázky'];
-const FORBIDDEN = ['zaručuj', 'záruk', 'garant', 'neslibuj', 'Kč', 'DPH', 'jen proto', 'pouze protože', 'udělám z vás', 'vyvedu do topu', 'nejlepší', 'zubař', 'Start', 'Full SEO', 'konzultac', 'B2B', 'AI Overview', 'před a po', 'recenze ovlivň', 'bezbolest', 'implantát'];
-
-const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-const norm = (s) => s.replace(/[\s\u00a0]+/g, ' ').trim();
-const txt = (s) => norm(dec(s.replace(/<(script|style|svg)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/ ([.,:;!?)])/g, '$1').replace(/\( /g, '('));
-const wc = (s) => s.split(/\s+/).filter(Boolean).length;
-const errors = [];
-const e = (m) => errors.push(m);
-
-const h = readFileSync(FILE, 'utf8');
+const errs = []; const e = (m) => errs.push(m);
+const h = readFileSync('dist/blog/slabe-seo-konkurence-zubni-ordinace/index.html', 'utf8');
 const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
-const mainTxt = txt(main);
-const title = norm(dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]));
-const desc = norm(dec(h.match(/<meta name="description" content="([^"]*)"/)[1]));
-if (title !== TITLE || title.length > 55 || title === H1) e(`title: ${title} (${title.length})`);
-if (desc !== DESC || desc.length > 150 || /Požádejte|Objednejte|Kontaktujte|Podívejte/i.test(desc)) e(`description: ${desc} (${desc.length})`);
-if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
-if (!h.includes('<meta property="og:type" content="article">') || !h.includes(`<meta property="og:image" content="${BASE}/images/blog/og-slabe-seo-konkurence-zubni-ordinace.png">`)) e('og:type / og:image');
-if (/<link rel="alternate"[^>]*hreflang=/.test(h)) e('Czech-only page: no hreflang alternates');
-const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
-if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
-const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
-if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
-// links: only the author and the one closing button
-const GOOGLE = ['https://developers.google.com/search/docs/appearance/ranking-systems-guide'];
-const bodyLinks = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((x) => x !== '/o-mne/' && x !== '/seo-pro-zubni-ordinace-praha/' && !GOOGLE.includes(x));
-if (bodyLinks.length) e(`only the author, the Google source and the button: ${bodyLinks}`);
-for (const g of GOOGLE) if (!main.includes(`href="${g}"`)) e(`Google source link missing: ${g}`);
-if ((main.match(/class="btn /g) || []).length !== 1 || !/class="btn btn--primary btn--lg" href="\/seo-pro-zubni-ordinace-praha\/">SEO pro zubní ordinace v Praze</.test(main)) e('exactly one button, to the dental niche page');
-for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
-if (/<form|★|AggregateRating|<iframe|\[\?/.test(main)) e('no form / stars / video / placeholder');
-if (/\b(jsem|moje|naše|moji)\b[^.]{0,30}\bagentur/i.test(mainTxt.replace(/Jsem SEO specialista/g, '')) || /GEO(?!\/AEO)/.test(mainTxt)) e('"agentura" about the author / bare GEO');
-if (!/<img class="post-cover" src="\/images\/blog\/slabe-seo-konkurence-zubni-ordinace\.webp" width="1200" height="630" alt="Ilustrace:[^"]+"/.test(main) || main.indexOf('post-cover') > main.indexOf('<h1')) e('cover illustration before the H1');
-if (!/<a class="card card--link post-card" href="\/blog\/slabe-seo-konkurence-zubni-ordinace[^>]*>\s*<img class="post-card-img"/.test(readFileSync('dist/blog/index.html', 'utf8'))) e('blog card with the cover');
-if (!/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="2026-11-04">4\. 11\. 2026<\/time> · Čtení: \d+ min/.test(h)) e('byline with the date 4. 11. 2026');
-const lead = txt((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
-if (/\d/.test(lead) || (lead.match(/[.!?](\s|$)/g) || []).length > 2) e(`lead: one or two sentences without numbers: ${lead}`);
-for (const hd of SECTIONS.slice(1, 5)) {
-  const m = h.match(new RegExp(`${hd.replace(/[?.:,]/g, '\\$&')}</h2>\\s*<p class="answer">([\\s\\S]*?)</p>`));
-  if (!m) { e(`answer-first: ${hd}`); continue; }
-  const n = wc(txt(m[1]));
-  if (n < 6 || n > 60) e(`direct answer of "${hd}": ${n} words`);
+const txt = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;| /g, ' ').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+const inl = (s) => txt(s.replace(/<[^>]+>/g, ''));
+const title = txt(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
+const desc = h.match(/<meta name="description" content="([^"]*)"/)[1];
+const h1 = txt((main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]);
+if (title !== 'Stomatologie v Praze: co jsem zjistil | Eranosian' || title.length !== 49) e(`title ${title.length}`);
+if (h1 !== 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „stomatologie v Praze“' || h1.length !== 73) e('H1');
+if (desc.length !== 128 || !desc.startsWith('K 15. 11. 2026 jsem na Googlu a Seznamu prošel po 30 výsledcích')) e(`description ${desc.length}`);
+if (!h.includes('<link rel="canonical" href="https://seo-eranosian.com/blog/slabe-seo-konkurence-zubni-ordinace/">')) e('canonical');
+if (!h.includes('hreflang="x-default"') && !h.includes('hreflang="cs')) e('hreflang');
+if (!/Aktualizováno: <time datetime="2026-11-15">15\. 11\. 2026<\/time>/.test(h)) e('dates: 4. 11. 2026 / 15. 11. 2026');
+if (!main.includes('Aktualizace 15. 11. 2026: původní pozorování z 31. 10. 2026 (14 webů) jsem nahradil širším vzorkem z Googlu a Seznamu.')) e('update line');
+const lead = inl((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]).split(' ').length;
+if (lead !== 56) e(`summary ${lead}`);
+const answers = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]).split(' ').length);
+if (answers.join() !== '51,44,49,50,46,43') e(`direct answers: ${answers}`);
+const h2 = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
+if (h2.slice(0, 7).some((x) => !x.endsWith('?') && x !== 'Časté otázky') || h2.length !== 8) e(`H2: ${h2}`);
+const faq = [...main.matchAll(/<h3>((?:(?!<h3>)[\s\S])*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [inl(m[1]), inl(m[2])]);
+if (faq.length !== 4 || faq.map(([, a]) => a.split(' ').length).join() !== '38,50,44,55') e('FAQ 4 questions: 38/50/44/55');
+const steps = [...main.matchAll(/<ol class="steps">([\s\S]*?)<\/ol>/g)];
+if (steps.length !== 1 || (steps[0][1].match(/<li>/g) || []).length !== 4) e('numbered list with 4 steps');
+const tables = [...main.matchAll(/<table[\s\S]*?<\/table>/g)].map((m) => m[0]);
+if (tables.length !== 1) e('one table');
+else {
+  const rows = [...tables[0].matchAll(/<tr><th scope="row">([\s\S]*?)<\/th><td>([\s\S]*?)<\/td><td>([\s\S]*?)<\/td><\/tr>/g)].map((m) => [txt(m[2]), txt(m[3])].join('|'));
+  if (rows.join(';') !== '7 / 1|3 / 0;12 / 3|8 / 1;17|11;2|1;0 / 2 / 2|0 / 1 / 5') e(`table: ${rows}`);
 }
-// the author's quote: right after H2-1, a plain blockquote, signed, one only
-const qs = [...main.matchAll(/<figure class="quote-fig">\s*<blockquote cite="[^"]*"><p>([^<]*)<\/p><\/blockquote>/g)];
-const QUOTE = 'Pozorování mi říká, co na webech chybí, ne proč jsou vpředu. Tyto dvě věci nelze zaměňovat.';
-if (qs.length !== 1 || dec(qs[0][1]).replace(/\u00a0/g, ' ') !== QUOTE) e('one author quote, word for word');
-if (main.indexOf('quote-fig') < main.indexOf('Co z toho plyne a co ne?') || main.indexOf('quote-fig') > main.indexOf('Jak si svůj web zkontrolovat sám?')) e('the quote stands after H2-2 and before H2-3');
-for (const x of ['K 31. 10. 2026 jsem si prohlédl 14 webů zubních ordinací a klinik z organických výsledků pro dotaz „stomatologie v Praze“', 'u 11 z 14 chybí blog a u všech 14 je FAQ nedostatečné', 'U tří jsou služby jen na jedné stránce a žádný nemá strukturovaná data', 'Názvy webů neuvádím']) if (!mainTxt.includes(x)) e(`H2-1 text missing: ${x}`);
-if (/recenz[^.]*(ovlivň|pozic|doporuč)|pozic[^.]*recenz/i.test(mainTxt.replace(/Všechny zobrazují recenze na stránkách/, ''))) e('nothing about the influence of reviews');
-if (!mainTxt.includes('Jsem SEO specialista, proto může být moje hodnocení zaujaté.') || main.indexOf('Jsem SEO specialista') > main.indexOf('post-cta')) e('disclosure before the CTA');
-// JSON-LD
-const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
-const node = (t) => g.filter((n) => n['@type'] === t);
-const U = BASE + URL_PATH;
-const post = node('BlogPosting')[0];
-if (!post || post['@id'] !== `${U}#article` || post.headline !== H1 || post.author['@id'] !== `${BASE}/#arsenii` || post.datePublished !== '2026-11-04') e('BlogPosting');
-const wp = node('WebPage')[0];
-if (!wp || wp['@id'] !== `${U}#webpage` || wp.inLanguage !== 'cs' || wp.name !== title || wp.description !== desc) e('WebPage');
-const bc = node('BreadcrumbList')[0];
-if (!bc || bc.itemListElement.length !== 3) e('BreadcrumbList: Domů, Blog, article');
-const faq = node('FAQPage')[0];
-const visFaq = [...main.match(/<div class="faq-open">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/)[0].matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
-if (!faq || faq.mainEntity.length !== 3 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ (3 questions)');
-for (const [i, q] of visFaq.entries()) { const n = wc(q[1]); if (n < 6 || n > 60) e(`FAQ ${i + 1} answer: ${n} words`); }
-if (g.some((n) => ['MedicalBusiness', 'Dentist', 'ProfessionalService', 'HowTo', 'Service', 'Offer', 'AggregateRating', 'Review', 'Quotation', 'VideoObject', 'Product', 'LocalBusiness'].includes(n['@type']))) e('no HowTo / Service / Offer / rating / Quotation / VideoObject / LocalBusiness markup');
-if (!readFileSync('dist/sitemap.xml', 'utf8').includes(`${BASE}${URL_PATH}`)) e('the page must be in the sitemap');
-// K4: three visible source lines (the check date is stated only when the Google page was really opened: it was not, so no date)
-if ((mainTxt.match(/Zdroj: Google Search Central,/g) || []).length !== 1) e('one visible Google source line');
-for (const f of ['dist/seo-pro-prekladatelske-agentury-praha/index.html', 'dist/seo-pro-ucetni-kancelare-praha/index.html', 'dist/audit-zdarma/index.html', 'dist/index.html']) if (readFileSync(f, 'utf8').includes(`href="${URL_PATH}"`)) e(`${f}: must not link to the article (rule F)`);
-
-if (errors.length) {
-  console.error(`\nDental weak-SEO article check failed (${errors.length}):\n- ` + errors.join('\n- '));
-  process.exit(1);
-}
-console.log(`✓ check-post-weak-seo-dental-cs: ok (${mainTxt.split(/\s+/).length} words)`);
+if ((main.match(/<blockquote/g) || []).length !== 1) e('one quote');
+let ld = [];
+for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { const g = JSON.parse(m[1]); ld = ld.concat(g['@graph'] || [g]); }
+const types = ld.map((x) => x['@type']);
+if (types.some((t) => /Quotation|HowTo|Review|Rating|VideoObject|Product|Offer|LocalBusiness|ProfessionalService|MedicalBusiness|Dentist/.test(String(t))) || types.filter((t) => t === 'Person').length !== 1) e(`forbidden JSON-LD type: ${types}`);
+const fp = ld.find((x) => x['@type'] === 'FAQPage');
+if (!fp || JSON.stringify(fp.mainEntity.map((q) => [q.name, q.acceptedAnswer.text])) !== JSON.stringify(faq)) e('FAQPage must equal the visible FAQ');
+const bp = ld.find((x) => x['@type'] === 'BlogPosting');
+if (!bp || bp.inLanguage !== 'cs-CZ' || bp.headline !== h1 || bp.datePublished !== '2026-11-04' || bp.dateModified !== '2026-11-15' || bp.description !== desc) e('BlogPosting');
+const wp = ld.find((x) => x['@type'] === 'WebPage');
+if (!wp || wp.name !== 'Stomatologie v Praze: co jsem zjistil' || wp.dateModified !== '2026-11-15') e('WebPage');
+const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
+const okLinks = ['/o-mne/', 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', 'https://developers.google.com/search/docs/crawling-indexing/url-structure', 'https://developers.google.com/search/docs/appearance/ai-features', '/kontakt/', '/seo-pro-zubni-ordinace-praha/', '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/', '/blog/faq-na-webu-zubni-ordinace/'];
+if (links.some((l) => !okLinks.includes(l)) || okLinks.some((l) => !links.includes(l)) || (main.match(/class="btn btn--primary/g) || []).length !== 1 || /<form/.test(main)) e(`links / one button: ${links}`);
+const body = txt(main);
+const UPD = /Aktualizace 15\. 11\. 2026: původní pozorování z 31\. 10\. 2026 \(14 webů\) jsem nahradil širším vzorkem z Googlu a Seznamu\./;
+if (/\bTOP\b|nejlepší|slabé SEO|slabá konkurence|silný konkurent|Domněnkou|mezera na trhu|nikdo nemá|lépe než|snáz|rychleji|HowTo|(?<!ne)zaručuj(?!i)|Kč|volno|u 11 z 14/i.test(body.replace(UPD, ''))) e('forbidden word');
+if (/Zoner|Dentist|Dentalni|Zdravotnictví|Znamylekar|ZnamyLekar|Doktor|Heureka|Firmy\.cz|Mapy\.com|Alza/i.test(body.replace('Mapy.com', ''))) e('named site');
+if (/14 webů|31\. 10\. 2026/.test(body.replace(UPD, ''))) e('old numbers outside the update line');
+if (/[Ѐ-ӿ]/.test(body.replace('(rozhraní v ruštině)', ''))) e('Cyrillic in the Czech text');
+for (const k of ['aktualizováno 10. 12. 2025', 'aktualizováno 21. 10. 2026']) if (!body.includes(k)) e(`source / date: ${k}`);
+if (!body.includes('Jsem SEO specialista, proto může být moje hodnocení zaujaté.') || !body.includes('Našli jste chybu? Napište mi.') || body.indexOf('Jsem SEO specialista') > body.indexOf('Chcete, aby byl web vaší zubní ordinace')) e('K5 before CTA, K7');
+if (errs.length) { console.error('✗ check-post-weak-seo-dental-cs:\n  - ' + errs.join('\n  - ')); process.exit(1); }
+console.log(`✓ check-post-weak-seo-dental-cs: ok (answers ${answers})`);
