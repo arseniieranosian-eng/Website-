@@ -48,13 +48,15 @@ const raw = {
   expTitle: 'Jaké mám zkušenosti v oboru zubní péče?',
   expAnswer: 'Pracoval jsem v jiných oborech, například pro překladatelskou agenturu, jejíž výsledky uvádím výše. Ze zubních ordinací mám vlastní pozorování jejich webů, uvádím je níže. Nevydávám je za výsledek své práce.',
 
-  obsTitle: 'Co jsem zjistil na webech zubních ordinací v Praze?',
-  obsAnswer: 'K 31. 10. 2026 jsem si prohlédl 14 webů zubních ordinací, které se zobrazují na dotaz „stomatologie v Praze“. Všechny zobrazují recenze na stránkách, což je dobré využití signálů důvěry. U 11 z 14 chybí blog, u všech 14 jsou FAQ nedostatečné, u tří jsou služby jen na jedné stránce a žádný nemá strukturovaná data.',
-  obsNote: 'FAQ je nedostatečné různě: někde chybí na stránkách služeb, jinde není samostatná stránka. Je to můj pozorovací vzorek, ne průzkum trhu. Názvy webů neuvádím.',
-  // sentence about weak competition: after the observation (S3: "Google podle své dokumentace" is NOT verified against the documentation)
-  weakText: 'Proč jsou tyto weby vpředu, nevím: Google podle své dokumentace používá mnoho signálů. Domněnkou je, že mezi zubními ordinacemi zatím není silný konkurent, který by byl dobře čitelný pro vyhledávače i AI. Mým cílem je, aby jím byl váš web. Podrobněji:',
-  weakLink: 'Proč jsou ve vyhledávání vpředu i zubní ordinace se slabým SEO?',
-  weakSource: { text: 'Google Search Central, Ranking systems guide', href: 'https://developers.google.com/search/docs/appearance/ranking-systems-guide' },
+  // brief of 15.11.2026: the observation of 15.11.2026 (30 results of Google and 30 of Seznam for "stomatologie v Praze"); the numbers are those of the article /blog/slabe-seo-konkurence-zubni-ordinace/.
+  // No "Domněnkou", no weak-competition sentence, no audit / Start line, no link to the article inside the block (rule F: only in "Další články").
+  obsTitle: 'Co vidím na webech zubních ordinací v Praze?',
+  obsAnswer: 'K 15. 11. 2026 jsem na Googlu a na Seznamu prošel po 30 výsledcích dotazu „stomatologie v Praze“. Jasnou krátkou odpověď na stránce služby neměl žádný z 10 sledovaných výsledků. Z katalogů pocházely na Googlu 2 výsledky, na Seznamu 12. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  obs: [
+    'Stránku s FAQ mělo 7 z 24 webů ordinací na Googlu a 3 z 17 na Seznamu.',
+    'Blog mělo 12 z 24 webů ordinací na Googlu a 8 z 17 na Seznamu.',
+    'Strukturovaná data mělo 17 z 24 webů ordinací na Googlu a 11 z 17 na Seznamu.',
+  ],
 
   doTitle: 'Co pro zubní ordinaci konkrétně dělám?',
   doAnswer: 'Řeším, aby web zubní ordinace byl srozumitelný pro vyhledávače i AI: samostatné stránky služeb, stránky lékařů s ověřenými údaji, přehledný ceník ordinace, způsob objednání a správně vedený místní profil. Texty o léčbě musí schválit lékař ordinace, já připravuji strukturu a formulace. Mapy řeším samostatnou službou.',

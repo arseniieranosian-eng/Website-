@@ -42,7 +42,7 @@ if ((main.match(/<h1[ >]/g) || []).length !== 1 || txt((main.match(/<h1[^>]*>([\
 const hs = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
 const ZL = /ZNAMYLEKAR_PUBLISHED = true/.test(readFileSync('src/data/niche-dental-cs.ts', 'utf8')); // block of the brief of 05.11.2026 (blocked until S1–S3)
 const ZL_H2 = 'Co je objednání přes ZnamyLekar.cz a proč ho u ordinace řeším?';
-const SECTIONS0 = ['Jak probíhá spolupráce?', 'Kolik to stojí?', 'Jaké mám zkušenosti v oboru zubní péče?', 'Co jsem zjistil na webech zubních ordinací v Praze?', 'Co pro zubní ordinaci konkrétně dělám?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
+const SECTIONS0 = ['Jak probíhá spolupráce?', 'Kolik to stojí?', 'Jaké mám zkušenosti v oboru zubní péče?', 'Co vidím na webech zubních ordinací v Praze?', 'Co pro zubní ordinaci konkrétně dělám?', 'Pro koho SEO dává smysl a pro koho ne?', 'Časté otázky', 'Další články', 'Chcete vědět, jaké technické chyby má váš web?'];
 const SECTIONS = ZL ? SECTIONS0.flatMap((x) => x === 'Pro koho SEO dává smysl a pro koho ne?' ? [ZL_H2, x] : [x]) : SECTIONS0;
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order (D2 not published yet): ${JSON.stringify(hs)}`);
 // line under the H1 exactly, then the summary box, both before the first H2
@@ -53,10 +53,10 @@ const sum = txt((main.match(/<div class="summary-box"><p class="lead">([\s\S]*?)
 if (sum.replace(/ /g, ' ') !== SUM || main.indexOf('summary-box') > main.indexOf('<h2')) e('summary block: text and position');
 for (const m of main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)) { const n = words(txt(m[1])); if (n < 6 || n > 60) e(`answer length ${n}: ${txt(m[1]).slice(0, 50)}`); }
 // D1 exact figures
-for (const s of ['K 31. 10. 2026 jsem si prohlédl 14 webů zubních ordinací', 'dotaz „stomatologie v Praze“', 'U 11 z 14 chybí blog', 'u všech 14 jsou FAQ nedostatečné', 'u tří jsou služby jen na jedné stránce', 'žádný nemá strukturovaná data', 'Názvy webů neuvádím']) if (!mainTxt.replace(/ /g, ' ').includes(s)) e(`D1 text missing: ${s}`);
+// brief of 15.11.2026: the observation of 15.11.2026 (Google + Seznam, "stomatologie v Praze") with the numbers of the article; nothing of the old observation of 31. 10. 2026
+for (const s of ['K 15. 11. 2026 jsem na Googlu a na Seznamu prošel po 30 výsledcích dotazu „stomatologie v Praze“. Jasnou krátkou odpověď na stránce služby neměl žádný z 10 sledovaných výsledků. Z katalogů pocházely na Googlu 2 výsledky, na Seznamu 12. Je to můj pozorovací vzorek, ne průzkum trhu.', 'Stránku s FAQ mělo 7 z 24 webů ordinací na Googlu a 3 z 17 na Seznamu.', 'Blog mělo 12 z 24 webů ordinací na Googlu a 8 z 17 na Seznamu.', 'Strukturovaná data mělo 17 z 24 webů ordinací na Googlu a 11 z 17 na Seznamu.']) if (!mainTxt.replace(/ /g, ' ').includes(s)) e(`D1 text missing: ${s}`);
+if (/31\. 10\. 2026|14 webů|u 11 z 14|slabé SEO|Domněnkou|Mým cílem je|nedostatečné|žádný nemá strukturovaná data/.test(mainTxt)) e('old observation / weak-competition text must be gone');
 if (!mainTxt.includes('Full SEO pro zubní ordinace začíná na 24 000 Kč měsíčně.') || /15 000/.test(mainTxt)) e('price block: Full SEO for dental = 24 000 Kč, one version only');
-if (!mainTxt.includes('Proč jsou tyto weby vpředu, nevím')) e('weak-competition sentence');
-if (main.indexOf('Proč jsou tyto weby vpředu') < main.indexOf('Názvy webů neuvádím') || main.indexOf('Proč jsou tyto weby vpředu') > main.indexOf('Co pro zubní ordinaci')) e('weak-competition sentence must follow D1 and precede the "what I do" block');
 // FAQ = JSON-LD 1:1 (f1 and f5 are not written: guarantee rule, capacity date S4; the price FAQ is added by the brief of 01.11.2026)
 const faqHtml = [...main.matchAll(/<div class="faq-open">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/g)][0]?.[1] || '';
 const vis = [...faqHtml.matchAll(/<h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [txt(m[1]), txt(m[2])]);
