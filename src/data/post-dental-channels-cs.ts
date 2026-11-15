@@ -43,6 +43,10 @@ const raw = {
   mapsTitle: 'Co přinášejí mapy, profily a katalogy lékařů?',
   mapsAnswer: 'Mapy, místní profily a katalogy lékařů ukazují ordinaci lidem, kteří hledají v okolí nebo srovnávají. Přínos závisí na tom, zda rozhoduje poloha, a na udržovaných údajích. Co o ordinaci napíšou jiní, nemusí být plně pod její kontrolou. Podmínky jednotlivých služeb zde neuvádím, najdete je u nich.',
 
+  // brief of 15.11.2026: one short dated section (no table, no quote, no repetition of the FAQ / blog / markup counters of the article about the observation: K9); the link points to that article with a descriptive anchor.
+  catTitle: 'Kolik výsledků pro „stomatologie v Praze“ pochází z katalogů?',
+  catAnswer: 'K 15. 11. 2026 jsem na notebooku s polohou Praha prošel po 30 organických výsledcích dotazu „stomatologie v Praze“. Na Googlu pocházely z katalogů 2 výsledky, na Seznamu 12. Weby ordinací a klinik byly na Googlu 25 výsledků, na Seznamu 17. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  catMore: { before: 'Podrobnosti a limity popisuji v', link: 'článku o výsledcích pro „stomatologie v Praze“', after: '.' },
   adsTitle: 'Jak je to s placenou reklamou a sociálními sítěmi?',
   adsAnswer: 'Placená reklama i sociální sítě mohou ordinaci ukázat novým lidem, ale působí jen po dobu platby nebo pravidelné práce. U zdravotních služeb si před spuštěním ověřte, co smíte uvádět; obraťte se na komoru nebo právníka. Reklamu nespravuji a pravidla zde nevysvětluji.',
   quote: 'Žádný kanál nic nezaručuje. Rozhodnutí se ale dá opřít o to, odkud přišli dosavadní pacienti.',

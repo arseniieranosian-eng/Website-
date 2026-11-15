@@ -19,7 +19,7 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/jak-ziskat-klienty-pro-prekladatelskou-agenturu/': ['kanaly', 'vyber', 'reklama', 'web', 'audit', 'agentury-praha', 'faq'],
   '/blog/jak-ziskat-klienty-pro-realitni-kancelar/': ['kanaly', 'portaly', 'web', 'doporuceni', 'reklama', 'seo', 'velikost', 'zacit', 'faq'],
   '/blog/jak-ziskat-klienty-pro-ucetni-kancelar/': ['kanaly', 'doporuceni', 'web', 'mapy', 'reklama', 'vyber', 'start', 'faq', 'souvisejici'],
-  '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/': ['kanaly', 'doporuceni', 'web', 'mapy', 'reklama', 'vyber', 'start', 'faq'],
+  '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/': ['kanaly', 'doporuceni', 'web', 'mapy', 'katalogy', 'reklama', 'vyber', 'start', 'faq'],
   '/blog/jak-zjistit-jestli-je-web-indexovany/': ['prehled', 'definice', 'site-operator', 'search-console', 'bing', 'priciny', 'frekvence', 'postup', 'faq'],
   '/blog/jake-stranky-ma-mit-web-firmy/': ['ulohy', 'sluzby', 'blog', 'duvera', 'mesta-obory', 'souvislosti', 'faq'],
   '/blog/lokalni-pritomnost-realitni-kancelare/': ['definice', 'profily', 'shoda-udaju', 'udaje', 'pobocky', 'nemovitost', 'propojeni', 'kontrola', 'faq', 'souvisejici'],
