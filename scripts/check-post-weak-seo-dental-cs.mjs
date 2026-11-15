@@ -34,6 +34,12 @@ else {
   if (rows.join(';') !== '7 / 1|3 / 0;12 / 3|8 / 1;17|11;2|1;0 / 2 / 2|0 / 1 / 5') e(`table: ${rows}`);
 }
 if ((main.match(/<blockquote/g) || []).length !== 1) e('one quote');
+// D1: methodology line + chart (numbers = the table: 25/2/3 and 17/12/1), caption, aria-label with the numbers, no links inside, no libraries
+if (!main.includes('Metodika a limity: jeden dotaz, jeden den, jedno zařízení (notebook, Praha); výsledky se mění podle osoby, polohy a času.') || main.indexOf('Metodika a limity') > main.indexOf('<blockquote') || main.indexOf('Metodika a limity') < main.indexOf('</table>')) e('methodology line after the table, before the quote');
+const chart = (main.match(/<figure class="stack-chart">[\s\S]*?<\/figure>/) || [''])[0];
+const segs = [...chart.matchAll(/<span class="stack-chart__seg stack-chart__seg--\d" style="flex: (\d+) 1 0">(\d+)<\/span>/g)].map((m) => +m[2]);
+if (segs.join() !== '25,2,3,17,12,1' || (chart.match(/flex: (\d+) 1 0/g) || []).join() !== ['25', '2', '3', '17', '12', '1'].map((n) => `flex: ${n} 1 0`).join()) e(`chart numbers: ${segs}`);
+if (!/aria-label="Složení 30 výsledků pro „stomatologie v Praze“, 15\. 11\. 2026: weby ordinací, katalogy, instituce \(Google a Seznam\)\. Google: weby ordinací 25, katalogy 2, instituce 3; Seznam: weby ordinací 17, katalogy 12, instituce 1\./.test(chart) || !chart.includes('Složení 30 výsledků pro „stomatologie v Praze“, 15. 11. 2026: weby ordinací, katalogy, instituce (Google a Seznam).') || /<a |<script|<img|<svg/.test(chart) || /výzkum|průzkum/i.test(chart)) e('chart caption / aria-label / no links');
 let ld = [];
 for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { const g = JSON.parse(m[1]); ld = ld.concat(g['@graph'] || [g]); }
 const types = ld.map((x) => x['@type']);

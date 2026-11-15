@@ -43,6 +43,14 @@ const raw = {
     ['Krátká odpověď na stránce služby (měřitelné výsledky: 4 / 6): ano / částečně / ne', '0 / 2 / 2', '0 / 1 / 5'],
   ],
   tableNote: 'Blog je sekce webu, na kterou vede menu nebo patička. FAQ je stránka s otázkami a odpověďmi (obecná). Krátká odpověď jsou 2–3 věty nahoře na stránce služby; „částečně“ se nepočítá jako „ano“. Značení počítám podle zdrojového kódu stránky, značení přidané skriptem mohlo zůstat nepovšimnuto.',
+  methodLine: 'Metodika a limity: jeden dotaz, jeden den, jedno zařízení (notebook, Praha); výsledky se mění podle osoby, polohy a času.',
+  // D1 (brief of 15.11.2026): stacked bars up to 30; the numbers are those of the table (25 / 2 / 3 and 17 / 12 / 1). No site names, no links inside the chart.
+  chartCaption: 'Složení 30 výsledků pro „stomatologie v Praze“, 15. 11. 2026: weby ordinací, katalogy, instituce (Google a Seznam).',
+  chartLegend: ['weby ordinací', 'katalogy', 'instituce'],
+  chartRows: [
+    { label: 'Google', values: [25, 2, 3] },
+    { label: 'Seznam', values: [17, 12, 1] },
+  ],
   quote: 'Na stránce služby neměl jasnou krátkou odpověď žádný z 10 sledovaných výsledků. Je to pozorování z jednoho dotazu, ne vysvětlení pozic.',
 
   notTitle: 'Co z tohoto pozorování nevyplývá?',

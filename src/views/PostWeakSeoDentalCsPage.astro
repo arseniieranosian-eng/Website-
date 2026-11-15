@@ -66,6 +66,19 @@ const cite = new URL(path('postWeakSeoDental', lang), site).href;
         </table>
       </div>
       <p class="small muted">{C.tableNote}</p>
+      <p class="small muted">{C.methodLine}</p>
+      <figure class="stack-chart">
+        <div class="stack-chart__rows" role="img" aria-label={`${C.chartCaption} ` + C.chartRows.map((r) => `${r.label}: ` + r.values.map((n, i) => `${C.chartLegend[i]} ${n}`).join(', ')).join('; ') + '.'}>
+          {C.chartRows.map((r) => (
+            <div class="stack-chart__row" aria-hidden="true">
+              <span class="stack-chart__label">{r.label}</span>
+              <span class="stack-chart__bar">{r.values.map((n, i) => <span class={`stack-chart__seg stack-chart__seg--${i + 1}`} style={`flex: ${n} 1 0`}>{n}</span>)}</span>
+            </div>
+          ))}
+        </div>
+        <ul class="stack-chart__legend" aria-hidden="true">{C.chartLegend.map((l, i) => <li><span class={`stack-chart__swatch stack-chart__seg--${i + 1}`}></span>{l}</li>)}</ul>
+        <figcaption class="small muted">{C.chartCaption}</figcaption>
+      </figure>
       <figure class="quote-fig">
         <blockquote cite={cite}><p>{C.quote}</p></blockquote>
         <QuoteCaption lang={lang} />

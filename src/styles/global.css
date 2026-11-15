@@ -815,3 +815,19 @@ ul, ol { margin-bottom: var(--flow); }
 /* long visible URLs (source lines of the articles) must wrap on a phone instead of widening the page */
 .small a, .muted a, p a[href^="http"] { overflow-wrap: anywhere; word-break: break-word; }
 .small.muted a[href^="http"] { font-size: 0.9em; }
+
+/* Stacked bar chart (article about the observation for "stomatologie v Praze", brief of 15.11.2026): no library, text values inside the segments, legend as text, the segment kinds differ by fill and pattern, not only by colour. */
+.stack-chart { margin: 20px 0 8px; }
+.stack-chart__rows { display: grid; gap: 10px; }
+.stack-chart__row { display: grid; grid-template-columns: 4.6rem 1fr; align-items: center; gap: 10px; }
+.stack-chart__label { font-weight: 700; font-size: 0.95rem; }
+.stack-chart__bar { display: flex; min-width: 0; border-radius: 8px; overflow: hidden; border: 1px solid #1a2a5a; }
+.stack-chart__seg { display: flex; align-items: center; justify-content: center; min-width: 2em; padding: 8px 0; font-size: 0.9rem; font-weight: 700; line-height: 1; }
+.stack-chart__seg--1 { background: #1f4fd8; color: #fff; }
+.stack-chart__seg--2 { background: repeating-linear-gradient(45deg, #ffd9c2, #ffd9c2 4px, #ffb98f 4px, #ffb98f 8px); color: #1a1208; border-left: 1px solid #1a2a5a; }
+.stack-chart__seg--3 { background: #c7ccd8; color: #10131c; border-left: 1px solid #1a2a5a; }
+.stack-chart__legend { list-style: none; margin: 10px 0 6px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.9rem; }
+.stack-chart__legend li { display: inline-flex; align-items: center; gap: 6px; }
+.stack-chart__swatch { display: inline-block; width: 16px; height: 16px; border-radius: 4px; border: 1px solid #1a2a5a; }
+.stack-chart figcaption { margin: 0; }
+@media (max-width: 420px) { .stack-chart__row { grid-template-columns: 3.6rem 1fr; gap: 8px; } .stack-chart__seg { font-size: 0.82rem; } }
