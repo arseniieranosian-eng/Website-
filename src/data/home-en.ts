@@ -43,11 +43,11 @@ export const HOME_EN = {
   resultsTitle: 'Case studies',
   // Two cases on the home page (the rest are on the case-studies page, linked below); each with a small illustration.
   cases: [
-    { label: 'Translation agency, six months', name: 'From zero enquiries to growth', formula: HALF_FORMULA_EN.replace(', March–September 2026', '') + ', AI Overview visibility', page: 'cases' as const, art: 'half' },
-    { label: 'Print shop', name: 'Organic traffic growth', formula: TYPO_FORMULA_EN, page: 'cases' as const, art: 'typo' },
+    { label: 'Translation agency, six months', name: 'From zero enquiries to growth', formula: HALF_FORMULA_EN.replace(', March–September 2026', '') + ', AI Overview visibility', page: 'caseHalf' as const, art: 'half' },
+    { label: 'Print shop', name: 'Organic traffic growth', formula: TYPO_FORMULA_EN, page: 'caseTypo' as const, art: 'typo' },
   ],
   resultsMore: 'All case studies',
-  caseMore: 'Case studies',
+  caseMore: 'Read the case study',
   resultsNote: 'Client names and absolute numbers are not published. Counts and percentages are relative data.',
 
   quote: 'SEO is not about activity, it is about priorities. First remove what stops Google understanding the site, then build the architecture around the business, then scale content.',

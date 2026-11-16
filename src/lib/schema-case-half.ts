@@ -7,7 +7,7 @@ import { ids } from './schema';
 // node + two Quotations (the author's and the agency owner's) + the owner (Person with Instagram and photo) + two ImageObjects
 // (owner photo, language-share screenshot) + FAQPage; BreadcrumbList comes from the layout. No Service / Offer, no Review,
 // no ratings, no client name, no absolute numbers. Everything repeats the visible text.
-export function caseHalfSchemas(site: URL, C: any, opts: { modified: string; authorQuote: string }) {
+export function caseHalfSchemas(site: URL, C: any, opts: { modified: string; authorQuote: string; image?: string }) {
   const lang = C.lang;
   const abs = (p: string) => new URL(p, site).href;
   const url = abs(path('caseHalf', lang));
@@ -28,7 +28,7 @@ export function caseHalfSchemas(site: URL, C: any, opts: { modified: string; aut
       inLanguage: lang,
       dateModified: opts.modified,
       breadcrumb: { '@id': `${url}#breadcrumb` },
-      primaryImageOfPage: abs('/images/pripadove-studie/og-seo-prekladatelska-agentura.png'),
+      primaryImageOfPage: abs(opts.image ?? '/images/pripadove-studie/og-seo-prekladatelska-agentura.png'),
       mainEntity: { '@id': `${url}#article` },
       relatedLink: abs(path('caseSeason', lang)),
     },

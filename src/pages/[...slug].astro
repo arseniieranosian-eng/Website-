@@ -27,6 +27,12 @@ import GeoCsPage from '../views/GeoCsPage.astro';
 import Cases from '../views/Cases.astro';
 import Case from '../views/Case.astro';
 import CaseCsPage from '../views/CaseCsPage.astro';
+import CaseEnPage from '../views/CaseEnPage.astro';
+import CaseTypoEnPage from '../views/CaseTypoEnPage.astro';
+import CaseEduEnPage from '../views/CaseEduEnPage.astro';
+import CaseSeasonEnPage from '../views/CaseSeasonEnPage.astro';
+import CaseHalfEnPage from '../views/CaseHalfEnPage.astro';
+import CaseRazborEnPage from '../views/CaseRazborEnPage.astro';
 import CaseHalfCsPage from '../views/CaseHalfCsPage.astro';
 import CaseHalfRuPage from '../views/CaseHalfRuPage.astro';
 import CaseRazborCsPage from '../views/CaseRazborCsPage.astro';
@@ -138,7 +144,7 @@ const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
 const isService = (k: PageKey): k is ServiceKey => (SERVICE_KEYS as readonly string[]).includes(k);
-const View = props.key && !isService(props.key) && !(props.key === 'home' && (props.lang === 'cs' || props.lang === 'en')) && !(props.key === 'about' && props.lang === 'cs') && !(props.key === 'audit' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'geo' && props.lang === 'cs') && !(props.key === 'caseKb' && props.lang === 'cs') ? VIEWS[props.key] : null;
+const View = props.key && !isService(props.key) && !(props.key === 'home' && (props.lang === 'cs' || props.lang === 'en')) && !(props.key === 'about' && props.lang === 'cs') && !(props.key === 'audit' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'geo' && props.lang === 'cs') && !(props.key === 'caseKb' && (props.lang === 'cs' || props.lang === 'en')) ? VIEWS[props.key] : null;
 ---
 {props.post && <PostView post={props.post} />}
 {props.key === 'home' && props.lang === 'cs' && <HomeCsPage />}
@@ -148,6 +154,12 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'audit' && props.lang === 'ru' && <AuditRuPage />}
 {props.key === 'geo' && props.lang === 'cs' && <GeoCsPage />}
 {props.key === 'caseKb' && props.lang === 'cs' && <CaseCsPage />}
+{props.key === 'caseKb' && props.lang === 'en' && <CaseEnPage />}
+{props.key === 'caseTypo' && props.lang === 'en' && <CaseTypoEnPage />}
+{props.key === 'caseEdu' && props.lang === 'en' && <CaseEduEnPage />}
+{props.key === 'caseSeason' && props.lang === 'en' && <CaseSeasonEnPage />}
+{props.key === 'caseHalf' && props.lang === 'en' && <CaseHalfEnPage />}
+{props.key === 'caseRazbor' && props.lang === 'en' && <CaseRazborEnPage />}
 {props.key === 'postIndexing' && props.lang === 'cs' && <PostIndexingCsPage />}
 {props.key === 'postNotShown' && props.lang === 'cs' && <PostNotShownCsPage />}
 {props.key === 'postSeoAudit' && props.lang === 'cs' && <PostSeoAuditCsPage />}

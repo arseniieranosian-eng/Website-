@@ -29,7 +29,7 @@ if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonica
 if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:type article / og:locale cs_CZ');
 if (!h.includes(`<meta property="og:image" content="${BASE}/images/pripadove-studie/og-tiskarna.png">`)) e('og:image card');
 for (const [l, u] of [['cs', URL_PATH], ['ru', RU_PATH], ['x-default', URL_PATH]]) if (!h.includes(`<link rel="alternate" hreflang="${l}" href="${BASE}${u}">`)) e(`hreflang ${l}`);
-if (/hreflang="en"/.test(h.replace(/<a [^>]*>/g, ''))) e('no en alternate');
+if (!h.includes(`hreflang="en" href="${BASE}/en/case-studies/seo-print-shop/"`)) e('en alternate (since 16.11.2026)');
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
@@ -98,7 +98,7 @@ for (const p of ['dist/start-3-mesice/index.html', 'dist/full-seo/index.html', '
   if (!x.includes(`href="${URL_PATH}"`) || !txt(x).includes(`Tiskárna: organická návštěvnost ${FORMULA}.`)) e(`${p}: the print-shop line with one formula and a link`);
 }
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
-if (!sm.includes(`${BASE}${URL_PATH}`) || /seo-print-shop/.test(sm)) e('sitemap');
+if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/en/case-studies/seo-print-shop/`)) e('sitemap (cs + ru + en)');
 
 if (errors.length) {
   console.error(`\nCzech print-shop case check failed (${errors.length}):\n- ` + errors.join('\n- '));

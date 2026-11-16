@@ -78,7 +78,7 @@ if (!readFileSync('dist/ru/kejsy/index.html', 'utf8').includes(`href="${URL_PATH
 const start = readFileSync('dist/ru/start-3-mesyaca/index.html', 'utf8');
 if (!start.includes(`href="${URL_PATH}"`) || !txt(start).includes('Образовательная платформа: +55% органического трафика за 7 месяцев (март → сентябрь 2025, относительные данные от низкой базы нового сайта).')) e('Start page: the case line with one formula and a link');
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
-if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-vzdelavaci-platforma/`) || /education-platform/.test(sm)) e('sitemap: cs + ru, no en');
+if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-vzdelavaci-platforma/`) || !sm.includes('/en/case-studies/seo-education-platform/')) e('sitemap: cs + ru + en');
 if (/obrazovatelnaya|vzdelavaci/.test(readFileSync('dist/en/case-studies/index.html', 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e('the case must not be listed in en');
 
 if (errors.length) {

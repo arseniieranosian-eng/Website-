@@ -74,3 +74,10 @@ const nbEn = (s: string) => s.replace(/ %/g, '\u00a0%');
 export const TYPO_FORMULA_EN: string = nbEn('Organic traffic +775 %, July 2024 → July 2025 (1,200 → 10,500 visits per month)');
 export const EDU_FORMULA_EN: string = nbEn('+55 % organic traffic, March → September 2025 (7 months), relative data from the low base of a new site');
 export const HALF_FORMULA_EN: string = nbEn('Enquiries up 65–70 % month over month for three months in a row, B2B enquiries tripled, March–September 2026');
+
+// English pairs of the remaining formulas (brief of 16.11.2026): same figures and periods as the cs / ru ones.
+export const SEASON_FORMULA_EN: string = nbEn('Form enquiries ×24 (+2,300 %): spring (March–May) → summer (June–August) 2026, one window, not year over year. From a low base');
+export const SEASON_LINE_EN: string = `Translation agency, part 2. ${SEASON_FORMULA_EN}.`;
+export const HALF_LINE_EN: string = `Translation agency, half a year of work: ${HALF_FORMULA_EN[0].toLowerCase()}${HALF_FORMULA_EN.slice(1)}.`;
+export const TYPO_LINE_EN: string = `Print shop: ${TYPO_FORMULA_EN[0].toLowerCase()}${TYPO_FORMULA_EN.slice(1)}.`;
+export const EDU_LINE_EN: string = `Education platform: ${EDU_FORMULA_EN}.`;

@@ -30,7 +30,7 @@ if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonica
 if (!h.includes('<meta property="og:type" content="article">') || !h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:type article / og:locale cs_CZ');
 if (!h.includes(`<meta property="og:image" content="${BASE}/images/pripadove-studie/og-seo-prekladatelska-agentura.png">`)) e('og:image card');
 const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + ' ' + m[2]);
-if (JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `ru ${BASE}/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/`, `x-default ${BASE}${URL_PATH}`])) e('hreflang pair cs ↔ ru (+ x-default = cs): ' + JSON.stringify(alts));
+if (JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `en ${BASE}/en/case-studies/seo-translation-agency-half-year/`, `ru ${BASE}/ru/kejsy/seo-perevodcheskoe-agentstvo-polgoda/`, `x-default ${BASE}${URL_PATH}`])) e('hreflang pair cs ↔ ru (+ x-default = cs): ' + JSON.stringify(alts));
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));

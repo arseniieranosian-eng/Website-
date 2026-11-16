@@ -181,7 +181,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Případová studie: jak jsem zvýšil organickou návštěvnost tiskárny z 1\u00a0200 na 10\u00a0500 měsíčně za rok. Priority a vstupní stránky.',
       h1: 'SEO pro tiskárnu: organická návštěvnost vzrostla 8,75× za 12 měsíců',
     },
-    en: { name: 'SEO for a print shop', title: 'SEO for a print shop', description: 'SEO for a print shop', h1: 'SEO for a print shop' },
+    en: { name: 'SEO for a print shop', title: 'Print Shop SEO: Traffic Up 8.75× | Eranosian', description: 'Case study: how I grew a print shop’s organic traffic from 1,200 to 10,500 visits a month in a year. Priorities and landing pages.', h1: 'SEO for a print shop: organic traffic grew 8.75× in 12 months' },
     ru: {
       name: 'SEO для типографии',
       title: 'SEO типографии: трафик в 8,75 раза | Eranosian',
@@ -196,7 +196,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Jak jsme s kolegou zvýšili organickou návštěvnost nové vzdělávací platformy o 55\u00a0% za 7 měsíců se sázkou na málo hledané dotazy.',
       h1: 'SEO pro novou vzdělávací platformu: +55\u00a0% organické návštěvnosti za 7 měsíců',
     },
-    en: { name: 'SEO for an education platform', title: 'SEO for an education platform', description: 'SEO for an education platform', h1: 'SEO for an education platform' },
+    en: { name: 'SEO for a new education platform', title: 'Education Platform SEO: +55 % | Eranosian', description: 'How a colleague and I grew a new education platform’s organic traffic by 55 % in 7 months by betting on low-volume queries.', h1: 'SEO for a new education platform: +55 % organic traffic in 7 months' },
     ru: {
       name: 'SEO для образовательной платформы',
       title: 'SEO образовательной платформы: +55% | Eranosian',
@@ -211,7 +211,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Rozbor webu malé pražské realitní kanceláře: co jsem viděl a co navrhl. Konzultace s auditem, prezentace 21.–22. 10. 2026.',
       h1: 'Co jsem navrhl pro web malé realitní kanceláře v Praze?',
     },
-    en: { name: 'Review of a real estate agency website in Prague', title: 'Review of a real estate agency website in Prague', description: 'Review of a real estate agency website in Prague', h1: 'Review of a real estate agency website in Prague' },
+    en: { name: 'What I proposed for the website of a small real estate agency in Prague', title: 'Real Estate Agency Website Review | Eranosian', description: 'Review of a small Prague real estate agency’s website: what I saw and what I proposed. Consultation with an audit, 21–22 Oct 2026.', h1: 'What did I propose for the website of a small real estate agency in Prague?' },
     ru: {
       name: 'Разбор сайта агентства недвижимости в Праге',
       title: 'SEO-аудит агентства недвижимости | Eranosian',
@@ -226,7 +226,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Jak jsem za léto zvýšil poptávky z webu překladatelské agentury 24×, zatímco zájem o široký dotaz klesal. Případová studie.',
       h1: 'SEO v nízké sezóně pro překladatelskou agenturu: poptávky z webu vzrostly 24×',
     },
-    en: { name: 'SEO in the low season', title: 'SEO in the low season', description: 'SEO in the low season', h1: 'SEO in the low season' },
+    en: { name: 'SEO in the low season', title: 'SEO in the Low Season: Enquiries 24× | Eranosian', description: 'How over one summer I grew a translation agency’s website enquiries 24× while interest in a broad query was falling. Case study.', h1: 'SEO in the low season for a translation agency: enquiries from the website grew 24×' },
     ru: {
       name: 'SEO в низкий сезон',
       title: 'SEO в низкий сезон: заявки в 24 раза | Eranosian',
@@ -241,7 +241,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Jak jsem za půl roku postavil web překladatelské agentury, který měl nulu poptávek: lokální stránky, B2B poptávky, vstupní body.',
       h1: 'Případová studie SEO pro překladatelskou agenturu: půl roku od nuly k růstu poptávek',
     },
-    en: { name: 'SEO for a translation agency: half a year', title: 'SEO for a translation agency: half a year', description: 'SEO for a translation agency: half a year', h1: 'SEO for a translation agency: half a year' },
+    en: { name: 'SEO for a translation agency: half a year', title: 'Translation Agency SEO: Six Months | Eranosian', description: 'How in half a year I rebuilt the website of a translation agency with zero enquiries: local pages, B2B enquiries, entry points.', h1: 'SEO case study for a translation agency: half a year from zero to growing enquiries' },
     ru: {
       name: 'SEO для переводческого агентства: полгода',
       title: 'SEO переводческого агентства: полгода | Eranosian',
@@ -937,12 +937,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Jak jsem pomohl překladatelské agentuře získat prvního B2B klienta přes SEO: lokální stránky ve 3 městech a AI Overviews.',
       h1: 'SEO pro překladatelskou agenturu se třemi pobočkami',
     },
-    en: {
-      name: 'SEO for a translation agency',
-      title: 'SEO Case Study: Translation Agency | Eranosian',
-      description: 'How I helped a translation agency win its first B2B client through SEO: local pages in 3 cities, content and AI Overviews.',
-      h1: 'SEO for a translation agency with three branches',
-    },
+    en: { name: 'SEO for a translation agency', title: 'SEO Case Study: Translation Agency | Eranosian', description: 'How I helped a translation agency win its first B2B client through SEO: local pages in 3 cities and AI Overviews.', h1: 'SEO for a translation agency with three branches' },
     ru: {
       name: 'SEO для переводческого агентства',
       title: 'Кейс: SEO для переводческого агентства | Eranosian',

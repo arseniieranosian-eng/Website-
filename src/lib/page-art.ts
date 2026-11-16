@@ -13,7 +13,6 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   privacy: { kinds: ['privacy', 'audit'] },
   geo: { kinds: ['geo', 'audit'] },
   blog: { kinds: ['blog', 'audit'], langs: ['en', 'uk'] },
-  cases: { kinds: ['growth'], langs: ['en'] },
   caseEdu: { kinds: ['case:edu', 'audit'] },
   caseSeason: { kinds: ['case:season', 'audit'] },
   caseTypo: { kinds: ['case:typo', 'audit'] },

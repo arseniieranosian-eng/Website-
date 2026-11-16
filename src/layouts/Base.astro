@@ -43,7 +43,8 @@ else if (pageKey && hasServiceToc(pageKey)) body = addServiceToc(body, lang);
 const pubIso = (schema as any[]).filter(Boolean).map((n) => n.datePublished).find((d) => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d));
 if (pubIso) {
   const [py, pm, pd] = pubIso.split('-').map(Number);
-  const pubText = lang === 'cs' ? `${pd}. ${pm}. ${py}` : `${String(pd).padStart(2, '0')}.${String(pm).padStart(2, '0')}.${py}`;
+  const EN_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const pubText = lang === 'cs' ? `${pd}. ${pm}. ${py}` : lang === 'en' ? `${pd} ${EN_MONTHS[pm - 1]} ${py}` : `${String(pd).padStart(2, '0')}.${String(pm).padStart(2, '0')}.${py}`;
   const pubLabel = { cs: 'Zveřejněno', en: 'Published', ru: 'Опубликовано', uk: 'Опубліковано' }[lang];
   body = body.replace(/(Aktualizováno|Обновлено|Updated|Оновлено): <time/, `${pubLabel}: <time datetime="${pubIso}">${pubText}</time> · $1: <time`);
 }

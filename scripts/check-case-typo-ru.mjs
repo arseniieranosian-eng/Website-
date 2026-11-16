@@ -80,7 +80,7 @@ for (const p of ['dist/ru/start-3-mesyaca/index.html', 'dist/ru/full-seo/index.h
   if (!x.includes(`href="${URL_PATH}"`) || !txt(x).includes('Типография: органический трафик вырос с 1 200 до 10 500 визитов в месяц (+775%, июль 2024 → июль 2025).')) e(`${p}: the print-shop line with one formula and a link`);
 }
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
-if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-tiskarna/`) || /seo-print-shop/.test(sm)) e('sitemap: cs + ru, no en');
+if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-tiskarna/`) || !sm.includes('/en/case-studies/seo-print-shop/')) e('sitemap: cs + ru + en');
 if (/seo-tipografiya|seo-tiskarna/.test(readFileSync('dist/en/case-studies/index.html', 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e('the case must not be listed in en');
 // +777 is gone from the whole site
 for (const p of ['dist/o-mne/index.html', 'dist/ru/obo-mne/index.html', 'dist/index.html']) if (/777/.test(readFileSync(p, 'utf8'))) e(`${p}: +777 must be replaced by +775`);

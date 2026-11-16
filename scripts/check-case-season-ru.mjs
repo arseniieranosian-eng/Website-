@@ -105,7 +105,7 @@ for (const p of ['dist/ru/start-3-mesyaca/index.html', 'dist/ru/full-seo/index.h
   if (!p.includes('seo-i-geo') && !txt(c).includes(FORMULA)) e(`${p}: the one formula`);
 }
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
-if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-v-nizke-sezone/`) || /seo-in-low/.test(sm)) e('sitemap: cs + ru, no en');
+if (!sm.includes(`${BASE}${URL_PATH}`) || !sm.includes(`${BASE}/pripadove-studie/seo-v-nizke-sezone/`) || !sm.includes('/en/case-studies/seo-in-low-season/')) e('sitemap: cs + ru + en');
 if (/seo-v-nizkij-sezon|seo-v-nizke-sezone/.test(readFileSync('dist/en/case-studies/index.html', 'utf8').replace(/<link rel="alternate"[^>]*>/g, ''))) e('the case must not be listed in en');
 
 if (errors.length) {
