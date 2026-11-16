@@ -83,8 +83,8 @@ const raw = {
   resTable: {
     head: ['Cíl', 'Metrika', 'Výsledek', 'Období', 'Zdroj'],
     rows: [
-      ['Podpora prodeje', 'Poptávky (formulář + e-mail)', 'tři měsíce po sobě +65–70 % měsíc po měsíci', '[měsíce se upřesňují]', 'GA4, týdenní reporty'],
-      ['Podpora prodeje', 'B2B poptávky', '+200 % (×3) za měsíc, držely se po zbytek léta', 'léto 2026 [měsíc se upřesňuje]', 'GA4, týdenní reporty'],
+      ['Podpora prodeje', 'Poptávky (formulář + e-mail)', 'tři měsíce po sobě +65–70 % měsíc po měsíci', '15. 6.–15. 7., 15. 7.–15. 8. a 15. 8.–15. 9. 2026', 'GA4, týdenní reporty'],
+      ['Podpora prodeje', 'B2B poptávky', '+200 % (×3) za měsíc, držely se po zbytek léta', '15. 6.–15. 7., 15. 7.–15. 8. a 15. 8.–15. 9. 2026', 'GA4, týdenní reporty'],
       ['Podpora prodeje', 'Nejlepší týden léta', 'o více než 30 % nad dosavadní rekord', 'léto 2026', 'GA4'],
       ['Podpora prodeje', 'Nové sekce (jazykové páry, blog, stránky měst)', 'přinášejí poptávky samy', 'stav na konci projektu', 'GA4'],
       ['Podpora prodeje', 'Ruská verze', 'první konverze na konci července', 'červenec 2026', 'GA4'],
