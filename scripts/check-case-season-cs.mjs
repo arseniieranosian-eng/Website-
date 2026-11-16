@@ -49,7 +49,7 @@ const words = lead.split(/\s+/).length;
 if (!lead.startsWith('Za léto 2026 (červen–srpen)') || words < 35 || words > 60) e(`hero answer (${words} words)`);
 const cards = [...(main.match(/<dl class="stats[\s\S]*?<\/dl>/) || [''])[0].matchAll(/<dt>([^<]*)<\/dt><dd>([^<]*)<\/dd>/g)].map((m) => `${norm(m[2])} ${norm(m[1])}`);
 if (cards.join('|') !== '×24 poptávky z webu|+357 % kliky|+398 % zobrazení') e(`hero cards: ${cards.join('|')}`);
-if (!mainTxt.includes('data se upřesňují')) e('dates note until confirmed');
+if (mainTxt.includes('upřesňují')) e('placeholder left'); if (!mainTxt.includes('březen–červen 2026 oproti listopadu 2025–únoru 2026')) e('dates note');
 const byline = h.match(/Autor: <a href="\/o-mne\/">Arsenii Eranosian<\/a> · Aktualizováno: <time datetime="([^"]+)">([^<]+)<\/time> · Projekt: překladatelská agentura, březen – srpen 2026 · Část 2<\/p>/);
 if (!byline) e('byline');
 if (!mainTxt.includes('Toto je Část 2. Část 1: první 4 měsíce práce')) e('link to Part 1 in the hero');
@@ -62,7 +62,7 @@ if (/\d+\s*%/.test(vis.replace(/[+]?(357|398|2300) %|asi (35|24|60|40) %|55\/45/
 
 // Results table
 const rows = [...h.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
-for (const r of ['Ukazatel|Období|Změna', 'Poptávky z formuláře|březen–květen → červen–srpen 2026|×24 (+2300 %)', 'Kliky (Search Console)|poslední 4 měsíce → předchozí období [data se upřesňují]|+357 %', 'Zobrazení (Search Console)|totéž|+398 %']) if (!rows.some((x) => x.join('|') === r)) e(`results table row: ${r}`);
+for (const r of ['Ukazatel|Období|Změna', 'Poptávky z formuláře|březen–květen → červen–srpen 2026|×24 (+2300 %)', 'Kliky (Search Console)|listopad 2025–únor 2026 → březen–červen 2026|+357 %', 'Zobrazení (Search Console)|totéž|+398 %']) if (!rows.some((x) => x.join('|') === r)) e(`results table row: ${r}`);
 if (!mainTxt.includes('Zdroj: Search Console, GA4.')) e('source line under the table');
 for (const s of ['asi 35 % letních poptávek', 'asi 24 %', 'Dohromady asi 60 %', 'zhruba 55/45', 'asi 40 % se rozkládá mezi 10+ stránek']) if (!mainTxt.includes(s)) e(`lead share missing: ${s}`);
 for (const s of ['top 3 zdroje poptávek', 'top 2 pozice', 'top 5 zdrojů poptávek']) if (!mainTxt.includes(s)) e(`local pages fact missing: ${s}`);

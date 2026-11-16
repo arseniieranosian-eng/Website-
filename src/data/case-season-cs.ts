@@ -2,7 +2,7 @@
 // adaptation of the Russian page, not a translation. The client (name, domain) appears nowhere. One result formula
 // (SEASON_FORMULA_CS), repeated word for word. Form leads only (e-mail separate, calls / messengers not measured), relative
 // data from a low base, no absolute numbers. No charts: the brief has no Google Trends / GA4 data to draw. Not invented:
-// details of the service-page rewrite, the Trends region, the dates of the Search Console figures (shown as "data se upřesňují"),
+// details of the service-page rewrite, the Trends region, the dates of the Search Console figures (now filled in by the author: Mar–Jun 2026 vs Nov 2025–Feb 2026),
 // the LinkedIn profile clause.
 import { SEASON_FORMULA_CS } from './case-summary';
 import { CASE_SEASON_PUBLISHED } from './case-season-ru';
@@ -26,7 +26,7 @@ const raw = {
     { value: '+357 %', label: 'kliky' },
     { value: '+398 %', label: 'zobrazení' },
   ],
-  cardsNote: 'Kliky a zobrazení: Search Console, data se upřesňují.',
+  cardsNote: 'Kliky a zobrazení: Search Console, březen–červen 2026 oproti listopadu 2025–únoru 2026.',
   dataNote: 'Název klienta a absolutní čísla nezveřejňuji, stejně jako bych chránil vaše data. Počítám poptávky z formuláře; e-mail se měří zvlášť a telefonáty a messengery se neměří, takže reálný růst je vyšší. Růst se počítá od nízké základny.',
   part1Link: 'Toto je Část 2. Část 1: první 4 měsíce práce',
   heroCta: 'Chci audit zdarma',
@@ -68,7 +68,7 @@ const raw = {
     head: ['Ukazatel', 'Období', 'Změna'],
     rows: [
       ['Poptávky z formuláře', 'březen–květen → červen–srpen 2026', '×24 (+2300 %)'],
-      ['Kliky (Search Console)', 'poslední 4 měsíce → předchozí období [data se upřesňují]', '+357 %'],
+      ['Kliky (Search Console)', 'listopad 2025–únor 2026 → březen–červen 2026', '+357 %'],
       ['Zobrazení (Search Console)', 'totéž', '+398 %'],
     ],
   },
