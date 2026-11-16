@@ -9,7 +9,7 @@ import { walk } from '../lib/cs-typo';
 
 // Publication date of this address (the brief: 25. 10. 2026); do NOT bump it when the page is edited.
 export const NICHE_MACHINERY_PUBLISHED = '2026-10-25';
-export const MACHINERY_CAPACITY_DATE = '25. 10. 2026';
+export const MACHINERY_CAPACITY_DATE = '16. 11. 2026';
 export const MACHINERY_SHORT_URL = 'https://youtube.com/shorts/J6w0iMTKJJk';
 
 const raw = {

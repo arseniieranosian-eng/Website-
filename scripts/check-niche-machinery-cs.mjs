@@ -70,7 +70,7 @@ if (!/Další články<\/h2>[\s\S]*?<h3>Co jsem zjistil ve výsledcích Googlu a
 if (!mainTxt.includes('Konzultace 2 000 Kč za hodinu, Full SEO pro strojírenské firmy od 20 000 Kč měsíčně podle rozsahu webu.') || /Konzultace od 2 000/.test(mainTxt)) e('prices in the summary');
 if (!/Aktualizováno: <time datetime="2026-11-16">16\. 11\. 2026<\/time>/.test(h)) e('Aktualizováno 16. 11. 2026');
 // Capacity line
-if (!mainTxt.includes('k 25. 10. 2026 je obor strojírenských a výrobních firem volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity line, no counter');
+if (!mainTxt.includes('k 16. 11. 2026 je obor strojírenských a výrobních firem volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity line, no counter');
 // JSON-LD
 const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const by = (t) => g.find((n) => n['@type'] === t);
