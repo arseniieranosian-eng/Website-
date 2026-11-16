@@ -399,6 +399,17 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
   },
+  postCncObrabeni: {
+    cs: {
+      name: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „CNC obrábění“',
+      title: 'CNC obrábění: co jsem zjistil | Eranosian',
+      description: 'K 16. 11. 2026 jsem na Googlu a Seznamu prošel po 30 výsledcích dotazu „CNC obrábění“ a spočítal, co mají weby firem a výrobců.',
+      h1: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „CNC obrábění“',
+    },
+    en: { name: 'CNC machining: what I found', title: 'CNC machining: what I found', description: 'CNC machining: what I found', h1: 'What I found in Google and Seznam results for "CNC machining"' },
+    ru: { name: 'CNC-обработка: что я обнаружил', title: 'CNC-обработка: что я обнаружил', description: 'CNC-обработка: что я обнаружил', h1: 'Что я обнаружил в выдаче Google и Seznam по запросу «CNC obrábění»' },
+    uk: { name: 'CNC-обробка: що я з’ясував', title: 'CNC-обробка: що я з’ясував', description: 'CNC-обробка: що я з’ясував', h1: 'Що я з’ясував у видачі Google і Seznam за запитом «CNC obrábění»' },
+  },
   postWeakSeoDental: {
     cs: {
       name: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „stomatologie v Praze“',

@@ -9,7 +9,7 @@ const NAME = 'SEO a GEO/AEO pro strojírenské firmy'; // the breadcrumb label (
 const H1 = 'SEO a GEO/AEO pro strojírenské firmy: poptávky z Googlu a AI';
 const TITLE = 'SEO pro strojírenské firmy a výrobu | Eranosian';
 const DESC = 'Dělám SEO a GEO/AEO pro strojírenské a výrobní firmy: stránky technologií, PDF katalogy, poptávkový formulář. Audit zdarma.';
-const SECTIONS = [H1, 'Co pro strojírenskou firmu dělám?', 'Pro koho je to a pro koho ne?', 'Ukázka auditu ze související oblasti', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Kolik to stojí?', 'Časté otázky', 'Další krok'];
+const SECTIONS = [H1, 'Co pro strojírenskou firmu dělám?', 'Pro koho je to a pro koho ne?', 'Co vidím na webech strojírenských firem?', 'Ukázka auditu ze související oblasti', 'Co obsahuje bezplatný audit a co ne?', 'Jak spolupráce probíhá?', 'Kolik to stojí?', 'Časté otázky', 'Další články', 'Další krok'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/seo-a-geo/', '/o-mne/'];
 const FORBIDDEN = ['garantovaně', 'zaručeně', 'top 1', 'rychlé výsledky pro', 'SEO agentur', 'Německ', 'export', 'ISO ', 'certifik', 'tiskárn', 'AggregateRating', 'na části webů', 'N webů', 'poptávky z Německa'];
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -34,7 +34,9 @@ const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/(?:en\/|ru\/)?blog\/|<form|<video|<iframe|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny/.test(main)) e('no blog links, no form / video / iframe, no links to the other niche landing pages');
+const blogLinks = [...main.matchAll(/href="(\/(?:en\/|ru\/)?blog\/[^"]*)"/g)].map((m) => m[1]);
+if (blogLinks.join() !== '/blog/cnc-obrabeni-co-jsem-zjistil/') e(`the only blog link: the observation article in Další články (${blogLinks})`);
+if (/<form|<video|<iframe|\/seo-pro-prekladatelske|\/seo-pro-realitni|\/seo-pro-ucetni|\/seo-pro-tiskarny/.test(main)) e('no blog links, no form / video / iframe, no links to the other niche landing pages');
 if (/\b(jsem|moje|naše|moji|my jsme)\b[^.]{0,30}\bagentur/i.test(mainTxt)) e('"agentura" about the author');
 if (/GEO(?!\/AEO)/.test(mainTxt)) e('"GEO" only together with AEO');
 if (!/Aktualizováno: <time datetime="\d{4}-\d{2}-\d{2}">\d{1,2}\. \d{1,2}\. \d{4}<\/time>/.test(h)) e('visible date');
@@ -50,7 +52,7 @@ if (ols.length !== 1 || [...ols[0][1].matchAll(/<li><span>/g)].length !== 3) e('
 const rows = [...main.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((c) => txt(c[1])));
 if (rows.length !== 5 || rows[0].join('|') !== 'Co obsahuje|Co neobsahuje') e('audit table: header + 4 rows');
 if (([...(main.match(/Co zkontrolovat na webu výrobní firmy:[\s\S]*?<ul class="checks">([\s\S]*?)<\/ul>/) || [, ''])[1].matchAll(/<li>/g)]).length !== 5) e('audit checklist: 5 items');
-if (!mainTxt.includes('pracuji s češtinou, angličtinou, ruštinou, ukrajinštinou a němčinou: řeším jejich indexaci a strukturu.') || !mainTxt.includes('texty v těchto jazycích nepíšu')) e('language versions line');
+if (!mainTxt.includes('pracuji s češtinou, angličtinou, ruštinou a ukrajinštinou: řeším jejich indexaci a strukturu. Ukrajinsky nemluvím, rozumím jí, a texty v ukrajinštině nepíšu. Texty píšu česky, anglicky a rusky.') || /němč|německ|Deutsch/i.test(mainTxt)) e('language versions line');
 // Audit example: links only, findings as on the audit page, no client / domain
 if (!mainTxt.includes('V ukázce je například jedna canonical adresa na neindexovatelné stránce a osm stránek, u kterých canonical vede na jinou adresu.')) e('findings line');
 const audit = txt(readFileSync('dist/audit-zdarma/index.html', 'utf8'));
@@ -58,6 +60,15 @@ if (!audit.includes('1 canonical na neindexovatelnou stránku, 8 stránek s cano
 if (!/href="https:\/\/youtube\.com\/shorts\/J6w0iMTKJJk" target="_blank" rel="noopener"/.test(main) || /si=|utm_/.test(main)) e('YouTube Short link: rel=noopener, no tracking parameters');
 if (/\.(?:com|cz|net|io)\b/.test(mainTxt.replace(/Mapy\.com|YouTube/g, ''))) e('no domain names');
 if (!audit.includes('SEO a GEO/AEO pro strojírenské firmy') || !readFileSync('dist/audit-zdarma/index.html', 'utf8').includes(`href="${URL_PATH}"`)) e('the audit page links to this landing');
+// Observation block (brief of 16.11.2026) and Další články
+const ob = (main.match(/Co vidím na webech strojírenských firem\?<\/h2>\s*<p class="answer">([\s\S]*?)<\/p>\s*<ul class="checks">([\s\S]*?)<\/ul>/) || []);
+const OBS = 'K 16. 11. 2026 jsem na Googlu a na Seznamu prošel po 30 výsledcích dotazu „CNC obrábění“. Krátkou odpověď nahoře na stránce služby mělo 6 z 26 měřitelných výsledků. Z katalogů pocházely na Googlu 2 výsledky, na Seznamu 6. Je to můj pozorovací vzorek, ne průzkum trhu.';
+if (!ob[1] || txt(ob[1]) !== OBS || txt(ob[1]).split(' ').length !== 47) e('observation answer (47 words)');
+if (!ob[2] || JSON.stringify([...ob[2].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => txt(m[1]))) !== JSON.stringify(['Stránku s FAQ mělo 2 z 24 webů firem na Googlu a 4 z 21 na Seznamu.', 'Blog mělo 7 z 24 webů firem na Googlu a 3 z 21 na Seznamu.', 'Strukturovaná data mělo 15 z 24 webů firem na Googlu a 10 z 21 na Seznamu.'])) e('observation list (3 items)');
+if (/Domněnkou|slabé SEO|slabá konkurence|Mým cílem/i.test(mainTxt)) e('no weak-competition wording');
+if (!/Další články<\/h2>[\s\S]*?<h3>Co jsem zjistil ve výsledcích Googlu a Seznamu pro „CNC obrábění“<\/h3>/.test(main) || mainTxt.indexOf('Další články') < mainTxt.indexOf('Časté otázky') || mainTxt.indexOf('Další články') > mainTxt.indexOf('Další krok')) e('Další články: one card, before the CTA');
+if (!mainTxt.includes('Konzultace 2 000 Kč za hodinu, Full SEO pro strojírenské firmy od 20 000 Kč měsíčně podle rozsahu webu.') || /Konzultace od 2 000/.test(mainTxt)) e('prices in the summary');
+if (!/Aktualizováno: <time datetime="2026-11-16">16\. 11\. 2026<\/time>/.test(h)) e('Aktualizováno 16. 11. 2026');
 // Capacity line
 if (!mainTxt.includes('k 25. 10. 2026 je obor strojírenských a výrobních firem volný') || /\d ze 3|max\. ?3/i.test(mainTxt)) e('capacity line, no counter');
 // JSON-LD

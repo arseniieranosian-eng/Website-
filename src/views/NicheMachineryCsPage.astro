@@ -1,7 +1,8 @@
 ---
 // Niche landing page "SEO a GEO/AEO pro strojírenské firmy" (cs), brief of 25.10.2026. Content: data/niche-machinery-cs.ts. Own structure: differences of the niche, 3 steps, for whom,
-// the audit example from the related niche (links only), audit scope table and checklist, cooperation, FAQ. No prices, no quote, no funnel articles yet.
+// the observation block (16.11.2026), the audit example from the related niche, audit scope table and checklist, cooperation, FAQ, Další články (one article). No quote.
 import Base from '../layouts/Base.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
@@ -14,7 +15,7 @@ const lang = C.lang;
 // The audit example of the audit page (a YouTube Short, anonymised), embedded as a facade at the author's request of 05.11.2026 (the player loads only on click).
 const EX = AUDIT_EXAMPLES.find((x) => x.id === 'machinery-software')!;
 const site = Astro.site!;
-const MOD = [lastModified(['src/views/NicheMachineryCsPage.astro', 'src/data/niche-machinery-cs.ts'], '2026-10-25'), NICHE_MACHINERY_PUBLISHED].sort().pop()!;
+const MOD = [lastModified(['src/views/NicheMachineryCsPage.astro', 'src/data/niche-machinery-cs.ts'], '2026-11-16'), NICHE_MACHINERY_PUBLISHED].sort().pop()!;
 const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
@@ -54,6 +55,14 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 
   <section class="section section--grey">
     <div class="container narrow">
+      <h2>{C.obsTitle}</h2>
+      <p class="answer">{C.obsAnswer}</p>
+      <ul class="checks">{C.obs.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
       <h2>{C.exampleTitle}</h2>
       <p class="answer">{C.exampleAnswer}</p>
       <p>{C.exampleFindings}</p>
@@ -68,7 +77,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--grey">
     <div class="container narrow">
       <h2>{C.auditTitle}</h2>
       <p class="answer">{C.auditAnswer}</p>
@@ -84,7 +93,7 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     </div>
   </section>
 
-  <section class="section section--grey">
+  <section class="section">
     <div class="container narrow">
       <h2>{C.coopTitle}</h2>
       <p class="answer">{C.coopAnswer}</p>
@@ -103,6 +112,13 @@ const t = (k: Parameters<typeof path>[0]) => path(k, lang);
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.moreTitle}</h2>
+      <RelatedPosts lang={lang} keys={['postCncObrabeni']} more={C.moreMore} />
     </div>
   </section>
 

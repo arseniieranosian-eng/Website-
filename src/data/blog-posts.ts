@@ -24,6 +24,7 @@ import { POST_FINANCE_CHANNELS_RU, POST_FINANCE_CHANNELS_PUBLISHED } from './pos
 import { POST_SEO_PLAN_CS, POST_SEO_PLAN_PUBLISHED } from './post-seo-plan-cs';
 import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './post-select-specialist-cs';
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
+import { POST_CNC_CS, POST_CNC_PUBLISHED } from './post-cnc-obrabeni-cs';
 import { POST_WEAK_SEO_DENTAL_CS, POST_WEAK_SEO_DENTAL_PUBLISHED } from './post-weak-seo-dental-cs';
 import { POST_WEAK_SEO_REALTY_CS, POST_WEAK_SEO_REALTY_PUBLISHED } from './post-weak-seo-realty-cs';
 import { POST_WEAK_SEO_REALTY_RU, POST_WEAK_SEO_REALTY_RU_PUBLISHED } from './post-weak-seo-realty-ru';
@@ -72,6 +73,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postSeoPlan', lang: 'cs', date: POST_SEO_PLAN_PUBLISHED, title: META.postSeoPlan.cs.h1, description: META.postSeoPlan.cs.description, image: POST_SEO_PLAN_CS.cover },
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
+  { key: 'postCncObrabeni', lang: 'cs', date: POST_CNC_PUBLISHED, title: META.postCncObrabeni.cs.h1, description: META.postCncObrabeni.cs.description, image: POST_CNC_CS.cover },
   { key: 'postWeakSeoDental', lang: 'cs', date: POST_WEAK_SEO_DENTAL_PUBLISHED, title: META.postWeakSeoDental.cs.h1, description: META.postWeakSeoDental.cs.description, image: POST_WEAK_SEO_DENTAL_CS.cover },
   { key: 'postFaqDental', lang: 'cs', date: POST_FAQ_DENTAL_PUBLISHED, title: META.postFaqDental.cs.h1, description: META.postFaqDental.cs.description, image: POST_FAQ_DENTAL_CS.cover },
   { key: 'postFaqRealty', lang: 'cs', date: POST_FAQ_REALTY_PUBLISHED, title: META.postFaqRealty.cs.h1, description: 'Jaké otázky do FAQ zařadit, kdo odpovědi schvaluje a kam FAQ umístit.', image: POST_FAQ_REALTY_CS.cover },
@@ -142,6 +144,12 @@ export const BLOG_GROUPS: BlogGroup[] = [
     title: { cs: 'Realitní kanceláře', en: 'Real estate agencies', ru: 'Агентства недвижимости' },
     lead: { cs: 'Web, nabídky, čtvrti, mapy a portály z pohledu realitní kanceláře.', en: 'Website, listings, neighbourhoods, maps and portals from a real estate agency’s point of view.', ru: 'Сайт, объявления, районы, карты и порталы с точки зрения агентства недвижимости.' },
     keys: ['postRealty', 'postRealtyNoLeads', 'postRealtySmall', 'postRealtyListings', 'postRealtyPortals', 'postRealtyDistricts', 'postRealtyPragueDistricts', 'postRealtyBrnoDistricts', 'postRealtyLocal', 'postWeakSeoRealty', 'postFaqRealty', 'postServicesRealty', 'postMakleriRealty'],
+  },
+  {
+    id: 'machinery',
+    title: { cs: 'Strojírenské firmy', en: 'Machinery companies', ru: 'Машиностроительные фирмы' },
+    lead: { cs: 'Pozorování webů strojírenských firem ve výsledcích vyhledávání.', en: 'Observations of machinery company websites in search results.', ru: 'Наблюдения за сайтами машиностроительных фирм в поисковой выдаче.' },
+    keys: ['postCncObrabeni'],
   },
   {
     id: 'electronics',

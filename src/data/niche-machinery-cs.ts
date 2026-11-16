@@ -1,7 +1,7 @@
 // Czech niche landing page /seo-pro-strojirenske-firmy/ "SEO a GEO/AEO pro strojírenské firmy" (brief of 25.10.2026; cs only, hreflang self-reference only, whole Czechia). Own structure: how the niche differs, 3 steps,
 // for whom, the audit example from the related niche (a link only: no embed, no VideoObject), audit scope, cooperation, FAQ (7). Defaults taken (no answers to the brief's questions): slug as in the brief, the YouTube
 // Short link from the author (without tracking parameters), languages (answer of 25.10.2026): cs, en, ru, uk, de; the author does not speak uk / de, only understands them, so the page says he works on indexation and structure of the versions and writes no texts in uk / de (nothing about the German market or exports), no funnel articles yet,
-// no observations of manufacturers' sites. The Title is shortened to <= 55 characters (the site rule of 25.10.2026). No guarantees (enquiries, positions, orders, AI citation), no prices, no competitors / portals / catalogues,
+// no observations of manufacturers' sites (16.11.2026: the observation block, Další články, prices and the language line updated; the capacity status stays as it was until the author confirms a new date). The Title is shortened to <= 55 characters (the site rule of 25.10.2026). No guarantees (enquiries, positions, orders, AI citation), no prices, no competitors / portals / catalogues,
 // nothing about certificates, "agentura" never about the author, only "SEO a GEO/AEO". The findings of the audit example are quoted as on the audit page. Review every 90 days (23. 1. 2027).
 import { priceAnswerCs, priceFaqCs } from './niche-prices';
 import SUMMARIES from './niche-summaries.json';
@@ -33,7 +33,7 @@ const raw = {
     'Stránky technologií a možností firmy s jasnou cestou k poptávce a FAQ.',
     'Příprava na GEO/AEO.',
   ],
-  doLang: 'U jazykových verzí webu pracuji s češtinou, angličtinou, ruštinou, ukrajinštinou a němčinou: řeším jejich indexaci a strukturu. Ukrajinsky a německy nemluvím, rozumím jim, a texty v těchto jazycích nepíšu.',
+  doLang: 'U jazykových verzí webu pracuji s češtinou, angličtinou, ruštinou a ukrajinštinou: řeším jejich indexaci a strukturu. Ukrajinsky nemluvím, rozumím jí, a texty v ukrajinštině nepíšu. Texty píšu česky, anglicky a rusky.',
   doGeoLead: 'GEO/AEO je součástí každé služby, popisuji ho na stránce',
   doGeoLink: 'SEO a GEO/AEO',
 
@@ -41,6 +41,15 @@ const raw = {
   forAnswer: 'Hodí se pro strojírenské a výrobní firmy s vlastním webem, které chtějí být vidět ve vyhledávání i v odpovědích AI a získávat poptávky z webu. Nehodí se pro firmy, které čekají zaručené zakázky nebo rychlé výsledky, ani pro ty, které potřebují jen jednorázový web pro jednu kampaň.',
   forYes: { title: 'Hodí se', items: ['strojírenská firma s webem', 'výrobní firma včetně kovovýroby', 'firma, která chce poptávky z webu'] },
   forNo: { title: 'Nehodí se', items: ['firmy, které čekají zaručené zakázky', 'firmy, které čekají rychlé výsledky', 'jednorázový web pro jednu kampaň'] },
+
+  // brief of 16.11.2026: the observation of 16.11.2026 (30 results of Google and 30 of Seznam for "CNC obrábění"); the numbers are those of the article /blog/cnc-obrabeni-co-jsem-zjistil/.
+  obsTitle: 'Co vidím na webech strojírenských firem?',
+  obsAnswer: 'K 16. 11. 2026 jsem na Googlu a na Seznamu prošel po 30 výsledcích dotazu „CNC obrábění“. Krátkou odpověď nahoře na stránce služby mělo 6 z 26 měřitelných výsledků. Z katalogů pocházely na Googlu 2 výsledky, na Seznamu 6. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  obs: [
+    'Stránku s FAQ mělo 2 z 24 webů firem na Googlu a 4 z 21 na Seznamu.',
+    'Blog mělo 7 z 24 webů firem na Googlu a 3 z 21 na Seznamu.',
+    'Strukturovaná data mělo 15 z 24 webů firem na Googlu a 10 z 21 na Seznamu.',
+  ],
 
   exampleTitle: 'Ukázka auditu ze související oblasti',
   exampleAnswer: 'Na stránce bezplatného auditu je krátké video z auditu webu dodavatele softwaru pro strojírenství. Klienta nejmenuji. Ukázka ukazuje, jak vypadá výstup auditu, například nalezené chyby v canonical adresách. Není to případová studie výrobní firmy a nic z ní neplyne o výsledcích pro váš web.',
@@ -92,6 +101,9 @@ const raw = {
     { q: 'Co dělá bezplatný audit u webu s PDF katalogy a více jazyky?', a: 'Kontroluje, zda se PDF katalogy a jazykové verze indexují a zda nevznikají duplicity s HTML stránkami, včetně canonical adres. Prezentaci dostanete do 24 hodin, bez hovoru a bez závazku. Co konkrétně se najde, předem říct nelze. Klíčová slova, konkurenci, mapy, viditelnost v AI, rychlost ani mobilní verzi audit neřeší.' },
     { q: 'Kolik firem z oboru obsluhujete současně?', a: `Pracuji současně nejvýše se třemi firmami z jednoho oboru. K ${MACHINERY_CAPACITY_DATE} je obor strojírenských a výrobních firem volný. Názvy a data klientů nezveřejňuji. Údaje o kapacitě aktualizuji při změně. Díky tomu na každý projekt zbývá dost času. Stav je vždy uveden s datem.` },
   ],
+
+  moreTitle: 'Další články',
+  moreMore: 'Číst článek',
 
   endTitle: 'Další krok',
   endText: 'Chcete vědět, jestli má váš web technické chyby, které brání indexaci stránek technologií nebo katalogů? Začněte bezplatným technickým auditem.',

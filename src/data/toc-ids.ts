@@ -43,6 +43,7 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/slabe-seo-konkurence-prekladatelske-agentury/': ['vysledky', 'weby', 'nedostatky', 'konkurence', 'doporuceni', 'faq'],
   '/blog/slabe-seo-konkurence-realitni-kancelare/': ['praha', 'brno', 'hodnoceni', 'proc-vpredu', 'ai-prehledy', 'kontrola', 'faq'],
   '/blog/slabe-seo-konkurence-ucetni-kancelare/': ['vysledky', 'plyne', 'kontrola', 'proc-vpredu', 'faq'],
+  '/blog/cnc-obrabeni-co-jsem-zjistil/': ['zpusob', 'okoli', 'puvod', 'nalezy', 'nevyplyva', 'kontrola', 'faq'],
   '/blog/slabe-seo-konkurence-zubni-ordinace/': ['zpusob', 'okoli', 'puvod', 'nalezy', 'nevyplyva', 'kontrola', 'faq', 'dalsi-clanky'],
   '/blog/stranka-pro-kazdy-jazykovy-par/': ['rozdil', 'smysl', 'poptavka', 'obsah', 'sablona', 'ostatni', 'audit', 'agentury-praha', 'faq'],
   '/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/': ['definice', 'otazky', 'obsah', 'sablony', 'pocet', 'nabidky', 'aktualnost', 'faq', 'souvisejici'],
