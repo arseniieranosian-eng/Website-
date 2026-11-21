@@ -136,7 +136,7 @@ export function addServiceToc(body: string, lang: Lang, home = false): string {
   const narrow = /<div class="container[^"]*\bnarrow\b/.test(body.slice(heroStart, heroEnd)); // same width as the introduction of the hero
   if (home) {
     // home page: the contents are a light section of their own right after the (dark, split) hero
-    const sec = `<section class="section section--tight" aria-label="${L.aria}"><div class="container"><nav class="toc toc--cols" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div></section>`;
+    const sec = `<section class="section section--tight toc-section" aria-label="${L.aria}"><div class="container"><nav class="toc toc--cols" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div></section>`;
     return body.slice(0, heroEnd + '</section>'.length) + sec + newRest;
   }
   const nav = `<div class="container${narrow ? ' narrow' : ''}"><nav class="toc${narrow ? '' : ' toc--cols'}" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div>`;

@@ -82,9 +82,9 @@ ul, ol { padding-left: 1.2em; }
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgb(255 255 255 / 94%); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.site-header .container { max-width: 1380px; }
+.site-header .container { max-width: 1560px; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); flex: none; }
 .logo-text { white-space: nowrap; display: flex; flex-direction: column; font-weight: 700; line-height: 1.1; font-size: 0.95rem; }
 .logo-text small { font-weight: 500; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.06em; }
 .logo-img { height: 40px; width: auto; flex: none; }
@@ -118,19 +118,19 @@ ul, ol { padding-left: 1.2em; }
 .lang-switch a[aria-current='true'] { color: var(--text); border-color: var(--line); }
 .lang-switch a:hover { color: var(--blue); }
 
-/* the desktop header starts at 1200px (was 1100px): the Czech menu item "Články a výzkumy" is longer and did not fit on one line between 1100 and 1180px; below it the burger menu is used */
-@media (min-width: 1200px) {
+/* the desktop header starts at 1200px (was 1100px; 1280px since the 22.11.2026 spacing fix): the Czech menu item "Články a výzkumy" is longer and did not fit on one line between 1100 and 1180px; below it the burger menu is used */
+@media (min-width: 1280px) {
   .nav-toggle { display: none; }
   /* compact desktop header (laptops): everything stays on one horizontal line */
   .nav-wrap, .nav-open .nav-wrap { display: flex; position: static; flex-direction: row; align-items: center; padding: 0; border: 0; gap: 10px; background: none; }
   .nav { flex-direction: row; gap: 0; }
-  .nav a { padding: 8px clamp(4px, calc((100vw - 1200px) / 80 + 4px), 8px); border: 0; font-size: 0.85rem; border-radius: 8px; }
+  .nav a { padding: 8px clamp(6px, calc((100vw - 1280px) / 24 + 6px), 14px); border: 0; font-size: 0.85rem; border-radius: 8px; }
   .logo-text small { display: none; }
   .lang-switch a { padding: 5px 6px; }
   .nav-wrap .btn--sm { padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; }
   .nav a:hover { background: var(--grey-bg); }
   .nav-dd { position: relative; }
-  .nav-dd__btn { width: auto; border: 0; padding: 8px clamp(4px, calc((100vw - 1200px) / 80 + 4px), 8px); font-size: 0.85rem; border-radius: 8px; }
+  .nav-dd__btn { width: auto; border: 0; padding: 8px clamp(6px, calc((100vw - 1280px) / 24 + 6px), 14px); font-size: 0.85rem; border-radius: 8px; }
   .nav-dd__btn:hover { background: var(--grey-bg); }
   .nav-sub { position: absolute; top: 100%; left: 0; min-width: 240px; padding: 8px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 32px rgba(11, 11, 15, 0.12); z-index: 30; }
   .nav-sub a { padding: 10px 12px; }
@@ -139,12 +139,12 @@ ul, ol { padding-left: 1.2em; }
 }
 
 /* roomy header on wide screens */
+@media (min-width: 1600px) { .logo-text small { display: block; } }
 @media (min-width: 1440px) {
   .nav-wrap, .nav-open .nav-wrap { gap: 14px; }
   .nav { gap: 2px; }
-  .nav a { padding: 8px 8px; font-size: 0.88rem; }
-  .nav-dd__btn { padding: 8px 8px; font-size: 0.88rem; }
-  .logo-text small { display: block; }
+  .nav a { font-size: 0.88rem; }
+  .nav-dd__btn { font-size: 0.88rem; }
   .lang-switch a { padding: 6px 8px; }
   .nav-wrap .btn--sm { padding: 9px 14px; font-size: 0.88rem; }
 }
@@ -397,7 +397,7 @@ table.compare { min-width: 0; }
 /* Floating "free audit" button on phones: small, bottom-right, opens the audit pop-up */
 .fab-audit { position: fixed; z-index: 60; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 8px 24px rgba(255, 106, 26, 0.45); border-radius: 999px; padding: 15px 21px; font-size: 1.08rem; font-weight: 700; white-space: nowrap; }
 .ask-consent .fab-audit, .nav-open .fab-audit { display: none; } /* the cookie banner / open menu come first */
-@media (min-width: 1200px) { .fab-audit { display: none; } }
+@media (min-width: 1280px) { .fab-audit { display: none; } }
 
 /* Case study page: figures, speed comparison, channel chart, six steps, pull quote */
 .case-figure { margin: 24px 0; }
@@ -561,6 +561,10 @@ nav.toc li { line-height: 1.4; }
 .toc a { color: var(--blue); text-decoration: none; }
 .toc a:hover { text-decoration: underline; }
 nav.toc--cols { max-width: none; }
+/* the contents of the home page: no big empty band between them and the next block (the strip of clients) */
+.section.toc-section { padding: 18px 0 0; }
+.toc-section nav.toc { margin: 0 0 4px; }
+.section.toc-section + .logo-strip { padding-top: 20px; }
 @media (min-width: 760px) { nav.toc--cols ul { display: block; columns: 2; column-gap: 32px; } nav.toc--cols li { break-inside: avoid; margin-bottom: 6px; } }
 h2[id], .blog-group[id] { scroll-margin-top: 96px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
