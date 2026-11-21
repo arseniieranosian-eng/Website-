@@ -130,7 +130,7 @@ export const MAPS_CS = {
   articlesTitle: 'Související články',
   articlesLead: 'Články o tom, jak má firma vypadat v mapách a katalozích, a co jsem zjistil při procházení karet v mapách.',
   articlesMore: 'Číst článek',
-  articles: ['postChoose', 'postAds', 'postSeoAudit', 'postNotShown', 'postRealtyLocal', 'postAccountingLocal'] as const,
+  articles: ['postDentalMapsObs', 'postDentalProfile', 'postChoose', 'postAds', 'postSeoAudit', 'postNotShown', 'postRealtyLocal', 'postAccountingLocal'] as const,
 
   faqTitle: 'Časté otázky o propagaci v mapách',
   faq: [

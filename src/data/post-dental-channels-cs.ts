@@ -43,6 +43,9 @@ const raw = {
   mapsTitle: 'Co přinášejí mapy, profily a katalogy lékařů?',
   mapsAnswer: 'Mapy, místní profily a katalogy lékařů ukazují ordinaci lidem, kteří hledají v okolí nebo srovnávají. Přínos závisí na tom, zda rozhoduje poloha, a na udržovaných údajích. Co o ordinaci napíšou jiní, nemusí být plně pod její kontrolou. Podmínky jednotlivých služeb zde neuvádím, najdete je u nich.',
 
+  // brief of 21.11.2026 (C4): ONE sentence with two links (the observation of the cards in maps and the how-to about the profile).
+  mapsMore: { before: 'Jak vypadají karty ordinací v mapách, popisuji v', link1: 'samostatném článku', mid: ', a jak má vypadat profil, v', link2: 'návodu', after: '.' },
+
   // brief of 15.11.2026: one short dated section (no table, no quote, no repetition of the FAQ / blog / markup counters of the article about the observation: K9); the link points to that article with a descriptive anchor.
   catTitle: 'Kolik výsledků pro „stomatologie v Praze“ pochází z katalogů?',
   catAnswer: 'K 15. 11. 2026 jsem na notebooku s polohou Praha prošel po 30 organických výsledcích dotazu „stomatologie v Praze“. Na Googlu pocházely z katalogů 2 výsledky, na Seznamu 12. Weby ordinací a klinik byly na Googlu 25 výsledků, na Seznamu 17. Je to můj pozorovací vzorek, ne průzkum trhu.',

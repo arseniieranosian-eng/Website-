@@ -51,12 +51,12 @@ if (!bp || bp.inLanguage !== 'cs-CZ' || bp.headline !== h1 || bp.datePublished !
 const wp = ld.find((x) => x['@type'] === 'WebPage');
 if (!wp || wp.name !== 'Stomatologie v Praze: co jsem zjistil' || wp.dateModified !== '2026-11-15') e('WebPage');
 const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
-const okLinks = ['/o-mne/', 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', 'https://developers.google.com/search/docs/crawling-indexing/url-structure', 'https://developers.google.com/search/docs/appearance/ai-features', '/kontakt/', '/seo-pro-zubni-ordinace-praha/', '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/', '/blog/faq-na-webu-zubni-ordinace/'];
+const okLinks = ['/o-mne/', 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', 'https://developers.google.com/search/docs/crawling-indexing/url-structure', 'https://developers.google.com/search/docs/appearance/ai-features', '/kontakt/', '/seo-pro-zubni-ordinace-praha/', '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/', '/blog/faq-na-webu-zubni-ordinace/', '/blog/stomatologie-v-mapach-co-jsem-zjistil/'];
 if (links.some((l) => !okLinks.includes(l)) || okLinks.some((l) => !links.includes(l)) || (main.match(/class="btn btn--primary/g) || []).length !== 1 || /<form/.test(main)) e(`links / one button: ${links}`);
 const body = txt(main);
 const UPD = /Aktualizace 15\. 11\. 2026: původní pozorování z 31\. 10\. 2026 \(14 webů\) jsem nahradil širším vzorkem z Googlu a Seznamu\./;
 if (/\bTOP\b|nejlepší|slabé SEO|slabá konkurence|silný konkurent|Domněnkou|mezera na trhu|nikdo nemá|lépe než|snáz|rychleji|HowTo|(?<!ne)zaručuj(?!i)|Kč|volno|u 11 z 14/i.test(body.replace(UPD, ''))) e('forbidden word');
-if (/Zoner|Dentist|Dentalni|Zdravotnictví|Znamylekar|ZnamyLekar|Doktor|Heureka|Firmy\.cz|Mapy\.com|Alza/i.test(body.replace('Mapy.com', ''))) e('named site');
+if (/Zoner|Dentist|Dentalni|Zdravotnictví|Znamylekar|ZnamyLekar|Doktor|Heureka|Firmy\.cz|Mapy\.com|Alza/i.test(body.replaceAll('Mapy.com', ''))) e('named site');
 if (/14 webů|31\. 10\. 2026/.test(body.replace(UPD, ''))) e('old numbers outside the update line');
 if (/[Ѐ-ӿ]/.test(body.replace('(rozhraní v ruštině)', ''))) e('Cyrillic in the Czech text');
 for (const k of ['aktualizováno 10. 12. 2025', 'aktualizováno 21. 10. 2026']) if (!body.includes(k)) e(`source / date: ${k}`);
