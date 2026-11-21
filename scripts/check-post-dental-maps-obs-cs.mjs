@@ -1,4 +1,4 @@
-// Check of the blog article /blog/stomatologie-v-mapach-co-jsem-zjistil/ (brief of 21.11.2026, series "maps", pilot dentistry): meta (Title 50, Description 128, H1 75), summary 55, direct answers (52/42/54/44/42/42),
+// Check of the blog article /blog/stomatologie-v-mapach-co-jsem-zjistil/ (brief of 21.11.2026, series "maps", pilot dentistry): meta (Title 50, Description 128, H1 75), summary 55, direct answers (59/42/54/44/42/42),
 // FAQ (41/40/42/44) = JSON-LD, the author's numbers identical in the summary / H2-3 / table / chart / quote / FAQ, no type of profile / reservations / ratings / names, no "better / worse" comparison of the platforms,
 // sources with the check date, ONE link to the profile article (H2-6, 200), ONE button + ONE text link, "Další články" with two links, K5 before the CTA, K7, dates by hand (21. 11. 2026), no hreflang.
 import { readFileSync } from './fs-clean.mjs';
@@ -20,7 +20,7 @@ if (!/Aktualizováno: <time datetime="2026-11-21">21\. 11\. 2026<\/time>/.test(h
 const lead = inl((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (lead.split(' ').length !== 55 || !lead.startsWith('K 21. 11. 2026 jsem v Google Maps a na Mapy.com prošel po 15 kartách pro dotaz „stomatologie v Praze“. Web a telefon měly všechny karty. Odpověď majitele bylo vidět u 10 z 15 karet na Googlu a u 6 z 15 na Mapy.com.') || !lead.endsWith('ne průzkum trhu, a nevysvětluje pozice.')) e(`summary ${lead.split(' ').length}`);
 const answers = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]).split(' ').length);
-if (answers.join() !== '52,42,54,44,42,42' || answers.some((n) => n < 40 || n > 60)) e(`direct answers: ${answers}`);
+if (answers.join() !== '59,42,54,44,42,42' || answers.some((n) => n < 40 || n > 60)) e(`direct answers: ${answers}`);
 const h2 = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
 if (h2.length !== 8 || h2.slice(0, 6).some((x) => !x.endsWith('?')) || h2[5] !== 'Jak si zkontrolovat profil ordinace v mapách?' || h2[6] !== 'Časté otázky' || h2[7] !== 'Další články') e(`H2: ${h2}`);
 if (!/<h2 id="kontrola">/.test(main) && !/id="kontrola"/.test(h)) e('anchor #kontrola');
@@ -36,7 +36,7 @@ else {
   if (rows.join(';') !== 'Web|15 / 0 / 0|15 / 0 / 0;Telefon|15 / 0 / 0|15 / 0 / 0;Hodiny|14 / 0 / 1|14 / 0 / 1;Fotky|15 / 0 / 0|12 / 3 / 0;Odpověď majitele|10 / 5 / 0|6 / 8 / 1;Seznam služeb|9 / 5 / 1|3 / 9 / 3') e(`table: ${rows}`);
 }
 if (!main.includes('Karta je záznam firmy v seznamu výsledků v mapách. Odpověď majitele počítám, pokud je mezi prvními pěti zobrazenými recenzemi aspoň jedna. „Nelze určit“ znamená, že jsem údaj na kartě neviděl. Recenze a hodnocení nepočítám a názvy neuvádím.')) e('table note');
-if (!main.includes('Metodika a limity: jeden dotaz, jeden den, jedno zařízení (notebook); střed hledání a zoom nezaznamenány; výsledky se mění podle osoby, místa a času.') || main.indexOf('Metodika a limity') < main.indexOf('</table>') || main.indexOf('Metodika a limity') > main.indexOf('<blockquote')) e('methodology line after the table, before the quote');
+if (!main.includes('Metodika a limity: jeden dotaz, jeden den, jedno zařízení (notebook); mapa ukazovala celou Prahu, střed hledání přesně nezaznamenán (pravděpodobně Praha 6); výsledky se mění podle osoby, místa a času.') || main.indexOf('Metodika a limity') < main.indexOf('</table>') || main.indexOf('Metodika a limity') > main.indexOf('<blockquote')) e('methodology line after the table, before the quote');
 // chart: 8 rows, segments = the table (zeros not drawn)
 const chart = (main.match(/<figure class="stack-chart[^"]*">[\s\S]*?<\/figure>/) || [''])[0];
 const crows = [...chart.matchAll(/<span class="stack-chart__bar">([\s\S]*?)<\/span>\s*<\/div>/g)].map((m) => [...m[1].matchAll(/stack-chart__seg--(\d)" style="flex: (\d+) 1 0">(\d+)</g)].map((x) => `${x[1]}:${x[3]}`).join(','));

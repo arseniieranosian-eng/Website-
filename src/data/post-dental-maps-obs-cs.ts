@@ -1,5 +1,5 @@
 // Czech content of the blog article /blog/stomatologie-v-mapach-co-jsem-zjistil/ (brief of 21.11.2026, series "maps", pilot dentistry): the author's dated observation of the first 15 organic CARDS of Google Maps and of
-// Mapy.com for "stomatologie v Praze" (21.11.2026, laptop, no login, Google interface EN, Mapy.com interface CS without filters; ads not counted; centre of the search and zoom NOT recorded). NEUTRAL: no ordination,
+// Mapy.com for "stomatologie v Praze" (21.11.2026, laptop, no login, Google interface EN, Mapy.com interface CS without filters; ads not counted; centre of the search not recorded exactly: the map showed the whole of Prague on both platforms, probably Praha 6 (patch of 21.11.2026)). NEUTRAL: no ordination,
 // clinic, catalogue or portal is named; nothing is evaluated; no result or position is promised; the platforms are NOT compared as "better / worse" (the displayed functions differ). NOT used: type of profile,
 // reservations, reviews / ratings / counts, the "Ověřená firma" badge, names, addresses. The numbers are the author's (table of the author, spot-checked by the author on 21.11.2026) and must not be changed:
 // main category Google: Dental clinic 10, Dentist 4, Oral surgeon 1; Mapy.com: "Stomatologická ordinace" 12, 3 other; web and phone 15/15 on both; hours 14 yes + 1 undetermined on both; photos Google 15, Mapy.com 12 yes / 3 no;
@@ -24,7 +24,7 @@ const raw = {
   summary: 'K 21. 11. 2026 jsem v Google Maps a na Mapy.com prošel po 15 kartách pro dotaz „stomatologie v Praze“. Web a telefon měly všechny karty. Odpověď majitele bylo vidět u 10 z 15 karet na Googlu a u 6 z 15 na Mapy.com. Je to můj pozorovací vzorek, ne průzkum trhu, a nevysvětluje pozice.',
 
   methodTitle: 'Jak jsem dotaz „stomatologie v Praze“ v mapách zkoumal?',
-  methodAnswer: 'Zadal jsem dotaz „stomatologie v Praze“ na notebooku dne 21. 11. 2026, bez přihlášení. Google Maps měly rozhraní v angličtině, Mapy.com v češtině a bez filtrů. Prošel jsem prvních 15 organických karet na každé službě, reklamy jsem nepočítal. Střed hledání a zoom jsem nezaznamenal. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  methodAnswer: 'Zadal jsem dotaz „stomatologie v Praze“ na notebooku dne 21. 11. 2026, bez přihlášení. Google Maps měly rozhraní v angličtině, Mapy.com v češtině a bez filtrů. Prošel jsem prvních 15 organických karet na každé službě, reklamy jsem nepočítal. Mapa ukazovala celou Prahu, střed jsem přesně nezaznamenal, pravděpodobně to byla Praha 6. Je to můj pozorovací vzorek, ne průzkum trhu.',
 
   originTitle: 'Z jakých karet se seznam skládal?',
   originAnswer: 'Na Googlu měla jako hlavní kategorii 10 karet „Dental clinic“, 4 „Dentist“ a 1 „Oral surgeon“. Na Mapy.com mělo 12 karet kategorii „Stomatologická ordinace“ a 3 jinou (poliklinika, zdravotnictví, lékař). Názvy ordinací neuvádím. Pořadí se může lišit podle osoby, místa a času.',
@@ -41,7 +41,7 @@ const raw = {
     ['Seznam služeb', '9 / 5 / 1', '3 / 9 / 3'],
   ],
   tableNote: 'Karta je záznam firmy v seznamu výsledků v mapách. Odpověď majitele počítám, pokud je mezi prvními pěti zobrazenými recenzemi aspoň jedna. „Nelze určit“ znamená, že jsem údaj na kartě neviděl. Recenze a hodnocení nepočítám a názvy neuvádím.',
-  methodLine: 'Metodika a limity: jeden dotaz, jeden den, jedno zařízení (notebook); střed hledání a zoom nezaznamenány; výsledky se mění podle osoby, místa a času.',
+  methodLine: 'Metodika a limity: jeden dotaz, jeden den, jedno zařízení (notebook); mapa ukazovala celou Prahu, střed hledání přesně nezaznamenán (pravděpodobně Praha 6); výsledky se mění podle osoby, místa a času.',
   // Stacked bars: 4 indicators x 2 services, segments ano / ne / nelze určit (the numbers of the table; zeros are not drawn, but are in the aria-label).
   chartCaption: 'Co bylo vidět na kartách pro „stomatologie v Praze“, 21. 11. 2026: ano, ne, nelze určit (Google Maps a Mapy.com).',
   chartLegend: ['ano', 'ne', 'nelze určit'],
