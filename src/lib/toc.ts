@@ -80,7 +80,7 @@ export function addToc(body: string, lang: Lang, pageKey: string | undefined): s
 // ---- Service pages (audit, consultation, 3-month start, full SEO, maps, SEO and GEO/AEO; every language), brief of 09.11.2026 ----
 // The same block as in the articles, directly under the introduction of the hero (below its buttons, full width). The ids of the headings are made from the heading text (no hand-written map: the
 // structure differs per language), the links are the headings themselves. Not listed: the enquiry form, the "other services" cards and dark call-to-action bands.
-export const SERVICE_KEYS_TOC = new Set(['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo']);
+export const SERVICE_KEYS_TOC = new Set(['audit', 'consulting', 'start', 'fullSeo', 'maps', 'geo', 'home']); // the home page of every language (brief of 21.11.2026): its hero is `hero hero--dark`, the contents form a light section right after it
 // the niche landing pages (nicheDental, nicheGaming, ... in every language) get the same block
 export const hasServiceToc = (key: string) => SERVICE_KEYS_TOC.has(key) || /^niche[A-Z]/.test(key);
 const LABEL_SERVICE: Record<Lang, { title: string; aria: string }> = {
@@ -98,8 +98,8 @@ function slug(text: string): string {
   return words.join('-') || 'sekce';
 }
 
-export function addServiceToc(body: string, lang: Lang): string {
-  const heroStart = body.indexOf('<section class="page-hero">');
+export function addServiceToc(body: string, lang: Lang, home = false): string {
+  const heroStart = body.indexOf(home ? '<section class="hero hero--dark">' : '<section class="page-hero">');
   if (heroStart < 0) return body;
   const heroEnd = body.indexOf('</section>', heroStart);
   const rest = body.slice(heroEnd + '</section>'.length);
@@ -134,6 +134,11 @@ export function addServiceToc(body: string, lang: Lang): string {
   const L = LABEL_SERVICE[lang] ?? LABEL_SERVICE.cs;
   const li = entries.map((e) => `<li><a href="#${e.id}">${e.text}</a></li>`).join('');
   const narrow = /<div class="container[^"]*\bnarrow\b/.test(body.slice(heroStart, heroEnd)); // same width as the introduction of the hero
+  if (home) {
+    // home page: the contents are a light section of their own right after the (dark, split) hero
+    const sec = `<section class="section section--tight" aria-label="${L.aria}"><div class="container"><nav class="toc toc--cols" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div></section>`;
+    return body.slice(0, heroEnd + '</section>'.length) + sec + newRest;
+  }
   const nav = `<div class="container${narrow ? ' narrow' : ''}"><nav class="toc${narrow ? '' : ' toc--cols'}" aria-label="${L.aria}"><p class="toc-title">${L.title}</p><ul>${li}</ul></nav></div>`;
   return body.slice(0, heroEnd) + nav + body.slice(heroEnd, heroEnd + '</section>'.length) + newRest;
 }

@@ -38,7 +38,7 @@ let body = await Astro.slots.render('default');
 // Blog articles: ids on the H2 headings and the generated table of contents (src/lib/toc.ts, src/data/toc-ids.ts).
 if (isArticlePath(path)) body = addToc(body, lang, pageKey);
 else if (pageKey === 'blog') body = addBlogToc(body, lang);
-else if (pageKey && hasServiceToc(pageKey)) body = addServiceToc(body, lang);
+else if (pageKey && hasServiceToc(pageKey)) body = addServiceToc(body, lang, pageKey === 'home');
 // K6 (brief of 03.11.2026, P2.2): the publication date is shown next to the update date, from the datePublished of the page's JSON-LD ("Zveřejněno · Aktualizováno").
 const pubIso = (schema as any[]).filter(Boolean).map((n) => n.datePublished).find((d) => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d));
 if (pubIso) {

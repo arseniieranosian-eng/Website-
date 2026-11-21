@@ -74,7 +74,7 @@ for (const [hd, ans] of [['Which service fits you?', 'Start with a free technica
 // GEO platforms list and link
 if (!/<ul class="checks engines">(?:<li>(?:Google|Seznam|ChatGPT|Gemini|Perplexity|AI Overviews)<\/li>){6}<\/ul>/.test(main)) e('platform list');
 // Cases: three cards, formulas, links to the EN case list
-const cases = (main.match(/<h2>Case studies<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+const cases = (main.match(/<h2[^>]*>Case studies<\/h2>[\s\S]*?<\/section>/) || [''])[0];
 if ([...cases.matchAll(/<a class="card card--link case-card" href="\/en\/case-studies\/seo-(?:translation-agency-half-year|print-shop)\/"/g)].length !== 2 || !cases.includes('href="/en/case-studies/"')) e('two case cards linking to the half-year and print-shop cases (like the Czech home) and the link to /en/case-studies/');
 for (const f of ['Enquiries up 65–70 % month over month for three months in a row, B2B enquiries tripled, AI Overview visibility', 'Organic traffic +775 %, July 2024 → July 2025 (1,200 → 10,500 visits per month)']) if (!txt(cases).includes(f)) e(`case formula: ${f}`);
 // One pull quote between the cases and the reviews, signed with a link to /en/about/
