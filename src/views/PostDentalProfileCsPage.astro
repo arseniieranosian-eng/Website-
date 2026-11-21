@@ -1,0 +1,143 @@
+---
+// Blog article "Jak má vypadat profil zubní ordinace v mapách?" (cs), brief B of 21.11.2026 (series "maps", pilot: dentistry). Content: data/post-dental-profile-cs.ts.
+// An informational how-to: no observation numbers, no link to the observation article (not published yet), no names, no ratings. Body links: the sources (visible, with the check date); the closing block has ONE button
+// to /lokalni-seo-mapy/ and ONE text link to the landing page of the niche (rule F: no links to audit, consultation, Start, Full SEO in the body). The author's quote (rule J) is a plain blockquote without Quotation markup.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { postDentalProfileSchemas } from '../lib/schema-post-dental-profile';
+import { POST_PROFILE_CS as C, POST_PROFILE_MODIFIED } from '../data/post-dental-profile-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = POST_PROFILE_MODIFIED; // set by hand, not from git
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-profil-zubni-ordinace-v-mapach.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+const cite = new URL(path('postDentalProfile', lang), site).href;
+---
+<Base {...pageProps('postDentalProfile', lang)} ogType="article" ogImage={OG} schema={postDentalProfileSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postDentalProfile.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.whereTitle}</h2>
+      <p class="answer">{C.whereAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.whereTableHead.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.whereTableRows.map((r) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="small muted">{C.whereTableNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.setupTitle}</h2>
+      <p class="answer">{C.setupAnswer}</p>
+      <ol class="steps">{C.setupSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.nameTitle}</h2>
+      <p class="answer">{C.nameAnswer}</p>
+      <ul class="checks">{C.nameList.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.categoryTitle}</h2>
+      <p class="answer">{C.categoryAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.servicesTitle}</h2>
+      <p class="answer">{C.servicesAnswer}</p>
+      <ul class="checks">{C.servicesList.map((x) => <li>{x}</li>)}</ul>
+      <p class="small muted">{C.servicesNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.dataTitle}</h2>
+      <p class="answer">{C.dataAnswer}</p>
+      <ul class="checks">{C.dataList.map((x) => <li>{x}</li>)}</ul>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.reviewsTitle}</h2>
+      <p class="answer">{C.reviewsAnswer}</p>
+      <ul class="checks">{C.reviewsList.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.errorsTitle}</h2>
+      <p class="answer">{C.errorsAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.checkTitle}</h2>
+      <p class="answer">{C.checkAnswer}</p>
+      <p class="small muted"><strong>{C.sourcesTitle}</strong> ({C.sourcesDate}):</p>
+      <ul class="small muted source-list">{C.sources.map((s) => <li>{s.text}: <a href={s.href} target="_blank" rel="noopener">{s.href}</a></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <p class="muted">{C.mistake.before} <a href={t('contact')}>{C.mistake.link}</a></p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('maps')}>{C.endCta}</a></div>
+        <p class="post-cta__text">{C.endLink.before} <a href={t('nicheDental')}>{C.endLink.text}</a>{C.endLink.after}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.relatedTitle}</h2>
+      <p class="muted">{C.relatedLead}</p>
+      <RelatedPosts lang={lang} keys={['postDentalChannels', 'postWeakSeoDental']} more={C.relatedMore} />
+    </div>
+  </section>
+</Base>

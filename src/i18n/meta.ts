@@ -399,6 +399,16 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
   },
+  postDentalProfile: {
+    cs: {
+      name: 'Jak má vypadat profil zubní ordinace v mapách?',
+      title: 'Profil zubní ordinace na mapách: návod | Eranosian',
+      description: 'Jak vyplnit profil zubní ordinace na Google, Mapy.com a Firmy.cz: název, kategorie, služby, kontakty, recenze a kontrola údajů.',
+      h1: 'Jak má vypadat profil zubní ordinace v mapách?',
+    },
+    en: { name: 'Dental practice profile on maps', title: 'Dental practice profile on maps', description: 'Dental practice profile on maps', h1: 'What should a dental practice profile on maps look like?' },
+    ru: { name: 'Профиль стоматологии на картах', title: 'Профиль стоматологии на картах', description: 'Профиль стоматологии на картах', h1: 'Как должен выглядеть профиль стоматологии на картах?' },
+  },
   postCncObrabeni: {
     cs: {
       name: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „CNC obrábění“',
