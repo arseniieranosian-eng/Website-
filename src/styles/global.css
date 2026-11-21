@@ -118,7 +118,8 @@ ul, ol { padding-left: 1.2em; }
 .lang-switch a[aria-current='true'] { color: var(--text); border-color: var(--line); }
 .lang-switch a:hover { color: var(--blue); }
 
-@media (min-width: 1100px) {
+/* the desktop header starts at 1200px (was 1100px): the Czech menu item "Články a výzkumy" is longer and did not fit on one line between 1100 and 1180px; below it the burger menu is used */
+@media (min-width: 1200px) {
   .nav-toggle { display: none; }
   /* compact desktop header (laptops): everything stays on one horizontal line */
   .nav-wrap, .nav-open .nav-wrap { display: flex; position: static; flex-direction: row; align-items: center; padding: 0; border: 0; gap: 10px; background: none; }
@@ -396,7 +397,7 @@ table.compare { min-width: 0; }
 /* Floating "free audit" button on phones: small, bottom-right, opens the audit pop-up */
 .fab-audit { position: fixed; z-index: 60; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 8px 24px rgba(255, 106, 26, 0.45); border-radius: 999px; padding: 15px 21px; font-size: 1.08rem; font-weight: 700; white-space: nowrap; }
 .ask-consent .fab-audit, .nav-open .fab-audit { display: none; } /* the cookie banner / open menu come first */
-@media (min-width: 1100px) { .fab-audit { display: none; } }
+@media (min-width: 1200px) { .fab-audit { display: none; } }
 
 /* Case study page: figures, speed comparison, channel chart, six steps, pull quote */
 .case-figure { margin: 24px 0; }
