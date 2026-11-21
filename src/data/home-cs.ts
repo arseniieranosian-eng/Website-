@@ -94,6 +94,12 @@ export const HOME_CS = {
     { label: 'Růst návštěvnosti', name: 'Tiskárna', formula: TYPO_FORMULA_CS, page: 'caseTypo' as const, art: 'typo' },
   ],
   resultsMore: 'Všechny případové studie',
+
+  // Brief of 22.11.2026: a small block about the author's observations (articles with numbers, tables, charts); two newest cards + the link to the block "Výzkumy" of the blog.
+  researchTitle: 'Co jsem zjistil ve výsledcích vyhledávání a v mapách?',
+  researchAnswer: 'Vezmu jeden dotaz, projdu výsledky Googlu, Seznamu nebo map a spočítám, co je u webů a profilů vidět. Zapisuji datum, dotaz, zařízení a limity, názvy firem neuvádím. Čísla zapisuji tak, jak jsem je viděl. Je to můj pozorovací vzorek, ne průzkum trhu, a z pozorování neplyne žádný slib pozice.',
+  researchCards: ['postDentalMapsObs', 'postCncObrabeni'] as const,
+  researchMore: 'Všechny výzkumy',
   resultsNote: 'Názvy klientů a absolutní čísla nezveřejňuji. Počty a procenta jsou relativní data.',
   caseMore: 'Číst studii',
 

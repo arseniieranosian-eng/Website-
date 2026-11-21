@@ -19,6 +19,10 @@ import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
 import { homeCsSchemas } from '../lib/schema-home-cs';
 import { HOME_CS as C } from '../data/home-cs';
+import { dedicatedPosts } from '../data/blog-posts';
+import { ROUTES } from '../i18n/routes';
+import { formatDate } from '../i18n/ui';
+const researchCards = C.researchCards.map((k) => dedicatedPosts('cs').find((p) => p.key === k)).filter((p) => !!p) as ReturnType<typeof dedicatedPosts>;
 import { REVIEWS } from '../data/reviews';
 
 const lang = C.lang;
@@ -169,6 +173,25 @@ import QuoteAuthor from "../components/QuoteAuthor.astro";
         <p>{C.quote}</p>
         <QuoteAuthor />
       </blockquote>
+    </div>
+  </section>
+
+  <!-- RESEARCH: the author's observations (brief of 22.11.2026): two newest cards and the link to the block "Výzkumy" of the blog -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><h2>{C.researchTitle}</h2><p class="answer">{C.researchAnswer}</p></div></div>
+      <div class="grid grid-2">
+        {researchCards.map((p) => (
+          <a class="card card--link post-card" href={ROUTES[p.key].cs}>
+            {p.image && <img class="post-card-img" src={p.image.src} width={p.image.width} height={p.image.height} alt={p.image.alt} loading="lazy" decoding="async" />}
+            <time class="post-card-date" datetime={p.date}>{formatDate(new Date(p.date), 'cs')}</time>
+            <h3>{p.title}</h3>
+            <p>{p.description}</p>
+            <span class="link-arrow">Číst článek</span>
+          </a>
+        ))}
+      </div>
+      <p><a class="link-arrow" href={t('blog') + '#vyzkumy'}>{C.researchMore}</a></p>
     </div>
   </section>
 

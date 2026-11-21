@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, statSync } from './fs-clean.mjs';
 import { join } from 'node:path';
 
 const BASE = 'https://seo-eranosian.com';
-const SECTIONS = ['SEO, které přivádí poptávky. Ve vyhledávačích i v AI.', 'Kam dál? Vyberte podle toho, co potřebujete', 'Jaké služby nabízím?', 'Obory a města', 'Co je GEO/AEO a proč ho dělám spolu se SEO?', 'Jaké výsledky už mají moji klienti?', 'Co říkají klienti?', 'Proč mi klienti věří?', 'Časté otázky', 'Kdo za tím stojí?', 'Zjistěte, kolik zákazníků vám uniká'];
+const SECTIONS = ['SEO, které přivádí poptávky. Ve vyhledávačích i v AI.', 'Kam dál? Vyberte podle toho, co potřebujete', 'Jaké služby nabízím?', 'Obory a města', 'Co je GEO/AEO a proč ho dělám spolu se SEO?', 'Jaké výsledky už mají moji klienti?', 'Co jsem zjistil ve výsledcích vyhledávání a v mapách?', 'Co říkají klienti?', 'Proč mi klienti věří?', 'Časté otázky', 'Kdo za tím stojí?', 'Zjistěte, kolik zákazníků vám uniká'];
 const LINKS = ['/audit-zdarma/', '/konzultace/', '/start-3-mesice/', '/full-seo/', '/lokalni-seo-mapy/', '/seo-a-geo/', '/pripadove-studie/', '/pripadove-studie/seo-prekladatelska-agentura/', '/pripadove-studie/seo-tiskarna/', '/recenze/', '/seo-pro-prekladatelske-agentury-praha/', '/caste-dotazy/', '/o-mne/', '/kontakt/', '/ochrana-osobnich-udaju/'];
 const FORBIDDEN = ['první pozice', 'YoY', '3 roky', 'průměrný růst', '55–60', 'ChatGPT v odpovědích', 'technický stav a rychlost', '4–8 týdnů', '3–6 měsíců', 'krátký call po auditu', 'SEO agentur', 'B2B ×3'];
 
@@ -37,7 +37,9 @@ for (const f of [...FORBIDDEN, '6×', '300×']) if (mainTxtNoRv.includes(f) || d
 // "agentura" only inside the case names (the brief names the translation-agency case that way)
 if (/agentur/i.test(mainTxtNoRv.replace(/(?:Překladatelská agentura(?:, část [12]|: půl roku práce)|překladatelská agentura, jaro|překladatelské agentury v (?:Praze|Brně|Pardubicích)|Překladatelské agentury)/g, ''))) e('the word "agentura" must not be used (except in the case name)');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
-if (/href="\/blog\//.test(main)) e('no blog links in the body of the home page (the menu and the footer have one)');
+// brief of 22.11.2026: the block about the author's observations links to two articles and to the block "Výzkumy" of the blog (nothing else in the body)
+const blogLinks = [...main.matchAll(/href="(\/blog\/[^"]*)"/g)].map((m) => m[1]);
+if (blogLinks.join() !== '/blog/stomatologie-v-mapach-co-jsem-zjistil/,/blog/cnc-obrabeni-co-jsem-zjistil/,/blog/#vyzkumy') e(`blog links in the body: only the research block (${blogLinks})`);
 if (/★|AggregateRating|ratingValue/.test(h)) e('no stars / AggregateRating');
 if (/<ul class="checks">/.test(main.split('Kam dál?')[0])) e('the hero list of audit scope must be gone');
 
