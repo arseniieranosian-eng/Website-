@@ -115,6 +115,16 @@ const ALL: DedicatedPost[] = [
 
 export const dedicatedPosts = (lang: Lang) => ALL.filter((p) => p.lang === lang).sort((a, b) => b.date.localeCompare(a.date));
 
+// "Výzkumy" block of the Czech blog index (brief of 22.11.2026): the articles that are the author's dated observations with numbers (tables, charts). The cards are shown HERE AND ALSO in the group of their
+// niche (duplicated on purpose). To add an observation article to the block, add its key below. Czech only.
+export const RESEARCH_BLOCK = {
+  id: 'vyzkumy',
+  title: 'Výzkumy',
+  lead: 'Články s mým vlastním pozorováním výsledků vyhledávání a map: s daty, tabulkami a grafy. Je to můj pozorovací vzorek, ne průzkum trhu.',
+  keys: ['postDentalMapsObs', 'postCncObrabeni', 'postTiskOnline', 'postElectronicsObs', 'postWeakSeoDental'] as PageKey[],
+};
+export const researchPosts = (lang: Lang) => (lang === 'cs' ? dedicatedPosts(lang).filter((p) => RESEARCH_BLOCK.keys.includes(p.key)) : []);
+
 // Blog index groups: every article belongs to one funnel (the goal it leads the reader to). The index shows one section per group (order below, newest article first inside a group).
 type L3 = Record<Lang, string>;
 export interface BlogGroup { id: string; title: L3; lead: L3; keys: PageKey[] }

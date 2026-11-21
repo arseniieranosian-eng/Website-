@@ -8,7 +8,7 @@ import { t } from '../i18n/ui';
 import { pageProps } from '../lib/page';
 import { postsByLang, postUrl } from '../lib/blog';
 import { ids } from '../lib/schema';
-import { dedicatedPosts, dedicatedPostGroups } from '../data/blog-posts';
+import { dedicatedPosts, dedicatedPostGroups, researchPosts, RESEARCH_BLOCK } from '../data/blog-posts';
 import { formatDate } from '../i18n/ui';
 
 interface Props { lang: Lang }
@@ -18,6 +18,7 @@ const m = META.blog[lang];
 const posts = await postsByLang(lang);
 const own = dedicatedPosts(lang);
 const groups = dedicatedPostGroups(lang);
+const research = researchPosts(lang); // Czech only: the "Výzkumy" block above the niche groups (the same cards are also in their niche group)
 const hasAny = async (l: Lang) => (await postsByLang(l)).length + dedicatedPosts(l).length > 0;
 
 // A language version of the blog is indexable (and in hreflang) only once it has posts.
@@ -68,6 +69,23 @@ const collection = {
         </div>
       ) : (
         <>
+          {research.length > 0 && (
+            <section class="blog-group" id={RESEARCH_BLOCK.id}>
+              <h2>{RESEARCH_BLOCK.title}</h2>
+              <p class="muted">{RESEARCH_BLOCK.lead}</p>
+              <div class="grid grid-3">
+                {research.map((p) => (
+                  <a class="card card--link post-card" href={ROUTES[p.key][lang]}>
+                    {p.image && <img class="post-card-img" src={p.image.src} width={p.image.width} height={p.image.height} alt={p.image.alt} loading="lazy" decoding="async" />}
+                    <time class="post-card-date" datetime={p.date}>{formatDate(new Date(p.date), lang)}</time>
+                    <h3>{p.title}</h3>
+                    <p>{p.description}</p>
+                    <span class="link-arrow">{ui.readMore}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
           {groups.map(({ group, posts: gp }) => (
             <section class="blog-group" id={group.id}>
               <h2>{group.title[lang]}</h2>
