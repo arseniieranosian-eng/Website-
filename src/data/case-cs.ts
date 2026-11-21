@@ -21,6 +21,7 @@ export const CASE_CS = {
 
   startTitle: 'Jaký byl výchozí stav webu?',
   startAnswer: 'Web fungoval, ale nepřiváděl nové klienty. Byl postavený pro lidi, kteří firmu už znají a jen potřebují objednat.',
+  startImage: { src: '/images/pripadove-studie/preklady-notebook-praha-jazykove-verze.webp', width: 1672, height: 941, alt: 'Notebook s webem překladatelské agentury, v pozadí Praha' },
   startText: 'V březnu jsem začal pracovat na SEO překladatelské agentury z Prahy. Objednávkové tlačítko fungovalo, formulář se odesílal, stránky se načítaly. Ale ti, kdo hledají překlady, porovnávají nabídky nebo zjišťují, jaké dokumenty potřebují, se na web vůbec nedostali. Majitel chtěl od začátku B2B klienty: firmy, které objednávají pravidelně a uzavírají dlouhodobé smlouvy. Realistický odhad prvních znatelných výsledků jsme si domluvili na 3-5 měsíců, bez slibů zkratek.',
 
   localTitle: 'Proč jedna stránka pro každé město?',

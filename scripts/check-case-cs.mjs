@@ -81,7 +81,7 @@ else {
 if (fq.mainEntity.length !== 4 || !fq.mainEntity.every((q) => flat.includes(q.name) && flat.includes(q.acceptedAnswer.text))) e('4 FAQ Q/A not visible verbatim');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Případové studie > SEO pro překladatelskou agenturu' || bc.itemListElement.at(-1).item || bc.itemListElement[1].item !== `${BASE}/pripadove-studie/`) e('breadcrumb (three levels)');
 for (const [hd, ans] of [['Jaký byl výchozí stav webu?', 'Web fungoval'], ['Proč jedna stránka pro každé město?', 'Agentura má pobočky'], ['Jak funguje obsah jako trychtýř?', 'Stránka služby zachytí'], ['Proč lokalizovat, a ne jen překládat?', 'Web běží ve čtyřech jazycích'], ['Co jsem udělal v technickém SEO?', 'Zaměřil jsem se na tři oblasti'], ['Jaké byly výsledky?', 'Za 4 měsíce práce'], ['Jak se v analytice objevil nový kanál AI Assistant?', 'V GA4 jsem našel']]) {
-  if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
+  if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*(?:<figure class="case-figure">[\\s\\S]*?</figure>\\s*)?<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 
 // Site-wide anonymisation: the client's name and the old addresses appear nowhere in the built pages / sitemap

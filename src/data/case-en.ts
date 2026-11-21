@@ -19,6 +19,7 @@ const raw = {
 
   startTitle: 'What was the starting point of the website?',
   startAnswer: 'The website worked, but it did not bring new clients. It was built for people who already know the company and just need to order.',
+  startImage: { src: '/images/pripadove-studie/preklady-notebook-praha-jazykove-verze.webp', width: 1672, height: 941, alt: 'Laptop with a translation agency website, Prague behind' },
   startText: 'In March I started working on the SEO of a translation agency from Prague. The order button worked, the form was sent, the pages loaded. But those who search for translations, compare offers or find out which documents they need did not get to the website at all. From the start, the owner wanted B2B clients: companies that order regularly and sign long-term contracts. We agreed on a realistic estimate of the first noticeable results at 3–5 months, with no promises of shortcuts.',
 
   localTitle: 'Why one page for each city?',
