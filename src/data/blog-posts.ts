@@ -26,6 +26,7 @@ import { POST_SELECT_SPECIALIST_CS, POST_SELECT_SPECIALIST_PUBLISHED } from './p
 import { POST_REDESIGN_PLAN_CS, POST_REDESIGN_PLAN_PUBLISHED } from './post-redesign-plan-cs';
 import { POST_CNC_CS, POST_CNC_PUBLISHED } from './post-cnc-obrabeni-cs';
 import { POST_PROFILE_CS, POST_PROFILE_PUBLISHED } from './post-dental-profile-cs';
+import { POST_MAPS_OBS_CS, POST_MAPS_OBS_PUBLISHED } from './post-dental-maps-obs-cs';
 import { POST_WEAK_SEO_DENTAL_CS, POST_WEAK_SEO_DENTAL_PUBLISHED } from './post-weak-seo-dental-cs';
 import { POST_WEAK_SEO_REALTY_CS, POST_WEAK_SEO_REALTY_PUBLISHED } from './post-weak-seo-realty-cs';
 import { POST_WEAK_SEO_REALTY_RU, POST_WEAK_SEO_REALTY_RU_PUBLISHED } from './post-weak-seo-realty-ru';
@@ -74,6 +75,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postSeoPlan', lang: 'cs', date: POST_SEO_PLAN_PUBLISHED, title: META.postSeoPlan.cs.h1, description: META.postSeoPlan.cs.description, image: POST_SEO_PLAN_CS.cover },
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
+  { key: 'postDentalMapsObs', lang: 'cs', date: POST_MAPS_OBS_PUBLISHED, title: META.postDentalMapsObs.cs.h1, description: META.postDentalMapsObs.cs.description, image: POST_MAPS_OBS_CS.cover },
   { key: 'postDentalProfile', lang: 'cs', date: POST_PROFILE_PUBLISHED, title: META.postDentalProfile.cs.h1, description: META.postDentalProfile.cs.description, image: POST_PROFILE_CS.cover },
   { key: 'postCncObrabeni', lang: 'cs', date: POST_CNC_PUBLISHED, title: META.postCncObrabeni.cs.h1, description: META.postCncObrabeni.cs.description, image: POST_CNC_CS.cover },
   { key: 'postWeakSeoDental', lang: 'cs', date: POST_WEAK_SEO_DENTAL_PUBLISHED, title: META.postWeakSeoDental.cs.h1, description: META.postWeakSeoDental.cs.description, image: POST_WEAK_SEO_DENTAL_CS.cover },
@@ -175,7 +177,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'dental',
     title: { cs: 'Zubní ordinace', en: 'Dental practices', ru: 'Стоматологии' },
     lead: { cs: 'Pozorování webů zubních ordinací ve výsledcích vyhledávání.', en: 'Observations of dental practice websites in search results.', ru: 'Наблюдения за сайтами стоматологий в поисковой выдаче.' },
-    keys: ['postDentalProfile', 'postWeakSeoDental', 'postFaqDental', 'postDentalChannels'],
+    keys: ['postDentalMapsObs', 'postDentalProfile', 'postWeakSeoDental', 'postFaqDental', 'postDentalChannels'],
   },
   {
     id: 'gaming',

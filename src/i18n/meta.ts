@@ -399,6 +399,16 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
   },
+  postDentalMapsObs: {
+    cs: {
+      name: 'Co jsem zjistil v kartách Google Maps a Mapy.com pro „stomatologie v Praze“',
+      title: 'Stomatologie v mapách: co jsem zjistil | Eranosian',
+      description: 'K 21. 11. 2026 jsem v Google Maps a na Mapy.com prošel po 15 kartách dotazu „stomatologie v Praze“ a zapsal, co je v nich vidět.',
+      h1: 'Co jsem zjistil v kartách Google Maps a Mapy.com pro „stomatologie v Praze“',
+    },
+    en: { name: 'Dentistry on maps: what I found', title: 'Dentistry on maps: what I found', description: 'Dentistry on maps: what I found', h1: 'What I found in Google Maps and Mapy.com cards for "stomatologie v Praze"' },
+    ru: { name: 'Стоматология на картах: что я обнаружил', title: 'Стоматология на картах: что я обнаружил', description: 'Стоматология на картах: что я обнаружил', h1: 'Что я обнаружил в карточках Google Maps и Mapy.com по запросу «stomatologie v Praze»' },
+  },
   postDentalProfile: {
     cs: {
       name: 'Jak má vypadat profil zubní ordinace v mapách?',
