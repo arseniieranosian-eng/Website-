@@ -117,7 +117,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     cs: {
       name: 'Mapy (Google + Mapy.com)',
       title: 'Lokální SEO: Google Maps a Mapy.com | Eranosian',
-      description: 'Propagace v mapách Google a Seznam s platbou za výsledek: hovory, trasy, prokliky, recenze. Balíček Full od 1800 Kč měsíčně.',
+      description: 'Lokální SEO pro Google Maps a Mapy.com: profily, údaje, odpovědi na recenze, měření kliků. Full od 1\u00a0800\u00a0Kč měsíčně.',
       h1: 'Lokální SEO: propagace na Google Maps a Mapy.com',
     },
     en: {

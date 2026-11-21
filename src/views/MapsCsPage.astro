@@ -26,7 +26,11 @@ const [y, mo, d] = MOD.split('-').map(Number);
 const modText = `${d}. ${mo}. ${y}`;
 
 // 1-3 reviews tagged "maps"; if there are none, the freshest ones for other services (Russian originals first).
-const reviews = reviewsWithFallback('maps', 3, 1);
+// Brief of 21.11.2026 (B5): the figures "6×" and "více než 300×" (a web-SEO project, no confirmation) are cut out of the compact quote of the maps page (the quote is shortened with […], nothing is reworded);
+// every review gets a caption saying what the reference is about (none of them is about maps). The shared source (/recenze/, home, other pages) is not changed here.
+const CUT = 'Zobrazení ve vyhledávání vzrostla 6×, kliknutí více než 300×, B2B poptávky se ztrojnásobily.';
+const reviews = reviewsWithFallback('maps', 3, 1).map((r) => (r.short?.cs.includes(CUT) ? { ...r, short: { ...r.short, cs: r.short.cs.replace(CUT, 'B2B poptávky se ztrojnásobily.') } } : r));
+const reviewNotes = Object.fromEntries(reviews.map((r) => [r.id, r.id === 'make-up-agency' ? 'Reference k projektu webového SEO' : 'Reference k webovému SEO / konzultaci']));
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
 const name = (k: keyof typeof META) => META[k][lang].name;
 const others = [
@@ -74,6 +78,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
     <div class="container narrow">
       <h2>{C.forWhomTitle}</h2>
       <ul class="checks">{C.forWhom.map((x) => <li>{x}</li>)}</ul>
+      <p class="muted">{C.forWhomNote}</p>
     </div>
   </section>
 
@@ -89,6 +94,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
           return <li><span>{before}<a href={t(l.page)}>{l.part}</a>{after}</span></li>;
         })}
       </ul>
+      <p>{C.includesNote}</p>
     </div>
   </section>
 
@@ -99,6 +105,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
       <p class="answer">{C.metricsAnswer}</p>
       <ul class="checks">{C.metrics.map((x) => <li>{x}</li>)}</ul>
       <p>{C.metricsExtra}</p>
+      <p>{C.metricsPositions}</p>
       <h3 class="examples-title">{C.branchesTitle}</h3>
       <p class="muted">{C.branchesText}</p>
       <div class="examples__shots">{C.branchImages.map((im) => <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />)}</div>
@@ -146,7 +153,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
   <section class="section">
     <div class="container">
       <div class="section-head"><h2>{C.reviewsTitle}</h2><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></div>
-      <ReviewCards reviews={reviews} lang={lang} compact />
+      <ReviewCards reviews={reviews} lang={lang} compact notes={reviewNotes} />
     </div>
   </section>
 
@@ -164,7 +171,7 @@ import QuoteFigure from '../components/QuoteFigure.astro';
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">
-        {C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}
+        {C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p>{f.sources && <p class="small muted">{f.sourcesLead} {f.sources.map((s, i) => <>{i > 0 && ' · '}<a href={s.href} target="_blank" rel="noopener">{s.href}</a></>)}</p>}</div>)}
       </div>
       <p><a class="link-arrow" href={t('faq')}>{C.faqAll}</a></p>
     </div>

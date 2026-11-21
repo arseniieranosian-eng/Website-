@@ -11,7 +11,7 @@ interface Include { text: string; link?: { part: string; page: 'geo' }; catalog?
 
 const term = `${MAPS_MIN_MONTHS} měsíce`;
 // Czech labels for the shared rates ("za 10 hovorů" etc.).
-const CS_LABEL = { calls: ['Hovory', 'hovorů'], routes: ['Trasy', 'tras'], visits: ['Prokliky na web', 'prokliků'] } as const;
+const CS_LABEL = { calls: ['Kliknutí na hovor', 'kliknutí na hovor'], routes: ['Trasy', 'tras'], visits: ['Prokliky na web', 'prokliků'] } as const;
 const CS_RATES = MAPS_RATES.map((r) => ({ name: CS_LABEL[r.key][0], unit: `za ${r.qty} ${CS_LABEL[r.key][1]}`, price: r.price }));
 const full = fmtKc(MAPS_FULL_MONTHLY);
 
@@ -20,16 +20,16 @@ export const MAPS_CS = {
   // The author's quote (after the block named in the brief of 20.10.2026); text word for word in the page and in the Quotation node.
   quote: 'V mapách nerozhoduje jen pozice. Rozhodují hovory, trasy a návštěvy webu, proto sleduji právě je.',
   h1: 'Lokální SEO: propagace na Google Maps a Mapy.com',
-  lead: 'Propaguji váš byznys v mapách Google a Seznam: optimalizuji profily, sjednocuji údaje o firmě, nastavuji získávání recenzí a sleduji hovory, trasy a prokliky na web. Pracuji na dálku, pro firmy z jakéhokoli města. Platíte za výsledek.',
+  lead: `Propaguji váš byznys v mapách Google a Seznam: optimalizuji profily, sjednocuji údaje o firmě, pomáhám s odpověďmi na recenze a sleduji kliknutí na hovor, trasy a prokliky na web. Pracuji na dálku, pro firmy z jakéhokoli města. Platba podle výsledků (kliknutí na hovor, trasy, prokliky) nebo balíček Full za ${full} měsíčně.`,
   updatedLabel: 'Aktualizováno',
-  badge: `Platba za výsledek · od ${MAPS_MIN_MONTHS} měsíců · profily bez omezení počtu`,
+  badge: `Platba podle výsledků nebo balíček Full · od ${MAPS_MIN_MONTHS} měsíců · profily bez omezení počtu`,
   heroPrimary: 'Mám zájem o službu',
   heroAudit: 'Audit zdarma',
 
   priceTitle: 'Kolik stojí propagace na Google Maps a Mapy.com?',
-  priceAnswer: `Propagace v mapách se platí za výsledek: platíte za skutečné hovory, trasy a prokliky na web z map. Minimální doba spolupráce je ${term}.`,
+  priceAnswer: `Propagace v mapách se platí podle výsledků: platíte za kliknutí na tlačítko hovoru, trasy a prokliky na web z map, nebo měsíčně za balíček Full. Minimální doba spolupráce je ${term}.`,
   // JSON-LD Offer.description: the visible answer without its final period.
-  offerTerms: `Propagace v mapách se platí za výsledek: platíte za skutečné hovory, trasy a prokliky na web z map. Minimální doba spolupráce je ${term}`,
+  offerTerms: `Propagace v mapách se platí podle výsledků: platíte za kliknutí na tlačítko hovoru, trasy a prokliky na web z map, nebo měsíčně za balíček Full. Minimální doba spolupráce je ${term}`,
   rates: [
     ...CS_RATES.map((r) => ({ label: `${r.name}:`, text: `${r.unit}, 1 profil`, price: r.price, spec: `${r.name}: ${r.unit}, 1 profil` })),
     {
@@ -39,7 +39,7 @@ export const MAPS_CS = {
       spec: 'Balíček Full: Google Maps + Mapy.com (Seznam), všechny metriky a práce s recenzemi, za měsíc, 1 profil',
     },
   ],
-  ratesNote: 'Platba se počítá za výsledky získané po dobu trvání smlouvy. Výsledek potvrzuje export statistik z map: Google Business Profile i Mapy.com je mají. Balíček Full je výhodnější než sjednávat vše zvlášť. Máte víc poboček? Každý profil se počítá zvlášť. Cena se vždy počítá za 1 profil.',
+  ratesNote: 'Platba se počítá za výsledky získané po dobu trvání smlouvy. Výsledek potvrzuje export statistik z administrace Firmy.cz a z Google Business Profile. Balíček Full je výhodnější než sjednávat vše zvlášť. Máte víc poboček? Každý profil se počítá zvlášť. Cena se vždy počítá za 1 profil.',
   priceNote: 'Pokud potřebujete i web, mapy jsou už součástí balíčků Start na 3 měsíce a Full SEO.',
   priceImagesTitle: 'Ceník v přehledu',
   priceImages: [
@@ -55,6 +55,7 @@ export const MAPS_CS = {
     'Pro obchody a firmy s kamennou provozovnou.',
     'Pro podniky v jakémkoli městě v Česku i v EU: pracuji na dálku.',
   ],
+  forWhomNote: 'Mapy.com a Firmy.cz přijímají podle nápovědy jen firmy působící v ČR. Profil na Googlu lze vést i mimo ČR.',
 
   includesTitle: 'Co je součástí propagace v mapách?',
   // The OfferCatalog in JSON-LD is built from these items (first sentence, or the `catalog` wording).
@@ -62,9 +63,9 @@ export const MAPS_CS = {
     { text: 'Založení nebo optimalizace profilu Google Business Profile.' },
     { text: 'Profil na Mapy.com a Firmy.cz.' },
     { text: 'Jednotné údaje o firmě (název, adresa, telefon) ve všech katalozích.' },
-    { text: 'Systém získávání recenzí a práce s recenzemi na Googlu.' },
+    { text: 'Žádosti o upřímné hodnocení a odpovědi na recenze na Googlu.' },
     { text: 'Vedení profilů bez omezení počtu.' },
-    { text: 'Sledování metrik: hovory, trasy, prokliky na web.' },
+    { text: 'Sledování metrik: kliknutí na hovor, trasy, prokliky na web.' },
     {
       text: 'Zadání pro lokální stránky: struktura a metadata s vysvětlením každého bloku (implementace na vaší straně).',
       catalog: 'Zadání pro lokální stránky: struktura a metadata s vysvětlením každého bloku',
@@ -72,11 +73,13 @@ export const MAPS_CS = {
     { text: 'Optimalizace pro AI vyhledávání (GEO/AEO).', link: { part: 'GEO/AEO', page: 'geo' as const } },
     { text: 'Týdenní report, call podle zájmu.', catalog: 'Týdenní report' },
   ],
+  includesNote: 'Pomohu nastavit, jak požádat klienty o upřímné hodnocení (odkaz, QR kód) a jak na recenze odpovídat. Hodnocení nekupuji ani za ně neodměňuji.',
 
   metricsTitle: 'Jaké metriky z map sleduji?',
-  metricsAnswer: 'Sleduji tři metriky: hovory, trasy a prokliky na web z map. Právě podle nich se počítá výsledek práce.',
-  metrics: ['Hovory z map Google a Mapy.com.', 'Trasy k vaší provozovně.', 'Prokliky na web z map.'],
+  metricsAnswer: 'Sleduji tři metriky: kliknutí na hovor, trasy a prokliky na web z map. Právě podle nich se počítá výsledek práce.',
+  metrics: ['Kliknutí na tlačítko hovoru v Google Maps a prokliky na telefon na Mapy.com.', 'Trasy k vaší provozovně.', 'Prokliky na web z map.'],
   metricsExtra: 'Navíc: vývoj recenzí a pozic v mapách.',
+  metricsPositions: 'Pozice v mapách měřím z pevného bodu a zařízení. Je to orientační údaj, protože pořadí se mění podle místa, zařízení a času.',
   branchesTitle: 'Jak vypadá vývoj metrik po pobočkách?',
   branchesText: 'Příklad vývoje metrik z map u jednotlivých poboček, od dubna do září.',
   branchImages: [
@@ -101,12 +104,12 @@ export const MAPS_CS = {
   stages: [
     'Audit stávajících profilů a konkurence.',
     'Optimalizace profilů a katalogů.',
-    'Nastavení recenzí a lokálního obsahu.',
+    'Nastavení žádostí o upřímné hodnocení, odpovědí na recenze a lokálního obsahu.',
     'Týdenní report a sledování pozic v mapách.',
   ],
 
   resultsTitle: 'Kdy přijdou první výsledky v mapách?',
-  resultsAnswer: `Závisí na oboru, konkurenci a výchozí pozici, proto váš případ probereme zvlášť. Minimální doba spolupráce je ${term}. Vývoj hovorů, tras a prokliků vidíte v týdenním reportu.`,
+  resultsAnswer: `Závisí na oboru, konkurenci a výchozí pozici, proto váš případ probereme zvlášť. Minimální doba spolupráce je ${term}. Vývoj kliknutí na hovor, tras a prokliků vidíte v týdenním reportu.`,
   resultsNote: '',
 
   packsTitle: 'Mapy jsou součástí balíčků Start a Full SEO',
@@ -116,7 +119,7 @@ export const MAPS_CS = {
     startPrice: `, ${fmtKc(START_PRICE)}`,
     mid: ' a ',
     fullLink: 'Full SEO na rok',
-    fullPrice: `, od ${fmtKc(FULLSEO_MONTHLY)} měsíčně`,
+    fullPrice: `, od ${fmtKc(FULLSEO_MONTHLY)} měsíčně, podle oboru a rozsahu webu`,
     outro: '. Profily bez omezení počtu, metriky stejné.',
   },
 
@@ -125,7 +128,7 @@ export const MAPS_CS = {
 
   // "Související články": posts that help to decide on local promotion and to prepare the website behind it.
   articlesTitle: 'Související články',
-  articlesLead: 'Praktické články o tom, jak vybrat první krok v SEO, jak SEO souvisí s reklamou a co ukáže audit webu.',
+  articlesLead: 'Články o tom, jak má firma vypadat v mapách a katalozích, a co jsem zjistil při procházení karet v mapách.',
   articlesMore: 'Číst článek',
   articles: ['postChoose', 'postAds', 'postSeoAudit', 'postNotShown', 'postRealtyLocal', 'postAccountingLocal'] as const,
 
@@ -134,11 +137,20 @@ export const MAPS_CS = {
     { q: 'Jak probíhá platba?', a: `Platíte za konkrétní výsledky: ${CS_RATES.map((r) => `${fmtKc(r.price)} ${r.unit}`).join(', ')} — vždy za 1 profil. Výhodnější je balíček Full za ${full} měsíčně, který zahrnuje všechny metriky i práci s recenzemi.` },
     { q: 'Co když mám víc poboček?', a: 'Každý profil (pobočka) se počítá zvlášť.' },
     { q: 'Kolik profilů mohu mít?', a: 'Bez omezení počtu.' },
-    { q: 'Jaké metriky sledujete?', a: 'Hovory, trasy, přechody na web, recenze.' },
+    { q: 'Jaké metriky sledujete?', a: 'Kliknutí na hovor, trasy, přechody na web, recenze.' },
     { q: 'Jaká je minimální doba spolupráce?', a: `Od ${MAPS_MIN_MONTHS} měsíců.` },
     { q: 'Kdy přijdou první výsledky?', a: 'Závisí na oboru, konkurenci a výchozí pozici.' },
     { q: 'Vytváříte lokální stránky?', a: 'Připravím kompletní zadání: strukturu stránky, meta tagy, nadpisy, obsah i mikrodata. Implementace je na straně klienta nebo vývojáře.' },
     { q: 'Jsou mapy součástí balíčků Start a Full SEO?', a: 'Ano.' },
+    {
+      q: 'Dá se zaplatit za pozici v mapách?',
+      a: 'Na Googlu ne: podle nápovědy Google nelze požádat o lepší místní pozici ani za ni zaplatit. Na Mapy.com ovlivňuje řazení podle nápovědy Firmy.cz kromě relevance a lokality také cena v aukci. Já neprodávám pozice, měřím kliknutí na hovor, trasu a web z vašich profilů.',
+      sourcesLead: 'Zdroje (zkontrolováno 21. 11. 2026):',
+      sources: [
+        { text: 'Google Business Profile: Jak se určuje místní řazení', href: 'https://support.google.com/business/answer/7091' },
+        { text: 'Firmy.cz nápověda: Kde se firemní profil zobrazuje', href: 'https://napoveda.firmy.cz/zaciname/kde-se-profil-zobrazuje/' },
+      ],
+    },
     { q: 'Pracujete i mimo Prahu?', a: 'Ano, pracuji pro firmy v celém Česku i v zahraničí, práce probíhá na dálku.' },
   ],
   faqAll: 'Všechny časté dotazy',

@@ -23,7 +23,7 @@ const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
 const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
 // The title is the one given in the brief (47 chars, a little under the usual 50)
 if (title !== 'Lokální SEO: Google Maps a Mapy.com | Eranosian' || title.length < 35 || title.length > 55) e(`title: ${title} (${title.length})`);
-if (desc.length < 120 || desc.length > 150) e(`description length ${desc.length}`);
+if (desc !== 'Lokální SEO pro Google Maps a Mapy.com: profily, údaje, odpovědi na recenze, měření kliků. Full od 1\u00a0800\u00a0Kč měsíčně.' || desc.length !== 116) e(`description (brief of 21.11.2026, B1): ${desc.length}`);
 if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 if (!h.includes('<meta property="og:locale" content="cs_CZ">')) e('og:locale cs_CZ');
@@ -34,7 +34,11 @@ const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));
 if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.stringify(hs)}`);
-if (!mainTxt.includes('Platba za výsledek · od 4 měsíců · profily bez omezení počtu')) e('badge missing');
+if (!mainTxt.includes('Platba podle výsledků nebo balíček Full · od 4 měsíců · profily bez omezení počtu')) e('badge missing');
+// Brief of 21.11.2026 (B2–B10)
+for (const f of ['skutečné hovory', 'skutečných hovor', 'Platíte za výsledek', 'platí za výsledek', 'Systém získávání recenzí', 'Nastavení získávání recenzí', '6×', '300×']) if (mainTxt.includes(f) || body.includes(f)) e(`B: forbidden on the maps page: ${f}`);
+for (const f of ['Platba podle výsledků (kliknutí na hovor, trasy, prokliky) nebo balíček Full za 1 800 Kč měsíčně.', 'Pomohu nastavit, jak požádat klienty o upřímné hodnocení (odkaz, QR kód) a jak na recenze odpovídat. Hodnocení nekupuji ani za ně neodměňuji.', 'Pozice v mapách měřím z pevného bodu a zařízení. Je to orientační údaj, protože pořadí se mění podle místa, zařízení a času.', 'Mapy.com a Firmy.cz přijímají podle nápovědy jen firmy působící v ČR. Profil na Googlu lze vést i mimo ČR.', 'Výsledek potvrzuje export statistik z administrace Firmy.cz a z Google Business Profile.', ', od 15 000 Kč měsíčně, podle oboru a rozsahu webu', 'Články o tom, jak má firma vypadat v mapách a katalozích, a co jsem zjistil při procházení karet v mapách.', 'Reference k projektu webového SEO', 'Reference k webovému SEO / konzultaci', 'Zdroje (zkontrolováno 21. 11. 2026):']) if (!mainTxt.includes(f)) e(`B: missing text: ${f}`);
+if (/volno|nejvýše se třemi/.test(mainTxt)) e('B12: no capacity line');
 for (const f of FORBIDDEN) if (mainTxt.includes(f)) e(`forbidden text: ${f}`);
 if (/(?<![\p{L}])(my|náš|naše)(?![\p{L}])/iu.test(mainTxt)) e('"my / naše" must not be used: the author works as a specialist ("já")');
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
@@ -65,9 +69,9 @@ if (/€|EUR/.test(JSON.stringify(ld))) e('no euro in JSON-LD');
 const cat = sv.hasOfferCatalog;
 const flat = body.replace(/\( /g, '(').replace(/ \)/g, ')');
 if (!body.includes(cat.name) || cat.itemListElement.length !== 9 || !cat.itemListElement.every((i) => flat.includes(i.itemOffered.name))) e('OfferCatalog does not match the visible list');
-if (fq.mainEntity.length !== 9 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('9 FAQ Q/A not visible verbatim');
+if (fq.mainEntity.length !== 10 || !fq.mainEntity.every((q) => body.includes(q.name) && body.includes(q.acceptedAnswer.text))) e('10 FAQ Q/A not visible verbatim (B10: new question "Dá se zaplatit za pozici v mapách?")');
 const pay = fq.mainEntity[0].acceptedAnswer.text;
-if (!/1 000 Kč za 10 hovorů, 1 000 Kč za 20 tras, 500 Kč za 10 prokliků/.test(pay) || !pay.includes('1 800 Kč měsíčně')) e('payment FAQ must carry the rates');
+if (!/1 000 Kč za 10 kliknutí na hovor, 1 000 Kč za 20 tras, 500 Kč za 10 prokliků/.test(pay) || !pay.includes('1 800 Kč měsíčně')) e('payment FAQ must carry the rates');
 if (bc['@id'] !== wp.breadcrumb['@id'] || bc.itemListElement.map((i) => i.name).join(' > ') !== 'Domů > Mapy (Google + Mapy.com)' || bc.itemListElement.at(-1).item) e('breadcrumb (two levels)');
 // P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!ht || ht.step.length !== 4) e('HowTo: expected 4 steps');
 else {
@@ -77,7 +81,7 @@ else {
 if (sv.provider['@id'] !== by('Person')['@id']) e('provider must reference Person');
 const rel = (sv.isRelatedTo ?? []).map((r) => r['@id']);
 for (const p of ['/start-3-mesice/', '/full-seo/']) if (!rel.includes(`${BASE}${p}#service`)) e(`isRelatedTo ${p}`);
-for (const [hd, ans] of [['Kolik stojí propagace na Google Maps a Mapy.com?', 'Propagace v mapách se platí za výsledek'], ['Jaké metriky z map sleduji?', 'Sleduji tři metriky'], ['Lokální stránky pro pobočky a provozovny', 'Připravím kompletní zadání'], ['Kdy přijdou první výsledky v mapách?', 'Závisí na oboru']]) {
+for (const [hd, ans] of [['Kolik stojí propagace na Google Maps a Mapy.com?', 'Propagace v mapách se platí podle výsledků'], ['Jaké metriky z map sleduji?', 'Sleduji tři metriky'], ['Lokální stránky pro pobočky a provozovny', 'Připravím kompletní zadání'], ['Kdy přijdou první výsledky v mapách?', 'Závisí na oboru']]) {
   if (!new RegExp(`${hd.replace(/[?.]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 // The cs services card says "Od 4 měsíců" and shows the Full package price
