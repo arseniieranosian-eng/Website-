@@ -11,6 +11,7 @@ const [group, id] = kind.includes(':') ? kind.split(':') : ['own', kind];
 // The author's photo of the free audit (05.11.2026, all languages) replaces the drawing.
 const photo = group === 'own' && id === 'audit' ? servicePhoto(lang, 'audit') : undefined;
 ---
+{kind === 'skip' ? null : (
 <div class="page-art" aria-hidden="true">
   {group === 'niche' && <NicheArt kind={id} />}
   {group === 'case' && <CaseArt kind={id} />}
@@ -57,3 +58,4 @@ const photo = group === 'own' && id === 'audit' ? servicePhoto(lang, 'audit') : 
     </svg>
   )}
 </div>
+)}

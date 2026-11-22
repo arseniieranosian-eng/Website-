@@ -29,6 +29,7 @@ const raw = {
 
   startTitle: 'Jaká byla výchozí situace?',
   startAnswer: 'Platforma, která propojuje studenty s univerzitami, byla nový web bez historie a nasbírané autority ve vyhledávání. Soutěžit se zavedenými weby o nejhledanější dotazy bylo na takovém startu nereálné.',
+  startImage: { src: '/images/pripadove-studie/vzdelavaci-platforma-vyhledavani-univerzit.webp', width: 1672, height: 941, alt: 'Notebook s vyhledáváním univerzit na vzdělávací platformě' },
   startText: 'Nový web nemá data o tom, které stránky fungují, proto bylo důležité nejdřív vybrat dotazy, u kterých můžeme vůbec proniknout do výsledků.',
 
   lowTitle: 'Proč jsme na začátku zvolili málo hledané dotazy?',

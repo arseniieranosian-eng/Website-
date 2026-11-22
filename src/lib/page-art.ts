@@ -13,7 +13,7 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   privacy: { kinds: ['privacy', 'audit'] },
   geo: { kinds: ['geo', 'audit'] },
   blog: { kinds: ['blog', 'audit'], langs: ['en', 'uk'] },
-  caseEdu: { kinds: ['case:edu', 'audit'] },
+  caseEdu: { kinds: ['skip', 'audit'] }, // 'skip' = nothing: the first block carries the author's picture (22.11.2026) instead of the drawing 'case:edu'; the audit picture stays under the 3rd heading
   caseSeason: { kinds: ['case:season', 'audit'] },
   caseTypo: { kinds: ['case:typo', 'audit'] },
   nicheFitness: { kinds: ['niche:fitness', 'audit'] },

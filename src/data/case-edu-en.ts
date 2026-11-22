@@ -27,6 +27,7 @@ const raw = {
 
   startTitle: 'What was the starting point?',
   startAnswer: 'The platform, which connects students with universities, was a new website without history or accumulated authority in search. Competing with established websites for the most searched queries was unrealistic from such a start.',
+  startImage: { src: '/images/pripadove-studie/vzdelavaci-platforma-vyhledavani-univerzit.webp', width: 1672, height: 941, alt: 'Laptop showing a university search on an education platform' },
   startText: 'A new website has no data about which pages work, so it was important to first choose the queries where we could break into the results at all.',
 
   lowTitle: 'Why did we choose low-volume queries at the start?',

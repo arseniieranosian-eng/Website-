@@ -36,7 +36,9 @@ if (JSON.stringify(hs) !== JSON.stringify(SECTIONS)) e(`section order: ${JSON.st
 for (const f of FORBIDDEN) if (mainTxt.toLowerCase().includes(f.toLowerCase())) e(`forbidden text: ${f}`);
 for (const l of LINKS) if (!h.includes(`href="${l}"`)) e(`missing internal link ${l}`);
 if (/href="\/ru\/|href="\/en\//.test(main)) e('no links to the ru / en versions from the page body');
-if (/<form|<video|<img|<svg class="channel|★|ratingValue/.test(main)) e('no form / video / images / charts / stars on this page');
+// brief of 22.11.2026: ONE picture of the author under the heading of the first block (class case-figure); nothing else
+const imgs = [...main.matchAll(/<img[^>]*>/g)].map((m) => m[0]);
+if (/<form|<video|<svg class="channel|★|ratingValue/.test(main) || imgs.length !== 1 || !/<figure class="case-figure"><img src="\/images\/pripadove-studie\/vzdelavaci-platforma-vyhledavani-univerzit\.webp" width="1672" height="941" alt="[^"]{10,125}"/.test(main)) e('no form / video / charts / stars; ONE picture in the first block');
 // Role of the author: "jsme" allowed here and present; "já" for the author's own statements
 if (!/Společně s kolegou jsme/.test(mainTxt) || !mainTxt.includes('Na projektu jsem pracoval společně s kolegou')) e('the colleague role must be stated');
 // Czech number typography
@@ -59,7 +61,7 @@ if (!rows.some((r) => r.join('|') === 'Ukazatel|Období|Změna') || !rows.some((
 if (!/Zdroj: data analytiky webu[^<]*březen a září 2025/.test(norm(h))) e('source line under the results table');
 if (!mainTxt.includes('Absolutní hodnoty nezveřejňuji')) e('limits of the case must be stated');
 for (const [hd, ans] of [['Jaká byla výchozí situace?', 'Platforma, která propojuje'], ['Proč jsme na začátku zvolili málo hledané dotazy?', 'Nový web nemá autoritu'], ['Co jsme dělali?', 'Společně s kolegou jsme zkoumali'], ['Jaké byly výsledky za 7 měsíců?', 'Organická návštěvnost vzrostla']]) {
-  if (!new RegExp(`${hd.replace(/[?.+]/g, '\\$&')}</h2>\\s*<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
+  if (!new RegExp(`${hd.replace(/[?.+]/g, '\\$&')}</h2>\\s*(?:<figure class="case-figure">[\\s\\S]*?</figure>\\s*)?<p class="answer">${ans}`).test(h)) e(`answer-first: ${hd}`);
 }
 if ([...(h.match(/<ol class="case-steps">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><h3>/g)].length !== 3) e('three theses expected');
 const wc = mainTxt.split(/\s+/).length;
