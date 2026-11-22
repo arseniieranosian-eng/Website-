@@ -74,14 +74,14 @@ const visFaq = [...main.matchAll(/<div><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/
 if (!faq || faq.mainEntity.length !== 4 || faq.mainEntity.some((q, i) => norm(q.name) !== visFaq[i]?.[0] || norm(q.acceptedAnswer.text) !== visFaq[i]?.[1])) e('FAQPage must equal the visible FAQ');
 if (g.some((n) => ['Service', 'Offer', 'AggregateRating', 'Review'].includes(n['@type']))) e('no Service/Offer/rating markup');
 const Q2 = 'Dobrá cílová stránka je polovina úspěchu kampaně. Když neodpovídá tomu, co člověk hledal, může být každý klik zbytečně drahý.';
-if (!/<figure class="owner-quote">\s*<blockquote cite="[^"]*seo-a-reklama\/"><p>[^<]*<\/p><\/blockquote>\s*<figcaption>\s*<img src="\/images\/blog\/ilya-naumuk\.jpg"[^>]*alt="Ilya Naumuk, specialista na PPC reklamu"[^>]*>\s*<span>— <a href="https:\/\/www\.instagram\.com\/naum_official"[^>]*>Ilya Naumuk<\/a>, specialista na PPC reklamu<\/span><\/figcaption>/.test(main)) e('PPC specialist quote with the Instagram link');
+if (!/<figure class="owner-quote">\s*<blockquote cite="[^"]*seo-a-reklama\/"><p>[^<]*<\/p><\/blockquote>\s*<figcaption>\s*<img src="\/images\/blog\/ilya-naumuk\.jpg"[^>]*alt="Ilya Naumuk, specialista na PPC reklamu"[^>]*>\s*<span>— <a href="https:\/\/freshmedia\.site\/"[^>]*>Ilya Naumuk<\/a>, specialista na PPC reklamu<\/span><\/figcaption>/.test(main)) e('PPC specialist quote with the link to his website');
 const iq2 = mainTxt.indexOf(Q2);
 if (!(mainTxt.indexOf('Jak poznat, že je web připravený na reklamu?') < iq2 && iq2 < mainTxt.indexOf('Stránka odpovídá na konkrétní dotaz.'))) e('quote 2 after the first paragraph of the readiness section, before the checklist');
 if (!mainTxt.includes('Reklamu nespravuji, pomáhám připravit web.')) e('border: advertising is not managed');
 // P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. const q2n = node('Quotation').find((n) => n['@id'] === `${U}#quote-2`);
 // P1.1 (brief of 03.11.2026): Quotation / HowTo markup is no longer used on the site. if (!q2n || q2n.text !== Q2) e('Quotation #2');
 const ppc = g.find((n) => n['@id'] === `${U}#ppc`);
-if (!ppc || ppc.name !== 'Ilya Naumuk' || !ppc.sameAs.includes('https://www.instagram.com/naum_official')) e('PPC specialist Person node');
+if (!ppc || ppc.name !== 'Ilya Naumuk' || !ppc.sameAs.includes('https://freshmedia.site/')) e('PPC specialist Person node');
 if (!/<a class="btn btn--primary btn--lg" href="\/start-3-mesice\/">SEO start na 3 měsíce<\/a>/.test(main) || !/btn btn--secondary btn--lg" href="\/konzultace\/">Domluvit konzultaci/.test(main)) e('closing buttons: Start (primary) + consultation');
 if ((main.match(/class="btn[^"]*" href="\/audit-zdarma\/"/g) || []).length !== 1) e('free audit: the closing CTA is the only button');
 if (!/relatedLink/.test(JSON.stringify(g)) || post.relatedLink !== `${BASE}/start-3-mesice/`) e('relatedLink → Start');

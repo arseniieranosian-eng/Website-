@@ -2,7 +2,7 @@
 // /konzultace/. The author does not run advertising ("Reklamu nespravuji, pomáhám připravit web"); no promise that SEO lowers the cost per
 // client (mechanism worded as possible, no numbers, no prices); advertising is not belittled. The brief's claim about Google Ads judging
 // the landing-page experience is NOT stated (to be checked against the Google Ads help before it goes in). Quote 2 is by the PPC
-// specialist Ilya Naumuk (Instagram link given by the author); the wording is a draft that needs his approval, without it the block and
+// specialist Ilya Naumuk (link to his website freshmedia.site, given by the author on 22.11.2026; it replaced the Instagram link); the wording is a draft that needs his approval, without it the block and
 // its Quotation node are to be removed. The word "agentura" is not used about the author. The pictures are drawn illustrations.
 import { walk } from '../lib/cs-typo';
 
@@ -86,7 +86,7 @@ const raw = {
   readyTitle: 'Jak poznat, že je web připravený na reklamu?',
   readyAnswer: 'Web je připravený, když stránka odpovídá na dotaz, má jasnou nabídku a výzvu k akci, vzbuzuje důvěru a měří poptávky.',
   quote2: 'Dobrá cílová stránka je polovina úspěchu kampaně. Když neodpovídá tomu, co člověk hledal, může být každý klik zbytečně drahý.',
-  quote2Person: { name: 'Ilya Naumuk', role: 'specialista na PPC reklamu', instagram: 'https://www.instagram.com/naum_official', photo: { src: '/images/blog/ilya-naumuk.jpg', width: 150, height: 150, alt: 'Ilya Naumuk, specialista na PPC reklamu' } },
+  quote2Person: { name: 'Ilya Naumuk', role: 'specialista na PPC reklamu', url: 'https://freshmedia.site/', photo: { src: '/images/blog/ilya-naumuk.jpg', width: 150, height: 150, alt: 'Ilya Naumuk, specialista na PPC reklamu' } },
   ready: [
     'Stránka odpovídá na konkrétní dotaz.',
     'Nabídka a výzva k akci jsou na první pohled jasné.',
