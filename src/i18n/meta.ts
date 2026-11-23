@@ -399,6 +399,16 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
   },
+  postOneTime: {
+    cs: {
+      name: 'Jednorázová úprava webu, nebo průběžné SEO: v čem se liší?',
+      title: 'Jednorázové SEO, nebo průběžné? | Eranosian',
+      description: 'Jednorázové SEO, nebo průběžné: pro koho se hodí která varianta, co obsahuje, kolik orientačně stojí a jaká má omezení.',
+      h1: 'Jednorázová úprava webu, nebo průběžné SEO: v čem se liší?',
+    },
+    en: { name: 'One-time or ongoing SEO?', title: 'One-time or ongoing SEO?', description: 'One-time or ongoing SEO?', h1: 'One-time website fix or ongoing SEO: how do they differ?' },
+    ru: { name: 'Разовое или постоянное SEO?', title: 'Разовое или постоянное SEO?', description: 'Разовое или постоянное SEO?', h1: 'Разовая правка сайта или постоянное SEO: в чём разница?' },
+  },
   postDentalMapsObs: {
     cs: {
       name: 'Co jsem zjistil v kartách Google Maps a Mapy.com pro „stomatologie v Praze“',

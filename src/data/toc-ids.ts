@@ -44,6 +44,7 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/slabe-seo-konkurence-realitni-kancelare/': ['praha', 'brno', 'hodnoceni', 'proc-vpredu', 'ai-prehledy', 'kontrola', 'faq'],
   '/blog/slabe-seo-konkurence-ucetni-kancelare/': ['vysledky', 'plyne', 'kontrola', 'proc-vpredu', 'faq'],
   '/blog/stomatologie-v-mapach-co-jsem-zjistil/': ['zpusob', 'slozeni', 'nalezy', 'razeni', 'nevyplyva', 'kontrola', 'faq', 'dalsi-clanky'],
+  '/blog/jednorazove-seo-nebo-prubezne/': ['rozdil', 'jednorazove', 'prubezne', 'cena', 'rozhodnuti', 'faq', 'dalsi-clanky'],
   '/blog/profil-zubni-ordinace-v-mapach/': ['kde', 'zalozeni', 'nazev', 'kategorie', 'sluzby', 'udaje', 'recenze', 'chyby', 'kontrola', 'faq', 'souvisejici'],
   '/blog/cnc-obrabeni-co-jsem-zjistil/': ['zpusob', 'okoli', 'puvod', 'nalezy', 'nevyplyva', 'kontrola', 'faq'],
   '/blog/slabe-seo-konkurence-zubni-ordinace/': ['zpusob', 'okoli', 'puvod', 'nalezy', 'nevyplyva', 'kontrola', 'faq', 'dalsi-clanky'],

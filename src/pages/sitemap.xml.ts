@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ site }) => {
       continue;
     }
     // lastmod only where the brief asks for it (the electronics observation article, 13.11.2026); the date is the manual one of the page (data/page-dates.json)
-    const lastmod = key === 'postCncObrabeni' ? '2026-11-16' : key === 'postDentalProfile' ? '2026-11-21' : key === 'postDentalMapsObs' ? '2026-11-21' : key === 'postElectronicsObs' ? lastModified(['src/views/PostElectronicsObsCsPage.astro'], '2026-11-13') : key === 'postTiskOnline' ? lastModified(['src/views/PostTiskOnlineCsPage.astro'], '2026-11-14') : undefined;
+    const lastmod = key === 'postCncObrabeni' ? '2026-11-16' : key === 'postDentalProfile' ? '2026-11-21' : key === 'postDentalMapsObs' ? '2026-11-21' : key === 'postOneTime' ? '2026-11-23' : key === 'postElectronicsObs' ? lastModified(['src/views/PostElectronicsObsCsPage.astro'], '2026-11-13') : key === 'postTiskOnline' ? lastModified(['src/views/PostTiskOnlineCsPage.astro'], '2026-11-14') : undefined;
     for (const lang of langsFor(key)) entries.push({ loc: ROUTES[key][lang], alternates: alternatesFor(key, lang), lastmod });
   }
   for (const post of await allPosts()) {
