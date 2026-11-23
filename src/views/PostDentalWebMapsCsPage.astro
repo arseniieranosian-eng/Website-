@@ -1,0 +1,129 @@
+---
+// Blog article "Vlastní web, mapy a katalogy: kdy se hodí co pro zubní ordinaci?" (cs), brief of 23.11.2026 (comparative series, article 2). Content: data/post-dental-web-maps-cs.ts.
+// A comparison of three channels (not of practices or contractors): no names except Firmy.cz as the source of the help and the platforms Google Maps / Mapy.com, no outside prices, no promises, no text about treatment.
+// Body links: the three Firmy.cz help pages (sources) and ONE link to the profile article (inside H2-6); the closing block has ONE button to the dental landing page and ONE text link to /lokalni-seo-mapy/ (rule F: no other links to the services).
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { postDentalWebMapsSchemas } from '../lib/schema-post-dental-web-maps';
+import { POST_WEBMAPS_CS as C, POST_WEBMAPS_MODIFIED } from '../data/post-dental-web-maps-cs';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MOD = POST_WEBMAPS_MODIFIED; // set by hand, not from git
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d}. ${mo}. ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-web-ordinace-nebo-mapy-a-katalogy.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+const cite = new URL(path('postDentalWebMaps', lang), site).href;
+---
+<Base {...pageProps('postDentalWebMaps', lang)} ogType="article" ogImage={OG} schema={postDentalWebMapsSchemas(site, C, { modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postDentalWebMaps.cs.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.diffTitle}</h2>
+      <p class="answer">{C.diffAnswer}</p>
+    </div>
+    <div class="container">
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.tableHead.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.tableRows.map((r) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+    <div class="container narrow">
+      <p class="small muted">{C.tableNote}</p>
+      <figure class="quote-fig">
+        <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.webTitle}</h2>
+      <p class="answer">{C.webAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.mapsTitle}</h2>
+      <p class="answer">{C.mapsAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.catalogTitle}</h2>
+      <p class="answer">{C.catalogAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+      <p class="small muted">{C.sourcesLine}</p>
+      <ul class="small muted">{C.sources.map((s) => <li>{s.text}: <a href={s.href} target="_blank" rel="noopener">{s.href}</a></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.rightTitle}</h2>
+      <p class="answer">{C.rightAnswer.before}<a href={t('postDentalProfile')}>{C.rightAnswer.link}</a>{C.rightAnswer.after}</p>
+      <ol class="steps">{C.rightSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+      <p>{C.rightNote}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.notTitle}</h2>
+      <p class="answer">{C.notAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <p class="muted">{C.mistake.before} <a href={t('contact')}>{C.mistake.link}</a></p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('nicheDental')}>{C.endCta}</a></div>
+        <p class="post-cta__text">{C.endLink.before} <a href={t('maps')}>{C.endLink.text}</a>{C.endLink.after}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.moreTitle}</h2>
+      <p class="muted">{C.moreLead}</p>
+      <RelatedPosts lang={lang} keys={['postDentalChannels', 'postDentalMapsObs', 'postWeakSeoDental']} more={C.moreMore} />
+    </div>
+  </section>
+</Base>
