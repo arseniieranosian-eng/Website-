@@ -44,6 +44,7 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/slabe-seo-konkurence-realitni-kancelare/': ['praha', 'brno', 'hodnoceni', 'proc-vpredu', 'ai-prehledy', 'kontrola', 'faq'],
   '/blog/slabe-seo-konkurence-ucetni-kancelare/': ['vysledky', 'plyne', 'kontrola', 'proc-vpredu', 'faq'],
   '/blog/stomatologie-v-mapach-co-jsem-zjistil/': ['zpusob', 'slozeni', 'nalezy', 'razeni', 'nevyplyva', 'kontrola', 'faq', 'dalsi-clanky'],
+  '/blog/web-ucetni-kancelare-mapy-a-katalogy/': ['rozdil', 'web', 'mapy', 'katalog', 'cena', 'spravne', 'nevyplyva', 'faq', 'dalsi-clanky'],
   '/blog/jednorazove-nastaveni-profilu-nebo-sprava-map/': ['rozdil', 'jednorazove', 'prubezne', 'napoveda', 'cena', 'spravne', 'nevyplyva', 'faq', 'dalsi-clanky'],
   '/blog/web-ordinace-nebo-mapy-a-katalogy/': ['rozdil', 'web', 'mapy', 'katalog', 'cena', 'spravne', 'nevyplyva', 'faq', 'dalsi-clanky'],
   '/blog/jednorazove-seo-nebo-prubezne/': ['rozdil', 'jednorazove', 'prubezne', 'cena', 'rozhodnuti', 'faq', 'dalsi-clanky'],

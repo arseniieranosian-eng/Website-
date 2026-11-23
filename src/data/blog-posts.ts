@@ -30,6 +30,7 @@ import { POST_MAPS_OBS_CS, POST_MAPS_OBS_PUBLISHED } from './post-dental-maps-ob
 import { POST_ONETIME_CS, POST_ONETIME_PUBLISHED } from './post-one-time-cs';
 import { POST_WEBMAPS_CS, POST_WEBMAPS_PUBLISHED } from './post-dental-web-maps-cs';
 import { POST_PROFMGMT_CS, POST_PROFMGMT_PUBLISHED } from './post-profile-mgmt-cs';
+import { POST_ACCWEBMAPS_CS, POST_ACCWEBMAPS_PUBLISHED } from './post-acc-web-maps-cs';
 import { POST_WEAK_SEO_DENTAL_CS, POST_WEAK_SEO_DENTAL_PUBLISHED } from './post-weak-seo-dental-cs';
 import { POST_WEAK_SEO_REALTY_CS, POST_WEAK_SEO_REALTY_PUBLISHED } from './post-weak-seo-realty-cs';
 import { POST_WEAK_SEO_REALTY_RU, POST_WEAK_SEO_REALTY_RU_PUBLISHED } from './post-weak-seo-realty-ru';
@@ -79,6 +80,7 @@ const ALL: DedicatedPost[] = [
   { key: 'postSelectSpecialist', lang: 'cs', date: POST_SELECT_SPECIALIST_PUBLISHED, title: META.postSelectSpecialist.cs.h1, description: META.postSelectSpecialist.cs.description, image: POST_SELECT_SPECIALIST_CS.cover },
   { key: 'postRedesignPlan', lang: 'cs', date: POST_REDESIGN_PLAN_PUBLISHED, title: META.postRedesignPlan.cs.h1, description: META.postRedesignPlan.cs.description, image: POST_REDESIGN_PLAN_CS.cover },
   { key: 'postDentalWebMaps', lang: 'cs', date: POST_WEBMAPS_PUBLISHED, title: META.postDentalWebMaps.cs.h1, description: META.postDentalWebMaps.cs.description, image: POST_WEBMAPS_CS.cover },
+  { key: 'postAccWebMaps', lang: 'cs', date: POST_ACCWEBMAPS_PUBLISHED, title: META.postAccWebMaps.cs.h1, description: META.postAccWebMaps.cs.description, image: POST_ACCWEBMAPS_CS.cover },
   { key: 'postProfileMgmt', lang: 'cs', date: POST_PROFMGMT_PUBLISHED, title: META.postProfileMgmt.cs.h1, description: META.postProfileMgmt.cs.description, image: POST_PROFMGMT_CS.cover },
   { key: 'postOneTime', lang: 'cs', date: POST_ONETIME_PUBLISHED, title: META.postOneTime.cs.h1, description: META.postOneTime.cs.description, image: POST_ONETIME_CS.cover },
   { key: 'postDentalMapsObs', lang: 'cs', date: POST_MAPS_OBS_PUBLISHED, title: META.postDentalMapsObs.cs.h1, description: META.postDentalMapsObs.cs.description, image: POST_MAPS_OBS_CS.cover },
@@ -187,7 +189,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'accounting',
     title: { cs: 'Účetní kanceláře', en: 'Accounting firms', ru: 'Бухгалтерские фирмы' },
     lead: { cs: 'Jak účetní kancelář získává nové klienty.', en: 'How an accounting firm gets new clients.', ru: 'Как бухгалтерская фирма получает новых клиентов.' },
-    keys: ['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccountingLocal', 'postAccountingPages', 'postAccountingTime', 'postWeakSeoAcc'],
+    keys: ['postAccountingChannels', 'postAccountingNoLeads', 'postAccountingSmall', 'postAccWebMaps', 'postAccountingLocal', 'postAccountingPages', 'postAccountingTime', 'postWeakSeoAcc'],
   },
   {
     id: 'dental',

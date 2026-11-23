@@ -399,6 +399,14 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
   },
+  postAccWebMaps: {
+    cs: {
+      name: 'Vlastní web, mapy a katalogy: kdy se hodí co pro účetní kancelář?',
+      title: 'Web účetní kanceláře, mapy a katalogy | Eranosian',
+      description: 'Web účetní kanceláře, profil v mapách a katalog: pro koho se hodí která varianta, kolik orientačně stojí a jaká má omezení.',
+      h1: 'Vlastní web, mapy a katalogy: kdy se hodí co pro účetní kancelář?',
+    },
+  },
   postProfileMgmt: {
     cs: {
       name: 'Jednorázové nastavení profilů, nebo průběžná správa v mapách?',
