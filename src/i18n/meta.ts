@@ -399,6 +399,14 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     uk: { name: 'Слабке SEO у конкурентів-агентств нерухомості', title: 'Слабке SEO у конкурентів-агентств нерухомості', description: 'Слабке SEO у конкурентів-агентств нерухомості', h1: 'Чому в пошуку попереду й агентства нерухомості зі слабким SEO?' },
   },
+  postProfileMgmt: {
+    cs: {
+      name: 'Jednorázové nastavení profilů, nebo průběžná správa v mapách?',
+      title: 'Správa profilu: jednou, nebo průběžně? | Eranosian',
+      description: 'Správa profilu firmy v mapách: kdy stačí jednorázové nastavení, kdy průběžná správa, kolik orientačně stojí a co obnáší.',
+      h1: 'Jednorázové nastavení profilů, nebo průběžná správa v mapách?',
+    },
+  },
   postDentalWebMaps: {
     cs: {
       name: 'Vlastní web, mapy a katalogy: kdy se hodí co pro zubní ordinaci?',

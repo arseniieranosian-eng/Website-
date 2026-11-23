@@ -38,6 +38,7 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   postDentalMapsObs: article('article'),
   postOneTime: article('article'),
   postDentalWebMaps: article('article'),
+  postProfileMgmt: article('article'),
   postWeakSeoRealty: article('article'),
   postFaqDental: article('article'),
   postFaqRealty: article('article'),
