@@ -3,6 +3,7 @@
 // Posts JSON to PUBLIC_FORM_ENDPOINT, then redirects to the thank-you page,
 // which fires the GA4 `generate_lead` event (see views/Thanks.astro).
 import { path, type Lang } from '../i18n/routes';
+import { TURNSTILE_SITEKEY } from '../data/anti-bot';
 
 interface Props {
   lang: Lang;
@@ -67,6 +68,7 @@ const uid = `lf-${id}`;
   data-thanks={path('thanks', lang)}
   data-msg-contact={T.invalidContact}
   data-msg-sending={T.sending}
+  data-turnstile={TURNSTILE_SITEKEY || undefined}
   novalidate
 >
   {title && <p class="form-title">{title}</p>}
@@ -111,6 +113,7 @@ const uid = `lf-${id}`;
     <input id={`${uid}-consent`} name="consent" type="checkbox" value="yes" required />
     <label for={`${uid}-consent`}>{T.consentA}<a href={path('privacy', lang)} target="_blank">{T.consentLink}</a>{T.consentB} *</label>
   </div>
+  {TURNSTILE_SITEKEY && <div class="cf-turnstile" data-sitekey={TURNSTILE_SITEKEY} data-theme="light" data-language={lang === 'uk' ? 'uk' : lang === 'cs' ? 'cs' : lang === 'ru' ? 'ru' : 'en'} data-appearance="interaction-only"></div>}
   <button class="btn btn--primary btn--lg" type="submit">{service === 'audit' ? T.submitAudit : T.submit}</button>
   <p class="form-error" role="alert" hidden>{T.error}</p>
 </form>
@@ -130,6 +133,19 @@ const uid = `lf-${id}`;
 
     contact.addEventListener('input', () => contact.setCustomValidity(''));
 
+    // Cloudflare Turnstile: the script is loaded once, on the first interaction with any form (nothing is requested from Cloudflare before that).
+    if (form.dataset.turnstile) {
+      const load = () => {
+        if (document.querySelector('script[data-turnstile-api]')) return;
+        const s = document.createElement('script');
+        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+        s.async = true; s.defer = true; s.dataset.turnstileApi = '';
+        document.head.appendChild(s);
+      };
+      form.addEventListener('focusin', load, { once: true });
+      form.addEventListener('pointerdown', load, { once: true });
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       error.hidden = true;
@@ -137,6 +153,10 @@ const uid = `lf-${id}`;
       contact.setCustomValidity(EMAIL.test(v) || PHONE.test(v) ? '' : form.dataset.msgContact!);
       if (!form.reportValidity()) return;
 
+      // With Turnstile on, wait (up to 8 s) for the token the widget puts into the form.
+      if (form.dataset.turnstile) {
+        for (let i = 0; i < 40 && !(form.querySelector<HTMLInputElement>('[name="cf-turnstile-response"]')?.value); i++) await new Promise((r) => setTimeout(r, 200));
+      }
       const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
       const goThanks = () => (window.location.href = form.dataset.thanks!);
 
@@ -153,7 +173,10 @@ const uid = `lf-${id}`;
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify(data),
         });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          (window as unknown as { turnstile?: { reset: () => void } }).turnstile?.reset();
+          throw new Error(`HTTP ${res.status}`);
+        }
         try {
           sessionStorage.setItem('lead', JSON.stringify({ form_id: data.form_id, service: data.service, lang: data.lang }));
         } catch {}

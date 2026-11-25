@@ -22,6 +22,7 @@ header('Cache-Control: no-store');
 // password never leaves the hosting). Without it the script falls back to PHP mail().
 // send-config.php example:
 //   <?php return ['host' => 'websmtp.cesky-hosting.cz', 'port' => 25, 'secure' => 'tls', 'user' => 'seo-eranosian.com', 'pass' => '...', 'from' => 'no-reply@seo-eranosian.com'];
+//   Optional Cloudflare Turnstile: add 'turnstile_secret' => '0x...' to the same array (the public site key is TURNSTILE_SITEKEY in src/data/anti-bot.ts).
 // 'secure': '' (none), 'tls' (STARTTLS) or 'ssl' (implicit TLS). 'user'/'pass' only if the server requires login.
 $CFG = is_file(__DIR__ . '/send-config.php') ? (array) (include __DIR__ . '/send-config.php') : [];
 
@@ -109,6 +110,21 @@ if (!is_array($in)) reply(400, ['ok' => false, 'error' => 'bad_request']);
 $started = (float) ($in['started'] ?? 0);
 if (clean($in['company'] ?? '', 50) !== '' || ($started > 0 && (microtime(true) * 1000 - $started) < MIN_FILL_MS)) {
     reply(200, ['ok' => true]);
+}
+
+// Cloudflare Turnstile (only when 'turnstile_secret' is set in send-config.php): the token from the form must pass siteverify, otherwise the enquiry is refused.
+if (!empty($CFG['turnstile_secret']) && !getenv('FORM_DRY_RUN')) {
+    $token = clean($in['cf-turnstile-response'] ?? '', 2048);
+    $ok = false;
+    if ($token !== '') {
+        $post = http_build_query(['secret' => $CFG['turnstile_secret'], 'response' => $token, 'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '']);
+        $ctx = stream_context_create(['http' => ['method' => 'POST', 'header' => "Content-Type: application/x-www-form-urlencoded\r\n", 'content' => $post, 'timeout' => 8]]);
+        $res = @file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $ctx);
+        $j = $res ? json_decode($res, true) : null;
+        if (is_array($j)) $ok = !empty($j['success']);
+        else { $ok = true; log_error('turnstile siteverify unreachable, token not verified'); } // fail open: never lose a real enquiry because Cloudflare is down
+    }
+    if (!$ok) reply(403, ['ok' => false, 'error' => 'captcha']);
 }
 
 $name    = oneLine(clean($in['name'] ?? '', 120));
