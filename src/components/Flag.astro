@@ -1,0 +1,23 @@
+---
+// Language flags for the switcher in the header: inline SVG (emoji flags are not drawn on Windows). Decorative: the link carries the language name in aria-label / title.
+interface Props { lang: 'cs' | 'en' | 'ru' | 'uk' }
+const { lang } = Astro.props;
+const stars = Array.from({ length: 4 }, (_, r) => Array.from({ length: 5 }, (_, c) => [1.4 + c * 2.3 + (r % 2 ? 1.15 : 0), 1.2 + r * 1.7]).filter(([x]) => x < 11)).flat();
+---
+<svg class="flag" viewBox="0 0 24 16" width="24" height="16" aria-hidden="true" focusable="false">
+  {lang === 'cs' && (<>
+    <rect width="24" height="8" fill="#fff" /><rect y="8" width="24" height="8" fill="#d7141a" /><path d="M0 0l12 8L0 16z" fill="#11457e" />
+  </>)}
+  {lang === 'en' && (<>
+    <rect width="24" height="16" fill="#fff" />
+    {[0, 2, 4, 6, 8, 10, 12].map((i) => <rect y={i * 16 / 13 + 0} width="24" height={16 / 13} fill="#b22234" />)}
+    <rect width="10.4" height="8.6" fill="#3c3b6e" />
+    {stars.map(([x, y]) => <circle cx={x} cy={y} r="0.45" fill="#fff" />)}
+  </>)}
+  {lang === 'ru' && (<>
+    <rect width="24" height="5.34" fill="#fff" /><rect y="5.33" width="24" height="5.34" fill="#0039a6" /><rect y="10.66" width="24" height="5.34" fill="#d52b1e" />
+  </>)}
+  {lang === 'uk' && (<>
+    <rect width="24" height="8" fill="#0057b7" /><rect y="8" width="24" height="8" fill="#ffd700" />
+  </>)}
+</svg>

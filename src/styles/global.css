@@ -114,8 +114,10 @@ ul, ol { padding-left: 1.2em; }
 .nav-sub { list-style: none; margin: 0; padding: 0 0 0 14px; display: none; }
 .nav-dd__btn[aria-expanded='true'] + .nav-sub { display: block; }
 .lang-switch { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; }
-.lang-switch a { display: inline-block; padding: 6px 9px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-radius: 6px; border: 1px solid transparent; }
-.lang-switch a[aria-current='true'] { color: var(--text); border-color: var(--line); }
+.lang-switch a { display: inline-flex; align-items: center; padding: 6px 7px; color: var(--text-muted); text-decoration: none; border-radius: 6px; border: 1px solid transparent; opacity: 0.7; }
+.lang-switch .flag { display: block; width: 24px; height: 16px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.18); }
+.lang-switch a:hover, .lang-switch a:focus-visible { opacity: 1; }
+.lang-switch a[aria-current='true'] { opacity: 1; border-color: var(--blue); }
 .lang-switch a:hover { color: var(--blue); }
 
 /* the desktop header starts at 1200px (was 1100px; 1280px since the 22.11.2026 spacing fix): the Czech menu item "Články a výzkumy" is longer and did not fit on one line between 1100 and 1180px; below it the burger menu is used */
@@ -126,7 +128,8 @@ ul, ol { padding-left: 1.2em; }
   .nav { flex-direction: row; gap: 0; }
   .nav a { padding: 8px clamp(6px, calc((100vw - 1280px) / 24 + 6px), 14px); border: 0; font-size: 0.85rem; border-radius: 8px; }
   .logo-text small { display: none; }
-  .lang-switch a { padding: 5px 6px; }
+  .lang-switch a { padding: 5px 4px; }
+  .lang-switch .flag { width: 20px; height: 14px; }
   .nav-wrap .btn--sm { padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; }
   .nav a:hover { background: var(--grey-bg); }
   .nav-dd { position: relative; }

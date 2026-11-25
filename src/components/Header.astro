@@ -1,4 +1,5 @@
 ---
+import Flag from './Flag.astro';
 import { META } from '../i18n/meta';
 import { LANGS, NICHE_GROUPS, NICHE_PARENTS, SERVICE_MENU, langsFor, path, type Lang, type PageKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
@@ -96,7 +97,7 @@ const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as Page
       <ul class="lang-switch" aria-label={ui.langSwitch}>
         {LANGS.map((l) => (
           <li>
-            <a href={alternates[l] ?? langFallback[l]} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined} title={t(l).langName}>{l.toUpperCase()}</a>
+            <a href={alternates[l] ?? langFallback[l]} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined} title={t(l).langName} aria-label={t(l).langName}><Flag lang={l} /></a>
           </li>
         ))}
       </ul>

@@ -1,6 +1,6 @@
 // Post-build check of the Ukrainian version (brief of 02.11.2026: a mirror of the Russian one, built in iterations; routes.ts: UK_READY).
 // Every Ukrainian page: <html lang="uk">, canonical on itself, hreflang set with uk + x-default = cs, an og:locale uk_UA, no Russian-only letters (ы э ъ ё) in the visible text,
-// the language switcher offers UK, the page is in the sitemap; the pages that have a Ukrainian version carry the uk alternate on their cs / en / ru twins.
+// the language switcher offers UK (a flag link with aria-label), the page is in the sitemap; the pages that have a Ukrainian version carry the uk alternate on their cs / en / ru twins.
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -23,7 +23,7 @@ for (const f of pages) {
   const vis = dec(h.replace(/<(script|style|svg)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' '));
   const ru = vis.match(/[^\s]*[ыэъё][^\s]*/g);
   if (ru) e(`${url}: Russian-only letters in the text: ${ru.slice(0, 4).join(', ')}`);
-  if (!/<a href="[^"]*" hreflang="uk" lang="uk"[^>]*>UK<\/a>/.test(h)) e(`${url}: language switcher offers UK`);
+  if (!/<a href="[^"]*" hreflang="uk" lang="uk"[^>]*aria-label="Українська"[^>]*><svg[^>]*class="flag"/.test(h)) e(`${url}: language switcher offers UK (flag)`);
   if (!/noindex/.test(h) && !sitemap.includes(`<loc>${BASE}${url}</loc>`)) e(`${url}: in the sitemap`);
 }
 if (!/hreflang="uk" href="https:\/\/seo-eranosian\.com\/uk\/"/.test(readFileSync('dist/index.html', 'utf8'))) e('the Czech home page carries the uk alternate');
