@@ -132,7 +132,7 @@ export const RESEARCH_BLOCK = {
   id: 'vyzkumy',
   title: 'Výzkumy',
   lead: 'Články s mým vlastním pozorováním výsledků vyhledávání a map: s daty, tabulkami a grafy. Je to můj pozorovací vzorek, ne průzkum trhu.',
-  keys: ['postDentalMapsObs', 'postCncObrabeni', 'postTiskOnline', 'postElectronicsObs', 'postWeakSeoDental'] as PageKey[],
+  keys: ['postDentalMapsObs', 'postCncObrabeni', 'postTiskOnline', 'postElectronicsObs', 'postWeakSeoDental', 'postDentalBrnoObs'] as PageKey[],
 };
 export const researchPosts = (lang: Lang) => (lang === 'cs' ? dedicatedPosts(lang).filter((p) => RESEARCH_BLOCK.keys.includes(p.key)) : []);
 
