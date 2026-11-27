@@ -50,6 +50,7 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/jednorazove-seo-nebo-prubezne/': ['rozdil', 'jednorazove', 'prubezne', 'cena', 'rozhodnuti', 'faq', 'dalsi-clanky'],
   '/blog/profil-zubni-ordinace-v-mapach/': ['kde', 'zalozeni', 'nazev', 'kategorie', 'sluzby', 'udaje', 'recenze', 'chyby', 'kontrola', 'faq', 'souvisejici'],
   '/blog/cnc-obrabeni-co-jsem-zjistil/': ['zpusob', 'okoli', 'puvod', 'nalezy', 'nevyplyva', 'kontrola', 'faq'],
+  '/blog/stomatologie-v-brne-co-jsem-zjistil/': ['zpusob', 'okoli', 'puvod', 'nalezy', 'nevyplyva', 'kontrola', 'faq', 'dalsi-clanky'],
   '/blog/slabe-seo-konkurence-zubni-ordinace/': ['zpusob', 'okoli', 'puvod', 'nalezy', 'nevyplyva', 'kontrola', 'faq', 'dalsi-clanky'],
   '/blog/stranka-pro-kazdy-jazykovy-par/': ['rozdil', 'smysl', 'poptavka', 'obsah', 'sablona', 'ostatni', 'audit', 'agentury-praha', 'faq'],
   '/blog/stranky-ctvrti-a-lokalit-realitni-kancelare/': ['definice', 'otazky', 'obsah', 'sablony', 'pocet', 'nabidky', 'aktualnost', 'faq', 'souvisejici'],

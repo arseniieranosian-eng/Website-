@@ -407,6 +407,14 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       h1: 'Vlastní web, mapy a katalogy: kdy se hodí co pro účetní kancelář?',
     },
   },
+  postDentalBrnoObs: {
+    cs: {
+      name: 'Stomatologie v Brně: co jsem zjistil',
+      title: 'Stomatologie v Brně: co jsem zjistil | Eranosian',
+      description: 'K 27. 11. 2026 jsem na Googlu a Seznamu prošel po 20 výsledcích dotazu „stomatologie v Brně“ a spočítal, co mají weby ordinací.',
+      h1: 'Co jsem zjistil ve výsledcích Googlu a Seznamu pro „stomatologie v Brně“',
+    },
+  },
   postProfileMgmt: {
     cs: {
       name: 'Jednorázové nastavení profilů, nebo průběžná správa v mapách?',
