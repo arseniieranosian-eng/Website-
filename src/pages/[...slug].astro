@@ -103,6 +103,7 @@ import PostWebPagesCsPage from '../views/PostWebPagesCsPage.astro';
 import PostDupEshopCsPage from '../views/PostDupEshopCsPage.astro';
 import PostDentalWebMapsCsPage from '../views/PostDentalWebMapsCsPage.astro';
 import PostProfileMgmtCsPage from '../views/PostProfileMgmtCsPage.astro';
+import NicheDentalBrnoCsPage from '../views/NicheDentalBrnoCsPage.astro';
 import PostAccWebMapsCsPage from '../views/PostAccWebMapsCsPage.astro';
 import PostOneTimeCsPage from '../views/PostOneTimeCsPage.astro';
 import PostDentalMapsObsCsPage from '../views/PostDentalMapsObsCsPage.astro';
@@ -145,7 +146,7 @@ type Props = { key: PageKey; lang: Lang; post?: undefined } | { post: Post; key?
 const props = Astro.props as Props;
 
 const VIEWS: Record<Exclude<PageKey, ServiceKey>, any> = {
-  postFaqDental: null, postFaqRealty: null, postServicesRealty: null, postMakleriRealty: null, postElectronicsObs: null, postTiskOnline: null, postDentalChannels: null, postWeakSeoGaming: null, postWebSocialGaming: null, postWeakSeoRealty: null, caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheAccountingBrno: null, nicheDental: null, nicheRealtyBrno: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postRealtyBrnoDistricts: null, postRealtyPragueDistricts: null, postWeakSeo: null, postWeakSeoAcc: null, postWebPages: null, postDupEshop: null, postWeakSeoDental: null, postCncObrabeni: null, postDentalProfile: null, postDentalMapsObs: null, postOneTime: null, postDentalWebMaps: null, postProfileMgmt: null, postAccWebMaps: null, postRealtyLocal: null, postAccountingNoLeads: null, postAccountingSmall: null, postAccountingLocal: null, postAccountingPages: null, postAccountingTime: null, postRedesignPlan: null, postSelectSpecialist: null, postSeoPlan: null, postFinanceChannels: null, postAccountingChannels: null,
+  postFaqDental: null, postFaqRealty: null, postServicesRealty: null, postMakleriRealty: null, postElectronicsObs: null, postTiskOnline: null, postDentalChannels: null, postWeakSeoGaming: null, postWebSocialGaming: null, postWeakSeoRealty: null, caseTypo: null, caseEdu: null, caseSeason: null, caseHalf: null, caseRazbor: null, nicheTranslation: null, nicheBrno: null, nichePardubice: null, nicheRealty: null, nicheAccounting: null, nicheAccountingBrno: null, nicheDental: null, nicheRealtyBrno: null, nicheFinance: null, nicheTypography: null, nicheMachinery: null, nicheGaming: null, nicheElectronics: null, nicheFitness: null, postIndexing: null, postNotShown: null, postSeoAudit: null, postDuplicates: null, postRedesign: null, postAds: null, postRedirects: null, postNewSite: null, postChoose: null, postNoLeads: null, postClients: null, postB2b: null, postPairs: null, postRealty: null, postRealtyNoLeads: null, postRealtySmall: null, postRealtyListings: null, postRealtyPortals: null, postRealtyDistricts: null, postRealtyBrnoDistricts: null, postRealtyPragueDistricts: null, postWeakSeo: null, postWeakSeoAcc: null, postWebPages: null, postDupEshop: null, postWeakSeoDental: null, postCncObrabeni: null, postDentalProfile: null, postDentalMapsObs: null, postOneTime: null, postDentalWebMaps: null, postProfileMgmt: null, postAccWebMaps: null, nicheDentalBrno: null, postRealtyLocal: null, postAccountingNoLeads: null, postAccountingSmall: null, postAccountingLocal: null, postAccountingPages: null, postAccountingTime: null, postRedesignPlan: null, postSelectSpecialist: null, postSeoPlan: null, postFinanceChannels: null, postAccountingChannels: null,
   home: Home, audit: Audit, geo: Geo, cases: Cases, caseKb: Case, reviews: Reviews,
   blog: Blog, faq: Faq, about: About, contact: Contact, privacy: Privacy, thanks: Thanks,
 };
@@ -248,6 +249,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nicheAccountingBrno' && props.lang === 'cs' && <NicheAccountingBrnoCsPage />}
 {props.key === 'nicheRealtyBrno' && props.lang === 'cs' && <NicheRealtyBrnoCsPage />}
 {props.key === 'nicheDental' && props.lang === 'cs' && <NicheDentalCsPage />}
+{props.key === 'nicheDentalBrno' && props.lang === 'cs' && <NicheDentalBrnoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'cs' && <CaseTypoCsPage />}
 {props.key === 'caseTypo' && props.lang === 'ru' && <CaseTypoRuPage />}
 {props.key === 'caseEdu' && props.lang === 'cs' && <CaseEduCsPage />}

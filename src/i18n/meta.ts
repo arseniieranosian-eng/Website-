@@ -861,6 +861,16 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     en: { name: 'SEO for dental practices in Prague', title: 'SEO for dental practices in Prague', description: 'SEO for dental practices in Prague', h1: 'SEO for dental practices in Prague' },
     ru: { name: 'SEO для стоматологий в Праге', title: 'SEO для стоматологий в Праге', description: 'SEO для стоматологий в Праге', h1: 'SEO для стоматологий в Праге' },
   },
+  nicheDentalBrno: {
+    cs: {
+      name: 'SEO pro zubní ordinace Brno',
+      title: 'SEO pro zubní ordinace Brno | Eranosian',
+      description: 'SEO a GEO/AEO pro zubní ordinace v Brně: audit technických chyb webu, stránky služeb a FAQ. Výsledek ani termín nezaručuji.',
+      h1: 'SEO a GEO/AEO pro zubní ordinace v Brně: stránky služeb a FAQ',
+    },
+    en: { name: 'SEO for dental practices in Brno', title: 'SEO for dental practices in Brno', description: 'SEO for dental practices in Brno', h1: 'SEO for dental practices in Brno' },
+    ru: { name: 'SEO для стоматологий в Брно', title: 'SEO для стоматологий в Брно', description: 'SEO для стоматологий в Брно', h1: 'SEO для стоматологий в Брно' },
+  },
   nicheRealtyBrno: {
     cs: {
       name: 'SEO pro realitní kanceláře v Brně',
