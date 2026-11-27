@@ -24,8 +24,25 @@ const body = txt(main);
 const bodyNoCards = txt(main.replace(/Další články<\/h2>[\s\S]*?<\/section>/, '')); // the cards carry the titles of the live articles (one of them names Praha, see the report)
 // block 4 / gate
 const obsH2 = 'Co vidím na webech zubních ordinací v Brně?';
-if (body.includes(obsH2) && !/K \d+\. \d+\. 2026/.test(body)) e('block 4 without a date');
-if (/30 výsledk|24 webů|17 webů|\b7 z 24|\b3 z 17|12 z 24|8 z 17|17 z 24|11 z 17|15\. 11\. 2026|5\. 11\. 2026|0 yes|3 partial|7 no|stomatologie v Praze|zubní lékař v Praze/.test(bodyNoCards)) e('a number / date / query of the Prague observation was carried over');
+// blocks 4 and 5 (brief v3): order, numbers, measured lengths, no names / links inside
+const serpH2 = 'Co ukazuje vyhledávání pro dotaz „stomatologie v Brně“?';
+const h2s = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
+const order = ['Jaké mám zkušenosti v oboru zubní péče?', obsH2, serpH2, 'Na co si dát pozor, když má ordinace sídlo nebo pobočku v Brně?'];
+if (order.map((x) => h2s.indexOf(x)).some((x, i, a) => x < 0 || (i && x !== a[i - 1] + 1))) e(`H2 order of blocks 3-6: ${h2s}`);
+const sec = (h) => (main.match(new RegExp('<h2[^>]*>' + h.replace(/[?.]/g, '\\$&') + '</h2>[\\s\\S]*?</section>')) || [''])[0];
+const s1 = sec(obsH2), s2 = sec(serpH2);
+const a1 = inl((s1.match(/<p class="answer">([\s\S]*?)<\/p>/) || [, ''])[1]), a2 = inl((s2.match(/<p class="answer">([\s\S]*?)<\/p>/) || [, ''])[1]);
+if (a1.split(' ').length !== 51 || !a1.startsWith('K 27. 11. 2026 jsem prošel po 20 organických výsledcích Googlu a Seznamu') || !a1.endsWith('na Googlu jeden katalog.')) e(`block 4 answer: ${a1.split(' ').length}`);
+if (a2.split(' ').length !== 48 || !a2.startsWith('K 27. 11. 2026 se na Google.cz') || (s2.match(/<p/g) || []).length !== 1 || /<(ul|table|a )/.test(s2)) e(`block 5 answer: ${a2.split(' ').length}, only one paragraph, no list / link`);
+const cells = [...s1.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => [...m[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((x) => txt(x[1])).join(' | '));
+const want = [' | Google.cz | Seznam.cz', 'Pozic ve vzorku | 20 (19 různých webů) | 20', 'Weby ordinací a klinik | 17 | 13', 'Katalogy a karta Mapy.com | 1 | 7', 'Klinika nemocnice | 1 | 0', 'FAQ | 2 z 17 | 3 z 13', 'Blog nebo články | 4 z 17 | 8 z 13', 'Strukturovaná data (JSON-LD nebo microdata) | 11 z 17 | 11 z 13'];
+if (JSON.stringify(cells) !== JSON.stringify(want)) e(`table: ${cells.join(' // ')}`);
+if (!s1.includes('Částečně: FAQ u 1 webu na Googlu, blog u 3 webů na Googlu a u 1 webu na Seznamu (jen sekce novinek či aktualit). JSON-LD mají 8 z 17 webů na Googlu a 11 z 13 na Seznamu; u části webů jde jen o obecné značení šablony.')) e('block 4 note');
+const meth = inl((s1.match(/<strong>Metodika a limity<\/strong><\/p>\s*<p>([\s\S]*?)<\/p>/) || [, ''])[1]);
+if (meth.split(' ').length !== 55 || !meth.startsWith('Dotaz „stomatologie v Brně“, Google.cz a Seznam.cz, vždy 20 pozic') || !meth.endsWith('Weby neuvádím.')) e(`Metodika a limity: ${meth.split(' ').length}`);
+if (/<a /.test(s1) || /Firmy\.cz|doktor\.cz|ZnamyLekar|Zdravotnictví|rating|hodnocení|Praha|Praz/i.test(s1 + s2)) e('no links / names / ratings / Prague inside blocks 4-5');
+if (/Praha|Prah/.test(s1 + s2)) e('no Prague in blocks 4-5');
+if (/30 výsledk|24 webů|\b7 z 24|\b3 z 17 na Seznamu|12 z 24|8 z 17 na Seznamu|17 z 24|11 z 17 na Seznamu|15\. 11\. 2026|5\. 11\. 2026|0 yes|3 partial|7 no|stomatologie v Praze|zubní lékař v Praze/.test(bodyNoCards)) e('a number / date / query of the Prague observation was carried over');
 if (/\bPraz[eaiu]\b(?! online)/.test(bodyNoCards.replace(/pracuji z Prahy/g, '').replace(/osobně v Praze/g, ''))) e('"Praha" in the text outside the author\'s own statement');
 const lead = inl((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (!lead.startsWith('Dělám SEO a GEO/AEO pro zubní ordinace v Brně. Pracuji z Prahy: konzultace probíhají online nebo osobně v Praze.')) e('hero intro');

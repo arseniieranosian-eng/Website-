@@ -7,7 +7,7 @@ import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { nicheDentalBrnoSchemas } from '../lib/schema-niche-dental-brno';
-import { NICHE_DENTAL_BRNO_CS as C, NICHE_DENTAL_BRNO_OBS as OBS, NICHE_DENTAL_BRNO_PUBLISHED } from '../data/niche-dental-brno-cs';
+import { NICHE_DENTAL_BRNO_CS as C, NICHE_DENTAL_BRNO_OBS as OBS, NICHE_DENTAL_BRNO_SERP as SERP, NICHE_DENTAL_BRNO_PUBLISHED } from '../data/niche-dental-brno-cs';
 // Sections alternate white / grey; block 4 (when the data exist) shifts the ones after it.
 const b = (n: number) => (n % 2 ? 'section section--grey' : 'section');
 
@@ -61,31 +61,50 @@ const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).m
   </section>
 
   {OBS && (
-    <section class="section section--grey">
-      <div class="container narrow">
-        <h2>{OBS.title}</h2>
-        <p class="answer">{OBS.answer}</p>
-        <ul class="checks">{OBS.list.map((x) => <li>{x}</li>)}</ul>
-        <p class="muted small">{OBS.method}</p>
-      </div>
-    </section>
+    <>
+      <section class="section section--grey">
+        <div class="container narrow">
+          <h2>{OBS.title}</h2>
+          <p class="answer">{OBS.answer}</p>
+        </div>
+        <div class="container">
+          <div class="table-wrap">
+            <table class="compare">
+              <thead><tr>{OBS.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+              <tbody>{OBS.rows.map((r) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c) => <td>{c}</td>)}</tr>)}</tbody>
+            </table>
+          </div>
+        </div>
+        <div class="container narrow">
+          <p class="small muted">{OBS.note}</p>
+          <p><strong>{OBS.methodLabel}</strong></p>
+          <p>{OBS.method}</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container narrow">
+          <h2>{SERP.title}</h2>
+          <p class="answer">{SERP.answer}</p>
+        </div>
+      </section>
+    </>
   )}
 
-  <section class={b(OBS ? 0 : 1)}>
+  <section class={b(1)}>
     <div class="container narrow">
       <h2>{C.brnoTitle}</h2>
       <p class="answer">{C.brnoAnswer}</p>
     </div>
   </section>
 
-  <section class={b(OBS ? 1 : 0)}>
+  <section class={b(0)}>
     <div class="container narrow">
       <h2>{C.doTitle}</h2>
       <p class="answer">{C.doAnswer}</p>
     </div>
   </section>
 
-  <section class={b(OBS ? 0 : 1)} id="znamylekar">
+  <section class={b(1)} id="znamylekar">
     <div class="container narrow">
       <h2>{C.zlTitle}</h2>
       <p class="answer">{C.zlAnswer}</p>
@@ -98,14 +117,14 @@ const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).m
     </div>
   </section>
 
-  <section class={b(OBS ? 1 : 0)}>
+  <section class={b(0)}>
     <div class="container narrow">
       <h2>{C.fitTitle}</h2>
       <p class="answer">{C.fitAnswer}</p>
     </div>
   </section>
 
-  <section class={b(OBS ? 0 : 1)}>
+  <section class={b(1)}>
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
@@ -114,7 +133,7 @@ const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).m
     </div>
   </section>
 
-  <section class={b(OBS ? 1 : 0)}>
+  <section class={b(0)}>
     <div class="container narrow">
       <h2>Další články</h2>
       <RelatedPosts lang={lang} keys={['postDentalWebMaps', 'postDentalProfile', 'postProfileMgmt', 'postFaqDental', 'postDentalChannels', 'postWeakSeoDental']} more="Číst článek" />
