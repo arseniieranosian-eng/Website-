@@ -79,6 +79,7 @@ const parts = (s: string) => s.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolean).m
           <p class="small muted">{OBS.note}</p>
           <p><strong>{OBS.methodLabel}</strong></p>
           <p>{OBS.method}</p>
+          <p>{OBS.more.before} <a href={t('postDentalBrnoObs')}>{OBS.more.link}</a>{OBS.more.after}</p>
         </div>
       </section>
       <section class="section">

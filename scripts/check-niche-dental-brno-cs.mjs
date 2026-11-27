@@ -40,7 +40,7 @@ if (JSON.stringify(cells) !== JSON.stringify(want)) e(`table: ${cells.join(' // 
 if (!s1.includes('Částečně: FAQ u 1 webu na Googlu, blog u 3 webů na Googlu a u 1 webu na Seznamu (jen sekce novinek či aktualit). JSON-LD mají 8 z 17 webů na Googlu a 11 z 13 na Seznamu; u části webů jde jen o obecné značení šablony.')) e('block 4 note');
 const meth = inl((s1.match(/<strong>Metodika a limity<\/strong><\/p>\s*<p>([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (meth.split(' ').length !== 55 || !meth.startsWith('Dotaz „stomatologie v Brně“, Google.cz a Seznam.cz, vždy 20 pozic') || !meth.endsWith('Weby neuvádím.')) e(`Metodika a limity: ${meth.split(' ').length}`);
-if (/<a /.test(s1) || /Firmy\.cz|doktor\.cz|ZnamyLekar|Zdravotnictví|rating|hodnocení|Praha|Praz/i.test(s1 + s2)) e('no links / names / ratings / Prague inside blocks 4-5');
+if ((s1.match(/<a /g) || []).length !== 1 || !s1.includes('<a href="/blog/stomatologie-v-brne-co-jsem-zjistil/">samostatném článku</a>.') || /<a /.test(s2) || /Firmy\.cz|doktor\.cz|ZnamyLekar|Zdravotnictví|rating|hodnocení|Praha|Praz/i.test(s1 + s2)) e('no links / names / ratings / Prague inside blocks 4-5');
 if (/Praha|Prah/.test(s1 + s2)) e('no Prague in blocks 4-5');
 if (/30 výsledk|24 webů|\b7 z 24|\b3 z 17 na Seznamu|12 z 24|8 z 17 na Seznamu|17 z 24|11 z 17 na Seznamu|15\. 11\. 2026|5\. 11\. 2026|0 yes|3 partial|7 no|stomatologie v Praze|zubní lékař v Praze/.test(bodyNoCards)) e('a number / date / query of the Prague observation was carried over');
 if (/\bPraz[eaiu]\b(?! online)/.test(bodyNoCards.replace(/pracuji z Prahy/g, '').replace(/osobně v Praze/g, ''))) e('"Praha" in the text outside the author\'s own statement');

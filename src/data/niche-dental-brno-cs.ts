@@ -14,7 +14,7 @@ export const NICHE_DENTAL_BRNO_PUBLISHED = '2026-11-27';
 // Counts (checked against the brief's appendix): Google 20 positions = 19 different sites (one site twice), 17 practice / clinic sites (a hospital clinic and a catalogue excluded), FAQ 2 (+1 partial), blog 4 (+3 only news),
 // markup 11 (JSON-LD 8 + 3 microdata only); Seznam 20 positions: 13 practice / clinic sites, 6 catalogues + 1 Mapy.com card, FAQ 3, blog 8 (+1 partial), markup 11 (all JSON-LD); 4 practice sites are in both results.
 // No site, clinic, catalogue or portal names, no comparison with Prague or between the engines in words, no links, no ratings. The Prague numbers and dates are not used.
-export const NICHE_DENTAL_BRNO_OBS: null | { title: string; answer: string; head: string[]; rows: string[][]; note: string; methodLabel: string; method: string } = {
+export const NICHE_DENTAL_BRNO_OBS: null | { title: string; answer: string; head: string[]; rows: string[][]; note: string; methodLabel: string; method: string; more: { before: string; link: string; after: string } } = {
   title: 'Co vidím na webech zubních ordinací v Brně?',
   answer: 'K 27. 11. 2026 jsem prošel po 20 organických výsledcích Googlu a Seznamu pro dotaz „stomatologie v Brně“. Webů ordinací a klinik bylo na Googlu 17 a na Seznamu 13, čtyři z nich byly v obou. Na Seznamu tvořily 7 z 20 pozic katalogy a karta Mapy.com, na Googlu jeden katalog.',
   head: ['', 'Google.cz', 'Seznam.cz'],
@@ -29,6 +29,8 @@ export const NICHE_DENTAL_BRNO_OBS: null | { title: string; answer: string; head
   ],
   note: 'Částečně: FAQ u 1 webu na Googlu, blog u 3 webů na Googlu a u 1 webu na Seznamu (jen sekce novinek či aktualit). JSON-LD mají 8 z 17 webů na Googlu a 11 z 13 na Seznamu; u části webů jde jen o obecné značení šablony.',
   methodLabel: 'Metodika a limity',
+  // Added at the author's request (27.11.2026, overrides "no links inside the new blocks" of brief v3): a pointer to the full article; the numbers stay as above.
+  more: { before: 'Podrobnější rozbor a postup, jak si web zkontrolovat sám, je v', link: 'samostatném článku', after: '.' },
   method: 'Dotaz „stomatologie v Brně“, Google.cz a Seznam.cz, vždy 20 pozic organických výsledků; reklamy, AI Overviews, blok Mapy.com a videa do počtu nepatří. Na Googlu byl jeden web dvakrát. FAQ, blog a značení jsem hledal ve zdrojovém kódu zadané stránky bez přihlášení. Krátkou odpověď jsem neposuzoval. Je to můj pozorovací vzorek, ne průzkum trhu. Weby neuvádím.',
 };
 export const NICHE_DENTAL_BRNO_SERP = {
