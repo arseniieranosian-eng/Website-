@@ -1,22 +1,12 @@
-// Check of the DRAFT landing page /seo-pro-zubni-ordinace-brno/ (brief of 27.11.2026). The page is not published: in a normal build (NICHE_READY.nicheDentalBrno false) it must be absent from dist,
-// the sitemap and every other page. With PREVIEW_DRAFTS=1 (review build for the author, never uploaded) the page is built and checked: meta (Title 39, Description 123, H1 61), new texts (3.6: 49 words, FAQ "Máte v Brně kancelář?"),
-// every H2 a question (except FAQ / Další články), answers 40-60 words, FAQ 7 = JSON-LD, no Prague numbers or dates, block 4 only with the author's data, no names / ratings / promises, 6 cards, one end CTA.
-import { existsSync, readFileSync as rf, globSync } from 'node:fs';
+// Check of the landing page /seo-pro-zubni-ordinace-brno/ (brief of 27.11.2026; published by the author's decision of 27.11.2026 WITHOUT block 4, which is added later with the dated Brno data):
+// meta (Title 39, Description 123, H1 61), new texts (3.6: 49 words, FAQ "Máte v Brně kancelář?"), every H2 a question (except FAQ / Další články), answers 40-60 words (the shortened experience paragraph excepted),
+// FAQ 7 = JSON-LD, no Prague numbers or dates, block 4 only with a dated observation, no names / ratings / promises, 6 cards, one end CTA, in the sitemap.
+import { existsSync, readFileSync as rf } from 'node:fs';
 import { readFileSync } from './fs-clean.mjs';
-
 const errs = []; const e = (m) => errs.push(m);
-const URL_PATH = '/seo-pro-zubni-ordinace-brno/';
-const file = 'dist' + URL_PATH + 'index.html';
-const preview = process.env.PREVIEW_DRAFTS === '1';
-if (!existsSync(file)) {
-  if (preview) e('PREVIEW_DRAFTS=1 but the page was not built');
-  const sm = rf('dist/sitemap.xml', 'utf8');
-  if (sm.includes(URL_PATH)) e('unpublished page is in the sitemap');
-  for (const f of globSync('dist/**/*.html')) if (rf(f, 'utf8').includes(`href="${URL_PATH}"`)) e(`unpublished page is linked from ${f}`);
-  if (errs.length) { console.error('✗ check-niche-dental-brno-cs:\n  - ' + errs.join('\n  - ')); process.exit(1); }
-  console.log('✓ check-niche-dental-brno-cs: draft page not built (not published), not in sitemap / menu / links');
-  process.exit(0);
-}
+const file = 'dist/seo-pro-zubni-ordinace-brno/index.html';
+if (!existsSync(file)) { console.error('✗ check-niche-dental-brno-cs: page not built'); process.exit(1); }
+if (!rf('dist/sitemap.xml', 'utf8').includes('https://seo-eranosian.com/seo-pro-zubni-ordinace-brno/')) e('not in the sitemap');
 const h = readFileSync(file, 'utf8');
 const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
 const txt = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;|\u00a0/g, ' ').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
@@ -34,8 +24,7 @@ const body = txt(main);
 const bodyNoCards = txt(main.replace(/Další články<\/h2>[\s\S]*?<\/section>/, '')); // the cards carry the titles of the live articles (one of them names Praha, see the report)
 // block 4 / gate
 const obsH2 = 'Co vidím na webech zubních ordinací v Brně?';
-if (body.includes(obsH2)) { if (!preview) e('block 4 must hold the author\'s data before publication'); }
-else if (!preview) e('gate: block 4 (data of the author) missing: the page must not be published (build it only with PREVIEW_DRAFTS=1)');
+if (body.includes(obsH2) && !/K \d+\. \d+\. 2026/.test(body)) e('block 4 without a date');
 if (/30 výsledk|24 webů|17 webů|\b7 z 24|\b3 z 17|12 z 24|8 z 17|17 z 24|11 z 17|15\. 11\. 2026|5\. 11\. 2026|0 yes|3 partial|7 no|stomatologie v Praze|zubní lékař v Praze/.test(bodyNoCards)) e('a number / date / query of the Prague observation was carried over');
 if (/\bPraz[eaiu]\b(?! online)/.test(bodyNoCards.replace(/pracuji z Prahy/g, '').replace(/osobně v Praze/g, ''))) e('"Praha" in the text outside the author\'s own statement');
 const lead = inl((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
@@ -46,7 +35,7 @@ if (bad.length) e(`H2 not a question: ${bad}`);
 if (!h2.includes('Na co si dát pozor, když má ordinace sídlo nebo pobočku v Brně?')) e('H2 3.6');
 const answers = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]).split(' ').length);
 // the Prague text "Jaké mám zkušenosti…" (copied, brief 3.4) has 30 words: reported to the author, not changed here
-if (answers.some((n, i) => (n < 40 || n > 60) && !(n === 30 && i === 2))) e(`direct answers outside 40-60: ${answers}`);
+if (answers.some((n, i) => (n < 40 || n > 60) && i !== 2)) e(`direct answers outside 40-60: ${answers}`);
 const brno = inl((main.match(/Na co si dát pozor[\s\S]*?<p class="answer">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (brno.split(' ').length !== 49 || !brno.endsWith('schvaluje lékař ordinace.')) e(`3.6: ${brno.split(' ').length} words`);
 const faq = [...main.matchAll(/<h3>((?:(?!<h3>)[\s\S])*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [inl(m[1]), inl(m[2])]);

@@ -1,6 +1,5 @@
-// Czech content of the niche landing page /seo-pro-zubni-ordinace-brno/ (brief of 27.11.2026). DRAFT, NOT PUBLISHED: built only when NICHE_READY.nicheDentalBrno is true (routes.ts; false = not built, not in the sitemap,
-// not in the menu, not linked from other pages). Publication gate (doorway rule K9): block 4 "Co vidím na webech zubních ordinací v Brně?" (NICHE_DENTAL_BRNO_OBS) must hold the author's dated Brno data; until then it is null,
-// the block is not rendered and scripts/check-niche-dental-brno-cs.mjs refuses a real build with the page. Preview for the author: PREVIEW_DRAFTS=1 npm run build (never upload that build).
+// Czech content of the niche landing page /seo-pro-zubni-ordinace-brno/ (brief of 27.11.2026). PUBLISHED by the author's decision of 27.11.2026 WITHOUT block 4 (the brief's gate K9 was lifted by the author): "Co vidím na webech zubních ordinací v Brně?" (NICHE_DENTAL_BRNO_OBS) is null and is added later with the dated Brno data;
+// until then the block is not rendered and the "observation" sentences of the Prague experience paragraph are left out (restore P.expAnswer together with block 4).
 // Structure and shared texts come from the Prague page (data/niche-dental-cs.ts), copied from there so that the wording stays the same; prices come from the same source (data/niche-prices.ts), no second hand-typed copy.
 // NOT carried over from Prague: the numbers and dates of the observation (30 výsledků, 24/17, FAQ 7/24 and 3/17, blog 12/24 and 8/17, markup 17/24 and 11/17, 15. 11. 2026), the ZnamyLekar.cz observation of 5. 11. 2026 and the
 // source line with that date, the capacity line ("volno", the capacity belongs to the niche, not to the city: the author decides one date for both pages [?3]). No link to the Prague page [?4]. Dates are set by hand by the author.
@@ -37,7 +36,7 @@ const raw = {
   priceAnswer: priceAnswerCs('dental'),
 
   expTitle: P.expTitle,
-  expAnswer: P.expAnswer,
+  expAnswer: NICHE_DENTAL_BRNO_OBS ? P.expAnswer : 'Pracoval jsem v jiných oborech, například pro překladatelskou agenturu. Zkušenosti z jiných oborů nevydávám za výsledek své práce v oboru zubní péče.',
 
   // NEW (brief 3.6, 49 words)
   brnoTitle: 'Na co si dát pozor, když má ordinace sídlo nebo pobočku v Brně?',

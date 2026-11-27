@@ -181,10 +181,8 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 // nicheDental (cs, brief of 01.11.2026): switched ON by the author (01.11.2026) without D2 and before the regulatory check S2; S3 wording confirmed; S4 declined (no f5, no date).
 // nicheRealty (first page of the real-estate niche): needs the author's own dated observations of real-estate sites and a verified analysis of the
 // Praha results; both exist since 22.10.2026 (observations from the audit slides, results analysis of 22. 10. 2026), so it is on.
-// nicheDentalBrno (brief of 27.11.2026): NOT published. Stays false until the author's dated Brno data for block 4 (data/niche-dental-brno-cs.ts) are in and the author publishes it.
-// PREVIEW_DRAFTS=1 builds it for the author's review only (that build is never uploaded).
-const PREVIEW_DRAFTS = typeof process !== 'undefined' && process.env.PREVIEW_DRAFTS === '1';
-export const NICHE_READY = { nicheDentalBrno: PREVIEW_DRAFTS, nicheBrno: true, nichePardubice: true, nicheRealty: true, nicheAccounting: true, nicheAccountingBrno: true, nicheRealtyBrno: true, nicheDental: true, nicheFinance: true, nicheTypography: true, nicheMachinery: true, nicheGaming: true, nicheElectronics: true, nicheFitness: true } as const;
+// nicheDentalBrno (brief of 27.11.2026): published by the author's decision of 27.11.2026 WITHOUT block 4 (the dated Brno observation, data/niche-dental-brno-cs.ts: NICHE_DENTAL_BRNO_OBS is null and is added later).
+export const NICHE_READY = { nicheDentalBrno: true, nicheBrno: true, nichePardubice: true, nicheRealty: true, nicheAccounting: true, nicheAccountingBrno: true, nicheRealtyBrno: true, nicheDental: true, nicheFinance: true, nicheTypography: true, nicheMachinery: true, nicheGaming: true, nicheElectronics: true, nicheFitness: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {
   // the blog index exists only in the languages that have articles: an empty index would be a noindex page (Search Console: "excluded by noindex"); en and uk are 301-redirected to the home page (public/.htaccess)
