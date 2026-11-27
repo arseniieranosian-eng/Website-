@@ -72,7 +72,7 @@ export const HOME_CS = {
     }] : []),
     ...(NICHE_READY.nicheDental ? [{
       id: 'dental' as const,
-      cards: [{ page: 'nicheDental' as const, title: 'SEO a GEO/AEO pro zubní ordinace v Praze', text: 'Stránky služeb a lékařů, FAQ, způsob objednání a technický základ webu.' }],
+      cards: [{ page: 'nicheDental' as const, title: 'SEO a GEO/AEO pro zubní ordinace v Praze', text: 'Stránky služeb a lékařů, FAQ, způsob objednání a technický základ webu.' }, ...(NICHE_READY.nicheDentalBrno ? [{ page: 'nicheDentalBrno' as const, title: 'SEO a GEO/AEO pro zubní ordinace v Brně', text: 'Stránky služeb a lékařů, FAQ, způsob objednání a technický základ webu.' }] : [])],
     }] : []),
     ...(NICHE_READY.nicheRealty ? [{
       id: 'realty' as const,
