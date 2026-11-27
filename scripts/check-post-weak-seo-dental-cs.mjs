@@ -51,7 +51,7 @@ if (!bp || bp.inLanguage !== 'cs-CZ' || bp.headline !== h1 || bp.datePublished !
 const wp = ld.find((x) => x['@type'] === 'WebPage');
 if (!wp || wp.name !== 'Stomatologie v Praze: co jsem zjistil' || wp.dateModified !== '2026-11-15') e('WebPage');
 const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
-const okLinks = ['/o-mne/', 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', 'https://developers.google.com/search/docs/crawling-indexing/url-structure', 'https://developers.google.com/search/docs/appearance/ai-features', '/kontakt/', '/seo-pro-zubni-ordinace-praha/', '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/', '/blog/faq-na-webu-zubni-ordinace/', '/blog/stomatologie-v-mapach-co-jsem-zjistil/'];
+const okLinks = ['/o-mne/', 'https://developers.google.com/search/docs/appearance/ranking-systems-guide', 'https://developers.google.com/search/docs/crawling-indexing/url-structure', 'https://developers.google.com/search/docs/appearance/ai-features', '/kontakt/', '/seo-pro-zubni-ordinace-praha/', '/blog/jak-ziskat-pacienty-pro-zubni-ordinaci/', '/blog/faq-na-webu-zubni-ordinace/', '/blog/stomatologie-v-mapach-co-jsem-zjistil/', '/blog/stomatologie-v-brne-co-jsem-zjistil/'];
 if (links.some((l) => !okLinks.includes(l)) || okLinks.some((l) => !links.includes(l)) || (main.match(/class="btn btn--primary/g) || []).length !== 1 || /<form/.test(main)) e(`links / one button: ${links}`);
 const body = txt(main);
 const UPD = /Aktualizace 15\. 11\. 2026: původní pozorování z 31\. 10\. 2026 \(14 webů\) jsem nahradil širším vzorkem z Googlu a Seznamu\./;
