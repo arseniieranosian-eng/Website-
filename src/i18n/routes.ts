@@ -184,10 +184,8 @@ export const PARENT: Partial<Record<PageKey, PageKey>> = {
 // nicheRealty (first page of the real-estate niche): needs the author's own dated observations of real-estate sites and a verified analysis of the
 // Praha results; both exist since 22.10.2026 (observations from the audit slides, results analysis of 22. 10. 2026), so it is on.
 // nicheDentalBrno (brief of 27.11.2026): published by the author's decision of 27.11.2026 WITHOUT block 4 (the dated Brno observation, data/niche-dental-brno-cs.ts: NICHE_DENTAL_BRNO_OBS is null and is added later).
-// Blog article postDentalBrnoObs (brief of 27.11.2026): NOT published. The flag stays false (not built, not in the blog index, not in the sitemap) until the author publishes it;
-// PREVIEW_DRAFTS=1 builds it for the author's review only (that build is never uploaded).
-const PREVIEW_DRAFTS = typeof process !== 'undefined' && process.env.PREVIEW_DRAFTS === '1';
-export const DRAFT_READY = { postDentalBrnoObs: PREVIEW_DRAFTS } as const;
+// Blog article postDentalBrnoObs (brief of 27.11.2026): published by the author's "пушь" of 27.11.2026 (the flag is on; false would drop it from the build, the blog index and the sitemap).
+export const DRAFT_READY = { postDentalBrnoObs: true } as const;
 export const NICHE_READY = { nicheDentalBrno: true, nicheBrno: true, nichePardubice: true, nicheRealty: true, nicheAccounting: true, nicheAccountingBrno: true, nicheRealtyBrno: true, nicheDental: true, nicheFinance: true, nicheTypography: true, nicheMachinery: true, nicheGaming: true, nicheElectronics: true, nicheFitness: true } as const;
 
 export const ONLY_LANGS: Partial<Record<PageKey, readonly Lang[]>> = {

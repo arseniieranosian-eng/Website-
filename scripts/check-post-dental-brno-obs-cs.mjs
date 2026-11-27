@@ -1,21 +1,13 @@
-// Check of the blog article /blog/stomatologie-v-brne-co-jsem-zjistil/ (brief of 27.11.2026). The article is NOT published: in a normal build (DRAFT_READY.postDentalBrnoObs false) it must be absent from dist,
-// the sitemap, the blog index and every other page. With PREVIEW_DRAFTS=1 (review build for the author, never uploaded) it is built and checked: meta (Title 48, Description 127, H1 72), summary 37, direct answers
+// Check of the blog article /blog/stomatologie-v-brne-co-jsem-zjistil/ (brief of 27.11.2026). Published by the author's decision of 27.11.2026; checked: meta (Title 48, Description 127, H1 72), summary 37, direct answers
 // (47/45/45/41/40/41), FAQ (44/44/41/41) = JSON-LD, the author's numbers (appendix of the brief), 8 H2, two tables, one quote, 4 steps (no HowTo), K5 before the CTA, K7, ONE button to the Brno landing, no body links,
 // no site / catalogue / portal names, no Prague numbers or dates (except the sample-size sentence of the FAQ), 3 cards.
-import { existsSync, readFileSync as rf, globSync } from 'node:fs';
+import { existsSync, readFileSync as rf } from 'node:fs';
 import { readFileSync } from './fs-clean.mjs';
 const errs = []; const e = (m) => errs.push(m);
 const P = '/blog/stomatologie-v-brne-co-jsem-zjistil/';
 const file = 'dist' + P + 'index.html';
-const preview = process.env.PREVIEW_DRAFTS === '1';
-if (!existsSync(file)) {
-  if (preview) e('PREVIEW_DRAFTS=1 but the article was not built');
-  if (rf('dist/sitemap.xml', 'utf8').includes(P)) e('unpublished article is in the sitemap');
-  for (const f of globSync('dist/**/*.html')) if (rf(f, 'utf8').includes(P)) e(`unpublished article is linked from ${f}`);
-  if (errs.length) { console.error('✗ check-post-dental-brno-obs-cs:\n  - ' + errs.join('\n  - ')); process.exit(1); }
-  console.log('✓ check-post-dental-brno-obs-cs: draft article not built (not published), not in sitemap / blog index / links');
-  process.exit(0);
-}
+if (!existsSync(file)) { console.error('✗ check-post-dental-brno-obs-cs: article not built'); process.exit(1); }
+if (!rf('dist/sitemap.xml', 'utf8').includes('https://seo-eranosian.com' + P)) e('not in the sitemap');
 const h = readFileSync(file, 'utf8');
 const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
 const txt = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;| /g, ' ').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
