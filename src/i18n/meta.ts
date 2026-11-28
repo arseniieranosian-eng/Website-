@@ -102,8 +102,8 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Full SEO (1 year)',
-      title: 'Full-Year SEO: Strategy and Content | Eranosian',
-      description: 'Full SEO for 12 months: strategy, content, link building, technical monitoring, GEO/AEO optimisation and monthly reports.',
+      title: 'Full-Year SEO from 15,000 CZK a Month | Eranosian',
+      description: 'Full SEO for 12 months: strategy, content, links, technical monitoring, GEO/AEO and weekly reports. No result or date promised.',
       h1: 'Full SEO for a year',
     },
     ru: {

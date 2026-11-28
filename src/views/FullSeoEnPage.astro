@@ -1,0 +1,205 @@
+---
+// /en/full-seo/ (brief of 28.11.2026, v2): structure and content follow /full-seo/ (FullSeoCsPage.astro); content: data/fullseo-en.ts. English only (ru / uk / cs keep their own views).
+// JSON-LD: the layout graph + Service (no Offer / price) + FAQPage (7, 1:1 except the euro estimates in brackets, which the site rule removes from the markup). Body links go to English pages only.
+import { servicePhoto } from '../lib/service-photos';
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import CzechNote from '../components/CzechNote.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import FullHeroArt from '../components/FullHeroArt.astro';
+import RowArt from '../components/RowArt.astro';
+import GroupArt from '../components/GroupArt.astro';
+import QuoteFigure from '../components/QuoteFigure.astro';
+import WhyTrustCs from '../components/WhyTrustCs.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { serviceSchema } from '../lib/schema';
+import { FULLSEO_EN as C, FULLSEO_EN_UPDATED as MOD } from '../data/fullseo-en';
+import { reviewsForService } from '../data/reviews';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+const GROUP_ART = ['site', 'offsite', 'ai'];
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const m = META.fullSeo.en;
+const s = serviceByKey('fullSeo');
+// the partner-agency review with the confirmed translation of the author (28.11.2026); the other two as on /en/reviews/
+const reviews = reviewsForService(s.reviewsFrom ?? 'fullSeo', 3).map((r) => (r.id === 'make-up-agency' ? { ...r, short: { ...r.short, en: C.makeUpShort } } : r));
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const name = (k: keyof typeof META) => META[k][lang].name;
+const others = [
+  { key: 'audit', text: C.audit },
+  { key: 'consulting', text: '' },
+  { key: 'start', text: '' },
+  { key: 'maps', text: '' },
+] as const;
+const faqLd = { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base {...pageProps('fullSeo', lang)} schema={[serviceSchema(site, m.name, m.description, path('fullSeo', lang)), faqLd]}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container hero-art-split">
+      <div>
+        <p class="eyebrow">{C.label}</p>
+        <h1>{C.h1}</h1>
+        <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+        <p class="lead">{C.lead}</p>
+        <p class="price-badge">{C.badge}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+          <a class="btn btn--secondary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        </div>
+      </div>
+      {(() => { const p = servicePhoto(lang, 'fullSeo'); return p ? <img class="hero-art hero-photo" src={p.src} width={p.width} height={p.height} alt="" decoding="async" /> : <FullHeroArt />; })()}
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+      <p class="small muted">{C.priceNote}</p>
+      <p>{C.duration}</p>
+    </div>
+  </section>
+
+  <!-- WHO IT IS FOR -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.forWhomTitle}</h2>
+      <ul class="checks">{C.forWhom.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- WHAT IS INCLUDED: three groups -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.includesTitle}</h2>
+      {C.groups.map((g, gi) => (
+        <div class="include-group">
+          <GroupArt kind={GROUP_ART[gi]} />
+          <div>
+          <h3>{g.title}</h3>
+          <ul class="checks">
+            {g.items.map((i) => <li>{i.link ? <span>{i.text} <a href={t(i.link.page)}>{i.link.text}</a></span> : i.text}</li>)}
+          </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- MAPS IN THE PACKAGE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.mapsTitle}</h2>
+      <p>{C.maps.first}<a href={t('maps')}>{C.maps.link}</a>{C.maps.after}</p>
+    </div>
+  </section>
+
+  <!-- HOW THE WORK GOES -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.stagesTitle}</h2>
+      <ol class="steps steps--row">{C.stages.map((st) => <li><span>{st}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <!-- FIRST RESULTS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.resultsTitle}</h2>
+      <p class="answer">{C.resultsAnswer}</p>
+    </div>
+  </section>
+
+  <!-- START OR FULL SEO -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.compareTitle}</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><th scope="col"><span class="sr-only">{C.table.corner}</span></th>{C.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>
+            {C.table.rows.map(([label, a, b], i) => <tr><th scope="row"><span class="svc-name"><RowArt kind={['duration', 'price', 'focus', 'maps', 'reports'][i]} />{label}</span></th><td>{a}</td><td>{b}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <p><a class="link-arrow" href={t('start')}>{C.startLink}</a></p>
+      <p>{C.consultingNote.before}<a href={t('consulting')}>{C.consultingNote.link}</a>{C.consultingNote.after}</p>
+      <p>{C.mapsNote.before}<a href={t('maps')}>{C.mapsNote.link}</a>{C.mapsNote.after}</p>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.caseTitle}</h2>
+      {C.cases.map((c) => (
+        <>
+          <p>{c.text}</p>
+          <a class="link-arrow" href={t(c.page)}>{c.link}</a>
+        </>
+      ))}
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{C.reviewsTitle}</h2><a class="link-arrow" href={t('reviews')}>All reviews</a></div>
+      <ReviewCards reviews={reviews} lang={lang} compact />
+    </div>
+  </section>
+
+  <WhyTrustCs lang="en" tone="grey" />
+  <QuoteFigure text={C.quote} cite={new URL(t('fullSeo'), site).href} lang={lang} />
+
+  <!-- FAQ: answers are visible, not hidden in tabs -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+      <p><a class="link-arrow" href={t('faq')}>{C.faqAll}</a></p>
+    </div>
+  </section>
+
+  <!-- CONSULTATION FIRST? -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.consultTitle}</h2>
+      <p>{C.consultText}</p>
+      <p><a class="link-arrow" href={t('consulting')}>{C.consultLink}</a></p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section section--grey" id="form">
+    <div class="container narrow">
+      <h2>{C.formTitle}</h2>
+      <div class="card"><LeadForm lang={lang} id="service-fullseo" service="fullSeo" /></div>
+    </div>
+  </section>
+
+  <!-- OTHER SERVICES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{C.otherTitle}</h2></div>
+      <div class="grid grid-3">
+        {others.map((o) => (
+          <a class="card card--link" href={t(o.key)}>
+            <h3>{name(o.key)}</h3>
+            <p>{o.text || serviceByKey(o.key as 'consulting' | 'start' | 'maps').short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+      <p><a href={t('geo')}>{C.geoLine.link}</a>{C.geoLine.after}</p>
+    </div>
+  </section>
+  <CzechNote lang={lang} pageKey={'fullSeo'} />
+</Base>

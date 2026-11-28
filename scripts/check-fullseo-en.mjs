@@ -1,0 +1,72 @@
+// Check of /en/full-seo/ (brief of 28.11.2026, v2 final): meta (Title 49, Description 127, H1 "Full SEO for a year"), lead 21 words, badge 13 words, price answer 23 + note 23 words (CNB 24.435, 27 November 2026), "Duration: 12 months.",
+// sections in the order of the brief, the three groups of "included" (with Firmy.cz in the maps paragraph), four steps, first-results answer, comparison table, four case links to English pages, three reviews (the confirmed Make Up Digital
+// Agency text), "Why do clients trust me?" with 4 H3, the quote (13 words), 7 FAQ (51/55/44/55/52/52/48) = JSON-LD FAQPage (euro estimates in brackets removed from the markup by the site rule), "Consultation first?", the form (fullSeo preselected),
+// 4 "Other services" cards + GEO/AEO line; no "monthly", "4–8 weeks", "months 3–6", "biggest results over the long run", "paid per result"; EUR only as "approx." (610 / 2,050); no Offer / price markup; English links only.
+import { readFileSync } from 'node:fs';
+const errs = []; const e = (m) => errs.push(m);
+const h = readFileSync('dist/en/full-seo/index.html', 'utf8');
+const main = (h.match(/<main[\s\S]*?<\/main>/) || [h])[0];
+const dec = (s) => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;| /g, ' ');
+const txt = (s) => dec(s.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+const inl = (s) => txt(s.replace(/<[^>]+>/g, ''));
+const w = (s) => s.split(' ').length;
+const title = dec(h.match(/<title>([\s\S]*?)<\/title>/)[1]);
+const desc = dec(h.match(/<meta name="description" content="([^"]*)"/)[1]);
+const h1 = txt((main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]);
+if (title !== 'Full-Year SEO from 15,000 CZK a Month | Eranosian' || title.length !== 49) e(`title ${title.length}`);
+if (desc !== 'Full SEO for 12 months: strategy, content, links, technical monitoring, GEO/AEO and weekly reports. No result or date promised.' || desc.length !== 127) e(`description ${desc.length}`);
+if (h1 !== 'Full SEO for a year' || title.replace(/ \| Eranosian$/, '') === h1) e('H1');
+for (const l of ['cs', 'en', 'ru', 'uk', 'x-default']) if (!h.includes(`hreflang="${l}"`)) e(`hreflang ${l}`);
+if (!h.includes('<link rel="canonical" href="https://seo-eranosian.com/en/full-seo/">')) e('canonical');
+if (!/Author: <a href="\/en\/about\/">Arsenii Eranosian<\/a> · Updated: <time datetime="2026-11-03">03\.11\.2026<\/time>/.test(h)) e('byline /en/about/ + date unchanged');
+const lead = inl((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
+if (lead !== 'Year-round SEO from A to Z: I work on your website and beyond it, including your maps profiles, with weekly reports.' || w(lead) !== 21) e(`lead ${w(lead)}`);
+const badge = inl((main.match(/<p class="price-badge">([\s\S]*?)<\/p>/) || [, ''])[1]);
+if (badge !== 'From 15,000 CZK (approx. €610) per month · 12 months · weekly reports' || w(badge) !== 13) e(`badge ${w(badge)}`);
+if (!/On this page/.test(main)) e('table of contents');
+const h2 = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
+const want = ['How much does Full SEO for a year cost?', 'Who is it for?', 'What is included in the price?', 'Are Google, Mapy.com and Firmy.cz profiles part of the package?', 'How does Full SEO for a year work?', 'When will the first results come?', '3-month start, or Full SEO for a year?', 'What has it brought clients?', 'What clients say', 'Why do clients trust me?', 'Questions about Full SEO for a year', 'Consultation first?', 'Send an enquiry', 'Other services'];
+if (h2.join('|') !== want.join('|')) e(`H2: ${h2}`);
+const ans = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]));
+if (ans[0] !== 'Full SEO for a year starts at 15,000 CZK per month (approx. €610). The exact price depends on the scope and the industry.' || w(ans[0]) !== 23) e(`price answer ${w(ans[0])}`);
+const note = inl((main.match(/<p class="small muted">(Prices are in Czech koruna[\s\S]*?)<\/p>/) || [, ''])[1]);
+if (note !== 'Prices are in Czech koruna (CZK). Approximate EUR amounts use the Czech National Bank rate of 27 November 2026 (24.435 CZK per EUR).' || w(note) !== 23) e('rate note');
+if (!main.includes('<p>Duration: 12 months.</p>')) e('"Duration: 12 months." line');
+const groups = [...main.matchAll(/<h3>([^<]*)<\/h3>\s*<ul class="checks">([\s\S]*?)<\/ul>/g)].map((m) => [m[1], (m[2].match(/<li>/g) || []).length]);
+if (JSON.stringify(groups) !== JSON.stringify([['Work on the website', 7], ['Work beyond the website', 2], ['GEO/AEO and reporting', 2]])) e(`groups: ${JSON.stringify(groups)}`);
+if (!/Optimisation for search engines and for AI \(GEO\/AEO\)\.\s*<a href="\/en\/seo-and-geo\/">What that means<\/a>/.test(main)) e('"What that means" link');
+if (!main.includes('The standalone Maps service</a> is long-term (from 4 months) and is priced separately.') || !/profiles on Google, Mapy\.com and Firmy\.cz without a limit/.test(main)) e('maps paragraph');
+const steps = [...(main.match(/<ol class="steps[^"]*">([\s\S]*?)<\/ol>/) || [, ''])[1].matchAll(/<li><span>([\s\S]*?)<\/span>/g)].map((m) => inl(m[1]));
+if (JSON.stringify(steps) !== JSON.stringify(['Audit and strategy for the year.', 'Quarterly priority plan.', 'Ongoing work and weekly reports.', 'Annual review and next-year plan.'])) e(`steps: ${JSON.stringify(steps)}`);
+if (!main.includes('The time and the result cannot be guaranteed, because they depend on the state of your website, on the competition and on the scope of the changes. A year of SEO is not a sprint.')) e('first-results answer');
+const table = [...(main.match(/<table[\s\S]*?<\/table>/) || [''])[0].matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((r) => [...r[1].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map((x) => inl(x[1])).join(' | '));
+if (table.length !== 6 || !table.includes('Duration | 3 months | 12 months') || !table.includes('Price | 50,000 CZK (approx. €2,050) | from 15,000 CZK per month (approx. €610)')) e(`table: ${table}`);
+const cases = (main.match(/What has it brought clients\?<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...cases.matchAll(/class="link-arrow" href="([^"]+)"/g)].map((m) => m[1]).join() !== '/en/case-studies/seo-translation-agency-4-months/,/en/case-studies/seo-print-shop/,/en/case-studies/seo-in-low-season/,/en/case-studies/seo-translation-agency-half-year/') e('four case links');
+for (const f of ['8× compared with May (form and e-mail; the real number is higher)', '+775 %', '×24 (+2,300 %)', 'one window, not year over year. From a low base.', 'tripled']) if (!inl(cases).includes(f)) e(`case figure: ${f}`);
+const rev = (main.match(/What clients say<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if (!inl(rev).includes('At the start, the website practically did not rank and brought no enquiries. Arsenii built the structure of the site from scratch, carried out regular audits and sent detailed reports every week. […] Search impressions grew 6×, clicks more than 300×, and B2B enquiries tripled. We recommend him as a systematic, responsible and results-oriented SEO specialist.') || !/Make Up Digital Agency/.test(rev) || (rev.match(/Unimenty/g) || []).length < 2) e('three reviews with the confirmed Make Up Digital Agency text');
+const why = (main.match(/Why do clients trust me\?<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...why.matchAll(/<h3>([^<]*)<\/h3>/g)].map((m) => m[1]).join('|') !== 'I work personally|Numbers with a period and a source|A concrete output|Honest limits') e('why trust: 4 H3');
+const q = 'I do all services personally, Arsenii Eranosian, from the audit to the reports.';
+if ((main.match(/class="quote-fig"/g) || []).length !== 1 || !main.includes(q) || w(q) !== 13) e('one quote (13 words)');
+const faq = [...(main.match(/Questions about Full SEO for a year<\/h2>[\s\S]*?<\/section>/) || [''])[0].matchAll(/<h3>((?:(?!<h3>)[\s\S])*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [inl(m[1]), inl(m[2])]);
+if (faq.length !== 7 || faq.map(([, a]) => w(a)).join() !== '51,55,44,55,52,52,48') e(`FAQ: ${faq.map(([, a]) => w(a))}`);
+if (!/<option value="fullSeo" selected/.test((main.match(/<form[\s\S]*?<\/form>/) || [''])[0])) e('form: Full SEO preselected');
+const other = (main.match(/Other services<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+if ([...other.matchAll(/<a class="card card--link" href="([^"]+)"/g)].map((m) => m[1]).join() !== '/en/free-audit/,/en/consulting/,/en/3-month-start/,/en/maps/' || !other.includes('is included in every service.')) e('four Other services cards + GEO/AEO line');
+let ld = []; for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { const g = JSON.parse(m[1]); ld = ld.concat(g['@graph'] || [g]); }
+const types = ld.map((x) => x['@type']);
+if (types.some((t) => /VideoObject|HowTo|Review|Rating|Product|Offer|Quotation|LocalBusiness|ProfessionalService|MedicalBusiness|Dentist|AccountingService/.test(String(t))) || /"price"|Offer/.test(JSON.stringify(ld))) e(`forbidden JSON-LD: ${types}`);
+const fp = ld.find((x) => x['@type'] === 'FAQPage');
+if (!fp || JSON.stringify(fp.mainEntity.map((x) => [x.name, x.acceptedAnswer.text])) !== JSON.stringify(faq.map(([qq, a]) => [qq, a.replace(/\s*\((?:≈|approx\.?)\s*€[^)]*\)/g, '')]))) e('FAQPage must equal the visible FAQ (7), euro estimates in brackets removed by the site rule');
+if (!ld.some((x) => x['@type'] === 'BreadcrumbList' && x.itemListElement.map((i) => i.name).join(' > ') === 'Home > Full SEO (1 year)')) e('BreadcrumbList');
+const body = txt(main);
+if (/monthly|4[–-]8 weeks|months 3[–-]6|biggest results|paid per result|significant share|\bEU\b/i.test(body)) e(`forbidden wording: ${body.match(/monthly|4[–-]8 weeks|months 3[–-]6|biggest results|paid per result|significant share|\bEU\b/i)}`);
+const eur = [...body.matchAll(/€\s?[\d,]+/g)].map((m) => m[0].replace(/\s/g, ''));
+if (eur.some((x) => !['€610', '€2,050'].includes(x))) e(`EUR amounts: ${eur}`);
+const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
+if (links.some((l) => (/^\/(?!en\/)/.test(l) && l !== '/full-seo/') || /\/blog\/|seo-pro-/.test(l))) e(`links to non-English pages: ${links.filter((l) => /^\/(?!en\/)/.test(l))}`);
+if (/[ěščřžýáíéúůďťň]/.test(body.replace(/Czech/g, ''))) e('Czech letters');
+if (errs.length) { console.error('✗ check-fullseo-en:\n  - ' + errs.join('\n  - ')); process.exit(1); }
+console.log('✓ check-fullseo-en: ok (14 H2, 7 FAQ, 4 cases, 3 reviews, 4 Other services)');
