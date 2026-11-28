@@ -1068,9 +1068,9 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'FAQ',
-      title: 'SEO FAQ: Timelines and Process | Eranosian',
-      description: 'Answers to common SEO questions: how long it takes, what the audit includes, how we work together and SEO vs GEO/AEO.',
-      h1: 'Frequently asked questions',
+      title: 'SEO FAQ: Prices, Process and Results | Eranosian',
+      description: 'Answers about SEO prices, packages, the free audit, working together, timelines and GEO/AEO.',
+      h1: 'Frequently asked questions about SEO and GEO/AEO',
     },
     ru: {
       name: 'Вопросы и ответы',

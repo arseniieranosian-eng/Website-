@@ -8,8 +8,9 @@ import { META } from '../i18n/meta';
 import { path, type Lang } from '../i18n/routes';
 import { pageProps } from '../lib/page';
 import { FAQ } from '../data/faq';
-import { faqSchema } from '../lib/schema';
+import { faqSchema, ids } from '../lib/schema';
 import { FAQ_PAGE_GROUPS, FAQ_PAGE_UPDATED, FAQ_PAGE_PUBLISHED } from '../data/faq-page-cs';
+import { FAQ_PAGE_EN_GROUPS, FAQ_PAGE_EN_UPDATED, FAQ_PAGE_EN_PUBLISHED } from '../data/faq-page-en';
 import { FAQ_PAGE_RU_GROUPS, FAQ_PAGE_RU_UPDATED, FAQ_PAGE_RU_PUBLISHED } from '../data/faq-page-ru';
 import { FAQ_PAGE_UK_GROUPS, FAQ_PAGE_UK_UPDATED, FAQ_PAGE_UK_PUBLISHED } from '../data/faq-page-uk';
 
@@ -22,9 +23,10 @@ const C = {
   ru: { lead: 'Не нашли ответ? Напишите мне.', link: 'Контакты', ctaTitle: 'Остались вопросы?', ctaText: 'Отвечу в течение одного рабочего дня.' },
   uk: { lead: 'Не знайшли відповідь? Напишіть мені.', link: 'Контакти', ctaTitle: 'Залишилися питання?', ctaText: 'Відповім протягом одного робочого дня.' },
 }[lang];
-// cs, ru and uk have the rebuilt page (6 groups, questions as H3, contents, byline); en keeps the old list.
+// cs, en, ru and uk have the rebuilt page (6 groups, questions as H3, contents, byline); the old list below is the fallback of a language without it.
 const PAGES = {
   cs: { groups: FAQ_PAGE_GROUPS, upd: FAQ_PAGE_UPDATED, pub: FAQ_PAGE_PUBLISHED, by: ['Autor', 'Arsenii Eranosian', 'Zveřejněno', 'Aktualizováno'], toc: ['Obsah stránky', 'Na stránce najdete:'] },
+  en: { groups: FAQ_PAGE_EN_GROUPS, upd: FAQ_PAGE_EN_UPDATED, pub: FAQ_PAGE_EN_PUBLISHED, by: ['Author', 'Arsenii Eranosian', 'Published', 'Updated'], toc: ['Page contents', 'On this page:'] },
   ru: { groups: FAQ_PAGE_RU_GROUPS, upd: FAQ_PAGE_RU_UPDATED, pub: FAQ_PAGE_RU_PUBLISHED, by: ['Автор', 'Арсений Ераносьян', 'Опубликовано', 'Обновлено'], toc: ['Содержание страницы', 'На странице:'] },
   uk: { groups: FAQ_PAGE_UK_GROUPS, upd: FAQ_PAGE_UK_UPDATED, pub: FAQ_PAGE_UK_PUBLISHED, by: ['Автор', 'Арсеній Ераносьян', 'Опубліковано', 'Оновлено'], toc: ['Зміст сторінки', 'На сторінці:'] },
 } as const;
@@ -39,9 +41,13 @@ const linkParts = (a: string) => a.split(/(\{[a-zA-Z]+\|[^}]+\})/).filter(Boolea
 const plainA = (a: string) => a.replace(/\{[a-zA-Z]+\|([^}]+)\}/g, '$1');
 const csItems = (PG ? PG.groups : []).flatMap((g) => g.items.map((i) => ({ id: '', pages: [], q: { cs: i.q }, a: { cs: plainA(i.a) } })));
 const lng = lang as any;
+// English only (brief of 28.11.2026): a WebPage node with inLanguage en and the dates of the page next to the FAQPage; the other languages keep their graph.
+const site = Astro.site!;
+const pageUrl = new URL(path('faq', lang), site).href;
+const webPage = lang === 'en' && PG ? [{ '@type': 'WebPage', '@id': `${pageUrl}#webpage`, url: pageUrl, name: m.name, description: m.description, inLanguage: 'en', isPartOf: { '@id': ids(site).website }, author: { '@id': ids(site).person }, dateModified: PG.upd, breadcrumb: { '@id': `${pageUrl}#breadcrumb` } }] : [];
 ---
 {isNew ? (
-  <Base {...pageProps('faq', lang)} schema={[faqSchema(csItems as any, 'cs')]}>
+  <Base {...pageProps('faq', lang)} schema={[...webPage, faqSchema(csItems as any, 'cs')]}>
     <section class="page-hero">
       <div class="container narrow">
         <h1>{m.h1}</h1>
