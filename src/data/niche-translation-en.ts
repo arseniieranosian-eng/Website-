@@ -70,6 +70,10 @@ export const NICHE_TRANSLATION_EN = {
   reviewsLink: 'Client reviews',
 
   faqTitle: 'Frequently asked questions',
+  // "Related articles" block (brief of 28.11.2026, section 5; switched on at the author's request after the two funnel articles were pushed): two cards, no other links to the articles on the page (rule F)
+  moreTitle: 'Related articles',
+  moreLead: 'Articles on language versions and on why an agency website gets no enquiries.',
+  moreMore: 'Read the article',
   faq: [
     { q: 'How much does SEO for a translation agency cost?', a: 'A consultation costs 2,000 CZK per hour (approx. €80), or 3,000 CZK (approx. €120) with a website audit and a 12-month plan. The 3-month start costs 50,000 CZK (approx. €2,050) and Full SEO starts at 15,000 CZK per month (approx. €610). The audit of technical errors is free.' },
     { q: 'How long does SEO for a translation agency take?', a: 'Neither the time nor the result can be guaranteed, because they depend on your website, the competition and the scope of the changes. First comes the free audit, then we agree on a plan. I do not promise a deadline, and I do not state one on this page.' },

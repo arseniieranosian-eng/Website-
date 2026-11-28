@@ -23,7 +23,7 @@ const lead = inl((main.match(/<p class="lead">([\s\S]*?)<\/p>/) || [, ''])[1]);
 if (w(lead) !== 71 || !lead.startsWith('I work on SEO and GEO/AEO for translation agencies in Prague:') || !lead.endsWith('(approx. €610).')) e(`intro ${w(lead)}`);
 if (!/On this page/.test(main)) e('table of contents');
 const h2 = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => txt(m[1]));
-const want = ['Is this page for you?', 'What do I do for a translation agency?', 'How does it work in practice? A case study', 'How do I work with translation agencies?', 'What does the free audit include?', 'How much does it cost?', 'Which formats of cooperation are there?', 'What do clients say?', 'Frequently asked questions', 'Find out whether your website has technical errors'];
+const want = ['Is this page for you?', 'What do I do for a translation agency?', 'How does it work in practice? A case study', 'How do I work with translation agencies?', 'What does the free audit include?', 'How much does it cost?', 'Which formats of cooperation are there?', 'What do clients say?', 'Frequently asked questions', 'Related articles', 'Find out whether your website has technical errors'];
 if (h2.join('|') !== want.join('|')) e(`H2: ${h2}`);
 const ans = [...main.matchAll(/<p class="answer">([\s\S]*?)<\/p>/g)].map((m) => inl(m[1]));
 if (w(ans[0]) !== 54) e(`"Is this page for you?" ${w(ans[0])}`);
@@ -65,7 +65,10 @@ const eur = [...body.matchAll(/€\s?[\d,]+/g)].map((m) => m[0].replace(/\s/g, '
 if (eur.some((x) => !['€610', '€2,050', '€80', '€120'].includes(x))) e(`EUR amounts: ${eur}`);
 if ((main.match(/href="\/en\/free-audit\/\?niche=translation-agencies"/g) || []).length !== 3 || /href="\/en\/free-audit\/"/.test(main)) e('the three audit buttons must carry ?niche=translation-agencies');
 const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
-if (links.some((l) => (/^\/(?!en\/)/.test(l) && l !== '/seo-pro-prekladatelske-agentury-praha/') || /\/blog\/|seo-pro-/.test(l.replace('/seo-pro-prekladatelske-agentury-praha/', '')))) e(`links to Czech pages / articles: ${links.filter((l) => /^\/(?!en\/)/.test(l))}`);
+const related = (main.match(/<h2[^>]*>Related articles<\/h2>[\s\S]*?<\/section>/) || [''])[0];
+const rcards = [...related.matchAll(/<a class="card card--link post-card" href="([^"]+)"/g)].map((m) => m[1]);
+if (rcards.join() !== '/en/blog/czech-and-english-website-versions-translation-agency/,/en/blog/translation-agency-website-no-enquiries/' || !related.includes('Read the article') || links.filter((l) => /\/blog\//.test(l)).length !== 2) e('Related articles: exactly the two English articles as cards, no other link to them (rule F)');
+if (links.some((l) => (/^\/(?!en\/)/.test(l) && l !== '/seo-pro-prekladatelske-agentury-praha/') || /\/blog\/|seo-pro-/.test(l.replace('/seo-pro-prekladatelske-agentury-praha/', '').replace(/\/en\/blog\/(czech-and-english-website-versions-translation-agency|translation-agency-website-no-enquiries)\//g, '')))) e(`links to Czech pages / articles: ${links.filter((l) => /^\/(?!en\/)/.test(l))}`);
 if (/[ěščřžýáíéúůďťň]/.test(body.replace(/“překlady Praha”|Czech/g, ''))) e('Czech letters outside the quoted query');
 // hreflang: cs, en, ru, x-default on the three pages
 const want3 = { '/seo-pro-prekladatelske-agentury-praha/': 'dist/seo-pro-prekladatelske-agentury-praha/index.html', '/en/seo-for-translation-agencies-prague/': P, '/ru/seo-dlya-perevodcheskih-agentstv-praga/': 'dist/ru/seo-dlya-perevodcheskih-agentstv-praga/index.html' };
@@ -77,4 +80,4 @@ for (const [u, f] of Object.entries(want3)) {
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
 if (!sm.includes('<loc>https://seo-eranosian.com/en/seo-for-translation-agencies-prague/</loc>')) e('not in the sitemap');
 if (errs.length) { console.error('✗ check-niche-translation-en:\n  - ' + errs.join('\n  - ')); process.exit(1); }
-console.log('✓ check-niche-translation-en: ok (10 H2, 9 FAQ, 4 formats)');
+console.log('✓ check-niche-translation-en: ok (11 H2 incl. Related articles, 9 FAQ, 4 formats)');

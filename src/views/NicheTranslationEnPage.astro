@@ -3,6 +3,7 @@
 // Not carried over: the video of the Czech review, the article cards, the other cities / niches. JSON-LD: the layout graph + WebPage + FAQPage (no HowTo, no Quotation, no Service / Offer, no Review).
 import Base from '../layouts/Base.astro';
 import QuoteCaption from '../components/QuoteCaption.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import DoArt from '../components/DoArt.astro';
 import { META } from '../i18n/meta';
 import { path } from '../i18n/routes';
@@ -131,6 +132,15 @@ const faqLd = { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Qu
     <div class="container narrow">
       <h2>{C.faqTitle}</h2>
       <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- RELATED ARTICLES (two cards, after the FAQ) -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.moreTitle}</h2>
+      <p class="muted">{C.moreLead}</p>
+      <RelatedPosts lang={lang} keys={['postLangVersionsEn', 'postNoEnquiriesEn']} more={C.moreMore} />
     </div>
   </section>
 
