@@ -1,0 +1,51 @@
+---
+// /en/free-audit/thank-you/ (brief of 28.11.2026): the thank-you page of the translation-agency audit funnel. noindex, nofollow, own canonical, not in the sitemap, no hreflang, no prices, no forms.
+// The "Back to the page for translation agencies" link is shown only when the address carries ?niche=translation-agencies. Events (thank_you_view, generate_lead) go out only with the analytics consent (lib/track.ts).
+import Base from '../layouts/Base.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+
+const lang = 'en' as const;
+const m = META.thanksAudit.en;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const C = {
+  lead: 'I received your request and I will check your website. Within 24 hours you will get a short presentation with the main technical errors by e-mail. There is no call and no obligation. If you gave me a phone number only, I will write to ask for an e-mail address to send it to.',
+  nextTitle: 'What happens next?',
+  steps: [
+    'I check indexing, duplicate pages and other technical problems, and, if your site has several language versions, each version separately.',
+    'You receive a short presentation by e-mail, in English.',
+    'You decide whether to continue. Nothing is required of you.',
+  ],
+  tz: 'Times on this website are Prague time (CET).',
+  back: 'Back to the page for translation agencies',
+  reviews: 'Client reviews',
+};
+---
+<Base {...pageProps('thanksAudit', lang)} robots="noindex, nofollow" keepCanonical>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{m.h1}</h1>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.nextTitle}</h2>
+      <ol class="steps">{C.steps.map((s) => <li><span>{s}</span></li>)}</ol>
+      <p class="muted small">{C.tz}</p>
+      <p><a class="link-arrow" id="thanks-back" href={t('nicheTranslation')} hidden>{C.back}</a></p>
+      <p><a class="link-arrow" href={t('reviews')}>{C.reviews}</a></p>
+    </div>
+  </section>
+</Base>
+<script>
+  import { track } from '../lib/track';
+  const niche = new URLSearchParams(location.search).get('niche');
+  if (niche === 'translation-agencies') document.getElementById('thanks-back')?.removeAttribute('hidden');
+  // fire once per real submission (flag set by LeadForm), not on reloads or direct visits
+  let lead: Record<string, string> | null = null;
+  try { lead = JSON.parse(sessionStorage.getItem('lead') ?? 'null'); sessionStorage.removeItem('lead'); } catch {}
+  track('thank_you_view', niche ? { niche } : {});
+  if (lead) track('generate_lead', lead);
+</script>

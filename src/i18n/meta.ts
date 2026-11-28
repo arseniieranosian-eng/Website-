@@ -1144,6 +1144,14 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       h1: 'Политика конфиденциальности',
     },
   },
+  thanksAudit: {
+    en: {
+      name: 'Free SEO Audit Requested',
+      title: 'Free SEO Audit Requested | Eranosian',
+      description: 'Your free SEO audit request has been received. You will get a short presentation by e-mail within 24 hours.',
+      h1: 'Thank you, I have your request',
+    },
+  },
   thanks: {
     cs: {
       name: 'Děkuji',

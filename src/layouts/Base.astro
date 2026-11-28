@@ -23,6 +23,8 @@ interface Props {
   alternates: Partial<Record<Lang, string>>;
   breadcrumbs: Crumb[] | null;
   noindex?: boolean;
+  robots?: string; // overrides the robots content of a noindex page (default "noindex, follow")
+  keepCanonical?: boolean; // a noindex page that still carries its own canonical
   pageKey?: PageKey;
   schema?: (object | null)[];
   ogType?: 'website' | 'article' | 'profile';
@@ -31,7 +33,7 @@ interface Props {
   langFallback?: Record<Lang, string>;
 }
 
-const { lang, title, description, path, alternates, breadcrumbs, noindex = false, pageKey, schema = [], ogType = 'website', ogImage = '/images/og-card.png', langFallback = ROUTES.home } = Astro.props;
+const { lang, title, description, path, alternates, breadcrumbs, noindex = false, robots, keepCanonical = false, pageKey, schema = [], ogType = 'website', ogImage = '/images/og-card.png', langFallback = ROUTES.home } = Astro.props;
 const art = artFor(pageKey, lang);
 // Decorative illustrations (lib/page-art.ts) are inserted under the headings (H2) of the page body, not in a separate row.
 let body = await Astro.slots.render('default');
@@ -108,7 +110,8 @@ const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
     <title>{title}</title>
     <meta name="description" content={description} />
     {pageKey === 'home' && lang === 'cs' && <meta name="seznam-wmt" content="smOudwpeaYUPsXVuqqvEDh2HY4hbh3Pb" />}
-    {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
+    {noindex ? <meta name="robots" content={robots ?? 'noindex, follow'} /> : <link rel="canonical" href={canonical} />}
+    {noindex && keepCanonical && <link rel="canonical" href={canonical} />}
     {!noindex && hreflangs.length > 1 && hreflangs.map(({ l, href }) => <link rel="alternate" hreflang={l} href={href} />)}
     {!noindex && hreflangs.length > 1 && xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
     <meta property="og:type" content={ogType} />

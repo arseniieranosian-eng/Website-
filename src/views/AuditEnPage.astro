@@ -174,7 +174,8 @@ const U = ui(lang);
   <section class="section" id="form">
     <div class="container narrow">
       <h2>{C.formTitle}</h2>
-      <div class="card"><LeadForm lang={lang} id="audit-en" service="audit" websiteRequired /></div>
+      <p class="muted" data-niche-context hidden>{C.nicheContext}</p>
+      <div class="card"><LeadForm lang={lang} id="audit-en" service="audit" websiteRequired nicheForm /></div>
     </div>
   </section>
   <CzechNote lang={lang} pageKey={'audit'} />

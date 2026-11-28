@@ -12,8 +12,9 @@ interface Props {
   title?: string;
   compact?: boolean;
   websiteRequired?: boolean; // the site address is mandatory (e.g. the free audit is impossible without it)
+  nicheForm?: boolean; // English free-audit page: with ?niche=translation-agencies the extra fields, the hidden source fields and the dedicated thank-you page are switched on (brief of 28.11.2026)
 }
-const { lang, id, service = 'audit', title, compact = false, websiteRequired = false } = Astro.props;
+const { lang, id, service = 'audit', title, compact = false, websiteRequired = false, nicheForm = false } = Astro.props;
 // Default: our own PHP handler (public/send.php) that e-mails the enquiry.
 // PUBLIC_FORM_ENDPOINT can point to a third-party service instead.
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '/send.php';
@@ -66,6 +67,8 @@ const uid = `lf-${id}`;
   data-lead-form
   data-endpoint={endpoint}
   data-thanks={path('thanks', lang)}
+  data-niche-form={nicheForm ? '' : undefined}
+  data-thanks-niche={nicheForm ? path('thanksAudit', lang) : undefined}
   data-msg-contact={T.invalidContact}
   data-msg-sending={T.sending}
   data-turnstile={TURNSTILE_SITEKEY || undefined}
@@ -103,6 +106,28 @@ const uid = `lf-${id}`;
       </select>
     </div>
   </div>
+  {nicheForm && (
+    <div data-niche-fields hidden>
+      <div class="field-row">
+        <fieldset class="field" disabled>
+          <legend>Which languages does your website have?</legend>
+          <label><input type="checkbox" name="site_languages" value="Czech" /> Czech</label>{' '}
+          <label><input type="checkbox" name="site_languages" value="English" /> English</label>{' '}
+          <label><input type="checkbox" name="site_languages" value="Other" /> Other</label>
+        </fieldset>
+        <div class="field">
+          <label for={`${uid}-offices`}>Where are your offices?</label>
+          <select id={`${uid}-offices`} name="offices" disabled>
+            <option value="">—</option>
+            <option value="Prague only">Prague only</option>
+            <option value="Prague and other cities">Prague and other cities</option>
+            <option value="Outside Prague">Outside Prague</option>
+          </select>
+        </div>
+      </div>
+      {['source_page', 'niche', 'site_lang', 'utm_source', 'utm_medium', 'utm_campaign', 'referrer', 'submitted_at'].map((n) => <input type="hidden" name={n} value={n === 'site_lang' ? lang : ''} disabled />)}
+    </div>
+  )}
   {!compact && (
     <div class="field">
       <label for={`${uid}-message`}>{T.message}</label>
@@ -119,6 +144,7 @@ const uid = `lf-${id}`;
 </form>
 
 <script>
+  import { track } from '../lib/track';
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const PHONE = /^\+?[\d\s().-]{9,20}$/;
   const MIN_FILL_MS = 3000;
@@ -132,6 +158,29 @@ const uid = `lf-${id}`;
     const label = button.textContent;
 
     contact.addEventListener('input', () => contact.setCustomValidity(''));
+
+    // Funnel of the English free-audit page (brief of 28.11.2026): only with ?niche=translation-agencies the extra fields, the hidden source fields and the dedicated thank-you page are switched on;
+    // without the parameter the form is the ordinary one. Events (form_view / form_start / form_submit) go out only with the analytics consent (lib/track.ts).
+    const niche = form.hasAttribute('data-niche-form') ? new URLSearchParams(location.search).get('niche') : null;
+    const nicheOn = niche === 'translation-agencies';
+    if (nicheOn) {
+      const box = form.querySelector<HTMLElement>('[data-niche-fields]')!;
+      box.hidden = false;
+      box.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLFieldSetElement>('input, select, fieldset').forEach((x) => { x.disabled = false; });
+      const q = new URLSearchParams(location.search);
+      const set = (n: string, v: string) => { const el = form.querySelector<HTMLInputElement>(`[name="${n}"]`); if (el) el.value = v; };
+      let sameOrigin = false;
+      try { sameOrigin = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch {}
+      set('niche', niche!);
+      set('source_page', sameOrigin ? document.referrer : location.href);
+      set('referrer', document.referrer);
+      for (const k of ['utm_source', 'utm_medium', 'utm_campaign']) set(k, q.get(k) ?? '');
+      document.querySelector<HTMLElement>('[data-niche-context]')?.removeAttribute('hidden');
+      form.dataset.thanks = `${form.dataset.thanksNiche}?niche=${niche}`;
+      let seen = false;
+      new IntersectionObserver((es, ob) => { if (!seen && es.some((x) => x.isIntersecting)) { seen = true; ob.disconnect(); track('form_view', { form_id: form.querySelector<HTMLInputElement>('[name=form_id]')!.value, niche: niche! }); } }).observe(form);
+      form.addEventListener('focusin', () => track('form_start', { niche: niche! }), { once: true });
+    }
 
     // Cloudflare Turnstile: the script is loaded once, on the first interaction with any form (nothing is requested from Cloudflare before that).
     if (form.dataset.turnstile) {
@@ -157,7 +206,13 @@ const uid = `lf-${id}`;
       if (form.dataset.turnstile) {
         for (let i = 0; i < 40 && !(form.querySelector<HTMLInputElement>('[name="cf-turnstile-response"]')?.value); i++) await new Promise((r) => setTimeout(r, 200));
       }
-      const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      if (nicheOn) {
+        const prague = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Prague', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date());
+        const el = form.querySelector<HTMLInputElement>('[name="submitted_at"]'); if (el) el.value = `${prague} (Europe/Prague)`;
+      }
+      const fd = new FormData(form);
+      const data = Object.fromEntries(fd) as Record<string, string>;
+      if (nicheOn) data.site_languages = fd.getAll('site_languages').join(', ');
       const goThanks = () => (window.location.href = form.dataset.thanks!);
 
       // Spam: honeypot filled or submitted inhumanly fast → pretend success, send nothing.
@@ -178,7 +233,8 @@ const uid = `lf-${id}`;
           throw new Error(`HTTP ${res.status}`);
         }
         try {
-          sessionStorage.setItem('lead', JSON.stringify({ form_id: data.form_id, service: data.service, lang: data.lang }));
+          sessionStorage.setItem('lead', JSON.stringify({ form_id: data.form_id, service: data.service, lang: data.lang, ...(nicheOn ? { niche: niche! } : {}) }));
+          if (nicheOn) track('form_submit', { form_id: data.form_id, niche: niche! });
         } catch {}
         goThanks();
       } catch (err) {

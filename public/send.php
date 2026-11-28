@@ -135,6 +135,12 @@ $service = array_key_exists($in['service'] ?? '', $SERVICES) ? $in['service'] : 
 $lang    = array_key_exists($in['lang'] ?? '', $LANGS) ? $in['lang'] : 'cs';
 $formId  = oneLine(clean($in['form_id'] ?? '', 60));
 $page    = oneLine(clean($in['page'] ?? '', 200));
+// Funnel of the English free-audit page (brief of 28.11.2026): extra fields and hidden source data; every field is optional and only printed when present.
+$extra = [];
+foreach (['niche' => 'Ниша (параметр niche)', 'site_languages' => 'Языки сайта', 'offices' => 'Офисы', 'source_page' => 'Откуда пришёл (страница)', 'referrer' => 'Referrer', 'utm_source' => 'utm_source', 'utm_medium' => 'utm_medium', 'utm_campaign' => 'utm_campaign', 'submitted_at' => 'Время отправки (по Праге, со страницы)'] as $k => $labelRu) {
+    $val = oneLine(clean($in[$k] ?? '', 300));
+    if ($val !== '') $extra[] = $labelRu . ': ' . $val;
+}
 
 $isEmail = filter_var($contact, FILTER_VALIDATE_EMAIL) !== false;
 $isPhone = (bool) preg_match('/^\+?[\d\s().-]{9,20}$/', $contact);
@@ -168,6 +174,7 @@ $body = implode("\n", [
     'Страница: ' . ($page !== '' ? $page : '—'),
     'Форма: ' . ($formId !== '' ? $formId : '—'),
     'Время: ' . date('Y-m-d H:i:s T'),
+    ...$extra,
     'Согласие на обработку данных: да',
 ]);
 

@@ -13,6 +13,8 @@ import { NICHE_TRANSLATION_EN as C, NICHE_TRANSLATION_EN_PUBLISHED as PUB, NICHE
 const lang = C.lang;
 const site = Astro.site!;
 const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+// All "Get a free audit" buttons lead to the free-audit page of the funnel (brief of 28.11.2026); the parameter switches on the niche variant of the form there.
+const auditHref = `${t('audit')}?niche=translation-agencies`;
 const fmt = (iso: string) => { const [y, mo, d] = iso.split('-').map(Number); return `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`; };
 const m = META.nicheTranslation.en;
 const url = new URL(t('nicheTranslation'), site).href;
@@ -28,7 +30,7 @@ const faqLd = { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Qu
       <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.publishedLabel}: <time datetime={PUB}>{fmt(PUB)}</time> · {C.updatedLabel}: <time datetime={MOD}>{fmt(MOD)}</time></p>
       <div class="summary-box"><p class="lead">{C.lead}</p></div>
       <div class="btn-row">
-        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+        <a class="btn btn--primary btn--lg" href={auditHref} data-cta="hero">{C.heroAudit}</a>
       </div>
     </div>
   </section>
@@ -85,7 +87,7 @@ const faqLd = { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Qu
       <p class="answer">{C.auditAnswer}</p>
       <p>{C.auditNotLead}</p>
       <ul class="checks">{C.auditNot.map((x) => <li>{x}</li>)}</ul>
-      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.auditCta}</a></div>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={auditHref} data-cta="audit_block">{C.auditCta}</a></div>
     </div>
   </section>
 
@@ -144,9 +146,13 @@ const faqLd = { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Qu
         <p class="small">{C.updatedLabel}: <time datetime={MOD}>{fmt(MOD)}</time></p>
       </div>
       <div class="btn-row">
-        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+        <a class="btn btn--primary btn--lg" href={auditHref} data-cta="final">{C.endCta}</a>
         <a class="btn btn--ghost-light btn--lg" href={t('contact')}>{C.endContact}</a>
       </div>
     </div>
   </section>
 </Base>
+<script>
+  import { track } from '../lib/track';
+  document.querySelectorAll<HTMLAnchorElement>('a[data-cta]').forEach((a) => a.addEventListener('click', () => track('cta_click', { button: a.dataset.cta!, niche: 'translation-agencies' })));
+</script>

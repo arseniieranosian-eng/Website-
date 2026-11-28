@@ -1,7 +1,7 @@
 // Check of /en/seo-for-translation-agencies-prague/ (brief of 28.11.2026): meta (Title 50, Description 125, H1 80), byline /en/about/ + Published / Updated, intro 71 words, sections in the order of the brief (no video block, no article cards),
 // the six H3 of "What do I do" (29/29/30/40/63/20 words) + the quote, the two case paragraphs (65–70 % in March–September 2026; 8× in June vs May; no total, no duration of the work, no "real enquiries are higher"), the AI Overview screenshot with the
 // English caption, the capacity line and the status "free" dated 28 November 2026, 3 steps, audit block (37 words, 6 "not included"), price answer (71) with the rate note once, 4 format cards with the prices of the brief, 9 FAQ (48/49/54/54/52/49/52/47/54) =
-// FAQPage (euro estimates in brackets removed from the markup by the site rule), no forbidden JSON-LD types, English links only (case page /en/case-studies/seo-translation-agency-half-year/), hreflang cs / en / ru / x-default on the three pages.
+// all three "Get a free audit" buttons lead to /en/free-audit/?niche=translation-agencies (funnel of 28.11.2026), FAQPage (euro estimates in brackets removed from the markup by the site rule), no forbidden JSON-LD types, English links only (case page /en/case-studies/seo-translation-agency-half-year/), hreflang cs / en / ru / x-default on the three pages.
 import { readFileSync } from 'node:fs';
 const errs = []; const e = (m) => errs.push(m);
 const P = 'dist/en/seo-for-translation-agencies-prague/index.html';
@@ -43,7 +43,7 @@ const coop = (main.match(/How do I work with translation agencies\?<\/h2>[\s\S]*
 if (!coop.includes('I work with no more than three firms from one industry at the same time.') || !coop.includes('Status for translation agencies as of 28 November 2026: free.') || (coop.match(/<li>/g) || []).length !== 3) e('capacity line, dated status, 3 steps');
 if (!/free\b/.test(coop) || /volno/i.test(main)) e('status');
 const aud = (main.match(/What does the free audit include\?<\/h2>[\s\S]*?<\/section>/) || [''])[0];
-if (w(inl((aud.match(/<p class="answer">([\s\S]*?)<\/p>/) || [, ''])[1])) !== 37 || [...aud.matchAll(/<li>([^<]*)<\/li>/g)].map((m) => m[1]).join('|') !== 'keywords|competition|maps|visibility in AI search|page speed|mobile version' || !/href="\/en\/free-audit\/">Get a free audit<\/a>/.test(aud)) e('audit block');
+if (w(inl((aud.match(/<p class="answer">([\s\S]*?)<\/p>/) || [, ''])[1])) !== 37 || [...aud.matchAll(/<li>([^<]*)<\/li>/g)].map((m) => m[1]).join('|') !== 'keywords|competition|maps|visibility in AI search|page speed|mobile version' || !/href="\/en\/free-audit\/\?niche=translation-agencies" data-cta="audit_block">Get a free audit<\/a>/.test(aud)) e('audit block');
 const price = (main.match(/How much does it cost\?<\/h2>[\s\S]*?<\/section>/) || [''])[0];
 if (w(inl((price.match(/<p class="answer">([\s\S]*?)<\/p>/) || [, ''])[1])) !== 71 || (txt(main).match(/24\.435 CZK per EUR/g) || []).length < 1) e('price answer');
 const cards = [...(main.match(/Which formats of cooperation are there\?<\/h2>[\s\S]*?<\/section>/) || [''])[0].matchAll(/<a class="card card--link" href="([^"]+)">[\s\S]*?<h3>([^<]*)<\/h3>[\s\S]*?<strong>([^<]*)<\/strong>/g)].map((m) => [m[1], m[2], inl(m[3])]);
@@ -51,7 +51,7 @@ if (JSON.stringify(cards) !== JSON.stringify([['/en/consulting/', 'Consulting', 
 if (!/href="\/en\/reviews\/">Client reviews<\/a>/.test(main)) e('reviews link');
 const faq = [...(main.match(/Frequently asked questions<\/h2>[\s\S]*?<\/section>/) || [''])[0].matchAll(/<h3>((?:(?!<h3>)[\s\S])*?)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [inl(m[1]), inl(m[2])]);
 if (faq.length !== 9 || faq.map(([, a]) => w(a)).join() !== '48,49,54,54,52,49,52,47,54') e(`FAQ: ${faq.map(([, a]) => w(a))}`);
-if (!main.includes('I am an SEO specialist, so my assessment may be biased.') || !/href="\/en\/free-audit\/">Get a free audit<\/a>[\s\S]*href="\/en\/contact\/">Write to me<\/a>/.test(main)) e('K5 + final CTA buttons');
+if (!main.includes('I am an SEO specialist, so my assessment may be biased.') || !/href="\/en\/free-audit\/\?niche=translation-agencies" data-cta="final">Get a free audit<\/a>[\s\S]*href="\/en\/contact\/">Write to me<\/a>/.test(main)) e('K5 + final CTA buttons');
 let ld = []; for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { const g = JSON.parse(m[1]); ld = ld.concat(g['@graph'] || [g]); }
 const types = ld.map((x) => x['@type']);
 if (types.some((t) => /VideoObject|HowTo|Review|Rating|Product|Offer|Quotation|LocalBusiness|ProfessionalService|MedicalBusiness|Dentist|AccountingService|Service/.test(String(t))) || !types.includes('WebPage') || types.filter((t) => t === 'Person').length !== 1) e(`JSON-LD types: ${types}`);
@@ -63,6 +63,7 @@ const body = txt(main);
 if (/4[–-]8 weeks|months 3[–-]6|significant|certified|sworn|\bEU\b|rating/i.test(body)) e('forbidden wording');
 const eur = [...body.matchAll(/€\s?[\d,]+/g)].map((m) => m[0].replace(/\s/g, ''));
 if (eur.some((x) => !['€610', '€2,050', '€80', '€120'].includes(x))) e(`EUR amounts: ${eur}`);
+if ((main.match(/href="\/en\/free-audit\/\?niche=translation-agencies"/g) || []).length !== 3 || /href="\/en\/free-audit\/"/.test(main)) e('the three audit buttons must carry ?niche=translation-agencies');
 const links = [...main.matchAll(/<a [^>]*href="([^"]+)"/g)].map((m) => m[1]).filter((l) => !l.startsWith('#'));
 if (links.some((l) => (/^\/(?!en\/)/.test(l) && l !== '/seo-pro-prekladatelske-agentury-praha/') || /\/blog\/|seo-pro-/.test(l.replace('/seo-pro-prekladatelske-agentury-praha/', '')))) e(`links to Czech pages / articles: ${links.filter((l) => /^\/(?!en\/)/.test(l))}`);
 if (/[ěščřžýáíéúůďťň]/.test(body.replace(/“překlady Praha”|Czech/g, ''))) e('Czech letters outside the quoted query');

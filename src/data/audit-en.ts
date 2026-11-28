@@ -108,4 +108,5 @@ export const AUDIT_EN = {
     { q: 'What should I do after the audit?', a: 'Read the presentation and decide whether to continue. You can do nothing, book a paid consultation, choose the 3-month SEO start, or the Full SEO for a year. I do not push any option, and I do not promise results or timing for any of them.' },
   ],
   formTitle: 'Request a free audit',
+  nicheContext: 'You are requesting an audit for a translation agency website.',
 };

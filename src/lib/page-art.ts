@@ -10,6 +10,7 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   // faq: no illustrations (the author's exception to the two-illustration rule, 02.11.2026)
   contact: { kinds: ['contact', 'audit'] },
   thanks: { kinds: ['thanks', 'audit'] },
+  thanksAudit: { kinds: ['thanks', 'audit'] },
   privacy: { kinds: ['privacy', 'audit'] },
   geo: { kinds: ['geo', 'audit'] },
   blog: { kinds: ['blog', 'audit'], langs: ['en', 'uk'] },
