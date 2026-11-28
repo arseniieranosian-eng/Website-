@@ -104,6 +104,7 @@ import PostDupEshopCsPage from '../views/PostDupEshopCsPage.astro';
 import PostDentalWebMapsCsPage from '../views/PostDentalWebMapsCsPage.astro';
 import PostProfileMgmtCsPage from '../views/PostProfileMgmtCsPage.astro';
 import AuditEnPage from '../views/AuditEnPage.astro';
+import StartEnPage from '../views/StartEnPage.astro';
 import PostDentalBrnoObsCsPage from '../views/PostDentalBrnoObsCsPage.astro';
 import NicheDentalBrnoCsPage from '../views/NicheDentalBrnoCsPage.astro';
 import PostAccWebMapsCsPage from '../views/PostAccWebMapsCsPage.astro';
@@ -161,6 +162,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'about' && props.lang === 'cs' && <AboutCsPage />}
 {props.key === 'audit' && props.lang === 'cs' && <AuditCsPage />}
 {props.key === 'audit' && props.lang === 'en' && <AuditEnPage />}
+{props.key === 'start' && props.lang === 'en' && <StartEnPage />}
 {props.key === 'audit' && props.lang === 'ru' && <AuditRuPage />}
 {props.key === 'geo' && props.lang === 'cs' && <GeoCsPage />}
 {props.key === 'caseKb' && props.lang === 'cs' && <CaseCsPage />}
@@ -274,5 +276,5 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'fullSeo' && props.lang === 'ru' && <FullSeoPage />}
 {props.key === 'maps' && props.lang === 'cs' && <MapsCsPage />}
 {props.key === 'maps' && props.lang === 'ru' && <MapsPage />}
-{props.key && isService(props.key) && !(props.key === 'consulting') && !(props.key === 'start' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'fullSeo' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'maps' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && <Service lang={props.lang} service={props.key} />}
+{props.key && isService(props.key) && !(props.key === 'consulting') && !(props.key === 'start' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk' || props.lang === 'en')) && !(props.key === 'fullSeo' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && !(props.key === 'maps' && (props.lang === 'ru' || props.lang === 'cs' || props.lang === 'uk')) && <Service lang={props.lang} service={props.key} />}
 {View && <View lang={props.lang} />}

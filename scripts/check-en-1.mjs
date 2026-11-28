@@ -8,7 +8,7 @@ const entries = [...sm.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
 const en = entries.filter((u) => /<loc>https:\/\/seo-eranosian\.com\/en\//.test(u));
 if (en.length !== 19) e(`19 English pages in the sitemap, found ${en.length}`);
 const want = {
-  '/en/3-month-start/': '3-Month SEO Start: Audit and Fixes | Eranosian', '/en/full-seo/': 'Full-Year SEO: Strategy and Content | Eranosian', '/en/seo-and-geo/': 'SEO + GEO/AEO: Google and ChatGPT | Eranosian',
+  '/en/3-month-start/': '3-Month SEO Start for 50,000 CZK | Eranosian', '/en/full-seo/': 'Full-Year SEO: Strategy and Content | Eranosian', '/en/seo-and-geo/': 'SEO + GEO/AEO: Google and ChatGPT | Eranosian',
   '/en/faq/': 'SEO FAQ: Timelines and Process | Eranosian', '/en/maps/': 'Local SEO: Google Maps and Mapy.com | Eranosian', '/en/privacy-policy/': 'Privacy Policy | Eranosian', '/en/reviews/': 'Client Reviews | Eranosian',
 };
 const dec = (s) => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
@@ -50,7 +50,7 @@ else {
   if (!/ErrorDocument 404 \/404\.html/.test(readFileSync('dist/.htaccess', 'utf8'))) e('root ErrorDocument must stay');
   if (sm.includes('/en/404/')) e('the 404 page must not be in the sitemap');
 }
-for (const p of ['/en/3-month-start/', '/en/full-seo/', '/en/maps/']) {
+for (const p of ['/en/full-seo/', '/en/maps/']) { // (the Start page shows its price since the author's decision of 28.11.2026: scripts/check-start-en.mjs)
   const t = txt((readFileSync('dist' + p + 'index.html', 'utf8').match(/<main[\s\S]*?<\/main>/) || [''])[0]);
   if (/\d[\d,]*\s?(CZK|EUR|€)|€\s?\d|Kč/.test(t)) e(`${p}: prices must not be added without the author's decision`);
 }

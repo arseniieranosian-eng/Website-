@@ -82,7 +82,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: '3-month start',
-      title: '3-Month SEO Start: Audit and Fixes | Eranosian',
+      title: '3-Month SEO Start for 50,000 CZK | Eranosian',
       description: 'A three-month SEO kick-off: technical audit and fixes, keyword research, optimisation of key pages and analytics setup.',
       h1: 'A 3-month SEO start',
     },
