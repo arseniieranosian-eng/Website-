@@ -996,7 +996,12 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Dělám SEO a GEO/AEO pro překladatelské agentury v Praze: jazykové páry, služby, B2B stránky. Bezplatný audit technických chyb.',
       h1: 'SEO a GEO/AEO pro překladatelské agentury v Praze: poptávky z Googlu a AI',
     },
-    en: { name: 'SEO for translation agencies in Prague', title: 'SEO for translation agencies in Prague', description: 'SEO for translation agencies in Prague', h1: 'SEO for translation agencies in Prague' },
+    en: {
+      name: 'SEO for translation agencies in Prague',
+      title: 'SEO for Translation Agencies in Prague | Eranosian',
+      description: 'SEO and GEO/AEO for translation agencies in Prague: language pairs, services, B2B pages and a free audit of technical errors.',
+      h1: 'SEO and GEO/AEO for translation agencies in Prague: enquiries from Google and AI',
+    },
     ru: {
       name: 'SEO для переводческих агентств в Праге',
       title: 'SEO для бюро переводов в Праге | Eranosian',

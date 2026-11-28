@@ -1,0 +1,152 @@
+---
+// /en/seo-for-translation-agencies-prague/ (brief of 28.11.2026): the English page for translation agencies in Prague. Structure and facts follow the Czech page (NicheLanding.astro + data/niche-translation-cs.ts); content: data/niche-translation-en.ts.
+// Not carried over: the video of the Czech review, the article cards, the other cities / niches. JSON-LD: the layout graph + WebPage + FAQPage (no HowTo, no Quotation, no Service / Offer, no Review).
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import DoArt from '../components/DoArt.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { ids } from '../lib/schema';
+import { NICHE_TRANSLATION_EN as C, NICHE_TRANSLATION_EN_PUBLISHED as PUB, NICHE_TRANSLATION_EN_UPDATED as MOD } from '../data/niche-translation-en';
+
+const lang = C.lang;
+const site = Astro.site!;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const fmt = (iso: string) => { const [y, mo, d] = iso.split('-').map(Number); return `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`; };
+const m = META.nicheTranslation.en;
+const url = new URL(t('nicheTranslation'), site).href;
+const id = ids(site);
+const webPage = { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.title.replace(/ \| Eranosian$/, ''), description: m.description, inLanguage: 'en', dateModified: MOD, author: { '@id': id.person }, breadcrumb: { '@id': `${url}#breadcrumb` } };
+const faqLd = { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base {...pageProps('nicheTranslation', lang)} schema={[webPage, faqLd]}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{m.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.publishedLabel}: <time datetime={PUB}>{fmt(PUB)}</time> · {C.updatedLabel}: <time datetime={MOD}>{fmt(MOD)}</time></p>
+      <div class="summary-box"><p class="lead">{C.lead}</p></div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IS THIS PAGE FOR YOU? -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.forTitle}</h2>
+      <p class="answer">{C.forAnswer}</p>
+    </div>
+  </section>
+
+  <!-- WHAT I DO + author quote -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.doTitle}</h2>
+      <p class="answer">{C.doIntro}</p>
+      {C.do.map((x) => <div class="do-item"><DoArt kind={x.art} /><div><h3>{x.h}</h3><p>{x.text}</p></div></div>)}
+      <figure class="quote-fig" style="margin-top: 28px">
+        <blockquote cite={url}><p>{C.quote}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <!-- CASE -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.caseTitle}</h2>
+      <p class="answer">{C.caseP1}</p>
+      <p>{C.caseP2}</p>
+      <p><a class="link-arrow" href={t('caseHalf')}>{C.caseLink}</a></p>
+      <figure class="case-figure">
+        <img src={C.caseImage.src} width={C.caseImage.width} height={C.caseImage.height} alt={C.caseImage.alt} loading="lazy" decoding="async" />
+        <figcaption class="muted small">{C.caseImage.caption}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.coopTitle}</h2>
+      <p class="answer">{C.coopCapacity}</p>
+      <p>{C.coopStatus}</p>
+      <ol class="steps">{C.coopSteps.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <!-- FREE AUDIT -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.auditTitle}</h2>
+      <p class="answer">{C.auditAnswer}</p>
+      <p>{C.auditNotLead}</p>
+      <ul class="checks">{C.auditNot.map((x) => <li>{x}</li>)}</ul>
+      <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('audit')}>{C.auditCta}</a></div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.priceTitle}</h2>
+      <p class="answer">{C.priceAnswer}</p>
+    </div>
+  </section>
+
+  <!-- FORMATS -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.formatsTitle}</h2>
+      <p class="answer">{C.formatsAnswer}</p>
+      <div class="grid grid-4">
+        {C.formats.map((f) => (
+          <a class="card card--link" href={t(f.page)}>
+            <h3>{f.label}</h3>
+            <p><strong>{f.price}</strong></p>
+            <p>{f.what}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+      <p>{C.formatsNote}</p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.reviewsTitle}</h2>
+      <p><a class="link-arrow" href={t('reviews')}>{C.reviewsLink}</a></p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--tight">
+    <div class="container narrow"><p class="muted">{C.disclosure}</p></div>
+  </section>
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{fmt(MOD)}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+        <a class="btn btn--ghost-light btn--lg" href={t('contact')}>{C.endContact}</a>
+      </div>
+    </div>
+  </section>
+</Base>
