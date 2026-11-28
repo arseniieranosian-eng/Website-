@@ -105,6 +105,7 @@ import PostDentalWebMapsCsPage from '../views/PostDentalWebMapsCsPage.astro';
 import PostProfileMgmtCsPage from '../views/PostProfileMgmtCsPage.astro';
 import ThanksAuditEnPage from '../views/ThanksAuditEnPage.astro';
 import NicheTranslationEnPage from '../views/NicheTranslationEnPage.astro';
+import NicheAccountingEnPage from '../views/NicheAccountingEnPage.astro';
 import AuditEnPage from '../views/AuditEnPage.astro';
 import StartEnPage from '../views/StartEnPage.astro';
 import FullSeoEnPage from '../views/FullSeoEnPage.astro';
@@ -261,6 +262,7 @@ const View = props.key && !isService(props.key) && !(props.key === 'home' && (pr
 {props.key === 'nicheFinance' && props.lang === 'ru' && <NicheFinanceRuPage />}
 {props.key === 'nicheAccounting' && props.lang === 'cs' && <NicheAccountingCsPage />}
 {props.key === 'nicheAccounting' && props.lang === 'ru' && <NicheAccountingRuPage />}
+{props.key === 'nicheAccounting' && props.lang === 'en' && <NicheAccountingEnPage />}
 {props.key === 'nicheAccountingBrno' && props.lang === 'cs' && <NicheAccountingBrnoCsPage />}
 {props.key === 'nicheRealtyBrno' && props.lang === 'cs' && <NicheRealtyBrnoCsPage />}
 {props.key === 'nicheDental' && props.lang === 'cs' && <NicheDentalCsPage />}

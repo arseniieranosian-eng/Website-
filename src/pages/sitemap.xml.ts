@@ -7,7 +7,7 @@ import { allPosts, postAlternates, postsByLang, postUrl } from '../lib/blog';
 // sitemap.xml with every language version and xhtml:link hreflang alternates.
 // lastmod of the ENGLISH pages (brief EN-1 of 28.11.2026): only where the page shows a visible "Updated" date; the value is that date (the same manual date as data/page-dates.json / the page's own constant).
 // Pages without a visible date (case index, reviews, FAQ, about, contact, privacy) get no lastmod. scripts/check-en-1.mjs compares this map with the visible dates.
-const EN_LASTMOD: Partial<Record<PageKey, string>> = { nicheTranslation: '2026-11-28', postLangVersionsEn: '2026-11-28', postNoEnquiriesEn: '2026-11-28', faq: '2026-11-09', home: '2026-11-02', audit: '2026-11-03', consulting: '2026-11-03', start: '2026-11-03', fullSeo: '2026-11-03', maps: '2026-11-03', geo: '2026-11-03', caseTypo: '2026-11-16', caseEdu: '2026-11-16', caseRazbor: '2026-11-16', caseSeason: '2026-11-16', caseHalf: '2026-11-16', caseKb: '2026-11-16' };
+const EN_LASTMOD: Partial<Record<PageKey, string>> = { nicheTranslation: '2026-11-28', nicheAccounting: '2026-11-28', postLangVersionsEn: '2026-11-28', postNoEnquiriesEn: '2026-11-28', faq: '2026-11-09', home: '2026-11-02', audit: '2026-11-03', consulting: '2026-11-03', start: '2026-11-03', fullSeo: '2026-11-03', maps: '2026-11-03', geo: '2026-11-03', caseTypo: '2026-11-16', caseEdu: '2026-11-16', caseRazbor: '2026-11-16', caseSeason: '2026-11-16', caseHalf: '2026-11-16', caseKb: '2026-11-16' };
 
 export const GET: APIRoute = async ({ site }) => {
   const abs = (p: string) => new URL(p, site).href;

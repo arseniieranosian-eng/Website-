@@ -6,7 +6,7 @@ export const POST_LANGVERSIONS_EN_PUBLISHED = '2026-11-28';
 export const POST_LANGVERSIONS_EN_MODIFIED = '2026-11-28';
 export const POST_LANGVERSIONS_EN_CHECKED = '28 November 2026';
 // Own-site observation (K2): figures counted from dist/sitemap.xml and the built pages on the date above (addresses that belong to a language group, and the languages in those groups).
-export const POST_LANGVERSIONS_EN_OBS = { addresses: 94, languages: 4 } as const;
+export const POST_LANGVERSIONS_EN_OBS = { addresses: 95, languages: 4 } as const;
 export const POST_LANGVERSIONS_EN = {
   "lang": "en",
   "authorLabel": "Author",

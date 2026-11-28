@@ -31,7 +31,7 @@ if (title.replace(/ \| Eranosian$/, '') === H1) e('title must differ from H1');
 if (/více klientů|garantovaně|za 24 hodin/i.test(title + ' ' + desc)) e('no "více klientů / garantovaně / za 24 hodin" in the meta');
 if (!h.includes(`<link rel="canonical" href="${BASE}${URL_PATH}">`)) e('canonical');
 const alts = [...h.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + ' ' + m[2]);
-if (/<meta name="robots"[^>]*noindex/.test(h) || JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `ru ${BASE}/ru/seo-dlya-buhgalterskih-kompanij-praga/`, `x-default ${BASE}${URL_PATH}`])) e('indexable; hreflang pair cs ↔ ru (+ x-default = cs)');
+if (/<meta name="robots"[^>]*noindex/.test(h) || JSON.stringify(alts) !== JSON.stringify([`cs ${BASE}${URL_PATH}`, `en ${BASE}/en/seo-for-accounting-firms-prague/`, `ru ${BASE}/ru/seo-dlya-buhgalterskih-kompanij-praga/`, `x-default ${BASE}${URL_PATH}`])) e('indexable; hreflang cs ↔ en ↔ ru (+ x-default = cs; the English page since 28.11.2026)');
 const h1s = [...h.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => txt(m[1]));
 if (h1s.length !== 1 || h1s[0] !== H1) e(`H1: ${JSON.stringify(h1s)}`);
 const hs = [...h.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)].map((m) => txt(m[1])).filter((x) => SECTIONS.includes(x));

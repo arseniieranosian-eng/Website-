@@ -857,7 +857,12 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       description: 'Dělám SEO a GEO/AEO pro účetní kanceláře v Praze: stránky služeb, FAQ a struktura webu. Bezplatný audit technických chyb.',
       h1: 'SEO a GEO/AEO pro účetní kanceláře v Praze: poptávky z Googlu a AI',
     },
-    en: { name: 'SEO for accounting firms in Prague', title: 'SEO for accounting firms in Prague', description: 'SEO for accounting firms in Prague', h1: 'SEO for accounting firms in Prague' },
+    en: {
+      name: 'SEO for accounting firms in Prague',
+      title: 'SEO for Accounting Firms in Prague | Eranosian',
+      description: 'SEO and GEO/AEO for accounting firms in Prague: site structure, service pages, FAQ and a free audit of technical errors.',
+      h1: 'SEO and GEO/AEO for accounting firms in Prague: enquiries from Google and AI',
+    },
     ru: {
       name: 'SEO для бухгалтерских компаний в Праге',
       title: 'SEO для бухгалтерских компаний | Eranosian',

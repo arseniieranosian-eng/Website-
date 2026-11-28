@@ -1,0 +1,112 @@
+---
+// /en/seo-for-accounting-firms-prague/ (brief of 28.11.2026): the English page for accounting firms in Prague. Structure and facts follow the Czech page (NicheAccountingCsPage.astro + data/niche-accounting-cs.ts); content: data/niche-accounting-en.ts.
+// Not carried over: the 7 article cards, the "other cities" link, the blocks of the Czech data file that the Czech page does not render. JSON-LD: the layout graph + WebPage + FAQPage (no HowTo, no Quotation, no Service / Offer, no Review).
+import Base from '../layouts/Base.astro';
+import ServiceArt from '../components/ServiceArt.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { ids } from '../lib/schema';
+import { NICHE_ACCOUNTING_EN as C, NICHE_ACCOUNTING_EN_PUBLISHED as PUB, NICHE_ACCOUNTING_EN_UPDATED as MOD } from '../data/niche-accounting-en';
+
+const lang = C.lang;
+const site = Astro.site!;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const fmt = (iso: string) => { const [y, mo, d] = iso.split('-').map(Number); return `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`; };
+const m = META.nicheAccounting.en;
+const url = new URL(t('nicheAccounting'), site).href;
+const id = ids(site);
+const webPage = { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: m.title.replace(/ \| Eranosian$/, ''), description: m.description, inLanguage: 'en', dateModified: MOD, author: { '@id': id.person }, breadcrumb: { '@id': `${url}#breadcrumb` } };
+const faqLd = { '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base {...pageProps('nicheAccounting', lang)} schema={[webPage, faqLd]}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <h1>{m.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.publishedLabel}: <time datetime={PUB}>{fmt(PUB)}</time> · {C.updatedLabel}: <time datetime={MOD}>{fmt(MOD)}</time></p>
+      <div class="summary-box"><p class="lead">{C.lead}</p></div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.heroAudit}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.forTitle}</h2>
+      <p class="answer">{C.forAnswer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.coop.title}</h2>
+      <p class="answer">{C.coop.answer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.coop.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.coop.rows.map((r) => <tr><th scope="row"><span class="svc-name"><ServiceArt kind={r.page} lang={lang} />{r.name}</span></th><td>{r.text}</td><td><a href={t(r.page)}>{r.link}</a></td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.price.title}</h2>
+      <p class="answer">{C.price.answer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.exp.title}</h2>
+      <p class="answer">{C.exp.answer}</p>
+      <p><a class="link-arrow" href={t('caseHalf')}>{C.exp.link}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.obs.title}</h2>
+      <p class="answer">{C.obs.answer}</p>
+      <ul class="checks">{C.obs.list.map((x) => <li>{x}</li>)}</ul>
+      <p>{C.obs.text}</p>
+      <p class="muted small">{C.obs.note}</p>
+      <p class="muted small">{C.obs.extra}</p>
+      <p><a class="link-arrow" href={t('consulting')}>{C.obs.link}</a></p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.fit.title}</h2>
+      <p class="answer">{C.fit.answer}</p>
+      <p>{C.fit.text}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow"><p class="muted">{C.disclosure}</p></div>
+  </section>
+  <section class="section section--dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>{C.endTitle}</h2>
+        <p>{C.endText}</p>
+        <p class="small">{C.updatedLabel}: <time datetime={MOD}>{fmt(MOD)}</time></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href={t('audit')}>{C.endCta}</a>
+        <a class="btn btn--ghost-light btn--lg" href={t('contact')}>{C.endContact}</a>
+      </div>
+    </div>
+  </section>
+</Base>
