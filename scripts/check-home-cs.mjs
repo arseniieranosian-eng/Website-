@@ -108,9 +108,11 @@ const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); 
 for (const f of walk('dist').filter((x) => !/(^|\/)blog\/index\.html$/.test(x) && !/(^|\/)404/.test(x))) {
   const c = readFileSync(f, 'utf8').replace(/<main[\s\S]*?<\/main>/, '').replace(/<nav class="crumbs[\s\S]*?<\/nav>/, ''); // the breadcrumbs of the English articles (28.11.2026) link to the English blog index; only the menu / footer are checked here
   const hasBlog = /<a href="\/blog\/"/.test(c);
-  const other = /<a href="\/en\/blog\/"/.test(c); // the ru Blog is in the menu since 24.10.2026
+  const enBlog = /<a href="\/en\/blog\/"/.test(c); // the ru Blog is in the menu since 24.10.2026; the en Blog since 28.11.2026
+  const isEn = /^dist\/en\//.test(f);
   const isCs = !/^dist\/(en|ru|uk)\//.test(f);
-  if (other) e(`${f}: the en Blog must not be in the menu / footer yet (the author decides later)`);
+  if (isEn && !enBlog && !/(^|\/)(thank-you|404)/.test(f)) e(`${f}: the English menu / footer must have the Blog`);
+  if (!isEn && enBlog) e(`${f}: the en Blog link belongs to the English pages only`);
   if (isCs && !hasBlog && !/(^|\/)(dekujeme|404)/.test(f)) e(`${f}: the Czech menu / footer must have the Blog`);
 }
 

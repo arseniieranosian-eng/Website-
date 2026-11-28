@@ -8,7 +8,7 @@ const { lang } = Astro.props;
 const ui = t(lang);
 // K7 (brief of 03.11.2026, P2.1): a line for reporting a mistake, in every language, a mailto link to the site's contact address.
 const MISTAKE = { cs: ['Našli jste chybu? ', 'Napište mi.'], en: ['Found a mistake? ', 'Write to me.'], ru: ['Нашли ошибку? ', 'Напишите мне.'], uk: ['Знайшли помилку? ', 'Напишіть мені.'] }[lang];
-const PAGES: PageKey[] = ['home', 'audit', 'geo', 'cases', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' ? (['blog'] as PageKey[]) : [])];
+const PAGES: PageKey[] = ['home', 'audit', 'geo', 'cases', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' || lang === 'en' ? (['blog'] as PageKey[]) : [])];
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
