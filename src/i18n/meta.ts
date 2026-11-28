@@ -42,9 +42,9 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Free audit',
-      title: 'Free SEO Audit of Your Website | Arsenii Eranosian',
+      title: 'Free SEO Audit of Your Website | Eranosian',
       description: 'Free check of your website\'s technical errors: indexing, duplicates and more. Presentation in 24 hours, no call, no obligation.',
-      h1: 'A free SEO audit of your website',
+      h1: 'A free SEO audit of your website\'s technical errors',
     },
     ru: {
       name: 'Бесплатный аудит',

@@ -1,0 +1,181 @@
+---
+// /en/free-audit/ (brief of 28.11.2026): structure and content follow /audit-zdarma/ (AuditCsPage.astro); content: data/audit-en.ts. Own page for English only (ru / uk keep Audit*.astro).
+// No VideoObject / HowTo / Service markup: the layout graph + FAQPage. Body links go to English pages only.
+import Base from '../layouts/Base.astro';
+import CzechNote from '../components/CzechNote.astro';
+import LeadForm from '../components/LeadForm.astro';
+import ReviewCards from '../components/ReviewCards.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { t as ui } from '../i18n/ui';
+import { AUDIT_EN as C, AUDIT_EN_UPDATED as MOD } from '../data/audit-en';
+import { featuredReviews } from '../data/reviews';
+import { serviceByKey } from '../data/services';
+
+const lang = C.lang;
+const site = Astro.site!;
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${String(d).padStart(2, '0')}.${String(mo).padStart(2, '0')}.${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const U = ui(lang);
+---
+<Base {...pageProps('audit', lang)} schema={[{ '@type': 'FAQPage', mainEntity: C.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]}>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>{META.audit.en.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time></p>
+      <p class="lead">{C.lead}</p>
+      <p class="price-badge">{C.badge}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="#form">{C.heroPrimary}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS CHECKED -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.checksTitle}</h2>
+      <p class="answer">{C.checksAnswer}</p>
+      <ul class="checks">{C.checks.map((c) => <li>{c}</li>)}</ul>
+      <p>{C.summary}</p>
+    </div>
+  </section>
+
+  <!-- WHAT IS NOT INCLUDED -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.notTitle}</h2>
+      <p class="answer">{C.notAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.notTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>
+            {C.notTable.rows.map((r) => (
+              <tr>
+                <th scope="row">{r.topic}</th>
+                <td>{r.where.length ? r.where.map((l, i) => <>{i > 0 && ', '}<a href={t(l.page)}>{l.text}</a></>) : C.notTable.noneText}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE (after the "not included" block) -->
+  <section class="section section--tight">
+    <div class="container narrow">
+      <figure class="quote-fig">
+        <blockquote cite={new URL(t('audit'), site).href}><p>{C.quote.text}</p></blockquote>
+        <QuoteCaption lang={lang} />
+      </figure>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.stagesTitle}</h2>
+      <p class="answer">{C.stagesAnswer}</p>
+      <ol class="steps">{C.stages.map((s) => <li><span>{s}</span></li>)}</ol>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET: sample video + examples by industry -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.getTitle}</h2>
+      <p class="answer">{C.getAnswer}</p>
+      <h3 id="audit-output">{C.videoTitle}</h3>
+      <p>{C.sampleNiche}</p>
+      <figure class="audit-video">
+        <video controls preload="metadata" poster={C.video.poster} width={C.video.width} height={C.video.height}>
+          <source src={C.video.src} type="video/mp4" />
+        </video>
+        <figcaption class="muted small">{C.videoCaption}</figcaption>
+      </figure>
+      <p>{C.videoDescription}</p>
+      <p>{C.videoText}</p>
+      <h3 id="audit-examples">{C.examplesTitle}</h3>
+      <p>{C.examplesLead}</p>
+      {C.examples.map((x) => (
+        <div class="audit-example">
+          <p><strong>{C.examplesNiche}:</strong> {x.niche}</p>
+          <p class="muted small">{C.examplesLang}: {x.lang}</p>
+          <figure class="audit-video">
+            <video controls preload="none" poster={x.poster} width={x.width} height={x.height}>
+              <source src={x.src} type="video/mp4" />
+            </video>
+            <figcaption class="muted small">{x.caption}</figcaption>
+          </figure>
+          <p>{x.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- AUDIT VS CONSULTATION -->
+  <section class="section">
+    <div class="container">
+      <h2>{C.compareTitle}</h2>
+      <p class="answer">{C.compareAnswer}</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.compareTable.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.compareTable.rows.map(([label, ...cells]) => <tr><th scope="row">{label}</th>{cells.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p><a class="link-arrow" href={t('consulting')}>{C.compareLink}</a></p>
+    </div>
+  </section>
+
+  <!-- AFTER THE AUDIT (no prices) -->
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.afterTitle}</h2>
+      <p class="answer">{C.afterAnswer}</p>
+      <div class="grid grid-3">
+        {C.after.map((k) => (
+          <a class="card card--link" href={t(k)}>
+            <h3>{META[k][lang].name}</h3>
+            <p>{serviceByKey(k).short[lang]}</p>
+            <span class="link-arrow">{C.more}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS AND CLIENTS (the three existing reviews + the case card) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{C.proofTitle}</h2><a class="link-arrow" href={t('reviews')}>{U.allReviews}</a></div>
+      <ReviewCards reviews={featuredReviews(3)} lang={lang} compact />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container"><CaseTeaser lang={lang} heading="h3" /></div>
+  </section>
+
+  <!-- FAQ: answers are visible, not hidden in tabs -->
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section" id="form">
+    <div class="container narrow">
+      <h2>{C.formTitle}</h2>
+      <div class="card"><LeadForm lang={lang} id="audit-en" service="audit" websiteRequired /></div>
+    </div>
+  </section>
+  <CzechNote lang={lang} pageKey={'audit'} />
+</Base>
