@@ -17,9 +17,9 @@ const ui = t(lang);
 const NAV: PageKey[] = ['cases', 'geo', 'about', 'reviews', 'faq', 'contact', ...(lang === 'cs' || lang === 'ru' ? (['blog'] as PageKey[]) : [])];
 const label = (k: PageKey) => (k === 'geo' ? ui.navGeo : k === 'blog' && lang === 'cs' ? 'Články a výzkumy' : META[k][lang].name); // the Czech menu says "Články a výzkumy" (brief of 22.11.2026), the page name and the address stay "Blog"
 const current = (k: PageKey) => pageKey === k || (k === 'cases' && pageKey === 'caseKb');
-// Niche menu ("SEO pro" in Czech, "SEO для" in Russian): only the groups and pages that exist in the current language.
-const leafGroups = (lang === 'cs' || lang === 'ru' ? NICHE_GROUPS : [])
-  .map((g: any) => ({ id: g.id as string, parent: g.parent as string | undefined, label: (lang === 'ru' ? g.labelRu ?? g.label : g.label) as string, items: g.items.filter((i: any) => langsFor(i.page).includes(lang)).map((i: any) => ({ page: i.page as PageKey, label: (lang === 'ru' ? i.labelRu ?? i.label : i.label) as string })) }))
+// Niche menu ("SEO pro" in Czech, "SEO для" in Russian, "SEO for" in English): only the groups and pages that exist in the current language.
+const leafGroups = (lang === 'cs' || lang === 'ru' || lang === 'en' ? NICHE_GROUPS : [])
+  .map((g: any) => ({ id: g.id as string, parent: g.parent as string | undefined, label: (lang === 'ru' ? g.labelRu ?? g.label : lang === 'en' ? g.labelEn ?? g.label : g.label) as string, items: g.items.filter((i: any) => langsFor(i.page).includes(lang)).map((i: any) => ({ page: i.page as PageKey, label: (lang === 'ru' ? i.labelRu ?? i.label : lang === 'en' ? i.labelEn ?? i.label : i.label) as string })) }))
   .filter((g) => g.items.length > 0);
 // Menu tree: top level = groups without a parent + parent entries (Medicína) holding their groups, in the order of first appearance.
 type MenuGroup = { id: string; label: string; items?: { page: PageKey; label: string }[]; children?: MenuGroup[] };
@@ -27,12 +27,12 @@ const nicheGroups: MenuGroup[] = [];
 for (const g of leafGroups) {
   if (!g.parent) { nicheGroups.push(g); continue; }
   let p = nicheGroups.find((x) => x.id === g.parent);
-  if (!p) { const meta: any = NICHE_PARENTS.find((x) => x.id === g.parent); p = { id: g.parent, label: lang === 'ru' ? meta.labelRu ?? meta.label : meta.label, children: [] }; nicheGroups.push(p); }
+  if (!p) { const meta: any = NICHE_PARENTS.find((x) => x.id === g.parent); p = { id: g.parent, label: lang === 'ru' ? meta.labelRu ?? meta.label : lang === 'en' ? meta.labelEn ?? meta.label : meta.label, children: [] }; nicheGroups.push(p); }
   p.children!.push(g);
 }
 const leavesOf = (g: MenuGroup) => g.children ? g.children.flatMap(leavesOf) : g.items!;
 const showNiches = nicheGroups.length > 0;
-const nichesLabel = lang === 'ru' || lang === 'uk' ? 'SEO для' : 'SEO pro';
+const nichesLabel = lang === 'ru' || lang === 'uk' ? 'SEO для' : lang === 'en' ? 'SEO for' : 'SEO pro';
 const inNiches = nicheGroups.some((g) => leavesOf(g).some((i) => i.page === pageKey));
 const inServices = (SERVICE_MENU as readonly PageKey[]).includes(pageKey as PageKey);
 ---

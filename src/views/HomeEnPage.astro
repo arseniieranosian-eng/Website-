@@ -11,7 +11,8 @@ import LeadForm from '../components/LeadForm.astro';
 import ReviewCards from '../components/ReviewCards.astro';
 import AuthorMedia from '../components/AuthorMedia.astro';
 import QuoteAuthor from '../components/QuoteAuthor.astro';
-import { path } from '../i18n/routes';
+import { path, NICHE_GROUPS } from '../i18n/routes';
+import NicheArt from '../components/NicheArt.astro';
 import { META } from '../i18n/meta';
 import { pageProps } from '../lib/page';
 import { lastModified } from '../lib/lastmod';
@@ -99,6 +100,31 @@ const m = META.home[lang];
       <h2>{C.czTitle}</h2>
       <p class="answer">{C.czAnswer}</p>
       <p>{C.czText}</p>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES AND CITIES (cloned from the Czech home page) -->
+  <section class="section section--grey">
+    <div class="container">
+      <h2>{C.nichesTitle}</h2>
+      <p class="answer">{C.nichesAnswer}</p>
+      {C.nicheGroups.map((g) => (
+        <div class="niche-group">
+          <div class="niche-group__head">
+            <NicheArt kind={g.id} />
+            <h3 class="niche-group__title">{(NICHE_GROUPS.find((x) => x.id === g.id) as any)?.labelEn}</h3>
+          </div>
+          <div class="grid grid-3">
+            {g.cards.map((n) => (
+              <a class="card card--link" href={t(n.page)}>
+                <h4>{n.title}</h4>
+                <p>{n.text}</p>
+                <span class="link-arrow">{C.nichesMore}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 

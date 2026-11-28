@@ -35,6 +35,17 @@ export const HOME_EN = {
   czAnswer: 'Czech customers search in Google, Seznam and Mapy.com, in Czech and often in English. I work in English and understand how each of these works, so you do not have to explain your business twice.',
   czText: 'A site for Czech customers and a site for English-speaking clients need different logic: the language, the search phrases and the places where people look. I help you set up the structure and search visibility for both, so each audience finds the right page.',
 
+  // Industries and cities (brief of 28.11.2026): the block of the Czech home page, cloned; only the industries that have an English page (translation agencies in Prague so far).
+  nichesTitle: 'Industries and cities',
+  nichesAnswer: 'For some industries I have separate pages with what I do there and how I work.',
+  nicheGroups: [
+    {
+      id: 'translation' as const,
+      cards: [{ page: 'nicheTranslation' as const, title: 'SEO for translation agencies in Prague', text: 'Pages for language pairs, services and cities, indexing of language versions and local presence.' }],
+    },
+  ],
+  nichesMore: 'Learn more',
+
   geoTitle: 'How do SEO and GEO/AEO work together?',
   geoAnswer: 'SEO helps your pages rank in Google and Seznam. GEO/AEO helps AI tools understand and quote your content. I do both together, and I cannot promise citations.',
   geoPlatforms: ['Google', 'Seznam', 'ChatGPT', 'Gemini', 'Perplexity', 'AI Overviews'],
