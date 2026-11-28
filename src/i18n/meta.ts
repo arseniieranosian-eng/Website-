@@ -82,7 +82,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: '3-month start',
-      title: '3-Month SEO Start – Audit, Fixes, First Results',
+      title: '3-Month SEO Start: Audit and Fixes | Eranosian',
       description: 'A three-month SEO kick-off: technical audit and fixes, keyword research, optimisation of key pages and analytics setup.',
       h1: 'A 3-month SEO start',
     },
@@ -102,7 +102,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Full SEO (1 year)',
-      title: 'Full-Year SEO – Strategy, Content, Links, Reports',
+      title: 'Full-Year SEO: Strategy and Content | Eranosian',
       description: 'Full SEO for 12 months: strategy, content, link building, technical monitoring, GEO/AEO optimisation and monthly reports.',
       h1: 'Full SEO for a year',
     },
@@ -122,7 +122,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Maps (Google + Mapy.com)',
-      title: 'Local SEO: Google Maps & Mapy.com | Prague',
+      title: 'Local SEO: Google Maps and Mapy.com | Eranosian',
       description: 'Local SEO for businesses in Czechia: Google Business Profile and Firmy.cz / Mapy.com optimisation, reviews and map rankings.',
       h1: 'Local SEO: Google Maps and Mapy.com',
     },
@@ -142,7 +142,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'SEO + GEO/AEO',
-      title: 'SEO + GEO/AEO 2-in-1: Google and ChatGPT',
+      title: 'SEO + GEO/AEO: Google and ChatGPT | Eranosian',
       description: 'SEO and GEO/AEO in one: a website found by Google, Seznam, ChatGPT, Gemini, Perplexity and AI Overviews. How it works.',
       h1: 'SEO + GEO/AEO: two in one',
     },
@@ -1028,7 +1028,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Reviews',
-      title: 'Client Reviews – Working on SEO Together',
+      title: 'Client Reviews | Eranosian',
       description: 'What clients say: reviews of SEO consulting, the 3-month start, full-year SEO and local SEO work.',
       h1: 'Client reviews',
     },
@@ -1068,7 +1068,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'FAQ',
-      title: 'SEO FAQ – Timelines, Process and Working Together',
+      title: 'SEO FAQ: Timelines and Process | Eranosian',
       description: 'Answers to common SEO questions: how long it takes, what the audit includes, how we work together and SEO vs GEO/AEO.',
       h1: 'Frequently asked questions',
     },
@@ -1128,7 +1128,7 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
     },
     en: {
       name: 'Privacy policy',
-      title: 'Privacy Policy | Arsenii Eranosian',
+      title: 'Privacy Policy | Eranosian',
       description: 'How I process personal data from the contact form and analytics cookies, on what legal basis, and what rights you have.',
       h1: 'Privacy policy',
     },

@@ -1,0 +1,18 @@
+---
+// English 404 page for the paths under /en/ (brief EN-1 of 28.11.2026). Served by public/en/.htaccess (ErrorDocument 404 /en/404/index.html): HTTP status stays 404, noindex, lang="en".
+import Base from '../../layouts/Base.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+<Base lang="en" title="Page not found (404) | Eranosian" description="This page does not exist. Go to the home page or choose a section." path="/en/404/" alternates={{}} breadcrumbs={null} noindex>
+  <section class="page-hero">
+    <div class="container">
+      <h1>404</h1>
+      <p class="lead">Page not found.</p>
+      <div class="btn-row">
+        <a class="btn btn--secondary" href={ROUTES.home.en}>Home</a>
+        <a class="btn btn--ghost" href={ROUTES.audit.en}>Free audit</a>
+        <a class="btn btn--ghost" href={ROUTES.contact.en}>Contact</a>
+      </div>
+    </div>
+  </section>
+</Base>

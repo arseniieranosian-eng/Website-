@@ -1,0 +1,2 @@
+# English 404 page for the paths under /en/ (brief EN-1). A directory-level ErrorDocument keeps the HTTP status 404.
+ErrorDocument 404 /en/404/index.html

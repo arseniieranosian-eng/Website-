@@ -108,7 +108,7 @@ export const FAQ: FaqItem[] = [
     },
     a: {
       cs: 'Obojí. Seznam má v Česku stále významný podíl vyhledávání, zvlášť u lokálních dotazů a v Mapy.com. Optimalizaci i měření nastavuji pro oba vyhledávače.',
-      en: 'Both. Seznam still holds a significant share of searches in Czechia, especially for local queries and on Mapy.com. I set up optimisation and tracking for both search engines.',
+      en: 'Both. I optimise for Google and for Seznam, because both are used for searching in Czechia. I set up optimisation and tracking for both search engines.',
       ru: 'И с тем, и с другим. У Seznam по-прежнему заметная доля поиска в Чехии, особенно в локальных запросах и на Mapy.com. Оптимизацию и аналитику я настраиваю под оба поисковика.',
       uk: 'І з тим, і з іншим. У Seznam досі помітна частка пошуку в Чехії, особливо в локальних запитах і на Mapy.com. Оптимізацію й аналітику я налаштовую під обидві пошукові системи.',
     },
