@@ -60,6 +60,8 @@ import { POST_REALTY_PRAGUE_DISTRICTS_CS, POST_REALTY_PRAGUE_DISTRICTS_PUBLISHED
 import { POST_WEAK_SEO_CS, POST_WEAK_SEO_PUBLISHED } from './post-weak-seo-cs';
 import { POST_WEAK_SEO_RU, POST_WEAK_SEO_RU_PUBLISHED } from './post-weak-seo-ru';
 import { POST_REALTY_PORTALS_CS, POST_REALTY_PORTALS_PUBLISHED } from './post-realty-portals-cs';
+import { POST_LANGVERSIONS_EN, POST_LANGVERSIONS_EN_PUBLISHED } from './post-lang-versions-en';
+import { POST_NOENQUIRIES_EN, POST_NOENQUIRIES_EN_PUBLISHED } from './post-no-enquiries-en';
 
 export interface DedicatedPost { key: PageKey; lang: Lang; date: string; title: string; description: string; image?: { src: string; width: number; height: number; alt: string } }
 
@@ -121,6 +123,8 @@ const ALL: DedicatedPost[] = [
   { key: 'postWeakSeoRealty', lang: 'ru', date: POST_WEAK_SEO_REALTY_RU_PUBLISHED, title: META.postWeakSeoRealty.ru.h1, description: META.postWeakSeoRealty.ru.description, image: POST_WEAK_SEO_REALTY_RU.cover },
   { key: 'postRealty', lang: 'cs', date: POST_REALTY_PUBLISHED, title: META.postRealty.cs.h1, description: META.postRealty.cs.description, image: POST_REALTY_CS.cover },
   { key: 'postPairs', lang: 'cs', date: POST_PAIRS_PUBLISHED, title: META.postPairs.cs.h1, description: META.postPairs.cs.description, image: POST_PAIRS_CS.cover },
+  { key: 'postLangVersionsEn', lang: 'en', date: POST_LANGVERSIONS_EN_PUBLISHED, title: META.postLangVersionsEn.en.h1, description: META.postLangVersionsEn.en.description, image: POST_LANGVERSIONS_EN.cover },
+  { key: 'postNoEnquiriesEn', lang: 'en', date: POST_NOENQUIRIES_EN_PUBLISHED, title: META.postNoEnquiriesEn.en.h1, description: META.postNoEnquiriesEn.en.description, image: POST_NOENQUIRIES_EN.cover },
   { key: 'postB2b', lang: 'cs', date: POST_B2B_PUBLISHED, title: META.postB2b.cs.h1, description: META.postB2b.cs.description, image: POST_B2B_CS.cover },
 ];
 
@@ -162,7 +166,7 @@ export const BLOG_GROUPS: BlogGroup[] = [
     id: 'translation',
     title: { cs: 'Překladatelské agentury', en: 'Translation agencies', ru: 'Переводческие агентства' },
     lead: { cs: 'Jak překladatelská agentura získává klienty a poptávky z webu.', en: 'How a translation agency gets clients and enquiries from its website.', ru: 'Как переводческое агентство получает клиентов и заявки с сайта.' },
-    keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs', 'postWeakSeo'],
+    keys: ['postNoLeads', 'postClients', 'postB2b', 'postPairs', 'postWeakSeo', 'postNoEnquiriesEn', 'postLangVersionsEn'],
   },
   {
     id: 'realty',

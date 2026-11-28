@@ -13,7 +13,7 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   thanksAudit: { kinds: ['thanks', 'audit'] },
   privacy: { kinds: ['privacy', 'audit'] },
   geo: { kinds: ['geo', 'audit'] },
-  blog: { kinds: ['blog', 'audit'], langs: ['en', 'uk'] },
+  blog: { kinds: ['blog', 'audit'], langs: ['uk'] }, // en dropped on 28.11.2026: the English index has two articles with covers
   caseEdu: { kinds: ['skip', 'audit'] }, // 'skip' = nothing: the first block carries the author's picture (22.11.2026) instead of the drawing 'case:edu'; the audit picture stays under the 3rd heading
   caseSeason: { kinds: ['case:season', 'audit'] },
   caseTypo: { kinds: ['case:typo', 'audit'] },
@@ -42,6 +42,8 @@ export const PAGE_ART: Partial<Record<PageKey, Entry>> = {
   postProfileMgmt: article('article'),
   postDentalBrnoObs: article('article'),
   postAccWebMaps: article('article'),
+  postLangVersionsEn: article('article'),
+  postNoEnquiriesEn: article('article'),
   postWeakSeoRealty: article('article'),
   postFaqDental: article('article'),
   postFaqRealty: article('article'),

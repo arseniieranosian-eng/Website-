@@ -58,7 +58,10 @@ export const TOC_IDS: Record<string, string[]> = {
   '/blog/vlastni-web-nebo-realitni-portaly/': ['portaly', 'web', 'rozdil', 'nezavislost', 'kdy', 'propojeni', 'seo', 'faq', 'aktualizace'],
   '/blog/web-nebo-socialni-site-pocitacova-herna/': ['rozdily', 'staci', 'spolu', 'smm', 'pozorovani', 'start', 'faq'],
 };
-// The Russian-only finance article has no Czech page; its key is the Czech route kept for it in ROUTES.
+// The articles that have no Czech page (the Russian-only finance article and the English-only articles of the content funnel) are keyed by page key.
 export const TOC_IDS_RU_ONLY: Record<string, string[]> = {
   postFinanceChannels: ['kanaly', 'rekomendacii', 'socseti', 'reklama', 'sajt', 'vybor', 'start', 'faq', 'tehnicheskie-oshibki'],
+  // English-only articles of the content funnel (brief of 28.11.2026), also keyed by page key (no Czech route)
+  postLangVersionsEn: ['separate-urls', 'hreflang', 'guarantee', 'duplicates', 'x-default', 'check', 'observation', 'prague', 'sources', 'faq', 'related'],
+  postNoEnquiriesEn: ['order', 'contact-form', 'abroad', 'indexing', 'versions', 'maps', 'pages', 'companies', 'redesign', 'season', 'audit', 'faq', 'related'],
 };

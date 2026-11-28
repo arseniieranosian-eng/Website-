@@ -407,6 +407,22 @@ const META_BASE: Record<PageKey, Record<'cs' | 'en' | 'ru', PageMeta>> = {
       h1: 'Vlastní web, mapy a katalogy: kdy se hodí co pro účetní kancelář?',
     },
   },
+  postLangVersionsEn: {
+    en: {
+      name: 'How should a translation agency in Prague set up Czech and English website versions?',
+      title: 'Czech and English Site Versions | Eranosian',
+      description: 'Czech and English versions of a translation agency website: hreflang, duplicates and which version Google shows. A neutral guide.',
+      h1: 'How should a translation agency in Prague set up Czech and English website versions?',
+    },
+  },
+  postNoEnquiriesEn: {
+    en: {
+      name: 'Why does a translation agency website in Prague get no enquiries?',
+      title: 'Translation Agency Site, No Enquiries? | Eranosian',
+      description: 'Nine checks for a translation agency website with no enquiries: forms, language versions, maps, pages, B2B. No promises.',
+      h1: 'Why does a translation agency website in Prague get no enquiries?',
+    },
+  },
   postDentalBrnoObs: {
     cs: {
       name: 'Stomatologie v Brně: co jsem zjistil',

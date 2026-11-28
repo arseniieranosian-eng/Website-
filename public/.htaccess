@@ -33,8 +33,7 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/en/case-studies/seo-translation-agency/?$ https://seo-eranosian.com/en/case-studies/seo-translation-agency-4-months/
   RedirectMatch 301 ^/ru/kejsy/seo-perevodcheskoe-agentstvo/?$ https://seo-eranosian.com/ru/kejsy/seo-perevodcheskoe-agentstvo-4-mesyaca/
 
-  # blog index of the languages without articles (an empty noindex page was reported by Search Console): to the home page of the language; remove these two lines when the first article of that language appears
-  RedirectMatch 301 ^/en/blog/?$ https://seo-eranosian.com/en/
+  # blog index of the languages without articles (an empty noindex page was reported by Search Console): to the home page of the language; remove the line of a language when its first article appears (the en line was removed on 28.11.2026, brief of the two funnel articles)
   RedirectMatch 301 ^/uk/blog/?$ https://seo-eranosian.com/uk/
 </IfModule>
 

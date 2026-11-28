@@ -6,7 +6,7 @@ const errs = []; const e = (m) => errs.push(m);
 const sm = readFileSync('dist/sitemap.xml', 'utf8');
 const entries = [...sm.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
 const en = entries.filter((u) => /<loc>https:\/\/seo-eranosian\.com\/en\//.test(u));
-if (en.length !== 20) e(`20 English pages in the sitemap (19 + the translation-agency page of 28.11.2026), found ${en.length}`);
+if (en.length !== 23) e(`23 English pages in the sitemap (19 + the translation-agency page of 28.11.2026 + the blog index and two funnel articles of 28.11.2026), found ${en.length}`);
 const want = {
   '/en/3-month-start/': '3-Month SEO Start for 50,000 CZK | Eranosian', '/en/full-seo/': 'Full-Year SEO from 15,000 CZK a Month | Eranosian', '/en/seo-and-geo/': 'SEO + GEO/AEO: Google and ChatGPT | Eranosian',
   '/en/faq/': 'SEO FAQ: Prices, Process and Results | Eranosian', '/en/maps/': 'Local SEO: Google Maps and Mapy.com | Eranosian', '/en/privacy-policy/': 'Privacy Policy | Eranosian', '/en/reviews/': 'Client Reviews | Eranosian',
@@ -39,7 +39,7 @@ for (const u of en) {
   if (!lm && visible) e(`${path} has a visible date ${visible} but no lastmod`);
   if (lm) seenDates++;
 }
-if (seenDates !== 15) e(`lastmod expected on 15 English pages (6 services + home + 6 cases + FAQ + translation agencies), found ${seenDates}`);
+if (seenDates !== 17) e(`lastmod expected on 17 English pages (6 services + home + 6 cases + FAQ + translation agencies + 2 funnel articles), found ${seenDates}`);
 const faq = readFileSync('dist/en/faq/index.html', 'utf8');
 if (!faq.includes('because both are used for searching in Czechia.')) e('FAQ replacement wording (Seznam: both are used for searching in Czechia)');
 if (!existsSync('dist/en/404/index.html') || !existsSync('dist/en/.htaccess')) e('English 404 page / en/.htaccess missing');

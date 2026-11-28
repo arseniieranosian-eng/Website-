@@ -106,11 +106,11 @@ if (/agentur/i.test(JSON.stringify([wp]))) e('"agentura" must not appear in the 
 // Site-wide: the Blog is in the menu and the footer of the Czech pages only (en / ru have no posts yet)
 const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); return statSync(p).isDirectory() ? walk(p) : p.endsWith('index.html') ? [p] : []; });
 for (const f of walk('dist').filter((x) => !/(^|\/)blog\/index\.html$/.test(x) && !/(^|\/)404/.test(x))) {
-  const c = readFileSync(f, 'utf8').replace(/<main[\s\S]*?<\/main>/, '');
+  const c = readFileSync(f, 'utf8').replace(/<main[\s\S]*?<\/main>/, '').replace(/<nav class="crumbs[\s\S]*?<\/nav>/, ''); // the breadcrumbs of the English articles (28.11.2026) link to the English blog index; only the menu / footer are checked here
   const hasBlog = /<a href="\/blog\/"/.test(c);
   const other = /<a href="\/en\/blog\/"/.test(c); // the ru Blog is in the menu since 24.10.2026
   const isCs = !/^dist\/(en|ru|uk)\//.test(f);
-  if (other) e(`${f}: the en / ru Blog must not be in the menu / footer yet`);
+  if (other) e(`${f}: the en Blog must not be in the menu / footer yet (the author decides later)`);
   if (isCs && !hasBlog && !/(^|\/)(dekujeme|404)/.test(f)) e(`${f}: the Czech menu / footer must have the Blog`);
 }
 

@@ -1,0 +1,96 @@
+---
+// Blog article /en/blog/translation-agency-website-no-enquiries/ (brief of 28.11.2026, content funnel, article B). Content: data/post-no-enquiries-en.ts. No dated observation (K2) in this article.
+// Body links: the author's about / contact pages only; the "Related articles" block has ONE card (article A); ONE button to the translation-agency page (rules F and H). No hreflang pair.
+import Base from '../layouts/Base.astro';
+import QuoteCaption from '../components/QuoteCaption.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import { META } from '../i18n/meta';
+import { path } from '../i18n/routes';
+import { pageProps } from '../lib/page';
+import { postEnFunnelSchemas } from '../lib/schema-post-en-funnel';
+import { POST_NOENQUIRIES_EN as C, POST_NOENQUIRIES_EN_PUBLISHED as PUB, POST_NOENQUIRIES_EN_MODIFIED as MOD } from '../data/post-no-enquiries-en';
+
+const lang = C.lang;
+const site = Astro.site!;
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const [y, mo, d] = MOD.split('-').map(Number);
+const modText = `${d} ${MONTHS[mo - 1]} ${y}`;
+const t = (k: Parameters<typeof path>[0]) => path(k, lang);
+const OG = '/images/blog/og-translation-agency-website-no-enquiries.png';
+const words = JSON.stringify(C).replace(/"[a-zA-Z0-9]+":/g, ' ').split(/\s+/).length;
+const minutes = Math.max(3, Math.ceil(words / 200));
+const cite = new URL(path('postNoEnquiriesEn', lang), site).href;
+---
+<Base {...pageProps('postNoEnquiriesEn', lang)} ogType="article" ogImage={OG} schema={postEnFunnelSchemas(site, 'postNoEnquiriesEn', C, { published: PUB, modified: MOD })}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <img class="post-cover" src={C.cover.src} width={C.cover.width} height={C.cover.height} alt={C.cover.alt} decoding="async" fetchpriority="high" />
+      <h1>{META.postNoEnquiriesEn.en.h1}</h1>
+      <p class="updated">{C.authorLabel}: <a href={t('about')}>{C.authorName}</a> · {C.updatedLabel}: <time datetime={MOD}>{modText}</time> · {C.readLabel}: {minutes} {C.readUnit}</p>
+      <p class="lead">{C.lead}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container narrow">
+      <h2>{C.order.title}</h2>
+      <p>{C.order.line}</p>
+    </div>
+    <div class="container">
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr>{C.order.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{C.order.rows.map((r) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  {C.sections.map((s, i) => (
+    <section class={`section${i % 2 === 0 ? ' section--grey' : ''}`}>
+      <div class="container narrow">
+        <h2>{s.title}</h2>
+        <p class="answer">{s.answer}</p>
+        {i === 3 && (
+          <figure class="quote-fig">
+            <blockquote cite={cite}><p>{C.quote}</p></blockquote>
+            <QuoteCaption lang={lang} />
+          </figure>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.audit.title}</h2>
+      <p class="answer">{C.audit.answer}</p>
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <h2>{C.faqTitle}</h2>
+      <div class="faq-open">{C.faq.map((f) => <div><h3>{f.q}</h3><p>{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>{C.moreTitle}</h2>
+      <p class="muted">{C.moreLead}</p>
+      <RelatedPosts lang={lang} keys={['postLangVersionsEn']} more={C.moreMore} />
+    </div>
+  </section>
+
+  <section class="section section--grey">
+    <div class="container narrow">
+      <p class="muted">{C.disclosure}</p>
+      <div class="post-cta">
+        <p class="post-cta__title">{C.endTitle}</p>
+        <div class="btn-row"><a class="btn btn--primary btn--lg" href={t('nicheTranslation')}>{C.endCta}</a></div>
+      </div>
+      <p class="muted">{C.mistake.before} <a href={t('contact')}>{C.mistake.link}</a></p>
+    </div>
+  </section>
+</Base>
